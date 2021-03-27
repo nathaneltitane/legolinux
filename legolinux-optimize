@@ -1,0 +1,85 @@
+#!/bin/bash
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+for d in $(find $DIR -maxdepth 1 -type d);
+do
+
+	# ignore root dir
+	if [ $d = $DIR ];
+	then
+		continue
+	fi
+
+	cd $d
+
+	#~ if [ -d "optimized" ];
+	#~ then
+		#~ echo ;
+	#~ fi
+
+	#~ if [ -d "previews" ];
+	#~ then
+		#~ echo ;
+	#~ fi
+
+	cp -r originals/ optimized/
+	cp -r originals/ previews/
+
+	IFS=$'\n'
+
+	for img in $(find $d/optimized/ -type f);
+	do
+		name=$(basename "$img")
+		mime=$(file -b --mime-type "$img")
+
+		echo ""
+
+		#~ if [[ "image/jpeg" == "$mime" ]];
+		#~ then
+			#~ echo "Skipping:" $name
+			#~ continue
+		#~ fi
+
+		echo "Generating optimizations for:" $name
+
+		# optimize images
+		echo " | Optimizing"
+		convert $img -resize 1920x1920\> ${img%.*}.jpg
+
+		# remove old file if not .jpg
+		if [[ "image/jpeg" != "$mime" ]];
+		then
+			echo " | Removing source:" $mime
+			rm $img
+		fi
+	done
+
+
+	for img in $(find $d/previews/ -type f);
+	do
+		name=$(basename "$img")
+		mime=$(file -b --mime-type "$img")
+
+		echo ""
+
+		#~ if [[ "image/jpeg" == "$mime" ]];
+		#~ then
+			#~ echo "Skipping:" $name
+			#~ continue
+		#~ fi
+
+		echo "Generating previews for:" $name
+
+		# optimize images
+		echo " | Optimizing"
+		convert $img -resize 512x512^ -gravity center -crop 512x512+0+0 ${img%.*}.jpg
+
+		# remove old file if not .jpg
+		if [[ "image/jpeg" != "$mime" ]];
+		then
+			echo " | Removing source:" $mime
+			rm $img
+		fi
+	done
+done
