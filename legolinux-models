@@ -15,7 +15,7 @@ server_models_directory="${PWD}"/models
 source_uid_file="${cloud}"/Lego/sketchfab/uid-list
 destination_uid_file="${root}"/uid-list
 
-# models #
+# models //////////////////////////////////////////////////////////////////////
 
 # check if directory exists
 
@@ -36,7 +36,7 @@ rsync					\
 	--exclude='*.mpd'	\
 						"${local_models_directory}"/* "${server_models_directory}"
 
-# indexes #
+# index ///////////////////////////////////////////////////////////////////////
 
 cd "${server_models_directory}" || exit
 
@@ -68,7 +68,7 @@ do
 	cd "${server_models_directory}" || exit
 done
 
-# background #
+# background //////////////////////////////////////////////////////////////////
 
 # check if directory exists
 
@@ -81,9 +81,13 @@ else
 	mkdir -p "../background"
 fi
 
+# values
+
 extensions_list=(
     png
 )
+
+# setup flat image backgroud
 
 for extension in ${extensions_list[@]}
 do
@@ -111,11 +115,16 @@ do
 		let count=count+1
 	done
 
-# BEGIN JAVASCRIPT
+# backgroud generator /////////////////////////////////////////////////////////
 
 # update random background generator with new file count
 
-# keep formatting as is - prevents javascript/jquery execution errors
+# BEGIN JAVASCRIPT
+
+# DO NOT CHANGE BELOW SECTION: BREAKS WEBSITE! ////////////////////////////////
+
+# keep formatting as is:
+# prevents javascript/jquery execution errors
 
 cat << FILE > ../javascript/set-random-background.js
 // set random background //
