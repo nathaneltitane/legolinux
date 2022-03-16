@@ -437,5 +437,5 @@ cat << FOOTER ->> "models/models-menu.html"
 
 FOOTER
 
-frobulator.scs "Pages" "Done"
+frobulator.scs "Pages" "[ Done ]"
 echo
