@@ -116,7 +116,7 @@ do
 		write_title "${subdirectory}"
 	done
 
-	# exit to top level
+	# return to server directory top level
 
 	cd "${server_models_directory}"
 done
