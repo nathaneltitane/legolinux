@@ -39,7 +39,9 @@ echo
 upload () {
 	git add *
 
-	git commit -a -m 'Models update'
+	git commit		\
+		--all		\
+		--message='Models update'
 
 	git push > /dev/null 2>&1
 }
