@@ -1,23 +1,58 @@
 #!/bin/bash
 
-shopt -s extglob
+# dependencies /////////////////////////////////////////////////////////////////
 
-# models sync #
+if [[ -z $(command -v frobulator) ]]
+then
+	curl -s -L get.frbltr.app > /usr/bin/frobulator
+fi
 
-# variables #
+. /usr/bin/frobulator
 
-cloud="/media/internal/"
-root="${PWD}"/models
+if [[ $(id -u -n) = "root" ]]
+then
+	USER="${SUDO_USER}"
+	HOME=/home/"${USER}"
+fi
 
-local_models_directory="${cloud}"/Lego/models
+# script ///////////////////////////////////////////////////////////////////////
+
+script=$(basename -- "${BASH_SOURCE[0]}")
+
+# version //////////////////////////////////////////////////////////////////////
+
+version=""
+
+# usage ////////////////////////////////////////////////////////////////////////
+
+# prompt ///////////////////////////////////////////////////////////////////////
+
+frobulator.script "Setting up ${script#*-}"
+echo
+
+# variables ////////////////////////////////////////////////////////////////////
+
+local_models_directory=/media/internal/Lego/models
 server_models_directory="${PWD}"/models
 
-source_uid_file="${cloud}"/Lego/sketchfab/uid-list
-destination_uid_file="${root}"/uid-list
+# defaults /////////////////////////////////////////////////////////////////////
 
-# models //////////////////////////////////////////////////////////////////////
+# functions ////////////////////////////////////////////////////////////////////
 
-# check if directory exists
+write_title () {
+	directory="${1}"
+
+	title="$(basename ${directory})"
+
+	echo "${title^^}" | sed 's/-/ /g' > title
+}
+# models ///////////////////////////////////////////////////////////////////////
+
+# prepare directory structure
+
+# set shell options
+
+shopt -s extglob
 
 if [ -d "${server_models_directory}" ]
 then
@@ -28,39 +63,45 @@ else
 	mkdir -p "${server_models_directory}"
 fi
 
+# unset shell options
+
+shopt -u extglob
+
 # synchronize content
 
 rsync					\
-	-aqr				\
+	--archive			\
+	--quiet				\
+	--recursive			\
 	--exclude='*.ldr'	\
 	--exclude='*.mpd'	\
 						"${local_models_directory}"/* "${server_models_directory}"
 
-# index ///////////////////////////////////////////////////////////////////////
+# index ////////////////////////////////////////////////////////////////////////
 
-cd "${server_models_directory}" || exit
+cd "${server_models_directory}"
 
 for directory in $(find "${server_models_directory}" -maxdepth 0 -type d)
 do
-	echo "${directory}"
+	frobulator.inf "Entering" "${directory}"
+	echo
 
-	cd "${directory}" || exit
+	cd "${directory}"
 
-	# create model title file
+	# create model category title file
 
-	title="$(basename ${directory})"
-	echo "${title^^}" | sed 's/-/ /g' > title
+	write_title "${directory}"
 
 	for subdirectory in $(find ${server_models_directory}/* -maxdepth 1 -type d)
 	do
-		echo "${subdirectory}"
+		frobulator.inf "Entering" "${subdirectory}"
+		echo
 
-		cd "${subdirectory}" || exit
+		cd "${subdirectory}"
 
 		# create model title file
 
-		title="$(basename ${subdirectory})"
-		echo "${title^^}" | sed 's/-/ /g' > title
+		write_title "${subdirectory}"
 	done
 
 	# exit to top level
@@ -68,9 +109,9 @@ do
 	cd "${server_models_directory}" || exit
 done
 
-# background //////////////////////////////////////////////////////////////////
+# background ///////////////////////////////////////////////////////////////////
 
-# check if directory exists
+# prepare background directory structure
 
 if [ -d "../background" ]
 then
@@ -84,25 +125,29 @@ fi
 # values
 
 extensions_list=(
-    png
+	png
 )
 
-# setup flat image backgroud
+# flat background transfer
 
 for extension in ${extensions_list[@]}
 do
-    # copy flat renders into background directory
+	# copy flat renders into background directory
 
-    count=0
+	count=0
 
-    for background in $(echo $(find ${local_models_directory} -type f -iname flat."${extension}"))
-    do
-        rsync -aqr "${background}" "../background/background-${count}.png"
+	for background in $(echo $(find ${local_models_directory} -type f -iname flat."${extension}"))
+	do
+	    rsync					\
+			--archive			\
+			--quiet				\
+			--recursive			\
+								"${background}" "../background/background-${count}.png"
 
-        ((count++))
-    done
+	    ((count++))
+	done
 
-    # pad filenames evenly
+	# pad filenames evenly
 
 	count=1
 
@@ -110,23 +155,21 @@ do
 	do
 		pad_count=$(printf "%03d.png" "${count}")
 
-		mv -i -- "${background}" ../background/background-"$pad_count"
+		mv -i -- "${background}" ../background/background-"${pad_count}"
 
 		let count=count+1
 	done
 
-# backgroud generator /////////////////////////////////////////////////////////
+# backgroud generator //////////////////////////////////////////////////////////
+
+# DO NOT CHANGE BELOW SECTION: BREAKS WEBSITE! /////////////////////////////////
 
 # update random background generator with new file count
-
-# BEGIN JAVASCRIPT
-
-# DO NOT CHANGE BELOW SECTION: BREAKS WEBSITE! ////////////////////////////////
 
 # keep formatting as is:
 # prevents javascript/jquery execution errors
 
-cat << FILE > ../javascript/set-random-background.js
+cat << JAVASCRIPT > ../javascript/set-random-background.js
 // set random background //
 
 \$(document).ready(function() {
@@ -142,8 +185,8 @@ function pad(str, max) {
 	'url("/background/background-' + pad(Math.floor(Math.random() * count), 3) + '.png ")'
 );
 });
-FILE
-
-# END JAVASCRIPT
+JAVASCRIPT
 
 done
+
+frobulator.scs "Models" "Done"
