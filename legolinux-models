@@ -107,7 +107,7 @@ do
 
 	for subdirectory in $(find ${server_models_directory}/* -maxdepth 1 -type d)
 	do
-		subdirectory_name=$(basename "$subdirectory}")
+		subdirectory_name=$(basename "${subdirectory}")
 
 		frobulator.inf "Wrinting" "[ ${subdirectory_name} ]"
 		echo
