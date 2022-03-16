@@ -131,7 +131,8 @@ extensions_list=(
 
 # background images transfer
 
-frobulator.inf "Copying background images"
+frobulator.fwd "Copying..."
+echo
 
 for extension in ${extensions_list[@]}
 do
@@ -172,7 +173,7 @@ do
 # keep formatting as is:
 # prevents javascript/jquery execution errors
 
-frobulator.inf "Writing background randomizer"
+frobulator.inf "Generating background randomizer"
 echo
 
 cat << JAVASCRIPT -> ../javascript/set-random-background.js
