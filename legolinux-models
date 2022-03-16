@@ -166,23 +166,23 @@ do
 # keep formatting as is:
 # prevents javascript/jquery execution errors
 
-	cat << JAVASCRIPT -> ../javascript/set-random-background.js
-	// set random background //
+cat << JAVASCRIPT -> ../javascript/set-random-background.js
+// set random background //
 
-	\$(document).ready(function() {
-	var count = ${count};
+\$(document).ready(function() {
+var count = ${count};
 
-	function pad(str, max) {
-		str = str.toString();
-		return str.length < max ? pad("0" + str, max) : str;
-	}
+function pad(str, max) {
+	str = str.toString();
+	return str.length < max ? pad("0" + str, max) : str;
+}
 
-	\$('.background').css(
-		'background-image',
-		'url("/background/background-' + pad(Math.floor(Math.random() * count), 3) + '.png ")'
-	);
-	});
-	JAVASCRIPT
+\$('.background').css(
+	'background-image',
+	'url("/background/background-' + pad(Math.floor(Math.random() * count), 3) + '.png ")'
+);
+});
+JAVASCRIPT
 
 done
 
