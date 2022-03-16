@@ -81,4 +81,4 @@ frobulator.progress "Updating..."
 echo
 
 frobulator.scs "Update" "[ Done ]"
-ech
+echo
