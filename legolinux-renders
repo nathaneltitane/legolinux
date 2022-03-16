@@ -36,50 +36,18 @@ echo
 
 # functions ////////////////////////////////////////////////////////////////////
 
-upload () {
-	git add *
-
-	git commit		\
-		--all		\
-		--message='Models update'
-
-	git push > /dev/null 2>&1
-}
-
 # requirements /////////////////////////////////////////////////////////////////
 
-list=(
-	git
-	jpegoptim
-	optipng
-	rsync
+directoris_list=(
+	/media/internal/Lego/models
 )
 
-frobulator.require ${list[@]}
-
-list=()
-
-# values
-
-scripts_list=(
-	legolinux-renders
-	legolinux-models
-	legolinux-pages
-)
-
-# execute
-
-for script in ${scripts_list[@]}
+for directory in ${directoris_list[@]}
 do
-	bash ./${script}
+	bash ../l2cu/l2cu -mpd -render full    -directory "${directory}"
+	bash ../l2cu/l2cu -mpd -render flat    -directory "${directory}"
+	bash ../l2cu/l2cu -mpd -export collada -directory "${directory}"
 done
 
-# upload
-
-upload &
-
-frobulator.progress "Updating..."
-echo
-
-frobulator.scs "Update" "[ Done ]"
+frobulator.scs "Renders" "[ Done ]"
 echo
