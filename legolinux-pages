@@ -1,6 +1,40 @@
 #!/bin/bash
 
-# models pages #
+# dependencies /////////////////////////////////////////////////////////////////
+
+if [[ -z $(command -v frobulator) ]]
+then
+	curl -s -L get.frbltr.app > /usr/bin/frobulator
+fi
+
+. /usr/bin/frobulator
+
+if [[ $(id -u -n) = "root" ]]
+then
+	USER="${SUDO_USER}"
+	HOME=/home/"${USER}"
+fi
+
+# script ///////////////////////////////////////////////////////////////////////
+
+script=$(basename -- "${BASH_SOURCE[0]}")
+
+# version //////////////////////////////////////////////////////////////////////
+
+version="03-16-2022"
+
+# usage ////////////////////////////////////////////////////////////////////////
+
+# prompt ///////////////////////////////////////////////////////////////////////
+
+frobulator.script "Setting up ${script#*-}"
+echo
+
+# variables ////////////////////////////////////////////////////////////////////
+
+# defaults /////////////////////////////////////////////////////////////////////
+
+# functions ////////////////////////////////////////////////////////////////////
 
 # variables #
 
@@ -15,13 +49,11 @@ then
 	rm "models/models-menu.html"
 fi
 
-# generate models menu
-
-# BEGIN MODELS MENU #
+# models menu //////////////////////////////////////////////////////////////////
 
 # generate header
 
-cat << 'FILE' -> "models/models-menu.html"
+cat << 'MODELS-MENU-HEADER' -> "models/models-menu.html"
 
 
 		<script>
@@ -33,13 +65,14 @@ cat << 'FILE' -> "models/models-menu.html"
 
 		<section>
 
-FILE
+MODELS-MENU-HEADER
 
 for extension in ${extensions_list[@]}
 do
 	count=1
 
-	# shuffle directory list to showcase all models
+	# shuffle models directories list:
+	# creates random showcase of all models on each update
 
 	for models_directory in $(find models/ -type f -iname flat."${extension}" | shuf)
 	do
@@ -74,7 +107,9 @@ do
 			hidden="hidden"
 		fi
 
-cat << MODEL-TYPE ->> "models/models-menu.html"
+# generate model category entry
+
+cat << MODEL-CATEGORY ->> "models/models-menu.html"
             <div class='container $hidden' id=${model_string^^}>
 
 				<div class='grid grid-gutters grid-full large-grid-fit'>
@@ -85,7 +120,7 @@ cat << MODEL-TYPE ->> "models/models-menu.html"
 					</div>
 				</div>
 
-MODEL-TYPE
+MODEL-CATEGORY
 
 # generate model entry
 
@@ -99,7 +134,7 @@ cat << MODEL ->> "models/models-menu.html"
 
 MODEL
 
-# BEGIN MODEL INDEX #
+# index ////////////////////////////////////////////////////////////////////////
 
 # generate model index
 
@@ -391,16 +426,14 @@ cat << INDEX -> "models/${path[1]}/${path[2]}/index.html"
 </html>
 INDEX
 
-# END MODEL INDEX #
-
-		((count++))
+	((count++))
 
 	done
 done
 
-# generate footer
+# footer ///////////////////////////////////////////////////////////////////////
 
-cat << FILE ->> "models/models-menu.html"
+cat << FOOTER ->> "models/models-menu.html"
         </section>
 
 		<section id="anchors">
@@ -409,6 +442,7 @@ cat << FILE ->> "models/models-menu.html"
 			</anchors>
 		</section>
 
-FILE
+FOOTER
 
-# END MODELS MENU #
+frobulator.scs "Pages" "Done"
+echo
