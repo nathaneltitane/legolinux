@@ -54,3 +54,6 @@ do
 					"${image}"
 	done
 done
+
+frobulator.scs "Images" "[ Done ]"
+echo
