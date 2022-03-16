@@ -43,10 +43,15 @@ directories_list=(
 	models
 )
 
+frobulator.inf "Optimizing assets"
+echo
 for directory in ${directories_list[@]}
 do
 	for image in $(find "${directory}" -type f -iname "*.png")
 	do
+		console.fwd "Optimizing..."
+		echo
+
 		optipng		\
 		-preserve	\
 		-quiet		\

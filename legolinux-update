@@ -41,7 +41,7 @@ upload () {
 
 	git commit -a -m 'Models update'
 
-	git push
+	git push > /dev/null 2>&1
 }
 
 
@@ -72,7 +72,9 @@ done
 
 # upload
 
-upload
+upload &
+
+frobulator.progress "Updating..."
 
 
 frobulator.scs "Update" "[ Done ]"

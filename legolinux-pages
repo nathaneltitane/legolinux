@@ -40,6 +40,9 @@ echo
 
 # generate header
 
+frobulator.inf "Writing model entries"
+echo
+
 cat << 'MODELS-MENU-HEADER' -> "models/models-menu.html"
 
 

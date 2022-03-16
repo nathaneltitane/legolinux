@@ -172,6 +172,9 @@ do
 # keep formatting as is:
 # prevents javascript/jquery execution errors
 
+frobulator.inf "Writing background randomizer"
+echo
+
 cat << JAVASCRIPT -> ../javascript/set-random-background.js
 // set random background //
 
