@@ -91,7 +91,9 @@ cd "${server_models_directory}"
 
 for directory in $(find "${server_models_directory}" -maxdepth 0 -type d)
 do
-	frobulator.inf "Entering" "${directory}"
+	directory_name=$(basename "${directory}")
+
+	frobulator.inf "Entering" " [ ${directory_name} ]"
 	echo
 
 	cd "${directory}"
@@ -102,7 +104,9 @@ do
 
 	for subdirectory in $(find ${server_models_directory}/* -maxdepth 1 -type d)
 	do
-		frobulator.inf "Entering" "${subdirectory}"
+		subdirectory_name=$(basename "$subdirectory}")
+
+		frobulator.inf "Entering" "[ ${subdirectory} ]"
 		echo
 
 		cd "${subdirectory}"
@@ -114,7 +118,7 @@ do
 
 	# exit to top level
 
-	cd "${server_models_directory}" || exit
+	cd "${server_models_directory}"
 done
 
 # background ///////////////////////////////////////////////////////////////////
@@ -125,7 +129,9 @@ extensions_list=(
 	png
 )
 
-# flat background transfer
+# background images transfer
+
+frobulator.inf "Copying background images"
 
 for extension in ${extensions_list[@]}
 do

@@ -73,3 +73,7 @@ done
 # upload
 
 upload
+
+
+frobulator.scs "Update" "[ Done ]"
+echo
