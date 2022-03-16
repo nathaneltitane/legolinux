@@ -46,7 +46,6 @@ write_title () {
 
 	echo "${title^^}" | sed 's/-/ /g' > title
 }
-# models ///////////////////////////////////////////////////////////////////////
 
 # prepare directory structure
 
@@ -67,7 +66,7 @@ fi
 
 shopt -u extglob
 
-# synchronize content
+# pull /////////////////////////////////////////////////////////////////////////
 
 rsync					\
 	--archive			\
@@ -190,3 +189,4 @@ JAVASCRIPT
 done
 
 frobulator.scs "Models" "Done"
+echo

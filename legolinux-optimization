@@ -36,35 +36,21 @@ echo
 
 # functions ////////////////////////////////////////////////////////////////////
 
-list=(
-	git
-	jpegoptim
-	optipng
-	rsync
+# optimize images
+
+directories_list=(
+	background
+	models
 )
 
-frobulator.require ${list[@]}
-
-list=()
-
-# values
-
-scripts_list=(
-	legolinux-models
-	legolinux-pages
-)
-
-# execute
-
-for script in ${scripts_list[@]}
+for directory in ${directories_list[@]}
 do
-	bash ./${script}
+	for image in $(find "${directory}" -type f -iname "*.png")
+	do
+		optipng		\
+		-preserve	\
+		-quiet		\
+		-o5 		\
+					"${image}"
+	done
 done
-
-# upload
-
-git add *
-
-git commit -a -m 'Models update'
-
-git push
