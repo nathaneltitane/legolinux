@@ -87,13 +87,16 @@ rsync					\
 
 # index ////////////////////////////////////////////////////////////////////////
 
+frobulator.inf "Generating titles"
+echo
+
 cd "${server_models_directory}"
 
 for directory in $(find "${server_models_directory}" -maxdepth 0 -type d)
 do
 	directory_name=$(basename "${directory}")
 
-	frobulator.inf "Entering" " [ ${directory_name} ]"
+	frobulator.inf "Writing" " [ ${directory_name} ]"
 	echo
 
 	cd "${directory}"
@@ -106,7 +109,7 @@ do
 	do
 		subdirectory_name=$(basename "$subdirectory}")
 
-		frobulator.inf "Entering" "[ ${subdirectory} ]"
+		frobulator.inf "Wrinting" "[ ${subdirectory_name} ]"
 		echo
 
 		cd "${subdirectory}"

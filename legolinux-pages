@@ -43,7 +43,7 @@ echo
 frobulator.inf "Generating model entries"
 echo
 
-console.fwd "Writing..."
+frobulator.fwd "Writing..."
 echo
 
 cat << 'MODELS-MENU-HEADER' -> "models/models-menu.html"
