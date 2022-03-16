@@ -47,7 +47,7 @@ write_title () {
 	echo "${title^^}" | sed 's/-/ /g' > title
 }
 
-# prepare directory structure
+# prepare update
 
 # set shell options
 
@@ -65,6 +65,15 @@ fi
 # unset shell options
 
 shopt -u extglob
+
+if [ -d "../background" ]
+then
+	rm -rf "../background"
+	mkdir -p "../background"
+
+else
+	mkdir -p "../background"
+fi
 
 # pull /////////////////////////////////////////////////////////////////////////
 
@@ -109,17 +118,6 @@ do
 done
 
 # background ///////////////////////////////////////////////////////////////////
-
-# prepare background directory structure
-
-if [ -d "../background" ]
-then
-	rm -rf "../background"
-	mkdir -p "../background"
-
-else
-	mkdir -p "../background"
-fi
 
 # values
 

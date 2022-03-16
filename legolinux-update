@@ -36,6 +36,15 @@ echo
 
 # functions ////////////////////////////////////////////////////////////////////
 
+upload () {
+	git add *
+
+	git commit -a -m 'Models update'
+
+	git push
+}
+
+
 list=(
 	git
 	jpegoptim
@@ -63,8 +72,4 @@ done
 
 # upload
 
-git add *
-
-git commit -a -m 'Models update'
-
-git push
+upload

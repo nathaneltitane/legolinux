@@ -36,20 +36,7 @@ echo
 
 # functions ////////////////////////////////////////////////////////////////////
 
-# variables #
-
-extensions_list=(
-	png
-)
-
-# check if file exists
-
-if [ -f "models/models-menu.html" ]
-then
-	rm "models/models-menu.html"
-fi
-
-# models menu //////////////////////////////////////////////////////////////////
+# generate models menu file
 
 # generate header
 
@@ -66,6 +53,12 @@ cat << 'MODELS-MENU-HEADER' -> "models/models-menu.html"
 		<section>
 
 MODELS-MENU-HEADER
+
+# values
+
+extensions_list=(
+	png
+)
 
 for extension in ${extensions_list[@]}
 do
