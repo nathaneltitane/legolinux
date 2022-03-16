@@ -75,7 +75,7 @@ done
 upload &
 
 frobulator.progress "Updating..."
-
+echo
 
 frobulator.scs "Update" "[ Done ]"
 echo
