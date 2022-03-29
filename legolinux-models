@@ -109,7 +109,7 @@ do
 	do
 		subdirectory_name=$(basename "${subdirectory}")
 
-		frobulator.inf "Wrinting" "[ ${subdirectory_name} ]"
+		frobulator.inf "Writing" "[ ${subdirectory_name} ]"
 		echo
 
 		cd "${subdirectory}"
