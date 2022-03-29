@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
 <asset>
-	<created>2022-03-16T15:52:55</created>
-	<modified>2022-03-16T15:52:55</modified>
+	<created>2022-03-29T17:25:33</created>
+	<modified>2022-03-29T17:25:33</modified>
 <unit name="LeoCAD" meter="0.0004" />
 	<up_axis>Z_UP</up_axis>
 </asset>
@@ -4676,7 +4676,7 @@
 			</technique>
 		</profile_COMMON>
 	</effect>
-	<effect id="Rubber_Bright_Green-phong">
+	<effect id="Rubber_Green-phong">
 		<profile_COMMON>
 			<technique sid="phong1">
 				<phong>
@@ -5770,8 +5770,8 @@
 	<material id="Rubber_White-material">
 		<instance_effect url="#Rubber_White-phong" />
 	</material>
-	<material id="Rubber_Bright_Green-material">
-		<instance_effect url="#Rubber_Bright_Green-phong" />
+	<material id="Rubber_Green-material">
+		<instance_effect url="#Rubber_Green-phong" />
 	</material>
 	<material id="Rubber_Magenta-material">
 		<instance_effect url="#Rubber_Magenta-phong" />
