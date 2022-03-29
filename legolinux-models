@@ -96,7 +96,7 @@ for directory in $(find "${server_models_directory}" -maxdepth 0 -type d)
 do
 	directory_name=$(basename "${directory}")
 
-	frobulator.inf "Writin" " [ ${directory_name} ]"
+	frobulator.inf "Writing" " [ ${directory_name} ]"
 	echo
 
 	cd "${directory}"
