@@ -359,66 +359,6 @@ cat << INDEX -> "models/${path[1]}/${path[2]}/index.html"
 			init();
 		</script>
 
-        <!--
-
-        <section>
-
-		<!-- model static render views -->
-
-			<div class='container' id='${model_string^^}'>
-
-			<!-- static renders -->
-
-			<section>
-				<div class="grid grid-gutters grid-full large-grid-fit">
-					<div class="grid-cell">
-						<div class="button title" id="title">
-							RENDERS // MODEL VIEWS
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<div class='grid grid-gutters grid-full display-grid-fit'>
-
-				<!-- quarter front view -->
-
-				<div class='grid-cell'>
-					<a href='./${path[3]}/${path[2]}-quarter-front.${extension}' target='_blank'>
-						<img src='./${path[3]}/${path[2]}-quarter-front.${extension}'/>
-					</a>
-				</div>
-
-				<!-- front view -->
-
-				<div class='grid-cell'>
-					<a href='./${path[3]}/${path[2]}-front.${extension}' target='_blank'>
-						<img src='./${path[3]}/${path[2]}-front.${extension}'/>
-					</a>
-				</div>
-
-				<!-- quarter back view -->
-
-				<div class='grid-cell'>
-					<a href='./${path[3]}/${path[2]}-quarter-back.${extension}' target='_blank'>
-						<img src='./${path[3]}/${path[2]}-quarter-back.${extension}'/>
-					</a>
-				</div>
-
-				<!-- back view -->
-
-				<div class='grid-cell'>
-					<a href='./${path[3]}/${path[2]}-back.${extension}' target='_blank'>
-						<img src='./${path[3]}/${path[2]}-back.${extension}'/>
-					</a>
-				</div>
-
-			</div>
-
-		</section>
-
-		-->
-
 		<section id="footer">
 			<footer>
 
@@ -433,6 +373,62 @@ INDEX
 
 	done
 done
+
+#         <section>
+#
+# 		<!-- model static render views -->
+#
+# 			<div class='container' id='${model_string^^}'>
+#
+# 			<!-- static renders -->
+#
+# 			<section>
+# 				<div class="grid grid-gutters grid-full large-grid-fit">
+# 					<div class="grid-cell">
+# 						<div class="button title" id="title">
+# 							RENDERS // MODEL VIEWS
+# 						</div>
+# 					</div>
+# 				</div>
+# 			</section>
+#
+# 			<div class='grid grid-gutters grid-full display-grid-fit'>
+#
+# 				<!-- quarter front view -->
+#
+# 				<div class='grid-cell'>
+# 					<a href='./${path[3]}/${path[2]}-quarter-front.${extension}' target='_blank'>
+# 						<img src='./${path[3]}/${path[2]}-quarter-front.${extension}'/>
+# 					</a>
+# 				</div>
+#
+# 				<!-- front view -->
+#
+# 				<div class='grid-cell'>
+# 					<a href='./${path[3]}/${path[2]}-front.${extension}' target='_blank'>
+# 						<img src='./${path[3]}/${path[2]}-front.${extension}'/>
+# 					</a>
+# 				</div>
+#
+# 				<!-- quarter back view -->
+#
+# 				<div class='grid-cell'>
+# 					<a href='./${path[3]}/${path[2]}-quarter-back.${extension}' target='_blank'>
+# 						<img src='./${path[3]}/${path[2]}-quarter-back.${extension}'/>
+# 					</a>
+# 				</div>
+#
+# 				<!-- back view -->
+#
+# 				<div class='grid-cell'>
+# 					<a href='./${path[3]}/${path[2]}-back.${extension}' target='_blank'>
+# 						<img src='./${path[3]}/${path[2]}-back.${extension}'/>
+# 					</a>
+# 				</div>
+#
+# 			</div>
+#
+# 		</section>
 
 # footer ///////////////////////////////////////////////////////////////////////
 
