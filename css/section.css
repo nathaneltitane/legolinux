@@ -2,6 +2,8 @@
 /*-----------------------------------------------*/
 section {
 position:relative;
+margin:0;
+padding:10px;
 }
 section#comments {
 }
@@ -17,16 +19,4 @@ background:#ffffff;
 section#links {
 }
 section#footer {
-}
-@media screen and (min-width:800px) {
-section {
-margin:0;
-padding:10px;
-}
-}
-@media screen and (max-width:800px) {
-section {
-margin:0;
-padding:10px;
-}
 }
