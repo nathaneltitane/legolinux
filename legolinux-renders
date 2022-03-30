@@ -44,9 +44,9 @@ directoris_list=(
 
 for directory in ${directoris_list[@]}
 do
-	bash ../l2cu/l2cu -mpd -render full    -directory "${directory}"
-	bash ../l2cu/l2cu -mpd -render flat    -directory "${directory}"
-	bash ../l2cu/l2cu -mpd -export collada -directory "${directory}"
+#	bash ../l2cu/l2cu -mpd -render full    -directory "${directory}"
+#	bash ../l2cu/l2cu -mpd -render flat    -directory "${directory}"
+#	bash ../l2cu/l2cu -mpd -export collada -directory "${directory}"
 done
 
 frobulator.scs "Renders" "[ Done ]"

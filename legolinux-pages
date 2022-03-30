@@ -109,12 +109,12 @@ do
 # generate model category entry
 
 cat << MODEL-CATEGORY ->> "models/models-menu.html"
-            <div class='container $hidden' id=${model_string^^}>
+            <div class='container ${hidden}' id=${model_string^^}>
 
 				<div class='grid grid-gutters grid-full large-grid-fit'>
 					<div class='grid-cell'>
 						<div class="button title" id="title">
-								${model_title}
+                            ${model_title}
 						</div>
 					</div>
 				</div>
@@ -166,7 +166,7 @@ cat << INDEX -> "models/${path[1]}/${path[2]}/index.html"
 			<div class="grid grid-gutters grid-full large-grid-fit">
 				<div class="grid-cell">
 					<div class="button title" id="title">
-
+                        ${model_title}
 					</div>
 				</div>
 			</div>
@@ -359,7 +359,9 @@ cat << INDEX -> "models/${path[1]}/${path[2]}/index.html"
 			init();
 		</script>
 
-		<section>
+        <!--
+
+        <section>
 
 		<!-- model static render views -->
 
@@ -414,6 +416,8 @@ cat << INDEX -> "models/${path[1]}/${path[2]}/index.html"
 			</div>
 
 		</section>
+
+		-->
 
 		<section id="footer">
 			<footer>
