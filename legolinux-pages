@@ -88,9 +88,6 @@ do
 
 		model_title=$(cat ${path[0]}/${path[1]}/${path[2]}/title)
 
-		flat_file="${path[5]}"
-		flat_file_name="${path[5]%.*}"
-
 		# generate model type directory title header
 
 		if [ "${count}" -eq 1 ]
