@@ -80,12 +80,13 @@ do
 		# /models/model-type/model/renders/flat/flat.${extension}
 
 		# echo "${path[0]}" # /models
-		# echo "${path[1]}" # /model-type
+		# echo "${path[1]}" # /model-category
 		# echo "${path[2]}" # /model
 		# echo "${path[3]}" # /renders
 		# echo "${path[4]}" # /outine
 		# echo "${path[5]}" # /flat file
 
+		model_category_title=$(cat ${path[0]}/${path[1]}/title)
 		model_title=$(cat ${path[0]}/${path[1]}/${path[2]}/title)
 
 		# generate model type directory title header
@@ -105,7 +106,7 @@ cat << MODEL-CATEGORY ->> "models/models-menu.html"
 				<div class='grid grid-gutters grid-full large-grid-fit'>
 					<div class='grid-cell'>
 						<div class="button title" id="title">
-							${model_title}
+							${model_categorytitle} // ${model_title}
 						</div>
 					</div>
 				</div>
