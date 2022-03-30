@@ -86,7 +86,7 @@ do
 		# echo "${path[4]}" # /outine
 		# echo "${path[5]}" # /flat file
 
-		model_title=$(cat ${path[0]}/${path[1]}/${path[2]}/title)
+		model_title=$(cat models/${path[1]}/${path[2]}/title)
 
 		flat_file="${path[5]}"
 		flat_file_name="${path[5]%.*}"
