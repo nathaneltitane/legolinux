@@ -373,7 +373,7 @@ cat << INDEX -> "models/${path[1]}/${path[2]}/index.html"
 				<div class="grid grid-gutters grid-full large-grid-fit">
 					<div class="grid-cell">
 						<div class="button title" id="title">
-							Renders // Model Views
+							RENDERS // MODEL VIEWS
 						</div>
 					</div>
 				</div>
