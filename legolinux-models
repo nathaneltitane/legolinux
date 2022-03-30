@@ -178,7 +178,7 @@ echo
 sed                                                 \
     -i                                              \
     -e "s/var count = .*/var count = ${count};/g"   \
-                                                    ./javascript/set-random-background.js
+                                                    ../javascript/set-random-background.js
 done
 
 frobulator.scs "Models" "[ Done ]"
