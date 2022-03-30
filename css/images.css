@@ -5,4 +5,9 @@ background:none;
 height:auto;
 width:calc(100vw - 50%);
 margin:10px calc(50vw - 50%/2  - 78px - 62px - 10px - 10px - 10px);
+filter:grayscale(0.5) blur (1px);
+transition-duration:0.5s;
+}
+img:hover{
+filter:none;
 }
