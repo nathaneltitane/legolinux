@@ -167,18 +167,16 @@ do
 		let count=count+1
 	done
 
-# backgroud generator //////////////////////////////////////////////////////////
-
-# update random background generator with new file count
+	# update random background generator with new file count
 
 
-frobulator.inf "Updating background randomizer"
-echo
+	frobulator.inf "Updating background randomizer"
+	echo
 
-sed                                                 \
-    -i                                              \
-    -e "s/var count = .*/var count = ${count};/g"   \
-                                                    ../javascript/set-random-background.js
+	sed												\
+		-i												\
+		-e "s/var count = .*/var count = ${count};/g"	\
+														../javascript/set-random-background.js
 done
 
 frobulator.scs "Models" "[ Done ]"
