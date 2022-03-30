@@ -2,7 +2,7 @@
 /*-----------------------------------------------*/
 img {
 background:none;
-border-radius:2px;
 height:auto;
-width:100%;
+width:calc(100vw - 50%);
+margin:10px calc(50vw - 50%/2);
 }

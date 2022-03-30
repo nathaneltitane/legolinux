@@ -86,13 +86,7 @@ do
 		# echo "${path[4]}" # /outine
 		# echo "${path[5]}" # /flat file
 
-		model_string="$(echo ${path[2]%} | sed 's/\(.*\)-/\1 /')"
-
-		IFS=' ' read -r model_id_string model_name_string <<< "${model_string}"
-
-		model_id=${model_id_string^^}
-		model_name=${model_name_string^^}
-		model_title=${model_string^^}
+		model_title=$(echo ${path[2]/title})
 
 		flat_file="${path[5]}"
 		flat_file_name="${path[5]%.*}"
