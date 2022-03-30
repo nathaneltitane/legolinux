@@ -86,7 +86,7 @@ do
 		# echo "${path[4]}" # /outine
 		# echo "${path[5]}" # /flat file
 
-		model_title=$(cat models/${path[1]}/${path[2]}/title)
+		model_title=$(cat ${path[0]}/${path[1]}/${path[2]}/title)
 
 		flat_file="${path[5]}"
 		flat_file_name="${path[5]%.*}"
@@ -108,7 +108,7 @@ cat << MODEL-CATEGORY ->> "models/models-menu.html"
 				<div class='grid grid-gutters grid-full large-grid-fit'>
 					<div class='grid-cell'>
 						<div class="button title" id="title">
-
+							${model_title}
 						</div>
 					</div>
 				</div>
