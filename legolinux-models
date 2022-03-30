@@ -169,34 +169,16 @@ do
 
 # backgroud generator //////////////////////////////////////////////////////////
 
-# DO NOT CHANGE BELOW SECTION: BREAKS WEBSITE! /////////////////////////////////
-
 # update random background generator with new file count
 
-# keep formatting as is:
-# prevents javascript/jquery execution errors
 
-frobulator.inf "Generating background randomizer"
+frobulator.inf "Updating background randomizer"
 echo
 
-cat << JAVASCRIPT -> ../javascript/set-random-background.js
-// set random background //
-
-\$(document).ready(function() {
-var count = ${count};
-
-function pad(str, max) {
-	str = str.toString();
-	return str.length < max ? pad("0" + str, max) : str;
-}
-
-\$('.background').css(
-	'background-image',
-	'url("/background/background-' + pad(Math.floor(Math.random() * count), 3) + '.png ")'
-);
-});
-JAVASCRIPT
-
+sed                                                 \
+    -i                                              \
+    -e "s/var count = .*/var count = ${count};/g"   \
+                                                    ./javascript/set-random-background.js
 done
 
 frobulator.scs "Models" "[ Done ]"
