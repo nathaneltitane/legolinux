@@ -173,7 +173,7 @@ cat << INDEX -> "models/${path[1]}/${path[2]}/index.html"
 
 		</section>
 
-		<!-- model render container -->
+		<!-- model interactive render container -->
 
 		<section>
 
@@ -187,7 +187,7 @@ cat << INDEX -> "models/${path[1]}/${path[2]}/index.html"
 
 		</section>
 
-		<!-- model render -->
+		<!-- model interactive render -->
 
 		<script type="module">
 
@@ -361,11 +361,11 @@ cat << INDEX -> "models/${path[1]}/${path[2]}/index.html"
 
 		<section>
 
-		<!-- ldraw model view -->
+		<!-- model static render views -->
 
 			<div class='container' id='${model_string^^}'>
 
-			<!-- renders -->
+			<!-- static renders -->
 
 			<section>
 				<div class="grid grid-gutters grid-full large-grid-fit">
