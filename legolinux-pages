@@ -114,7 +114,7 @@ cat << MODEL-CATEGORY ->> "models/models-menu.html"
 				<div class='grid grid-gutters grid-full large-grid-fit'>
 					<div class='grid-cell'>
 						<div class="button title" id="title">
-                            ${model_title}
+
 						</div>
 					</div>
 				</div>
@@ -166,7 +166,7 @@ cat << INDEX -> "models/${path[1]}/${path[2]}/index.html"
 			<div class="grid grid-gutters grid-full large-grid-fit">
 				<div class="grid-cell">
 					<div class="button title" id="title">
-                        ${model_title}
+
 					</div>
 				</div>
 			</div>
