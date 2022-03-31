@@ -87,7 +87,7 @@ rsync					\
 
 # index ////////////////////////////////////////////////////////////////////////
 
-frobulator.inf "Generating titles"
+frobulator.inf "Generating" "[ title ]"
 echo
 
 cd "${server_models_directory}"
@@ -170,7 +170,7 @@ do
 	# update random background generator with new file count
 
 
-	frobulator.inf "Updating background randomizer"
+	frobulator.inf "Updating" "[background randomizer]"
 	echo
 
 	sed												\

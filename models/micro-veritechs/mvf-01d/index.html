@@ -58,9 +58,11 @@
 			import { ColladaLoader } from '/jsm/loaders/ColladaLoader.js';
 			import { OrbitControls } from '/jsm/controls/OrbitControls.js';
 
-			var canvas, renderer, controls, camera, scene;
+			var canvas, renderer, controls, camera, scene, clock;
 
 			function init() {
+
+				// canvas
 
 				canvas = document.querySelector('#model-canvas');
 
@@ -68,15 +70,15 @@
 
 				renderer = new THREE.WebGLRenderer( { canvas, antialias: true, alpha: true } );
 				renderer.setClearColor( 0x000000, 0 );
+				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.shadowMap.enabled = true;
 				renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-				renderer.setPixelRatio( window.devicePixelRatio );
 
 				// camera
 
-				const camera = new THREE.PerspectiveCamera(45, 2, 0.1, 5);
-				camera.position.z = 2;
-				// camera.position.set( 45, 0, 45 );
+				camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 5000);
+				camera.position.set( 45, 30, 45 );
+				camera.lookAt( 0, 0, 0 );
 
 				// scene
 
@@ -86,38 +88,55 @@
 
 				controls = new OrbitControls( camera, renderer.domElement );
 				controls.screenSpacePanning = true;
-				controls.minDistance = 0.25;
-				controls.maxDistance = 0.65;
+				controls.enablePan = false;
 				controls.target.set( 0, 0, 0 );
+				controls.minDistance = 0.1;
+				controls.maxDistance = 0.8;
+
 				controls.update();
+
+				// clock
+
+				clock = new THREE.Clock();
 
 				// lights
 
-				var ambientLight = new THREE.AmbientLight( 0xffffff, 0.75 );
-				scene.add( ambientLight );
+				var ambientLight = new THREE.AmbientLight( 0xffffff, 1 );
 
-				// var hemiLight = new THREE.HemisphereLight( 0xffffff, 0xffffff, 1 );
-				// hemiLight.castShadow = true;
-				// scene.add( hemiLight );
+				// directional lights
 
-				// var dirLight = new THREE.DirectionalLight( 0xffffff, 1, 100 );
-				// dirLight.position.set( 0, 1, 0 );					//default
-				// dirLight.castShadow = true;
+				var dirLight = new THREE.DirectionalLight( 0xffffff, 0.25 );
 
-				// dirLight.shadow.mapSize.width = 512;					// default
-				// dirLight.shadow.mapSize.height = 512;				// default
-				// dirLight.shadow.camera.near = 0.5;					// default
-				// dirLight.shadow.camera.far = 500;					// default
-				// scene.add( dirLight );
+				dirLight.position.set( 0, 10, 0 );
+				dirLight.castShadow = true;
+				dirLight.shadow.mapSize.width = 512;
+				dirLight.shadow.mapSize.height = 512;
+				dirLight.shadow.camera.near = 512;
+				dirLight.shadow.camera.far = 512;
 
-				var pointLight = new THREE.PointLight( 0xffffff, 0.15 );
+				// hemispherical lights
+
+				var hemiLight = new THREE.HemisphereLight( 0xffffff, 0xcccccc, 1 );
+				hemiLight.castShadow = true;
+
+				hemiLight.position.set( 0, 10, 0 );
+				hemiLight.castShadow = true;
+
+				// point lights
+
+				var pointLight = new THREE.PointLight( 0xffffff, 0.1, 10, 2 );
 				pointLight.castShadow = true;
-				pointLight.shadow.mapSize.width = 512;				// default
-				pointLight.shadow.mapSize.height = 512;				// default
-				pointLight.shadow.camera.near = 0.5;				// default
-				pointLight.shadow.camera.far = 500;					// default
+				pointLight.shadow.mapSize.width = 512;
+				pointLight.shadow.mapSize.height = 512;
+				pointLight.shadow.camera.near = 512;
+				pointLight.shadow.camera.far = 512;
 
 				scene.add( camera );
+
+				scene.add( ambientLight );
+				// scene.add( dirLight );
+				// scene.add( hemiLight );
+
 				camera.add( pointLight );
 
 				// loader
@@ -125,16 +144,18 @@
 				// collada
 
 				var loader = new ColladaLoader();
+
 				loader.load( '/models/micro-veritechs/mvf-01d/exports/mvf-01d.dae', function ( collada ) {
 
-					var boundingbox = new THREE.Box3()
-					var model = collada.scene;						// model as group
+					// model as group
+
+					var model = collada.scene;
 
 					model.traverse( function ( node ) {
 
 						if ( node.isSkinnedMesh ) {
 
-							node.frustumCulled = false;
+							node.frustumCulled = true;
 
 						}
 
@@ -155,46 +176,68 @@
 
 					scene.add( model );
 
-					// set bounding box
+					// helpers
 
-					boundingbox.setFromObject(model);
-					boundingbox.center(controls.target);
+					// lights
+
+					// scene.add( new THREE.AmbientLightHelper( ambientLight, 0 , 0xaaaaaa ) );
+					// scene.add( new THREE.DirectionalLightHelper( dirLight, 0 , 0xaaaaaa ) );
+					// scene.add( new THREE.HemisphereLightHelper( hemiLight, 5 , 0xaaaaaa ) );
+					// scene.add( new THREE.PointLightHelper( pointLight, 0 , 0xaaaaaa ) );
+
+					// bounding box
+
+					var boundingboxHelper = new THREE.BoxHelper( model, 0xaaaaaa );
+
+					// scene.add( boundingboxHelper );
+
+					// grids
+
+					// orthogonal grid
+
+					const gridHelper = new THREE.GridHelper( 1, 16, 0xaaaaaa, 0xaaaaaa );
+					gridHelper.position.y = 0;
+					gridHelper.position.x = 0;
+
+					// scene.add( gridHelper );
+
+					// polar grid
+
+					const polarGridHelper = new THREE.PolarGridHelper( 1, 64, 64, 64, 0xaaaaaa, 0xaaaaaa );
+					polarGridHelper.position.y = 0;
+					polarGridHelper.position.x = 0;
+
+					// scene.add( polarGridHelper );
+
 
 				} );
 
-				// stats
-
-				// var stats = new Stats();
-				// container.appendChild( stats.dom );
-
-				// helpers
-
-				// grid
-
-				// var gridHelper = new THREE.GridHelper( 1, 1 );
-				// scene.add( gridHelper );
-
-				// bounding box
-
-				// var box = new THREE.BoxHelper( object, 0x000000 );
-				// scene.add( box );
-
-				//
+				// resize
 
 				function resize () {
 
 					const canvas = renderer.domElement;
 
-					const width = canvas.clientWidth;			// get parent width
-					// const height = canvas.clientHeight;		// default
-					const height = canvas.clientWidth;			// force 1:1 canvas ratio
+					const width = canvas.clientWidth;
+					const height = canvas.clientWidth;
 
 					const resizeNeeded = canvas.width !== width || canvas.height !== height;
 
 					if ( resizeNeeded ) {
+
 						renderer.setSize ( width, height, false );
 					}
+
 					return resizeNeeded;
+				}
+
+				function animate() {
+
+					requestAnimationFrame( animate );
+
+					render();
+					stats.update();
+
 				}
 
 				function render() {

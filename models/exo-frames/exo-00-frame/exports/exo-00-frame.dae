@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
 <asset>
-	<created>2022-03-31T08:47:45</created>
-	<modified>2022-03-31T08:47:45</modified>
+	<created>2022-03-31T16:29:14</created>
+	<modified>2022-03-31T16:29:14</modified>
 <unit name="LeoCAD" meter="0.0004" />
 	<up_axis>Z_UP</up_axis>
 </asset>
@@ -179665,7 +179665,7 @@
 			<instance_geometry url="#47452_dat">
 				<bind_material>
 					<technique_common>
-						<instance_material symbol="Main_Colour" target="#Black-material"/>
+						<instance_material symbol="Main_Colour" target="#Dark_Bluish_Grey-material"/>
 					</technique_common>
 				</bind_material>
 			</instance_geometry>
@@ -180145,7 +180145,7 @@
 			<instance_geometry url="#47452_dat">
 				<bind_material>
 					<technique_common>
-						<instance_material symbol="Main_Colour" target="#Black-material"/>
+						<instance_material symbol="Main_Colour" target="#Dark_Bluish_Grey-material"/>
 					</technique_common>
 				</bind_material>
 			</instance_geometry>
