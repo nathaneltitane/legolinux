@@ -1,5 +1,3 @@
-/* Scrollbars */
-/*-----------------------------------------------*/
 html > ::-webkit-scrollbar {
 display: none;
 }

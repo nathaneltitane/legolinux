@@ -1,12 +1,8 @@
-/* Images */
-/*-----------------------------------------------*/
 img {
 background:none;
-display:block;
-height:100vw;
-width:100vw;
-margin-left:auto;
-margin-right:auto;
+border-radius:2px;
+height:auto;
+width:100%;
 filter:blur(1px) grayscale(0.5);
 transition-duration:0.5s;
 }

@@ -1,10 +1,6 @@
-/* Widgets */
-/*-----------------------------------------------*/
 ul > li {
 border-radius: 5px 0px 0px 5px;
 }
-/* Adobe widgets */
-/*-----------------------------------------------*/
 ul.adobewidget {
 margin:0;
 padding:0;
@@ -169,8 +165,6 @@ background-position:-704px -32px
 ul.adobewidget li.flower:hover {
 background-position:-736px -32px
 }
-/* CAD widgets */
-/*-----------------------------------------------*/
 ul.cadwidget {
 margin:0;
 padding:0;
@@ -221,8 +215,6 @@ background-position:-96px -32px
 ul.cadwidget li.sketchup:hover {
 background-position:-128px -32px
 }
-/* Code widgets */
-/*-----------------------------------------------*/
 ul.codewidget {
 margin:0;
 padding:0;
@@ -267,8 +259,6 @@ background-position:-64px -32px
 ul.codewidget li.javascript:hover {
 background-position:-96px -32px
 }
-/* OS widgets */
-/*-----------------------------------------------*/
 ul.oswidget {
 margin:0;
 padding:0;
