@@ -6,10 +6,10 @@ width:100%;
 display:block;
 }
 #model-canvas {
-height:calc(100vh - 100px - 100px - 30px);
+height:calc(100vh - 100px - 100px - 50px);
 }
 #model-title {
 background:#cccccc;
-min-height:100px;
+height:100px;
 width:100vw;
 }
