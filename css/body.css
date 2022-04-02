@@ -34,7 +34,7 @@ min-height:100%;
 /*-----------------------------------------------*/
 .webpage {
 width:100%;
-min-height:100%;
+min-height:100vh;
 background-color:transparent !important;
 position: absolute;
 z-index: 2;
