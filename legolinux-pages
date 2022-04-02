@@ -101,15 +101,17 @@ do
 # generate model category entry
 
 cat << MODEL-CATEGORY ->> "models/models-menu.html"
-            <div class='container ${hidden}' id=${model_string^^}>
+			<section id="model-title">
+				<div class='container ${hidden}' id=${model_title^^}>
 
-				<div class='grid grid-gutters grid-full large-grid-fit'>
-					<div class='grid-cell'>
-						<div class="button title" id="title">
-							${model_category_title} // ${model_title}
+					<div class='grid grid-gutters grid-full large-grid-fit'>
+						<div class='grid-cell'>
+							<div class="button title text-center" id="title">
+								${model_category_title} // ${model_title}
+							</div>
 						</div>
 					</div>
-				</div>
+				</section>
 
 MODEL-CATEGORY
 
