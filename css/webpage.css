@@ -1,0 +1,14 @@
+.webpage {
+width:100vw;
+min-height:100vh;
+background-color:transparent !important;
+position: absolute;
+z-index: 2;
+}
+.webpage > * {
+-webkit-transition:all .3s ease;
+-moz-transition:all .3s ease;
+-ms-transition:all .3s ease;
+-o-transition:all .3s ease;
+transition:all .3s ease;
+}

@@ -7,7 +7,6 @@ font-size:10pt;
 margin:10px 0px;
 padding:10px;
 max-height:500px;
-/* Scrollbars overflow trigger*/
 overflow:auto !important;
 -webkit-tab-size: 4;
 -moz-tab-size: 4;

@@ -1,0 +1,36 @@
+.icon {
+background-repeat: no-repeat;
+display:block;
+padding:o;
+}
+.icon-extra-small {
+background-size:12px;
+height:12px;
+width:12px;
+}
+.icon-small {
+background-size:24px;
+height:24px;
+width:24px;
+}
+.icon-medium {
+background-size:32px;
+height:32px;
+width:32px;
+}
+.icon-large {
+background-size:64px;
+height:64px;
+width:64px;
+}
+.icon-extra-large {
+background-size:128px;
+height:128px;
+width:128px;
+}
+.icon-left {
+margin:0px 10px 0px 0px;
+}
+.icon-right {
+margin:0px 0px 0px 10px;
+}

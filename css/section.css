@@ -11,10 +11,10 @@ background:transparent;
 section#navigation {
 min-width:350px !important;
 }
-section#loader {
+section#load {
 background:#ffffff;
 }
-section#links {
+section#link {
 }
 section#footer {
 }

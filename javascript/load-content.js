@@ -15,8 +15,8 @@ $(document).ready(function() {
 		$('#load-content').fadeOut('slow');
 		get_page_data(link);
 		$('#load-content').fadeIn('slow');
-		$('#loader').removeClass('no-padding');
-		$('#loader').addClass('loader-open');
+		$('#load').removeClass('no-padding');
+		$('#load').addClass('load-open');
 		$('html,body').animate({
 				scrollTop: $('#navigation-bottom').offset().top
 			},
