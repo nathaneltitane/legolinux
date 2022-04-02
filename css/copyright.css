@@ -1,6 +1,6 @@
 .copyright {
 position:absolute;
-bottom:0;
+top:calc(100vh - 237px);
 right:0;
 padding:10px;
 }
