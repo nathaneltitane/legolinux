@@ -190,10 +190,10 @@ flex:0 0 25%;
 }
 }
 .grid-gutters {
-margin:-1em 0 1em -1em;
+margin:10px;
 }
 .grid-gutters > .grid-cell {
-padding:1em 0 0 1em;
+padding:5px;
 }
 .grid-gutters-large {
 margin:-1.5em 0 1.5em -1.5em;

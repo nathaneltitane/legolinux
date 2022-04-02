@@ -257,7 +257,7 @@ cat << INDEX -> "models/${path[1]}/${path[2]}/index.html"
 				// point lights
 
 				var pointLight = new THREE.PointLight( 0xffffff, 0.125, 0, 2 );
-				pointLight,position.set(0, 10, 10);
+				pointLight.position.set(0, 10, 10);
 				pointLight.castShadow = true;
 				pointLight.shadow.mapSize.width = 512;
 				pointLight.shadow.mapSize.height = 512;
