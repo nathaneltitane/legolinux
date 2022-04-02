@@ -1,7 +1,7 @@
 .icon {
 background-repeat: no-repeat;
 display:block;
-padding:o;
+padding:0px;
 }
 .icon-extra-small {
 background-size:12px;
@@ -27,10 +27,4 @@ width:64px;
 background-size:128px;
 height:128px;
 width:128px;
-}
-.icon-left {
-margin:0px 10px 0px 0px;
-}
-.icon-right {
-margin:0px 0px 0px 10px;
 }
