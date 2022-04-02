@@ -159,17 +159,7 @@ cat << INDEX -> "models/${path[1]}/${path[2]}/index.html"
 
 		<!-- model interactive render container -->
 
-		<section>
-
-			<div class="grid grid-gutters grid-1-1">
-				<div class="grid-cell">
-					<canvas id="model-canvas">
-
-					</canvas>
-				</div>
-			</div>
-
-		</section>
+		<canvas class="cursor-none" id="model-canvas"></canvas>
 
 		<!-- model interactive render -->
 

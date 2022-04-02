@@ -6,7 +6,7 @@ width:100%;
 display:block;
 }
 #model-canvas {
-height:calc(100vh - 100px - 100px - 50px);
+height:calc(100vh - 100px - 100px);
 }
 #model-title {
 background:#cccccc;
