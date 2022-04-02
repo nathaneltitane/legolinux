@@ -1,11 +1,13 @@
 @import url("/css/all.css");
 @import url("/css/html.css");
 @import url("/css/webpage.css");
+@import url("/css/align.css");
 @import url("/css/background.css");
 @import url("/css/body.css");
 @import url("/css/button.css");
 @import url("/css/canvas.css");
 @import url("/css/classes.css");
+@import url("/css/copyright.css");
 @import url("/css/cursor.css");
 @import url("/css/font.css");
 @import url("/css/footer.css");
@@ -21,7 +23,6 @@
 @import url("/css/load.css");
 @import url("/css/logo.css");
 @import url("/css/navigation.css");
-@import url("/css/object-align.css");
 @import url("/css/paragraph.css");
 @import url("/css/pre-xmp.css");
 @import url("/css/scrollbar.css");
