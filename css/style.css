@@ -5,7 +5,6 @@
 @import url("/css/background.css");
 @import url("/css/body.css");
 @import url("/css/button.css");
-@import url("/css/canvas.css");
 @import url("/css/classes.css");
 @import url("/css/copyright.css");
 @import url("/css/cursor.css");
@@ -22,6 +21,7 @@
 @import url("/css/list.css");
 @import url("/css/load.css");
 @import url("/css/logo.css");
+@import url("/css/model.css");
 @import url("/css/navigation.css");
 @import url("/css/paragraph.css");
 @import url("/css/pre-xmp.css");

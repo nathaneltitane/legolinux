@@ -151,20 +151,6 @@ cat << INDEX -> "models/${path[1]}/${path[2]}/index.html"
 
 	<body>
 
-		<section>
-
-			<!-- model title -->
-
-			<div class="grid grid-gutters grid-full large-grid-fit">
-				<div class="grid-cell">
-					<div class="button title" id="title">
-						${model_category_title} // ${model_title}
-					</div>
-				</div>
-			</div>
-
-		</section>
-
 		<!-- model interactive render container -->
 
 		<section>
@@ -395,6 +381,20 @@ cat << INDEX -> "models/${path[1]}/${path[2]}/index.html"
 
 			init();
 		</script>
+
+		<section id="model-title">
+
+			<!-- model title -->
+
+			<div class="grid grid-gutters grid-full large-grid-fit">
+				<div class="grid-cell">
+					<div class="button title text-center" id="title">
+						${model_category_title} // ${model_title}
+					</div>
+				</div>
+			</div>
+
+		</section>
 
 		<section id="footer">
 			<footer>
