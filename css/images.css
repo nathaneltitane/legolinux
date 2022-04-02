@@ -3,7 +3,7 @@ background:none;
 height:auto;
 width:100%;
 filter:blur(1px) grayscale(0.5);
-transition-duration:0.125s;
+transition-duration:1s;
 }
 img:hover{
 filter:none;

@@ -1,5 +1,3 @@
-/* All */
-/*-----------------------------------------------*/
 *,
 *:before,
 *:after {
@@ -11,14 +9,10 @@ padding:0;
 -o-box-sizing:border-box;
 box-sizing:border-box;
 }
-/* HTML */
-/*-----------------------------------------------*/
 html {
 min-height:100%;
 height:100%;
 }
-/* Body */
-/*-----------------------------------------------*/
 body {
 background:transparent;
 color:#666666 !important;
@@ -30,10 +24,8 @@ overflow-x: hidden;
 min-width:100%;
 min-height:100%;
 }
-/* Webpage */
-/*-----------------------------------------------*/
 .webpage {
-width:100%;
+width:100vw;
 min-height:100vh;
 background-color:transparent !important;
 position: absolute;
