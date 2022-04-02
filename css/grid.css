@@ -51,7 +51,7 @@ flex:none;
 .grid-fit > .grid-cell {
 flex:1;
 }
-g.rid-1-1 > .grid-cell {
+.grid-1-1 > .grid-cell {
 flex:0 0 100%;
 }
 .grid-1-2 > .grid-cell {
