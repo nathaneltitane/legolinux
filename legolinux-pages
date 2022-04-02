@@ -56,7 +56,7 @@ cat << 'MODELS-MENU-HEADER' -> "models/models-menu.html"
 		);
 		</script>
 
-		<section>
+		<!-- BEGIN MODELS MENU -->
 
 MODELS-MENU-HEADER
 
@@ -102,29 +102,32 @@ do
 
 cat << MODEL-CATEGORY ->> "models/models-menu.html"
 
-			<div class='container ${hidden}' id=${model_title/ /-/}>
-				<section id="model-title">
-					<div class='grid grid-gutters grid-full large-grid-fit'>
-						<div class='grid-cell'>
-							<div class="button title text-center" id="title">
-								${model_category_title} // ${model_title}
-							</div>
+		<!-- BEGIN CONTAINER -->
+
+		<div class='container ${hidden}' id=${model_title/ /-}>
+			<section id="model-title">
+				<div class='grid grid-gutters grid-full large-grid-fit'>
+					<div class='grid-cell'>
+						<div class="button title text-center" id="title">
+							${model_category_title} // ${model_title}
 						</div>
 					</div>
-				</section>
+				</div>
+			</section>
 
 MODEL-CATEGORY
 
 # generate model entry
 
 cat << MODEL ->> "models/models-menu.html"
-				<div class='grid-cell'>
-					<a class='load-model' href="models/${path[1]}/${path[2]}" target='_blank'>
-						<img src="/${path[0]}/${path[1]}/${path[2]}/${path[3]}/${path[4]}/${path[5]}" />
-					</a>
-				</div>
+			<div class='grid-cell'>
+				<a class='load-model' href="models/${path[1]}/${path[2]}" target='_blank'>
+					<img src="/${path[0]}/${path[1]}/${path[2]}/${path[3]}/${path[4]}/${path[5]}" />
+				</a>
 			</div>
+		</div>
 
+		<!-- END CONTAINER -->
 MODEL
 
 # index ////////////////////////////////////////////////////////////////////////
@@ -416,7 +419,7 @@ done
 # footer ///////////////////////////////////////////////////////////////////////
 
 cat << FOOTER ->> "models/models-menu.html"
-        </section>
+		<!-- END MODELS MENU -->
 
 		<section id="anchors">
 			<anchors>
