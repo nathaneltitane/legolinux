@@ -1,19 +1,14 @@
 img {
 background:none;
+display:flex;
+flex:1;
 height:auto;
-width:100%;
+width:35%;
+margin-left:auto;
+margin-right:auto;
 filter:blur(1px) grayscale(0.5);
 transition-duration:1s;
 }
 img:hover{
 filter:none;
-}
-@media only screen and (min-width: 800px) {
-img {
-display:block;
-height:auto;
-width:75vh;
-margin-left:auto;
-margin-right:auto;
-}
 }
