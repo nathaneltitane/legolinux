@@ -6,5 +6,5 @@ width:100%;
 display:block;
 }
 #model-canvas {
-height:calc(100vh - 92px - 100px - 50px);
+height:calc(100vh - 72px - 100px - 30px);
 }
