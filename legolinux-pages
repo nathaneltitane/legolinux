@@ -237,9 +237,9 @@ cat << INDEX -> "models/${path[1]}/${path[2]}/index.html"
 
 				// directional lights
 
-				var dirLight = new THREE.DirectionalLight( 0xffffff, 0.25 );
+				var dirLight = new THREE.DirectionalLight( 0xffffff, 0.125 );
 
-				dirLight.position.set( 0, 10, 0 );
+				dirLight.position.set( 0, 10, 10 );
 				dirLight.castShadow = true;
 				dirLight.shadow.mapSize.width = 512;
 				dirLight.shadow.mapSize.height = 512;
@@ -248,7 +248,7 @@ cat << INDEX -> "models/${path[1]}/${path[2]}/index.html"
 
 				// hemispherical lights
 
-				var hemiLight = new THREE.HemisphereLight( 0xffffff, 0xcccccc, 1 );
+				var hemiLight = new THREE.HemisphereLight( 0xffffff, 0xcccccc, 0.75 );
 				hemiLight.castShadow = true;
 
 				hemiLight.position.set( 0, 10, 0 );
@@ -256,20 +256,21 @@ cat << INDEX -> "models/${path[1]}/${path[2]}/index.html"
 
 				// point lights
 
-				var pointLight = new THREE.PointLight( 0xffffff, 0.1, 10, 2 );
+				var pointLight = new THREE.PointLight( 0xffffff, 0.125, 0, 2 );
+				pointLight,position.set(0, 10, 10);
 				pointLight.castShadow = true;
 				pointLight.shadow.mapSize.width = 512;
 				pointLight.shadow.mapSize.height = 512;
 				pointLight.shadow.camera.near = 512;
 				pointLight.shadow.camera.far = 512;
 
-				scene.add( camera );
+				// scene.add( ambientLight );
+				scene.add( dirLight );
+				scene.add( hemiLight );
+				// scene.add( pointLight );
 
-				scene.add( ambientLight );
-				// scene.add( dirLight );
-				// scene.add( hemiLight );
-
-				camera.add( pointLight );
+				// scene.add( camera );
+				// camera.add( pointLight );
 
 				// loader
 
@@ -289,6 +290,8 @@ cat << INDEX -> "models/${path[1]}/${path[2]}/index.html"
 
 							node.frustumCulled = true;
 
+							// console.log( model );
+
 						}
 
 					} );
@@ -300,7 +303,7 @@ cat << INDEX -> "models/${path[1]}/${path[2]}/index.html"
 						child.castShadow = true;
 						child.receiveShadow = true;
 
-						console.log(child);
+						// console.log( child );
 
 					} );
 
@@ -312,7 +315,6 @@ cat << INDEX -> "models/${path[1]}/${path[2]}/index.html"
 
 					// lights
 
-					// scene.add( new THREE.AmbientLightHelper( ambientLight, 0 , 0xaaaaaa ) );
 					// scene.add( new THREE.DirectionalLightHelper( dirLight, 0 , 0xaaaaaa ) );
 					// scene.add( new THREE.HemisphereLightHelper( hemiLight, 5 , 0xaaaaaa ) );
 					// scene.add( new THREE.PointLightHelper( pointLight, 0 , 0xaaaaaa ) );
@@ -327,7 +329,7 @@ cat << INDEX -> "models/${path[1]}/${path[2]}/index.html"
 
 					// orthogonal grid
 
-					const gridHelper = new THREE.GridHelper( 1, 16, 0xaaaaaa, 0xaaaaaa );
+					const gridHelper = new THREE.GridHelper( 0.5, 16, 0xaaaaaa, 0xaaaaaa );
 					gridHelper.position.y = 0;
 					gridHelper.position.x = 0;
 
@@ -335,7 +337,7 @@ cat << INDEX -> "models/${path[1]}/${path[2]}/index.html"
 
 					// polar grid
 
-					const polarGridHelper = new THREE.PolarGridHelper( 1, 64, 64, 64, 0xaaaaaa, 0xaaaaaa );
+					const polarGridHelper = new THREE.PolarGridHelper( 0.5, 32, 32, 32, 0xaaaaaa, 0xaaaaaa );
 					polarGridHelper.position.y = 0;
 					polarGridHelper.position.x = 0;
 
@@ -408,62 +410,6 @@ INDEX
 
 	done
 done
-
-#         <section>
-#
-# 		<!-- model static render views -->
-#
-# 			<div class='container' id='${model_string^^}'>
-#
-# 			<!-- static renders -->
-#
-# 			<section>
-# 				<div class="grid grid-gutters grid-full large-grid-fit">
-# 					<div class="grid-cell">
-# 						<div class="button title" id="title">
-# 							RENDERS // MODEL VIEWS
-# 						</div>
-# 					</div>
-# 				</div>
-# 			</section>
-#
-# 			<div class='grid grid-gutters grid-full display-grid-fit'>
-#
-# 				<!-- quarter front view -->
-#
-# 				<div class='grid-cell'>
-# 					<a href='./${path[3]}/${path[2]}-quarter-front.${extension}' target='_blank'>
-# 						<img src='./${path[3]}/${path[2]}-quarter-front.${extension}'/>
-# 					</a>
-# 				</div>
-#
-# 				<!-- front view -->
-#
-# 				<div class='grid-cell'>
-# 					<a href='./${path[3]}/${path[2]}-front.${extension}' target='_blank'>
-# 						<img src='./${path[3]}/${path[2]}-front.${extension}'/>
-# 					</a>
-# 				</div>
-#
-# 				<!-- quarter back view -->
-#
-# 				<div class='grid-cell'>
-# 					<a href='./${path[3]}/${path[2]}-quarter-back.${extension}' target='_blank'>
-# 						<img src='./${path[3]}/${path[2]}-quarter-back.${extension}'/>
-# 					</a>
-# 				</div>
-#
-# 				<!-- back view -->
-#
-# 				<div class='grid-cell'>
-# 					<a href='./${path[3]}/${path[2]}-back.${extension}' target='_blank'>
-# 						<img src='./${path[3]}/${path[2]}-back.${extension}'/>
-# 					</a>
-# 				</div>
-#
-# 			</div>
-#
-# 		</section>
 
 # footer ///////////////////////////////////////////////////////////////////////
 
