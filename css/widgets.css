@@ -15,11 +15,11 @@ float:left;
 height:32px;
 overflow:hidden;
 width:32px;
--webkit-transition:all 0.3s ease;
--moz-transition:all 0.3s ease;
--ms-transition:all 0.3s ease;
--o-transition:all 0.3s ease;
-transition:all 0.3s ease;
+-webkit-transition:all 00.5s ease;
+-moz-transition:all 00.5s ease;
+-ms-transition:all 00.5s ease;
+-o-transition:all 00.5s ease;
+transition:all 00.5s ease;
 }
 ul.adobewidget li.indesign {
 background-position:0px 0
@@ -179,11 +179,11 @@ float:left;
 height:32px;
 overflow:hidden;
 width:32px;
--webkit-transition:all 0.3s ease;
--moz-transition:all 0.3s ease;
--ms-transition:all 0.3s ease;
--o-transition:all 0.3s ease;
-transition:all 0.3s ease;
+-webkit-transition:all 00.5s ease;
+-moz-transition:all 00.5s ease;
+-ms-transition:all 00.5s ease;
+-o-transition:all 00.5s ease;
+transition:all 00.5s ease;
 }
 ul.cadwidget li.autocad {
 background-position:0px 0
@@ -229,11 +229,11 @@ float:left;
 height:32px;
 overflow:hidden;
 width:32px;
--webkit-transition:all 0.3s ease;
--moz-transition:all 0.3s ease;
--ms-transition:all 0.3s ease;
--o-transition:all 0.3s ease;
-transition:all 0.3s ease;
+-webkit-transition:all 00.5s ease;
+-moz-transition:all 00.5s ease;
+-ms-transition:all 00.5s ease;
+-o-transition:all 00.5s ease;
+transition:all 00.5s ease;
 }
 ul.codewidget li.shell {
 background-position:0px 0
@@ -273,11 +273,11 @@ float:left;
 height:32px;
 overflow:hidden;
 width:32px;
--webkit-transition:all 0.3s ease;
--moz-transition:all 0.3s ease;
--ms-transition:all 0.3s ease;
--o-transition:all 0.3s ease;
-transition:all 0.3s ease;
+-webkit-transition:all 00.5s ease;
+-moz-transition:all 00.5s ease;
+-ms-transition:all 00.5s ease;
+-o-transition:all 00.5s ease;
+transition:all 00.5s ease;
 }
 ul.oswidget li.linux {
 background-position:0px 0
