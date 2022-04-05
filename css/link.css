@@ -1,10 +1,3 @@
-#link {
-background:#cccccc;
-}
-#navigation a,
-#link a {
-display:block;
-}
 a {
 color:#666666;
 display:block;
@@ -17,11 +10,6 @@ outline:none;
 -o-transition:all 0.5s ease;
 transition:all 0.5s ease;
 }
-p a {
-color:#666666;
-font-weight:bold;
-display:inline-block;
-}
 a:active,
 a:focus,
 a:link,
@@ -33,72 +21,4 @@ a:hover {
 color:#cccccc;
 text-decoration:none;
 outline:none;
-}
-a.new:after {
-content:" [ New ] ";
-}
-.new:after {
-color:red;
--webkit-animation:pulsate 2s ease-out infinite;
--moz-animation:pulsate 2s ease-out infinite;
--ms-animation:pulsate 2s ease-out infinite;
--o-animation:pulsate 2s ease-out infinite;
-animation:pulsate 2s ease-out infinite;
-opacity:0.0
-}
-a.soon:after {
-content:" [ Coming Soon ] ";
-}
-.soon:after {
-color:cornflowerblue;
--webkit-animation:pulsate 2s ease-out infinite;
--moz-animation:pulsate 2s ease-out infinite;
--ms-animation:pulsate 2s ease-out infinite;
--o-animation:pulsate 2s ease-out infinite;
-animation:pulsate 2s ease-out infinite;
-opacity:0.0
-}
-a.update:after {
-content:" [ Update ] ";
-}
-.update:after {
-color:orange;
--webkit-animation:pulsate 2s ease-out infinite;
--moz-animation:pulsate 2s ease-out infinite;
--ms-animation:pulsate 2s ease-out infinite;
--o-animation:pulsate 2s ease-out infinite;
-animation:pulsate 2s ease-out infinite;
-opacity:0.0;
-}
-@media screen and (max-width:900px) {
-a.soon:after,
-a.new:after,
-a.update:after {
-content:" [ ! ] ";
-}
-}
-@-webkit-keyframes pulsate {
-0% {-webkit-transform:opacity:0.0;}
-50% {opacity:1.0;}
-100% {-webkit-transform:opacity:0.0;}
-}
-@-moz-keyframes pulsate {
-0% {-webkit-transform:opacity:0.0;}
-50% {opacity:1.0;}
-100% {-webkit-transform:opacity:0.0;}
-}
-@-ms-keyframes pulsate {
-0% {-webkit-transform:opacity:0.0;}
-50% {opacity:1.0;}
-100% {-webkit-transform:opacity:0.0;}
-}
-@-o-keyframes pulsate {
-0% {-webkit-transform:opacity:0.0;}
-50% {opacity:1.0;}
-100% {-webkit-transform:opacity:0.0;}
-}
-@-keyframes pulsate {
-0% {-webkit-transform:opacity:0.0;}
-50% {opacity:1.0;}
-100% {-webkit-transform:opacity:0.0;}
 }
