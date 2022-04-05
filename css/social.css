@@ -2,11 +2,11 @@
 background:#bbbbbb;
 }
 .social-list {
-display:-webkit-box;	/* OLD - iOS 6-, Safari 3.1-6 */
-display:-moz-box;		/* OLD - Firefox 19- BUGGY */
-display:-ms-flexbox;	/* TWEENER - IE 10 */
-display:-webkit-flex;	/* NEW - Chrome */
-display:flex;			/* NEW - Opera 12.1, Firefox 20+ */
+display:-webkit-box;
+display:-moz-box;
+display:-ms-flexbox;
+display:-webkit-flex;
+display:flex;
 justify-content:center;
 }
 .social-message {
@@ -55,26 +55,4 @@ background-image:url(/assets/social/github.svg);
 }
 .social-button.twitter {
 background-image:url(/assets/social/twitter.svg);
-}
-@media screen and (min-width:800px) {
-}
-@media screen and (max-width:800px) {
-}
-@media screen and (max-width:700px) {
-.social-message {
-font-weight:bold;
-line-height:24px;
-}
-.social-button {
-background-size:24px;
-height:24px;
-width:24px;
-}
-}
-@media screen and (max-width:600px) {
-}
-@media screen and (max-width:500px) {
-.social-message:after {
-content:"Like? Share the #lego love! <3"
-}
 }
