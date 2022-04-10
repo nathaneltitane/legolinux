@@ -104,6 +104,20 @@ cat << MODEL-CATEGORY ->> "models/models-menu.html"
 		<!-- BEGIN CONTAINER -->
 
 		<div class='container ${hidden}' id=${model_title/ /-}>
+
+			<div class='grid grid-gutters'>
+				<div class='grid-cell'>
+					<a class='load-model' href="models/${path[1]}/${path[2]}" target='_blank'>
+						<img src="/${path[0]}/${path[1]}/${path[2]}/${path[3]}/${path[4]}/${path[5]}" />
+					</a>
+				</div>
+			</div>
+
+MODEL-CATEGORY
+
+# generate model entry
+
+cat << MODEL ->> "models/models-menu.html"
 			<section id="model-title">
 				<div class='grid grid-gutters'>
 					<div class='grid-cell'>
@@ -114,18 +128,6 @@ cat << MODEL-CATEGORY ->> "models/models-menu.html"
 				</div>
 			</section>
 
-MODEL-CATEGORY
-
-# generate model entry
-
-cat << MODEL ->> "models/models-menu.html"
-			<div class='grid grid-gutters'>
-				<div class='grid-cell'>
-					<a class='load-model' href="models/${path[1]}/${path[2]}" target='_blank'>
-						<img src="/${path[0]}/${path[1]}/${path[2]}/${path[3]}/${path[4]}/${path[5]}" />
-					</a>
-				</div>
-			</div>
 		</div>
 
 		<!-- END CONTAINER -->
