@@ -204,7 +204,7 @@ cat << INDEX -> "models/${path[1]}/${path[2]}/index.html"
 
 				controls = new OrbitControls( camera, renderer.domElement );
 				controls.screenSpacePanning = true;
-				controls.enablePan = false;
+				controls.enablePan = true;
 				controls.target.set( 0, 0, 0 );
 				controls.minDistance = 0.1;
 				controls.maxDistance = 0.8;
