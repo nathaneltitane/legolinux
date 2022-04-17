@@ -203,6 +203,24 @@ cat << INDEX -> "models/${path[1]}/${path[2]}/index.html"
 				// controls
 
 				controls = new OrbitControls( camera, renderer.domElement );
+
+				controls = new OrbitControls( camera, renderer.domElement );
+
+				controls.keys = {
+					LEFT: 'ArrowLeft',
+					UP: 'ArrowUp',
+					RIGHT: 'ArrowRight',
+					BOTTOM: 'ArrowDown'
+				}
+
+				controls.mouseButtons = {
+					LEFT: THREE.MOUSE.ROTATE,
+					MIDDLE: THREE.MOUSE.PAN,
+					RIGHT: THREE.MOUSE.ROTATE
+
+					// RIGHT: THREE.MOUSE.DOLLY
+				}
+
 				controls.screenSpacePanning = true;
 				controls.enablePan = true;
 				controls.target.set( 0, 0, 0 );
