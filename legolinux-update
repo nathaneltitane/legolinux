@@ -170,6 +170,16 @@ list=()
 
 # update ///////////////////////////////////////////////////////////////////////
 
+frobulator.inf "Updating" "[ version ]"
+echo
+
+	sed															\
+	-i															\
+		-e "s|Version // .*|Version // $(date +"%m-%d-%Y")|g"	\
+																index.html
+
+exit
+
 if [[ "${option}" = "all" ]]
 then
 	scripts_list+=(
