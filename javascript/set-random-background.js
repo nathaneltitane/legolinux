@@ -1,7 +1,7 @@
 // set random background //
 
 $(document).ready(function() {
-var count = 129;
+var count = 132;
 
 function pad(str, max) {
 	str = str.toString();
