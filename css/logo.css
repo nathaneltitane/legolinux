@@ -1,15 +1,15 @@
-.logo {
-background-image:url(/assets/logo.svg);
+.logo-red {
+background-image:url(/icons/logo-red.svg);
 }
 .logo-black {
-background-image:url(/assets/logo-black.svg);
+background-image:url(/icons/logo-black.svg);
 }
 .logo-green {
-background-image:url(/assets/logo-green.svg);
+background-image:url(/icons/logo-green.svg);
 }
 .logo-grey {
-background-image:url(/assets/logo-grey.svg);
+background-image:url(/icons/logo-grey.svg);
 }
 .logo-yellow {
-background-image:url(/assets/logo-yellow.svg);
+background-image:url(/icons/logo-yellow.svg);
 }
