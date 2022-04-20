@@ -170,6 +170,8 @@ list=()
 
 # update ///////////////////////////////////////////////////////////////////////
 
+# version tag
+
 frobulator.inf "Updating" "[ version ]"
 echo
 
@@ -178,7 +180,7 @@ echo
 		-e "s|Version // .*|Version // $(date +"%m-%d-%Y")|g"	\
 																index.html
 
-exit
+# content
 
 if [[ "${option}" = "all" ]]
 then
