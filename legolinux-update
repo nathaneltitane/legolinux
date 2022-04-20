@@ -21,9 +21,82 @@ script=$(basename -- "${BASH_SOURCE[0]}")
 
 # version //////////////////////////////////////////////////////////////////////
 
-version="03-16-2022"
+version="04-17-2022"
 
-# usage ////////////////////////////////////////////////////////////////////////
+# usage ///////////////////////////////////////////////////////////////////////
+
+while (($#))
+do
+	case "${1}" in
+		-directory)
+			directory="${2}"
+
+			shift
+		;;
+
+		-a|--all)
+			option="all"
+		;;
+
+		-e|--export)
+			option="exports"
+		;;
+
+		-r|--render)
+			option="renders"
+		;;
+
+		-m|--models)
+			option="models"
+		;;
+
+		-p|--pages)
+			option="pages"
+		;;
+
+		-h|--help)
+			echo
+			echo -e "Usage: ./${script} [EXTENSION] | [OPTION] [PARAMETER]"
+			echo
+			echo -e "Utility options:"
+			echo
+			echo -e "-directory        Specify directory to load models from."
+			echo
+			echo -e "-all              Full website framework and content update."
+			echo -e "-exports          Models exports content update."
+			echo -e "-renders          Models renders content update."
+			echo -e "-models           Models pages content update."
+			echo -e "-pages            Web pages content update."
+			echo
+			echo -e "'${script}'       [ Version ${version} ]"
+			echo
+
+			exit
+		;;
+
+		"")
+			# handle empty argument:
+			# use default values specified in script
+
+			:
+		;;
+
+		*)
+			echo
+			echo -e "Usage: ./${script} [EXTENSION] | [OPTION] [PARAMETER]"
+			echo
+			echo -e "${script}: Unknown option '${1}'"
+			echo -e "Type './${script} --help' for help and usage information."
+			echo
+
+			exit 1
+
+		;;
+
+		esac
+
+		shift
+done
 
 # clear ////////////////////////////////////////////////////////////////////////
 
@@ -50,6 +123,13 @@ upload () {
 	git push > /dev/null 2>&1
 }
 
+run () {
+	for script in ${scripts_list[@]}
+	do
+		bash ./${script}
+	done
+}
+
 # requirements /////////////////////////////////////////////////////////////////
 
 list=(
@@ -59,31 +139,105 @@ list=(
 	rsync
 )
 
-frobulator.require ${list[@]}
+if [[ $(id -u -n) = "root" ]]
+then
+	frobulator.require ${list[@]}
+
+	frobulator.msg "${script} requirements installed."
+	echo
+
+	frobulator.inf "Run ${script} as 'user' to proceed."
+	echo
+
+	exit
+else
+	for requirement in ${list[@]}
+	do
+		if [[ -z $(command -v "${requirement}") ]]
+		then
+			frobulator.err "Missing" "[ '${requirement}' ]"
+			echo
+
+			frobulator.wrn "Start ${script} as 'root' to install requirements."
+			echo
+
+			exit 1
+		fi
+	done
+fi
 
 list=()
 
-# values
+# update ///////////////////////////////////////////////////////////////////////
 
-scripts_list=(
-	legolinux-renders
-	legolinux-models
-	legolinux-pages
-)
+if [[ "${option}" = "all" ]]
+then
+	scripts_list+=(
+		legolinux-exports
+		legolinux-renders
+		legolinux-models
+		legolinux-pages
+	)
 
-# execute
+	run
 
-for script in ${scripts_list[@]}
-do
-	bash ./${script}
-done
+	upload &
 
-# upload
+	frobulator.progress "Updating exports..."
+	echo
+fi
 
-upload &
+if [[ "${option}" = "exports" ]]
+then
+	scripts_list+=(
+		legolinux-exports
+	)
 
-frobulator.progress "Updating..."
-echo
+	run
+
+	upload &
+
+	frobulator.progress "Updating exports..."
+	echo
+fi
+
+if [[ "${option}" = "renders" ]]
+then
+	scripts_list+=(
+		legolinux-renders
+	)
+
+	run
+
+	upload &
+
+f	robulator.progress "Updating renders..."
+	echo
+fi
+
+if [[ "${option}" = "models" ]]
+then
+	scripts_list+=(
+		legolinux-models
+		legolinux-pages
+	)
+
+	run
+
+	upload &
+
+	frobulator.progress "Updating models..."
+	echo
+fi
+
+if [[ "${option}" = "pages" ]]
+then
+	upload &
+
+	frobulator.progress "Updating pages..."
+	echo
+fi
+
 
 frobulator.scs "Update" "[ Done ]"
 echo

@@ -21,7 +21,7 @@ script=$(basename -- "${BASH_SOURCE[0]}")
 
 # version //////////////////////////////////////////////////////////////////////
 
-version="03-16-2022"
+version="04-17-2022"
 
 # usage ////////////////////////////////////////////////////////////////////////
 
@@ -34,6 +34,8 @@ echo
 
 local_models_directory=/media/internal/Lego/models
 server_models_directory="${PWD}"/models
+server_backgrounds_directory="${PWD}"/background
+server_javascript_directory=="${PWD}"/javascript
 
 # defaults /////////////////////////////////////////////////////////////////////
 
@@ -49,31 +51,17 @@ write_title () {
 
 # prepare update
 
-# set shell options
+directories_list=(
+	"${server_backgrounds_directory}"
+	"${server_models_directory}"
+)
 
-shopt -s extglob
+for directory in ${directories_list[@]}
+do
+	rm -rf "${directory}" ]
 
-if [ -d "${server_models_directory}" ]
-then
-	cd "${server_models_directory}"
-
-	rm -rf !(*.html|*.sh)
-else
-	mkdir -p "${server_models_directory}"
-fi
-
-# unset shell options
-
-shopt -u extglob
-
-if [ -d "../background" ]
-then
-	rm -rf "../background"
-	mkdir -p "../background"
-
-else
-	mkdir -p "../background"
-fi
+	mkdir -p "${directory}"
+done
 
 # pull /////////////////////////////////////////////////////////////////////////
 
@@ -149,7 +137,7 @@ do
 			--archive			\
 			--quiet				\
 			--recursive			\
-								"${background}" "../background/background-${count}.png"
+								"${background}" "${server_backgrounds_directory}/background-${count}.png"
 
 	    ((count++))
 	done
@@ -162,7 +150,7 @@ do
 	do
 		pad_count=$(printf "%03d.png" "${count}")
 
-		mv -i -- "${background}" ../background/background-"${pad_count}"
+		mv -i -- "${background}" "${server_backgrounds_directory}"/background-"${pad_count}"
 
 		let count=count+1
 	done
@@ -176,7 +164,7 @@ do
 	sed												\
 		-i												\
 		-e "s/var count = .*/var count = ${count};/g"	\
-														../javascript/set-random-background.js
+														"${server_javascript_directory}"/set-random-background.js
 done
 
 frobulator.scs "Models" "[ Done ]"
