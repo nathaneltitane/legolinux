@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+
+		<!-- css -->
+
+		<link rel="stylesheet" href="/css/style.css" type="text/css" />
+
+		<!-- libraries -->
+
+		<script src="/javascript/jquery-3.4.1.min.js" type="text/javascript"></script>
+
+		<!-- scripts -->
+
+		<script src="/javascript/load-modules.js" type="text/javascript"></script>
+
+	</head>
+
+	<body>
+
+		<!-- model interactive render container -->
+
+		<canvas class="cursor-cell" id="model-canvas"></canvas>
+
+		<!-- model interactive render -->
+
+		<script type="module">
+
+			import * as THREE from '/build/three.module.js';
+
+			import { ColladaLoader } from '/jsm/loaders/ColladaLoader.js';
+
+			import { OrbitControls } from '/jsm/controls/OrbitControls.js';
+
+			function init() {
+
+				// canvas
+
+				var canvas = document.querySelector('#model-canvas');
+
+				// renderer
+
+				var renderer = new THREE.WebGLRenderer( { canvas, antialias: true, alpha: true } );
+
+				renderer.setClearColor( 0x000000, 0 );
+				renderer.setPixelRatio( window.devicePixelRatio );
+				renderer.shadowMap.enabled = true;
+				renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+				// camera
+
+				var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 5000);
+
+				camera.position.set( 45, 30, 45 );
+				camera.lookAt( 0, 0, 0 );
+
+				// scene
+
+				var scene = new THREE.Scene();
+
+				// controls
+
+				var controls = new OrbitControls( camera, renderer.domElement );
+
+				controls = new OrbitControls( camera, renderer.domElement );
+
+				controls.keys = {
+					LEFT: 'ArrowLeft',
+					UP: 'ArrowUp',
+					RIGHT: 'ArrowRight',
+					BOTTOM: 'ArrowDown'
+				}
+
+				controls.mouseButtons = {
+					LEFT: THREE.MOUSE.ROTATE,
+					MIDDLE: THREE.MOUSE.PAN,
+					RIGHT: THREE.MOUSE.ROTATE
+
+					// RIGHT: THREE.MOUSE.DOLLY
+				}
+
+				controls.screenSpacePanning = true;
+				controls.enablePan = true;
+				controls.target.set( 0, 0, 0 );
+				controls.minDistance = 0.1;
+				controls.maxDistance = 0.8;
+
+				controls.update();
+
+				// lights
+
+				var ambientLight = new THREE.AmbientLight( 0xffffff, 1 );
+
+				// scene.add( ambientLight );
+
+				// directional lights
+
+				var dirLight = new THREE.DirectionalLight( 0xffffff, 0.125 );
+
+				dirLight.position.set( 0, 10, 10 );
+				dirLight.castShadow = true;
+				dirLight.shadow.mapSize.width = 512;
+				dirLight.shadow.mapSize.height = 512;
+				dirLight.shadow.camera.near = 512;
+				dirLight.shadow.camera.far = 512;
+
+				scene.add( dirLight );
+
+				// hemispherical lights
+
+				var hemiLight = new THREE.HemisphereLight( 0xffffff, 0xcccccc, 0.75 );
+
+				hemiLight.position.set( 0, 10, 0 );
+				hemiLight.castShadow = true;
+
+				scene.add( hemiLight );
+
+				// point lights
+
+				var pointLight = new THREE.PointLight( 0xffffff, 0.125, 0, 2 );
+
+				pointLight.position.set(0, 10, 10);
+				pointLight.castShadow = true;
+				pointLight.shadow.mapSize.width = 512;
+				pointLight.shadow.mapSize.height = 512;
+				pointLight.shadow.camera.near = 512;
+				pointLight.shadow.camera.far = 512;
+
+				// scene.add( pointLight );
+
+				// loader
+
+				var loader = new ColladaLoader();
+
+				loader.load( '/models/titans/kx-7737-rover-kumo/exports/kx-7737-rover-kumo.dae', function ( collada ) {
+
+					var collada = collada.scene;
+
+					// load model
+
+					scene.add( collada );
+
+					// helpers
+
+					// lights
+
+					// scene.add( new THREE.DirectionalLightHelper( dirLight, 0 , 0xaaaaaa ) );
+					// scene.add( new THREE.HemisphereLightHelper( hemiLight, 5 , 0xaaaaaa ) );
+					// scene.add( new THREE.PointLightHelper( pointLight, 0 , 0xaaaaaa ) );
+
+					// bounding box
+
+					var boundingboxHelper = new THREE.BoxHelper( model, 0xaaaaaa );
+
+					// scene.add( boundingboxHelper );
+
+					// grids
+
+					// orthogonal grid
+
+					const orthogonalGrid = new THREE.GridHelper( 0.5, 16, 0xaaaaaa, 0xaaaaaa );
+
+					orthogonalGrid.position.y = 0;
+					orthogonalGrid.position.x = 0;
+
+					// scene.add( orthogonalGrid );
+
+					// polar grid
+
+					const polarGridHelper = new THREE.PolarGridHelper( 0.5, 32, 32, 32, 0xaaaaaa, 0xaaaaaa );
+
+					polarGridHelper.position.y = 0;
+					polarGridHelper.position.x = 0;
+
+					// scene.add( polarGridHelper );
+
+
+				} );
+
+				// resize
+
+				function resize () {
+
+					const canvas = renderer.domElement;
+
+					const width = canvas.clientWidth;
+					const height = canvas.clientWidth;
+
+					const resizeNeeded = canvas.width !== width || canvas.height !== height;
+
+					if ( resizeNeeded ) {
+
+						renderer.setSize ( width, height, false );
+					}
+
+					return resizeNeeded;
+				}
+
+				function render() {
+
+					if ( resize ( renderer ) ) {
+
+						const canvas = renderer.domElement;
+						camera.aspect = canvas.clientWidth / canvas.clientHeight;
+						camera.updateProjectionMatrix();
+
+					}
+
+					renderer.render( scene, camera );
+					requestAnimationFrame( render );
+				}
+
+				requestAnimationFrame( render );
+
+			}
+
+			init();
+
+		</script>
+
+		<section id="model-title">
+
+			<!-- model title -->
+
+			<div class="grid grid-gutters grid-1-1">
+				<div class="grid-cell">
+					<div class="button title text-center" id="title">
+						TITANS // KX 7737 ROVER KUMO
+					</div>
+				</div>
+			</div>
+
+		</section>
+
+		<section id="footer">
+			<footer>
+
+			</footer>
+		</section>
+
+	</body>
+</html>
+
+
