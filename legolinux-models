@@ -157,7 +157,6 @@ do
 
 	# update random background generator with new file count
 
-
 	frobulator.inf "Updating" "[ background randomizer ]"
 	echo
 
