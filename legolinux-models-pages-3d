@@ -36,7 +36,6 @@ echo
 
 # functions ////////////////////////////////////////////////////////////////////
 
-
 frobulator.inf "Generating model entries"
 echo
 
@@ -68,21 +67,17 @@ do
 		# "${path[4]}" /outine
 		# "${path[5]}" /flat
 
-		model_category_title=$(cat ${path[0]}/${path[1]}/title)
+		model_category=$(cat ${path[0]}/${path[1]}/title)
+
 		model_title=$(cat ${path[0]}/${path[1]}/${path[2]}/title)
+
+		model_instructions=${path[0]}/${path[1]}/${path[2]}/instructions
 
 		# generate model type directory title header
 
-		if [ "${count}" -eq 1 ]
-		then
-			hidden=""
-		else
-			hidden="hidden"
-		fi
-
 # generate 3d model page
 
-cat << 3D-MODEL-PAGE -> "models/${path[1]}/${path[2]}/index.html"
+cat << 3D-MODEL-PAGE-HEADER -> "models/${path[1]}/${path[2]}/index.html"
 <!DOCTYPE html>
 
 <html>
@@ -102,6 +97,9 @@ cat << 3D-MODEL-PAGE -> "models/${path[1]}/${path[2]}/index.html"
 
 	</head>
 
+3D-MODEL-PAGE-HEADER
+
+cat << 3D-MODEL-PAGE-VIEWER ->> "models/${path[1]}/${path[2]}/index.html"
 	<body>
 
 		<!-- model interactive render container -->
@@ -109,6 +107,8 @@ cat << 3D-MODEL-PAGE -> "models/${path[1]}/${path[2]}/index.html"
 		<canvas class="cursor-cell" id="model-canvas"></canvas>
 
 		<!-- model interactive render -->
+
+		<!-- BEGIN 3D VIEWER -->
 
 		<script type="module">
 
@@ -304,6 +304,49 @@ cat << 3D-MODEL-PAGE -> "models/${path[1]}/${path[2]}/index.html"
 
 		</script>
 
+		<!-- END 3D VIEWER -->
+
+3D-MODEL-PAGE-VIEWER
+
+
+if [ -f "${model_instructions}" ]
+then
+cat << 3D-MODEL-PAGE-INSTRUCTIONS ->> "models/${path[1]}/${path[2]}/index.html"
+		<section id="model-title">
+
+			<!-- model title -->
+
+			<div class="grid grid-gutters grid-1-2">
+
+				<div class="grid-cell">
+
+					<div class="button title text-center" id="title">
+
+						${model_category} // ${model_title}
+
+					</div>
+
+				</div>
+
+				<div class="grid-cell">
+
+					<div class="button title text-center" id="title">
+
+						INSTRUCTIONS
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</section>
+
+3D-MODEL-PAGE-INSTRUCTIONS
+
+else
+
+cat << 3D-MODEL-PAGE-TITLE ->> "models/${path[1]}/${path[2]}/index.html"
 		<section id="model-title">
 
 			<!-- model title -->
@@ -314,7 +357,7 @@ cat << 3D-MODEL-PAGE -> "models/${path[1]}/${path[2]}/index.html"
 
 					<div class="button title text-center" id="title">
 
-						3D // ${model_category_title} // ${model_title}
+						${model_category} // ${model_title}
 
 					</div>
 
@@ -323,7 +366,10 @@ cat << 3D-MODEL-PAGE -> "models/${path[1]}/${path[2]}/index.html"
 			</div>
 
 		</section>
+3D-MODEL-PAGE-TITLE
 
+fi
+cat << 3D-MODEL-PAGE-FOOTER ->> "models/${path[1]}/${path[2]}/index.html"
 		<section id="footer">
 
 			<footer>
@@ -336,12 +382,15 @@ cat << 3D-MODEL-PAGE -> "models/${path[1]}/${path[2]}/index.html"
 
 </html>
 
-3D-MODEL-PAGE
+3D-MODEL-PAGE-FOOTER
 
 	((count++))
 
 	done
 done
+
+frobulator.inf "Generated files" "[ ${count} ]"
+echo
 
 frobulator.scs "Pages" "[ Done ]"
 echo
