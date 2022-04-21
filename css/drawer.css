@@ -43,6 +43,10 @@ top:0;
 .drawer-content {
 height:calc(100vh - 100px - 120px);
 overflow:overlay;
+position:absolute;
+top:50px;
+right:0;
+width:256px;
 }
 .drawer a {
 margin:0;
