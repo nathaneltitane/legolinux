@@ -117,7 +117,7 @@ done
 
 # generate footer
 
-cat << MODEL-DRAWER-FOOTER ->> "models/models-menu.html"
+cat << MODEL-DRAWER-FOOTER ->> "modules/drawer.html"
 		</div>
 
 	</div>
