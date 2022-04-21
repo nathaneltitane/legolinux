@@ -21,11 +21,7 @@ $(document).ready(function() {
 
 		var link = $(this).data('link');
 
-		$('#load-content').fadeOut('slow');
-
 		get_page_data(link);
-
-		$('#load-content').fadeIn('slow');
 
 		$('#load').addClass('load-open');
 
