@@ -96,12 +96,15 @@ do
 cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
 				<!-- BEGIN ENTRY -->
 
-				<div class="grid-cell ">
+				<div class="grid-cell">
 
-					<a class="button title text-right cursor-pointer" href="models/${path[1]}/${path[2]}/" target="_blank">${model_category} // ${model_title}</a>
+					<div class="button title text-right cursor-pointer">
+
+						<a href="models/${path[1]}/${path[2]}/" target="_blank">${model_category} // ${model_title}</a>
+
+					</div>
 
 				</div>
-
 
 				<!-- END ENTRY -->
 

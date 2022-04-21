@@ -20,7 +20,7 @@ animation-fill-mode:forwards;
 100% {left:calc(60vw);}
 }
 .drawer {
-background-color:#cccccc;
+background-color:#dddddd;
 width:60vw;
 height:calc(100vh - 100px);
 padding:0;
@@ -37,6 +37,7 @@ top:0;
 }
 .drawer-container {
 height:calc(100vh - 100px - 100px);
+margin:0px 10px 0px 10px;
 overflow:overlay;
 }
 .drawer a {
