@@ -170,16 +170,6 @@ list=()
 
 # update ///////////////////////////////////////////////////////////////////////
 
-# version tag
-
-frobulator.inf "Updating" "[ version ]"
-echo
-
-	sed															\
-	-i															\
-		-e "s|Version // .*|Version // $(date +"%m-%d-%Y")|g"	\
-																index.html
-
 # content
 
 if [[ "${option}" = "all" ]]
@@ -187,8 +177,9 @@ then
 	scripts_list+=(
 		legolinux-exports
 		legolinux-renders
-		legolinux-models
-		legolinux-pages
+		legolinux-models-copy
+		legolinux-models-menu
+		legolinux-models-pages-3d
 	)
 
 	run
@@ -230,8 +221,8 @@ fi
 if [[ "${option}" = "models" ]]
 then
 	scripts_list+=(
-		legolinux-models
-		legolinux-pages
+		legolinux-models-copy
+		legolinux-models-pages-3d
 	)
 
 	run

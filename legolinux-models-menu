@@ -1,0 +1,171 @@
+#!/bin/bash
+
+# dependencies /////////////////////////////////////////////////////////////////
+
+if [[ -z $(command -v frobulator) ]]
+then
+	curl -s -L get.frbltr.app > /usr/bin/frobulator
+fi
+
+. /usr/bin/frobulator
+
+if [[ $(id -u -n) = "root" ]]
+then
+	USER="${SUDO_USER}"
+	HOME=/home/"${USER}"
+fi
+
+# script ///////////////////////////////////////////////////////////////////////
+
+script=$(basename -- "${BASH_SOURCE[0]}")
+
+# version //////////////////////////////////////////////////////////////////////
+
+version="04-17-2022"
+
+# usage ////////////////////////////////////////////////////////////////////////
+
+# prompt ///////////////////////////////////////////////////////////////////////
+
+frobulator.script "Setting up ${script#*-}"
+echo
+
+# variables ////////////////////////////////////////////////////////////////////
+
+# defaults /////////////////////////////////////////////////////////////////////
+
+# functions ////////////////////////////////////////////////////////////////////
+
+
+frobulator.inf "Generating model entries"
+echo
+
+frobulator.fwd "Writing..."
+echo
+
+# generate header
+
+cat << 'MODELS-MENU-HEADER' -> "models/models-menu.html"
+
+		<script>
+		$(function(){
+			$.get("/modules/anchors.html", function (data) {$("anchors").append(data);});
+			}
+		);
+		</script>
+
+		<!-- BEGIN MODELS MENU -->
+
+MODELS-MENU-HEADER
+
+# values
+
+extensions_list=(
+	png
+)
+
+for extension in ${extensions_list[@]}
+do
+	count=1
+
+	# shuffle models directories list:
+	# creates random showcase of all models on each update
+
+	for models_directory in $(find models/ -type f -iname flat."${extension}" | shuf)
+	do
+		IFS='/' read -r -a path <<< $(echo "$models_directory")
+
+		# /models/model-type/model/renders/flat/flat.${extension}
+
+		# "${path[0]}" /models
+		# "${path[1]}" /model-category
+		# "${path[2]}" /model
+		# "${path[3]}" /renders
+		# "${path[4]}" /outine
+		# "${path[5]}" /flat
+
+		model_category_title=$(cat ${path[0]}/${path[1]}/title)
+		model_title=$(cat ${path[0]}/${path[1]}/${path[2]}/title)
+
+		# generate model type directory title header
+
+		if [ "${count}" -eq 1 ]
+		then
+			hidden=""
+		else
+			hidden="hidden"
+		fi
+
+# generate model container
+
+cat << MODEL-CONTAINER ->> "models/models-menu.html"
+
+		<!-- BEGIN CONTAINER -->
+
+		<div class='container ${hidden}' id=${model_title/ /-}>
+
+			<div class='grid grid-gutters'>
+
+				<div class='grid-cell'>
+
+					<a class='load-model' href="models/${path[1]}/${path[2]}" target='_blank'>
+
+						<img src="/${path[0]}/${path[1]}/${path[2]}/${path[3]}/${path[4]}/${path[5]}" />
+
+					</a>
+
+				</div>
+
+			</div>
+
+MODEL-CONTAINER
+
+# generate model title
+
+cat << MODEL-TITLE ->> "models/models-menu.html"
+			<section id="model-title">
+
+				<div class='grid grid-gutters'>
+
+					<div class='grid-cell'>
+
+						<div class="button title text-center" id="title">
+
+							3D // ${model_category_title} // ${model_title}
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</section>
+
+		</div>
+
+		<!-- END CONTAINER -->
+
+MODEL-TITLE
+
+	((count++))
+
+	done
+done
+
+# generate footer
+
+cat << FOOTER ->> "models/models-menu.html"
+		<!-- END MODELS MENU -->
+
+		<section id="anchors">
+
+			<anchors>
+
+			</anchors>
+
+		</section>
+
+FOOTER
+
+frobulator.scs "Pages" "[ Done ]"
+echo

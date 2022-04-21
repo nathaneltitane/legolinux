@@ -1,0 +1,170 @@
+#!/bin/bash
+
+# dependencies /////////////////////////////////////////////////////////////////
+
+if [[ -z $(command -v frobulator) ]]
+then
+	curl -s -L get.frbltr.app > /usr/bin/frobulator
+fi
+
+. /usr/bin/frobulator
+
+if [[ $(id -u -n) = "root" ]]
+then
+	USER="${SUDO_USER}"
+	HOME=/home/"${USER}"
+fi
+
+# script ///////////////////////////////////////////////////////////////////////
+
+script=$(basename -- "${BASH_SOURCE[0]}")
+
+# version //////////////////////////////////////////////////////////////////////
+
+version="04-17-2022"
+
+# usage ////////////////////////////////////////////////////////////////////////
+
+# prompt ///////////////////////////////////////////////////////////////////////
+
+frobulator.script "Setting up ${script#*-}"
+echo
+
+# variables ////////////////////////////////////////////////////////////////////
+
+local_models_directory=/media/internal/Lego/models
+server_models_directory="${PWD}"/models
+server_backgrounds_directory="${PWD}"/background
+server_javascript_directory="${PWD}"/javascript
+
+# defaults /////////////////////////////////////////////////////////////////////
+
+# functions ////////////////////////////////////////////////////////////////////
+
+write_title () {
+	directory="${1}"
+
+	title="$(basename ${directory})"
+
+	echo "${title^^}" | sed 's/-/ /g' > title
+}
+
+# prepare update
+
+directories_list=(
+	"${server_backgrounds_directory}"
+	"${server_models_directory}"
+)
+
+for directory in ${directories_list[@]}
+do
+	rm -rf "${directory}" ]
+
+	mkdir -p "${directory}"
+done
+
+# pull /////////////////////////////////////////////////////////////////////////
+
+rsync					\
+	--archive			\
+	--quiet				\
+	--recursive			\
+	--exclude='*.ldr'	\
+	--exclude='*.mpd'	\
+						"${local_models_directory}"/* "${server_models_directory}"
+
+# index ////////////////////////////////////////////////////////////////////////
+
+frobulator.inf "Generating" "[ title ]"
+echo
+
+cd "${server_models_directory}"
+
+for directory in $(find "${server_models_directory}" -maxdepth 0 -type d)
+do
+	directory_name=$(basename "${directory}")
+
+	frobulator.inf "Writing" " [ ${directory_name} ]"
+	echo
+
+	cd "${directory}"
+
+	# create model category title file
+
+	write_title "${directory}"
+
+	for subdirectory in $(find ${server_models_directory}/* -maxdepth 1 -type d)
+	do
+		subdirectory_name=$(basename "${subdirectory}")
+
+		frobulator.inf "Writing" "[ ${subdirectory_name} ]"
+		echo
+
+		cd "${subdirectory}"
+
+		# create model title file
+
+		write_title "${subdirectory}"
+	done
+
+	# return to server directory top level
+
+	cd "${server_models_directory}"
+done
+
+# background ///////////////////////////////////////////////////////////////////
+
+# values
+
+extensions_list=(
+	png
+)
+
+# background images transfer
+
+frobulator.fwd "Copying..."
+echo
+
+for extension in ${extensions_list[@]}
+do
+	# copy flat renders into background directory
+
+	count=0
+
+	for background in $(echo $(find ${local_models_directory} -type f -iname flat."${extension}"))
+	do
+	    rsync					\
+			--archive			\
+			--quiet				\
+			--recursive			\
+								"${background}" "${server_backgrounds_directory}/background-${count}.png"
+
+	    ((count++))
+	done
+
+	# pad filenames evenly
+
+	count=1
+
+	for background in ../background/*.png
+	do
+		pad_count=$(printf "%03d.png" "${count}")
+
+		mv -i -- "${background}" "${server_backgrounds_directory}"/background-"${pad_count}"
+
+		let count=count+1
+	done
+
+	# update random background generator with new file count
+
+	frobulator.inf "Updating" "[ background ]"
+	echo
+
+	sed												\
+		-i												\
+		-e "s/var count = .*/var count = ${count};/g"	\
+														"${server_javascript_directory}"/set-background.js
+done
+
+frobulator.scs "Models" "[ Done ]"
+echo
