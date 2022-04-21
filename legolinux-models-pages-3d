@@ -311,6 +311,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "models/${path[1]}/${path[2]}/index.html"
 
 if [ -f "${model_instructions}" ]
 then
+
 cat << 3D-MODEL-PAGE-INSTRUCTIONS ->> "models/${path[1]}/${path[2]}/index.html"
 		<section id="model-title">
 
@@ -369,6 +370,7 @@ cat << 3D-MODEL-PAGE-TITLE ->> "models/${path[1]}/${path[2]}/index.html"
 3D-MODEL-PAGE-TITLE
 
 fi
+
 cat << 3D-MODEL-PAGE-FOOTER ->> "models/${path[1]}/${path[2]}/index.html"
 		<section id="footer">
 
