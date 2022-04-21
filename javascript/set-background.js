@@ -14,7 +14,7 @@ $(document).ready(function() {
 
 	// randomize images
 
-	$('.background').css(
+	$('#background').css(
 
 		'background-image',
 

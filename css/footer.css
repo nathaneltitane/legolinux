@@ -1,10 +1,7 @@
-footer{
-padding: 10px 0px 10px 0px;
-}
 #footer {
+padding: 10px 0px 10px 0px;
 background:#aaaaaa;
 display:flow-root;
 bottom:0;
-height:100px;
 width:100vw;
 }

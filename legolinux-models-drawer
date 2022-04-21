@@ -50,13 +50,11 @@ cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
 
 <div class="drawer">
 
-	<div class="drawer-button cursor-cell"></div>
+	<div class="drawer-button cursor-cell logo-grey"></div>
 
 	<div class="drawer-container">
 
-		<copyright>
-
-		</copyright>
+	<div id="copyright"></div>
 
 		<div class="grid grid-column grid-stretch">
 

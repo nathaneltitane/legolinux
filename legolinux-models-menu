@@ -48,7 +48,7 @@ cat << 'MODELS-MENU-HEADER' -> "models/models-menu.html"
 
 		<script>
 		$(function(){
-			$.get("/modules/anchors.html", function (data) {$("anchors").append(data);});
+			$.get("/modules/anchors.html", function (data) {$("#anchors").append(data);});
 			}
 		);
 		</script>
@@ -156,10 +156,6 @@ cat << FOOTER ->> "models/models-menu.html"
 		<!-- END MODELS MENU -->
 
 		<section id="anchors">
-
-			<anchors>
-
-			</anchors>
 
 		</section>
 

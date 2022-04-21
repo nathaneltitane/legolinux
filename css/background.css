@@ -1,4 +1,4 @@
-.background {
+#background {
 width:100vw;
 height:100vh;
 background-repeat:no-repeat;
@@ -13,7 +13,7 @@ animation-fill-mode:forwards;
 }
 @keyframes background-reveal {
 0% {opacity:0;}
-100% {opacity:1.0;}
 0% {height:calc(100vh - 0px);}
-100% {height:calc(100vh - 100px - 100px);}
+100% {opacity:1.0;}
+100% {height:calc(100vh - 60px - 60px);}
 }

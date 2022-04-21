@@ -3,12 +3,12 @@ background-repeat: no-repeat;
 display:block;
 margin-left: auto;
 margin-right: auto;
-padding:0px;
+padding:0px 0px 0px 0px;
 }
 .icon-flex {
-background-size:calc(100px - 10px - 10px - 10px - 10px);
-height:calc(100px - 10px - 10px - 10px - 10px);
-width:calc(100px - 10px - 10px - 10px - 10px);
+background-size:calc(60px - 10px - 10px);
+height:calc(60px - 10px - 10px);
+width:calc(60px - 10px - 10px);
 }
 .icon-12 {
 background-size:12px;
