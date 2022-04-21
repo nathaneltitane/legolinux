@@ -21,7 +21,7 @@ script=$(basename -- "${BASH_SOURCE[0]}")
 
 # version //////////////////////////////////////////////////////////////////////
 
-version="04-17-2022"
+version="04-21-2022"
 
 # usage ////////////////////////////////////////////////////////////////////////
 
@@ -35,7 +35,6 @@ echo
 # defaults /////////////////////////////////////////////////////////////////////
 
 # functions ////////////////////////////////////////////////////////////////////
-
 
 frobulator.inf "Generating model entries"
 echo
@@ -64,6 +63,7 @@ cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
 	</div>
 
 	<div class="drawer-content">
+
 MODEL-DRAWER-HEADER
 
 # values
@@ -98,8 +98,7 @@ do
 # generate model drawer entries
 
 cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
-
-		<!-- test -->
+		<!-- BEGIN ENTRY -->
 
 		<ul class="text-right">
 
@@ -111,6 +110,8 @@ cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
 
 		</ul>
 
+		<!-- END ENTRY -->
+
 MODEL-DRAWER-CONTENT
 
 	((count++))
@@ -120,12 +121,12 @@ done
 
 # generate footer
 
-cat << FOOTER ->> "models/models-menu.html"
+cat << MODEL-DRAWER-FOOTER ->> "models/models-menu.html"
 	</div>
 
 </div>
 
-FOOTER
+MODEL-DRAWER-FOOTER
 
 frobulator.inf "Parsed model entries" "[ ${count} ]"
 echo

@@ -21,7 +21,7 @@ script=$(basename -- "${BASH_SOURCE[0]}")
 
 # version //////////////////////////////////////////////////////////////////////
 
-version="04-17-2022"
+version="04-21-2022"
 
 # usage ////////////////////////////////////////////////////////////////////////
 
@@ -73,8 +73,6 @@ do
 
 		model_instructions=${path[0]}/${path[1]}/${path[2]}/instructions
 
-		# generate model type directory title header
-
 # generate 3d model page
 
 cat << 3D-MODEL-PAGE-HEADER -> "models/${path[1]}/${path[2]}/index.html"
@@ -102,11 +100,9 @@ cat << 3D-MODEL-PAGE-HEADER -> "models/${path[1]}/${path[2]}/index.html"
 cat << 3D-MODEL-PAGE-VIEWER ->> "models/${path[1]}/${path[2]}/index.html"
 	<body>
 
-		<!-- model interactive render container -->
+		<!-- interactive render container -->
 
 		<canvas class="cursor-cell" id="model-canvas"></canvas>
-
-		<!-- model interactive render -->
 
 		<!-- BEGIN 3D VIEWER -->
 
@@ -367,6 +363,7 @@ cat << 3D-MODEL-PAGE-TITLE ->> "models/${path[1]}/${path[2]}/index.html"
 			</div>
 
 		</section>
+
 3D-MODEL-PAGE-TITLE
 
 fi
@@ -391,7 +388,7 @@ cat << 3D-MODEL-PAGE-FOOTER ->> "models/${path[1]}/${path[2]}/index.html"
 	done
 done
 
-frobulator.inf "Generated files" "[ ${count} ]"
+frobulator.inf "Parsed model entries" "[ ${count} ]"
 echo
 
 frobulator.scs "3D model pages" "[ Done ]"

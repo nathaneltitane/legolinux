@@ -21,7 +21,7 @@ script=$(basename -- "${BASH_SOURCE[0]}")
 
 # version //////////////////////////////////////////////////////////////////////
 
-version="04-17-2022"
+version="04-21-2022"
 
 # usage ////////////////////////////////////////////////////////////////////////
 
@@ -120,7 +120,7 @@ extensions_list=(
 	png
 )
 
-# background images transfer
+# copy images
 
 frobulator.fwd "Copying..."
 echo
@@ -166,5 +166,8 @@ do
 														"${server_javascript_directory}"/set-background.js
 done
 
-frobulator.scs "Models" "[ Done ]"
+frobulator.inf "Parsed model entries" "[ ${count} ]"
+echo
+
+frobulator.scs "Copy" "[ Done ]"
 echo
