@@ -102,7 +102,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "models/${path[1]}/${path[2]}/index.html"
 
 		<!-- interactive render container -->
 
-		<canvas class="cursor-cell" id="model-canvas"></canvas>
+		<canvas class="cursor-move" id="model-canvas"></canvas>
 
 		<!-- BEGIN 3D VIEWER -->
 
@@ -313,23 +313,13 @@ cat << 3D-MODEL-PAGE-INSTRUCTIONS ->> "models/${path[1]}/${path[2]}/index.html"
 
 			<!-- model title -->
 
-			<div class="grid grid-column grid-stretch">
+			<div class="grid">
 
 				<div class="grid-cell">
 
 					<div class="button title text-center" id="title">
 
-						${model_category} // ${model_title}
-
-					</div>
-
-				</div>
-
-				<div class="grid-cell">
-
-					<div class="button title text-center" id="title">
-
-						INSTRUCTIONS
+						INSTRUCTIONS // ${model_category} // ${model_title}
 
 					</div>
 
@@ -370,10 +360,6 @@ fi
 
 cat << 3D-MODEL-PAGE-FOOTER ->> "models/${path[1]}/${path[2]}/index.html"
 		<section id="footer">
-
-			<footer>
-
-			</footer>
 
 		</section>
 
