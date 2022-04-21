@@ -87,9 +87,35 @@ do
 		# "${path[5]}" /flat
 
 		model_category=$(cat ${path[0]}/${path[1]}/title)
+
 		model_title=$(cat ${path[0]}/${path[1]}/${path[2]}/title)
 
+		model_instructions=${path[0]}/${path[1]}/${path[2]}/instructions
+
 # generate model drawer entries
+
+if [ -f "${model_instructions}" ]
+then
+
+cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
+				<!-- BEGIN ENTRY -->
+
+				<div class="grid-cell">
+
+					<div class="button title text-right cursor-pointer">
+
+						<a href="models/${path[1]}/${path[2]}/" target="_blank">[ INSTRUCTIONS ] // ${model_category} // ${model_title}</a>
+
+					</div>
+
+				</div>
+
+				<!-- END ENTRY -->
+
+MODEL-DRAWER-CONTENT
+
+else
+
 
 cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
 				<!-- BEGIN ENTRY -->
@@ -107,6 +133,8 @@ cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
 				<!-- END ENTRY -->
 
 MODEL-DRAWER-CONTENT
+
+fi
 
 	((count++))
 

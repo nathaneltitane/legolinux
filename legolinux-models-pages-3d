@@ -319,7 +319,7 @@ cat << 3D-MODEL-PAGE-INSTRUCTIONS ->> "models/${path[1]}/${path[2]}/index.html"
 
 					<div class="button title text-center" id="title">
 
-						INSTRUCTIONS // ${model_category} // ${model_title}
+						<a href="email.html" onclick="window.open('mailto:info@legolinux.com;?Subject=[ INSTRUCTIONS REQUEST ] // ${model_category} // ${model_title}', 'newwindow', 'width=800,height=800'); return false;">[ INSTRUCTIONS ] // ${model_category} // ${model_title}</a>
 
 					</div>
 

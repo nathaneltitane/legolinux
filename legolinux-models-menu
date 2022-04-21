@@ -106,7 +106,7 @@ cat << MODEL-CONTAINER ->> "models/models-menu.html"
 
 				<div class='grid-cell'>
 
-					<a class='load-model' href="models/${path[1]}/${path[2]}" target='_blank'>
+					<a href="models/${path[1]}/${path[2]}" target='_blank'>
 
 						<img src="/${path[0]}/${path[1]}/${path[2]}/${path[3]}/${path[4]}/${path[5]}" />
 
@@ -129,7 +129,7 @@ cat << MODEL-TITLE ->> "models/models-menu.html"
 
 						<div class="button title text-center" id="title">
 
-							3D // ${model_category} // ${model_title}
+							<a href="models/${path[1]}/${path[2]}" target='_blank'>3D // ${model_category} // ${model_title}</a>
 
 						</div>
 
