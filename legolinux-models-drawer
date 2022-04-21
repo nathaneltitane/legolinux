@@ -104,7 +104,7 @@ cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
 
 			<li>
 
-				<a class="load-menu cursor-pointer" href="models/${path[1]}/${path[2]}/index.html" target="_blank">${model_category} // ${model_title}</a>
+				<a class="load-menu cursor-pointer" href="models/${path[1]}/${path[2]}/" target="_blank">${model_category} // ${model_title}</a>
 
 			</li>
 
