@@ -8,6 +8,12 @@ $(function() {
 
 	});
 
+	$.get("/modules/drawer.html", function(data) {
+
+		$("drawer").append(data);
+
+	});
+
 	$.get("/modules/navigation.html", function(data) {
 
 		$("navigation").append(data);
