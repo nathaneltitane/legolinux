@@ -175,7 +175,7 @@ cat << INDEX -> "models/${path[1]}/${path[2]}/index.html"
 
 		<!-- model interactive render container -->
 
-		<canvas class="cursor-cell" id="model-canvas"></canvas>
+		<canvas class="cursor-move" id="model-canvas"></canvas>
 
 		<!-- model interactive render -->
 
