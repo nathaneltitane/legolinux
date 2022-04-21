@@ -178,8 +178,10 @@ then
 		legolinux-exports
 		legolinux-renders
 		legolinux-models-copy
+		legolinux-models-drawer
 		legolinux-models-menu
 		legolinux-models-pages-3d
+#		legolinux-models-pages-2d
 	)
 
 	run
@@ -222,7 +224,10 @@ if [[ "${option}" = "models" ]]
 then
 	scripts_list+=(
 		legolinux-models-copy
+		legolinux-models-drawer
+		legolinux-models-menu
 		legolinux-models-pages-3d
+#		legolinux-models-pages-2d
 	)
 
 	run
