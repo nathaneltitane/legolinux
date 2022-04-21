@@ -3,8 +3,8 @@ background-image:url(/logo/logo-grey.svg);
 background-size:contain;
 height:64px;
 width:64px;
-margin:10px;
-padding:10px;
+margin:10px 10px 10px 10px;
+padding:10px 10px 10px 10px;
 top:0;
 left:0;
 position:absolute;
@@ -15,19 +15,19 @@ animation-duration:2s;
 animation-fill-mode:forwards;
 }
 @keyframes drawer-open {
-0% {left:calc(500px - 84px);}
-10%, 90% {left:500px;}
-100% {left:500px;}
+0% {left:calc(100vw - 50vw - 64px - 10px -10px);}
+10%, 90% {left:calc(100vw - 50vw);}
+100% {left:calc(100vw - 50vw);}
 }
 .drawer {
 background-color:#cccccc;
-width:500px;
+width:50vw;
 height:calc(100vh - 100px);
 padding:0;
 margin:0;
 position:absolute;
 top:0;
-left:-500px;
+left:calc(100vw - 150vw);
 text-overflow:ellipsis;
 opacity:95%;
 }
@@ -36,28 +36,23 @@ left:0;
 top:0;
 }
 .drawer-content {
-height:calc(100vh - 100px - 120px);
+height:calc(100vh - 100px - 100px - 60px);
 overflow:overlay;
 position:absolute;
-top:50px;
 right:0;
 width:500px;
 }
 .drawer a {
 margin:0;
-padding:10px;
-white-space:nowrap;
+padding:5px 10px 5px 10px;
 overflow:hidden;
 text-overflow:ellipsis;
 }
 .drawer a:hover {
 color:#ff0000;
 }
-.drawer ul {
+@media only screen and (max-width: 600px) {
+.drawer a {
+font-size:8px;
 }
-.drawer li {
-}
-.drawer ul a {
-}
-.drawer li a {
 }

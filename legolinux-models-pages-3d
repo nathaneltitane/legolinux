@@ -313,7 +313,7 @@ cat << 3D-MODEL-PAGE-INSTRUCTIONS ->> "models/${path[1]}/${path[2]}/index.html"
 
 			<!-- model title -->
 
-			<div class="grid grid-gutters grid-1-2">
+			<div class="grid">
 
 				<div class="grid-cell">
 
@@ -348,7 +348,7 @@ cat << 3D-MODEL-PAGE-TITLE ->> "models/${path[1]}/${path[2]}/index.html"
 
 			<!-- model title -->
 
-			<div class="grid grid-gutters grid-1-1">
+			<div class="grid">
 
 				<div class="grid-cell">
 

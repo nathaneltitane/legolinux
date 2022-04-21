@@ -102,7 +102,7 @@ cat << MODEL-CONTAINER ->> "models/models-menu.html"
 
 		<div class='container ${hidden}' id=${model_title/ /-}>
 
-			<div class='grid grid-gutters'>
+			<div class='grid'>
 
 				<div class='grid-cell'>
 
@@ -123,7 +123,7 @@ MODEL-CONTAINER
 cat << MODEL-TITLE ->> "models/models-menu.html"
 			<section id="model-title">
 
-				<div class='grid grid-gutters'>
+				<div class='grid'>
 
 					<div class='grid-cell'>
 

@@ -1,13 +1,14 @@
 .grid {
+display:flex;
+flex-direction:row:
+justify-content:space-evenly;
+flex-wrap:wrap;
+
 display:-webkit-box;
 display:-moz-box;
 display:-ms-flexbox;
 display:-webkit-flex;
-display:flex;
-flex-wrap:wrap;
-list-style:none;
-margin:0;
-padding:0;
+
 -webkit-transition:all 0.5s ease;
 -moz-transition:all 0.5s ease;
 -ms-transition:all 0.5s ease;
@@ -16,6 +17,7 @@ transition:all 0.5s ease;
 }
 .grid-cell {
 flex:1;
+padding: 0px 5px 0px 5px;
 }
 .grid-flex-cells > .grid-cell {
 display:-webkit-box;
@@ -128,10 +130,4 @@ flex:1 1 33.3333% !important;
 }
 .cell-width-25 {
 flex:1 1 25% !important;
-}
-.grid-gutters {
-margin:10px;
-}
-.grid-gutters > .grid-cell {
-padding:5px;
 }
