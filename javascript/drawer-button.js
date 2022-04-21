@@ -8,7 +8,7 @@ $(document).ready(function() {
 
 		// e.preventDefault();
 
-		$('body').toggleClass('drawer-open');
+		$('#drawer').toggleClass('drawer-open');
 
 	});
 
