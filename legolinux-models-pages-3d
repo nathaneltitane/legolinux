@@ -394,5 +394,5 @@ done
 frobulator.inf "Generated files" "[ ${count} ]"
 echo
 
-frobulator.scs "Pages" "[ Done ]"
+frobulator.scs "3D model pages" "[ Done ]"
 echo

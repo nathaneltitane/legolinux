@@ -45,18 +45,26 @@ echo
 
 # generate header
 
-cat << 'MODELS-MENU-HEADER' -> "models/models-menu.html"
+cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
 
-		<script>
-		$(function(){
-			$.get("/modules/anchors.html", function (data) {$("anchors").append(data);});
-			}
-		);
-		</script>
+<!-- drawer -->
 
-		<!-- BEGIN MODELS MENU -->
+<div class="drawer">
 
-MODELS-MENU-HEADER
+	<div class="drawer-button cursor-cell"></div>
+
+	<!-- copyright -->
+
+	<div class="copyright text-small text-right">
+
+		Version // 04-20-2022
+		Lego // Linux - Where Lego meets Linux</br>
+		Nathanel Titane - ©  <text id="year"></text></br>
+
+	</div>
+
+	<div class="drawer-content">
+MODEL-DRAWER-HEADER
 
 # values
 
@@ -71,7 +79,7 @@ do
 	# shuffle models directories list:
 	# creates random showcase of all models on each update
 
-	for models_directory in $(find models/ -type f -iname flat."${extension}" | shuf)
+	for models_directory in $(find models/ -type f -iname flat."${extension}" | sort)
 	do
 		IFS='/' read -r -a path <<< $(echo "$models_directory")
 
@@ -87,65 +95,23 @@ do
 		model_category=$(cat ${path[0]}/${path[1]}/title)
 		model_title=$(cat ${path[0]}/${path[1]}/${path[2]}/title)
 
-		# keep first container visible
+# generate model drawer entries
 
-		if [ "${count}" -eq 1 ]
-		then
-			hidden=""
-		else
-			hidden="hidden"
-		fi
+cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
 
-# generate model container
+		<!-- test -->
 
-cat << MODEL-CONTAINER ->> "models/models-menu.html"
+		<ul class="text-right">
 
-		<!-- BEGIN CONTAINER -->
+			<li>
 
-		<div class='container ${hidden}' id=${model_title/ /-}>
+				<a class="load-menu cursor-pointer" href="models/${path[1]}/${path[2]}/index.html" target="_blank">${model_category} // ${model_title}</a>
 
-			<div class='grid grid-gutters'>
+			</li>
 
-				<div class='grid-cell'>
+		</ul>
 
-					<a class='load-model' href="models/${path[1]}/${path[2]}" target='_blank'>
-
-						<img src="/${path[0]}/${path[1]}/${path[2]}/${path[3]}/${path[4]}/${path[5]}" />
-
-					</a>
-
-				</div>
-
-			</div>
-
-MODEL-CONTAINER
-
-# generate model title
-
-cat << MODEL-TITLE ->> "models/models-menu.html"
-			<section id="model-title">
-
-				<div class='grid grid-gutters'>
-
-					<div class='grid-cell'>
-
-						<div class="button title text-center" id="title">
-
-							3D // ${model_category} // ${model_title}
-
-						</div>
-
-					</div>
-
-				</div>
-
-			</section>
-
-		</div>
-
-		<!-- END CONTAINER -->
-
-MODEL-TITLE
+MODEL-DRAWER-CONTENT
 
 	((count++))
 
@@ -155,20 +121,14 @@ done
 # generate footer
 
 cat << FOOTER ->> "models/models-menu.html"
-		<!-- END MODELS MENU -->
+	</div>
 
-		<section id="anchors">
-
-			<anchors>
-
-			</anchors>
-
-		</section>
+</div>
 
 FOOTER
 
 frobulator.inf "Parsed model entries" "[ ${count} ]"
 echo
 
-frobulator.scs "Models menu" "[ Done ]"
+frobulator.scs "Models drawer" "[ Done ]"
 echo
