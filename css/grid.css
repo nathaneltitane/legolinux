@@ -1,6 +1,5 @@
 .grid {
 display:flex;
-flex-direction:row:
 justify-content:space-evenly;
 flex-wrap:wrap;
 
@@ -15,6 +14,13 @@ display:-webkit-flex;
 -o-transition:all 0.5s ease;
 transition:all 0.5s ease;
 }
+.grid-column {
+flex-direction:column;
+}
+.grid-row {
+flex-direction:row;
+}
+
 .grid-cell {
 flex:1;
 padding: 0px 5px 0px 5px;
@@ -32,8 +38,20 @@ align-items:flex-start;
 .grid-bottom {
 align-items:flex-end;
 }
-.grid-align-center {
+.grid-left {
+align-items:flex-start;
+}
+.grid-right {
+align-items:flex-end;
+}
+.grid-center {
 align-items:center;
+}
+.grid-baseline {
+align-items:baseline;
+}
+.grid-stretch {
+align-items:stretch;
 }
 .grid-justify-center {
 justify-content:center;

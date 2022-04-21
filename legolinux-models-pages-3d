@@ -309,11 +309,11 @@ if [ -f "${model_instructions}" ]
 then
 
 cat << 3D-MODEL-PAGE-INSTRUCTIONS ->> "models/${path[1]}/${path[2]}/index.html"
-		<section id="model-title">
+		<section id="model">
 
 			<!-- model title -->
 
-			<div class="grid">
+			<div class="grid grid-column grid-stretch">
 
 				<div class="grid-cell">
 
@@ -344,7 +344,7 @@ cat << 3D-MODEL-PAGE-INSTRUCTIONS ->> "models/${path[1]}/${path[2]}/index.html"
 else
 
 cat << 3D-MODEL-PAGE-TITLE ->> "models/${path[1]}/${path[2]}/index.html"
-		<section id="model-title">
+		<section id="model">
 
 			<!-- model title -->
 

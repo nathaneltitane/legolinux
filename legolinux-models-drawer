@@ -52,11 +52,13 @@ cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
 
 	<div class="drawer-button cursor-cell"></div>
 
-	<copyright>
+	<div class="drawer-container">
 
-	</copyright>
+		<copyright>
 
-	<div class="drawer-content">
+		</copyright>
+
+		<div class="grid grid-column grid-stretch">
 
 MODEL-DRAWER-HEADER
 
@@ -92,19 +94,16 @@ do
 # generate model drawer entries
 
 cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
-		<!-- BEGIN ENTRY -->
+				<!-- BEGIN ENTRY -->
 
-		<ul class="text-right">
+				<div class="grid-cell ">
 
-			<li>
+					<a class="button title text-right cursor-pointer" href="models/${path[1]}/${path[2]}/" target="_blank">${model_category} // ${model_title}</a>
 
-				<a class="cursor-pointer" href="models/${path[1]}/${path[2]}/" target="_blank">${model_category} // ${model_title}</a>
+				</div>
 
-			</li>
 
-		</ul>
-
-		<!-- END ENTRY -->
+				<!-- END ENTRY -->
 
 MODEL-DRAWER-CONTENT
 
@@ -116,6 +115,8 @@ done
 # generate footer
 
 cat << MODEL-DRAWER-FOOTER ->> "models/models-menu.html"
+		</div>
+
 	</div>
 
 </div>
