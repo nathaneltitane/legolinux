@@ -15,15 +15,9 @@ animation-duration:2s;
 animation-fill-mode:forwards;
 }
 @keyframes drawer-open {
-0% {
-left:calc(256px - 84px);
-}
-10%, 90% {
-left:256px;
-}
-100% {
-left:256px;
-}
+0% {left:calc(256px - 84px);}
+10%, 90% {left:256px;}
+100% {left:256px;}
 }
 .drawer {
 background-color:#cccccc;
@@ -35,6 +29,7 @@ position:fixed;
 top:0;
 left:-256px;
 text-overflow:ellipsis;
+opacity:95%;
 }
 .drawer-open .drawer {
 left:0;
