@@ -1,9 +1,19 @@
 .icon {
 background-repeat: no-repeat;
 display:block;
+padding:10px 10px 10px 10px;
+}
+.icon-left{
+margin-left:10px;
+margin-right:auto;
+}
+.icon-right{
+margin-left:auto;
+margin-right:10px;
+}
+.icon-center{
 margin-left: auto;
-margin-right: auto;
-padding:0px 0px 0px 0px;
+margin-right:auto;
 }
 .icon-flex {
 background-size:calc(60px - 10px - 10px);

@@ -100,11 +100,36 @@ then
 cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
 				<!-- BEGIN ENTRY -->
 
-				<div class="grid-cell">
+				<sub>
 
-					<div class="button title text-right cursor-pointer">
+					${model_category}
 
-						<a href="models/${path[1]}/${path[2]}/" target="_blank">[ INSTRUCTIONS ] // ${model_category} // ${model_title}</a>
+				</sub>
+
+				<div class="grid">
+
+					<div class="grid-cell">
+
+						<div class="button">
+
+							<div class="grid grid-center">
+
+								<div class="grid-cell">
+
+									<div class="logo-green icon icon-flex"></div>
+
+								</div>
+
+								<div class="grid-cell">
+
+									<a class="text-right" href="models/${path[1]}/${path[2]}/">${model_title}</a>
+
+								</div>
+
+							</div>
+
+						</div>
+
 
 					</div>
 
@@ -120,11 +145,36 @@ else
 cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
 				<!-- BEGIN ENTRY -->
 
-				<div class="grid-cell">
+				<sub>
 
-					<div class="button title text-right cursor-pointer">
+					${model_category}
 
-						<a href="models/${path[1]}/${path[2]}/" target="_blank">${model_category} // ${model_title}</a>
+				</sub>
+
+				<div class="grid">
+
+					<div class="grid-cell">
+
+						<div class="button">
+
+							<div class="grid grid-center">
+
+								<div class="grid-cell">
+
+									<div class="logo-red icon icon-flex"></div>
+
+								</div>
+
+								<div class="grid-cell">
+
+									<a class="text-right" href="models/${path[1]}/${path[2]}/">${model_title}</a>
+
+								</div>
+
+							</div>
+
+						</div>
+
 
 					</div>
 
