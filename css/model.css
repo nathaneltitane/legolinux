@@ -4,14 +4,9 @@ outline:none;
 #model-canvas {
 width:100%;
 display:block;
-height:calc(100vh - 60px - 60px);
+height:calc(100vh - 100px - 80px);
 }
 #model {
 background:#dddddd;
 width:100vw;
-}
-@media only screen and (max-width: 600px) {
-#model-canvas {
-height:calc(100vh - 60px - 60px);
-}
 }

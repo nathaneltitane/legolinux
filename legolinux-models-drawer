@@ -100,36 +100,31 @@ then
 cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
 				<!-- BEGIN ENTRY -->
 
-				<sub>
-
-					${model_category}
-
-				</sub>
-
-				<div class="grid">
+				<div class="grid grid-column grid-stretch">
 
 					<div class="grid-cell">
 
-						<div class="button">
+						${model_category}
 
-							<div class="grid grid-center">
+					</div>
 
-								<div class="grid-cell">
+					<div class="button">
 
-									<div class="logo-green icon icon-flex"></div>
+						<div class="grid grid-center">
 
-								</div>
+							<div class="grid">
 
-								<div class="grid-cell">
+								<div class="logo-green icon icon-flex"></div>
 
-									<a class="text-right" href="models/${path[1]}/${path[2]}/">${model_title}</a>
+							</div>
 
-								</div>
+							<div class="grid-cell">
+
+								<a class="text-center" href="models/${path[1]}/${path[2]}/">${model_title}</a>
 
 							</div>
 
 						</div>
-
 
 					</div>
 
@@ -141,40 +136,34 @@ MODEL-DRAWER-CONTENT
 
 else
 
-
 cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
 				<!-- BEGIN ENTRY -->
 
-				<sub>
-
-					${model_category}
-
-				</sub>
-
-				<div class="grid">
+				<div class="grid grid-column grid-stretch">
 
 					<div class="grid-cell">
 
-						<div class="button">
+						${model_category}
 
-							<div class="grid grid-center">
+					</div>
 
-								<div class="grid-cell">
+					<div class="button">
 
-									<div class="logo-red icon icon-flex"></div>
+						<div class="grid grid-center">
 
-								</div>
+							<div class="grid">
 
-								<div class="grid-cell">
+								<div class="logo-orange icon icon-flex"></div>
 
-									<a class="text-right" href="models/${path[1]}/${path[2]}/">${model_title}</a>
+							</div>
 
-								</div>
+							<div class="grid-cell">
+
+								<a class="text-center" href="models/${path[1]}/${path[2]}/">${model_title}</a>
 
 							</div>
 
 						</div>
-
 
 					</div>
 

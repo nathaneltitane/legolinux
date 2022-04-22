@@ -1,14 +1,20 @@
-.logo-red {
-background-image:url(/logo/logo-red.svg);
-}
 .logo-black {
 background-image:url(/logo/logo-black.svg);
+}
+.logo-blue {
+background-image:url(/logo/logo-blue.svg);
 }
 .logo-green {
 background-image:url(/logo/logo-green.svg);
 }
 .logo-grey {
 background-image:url(/logo/logo-grey.svg);
+}
+.logo-orange {
+background-image:url(/logo/logo-orange.svg);
+}
+.logo-red {
+background-image:url(/logo/logo-red.svg);
 }
 .logo-yellow {
 background-image:url(/logo/logo-yellow.svg);

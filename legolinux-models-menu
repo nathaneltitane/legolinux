@@ -84,7 +84,10 @@ do
 		# "${path[5]}" /flat
 
 		model_category=$(cat ${path[0]}/${path[1]}/title)
+
 		model_title=$(cat ${path[0]}/${path[1]}/${path[2]}/title)
+
+		model_instructions=${path[0]}/${path[1]}/${path[2]}/instructions
 
 		# keep first container visible
 
@@ -106,7 +109,7 @@ cat << MODEL-CONTAINER ->> "models/models-menu.html"
 
 				<div class='grid-cell'>
 
-					<a href="models/${path[1]}/${path[2]}" target='_blank'>
+					<a href="models/${path[1]}/${path[2]}"'>
 
 						<img src="/${path[0]}/${path[1]}/${path[2]}/${path[3]}/${path[4]}/${path[5]}" />
 
@@ -118,18 +121,35 @@ cat << MODEL-CONTAINER ->> "models/models-menu.html"
 
 MODEL-CONTAINER
 
-# generate model title
+if [ -f "${model_instructions}" ]
+then
 
 cat << MODEL-TITLE ->> "models/models-menu.html"
-			<section id="model-title">
+			<section id="model">
 
-				<div class='grid'>
+				<div class="grid grid-column grid-stretch">
 
-					<div class='grid-cell'>
+					<div class="grid-cell">
 
-						<div class="button title text-center" id="title">
+						${model_category}
 
-							<a href="models/${path[1]}/${path[2]}" target='_blank'>3D // ${model_category} // ${model_title}</a>
+					</div>
+
+					<div class="button">
+
+						<div class="grid grid-center">
+
+							<div class="grid">
+
+								<div class="logo-green icon icon-flex"></div>
+
+							</div>
+
+							<div class="grid-cell">
+
+								<a class="text-center" href="models/${path[1]}/${path[2]}/">${model_title}</a>
+
+							</div>
 
 						</div>
 
@@ -144,6 +164,51 @@ cat << MODEL-TITLE ->> "models/models-menu.html"
 		<!-- END CONTAINER -->
 
 MODEL-TITLE
+
+else
+
+cat << MODEL-TITLE ->> "models/models-menu.html"
+			<section id="model">
+
+				<div class="grid grid-column grid-stretch">
+
+					<div class="grid-cell">
+
+						${model_category}
+
+					</div>
+
+					<div class="button">
+
+						<div class="grid grid-center">
+
+							<div class="grid">
+
+								<div class="logo-orange icon icon-flex"></div>
+
+							</div>
+
+							<div class="grid-cell">
+
+								<a class="text-center" href="models/${path[1]}/${path[2]}/">${model_title}</a>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</section>
+
+		</div>
+
+		<!-- END CONTAINER -->
+
+MODEL-TITLE
+
+fi
 
 	((count++))
 
