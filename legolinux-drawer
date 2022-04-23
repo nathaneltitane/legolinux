@@ -63,6 +63,60 @@ cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
 
 		<div class="grid grid-column grid-stretch">
 
+			<!-- legend -->
+
+			<div class="grid grid-row grid-center">
+
+				<div class="grid-cell">
+
+					<p>INSTRUCTIONS:</p>
+
+				</div>
+
+			</div>
+
+			<hr>
+
+			<!-- instructions available -->
+
+			<div class="grid grid-row grid-center">
+
+				<div class="grid-cell">
+
+					<a class="icon icon-flex icon-center logo-green" href="#"></a>
+
+				</div>
+
+				<div class="grid-cell">
+
+					Unavailable
+
+				</div>
+
+			</div>
+
+			<hr>
+
+			<!-- instructions unavailable -->
+
+			<div class="grid grid-row grid-center">
+
+				<div class="grid-cell">
+
+					<a class="icon icon-flex icon-center logo-orange" href="#"></a>
+
+				</div>
+
+				<div class="grid-cell">
+
+					Available
+
+				</div>
+
+			</div>
+
+			<hr>
+
 MODEL-DRAWER-HEADER
 
 # values
