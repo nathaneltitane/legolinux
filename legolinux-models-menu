@@ -47,10 +47,17 @@ echo
 cat << 'MODELS-MENU-HEADER' -> "models/models-menu.html"
 
 		<script>
+
 		$(function(){
-			$.get("/modules/anchors.html", function (data) {$("#anchors").append(data);});
+			$.get("/modules/anchors.html", function (data) {
+
+				$("#anchors").append(data);
+
+			});
+
 			}
 		);
+
 		</script>
 
 		<!-- BEGIN MODELS MENU -->
