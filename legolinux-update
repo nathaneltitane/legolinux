@@ -188,7 +188,7 @@ then
 
 	upload &
 
-	frobulator.progress "Updating exports..."
+	frobulator.progress "Updating..."
 	echo
 fi
 
