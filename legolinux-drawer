@@ -57,8 +57,6 @@ cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
 
 	<div class="drawer-container">
 
-	<div id="copyright"></div>
-
 		<div class="grid grid-column grid-stretch">
 
 MODEL-DRAWER-HEADER
@@ -101,7 +99,6 @@ if [ -f "${model_instructions}" ]
 then
 
 cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
-				<!-- BEGIN ENTRY -->
 
 				<div class="grid grid-column grid-stretch">
 
@@ -133,14 +130,11 @@ cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
 
 				</div>
 
-				<!-- END ENTRY -->
-
 MODEL-DRAWER-CONTENT
 
 else
 
 cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
-				<!-- BEGIN ENTRY -->
 
 				<div class="grid grid-column grid-stretch">
 
@@ -171,8 +165,6 @@ cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
 					</div>
 
 				</div>
-
-				<!-- END ENTRY -->
 
 MODEL-DRAWER-CONTENT
 

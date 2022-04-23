@@ -14,12 +14,6 @@ $(function() {
 
 	});
 
-	$.get("/modules/copyright.html", function(data) {
-
-		$("#copyright").append(data);
-
-	});
-
 	$.get("/modules/navigation.html", function(data) {
 
 		$("#navigation").append(data);

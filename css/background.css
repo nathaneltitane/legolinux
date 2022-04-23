@@ -1,11 +1,13 @@
 #background {
-width:100vw;
-height:100vh;
 background-repeat:no-repeat;
 background-attachment:fixed;
 background-position:center;;
 background-size:cover;
+
 opacity:0;
+width:100vw;
+height:100vh;
+
 animation-name:background-reveal;
 animation-delay:0.5s;
 animation-duration:1s;
