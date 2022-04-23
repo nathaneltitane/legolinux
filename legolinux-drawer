@@ -32,6 +32,8 @@ echo
 
 # variables ////////////////////////////////////////////////////////////////////
 
+stamp=$(date +"%m-%d-%Y")
+
 # defaults /////////////////////////////////////////////////////////////////////
 
 # functions ////////////////////////////////////////////////////////////////////
@@ -192,7 +194,7 @@ cat << MODEL-DRAWER-FOOTER ->> "modules/drawer.html"
 
 				<div class="text-center">
 
-					Version // 04-20-2022</br>
+					Version // ${stamp}</br>
 					Lego // Linux - Where Lego meets Linux</br>
 					Nathanel Titane - ©  <text id="year"></text>
 
