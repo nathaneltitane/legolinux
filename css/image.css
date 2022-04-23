@@ -1,7 +1,11 @@
 img {
 display:block;
 height:auto;
-width:40%;
+width:100%;
 margin-left:auto;
 margin-right:auto;
+}
+
+#menu img {
+width: calc(100vh - 80px - 60px - 100px);
 }
