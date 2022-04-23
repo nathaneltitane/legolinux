@@ -49,6 +49,8 @@ cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
 
 <script src="/javascript/drawer.js" type="text/javascript"></script>
 
+<script src="/javascript/year.js" type="text/javascript"></script>
+
 <!-- drawer -->
 
 <div class="drawer">
@@ -100,35 +102,35 @@ then
 
 cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
 
-				<div class="grid grid-column grid-stretch">
+			<div class="grid grid-column grid-stretch">
 
-					<div class="grid-cell">
+				<div class="grid-cell">
 
-						${model_category}
+					${model_category}
 
-					</div>
+				</div>
 
-					<div class="button">
+				<div class="button">
 
-						<div class="grid grid-center">
+					<div class="grid grid-center">
 
-							<div class="grid">
+						<div class="grid">
 
-								<div class="logo-green icon icon-flex"></div>
+							<div class="logo-green icon icon-flex"></div>
 
-							</div>
+						</div>
 
-							<div class="grid-cell">
+						<div class="grid-cell">
 
-								<a class="text-center" href="models/${path[1]}/${path[2]}/">${model_title}</a>
-
-							</div>
+							<a class="text-center" href="models/${path[1]}/${path[2]}/">${model_title}</a>
 
 						</div>
 
 					</div>
 
 				</div>
+
+			</div>
 
 MODEL-DRAWER-CONTENT
 
@@ -136,35 +138,35 @@ else
 
 cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
 
-				<div class="grid grid-column grid-stretch">
+			<div class="grid grid-column grid-stretch">
 
-					<div class="grid-cell">
+				<div class="grid-cell">
 
-						${model_category}
+					${model_category}
 
-					</div>
+				</div>
 
-					<div class="button">
+				<div class="button">
 
-						<div class="grid grid-center">
+					<div class="grid grid-center">
 
-							<div class="grid">
+						<div class="grid">
 
-								<div class="logo-orange icon icon-flex"></div>
+							<div class="logo-orange icon icon-flex"></div>
 
-							</div>
+						</div>
 
-							<div class="grid-cell">
+						<div class="grid-cell">
 
-								<a class="text-center" href="models/${path[1]}/${path[2]}/">${model_title}</a>
-
-							</div>
+							<a class="text-center" href="models/${path[1]}/${path[2]}/">${model_title}</a>
 
 						</div>
 
 					</div>
 
 				</div>
+
+			</div>
 
 MODEL-DRAWER-CONTENT
 
@@ -178,6 +180,24 @@ done
 # generate footer
 
 cat << MODEL-DRAWER-FOOTER ->> "modules/drawer.html"
+		</div>
+
+		<!-- copyright -->
+
+		<div class="grid grid-column grid-center">
+
+			<div class="grid-cell">
+
+				<div class="text-center">
+
+					Version // 04-20-2022</br>
+					Lego // Linux - Where Lego meets Linux</br>
+					Nathanel Titane - ©  <text id="year"></text>
+
+				</div>
+
+			</div>
+
 		</div>
 
 	</div>
