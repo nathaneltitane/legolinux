@@ -221,29 +221,79 @@
 
 		<!-- END 3D VIEWER -->
 
-	<section id="model">
 
-		<div class="grid grid-column grid-stretch">
+		<!-- paypal -->
 
-			<div class="grid-cell">
+		<div class="paypal">
 
-				VERITECHS
+			<div class="grid grid-column grid-stretch">
 
-			</div>
+				<div class="grid-cell">
 
-			<div class="button">
+					<div class="text-center">
 
-				<div class="grid grid-center">
+						<div id="paypal-button-container"></div>
 
-					<div class="grid">
+						<script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=USD" data-sdk-integration-source="button-factory"></script>
 
-						<div class="logo-green icon icon-flex"></div>
+						<script>
 
-					</div>
+							function initPayPalButton() {
 
-					<div class="grid-cell">
+								paypal.Buttons({
+								style: {
+									shape: 'rect',
+									color: 'black',
+									layout: 'horizontal',
+									label: 'paypal',
+								},
 
-						<a class="text-center" href="email.html" onclick="window.open('mailto:info@legolinux.com;?Subject=[ INSTRUCTIONS REQUEST ] VERITECHS // YF 19 ALPHA ONE SUPER BATTROID'); return false;">YF 19 ALPHA ONE SUPER BATTROID</a>
+								createOrder: function(data, actions) {
+
+									return actions.order.create({
+
+									purchase_units: [{"description":"Instructions","amount":{"currency_code":"USD","value":20}}]
+
+									});
+
+								},
+
+								onApprove: function(data, actions) {
+
+									return actions.order.capture().then(function(orderData) {
+
+									// log full order details
+
+									console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+
+									// show a success message within this page after transaction
+
+									const element = document.getElementById('paypal-button-container');
+
+									element.innerHTML = '';
+
+									element.innerHTML = '<h3>Thank you for your payment!</h3>';
+
+									// or go to another URL after transaction
+
+									// actions.redirect('thank_you.html');
+
+									});
+								},
+
+								onError: function(err) {
+
+									console.log(err);
+
+								}
+
+								}).render('#paypal-button-container');
+
+								}
+
+							initPayPalButton();
+
+						</script>
 
 					</div>
 
@@ -253,7 +303,41 @@
 
 		</div>
 
-	</section>
+		<!-- model -->
+
+		<section id="model">
+
+			<div class="grid grid-column grid-stretch">
+
+				<div class="grid-cell">
+
+					VERITECHS
+
+				</div>
+
+				<div class="button">
+
+					<div class="grid grid-center">
+
+						<div class="grid">
+
+							<div class="logo-green icon icon-flex"></div>
+
+						</div>
+
+						<div class="grid-cell">
+
+							<div class="text-center">VERITECHS // YF 19 ALPHA ONE SUPER BATTROID</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</section>
 
 		<section id="footer">
 

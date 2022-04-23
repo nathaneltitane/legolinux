@@ -1,0 +1,7 @@
+.paypal {
+position:fixed;
+bottom:calc(80px + 100px);
+left:0;
+height:100px;
+width:100%;
+}
