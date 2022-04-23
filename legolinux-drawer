@@ -1,0 +1,201 @@
+#!/bin/bash
+
+# dependencies /////////////////////////////////////////////////////////////////
+
+if [[ -z $(command -v frobulator) ]]
+then
+	curl -s -L get.frbltr.app > /usr/bin/frobulator
+fi
+
+. /usr/bin/frobulator
+
+if [[ $(id -u -n) = "root" ]]
+then
+	USER="${SUDO_USER}"
+	HOME=/home/"${USER}"
+fi
+
+# script ///////////////////////////////////////////////////////////////////////
+
+script=$(basename -- "${BASH_SOURCE[0]}")
+
+# version //////////////////////////////////////////////////////////////////////
+
+version="04-21-2022"
+
+# usage ////////////////////////////////////////////////////////////////////////
+
+# prompt ///////////////////////////////////////////////////////////////////////
+
+frobulator.script "Setting up ${script#*-}"
+echo
+
+# variables ////////////////////////////////////////////////////////////////////
+
+# defaults /////////////////////////////////////////////////////////////////////
+
+# functions ////////////////////////////////////////////////////////////////////
+
+frobulator.inf "Generating model entries"
+echo
+
+frobulator.fwd "Writing..."
+echo
+
+# generate header
+
+cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
+<!-- scripts -->
+
+<script src="/javascript/drawer.js" type="text/javascript"></script>
+
+<!-- drawer -->
+
+<div class="drawer">
+
+	<div class="drawer-button cursor-cell logo-grey"></div>
+
+	<div class="drawer-container">
+
+	<div id="copyright"></div>
+
+		<div class="grid grid-column grid-stretch">
+
+MODEL-DRAWER-HEADER
+
+# values
+
+extensions_list=(
+	png
+)
+
+for extension in ${extensions_list[@]}
+do
+	count=1
+
+	# shuffle models directories list:
+	# creates random showcase of all models on each update
+
+	for models_directory in $(find models/ -type f -iname flat."${extension}" | sort)
+	do
+		IFS='/' read -r -a path <<< $(echo "$models_directory")
+
+		# /models/model-type/model/renders/flat/flat.${extension}
+
+		# "${path[0]}" /models
+		# "${path[1]}" /model-category
+		# "${path[2]}" /model
+		# "${path[3]}" /renders
+		# "${path[4]}" /outine
+		# "${path[5]}" /flat
+
+		model_category=$(cat ${path[0]}/${path[1]}/title)
+
+		model_title=$(cat ${path[0]}/${path[1]}/${path[2]}/title)
+
+		model_instructions=${path[0]}/${path[1]}/${path[2]}/instructions
+
+# generate model drawer entries
+
+if [ -f "${model_instructions}" ]
+then
+
+cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
+				<!-- BEGIN ENTRY -->
+
+				<div class="grid grid-column grid-stretch">
+
+					<div class="grid-cell">
+
+						${model_category}
+
+					</div>
+
+					<div class="button">
+
+						<div class="grid grid-center">
+
+							<div class="grid">
+
+								<div class="logo-green icon icon-flex"></div>
+
+							</div>
+
+							<div class="grid-cell">
+
+								<a class="text-center" href="models/${path[1]}/${path[2]}/">${model_title}</a>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<!-- END ENTRY -->
+
+MODEL-DRAWER-CONTENT
+
+else
+
+cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
+				<!-- BEGIN ENTRY -->
+
+				<div class="grid grid-column grid-stretch">
+
+					<div class="grid-cell">
+
+						${model_category}
+
+					</div>
+
+					<div class="button">
+
+						<div class="grid grid-center">
+
+							<div class="grid">
+
+								<div class="logo-orange icon icon-flex"></div>
+
+							</div>
+
+							<div class="grid-cell">
+
+								<a class="text-center" href="models/${path[1]}/${path[2]}/">${model_title}</a>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<!-- END ENTRY -->
+
+MODEL-DRAWER-CONTENT
+
+fi
+
+	((count++))
+
+	done
+done
+
+# generate footer
+
+cat << MODEL-DRAWER-FOOTER ->> "modules/drawer.html"
+		</div>
+
+	</div>
+
+</div>
+
+MODEL-DRAWER-FOOTER
+
+frobulator.inf "Parsed model entries" "[ ${count} ]"
+echo
+
+frobulator.scs "Models drawer" "[ Done ]"
+echo

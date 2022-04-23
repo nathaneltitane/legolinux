@@ -21,7 +21,7 @@ animation-fill-mode:forwards;
 .drawer {
 background-color:#dddddd;
 width:calc(30vw - 80px - 10px - 10px);
-height:calc(100vh - 60px);
+height:calc(100vh - 60px - 80px);
 padding:0;
 margin:0;
 position:absolute;
@@ -72,7 +72,7 @@ animation-fill-mode:forwards;
 .drawer {
 background-color:#dddddd;
 width:calc(100vw - 80px - 10px - 10px);
-height:calc(100vh - 60px);
+height:calc(100vh - 60px - 80px);
 padding:0;
 margin:0;
 position:absolute;
