@@ -89,8 +89,7 @@ cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
 
 				<div class="grid-cell">
 
-					Unavailable
-
+					Available
 				</div>
 
 			</div>
@@ -109,7 +108,7 @@ cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
 
 				<div class="grid-cell">
 
-					Available
+					Unavailable
 
 				</div>
 
