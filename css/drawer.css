@@ -53,10 +53,12 @@ color:#ff0000;
 }
 
 .available{
-background:#999999;
+background:#37a537;
+color:#dddddd !important;
 }
 .unavailable{
-background:#aaaaaa;
+background:#ff9e5e;
+color:#dddddd !important;
 }
 .list{
 background:#bbbbbb;
