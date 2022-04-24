@@ -65,56 +65,64 @@ cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
 
 			<!-- legend -->
 
-			<div class="grid grid-row grid-center">
+			<section class="list">
 
-				<div class="grid-cell">
+				<div class="grid grid-row grid-center">
 
-					<p>INSTRUCTIONS:</p>
+					<div class="grid-cell">
+
+						<p>INSTRUCTIONS:</p>
+
+					</div>
 
 				</div>
 
-			</div>
-
-			<hr>
+			</section>
 
 			<!-- instructions available -->
 
-			<div class="grid grid-row grid-center">
+			<section class="available">
 
-				<div class="grid-cell">
+				<div class="grid grid-row grid-center">
 
-					<a class="icon icon-flex icon-center logo-green" href="#"></a>
+					<div class="grid-cell">
+
+						<a class="icon icon-flex icon-center logo-green" href="#"></a>
+
+					</div>
+
+					<div class="grid-cell">
+
+						Available
+					</div>
 
 				</div>
 
-				<div class="grid-cell">
-
-					Available
-				</div>
-
-			</div>
-
-			<hr>
+			</section>
 
 			<!-- instructions unavailable -->
 
-			<div class="grid grid-row grid-center">
+			<section class="unavailable">
 
-				<div class="grid-cell">
+				<div class="grid grid-row grid-center">
 
-					<a class="icon icon-flex icon-center logo-orange" href="#"></a>
+					<div class="grid-cell">
+
+						<a class="icon icon-flex icon-center logo-orange" href="#"></a>
+
+					</div>
+
+					<div class="grid-cell">
+
+						Unavailable
+
+					</div>
 
 				</div>
 
-				<div class="grid-cell">
+			</section>
 
-					Unavailable
-
-				</div>
-
-			</div>
-
-			<hr>
+			<section class="list">
 
 MODEL-DRAWER-HEADER
 
@@ -156,36 +164,35 @@ if [ -f "${model_instructions}" ]
 then
 
 cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
+				<div class="grid grid-column grid-stretch">
 
-			<div class="grid grid-column grid-stretch">
+					<div class="grid-cell">
 
-				<div class="grid-cell">
+						${model_category}
 
-					${model_category}
+					</div>
 
-				</div>
+					<div class="button">
 
-				<div class="button">
+						<div class="grid grid-center">
 
-					<div class="grid grid-center">
+							<div class="grid">
 
-						<div class="grid">
+								<div class="logo-green icon icon-flex"></div>
 
-							<div class="logo-green icon icon-flex"></div>
+							</div>
 
-						</div>
+							<div class="grid-cell">
 
-						<div class="grid-cell">
+								<a class="text-center" href="models/${path[1]}/${path[2]}/">${model_title}</a>
 
-							<a class="text-center" href="models/${path[1]}/${path[2]}/">${model_title}</a>
+							</div>
 
 						</div>
 
 					</div>
 
 				</div>
-
-			</div>
 
 MODEL-DRAWER-CONTENT
 
@@ -193,35 +200,35 @@ else
 
 cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
 
-			<div class="grid grid-column grid-stretch">
+				<div class="grid grid-column grid-stretch">
 
-				<div class="grid-cell">
+					<div class="grid-cell">
 
-					${model_category}
+						${model_category}
 
-				</div>
+					</div>
 
-				<div class="button">
+					<div class="button">
 
-					<div class="grid grid-center">
+						<div class="grid grid-center">
 
-						<div class="grid">
+							<div class="grid">
 
-							<div class="logo-orange icon icon-flex"></div>
+								<div class="logo-orange icon icon-flex"></div>
 
-						</div>
+							</div>
 
-						<div class="grid-cell">
+							<div class="grid-cell">
 
-							<a class="text-center" href="models/${path[1]}/${path[2]}/">${model_title}</a>
+								<a class="text-center" href="models/${path[1]}/${path[2]}/">${model_title}</a>
+
+							</div>
 
 						</div>
 
 					</div>
 
 				</div>
-
-			</div>
 
 MODEL-DRAWER-CONTENT
 
@@ -235,27 +242,32 @@ done
 # generate footer
 
 cat << MODEL-DRAWER-FOOTER ->> "modules/drawer.html"
-		</div>
 
-		<hr>
+			</section>
+
+		</div>
 
 		<!-- copyright -->
 
-		<div class="grid grid-column grid-center">
+		<section class="copyright">
 
-			<div class="grid-cell">
+			<div class="grid grid-column grid-center">
 
-				<div class="text-center">
+				<div class="grid-cell">
 
-					Version // ${stamp}</br>
-					Lego // Linux - Where Lego meets Linux</br>
-					Nathanel Titane - ©  <text id="year"></text>
+					<div class="text-center">
+
+						Version // ${stamp}</br>
+						Lego // Linux - Where Lego meets Linux</br>
+						Nathanel Titane - ©  <text id="year"></text>
+
+					</div>
 
 				</div>
 
 			</div>
 
-		</div>
+		</section>
 
 	</div>
 

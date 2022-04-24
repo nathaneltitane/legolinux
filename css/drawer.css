@@ -16,7 +16,7 @@ animation-duration:2s;
 animation-fill-mode:forwards;
 }
 .drawer {
-background-color:#dddddd;
+background-color:red;
 height:calc(100vh - 60px - 80px);
 width:300px;
 left:-300px;
@@ -32,9 +32,9 @@ top:0px;
 left:0px;
 }
 .drawer-container {
-height:calc(100vh - 60px - 50px - 75px - 10px - 10px);
-padding:10px 0px 10px 0px;
-margin:10px 10px 10px 10px;
+height:calc(100vh - 60px - 80px);
+padding:0px 0px 0px 0px;
+margin:0px 0px 0px 0px;
 overflow:overlay;
 }
 .drawer a {
@@ -50,4 +50,17 @@ color:#ff0000;
 0% {left:0px;}
 10%, 90% {left:300px;}
 100% {left:300px;}
+}
+
+.available{
+background:#999999;
+}
+.unavailable{
+background:#aaaaaa;
+}
+.list{
+background:#bbbbbb;
+}
+.copyright{
+background:#cccccc;
 }
