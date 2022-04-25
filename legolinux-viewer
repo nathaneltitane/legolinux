@@ -405,7 +405,7 @@ cat << 3D-MODEL-PAGE-INSTRUCTIONS ->> "models/${path[1]}/${path[2]}/index.html"
 
 				<div class="button">
 
-					<div class="grid grid-center">
+					<div class="grid grid-middle">
 
 						<div class="grid">
 
@@ -446,7 +446,7 @@ cat << 3D-MODEL-PAGE-TITLE ->> "models/${path[1]}/${path[2]}/index.html"
 
 				<a class="button cursor-cell" onclick="window.open('mailto:info@legolinux.com;?Subject=[ INSTRUCTIONS REQUEST ] ${model_category} // ${model_title}'); return false;">
 
-					<div class="grid grid-center">
+					<div class="grid grid-middle">
 
 						<div class="grid">
 

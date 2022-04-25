@@ -71,7 +71,7 @@ cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
 
 			<section class="list">
 
-				<div class="grid grid-row grid-center">
+				<div class="grid grid-row grid-middle">
 
 					<div class="grid-cell">
 
@@ -87,7 +87,7 @@ cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
 
 			<section class="available">
 
-				<div class="grid grid-row grid-center">
+				<div class="grid grid-row grid-middle">
 
 					<div class="grid-cell">
 
@@ -109,7 +109,7 @@ cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
 
 			<section class="unavailable">
 
-				<div class="grid grid-row grid-center">
+				<div class="grid grid-row grid-middle">
 
 					<div class="grid-cell">
 
@@ -179,7 +179,7 @@ cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
 
 					<a class="button" href="models/${path[1]}/${path[2]}/">
 
-						<div class="grid grid-center">
+						<div class="grid grid-middle">
 
 							<div class="grid">
 
@@ -215,7 +215,7 @@ cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
 
 					<a class="button" href="models/${path[1]}/${path[2]}/">
 
-						<div class="grid grid-center">
+						<div class="grid grid-middle">
 
 							<div class="grid">
 
@@ -256,7 +256,7 @@ cat << MODEL-DRAWER-FOOTER ->> "modules/drawer.html"
 
 		<section class="copyright">
 
-			<div class="grid grid-column grid-center">
+			<div class="grid grid-column grid-middle">
 
 				<div class="grid-cell">
 
