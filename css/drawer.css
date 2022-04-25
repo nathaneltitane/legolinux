@@ -1,8 +1,8 @@
 .drawer-button {
 background-size:contain;
 background-repeat:no-repeat;
-height:80px;
-width:80px;
+height:100%;
+width:auto;
 margin:10px 10px 10px 10px;
 padding:0px 0px 0px 0px;
 top:0px;
@@ -17,7 +17,7 @@ animation-fill-mode:forwards;
 }
 .drawer {
 background-color:red;
-height:calc(100vh - 80px - 100px);
+height:auto;
 width:300px;
 left:-300px;
 top:0px;
@@ -51,7 +51,6 @@ color:#ff0000;
 10%, 90% {left:300px;}
 100% {left:300px;}
 }
-
 .available{
 background:#37a537;
 color:#dddddd !important;
