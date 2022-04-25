@@ -99,6 +99,7 @@ cat << 3D-MODEL-PAGE-HEADER -> "models/${path[1]}/${path[2]}/index.html"
 
 cat << 3D-MODEL-PAGE-VIEWER ->> "models/${path[1]}/${path[2]}/index.html"
 	<body>
+		<div id="drawer"></div>
 
 		<!-- interactive render container -->
 

@@ -2,7 +2,7 @@
 
 $(document).ready(function() {
 
-	$('#background').click(function(e) {
+	$('.drawer-button').click(function(e) {
 
 		// disable defaults prevention for href handling
 
