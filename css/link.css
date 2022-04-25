@@ -4,11 +4,6 @@ display:block;
 font-weight:normal;
 border:none;
 outline:none;
--webkit-transition:all 0.5s ease;
--moz-transition:all 0.5s ease;
--ms-transition:all 0.5s ease;
--o-transition:all 0.5s ease;
-transition:all 0.5s ease;
 }
 a:active,
 a:focus,
@@ -18,7 +13,7 @@ text-decoration:none;
 outline:none;
 }
 a:hover {
-color:#cccccc;
+color:#ff0000;
 text-decoration:none;
 outline:none;
 }

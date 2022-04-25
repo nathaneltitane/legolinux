@@ -399,7 +399,7 @@ cat << 3D-MODEL-PAGE-INSTRUCTIONS ->> "models/${path[1]}/${path[2]}/index.html"
 
 				<div class="grid-cell">
 
-					${model_category}
+					<div>${model_category}</div>
 
 				</div>
 
@@ -440,11 +440,11 @@ cat << 3D-MODEL-PAGE-TITLE ->> "models/${path[1]}/${path[2]}/index.html"
 
 				<div class="grid-cell">
 
-					${model_category}
+					<div>${model_category}</div>
 
 				</div>
 
-				<div class="button">
+				<a class="button cursor-cell" onclick="window.open('mailto:info@legolinux.com;?Subject=[ INSTRUCTIONS REQUEST ] ${model_category} // ${model_title}'); return false;">
 
 					<div class="grid grid-center">
 
@@ -456,13 +456,13 @@ cat << 3D-MODEL-PAGE-TITLE ->> "models/${path[1]}/${path[2]}/index.html"
 
 						<div class="grid-cell">
 
-							<a class="text-center" href="email.html" onclick="window.open('mailto:info@legolinux.com;?Subject=[ INSTRUCTIONS REQUEST ] ${model_category} // ${model_title}'); return false;">${model_title}</a>
+							<div class="text-center">${model_title}</div>
 
 						</div>
 
 					</div>
 
-				</div>
+				</a>
 
 			</div>
 

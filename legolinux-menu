@@ -138,11 +138,11 @@ cat << MODEL-TITLE ->> "modules/menu.html"
 
 			<div class="grid-cell">
 
-				${model_category}
+				<div>${model_category}</div>
 
 			</div>
 
-			<div class="button">
+			<a class="button" href="models/${path[1]}/${path[2]}/">
 
 				<div class="grid grid-center">
 
@@ -154,13 +154,13 @@ cat << MODEL-TITLE ->> "modules/menu.html"
 
 					<div class="grid-cell">
 
-						<a class="text-center" href="models/${path[1]}/${path[2]}/">${model_title}</a>
+						<div class="text-center">${model_title}</div>
 
 					</div>
 
 				</div>
 
-			</div>
+			</a>
 
 		</div>
 
@@ -181,11 +181,11 @@ cat << MODEL-TITLE ->> "modules/menu.html"
 
 			<div class="grid-cell">
 
-				${model_category}
+				<div>${model_category}</div>
 
 			</div>
 
-			<div class="button">
+			<a class="button" href="models/${path[1]}/${path[2]}/">
 
 				<div class="grid grid-center">
 
@@ -197,13 +197,13 @@ cat << MODEL-TITLE ->> "modules/menu.html"
 
 					<div class="grid-cell">
 
-						<a class="text-center" href="models/${path[1]}/${path[2]}/">${model_title}</a>
+						<div class="text-center">${model_title}</div>
 
 					</div>
 
 				</div>
 
-			</div>
+			</a>
 
 		</div>
 
