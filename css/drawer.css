@@ -20,8 +20,8 @@ background:rgba(100,100,100,0.75)
 }
 .drawer {
 height:auto;
-width:300px;
-left:-300px;
+width:350px;
+left:-350px;
 top:0px;
 position:absolute;
 padding:0px 0px 0px 0px;
@@ -47,8 +47,8 @@ text-overflow:ellipsis;
 }
 @keyframes drawer-open {
 0% {left:0px;}
-10%, 90% {left:300px;}
-100% {left:300px;}
+10%, 90% {left:350px;}
+100% {left:350px;}
 }
 .available{
 background:#37a537;

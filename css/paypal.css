@@ -1,7 +1,13 @@
 .paypal {
 position:fixed;
 bottom:calc(80px + 100px);
-left:0;
-height:100px;
-width:100%;
+right:0px;
+padding:10px 10px 10px 10px;
+}
+.paypal input[type="image"] {
+height:64px;
+width:64px;
+}
+.paypal:hover {
+color:#ff0000;
 }

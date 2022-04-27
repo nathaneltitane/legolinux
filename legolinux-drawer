@@ -75,7 +75,25 @@ cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
 
 					<div class="grid-cell">
 
-						<p>INSTRUCTIONS:</p>
+						<div class="text-bold">
+
+								// NOTICE</br>
+								</br>
+						</div>
+
+						<div>
+								INSTRUCTIONS ARE MADE AVAILABLE PROGRESSIVELY:</br>
+								</br>
+								PURCHASING AN INSTRUCTION SET PRIORITIZES AVAILABILITY FOR THAT MODEL!</br>
+								</br>
+
+						</div>
+
+						<div class="text-bold">
+
+							THANK YOU FOR YOUR SUPPORT!</br>
+
+						</div>
 
 					</div>
 
@@ -161,11 +179,15 @@ do
 
 		model_title=$(cat ${path[0]}/${path[1]}/${path[2]}/title)
 
+		model_paypal=${path[0]}/${path[1]}/${path[2]}/paypal
+
+		model_paypal_id=$(cat ${path[0]}/${path[1]}/${path[2]}/paypal)
+
 		model_instructions=${path[0]}/${path[1]}/${path[2]}/instructions
 
 # generate model drawer entries
 
-if [ -f "${model_instructions}" ]
+if [ ! -z $(cat "${model_instructions}") ]
 then
 
 cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"

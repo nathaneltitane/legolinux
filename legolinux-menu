@@ -94,6 +94,10 @@ do
 
 		model_title=$(cat ${path[0]}/${path[1]}/${path[2]}/title)
 
+		model_paypal=${path[0]}/${path[1]}/${path[2]}/paypal
+
+		model_paypal_id=$(cat ${path[0]}/${path[1]}/${path[2]}/paypal)
+
 		model_instructions=${path[0]}/${path[1]}/${path[2]}/instructions
 
 		# keep first container visible
@@ -128,7 +132,7 @@ cat << MODEL-CONTAINER ->> "modules/menu.html"
 
 MODEL-CONTAINER
 
-if [ -f "${model_instructions}" ]
+if [ ! -z $(cat "${model_instructions}") ]
 then
 
 cat << MODEL-TITLE ->> "modules/menu.html"

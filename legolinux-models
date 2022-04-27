@@ -163,7 +163,7 @@ do
 	sed												\
 		-i												\
 		-e "s/var count = .*/var count = ${count};/g"	\
-														"${server_javascript_directory}"/set-background.js
+														"${server_javascript_directory}"/background.js
 done
 
 frobulator.inf "Parsed model entries" "[ ${count} ]"
