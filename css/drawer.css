@@ -13,7 +13,7 @@ z-index:999;
 .drawer-button {
 background-size:contain;
 background-repeat:no-repeat;
-background:rgba(100,100,100,0.00);
+background:#44444400;
 height:100%;
 width:auto;
 margin:0px 0px 0px 0px;
@@ -29,11 +29,20 @@ animation-duration:2s;
 animation-fill-mode:forwards;
 }
 .drawer-button:hover {
-background:rgba(100,100,100,0.75);
+background:#444444aa;
 }
 .drawer-open .drawer {
 top:0px;
 left:0px;
+}
+.drawer-open .drawer:before{
+background:#444444aa;
+content:" ";
+height:100%;
+width:100%;
+top:0px;
+left:0px;
+position:fixed;
 }
 .drawer-container {
 height:calc(100vh - 80px - 100px);
