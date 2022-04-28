@@ -319,11 +319,13 @@ cat << 3D-MODEL-PAYPAL ->> "models/${path[1]}/${path[2]}/index.html"
 
 		<div class="paypal">
 
-			<div class="grid grid-column">
+			<div class="grid grid-row">
 
 				<div class="grid-cell grid-cell-center text-center">
 
-					<div>PayPal</div>
+					<div class="text-bold">\$${model_instructions_price} USD</div>
+
+					<div class="text-bold">BUY NOW!</div>
 
 				</div>
 
@@ -338,14 +340,6 @@ cat << 3D-MODEL-PAYPAL ->> "models/${path[1]}/${path[2]}/index.html"
 						<input type="image" src="https://legolinux.com/logo/logo-yellow.png" name="submit">
 
 					</form>
-
-				</div>
-
-				<div class="grid-cell grid-cell-center text-center">
-
-					<div class="text-bold">${model_instructions_price} USD</div>
-
-					<div class="text-bold">BUY INSTRUCTIONS!</div>
 
 				</div>
 

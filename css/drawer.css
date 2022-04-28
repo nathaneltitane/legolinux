@@ -1,6 +1,7 @@
 .drawer-button {
 background-size:contain;
 background-repeat:no-repeat;
+background:rgba(100,100,100,0.00);
 height:100%;
 width:auto;
 margin:0px 0px 0px 0px;
@@ -16,18 +17,19 @@ animation-duration:2s;
 animation-fill-mode:forwards;
 }
 .drawer-button:hover {
-background:rgba(100,100,100,0.75)
+background:rgba(100,100,100,0.75);
 }
 .drawer {
 height:auto;
-width:350px;
-left:-350px;
+width:325px;
+left:-325px;
 top:0px;
 position:absolute;
 padding:0px 0px 0px 0px;
 margin:0px 0px 0px 0px;
 text-overflow:ellipsis;
 opacity:95%;
+z-index:999;
 }
 .drawer-open .drawer {
 top:0px;
@@ -47,16 +49,18 @@ text-overflow:ellipsis;
 }
 @keyframes drawer-open {
 0% {left:0px;}
-10%, 90% {left:350px;}
-100% {left:350px;}
+10%, 90% {left:325px;}
+100% {left:325px;}
 }
 .available{
 background:#37a537;
-color:#dddddd !important;
+color:#8de08d !important;
+font-weight:bold;
 }
 .unavailable{
 background:#ff9e5e;
-color:#dddddd !important;
+color:#ff6e0d !important;
+font-weight:bold;
 }
 .list{
 background:#bbbbbb;

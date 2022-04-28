@@ -1,7 +1,7 @@
 .paypal {
 position:fixed;
-bottom:calc(80px + 100px);
-right:0px;
+top:0px;
+right:-2px;
 padding:10px 10px 10px 10px;
 }
 .paypal input[type="image"] {
