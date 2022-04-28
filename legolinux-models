@@ -41,14 +41,6 @@ server_javascript_directory="${PWD}"/javascript
 
 # functions ////////////////////////////////////////////////////////////////////
 
-write_title () {
-	directory="${1}"
-
-	title="$(basename ${directory})"
-
-	echo "${title^^}" | sed 's/-/ /g' > title
-}
-
 # prepare update
 
 directories_list=(
@@ -73,45 +65,6 @@ rsync					\
 	--exclude='*.mpd'	\
 	--exclude='*.pdf'	\
 						"${local_models_directory}"/* "${server_models_directory}"
-
-# index ////////////////////////////////////////////////////////////////////////
-
-frobulator.inf "Generating" "[ title ]"
-echo
-
-cd "${server_models_directory}"
-
-for directory in $(find "${server_models_directory}" -maxdepth 0 -type d)
-do
-	directory_name=$(basename "${directory}")
-
-	frobulator.inf "Writing" " [ ${directory_name} ]"
-	echo
-
-	cd "${directory}"
-
-	# create model category title file
-
-	write_title "${directory}"
-
-	for subdirectory in $(find ${server_models_directory}/* -maxdepth 1 -type d)
-	do
-		subdirectory_name=$(basename "${subdirectory}")
-
-		frobulator.inf "Writing" "[ ${subdirectory_name} ]"
-		echo
-
-		cd "${subdirectory}"
-
-		# create model title file
-
-		write_title "${subdirectory}"
-	done
-
-	# return to server directory top level
-
-	cd "${server_models_directory}"
-done
 
 # background ///////////////////////////////////////////////////////////////////
 
@@ -147,7 +100,7 @@ do
 
 	count=1
 
-	for background in ../background/*.png
+	for background in $(echo $(find ${server_backgrounds_directory} -type f -iname flat."${extension}"))
 	do
 		pad_count=$(printf "%03d.png" "${count}")
 
@@ -161,7 +114,7 @@ do
 	frobulator.inf "Updating" "[ background ]"
 	echo
 
-	sed												\
+	sed													\
 		-i												\
 		-e "s/var count = .*/var count = ${count};/g"	\
 														"${server_javascript_directory}"/background.js
