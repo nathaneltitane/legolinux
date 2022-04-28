@@ -29,7 +29,6 @@ padding:0px 0px 0px 0px;
 margin:0px 0px 0px 0px;
 text-overflow:ellipsis;
 opacity:95%;
-z-index:999;
 }
 .drawer-open .drawer {
 top:0px;
