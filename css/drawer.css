@@ -1,3 +1,15 @@
+.drawer {
+height:auto;
+width:325px;
+left:-325px;
+top:0px;
+position:absolute;
+padding:0px 0px 0px 0px;
+margin:0px 0px 0px 0px;
+text-overflow:ellipsis;
+opacity:95%;
+z-index:999;
+}
 .drawer-button {
 background-size:contain;
 background-repeat:no-repeat;
@@ -18,17 +30,6 @@ animation-fill-mode:forwards;
 }
 .drawer-button:hover {
 background:rgba(100,100,100,0.75);
-}
-.drawer {
-height:auto;
-width:325px;
-left:-325px;
-top:0px;
-position:absolute;
-padding:0px 0px 0px 0px;
-margin:0px 0px 0px 0px;
-text-overflow:ellipsis;
-opacity:95%;
 }
 .drawer-open .drawer {
 top:0px;
