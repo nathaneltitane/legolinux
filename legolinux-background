@@ -41,10 +41,12 @@ server_javascript_directory="${PWD}"/javascript
 
 # functions ////////////////////////////////////////////////////////////////////
 
+# background ///////////////////////////////////////////////////////////////////
+
 # prepare update
 
 directories_list=(
-	"${server_models_directory}"
+	"${server_backgrounds_directory}"
 )
 
 for directory in ${directories_list[@]}
@@ -54,16 +56,50 @@ do
 	mkdir -p "${directory}"
 done
 
-# pull /////////////////////////////////////////////////////////////////////////
+# values
 
-rsync					\
-	--archive			\
-	--quiet				\
-	--recursive			\
-	--exclude='*.ldr'	\
-	--exclude='*.mpd'	\
-	--exclude='*.pdf'	\
-						"${local_models_directory}"/* "${server_models_directory}"
+extensions_list=(
+	png
+)
+
+# copy images
+
+frobulator.fwd "Copying..."
+echo
+
+for extension in ${extensions_list[@]}
+do
+	# copy flat renders into background directory
+
+	count=0
+
+	for background in $(find ${local_models_directory} -type f -iname flat."${extension}")
+	do
+		pad_count=$(printf "%03d" "${count}")
+
+	    rsync					\
+			--archive			\
+			--quiet				\
+			--recursive			\
+								"${background}" "${server_backgrounds_directory}"/background-"${pad_count}"."${extension}"
+
+	    ((count++))
+
+	done
+
+	# update random background generator with new file count
+
+	frobulator.inf "Updating" "[ background ]"
+	echo
+
+	sed													\
+		-i												\
+		-e "s/var count = .*/var count = ${count};/g"	\
+														"${server_javascript_directory}"/background.js
+done
+
+frobulator.inf "Parsed model entries" "[ ${count} ]"
+echo
 
 frobulator.scs "Copy" "[ Done ]"
 echo

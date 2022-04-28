@@ -175,6 +175,7 @@ list=()
 if [[ "${option}" = "all" ]]
 then
 	scripts_list+=(
+		legolinux-background
 		legolinux-exports
 		legolinux-renders
 		legolinux-models
@@ -224,6 +225,7 @@ if [[ "${option}" = "models" ]]
 then
 	scripts_list+=(
 		legolinux-models
+		legolinux-background
 		legolinux-drawer
 		legolinux-menu
 		legolinux-viewer
