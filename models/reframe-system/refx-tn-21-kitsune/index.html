@@ -222,81 +222,37 @@
 
 		<!-- END 3D VIEWER -->
 
-
 		<!-- paypal -->
 
 		<div class="paypal">
 
-			<div class="grid grid-column grid-stretch">
+			<div class="grid grid-column">
 
-				<div class="grid-cell">
+				<div class="grid-cell grid-cell-center text-center">
 
-					<div class="text-center">
+					<div>PayPal</div>
 
-						<div id="paypal-button-container"></div>
+				</div>
 
-						<script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=USD" data-sdk-integration-source="button-factory"></script>
+				<div class="grid-cell grid-cell-center">
 
-						<script>
+					<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
 
-							function initPayPalButton() {
+						<input type="hidden" name="cmd" value="_s-xclick">
 
-								paypal.Buttons({
-								style: {
-									shape: 'rect',
-									color: 'black',
-									layout: 'horizontal',
-									label: 'paypal',
-								},
+						<input type="hidden" name="hosted_button_id" value="65SHDWJEM49ES">
 
-								createOrder: function(data, actions) {
+						<input type="image" src="https://legolinux.com/logo/logo-yellow.png" name="submit">
 
-									return actions.order.create({
+					</form>
 
-									purchase_units: [{"description":"Instructions","amount":{"currency_code":"USD","value":20}}]
+				</div>
 
-									});
+				<div class="grid-cell grid-cell-center text-center">
 
-								},
+					<div class="text-bold">15 USD</div>
 
-								onApprove: function(data, actions) {
-
-									return actions.order.capture().then(function(orderData) {
-
-									// log full order details
-
-									console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
-
-									// show a success message within this page after transaction
-
-									const element = document.getElementById('paypal-button-container');
-
-									element.innerHTML = '';
-
-									element.innerHTML = '<h3>Thank you for your payment!</h3>';
-
-									// or go to another URL after transaction
-
-									// actions.redirect('thank_you.html');
-
-									});
-								},
-
-								onError: function(err) {
-
-									console.log(err);
-
-								}
-
-								}).render('#paypal-button-container');
-
-								}
-
-							initPayPalButton();
-
-						</script>
-
-					</div>
+					<div class="text-bold">BUY INSTRUCTIONS!</div>
 
 				</div>
 
@@ -316,25 +272,25 @@
 
 				</div>
 
-				<div class="button">
+				<a class="button cursor-cell" onclick="window.open('mailto:info@legolinux.com;?Subject=INSTRUCTIONS REQUEST // REFRAME SYSTEM // REFX TN 21 KITSUNE'); return false;">
 
 					<div class="grid grid-middle">
 
 						<div class="grid">
 
-							<div class="logo-green icon icon-flex"></div>
+							<div class="logo-orange icon icon-flex"></div>
 
 						</div>
 
 						<div class="grid-cell">
 
-							<div class="text-center">REFRAME SYSTEM // REFX TN 21 KITSUNE</div>
+							<div class="text-center text-bold">INSTRUCTIONS IN PROGRESS // SEND REQUEST // REFX TN 21 KITSUNE</div>
 
 						</div>
 
 					</div>
 
-				</div>
+				</a>
 
 			</div>
 
