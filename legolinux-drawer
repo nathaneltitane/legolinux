@@ -21,7 +21,7 @@ script=$(basename -- "${BASH_SOURCE[0]}")
 
 # version //////////////////////////////////////////////////////////////////////
 
-version="04-21-2022"
+version="04-28-2022"
 
 # usage ////////////////////////////////////////////////////////////////////////
 
@@ -187,7 +187,7 @@ do
 
 # generate model drawer entries
 
-if [ ! -z $(cat "${model_instructions}") ]
+if [ -f "${model_instructions}" ]
 then
 
 cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
