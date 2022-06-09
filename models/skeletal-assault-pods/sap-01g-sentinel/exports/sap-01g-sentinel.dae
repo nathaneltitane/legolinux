@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
 <asset>
-	<created>2022-06-07T10:57:39</created>
-	<modified>2022-06-07T10:57:39</modified>
+	<created>2022-06-09T14:23:05</created>
+	<modified>2022-06-09T14:23:05</modified>
 <unit name="LeoCAD" meter="0.0004" />
 	<up_axis>Z_UP</up_axis>
 </asset>
@@ -110983,9 +110983,9 @@
 		</node>
 		<node>
 			<matrix>
-				0 0.965926 0.258819 55.1498
-				0 0.258819 -0.965926 32.8406
-				-1 0 0 -162
+				0 -0.965926 0.258819 55.1498
+				0 -0.258819 -0.965926 32.8406
+				1 0 0 -162
 				0 0 0 1
 			</matrix>
 			<instance_geometry url="#32028_dat">
