@@ -21,7 +21,7 @@ script=$(basename -- "${BASH_SOURCE[0]}")
 
 # version //////////////////////////////////////////////////////////////////////
 
-version="04-28-2022"
+version="08-16-2022"
 
 # usage ///////////////////////////////////////////////////////////////////////
 
@@ -54,6 +54,10 @@ do
 			option="pages"
 		;;
 
+		-s|--server)
+			option="server"
+		;;
+
 		-h|--help)
 			echo
 			echo -e "Usage: ./${script} [EXTENSION] | [OPTION] [PARAMETER]"
@@ -68,6 +72,8 @@ do
 			echo -e "-models           Models pages content update."
 			echo -e "-pages            Web pages content update."
 			echo
+			echo -e "-server           Create local development server."
+
 			echo -e "'${script}'       [ Version ${version} ]"
 			echo
 
