@@ -181,6 +181,7 @@ list=()
 if [[ "${option}" = "all" ]]
 then
 	scripts_list+=(
+		legolinux-server
 		legolinux-exports
 		legolinux-renders
 		legolinux-models
@@ -223,7 +224,7 @@ then
 
 	upload &
 
-f	robulator.progress "Updating renders..."
+	frobulator.progress "Updating renders..."
 	echo
 fi
 
@@ -254,6 +255,17 @@ then
 	echo
 fi
 
+if [[ "${option}" = "server" ]]
+then
+	scripts_list+=(
+		legolinux-server
+	)
+
+	run
+
+	frobulator.progress "Creating server..."
+	echo
+fi
 
 frobulator.scs "Update" "[ Done ]"
 echo
