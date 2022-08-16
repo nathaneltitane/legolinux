@@ -33,7 +33,7 @@ echo
 # variables ////////////////////////////////////////////////////////////////////
 
 local_content_directory="${PWD}"/
-local_server_directory=/var/www/html/legolinux
+local_server_directory=/var/www/html/legolinux/
 
 # defaults /////////////////////////////////////////////////////////////////////
 
@@ -47,7 +47,7 @@ frobulator.require ${list[@]}
 
 # generate server configuration
 
-cat <<- FILE > /etc/apache2/sites-enabled/legolinux.conf
+cat <<- 'FILE' > /etc/apache2/sites-enabled/legolinux.conf
 <VirtualHost *:80>
         ServerAdmin     nathanel.titane@gmail.com
         ServerName      legolinux
@@ -66,9 +66,9 @@ service apache2 reload
 
 a2ensite legolinux.conf
 
-# configure hosts redirection
+# configure server host address
 
-cat <<- FILE >> /etc/hosts
+cat <<- 'FILE' >> /etc/hosts
 127.0.0.1       dev.legolinux.com
 FILE
 
