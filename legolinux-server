@@ -1,0 +1,78 @@
+#!/bin/bash
+
+# dependencies /////////////////////////////////////////////////////////////////
+
+if [[ -z $(command -v frobulator) ]]
+then
+	curl -s -L get.frbltr.app > /usr/bin/frobulator
+fi
+
+. /usr/bin/frobulator
+
+if [[ $(id -u -n) = "root" ]]
+then
+	USER="${SUDO_USER}"
+	HOME=/home/"${USER}"
+fi
+
+# script ///////////////////////////////////////////////////////////////////////
+
+script=$(basename -- "${BASH_SOURCE[0]}")
+
+# version //////////////////////////////////////////////////////////////////////
+
+version="08-16-2022"
+
+# usage ////////////////////////////////////////////////////////////////////////
+
+# prompt ///////////////////////////////////////////////////////////////////////
+
+frobulator.script "Setting up ${script#*-}"
+echo
+
+# variables ////////////////////////////////////////////////////////////////////
+
+# defaults /////////////////////////////////////////////////////////////////////
+
+list=(
+	apache2
+)
+
+frobulator.require ${list[@]}
+
+# functions ////////////////////////////////////////////////////////////////////
+
+cat <<- FILE > /etc/apache2/sites-enabled/legolinux.conf
+<VirtualHost *:80>
+        ServerAdmin     nathanel.titane@gmail.com
+        ServerName      legolinux
+        ServerAlias     dev.legolinux.com
+        DocumentRoot    /var/www/html/legolinux/
+        ErrorLog        ${APACHE_LOG_DIR}/legolinux.error.log
+        CustomLog       ${APACHE_LOG_DIR}/legolinux.access.log combined
+</VirtualHost>
+FILE
+
+# reload service
+
+service apache2 reload
+
+# enable virtual host configuration distribution
+
+a2ensite legolinux.conf
+
+# generate local server directory
+
+directoris_list=(
+	/var/www/html/legolinux
+)
+
+for directory in ${directoris_list[@]}
+do
+	mkdir -p "${directory}"
+done
+
+
+
+frobulator.scs "Server" "[ Done ]"
+echo
