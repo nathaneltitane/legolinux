@@ -32,6 +32,9 @@ echo
 
 # variables ////////////////////////////////////////////////////////////////////
 
+local_content_directory="${PWD}"/
+local_server_directory=/var/www/html/legolinux
+
 # defaults /////////////////////////////////////////////////////////////////////
 
 list=(
@@ -63,16 +66,27 @@ a2ensite legolinux.conf
 
 # generate local server directory
 
-directoris_list=(
+directories_list=(
 	/var/www/html/legolinux
 )
 
-for directory in ${directoris_list[@]}
+for directory in ${directories_list[@]}
 do
 	mkdir -p "${directory}"
+
+	chmod -R 777 "${directory}"
 done
 
+# pull /////////////////////////////////////////////////////////////////////////
 
+rsync					\
+	--archive			\
+	--quiet				\
+	--recursive			\
+	--exclude='*.ldr'	\
+	--exclude='*.mpd'	\
+	--exclude='*.pdf'	\
+						"${local_content_directory}"/* "${local_server_directory}"
 
 frobulator.scs "Server" "[ Done ]"
 echo
