@@ -45,6 +45,8 @@ frobulator.require ${list[@]}
 
 # functions ////////////////////////////////////////////////////////////////////
 
+# generate server configuration
+
 cat <<- FILE > /etc/apache2/sites-enabled/legolinux.conf
 <VirtualHost *:80>
         ServerAdmin     nathanel.titane@gmail.com
@@ -63,6 +65,12 @@ service apache2 reload
 # enable virtual host configuration distribution
 
 a2ensite legolinux.conf
+
+# configure hosts redirection
+
+cat <<- FILE >> /etc/hosts
+127.0.0.1       dev.legolinux.com
+FILE
 
 # generate local server directory
 
