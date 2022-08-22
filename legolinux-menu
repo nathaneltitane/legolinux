@@ -49,6 +49,7 @@ cat << 'MODELS-MENU-HEADER' -> "modules/menu.html"
 		<script>
 
 		$(function(){
+
 			$.get("/modules/anchors.html", function (data) {
 
 				$("#anchors").append(data);
