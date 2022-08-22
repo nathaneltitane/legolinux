@@ -4,11 +4,11 @@ $(document).ready(function() {
 
 	if ($('.container.hidden').length >= 1) {
 
-		$('#to-top').hide();
+		$('#top').hide();
 
 		var count = 0;
 
-		$('#load-more').on('click', function(e) {
+		$('#more').on('click', function(e) {
 
 			e.preventDefault();
 
@@ -30,13 +30,13 @@ $(document).ready(function() {
 
 			if (count == 2) {
 
-				$('#to-top').show();
+				$('#top').show();
 
 			}
 
 			if ($('.container.hidden').length == 0) {
 
-				$('#load-more').hide();
+				$('#more').hide();
 
 			}
 
@@ -46,7 +46,7 @@ $(document).ready(function() {
 
 		// remove element when last .container is unhidden
 
-		$('#load-more').remove();
+		$('#more').remove();
 
 	}
 

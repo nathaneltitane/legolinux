@@ -2,7 +2,7 @@
 
 $(document).ready(function() {
 
-	$('.to-bottom').click(function(event) {
+	$('.bottom').click(function(event) {
 
 		event.preventDefault();
 
