@@ -181,7 +181,7 @@ list=()
 if [[ "${option}" = "all" ]]
 then
 	scripts_list+=(
-		legolinux-server
+#		legolinux-server
 		legolinux-exports
 		legolinux-renders
 		legolinux-models

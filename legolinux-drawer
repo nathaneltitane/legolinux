@@ -21,7 +21,7 @@ script=$(basename -- "${BASH_SOURCE[0]}")
 
 # version //////////////////////////////////////////////////////////////////////
 
-version="04-28-2022"
+version="08-26-2022"
 
 # usage ////////////////////////////////////////////////////////////////////////
 
@@ -71,29 +71,27 @@ cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
 
 			<section class="list">
 
-				<div class="grid grid-row grid-middle">
+				<div class="grid grid-column grid-middle">
 
-					<div class="grid-cell">
+					<div class="grid-cell text-bold">
 
-						<div class="text-bold">
+						// NOTICE</br>
+						</br>
 
-								// NOTICE</br>
-								</br>
-						</div>
+					</div>
 
-						<div>
-								INSTRUCTIONS ARE MADE AVAILABLE PROGRESSIVELY:</br>
-								</br>
-								PURCHASING AN INSTRUCTION SET PRIORITIZES AVAILABILITY FOR THAT MODEL!</br>
-								</br>
+					<div class="grid-cell text-center">
 
-						</div>
+						INSTRUCTIONS ARE MADE AVAILABLE PROGRESSIVELY:</br>
+						</br>
+						PURCHASING AN INSTRUCTION SET PRIORITIZES AVAILABILITY FOR THAT MODEL!</br>
+						</br>
 
-						<div class="text-bold">
+					</div>
 
-							THANK YOU FOR YOUR SUPPORT! // <3</br>
+					<div class="grid-cell text-bold">
 
-						</div>
+						THANK YOU FOR YOUR SUPPORT! // <3</br>
 
 					</div>
 
@@ -107,13 +105,13 @@ cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
 
 				<div class="grid grid-row grid-middle">
 
-					<div class="grid-cell">
+					<div class="grid">
 
-						<a class="icon icon-flex icon-center logo-green" href="#"></a>
+						<div class="icon icon-flex icon-center logo-green"></div>
 
 					</div>
 
-					<div class="grid-cell">
+					<div class="grid-cell text-center">
 
 						AVAILABLE
 
@@ -129,13 +127,13 @@ cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
 
 				<div class="grid grid-row grid-middle">
 
-					<div class="grid-cell">
+					<div class="grid">
 
-						<a class="icon icon-flex icon-center logo-orange" href="#"></a>
+						<div class="icon icon-flex icon-center logo-orange"></div>
 
 					</div>
 
-					<div class="grid-cell">
+					<div class="grid-cell text-center">
 
 						UNAVAILABLE
 
@@ -193,25 +191,25 @@ then
 cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
 				<div class="grid grid-column grid-stretch">
 
-					<div class="grid-cell">
+					<div class="grid-cell category text-right">
 
-						<div class="category">${model_category}</div>
+						${model_category}
 
 					</div>
 
 					<a class="button" href="/models/${path[1]}/${path[2]}/">
 
-						<div class="grid grid-middle">
+						<div class="grid grid-row grid-middle">
 
 							<div class="grid">
 
-								<div class="logo-green icon icon-flex"></div>
+								<div class="icon icon-flex icon-center logo-green"></div>
 
 							</div>
 
-							<div class="grid-cell">
+							<div class="grid-cell text-center">
 
-								<div class="text-center" >${model_title}</div>
+								${model_title}
 
 							</div>
 
@@ -229,25 +227,26 @@ cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
 
 				<div class="grid grid-column grid-stretch">
 
-					<div class="grid-cell">
 
-						<div class="category">${model_category}</div>
+					<div class="grid-cell category text-right">
+
+						${model_category}
 
 					</div>
 
 					<a class="button" href="/models/${path[1]}/${path[2]}/">
 
-						<div class="grid grid-middle">
+						<div class="grid grid-row grid-middle">
 
 							<div class="grid">
 
-								<div class="logo-orange icon icon-flex"></div>
+								<div class="icon icon-flex icon-center logo-orange"></div>
 
 							</div>
 
-							<div class="grid-cell">
+							<div class="grid-cell text-center">
 
-								<div class="text-center">${model_title}</div>
+								${model_title}
 
 							</div>
 
@@ -280,15 +279,11 @@ cat << MODEL-DRAWER-FOOTER ->> "modules/drawer.html"
 
 			<div class="grid grid-column grid-middle">
 
-				<div class="grid-cell">
+				<div class="grid-cell text-center">
 
-					<div class="text-center">
-
-						Version // ${stamp}</br>
-						Lego // Linux - Where Lego meets Linux</br>
-						Nathanel Titane - ©  <text id="year"></text>
-
-					</div>
+					Version // ${stamp}</br>
+					Lego // Linux - Where Lego meets Linux</br>
+					Nathanel Titane - ©  <text id="year"></text>
 
 				</div>
 

@@ -21,7 +21,7 @@ script=$(basename -- "${BASH_SOURCE[0]}")
 
 # version //////////////////////////////////////////////////////////////////////
 
-version="04-28-2022"
+version="08-26-2022"
 
 # usage ////////////////////////////////////////////////////////////////////////
 
@@ -49,7 +49,6 @@ cat << 'MODELS-MENU-HEADER' -> "modules/menu.html"
 		<script>
 
 		$(function(){
-
 			$.get("/modules/anchors.html", function (data) {
 
 				$("#anchors").append(data);
@@ -105,9 +104,9 @@ do
 
 		if [ "${count}" -eq 1 ]
 		then
-			container="container"
+			hidden=""
 		else
-			container="container hidden"
+			hidden="hidden"
 		fi
 
 # generate model container
@@ -115,9 +114,9 @@ do
 cat << MODEL-CONTAINER ->> "modules/menu.html"
 <!-- BEGIN CONTAINER -->
 
-<div class='${container}' id=${model_title/ /-}>
+<div class='container ${hidden}' id=${model_title/ /-}>
 
-	<div class='grid'>
+	<div class='grid grid-column grid-center grid-around grid-wrap'>
 
 		<div class='grid-cell'>
 
@@ -141,25 +140,26 @@ cat << MODEL-TITLE ->> "modules/menu.html"
 
 		<div class="grid grid-column grid-stretch">
 
-			<div class="grid-cell">
+			<div class="grid-cell category text-left">
 
-				<div>${model_category}</div>
+				${model_category}
 
 			</div>
 
 			<a class="button" href="models/${path[1]}/${path[2]}/">
 
-				<div class="grid grid-middle">
+				<div class="grid grid-row grid-middle">
 
 					<div class="grid">
 
-						<div class="logo-green icon icon-flex"></div>
+						<div class="icon icon-flex icon-center logo-green"></div>
 
 					</div>
 
-					<div class="grid-cell">
 
-						<div class="text-center">${model_title}</div>
+					<div class="grid-cell text-center">
+
+						${model_title}
 
 					</div>
 
@@ -184,25 +184,26 @@ cat << MODEL-TITLE ->> "modules/menu.html"
 
 		<div class="grid grid-column grid-stretch">
 
-			<div class="grid-cell">
 
-				<div>${model_category}</div>
+			<div class="grid-cell category text-left">
+
+				${model_category}
 
 			</div>
 
 			<a class="button" href="models/${path[1]}/${path[2]}/">
 
-				<div class="grid grid-middle">
+				<div class="grid grid-row grid-middle">
 
 					<div class="grid">
 
-						<div class="logo-orange icon icon-flex"></div>
+						<div class="icon icon-flex icon-center logo-orange"></div>
 
 					</div>
 
-					<div class="grid-cell">
+					<div class="grid-cell text-center">
 
-						<div class="text-center">${model_title}</div>
+						${model_title}
 
 					</div>
 
