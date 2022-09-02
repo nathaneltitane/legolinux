@@ -45,7 +45,7 @@ left:0px;
 position:fixed;
 }
 .drawer-container {
-height:calc(100vh - 80px - 80px);
+height:100vh;
 padding:0px 0px 0px 0px;
 margin:0px 0px 0px 0px;
 overflow:overlay;
