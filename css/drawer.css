@@ -77,3 +77,6 @@ background:#bbbbbb;
 .category{
 padding:10px 0px 10px 0px;
 }
+.category br {
+display:none;
+}
