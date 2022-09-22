@@ -10,6 +10,8 @@ then
     fi
 
     curl -s -L get.frbltr.app > /usr/bin/frobulator
+
+    chmod +x /usr/bin/frobulator
 fi
 
 . /usr/bin/frobulator
