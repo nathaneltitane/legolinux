@@ -146,9 +146,7 @@ upload () {
 run () {
 	for script in ${scripts_list[@]}
 	do
-		command="bash ./${script}"
-
-		frobulator.log "${command}"
+		bash ./"${script}" | frobulator.log
 	done
 }
 
