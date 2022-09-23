@@ -206,7 +206,7 @@ then
 #		legolinux-gallery
 	)
 
-	frobulator.log run
+	frobulator.log "run"
 
 	upload &
 
