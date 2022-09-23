@@ -146,7 +146,9 @@ upload () {
 run () {
 	for script in ${scripts_list[@]}
 	do
-		bash ./${script}
+		command="bash ./${script}"
+
+		frobulator.log "${command}"
 	done
 }
 
@@ -206,7 +208,7 @@ then
 #		legolinux-gallery
 	)
 
-	frobulator.log "run"
+	run
 
 	upload &
 
