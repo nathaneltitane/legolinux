@@ -343,7 +343,7 @@ cat << 3D-MODEL-PAYPAL ->> "models/${path[1]}/${path[2]}/index.html"
 
 						<input type="hidden" name="hosted_button_id" value="${model_paypal_id}">
 
-						<input type="image" src="test/logo/logo-yellow.svg" name="submit">
+						<input type="image" src="/logo/logo-yellow.svg" name="submit">
 
 					</form>
 
