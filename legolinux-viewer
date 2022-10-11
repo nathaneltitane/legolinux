@@ -102,7 +102,7 @@ do
 
 		model_instructions_price=$(cat ${path[0]}/${path[1]}/${path[2]}/price)
 
-		email_model_title=$model_title//\<\/\br\>/}
+		email_model_title=$(echo ${model_title//\<\/\br\>/})
 
 # generate 3d model page
 
