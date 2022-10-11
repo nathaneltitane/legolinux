@@ -102,6 +102,8 @@ do
 
 		model_instructions_price=$(cat ${path[0]}/${path[1]}/${path[2]}/price)
 
+		email_model_title=$model_title//\<\/\br\>/}
+
 # generate 3d model page
 
 cat << 3D-MODEL-PAGE-HEADER -> "models/${path[1]}/${path[2]}/index.html"
@@ -430,7 +432,7 @@ cat << 3D-MODEL-PAGE-TITLE ->> "models/${path[1]}/${path[2]}/index.html"
 
 				</div>
 
-				<a class="button cursor-cell" onclick="window.open('mailto:nathanel.titane@gmail.com;?Subject=INSTRUCTIONS REQUEST // ${model_category} // ${model_title}'); return false;">
+				<a class="button cursor-cell" onclick="window.open('mailto:nathanel.titane@gmail.com;?Subject=INSTRUCTIONS REQUEST // ${model_category} // ${email_model_title}'); return false;">
 
 					<div class="grid grid-row grid-middle">
 
