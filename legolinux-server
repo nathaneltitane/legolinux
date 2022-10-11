@@ -2,10 +2,10 @@
 
 # dependencies /////////////////////////////////////////////////////////////////
 
+USER_HOME="${HOME}"
+
 if [[ -z $(command -v frobulator) ]]
 then
-	USER_HOME="${HOME}"
-
 	if [[ $(id -u -n) = "root" ]]
 	then
 		if [ -z "${SUDO:-$HOME}" ]
