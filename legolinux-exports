@@ -4,6 +4,8 @@
 
 if [[ -z $(command -v frobulator) ]]
 then
+	USER_HOME="${HOME}"
+
 	if [[ $(id -u -n) = "root" ]]
 	then
 		if [ -z "${SUDO:-$HOME}" ]
@@ -15,8 +17,6 @@ then
 
 		USER="${SUDO_USER}"
 		USER_HOME=/home/"${USER}"
-	else
-		USER_HOME="${HOME}"
 	fi
 
 	if [[ -z $(command -v curl) ]]
@@ -35,7 +35,6 @@ then
 fi
 
 . "${USER_HOME}"/.local/bin/frobulator
-
 # superuser ////////////////////////////////////////////////////////////////////
 
 # script ///////////////////////////////////////////////////////////////////////
