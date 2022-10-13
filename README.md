@@ -22,6 +22,6 @@ Legolinux uses [Frobulator](https://github.com/nathaneltitane/frobulator) to str
 
 [[ LegoLinux // Project Page ]](https://github.com/nathaneltitane/legolinux.github.io) [ Version // 10-11-2022 ]
 
-### Enjoying Terminal? Buy me a coffee to show your appreciation!
+### Enjoying LegoLinux? Buy me a coffee to show your appreciation!
 
 [![Donate](https://img.shields.io/badge/Donate-PayPal-000000.svg?style=for-the-badge)](https://www.paypal.com/donate/?hosted_button_id=QG58TMRHNSZAU)
