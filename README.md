@@ -12,7 +12,12 @@ LegoLinux - Where Lego and Linux meet!
 
 This repository hosts the website built to showcase my hobby as an avid AFOL.
 
-Legolinux uses [Frobulator](https://github.com/nathaneltitane/frobulator) to streamline the scripts and make redundant code a thing of the past.
+Legolinux uses:
+
+- [Frobulator](https://github.com/nathaneltitane/frobulator) to streamline the scripts and make redundant code a thing of the past.
+- [L²CU](https://github.com/nathaneltitane/l2cu) to automate the rendering and exportation workload for all the models shown.
+- [LeoCAD](https://github.com/leozide/leocad) to export LDraw models into an exploitable 3D format via L²CU.
+- [Three.JS](https://github.com/mrdoob/three.js) to create the viewer used to render and display my models on your web browser.
 
 ### Reports:
 
