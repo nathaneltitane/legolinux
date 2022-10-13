@@ -38,14 +38,14 @@ left:0px;
 .drawer-open .drawer:before{
 background:#444444aa;
 content:" ";
-height:100%;
+height:calc(100vh - 80px);
 width:100%;
 top:0px;
 left:0px;
 position:fixed;
 }
 .drawer-container {
-height:100vh;
+height:calc(100vh - 80px);
 padding:0px 0px 0px 0px;
 margin:0px 0px 0px 0px;
 overflow:overlay;
