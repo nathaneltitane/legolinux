@@ -86,6 +86,7 @@ rsync					\
 	--exclude='*.ldr'	\
 	--exclude='*.mpd'	\
 	--exclude='*.pdf'	\
+	--exclude='LPub3D'	\
 						"${local_models_directory}"/* "${server_models_directory}"
 
 frobulator.scs "Copy" "[ Done ]"
