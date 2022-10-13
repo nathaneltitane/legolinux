@@ -1,4 +1,4 @@
-![LegoLinux](https://raw.githubusercontent.com/nathaneltitane/terminal/main/logo/logo-black.svg)
+![LegoLinux](https://raw.githubusercontent.com/nathaneltitane/terminal/main/legolinux.svg)
 
 [![Donate](https://img.shields.io/badge/Donate-PayPal-000000.svg?style=for-the-badge)](https://www.paypal.com/donate/?hosted_button_id=QG58TMRHNSZAU)
 
