@@ -59,7 +59,7 @@
     <inkscape:grid
        type="xygrid"
        id="grid3713"
-       empspacing="8" />
+       empspacing="32" />
   </sodipodi:namedview>
   <metadata
      id="metadata5">
@@ -79,7 +79,7 @@
      transform="translate(0,-161.53331)">
     <g
        id="g837"
-       transform="matrix(1.9999999,0,0,1.9999999,1.2227434e-5,-161.5333)">
+       transform="matrix(1.9354838,0,0,1.9354838,4.3699025,-146.74191)">
       <path
          sodipodi:type="star"
          style="fill:#000000;fill-opacity:1;stroke-width:0.264583"
