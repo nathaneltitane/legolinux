@@ -10,7 +10,7 @@
 
 LegoLinux - Where Lego and Linux meet!
 
-This repository hosts
+This repository hosts the website built to showcase my hobby as an avid AFOL.
 
 Legolinux uses [Frobulator](https://github.com/nathaneltitane/frobulator) to streamline the scripts and make redundant code a thing of the past.
 
