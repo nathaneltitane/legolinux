@@ -1,12 +1,11 @@
 img {
 display:block;
-height:auto;%
-width:auto;
+height:auto;
+width:100%;
 margin-left:auto;
 margin-right:auto;
 }
 
 #menu img {
-height:calc(100vh - 80px - 60px - 122px);
 padding:10px 10px 10px 10px;
 }
