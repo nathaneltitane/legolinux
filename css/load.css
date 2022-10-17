@@ -1,14 +1,14 @@
 #load{
 background:#ffffff;
-position:fixed;
+position:relative;
 bottom:80px;
 left:0;
 right:0;
 }
 
 #load img{
-height:auto;
-width:calc(100vh - 80px - 60px - 120px);
+height:calc(100vh - 80px - 60px - 120px);
+width:auto;
 padding-bottom:100px;
 padding-top:100px;
 }
