@@ -134,7 +134,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "models/${path[1]}/${path[2]}/index.html"
 
 		<!-- interactive render container -->
 
-		<canvas class="cursor-move" id="model-canvas"></canvas>
+		<canvas id="model-canvas" class="cursor-move"></canvas>
 
 		<!-- BEGIN 3D VIEWER -->
 
