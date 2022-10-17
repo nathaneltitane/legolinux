@@ -92,7 +92,7 @@ cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
 
 			<!-- legend -->
 
-			<section class="list">
+			<div class="list section">
 
 				<div class="grid grid-column grid-middle">
 
@@ -120,11 +120,11 @@ cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
 
 				</div>
 
-			</section>
+			</div>
 
 			<!-- instructions available -->
 
-			<section class="available">
+			<div class="available section">
 
 				<div class="grid grid-row grid-middle">
 
@@ -142,11 +142,11 @@ cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
 
 				</div>
 
-			</section>
+			</div>
 
 			<!-- instructions unavailable -->
 
-			<section class="unavailable">
+			<div class="unavailable section">
 
 				<div class="grid grid-row grid-middle">
 
@@ -164,9 +164,9 @@ cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
 
 				</div>
 
-			</section>
+			</div>
 
-			<section class="list">
+			<div class="list">
 
 MODEL-DRAWER-HEADER
 
@@ -214,7 +214,7 @@ then
 cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
 				<div class="grid grid-column grid-stretch">
 
-					<div class="grid-cell category text-right">
+					<div class="grid-cell category section text-right">
 
 						${model_category}
 
@@ -251,7 +251,7 @@ cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
 				<div class="grid grid-column grid-stretch">
 
 
-					<div class="grid-cell category text-right">
+					<div class="grid-cell category section text-right">
 
 						${model_category}
 
@@ -292,13 +292,13 @@ done
 
 cat << MODEL-DRAWER-FOOTER ->> "modules/drawer.html"
 
-			</section>
+			</div>
 
 		</div>
 
 		<!-- copyright -->
 
-		<section class="copyright">
+		<div class="copyright section">
 
 			<div class="grid grid-column grid-middle">
 
@@ -312,7 +312,7 @@ cat << MODEL-DRAWER-FOOTER ->> "modules/drawer.html"
 
 			</div>
 
-		</section>
+		</div>
 
 	</div>
 
