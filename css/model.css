@@ -8,4 +8,8 @@ height:calc(100vh - 80px - 120px);
 }
 #model {
 background:#dddddd;
+position:absolute;
+bottom:80px;
+left:0;
+right:0;
 }

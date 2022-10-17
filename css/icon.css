@@ -1,5 +1,5 @@
 .icon {
-background-repeat: no-repeat;
+background-repeat:no-repeat;
 display:block;
 }
 .icon-left{
@@ -11,7 +11,7 @@ margin-left:auto;
 margin-right:10px;
 }
 .icon-center{
-margin-left: auto;
+margin-left:auto;
 margin-right:auto;
 }
 .icon-flex {

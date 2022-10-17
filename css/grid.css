@@ -72,7 +72,7 @@ grid-wrap-reverse{
 	flex:none;
 }
 .grid-cell-flex{
-	flex: 0 1 auto;
+	flex:0 1 auto;
 }
 
 grid-cell-first{
