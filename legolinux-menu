@@ -161,7 +161,7 @@ if [ -f "${model_instructions}" ]
 then
 
 cat << MODEL-TITLE ->> "modules/menu.html"
-	<div id="model section">
+	<div id="model" class="section">
 
 		<div class="grid grid-column grid-stretch">
 
@@ -205,7 +205,7 @@ MODEL-TITLE
 else
 
 cat << MODEL-TITLE ->> "modules/menu.html"
-	<div id="model section">
+	<div id="model" class="section">
 
 		<div class="grid grid-column grid-stretch">
 
@@ -258,7 +258,7 @@ done
 cat << FOOTER ->> "modules/menu.html"
 <!-- END MODELS MENU -->
 
-<div id="anchors section">
+<div id="anchors" class="section">
 
 </div>
 
