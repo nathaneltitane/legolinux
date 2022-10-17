@@ -94,6 +94,8 @@ do
 
 		model_title=$(cat ${path[0]}/${path[1]}/${path[2]}/title)
 
+		model_title_string=$(echo ${model_title//\<\/\br\>/})
+
 		model_paypal=${path[0]}/${path[1]}/${path[2]}/paypal
 
 		model_paypal_id=$(cat ${path[0]}/${path[1]}/${path[2]}/paypal)
@@ -101,8 +103,6 @@ do
 		model_instructions=${path[0]}/${path[1]}/${path[2]}/instructions
 
 		model_instructions_price=$(cat ${path[0]}/${path[1]}/${path[2]}/price)
-
-		email_model_title=$(echo ${model_title//\<\/\br\>/})
 
 # generate 3d model page
 
@@ -435,7 +435,7 @@ cat << 3D-MODEL-PAGE-TITLE ->> "models/${path[1]}/${path[2]}/index.html"
 
 					</div>
 
-					<a class="button cursor-cell" onclick="window.open('mailto:nathanel.titane@gmail.com;?Subject=INSTRUCTIONS REQUEST // ${model_category} // ${email_model_title}'); return false;">
+					<a class="button cursor-cell" onclick="window.open('mailto:nathanel.titane@gmail.com;?Subject=INSTRUCTIONS REQUEST // ${model_category} // ${model_title_string}'); return false;">
 
 						<div class="grid grid-row grid-middle">
 

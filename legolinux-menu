@@ -117,6 +117,8 @@ do
 
 		model_title=$(cat ${path[0]}/${path[1]}/${path[2]}/title)
 
+		model_title_string=$(echo ${model_title//\<\/\br\>/})
+
 		model_paypal=${path[0]}/${path[1]}/${path[2]}/paypal
 
 		model_paypal_id=$(cat ${path[0]}/${path[1]}/${path[2]}/paypal)
@@ -137,7 +139,7 @@ do
 cat << MODEL-CONTAINER ->> "modules/menu.html"
 <!-- BEGIN CONTAINER -->
 
-<div class='container ${hidden}' id=${model_title/ /-}>
+<div class='container ${hidden}' id=${model_title_string/ /-}>
 
 	<div class='grid grid-column grid-center grid-around grid-wrap'>
 
