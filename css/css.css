@@ -1,6 +1,5 @@
 @import url("/css/all.css");
 @import url("/css/body.css");
-@import url("/css/webpage.css");
 @import url("/css/anchors.css");
 @import url("/css/background.css");
 @import url("/css/copyright.css");
@@ -20,6 +19,7 @@
 @import url("/css/logo.css");
 @import url("/css/model.css");
 @import url("/css/navigation.css");
+@import url("/css/position.css");
 @import url("/css/scrollbar.css");
 @import url("/css/section.css");
 @import url("/css/text-align.css");

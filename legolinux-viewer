@@ -421,54 +421,50 @@ else
 
 cat << 3D-MODEL-PAGE-TITLE ->> "models/${path[1]}/${path[2]}/index.html"
 
-		<div class="webpage" id="webpage">
+		<!-- model -->
 
-			<!-- model -->
+		<section id="model" class="fixed">
 
-			<section id="model">
+			<div class="grid grid-column grid-stretch">
 
-				<div class="grid grid-column grid-stretch">
+				<div class="grid-cell category text-left">
 
-					<div class="grid-cell category text-left">
-
-						${model_category}
-
-					</div>
-
-					<a class="button cursor-cell" onclick="window.open('mailto:nathanel.titane@gmail.com;?Subject=INSTRUCTIONS REQUEST // ${model_category} // ${model_title_string}'); return false;">
-
-						<div class="grid grid-row grid-middle">
-
-							<div class="grid">
-
-								<div class="icon icon-flex icon-center logo-orange"></div>
-
-							</div>
-
-							<div class="grid-cell category text-bold text-center">
-
-								INSTRUCTIONS IN PROGRESS // SEND REQUEST // ${model_title}
-
-							</div>
-
-						</div>
-
-					</a>
+					${model_category}
 
 				</div>
 
-			</section>
+				<a class="button cursor-cell" onclick="window.open('mailto:nathanel.titane@gmail.com;?Subject=INSTRUCTIONS REQUEST // ${model_category} // ${model_title_string}'); return false;">
+
+					<div class="grid grid-row grid-middle">
+
+						<div class="grid">
+
+							<div class="icon icon-flex icon-center logo-orange"></div>
+
+						</div>
+
+						<div class="grid-cell category text-bold text-center">
+
+							INSTRUCTIONS IN PROGRESS // SEND REQUEST // ${model_title}
+
+						</div>
+
+					</div>
+
+				</a>
+
+			</div>
+
+		</section>
 
 3D-MODEL-PAGE-TITLE
 
 fi
 
 cat << 3D-MODEL-PAGE-FOOTER ->> "models/${path[1]}/${path[2]}/index.html"
-			<section id="footer">
+		<section id="footer">
 
-			</section>
-
-		</div>
+		</section>
 
 	</body>
 
