@@ -1,3 +1,8 @@
 .hidden {
 display:none;
 }
+
+.wrapper {
+height:calc(100vh - 80px - 60px - 122px);
+width:100%;
+}
