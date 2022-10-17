@@ -23,6 +23,13 @@ $(document).ready(function() {
 
 		get_page_data(link);
 
+		$('#background').css(
+
+			'background-image',
+
+			'none'
+		);
+
 		$('#load').addClass('load-open');
 
 		$('html,body').animate({
