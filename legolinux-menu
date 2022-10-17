@@ -139,7 +139,7 @@ do
 cat << MODEL-CONTAINER ->> "modules/menu.html"
 <!-- BEGIN CONTAINER -->
 
-<div class='container ${hidden}' id=${model_title_string/ /-}>
+<div id=${model_title_string/ /-} class='container ${hidden}'>
 
 	<div class='grid grid-column grid-center grid-around grid-wrap'>
 
