@@ -44,7 +44,7 @@ script=$(basename -- "${BASH_SOURCE[0]}")
 
 # version //////////////////////////////////////////////////////////////////////
 
-version="10-07-2022"
+version="10-17-2022"
 
 # usage ////////////////////////////////////////////////////////////////////////
 
@@ -381,7 +381,7 @@ then
 cat << 3D-MODEL-PAGE-INSTRUCTIONS ->> "models/${path[1]}/${path[2]}/index.html"
 		<!-- model -->
 
-		<section id="model">
+		<div id="model" class="section">
 
 			<div class="grid grid-column grid-stretch">
 
@@ -413,7 +413,7 @@ cat << 3D-MODEL-PAGE-INSTRUCTIONS ->> "models/${path[1]}/${path[2]}/index.html"
 
 			</div>
 
-		</section>
+		<div>
 
 3D-MODEL-PAGE-INSTRUCTIONS
 
@@ -423,7 +423,7 @@ cat << 3D-MODEL-PAGE-TITLE ->> "models/${path[1]}/${path[2]}/index.html"
 
 		<!-- model -->
 
-		<section id="model" class="fixed">
+		<div id="model" class="section fixed">
 
 			<div class="grid grid-column grid-stretch">
 
@@ -455,16 +455,16 @@ cat << 3D-MODEL-PAGE-TITLE ->> "models/${path[1]}/${path[2]}/index.html"
 
 			</div>
 
-		</section>
+		<div>
 
 3D-MODEL-PAGE-TITLE
 
 fi
 
 cat << 3D-MODEL-PAGE-FOOTER ->> "models/${path[1]}/${path[2]}/index.html"
-		<section id="footer">
+		<div id="footer" class="section">
 
-		</section>
+		</div>
 
 	</body>
 
