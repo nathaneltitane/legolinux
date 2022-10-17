@@ -96,7 +96,7 @@ do
 			echo -e "-pages            Web pages content update."
 			echo
 			echo -e "-server           Create local development server."
-
+			echo
 			echo -e "'${script}'       [ Version ${version} ]"
 			echo
 
