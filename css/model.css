@@ -2,9 +2,9 @@ canvas:focus {
 outline:none;
 }
 #model-canvas {
-width:100%;
 display:block;
 height:calc(100vh - 80px - 120px);
+width:100%;
 }
 #model {
 background:#dddddd;
