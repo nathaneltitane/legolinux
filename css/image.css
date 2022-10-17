@@ -7,6 +7,6 @@ margin-right:auto;
 }
 
 #menu img {
-height:calc(100vh - 80px - 60px - 100px);
-width:auto;
+height:calc(100vh - 80px - 60px - 122px);
+width:100%;
 }

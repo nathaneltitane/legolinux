@@ -6,13 +6,6 @@ left:0;
 right:0;
 }
 
-#load img{
-height:calc(100vh - 80px - 60px - 120px);
-width:auto;
-padding-bottom:100px;
-padding-top:100px;
-}
-
 #load #model{
 position:unset;
 }
