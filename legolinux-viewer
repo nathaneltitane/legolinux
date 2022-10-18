@@ -455,7 +455,7 @@ cat << 3D-MODEL-PAGE-TITLE ->> "models/${path[1]}/${path[2]}/index.html"
 
 			</div>
 
-		<div>
+		</div>
 
 3D-MODEL-PAGE-TITLE
 
