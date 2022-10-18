@@ -166,7 +166,7 @@ cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
 
 			</div>
 
-			<div class="list">
+			<div class="list section">
 
 MODEL-DRAWER-HEADER
 

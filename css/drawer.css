@@ -13,23 +13,17 @@ z-index:999;
 .drawer-button {
 background-size:contain;
 background-repeat:no-repeat;
-background:#44444400;
-height:100vh;
 width:auto;
 margin:0px 0px 0px 0px;
 padding:10px 10px 10px 10px;
 position:absolute;
 top:0px;
 left:0px;
-opacity:1;
 
 animation-name:drawer-open;
 animation-delay:1s;
 animation-duration:2s;
 animation-fill-mode:forwards;
-}
-.drawer-button:hover {
-background:#444444aa;
 }
 .drawer-open .drawer {
 top:0px;
