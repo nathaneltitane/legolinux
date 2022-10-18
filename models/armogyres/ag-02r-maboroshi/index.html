@@ -20,7 +20,9 @@
 
 	<body>
 
-		<div id="drawer"></div>
+		<div id="drawer">
+
+		</div>
 
 		<!-- interactive render container -->
 
@@ -226,30 +228,26 @@
 
 		<!-- paypal -->
 
-		<div class="paypal">
+		<div class="paypal grid grid-row">
 
-			<div class="grid grid-row">
+			<div class="grid-cell grid-cell-center text-bold text-center">
 
-				<div class="grid-cell grid-cell-center text-bold text-center">
+				$15 USD</br>
+				BUY NOW!</br>
 
-					$15 USD</br>
-					BUY NOW!</br>
+			</div>
 
-				</div>
+			<div class="grid-cell grid-cell-center">
 
-				<div class="grid-cell grid-cell-center">
+				<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
 
-					<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+					<input type="hidden" name="cmd" value="_s-xclick">
 
-						<input type="hidden" name="cmd" value="_s-xclick">
+					<input type="hidden" name="hosted_button_id" value="UQHCTLYDJVLFG">
 
-						<input type="hidden" name="hosted_button_id" value="UQHCTLYDJVLFG">
+					<input type="image" src="/logo/logo-yellow.svg" name="submit">
 
-						<input type="image" src="/logo/logo-yellow.svg" name="submit">
-
-					</form>
-
-				</div>
+				</form>
 
 			</div>
 
@@ -257,7 +255,7 @@
 
 		<!-- model -->
 
-		<div id="model" class="section">
+		<div id="model" class="section grid grid-column grid-stretch">
 
 			<div class="grid grid-column grid-stretch">
 
@@ -289,8 +287,7 @@
 
 		</div>
 
-
-		<!-- model -->
+		<!-- contact -->
 
 		<div id="contact" class="section">
 

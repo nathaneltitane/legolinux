@@ -20,7 +20,9 @@
 
 	<body>
 
-		<div id="drawer"></div>
+		<div id="drawer">
+
+		</div>
 
 		<!-- interactive render container -->
 
@@ -226,30 +228,26 @@
 
 		<!-- paypal -->
 
-		<div class="paypal">
+		<div class="paypal grid grid-row">
 
-			<div class="grid grid-row">
+			<div class="grid-cell grid-cell-center text-bold text-center">
 
-				<div class="grid-cell grid-cell-center text-bold text-center">
+				$20 USD</br>
+				BUY NOW!</br>
 
-					$20 USD</br>
-					BUY NOW!</br>
+			</div>
 
-				</div>
+			<div class="grid-cell grid-cell-center">
 
-				<div class="grid-cell grid-cell-center">
+				<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
 
-					<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+					<input type="hidden" name="cmd" value="_s-xclick">
 
-						<input type="hidden" name="cmd" value="_s-xclick">
+					<input type="hidden" name="hosted_button_id" value="D8P2XRSRD5HDW">
 
-						<input type="hidden" name="hosted_button_id" value="D8P2XRSRD5HDW">
+					<input type="image" src="/logo/logo-yellow.svg" name="submit">
 
-						<input type="image" src="/logo/logo-yellow.svg" name="submit">
-
-					</form>
-
-				</div>
+				</form>
 
 			</div>
 
@@ -257,57 +255,48 @@
 
 		<!-- model -->
 
-		<div id="model" class="section">
+		<div id="model" class="section grid grid-column grid-stretch">
 
-			<div class="grid grid-column grid-stretch">
+			<div class="grid-cell category text-left">
 
-				<div class="grid-cell category text-left">
+				VERITECHS
 
-					VERITECHS
+			</div>
 
-				</div>
+			<div class="button grid grid-row grid-middle">
 
-				<div class="button grid grid-row grid-middle">
+				<div class="grid">
 
-					<div class="grid">
-
-						<div class="icon icon-flex icon-center logo-green">
-
-						</div>
+					<div class="icon icon-flex icon-center logo-green">
 
 					</div>
 
-					<div class="grid-cell text-center">
+				</div>
 
-						VF-19S EXCALIBUR //</br>
+				<div class="grid-cell text-center">
+
+					VF-19S EXCALIBUR //</br>
 SUPER FIGHTER
 
-					</div>
-
 				</div>
 
 			</div>
 
 		</div>
 
+		<!-- contact -->
 
-		<!-- model -->
+		<div id="contact" class="section grid">
 
-		<div id="contact" class="section">
+			<div class="grid-cell">
 
-			<div class="grid">
+				<div class="button cursor-pointer text-center">
 
-				<div class="grid-cell">
+					<a class="cursor-cell" onclick="window.open('mailto:nathanel.titane@gmail.com;?Subject=INSTRUCTIONS INQUIRY // VERITECHS // VF-19S EXCALIBUR // SUPER FIGHTER'); return false;">
 
-					<div class="button cursor-pointer text-center">
+						INSTRUCTIONS AVAILABLE // SEND INQUIRY
 
-						<a class="cursor-cell" onclick="window.open('mailto:nathanel.titane@gmail.com;?Subject=INSTRUCTIONS INQUIRY // VERITECHS // VF-19S EXCALIBUR // SUPER FIGHTER'); return false;">
-
-							INSTRUCTIONS AVAILABLE // SEND INQUIRY
-
-						</a>
-
-					</div>
+					</a>
 
 				</div>
 

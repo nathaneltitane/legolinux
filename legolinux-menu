@@ -161,38 +161,33 @@ if [ -f "${model_instructions}" ]
 then
 
 cat << MODEL-TITLE ->> "modules/menu.html"
-	<div id="model" class="section">
+	<div id="model" class="section grid grid-column grid-stretch">
 
-		<div class="grid grid-column grid-stretch">
+		<div class="grid-cell category text-left">
 
-			<div class="grid-cell category text-left">
+			${model_category}
 
-				${model_category}
+		</div>
 
-			</div>
+		<a class="button" href="models/${path[1]}/${path[2]}/">
 
-			<a class="button" href="models/${path[1]}/${path[2]}/">
+			<div class="grid grid-row grid-middle">
 
-				<div class="grid grid-row grid-middle">
+				<div class="grid">
 
-					<div class="grid">
-
-						<div class="icon icon-flex icon-center logo-green"></div>
-
-					</div>
-
-
-					<div class="grid-cell text-center">
-
-						${model_title}
-
-					</div>
+					<div class="icon icon-flex icon-center logo-green"></div>
 
 				</div>
 
-			</a>
+				<div class="grid-cell text-center">
 
-		</div>
+					${model_title}
+
+				</div>
+
+			</div>
+
+		</a>
 
 	</div>
 
@@ -205,38 +200,33 @@ MODEL-TITLE
 else
 
 cat << MODEL-TITLE ->> "modules/menu.html"
-	<div id="model" class="section">
+	<div id="model" class="section grid grid-column grid-stretch">
 
-		<div class="grid grid-column grid-stretch">
+		<div class="grid-cell category text-left">
 
+			${model_category}
 
-			<div class="grid-cell category text-left">
+		</div>
 
-				${model_category}
+		<a class="button" href="models/${path[1]}/${path[2]}/">
 
-			</div>
+			<div class="grid grid-row grid-middle">
 
-			<a class="button" href="models/${path[1]}/${path[2]}/">
+				<div class="grid">
 
-				<div class="grid grid-row grid-middle">
-
-					<div class="grid">
-
-						<div class="icon icon-flex icon-center logo-orange"></div>
-
-					</div>
-
-					<div class="grid-cell text-center">
-
-						${model_title}
-
-					</div>
+					<div class="icon icon-flex icon-center logo-orange"></div>
 
 				</div>
 
-			</a>
+				<div class="grid-cell text-center">
 
-		</div>
+					${model_title}
+
+				</div>
+
+			</div>
+
+		</a>
 
 	</div>
 
