@@ -7,21 +7,21 @@ position:absolute;
 padding:0px 0px 0px 0px;
 margin:0px 0px 0px 0px;
 text-overflow:ellipsis;
-opacity:95%;
+opacity:0.9;
 z-index:999;
 }
 .drawer-button {
 background-size:contain;
 background-repeat:no-repeat;
 background:#44444400;
-height:100%;
+height:100vh;
 width:auto;
 margin:0px 0px 0px 0px;
 padding:10px 10px 10px 10px;
+position:absolute;
 top:0px;
 left:0px;
-position:absolute;
-opacity:100%;
+opacity:1;
 
 animation-name:drawer-open;
 animation-delay:1s;
@@ -34,15 +34,6 @@ background:#444444aa;
 .drawer-open .drawer {
 top:0px;
 left:0px;
-}
-.drawer-open .drawer:before{
-background:#444444aa;
-content:" ";
-height:100vh;
-width:100%;
-top:0px;
-left:0px;
-position:fixed;
 }
 .drawer-container {
 height:100vh;
