@@ -110,6 +110,7 @@ cat << 3D-MODEL-PAGE-HEADER -> "models/${path[1]}/${path[2]}/index.html"
 <!DOCTYPE html>
 
 <html>
+
 	<head>
 
 		<!-- css -->
@@ -130,11 +131,12 @@ cat << 3D-MODEL-PAGE-HEADER -> "models/${path[1]}/${path[2]}/index.html"
 
 cat << 3D-MODEL-PAGE-VIEWER ->> "models/${path[1]}/${path[2]}/index.html"
 	<body>
+
 		<div id="drawer"></div>
 
 		<!-- interactive render container -->
 
-		<canvas id="model-canvas" class="cursor-move"></canvas>
+		<canvas id="canvas" class="cursor-move"></canvas>
 
 		<!-- BEGIN 3D VIEWER -->
 
@@ -150,7 +152,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "models/${path[1]}/${path[2]}/index.html"
 
 				// canvas
 
-				var canvas = document.querySelector('#model-canvas');
+				var canvas = document.querySelector('#canvas');
 
 				// renderer
 
@@ -378,51 +380,10 @@ fi
 if [ -f "${model_instructions}" ]
 then
 
-cat << 3D-MODEL-PAGE-INSTRUCTIONS ->> "models/${path[1]}/${path[2]}/index.html"
-		<!-- model -->
-
-		<div id="model" class="section fixed">
-
-			<div class="grid grid-column grid-stretch">
-
-				<div class="grid-cell category text-left">
-
-					${model_category}
-
-				</div>
-
-				<div class="button">
-
-					<div class="grid grid-row grid-middle">
-
-						<div class="grid">
-
-							<div class="icon icon-flex icon-center logo-green"></div>
-
-						</div>
-
-						<div class="grid-cell category text-center">
-
-							${model_category} // ${model_title}
-
-						</div>
-
-					</div>
-
-				</div>
-
-			</div>
-
-		</div>
-
-3D-MODEL-PAGE-INSTRUCTIONS
-
-else
-
 cat << 3D-MODEL-PAGE-TITLE ->> "models/${path[1]}/${path[2]}/index.html"
 		<!-- model -->
 
-		<div id="model" class="section fixed">
+		<div id="model" class="section">
 
 			<div class="grid grid-column grid-stretch">
 
@@ -432,31 +393,124 @@ cat << 3D-MODEL-PAGE-TITLE ->> "models/${path[1]}/${path[2]}/index.html"
 
 				</div>
 
-				<a class="button cursor-cell" onclick="window.open('mailto:nathanel.titane@gmail.com;?Subject=INSTRUCTIONS REQUEST // ${model_category} // ${model_title_string}'); return false;">
+				<div class="button grid grid-row grid-middle">
 
-					<div class="grid grid-row grid-middle">
+					<div class="grid">
 
-						<div class="grid">
-
-							<div class="icon icon-flex icon-center logo-orange"></div>
-
-						</div>
-
-						<div class="grid-cell category text-bold text-center">
-
-							INSTRUCTIONS IN PROGRESS // SEND REQUEST // ${model_title}
+						<div class="icon icon-flex icon-center logo-green">
 
 						</div>
 
 					</div>
 
-				</a>
+					<div class="grid-cell text-center">
+
+						${model_title}
+
+					</div>
+
+				</div>
 
 			</div>
 
 		</div>
 
 3D-MODEL-PAGE-TITLE
+
+cat << 3D-MODEL-PAGE-CONTACT ->> "models/${path[1]}/${path[2]}/index.html"
+
+		<!-- model -->
+
+		<div id="contact" class="section">
+
+			<div class="grid">
+
+				<div class="grid-cell">
+
+					<div class="button cursor-pointer text-center">
+
+						<a class="cursor-cell" onclick="window.open('mailto:nathanel.titane@gmail.com;?Subject=INSTRUCTIONS INQUIRY // ${model_category} // ${model_title_string}'); return false;">
+
+							INSTRUCTIONS AVAILABLE // SEND INQUIRY
+
+						</a>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+3D-MODEL-PAGE-CONTACT
+
+else
+
+cat << 3D-MODEL-PAGE-TITLE ->> "models/${path[1]}/${path[2]}/index.html"
+		<!-- model -->
+
+		<div id="model" class="section">
+
+			<div class="grid grid-column grid-stretch">
+
+				<div class="grid-cell category text-left">
+
+					${model_category}
+
+				</div>
+
+				<div class="button grid grid-row grid-middle">
+
+					<div class="grid">
+
+						<div class="icon icon-flex icon-center logo-orange">
+
+						</div>
+
+					</div>
+
+					<div class="grid-cell text-center">
+
+						${model_title}
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+3D-MODEL-PAGE-TITLE
+
+cat << 3D-MODEL-PAGE-CONTACT ->> "models/${path[1]}/${path[2]}/index.html"
+
+		<!-- model -->
+
+		<div id="contact" class="section">
+
+			<div class="grid">
+
+				<div class="grid-cell">
+
+					<div class="button cursor-pointer text-center">
+
+						<a class="cursor-cell" onclick="window.open('mailto:nathanel.titane@gmail.com;?Subject=INSTRUCTIONS REQUEST // ${model_category} // ${model_title_string}'); return false;">
+
+							INSTRUCTIONS IN PROGRESS // SEND REQUEST
+
+						</a>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+3D-MODEL-PAGE-CONTACT
 
 fi
 

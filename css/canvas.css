@@ -1,0 +1,8 @@
+canvas:focus {
+outline:none;
+}
+#canvas {
+display:block;
+height:calc(100vh - 80px - 120px);
+width:100vw;
+}

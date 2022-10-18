@@ -1,13 +1,9 @@
-canvas:focus {
-outline:none;
-}
-#model-canvas {
-display:block;
-height:calc(100vh - 80px - 120px);
-width:100vw;
-}
 #model {
 background:#dddddd;
-left:0;
-right:0;
+height:auto;
+width:auto;
+position:fixed;
+bottom:calc(80px + 60px);
+left:0px;
+right:0px;
 }

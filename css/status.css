@@ -1,0 +1,10 @@
+.available{
+background:#37a537;
+color:#8de08d !important;
+font-weight:bold;
+}
+.unavailable{
+background:#ff9e5e;
+color:#ff6e0d !important;
+font-weight:bold;
+}

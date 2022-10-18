@@ -220,9 +220,9 @@ cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
 
 					</div>
 
-					<a class="button" href="/models/${path[1]}/${path[2]}/">
+					<a href="/models/${path[1]}/${path[2]}/">
 
-						<div class="grid grid-row grid-middle">
+						<div class="button grid grid-row grid-middle">
 
 							<div class="grid">
 
@@ -257,9 +257,9 @@ cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
 
 					</div>
 
-					<a class="button" href="/models/${path[1]}/${path[2]}/">
+					<a href="/models/${path[1]}/${path[2]}/">
 
-						<div class="grid grid-row grid-middle">
+						<div class="button grid grid-row grid-middle">
 
 							<div class="grid">
 

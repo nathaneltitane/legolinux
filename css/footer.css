@@ -1,8 +1,9 @@
 #footer {
 background:#aaaaaa;
-position:fixed;
-bottom:0;
-left:0;
-right:0;
 height:80px;
+width:auto;
+position:fixed;
+bottom:0px;
+left:0px;
+right:0px;
 }

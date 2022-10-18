@@ -1,7 +1,9 @@
 #navigation {
 background:#dddddd;
+height:auto;
+width:auto;
 position:fixed;
 bottom:80px;
-left:0;
-right:0;
+left:0px;
+right:0px;
 }

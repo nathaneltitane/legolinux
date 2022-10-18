@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html>
+
 	<head>
 
 		<!-- css -->
@@ -18,11 +19,12 @@
 	</head>
 
 	<body>
+
 		<div id="drawer"></div>
 
 		<!-- interactive render container -->
 
-		<canvas id="model-canvas" class="cursor-move"></canvas>
+		<canvas id="canvas" class="cursor-move"></canvas>
 
 		<!-- BEGIN 3D VIEWER -->
 
@@ -38,7 +40,7 @@
 
 				// canvas
 
-				var canvas = document.querySelector('#model-canvas');
+				var canvas = document.querySelector('#canvas');
 
 				// renderer
 
@@ -255,7 +257,7 @@
 
 		<!-- model -->
 
-		<div id="model" class="section fixed">
+		<div id="model" class="section">
 
 			<div class="grid grid-column grid-stretch">
 
@@ -265,25 +267,48 @@
 
 				</div>
 
-				<a class="button cursor-cell" onclick="window.open('mailto:nathanel.titane@gmail.com;?Subject=INSTRUCTIONS REQUEST // MOBILE SUITS // GX-9901 DX DOUBLE-X'); return false;">
+				<div class="button grid grid-row grid-middle">
 
-					<div class="grid grid-row grid-middle">
+					<div class="grid">
 
-						<div class="grid">
-
-							<div class="icon icon-flex icon-center logo-orange"></div>
-
-						</div>
-
-						<div class="grid-cell category text-bold text-center">
-
-							INSTRUCTIONS IN PROGRESS // SEND REQUEST // GX-9901 DX DOUBLE-X
+						<div class="icon icon-flex icon-center logo-orange">
 
 						</div>
 
 					</div>
 
-				</a>
+					<div class="grid-cell text-center">
+
+						GX-9901 DX DOUBLE-X
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+
+		<!-- model -->
+
+		<div id="contact" class="section">
+
+			<div class="grid">
+
+				<div class="grid-cell">
+
+					<div class="button cursor-pointer text-center">
+
+						<a class="cursor-cell" onclick="window.open('mailto:nathanel.titane@gmail.com;?Subject=INSTRUCTIONS REQUEST // MOBILE SUITS // GX-9901 DX DOUBLE-X'); return false;">
+
+							INSTRUCTIONS IN PROGRESS // SEND REQUEST
+
+						</a>
+
+					</div>
+
+				</div>
 
 			</div>
 
