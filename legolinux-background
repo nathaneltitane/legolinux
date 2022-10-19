@@ -44,7 +44,7 @@ script=$(basename -- "${BASH_SOURCE[0]}")
 
 # version //////////////////////////////////////////////////////////////////////
 
-version="10-17-2022"
+version="10-20-2022"
 
 # usage ////////////////////////////////////////////////////////////////////////
 
@@ -55,8 +55,8 @@ echo
 
 # variables ////////////////////////////////////////////////////////////////////
 
-local_models_directory=/media/internal/Lego/models
-server_models_directory="${PWD}"/models
+local_model_items=/media/internal/Lego/models
+server_model_items="${PWD}"/models
 server_backgrounds_directory="${PWD}"/background
 server_javascript_directory="${PWD}"/javascript
 
@@ -96,7 +96,7 @@ do
 
 	count=0
 
-	for background in $(find ${local_models_directory} -type f -iname flat."${extension}")
+	for background in $(find ${local_model_items} -type f -iname flat."${extension}")
 	do
 		pad_count=$(printf "%03d" "${count}")
 

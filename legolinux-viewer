@@ -44,7 +44,7 @@ script=$(basename -- "${BASH_SOURCE[0]}")
 
 # version //////////////////////////////////////////////////////////////////////
 
-version="10-17-2022"
+version="10-20-2022"
 
 # usage ////////////////////////////////////////////////////////////////////////
 
@@ -77,9 +77,9 @@ do
 	# shuffle models directories list:
 	# creates random showcase of all models on each update
 
-	for models_directory in $(find models/ -type f -iname flat."${extension}" | shuf)
+	for model_items in $(find models/ -type f -iname flat."${extension}" | shuf)
 	do
-		IFS='/' read -r -a path <<< $(echo "$models_directory")
+		IFS='/' read -r -a path <<< $(echo "$model_items")
 
 		# /models/model-type/model/renders/flat/flat.${extension}
 
@@ -348,13 +348,6 @@ cat << 3D-MODEL-PAYPAL ->> "models/${path[1]}/${path[2]}/index.html"
 
 		<div class="paypal grid grid-row">
 
-			<div class="grid-cell grid-cell-center text-bold text-center">
-
-				\$${model_instructions_price} USD</br>
-				BUY NOW!</br>
-
-			</div>
-
 			<div class="grid-cell grid-cell-center">
 
 				<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
@@ -366,6 +359,13 @@ cat << 3D-MODEL-PAYPAL ->> "models/${path[1]}/${path[2]}/index.html"
 					<input type="image" src="/logo/logo-yellow.svg" name="submit">
 
 				</form>
+
+			</div>
+
+			<div class="grid-cell grid-cell-center text-bold text-center">
+
+				\$${model_instructions_price} USD</br>
+				BUY NOW!</br>
 
 			</div>
 

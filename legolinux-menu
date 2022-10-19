@@ -44,7 +44,7 @@ script=$(basename -- "${BASH_SOURCE[0]}")
 
 # version //////////////////////////////////////////////////////////////////////
 
-version="10-17-2022"
+version="10-20-2022"
 
 # usage ////////////////////////////////////////////////////////////////////////
 
@@ -100,9 +100,9 @@ do
 	# shuffle models directories list:
 	# creates random showcase of all models on each update
 
-	for models_directory in $(find models/ -type f -iname flat."${extension}" | shuf)
+	for model_items in $(find models/ -type f -iname flat."${extension}" | shuf)
 	do
-		IFS='/' read -r -a path <<< $(echo "$models_directory")
+		IFS='/' read -r -a path <<< $(echo "$model_items")
 
 		# /models/model-type/model/renders/flat/flat.${extension}
 
@@ -161,9 +161,9 @@ if [ -f "${model_instructions}" ]
 then
 
 cat << MODEL-TITLE ->> "modules/menu.html"
-	<div id="model" class="section grid grid-column grid-stretch">
+	<div id="menu" class="section grid grid-column grid-stretch">
 
-		<div class="grid-cell category text-left">
+		<div class="category grid-cell text-left">
 
 			${model_category}
 
@@ -200,9 +200,9 @@ MODEL-TITLE
 else
 
 cat << MODEL-TITLE ->> "modules/menu.html"
-	<div id="model" class="section grid grid-column grid-stretch">
+	<div id="menu" class="section grid grid-column grid-stretch">
 
-		<div class="grid-cell category text-left">
+		<div class="category grid-cell text-left">
 
 			${model_category}
 

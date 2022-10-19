@@ -44,7 +44,7 @@ script=$(basename -- "${BASH_SOURCE[0]}")
 
 # version //////////////////////////////////////////////////////////////////////
 
-version="10-17-2022"
+version="10-20-2022"
 
 # usage ////////////////////////////////////////////////////////////////////////
 
@@ -55,8 +55,8 @@ echo
 
 # variables ////////////////////////////////////////////////////////////////////
 
-local_models_directory=/media/internal/Lego/models
-server_models_directory="${PWD}"/models
+local_model_items=/media/internal/Lego/models
+server_model_items="${PWD}"/models
 server_backgrounds_directory="${PWD}"/background
 server_javascript_directory="${PWD}"/javascript
 
@@ -67,7 +67,7 @@ server_javascript_directory="${PWD}"/javascript
 # prepare update
 
 directories_list=(
-	"${server_models_directory}"
+	"${server_model_items}"
 )
 
 for directory in ${directories_list[@]}
@@ -87,7 +87,7 @@ rsync					\
 	--exclude='*.mpd'	\
 	--exclude='*.pdf'	\
 	--exclude='LPub3D'	\
-						"${local_models_directory}"/* "${server_models_directory}"
+						"${local_model_items}"/* "${server_model_items}"
 
 frobulator.scs "Copy" "[ Done ]"
 echo
