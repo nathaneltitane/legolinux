@@ -3,7 +3,7 @@ height:auto;
 width:325px;
 right:-325px;
 top:0px;
-position:absolute;
+position:fixed;
 padding:0px 0px 0px 0px;
 margin:0px 0px 0px 0px;
 text-overflow:ellipsis;
