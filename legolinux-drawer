@@ -44,7 +44,7 @@ script=$(basename -- "${BASH_SOURCE[0]}")
 
 # version //////////////////////////////////////////////////////////////////////
 
-version="10-17-2022"
+version="10-07-2022"
 
 # usage ////////////////////////////////////////////////////////////////////////
 
@@ -92,27 +92,31 @@ cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
 
 			<!-- legend -->
 
-			<div class="list section grid grid-column grid-middle">
+			<div class="list section">
 
-				<div class="grid-cell text-bold">
+				<div class="grid grid-column grid-middle">
 
-					// NOTICE</br>
-					</br>
+					<div class="grid-cell text-bold">
 
-				</div>
+						// NOTICE</br>
+						</br>
 
-				<div class="grid-cell text-center">
+					</div>
 
-					INSTRUCTIONS ARE MADE AVAILABLE PROGRESSIVELY:</br>
-					</br>
-					PURCHASING AN INSTRUCTION SET PRIORITIZES AVAILABILITY FOR THAT MODEL!</br>
-					</br>
+					<div class="grid-cell text-center">
 
-				</div>
+						INSTRUCTIONS ARE MADE AVAILABLE PROGRESSIVELY:</br>
+						</br>
+						PURCHASING AN INSTRUCTION SET PRIORITIZES AVAILABILITY FOR THAT MODEL!</br>
+						</br>
 
-				<div class="grid-cell text-bold">
+					</div>
 
-					THANK YOU FOR YOUR SUPPORT! // <3</br>
+					<div class="grid-cell text-bold">
+
+						THANK YOU FOR YOUR SUPPORT! // <3</br>
+
+					</div>
 
 				</div>
 
@@ -120,17 +124,21 @@ cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
 
 			<!-- instructions available -->
 
-			<div class="available section grid grid-row grid-middle">
+			<div class="list section available">
 
-				<div class="grid">
+				<div class="grid grid-row grid-middle">
 
-					<div class="icon icon-flex icon-center logo-green"></div>
+					<div class="grid">
 
-				</div>
+						<div class="icon icon-flex icon-center logo-green"></div>
 
-				<div class="grid-cell text-center">
+					</div>
 
-					AVAILABLE
+					<div class="grid-cell text-center">
+
+						AVAILABLE
+
+					</div>
 
 				</div>
 
@@ -138,21 +146,27 @@ cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
 
 			<!-- instructions unavailable -->
 
-			<div class="unavailable section grid grid-row grid-middle">
+			<div class="list section unavailable">
 
-				<div class="grid">
+				<div class="grid grid-row grid-middle">
 
-					<div class="icon icon-flex icon-center logo-orange"></div>
+					<div class="grid">
 
-				</div>
+						<div class="icon icon-flex icon-center logo-orange"></div>
 
-				<div class="grid-cell text-center">
+					</div>
 
-					UNAVAILABLE
+					<div class="grid-cell text-center">
+
+						UNAVAILABLE
+
+					</div>
 
 				</div>
 
 			</div>
+
+			<div class="list section">
 
 MODEL-DRAWER-HEADER
 
@@ -198,71 +212,71 @@ if [ -f "${model_instructions}" ]
 then
 
 cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
-			<div class="list section grid grid-column grid-stretch">
+				<div class="grid grid-column grid-stretch">
 
-				<div class="grid-cell category section text-right">
+					<div class="grid-cell category text-right">
 
-					${model_category}
-
-				</div>
-
-				<a href="/models/${path[1]}/${path[2]}/">
-
-					<div class="button grid grid-row grid-middle">
-
-						<div class="grid">
-
-							<div class="icon icon-flex icon-center logo-green"></div>
-
-						</div>
-
-						<div class="grid-cell text-center">
-
-							${model_title}
-
-						</div>
+						${model_category}
 
 					</div>
 
-				</a>
+					<a class="button" href="/models/${path[1]}/${path[2]}/">
 
-			</div>
+						<div class="grid grid-row grid-middle">
+
+							<div class="grid">
+
+								<div class="icon icon-flex icon-center logo-green"></div>
+
+							</div>
+
+							<div class="grid-cell text-center">
+
+								${model_title}
+
+							</div>
+
+						</div>
+
+					</a>
+
+				</div>
 
 MODEL-DRAWER-CONTENT
 
 else
 
 cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
-			<div class="list section grid grid-column grid-stretch">
+				<div class="grid grid-column grid-stretch">
 
 
-				<div class="grid-cell category section text-right">
+					<div class="grid-cell category text-right">
 
-					${model_category}
-
-				</div>
-
-				<a href="/models/${path[1]}/${path[2]}/">
-
-					<div class="button grid grid-row grid-middle">
-
-						<div class="grid">
-
-							<div class="icon icon-flex icon-center logo-orange"></div>
-
-						</div>
-
-						<div class="grid-cell text-center">
-
-							${model_title}
-
-						</div>
+						${model_category}
 
 					</div>
 
-				</a>
+					<a class="button" href="/models/${path[1]}/${path[2]}/">
 
-			</div>
+						<div class="grid grid-row grid-middle">
+
+							<div class="grid">
+
+								<div class="icon icon-flex icon-center logo-orange"></div>
+
+							</div>
+
+							<div class="grid-cell text-center">
+
+								${model_title}
+
+							</div>
+
+						</div>
+
+					</a>
+
+				</div>
 
 MODEL-DRAWER-CONTENT
 
@@ -276,17 +290,23 @@ done
 # generate footer
 
 cat << MODEL-DRAWER-FOOTER ->> "modules/drawer.html"
+			</div>
+
 		</div>
 
 		<!-- copyright -->
 
-		<div class="copyright section grid grid-column grid-middle">
+		<div class="list section copyright">
 
-			<div class="grid-cell text-center">
+			<div class="grid grid-column grid-middle">
 
-				Version // ${stamp}</br>
-				Lego // Linux - Where Lego meets Linux</br>
-				Nathanel Titane - ©  <text id="year"></text>
+				<div class="grid-cell text-center">
+
+					Version // ${stamp}</br>
+					Lego // Linux - Where Lego meets Linux</br>
+					Nathanel Titane - ©  <text id="year"></text>
+
+				</div>
 
 			</div>
 
