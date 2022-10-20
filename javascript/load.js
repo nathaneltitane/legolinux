@@ -17,6 +17,8 @@ $(document).ready(function() {
 
 	$('[data-link]').click(function(e) {
 
+		$('#navigation').addClass('hidden');
+
 		e.preventDefault();
 
 		var link = $(this).data('link');
@@ -25,15 +27,15 @@ $(document).ready(function() {
 
 		$('#load').addClass('load-open');
 
+		$('#anchors.hidden').show();
+
 		$('html,body').animate({
 
-				scrollTop: $('#navigation-bottom').offset().top
+				scrollTop: $('#footer').offset().top
 
 			},
 
-			'slow');
-
-		$('#anchors.hidden').show();
+		'slow');
 
 	});
 
