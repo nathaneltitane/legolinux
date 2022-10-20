@@ -10,7 +10,7 @@ padding:10px 10px 10px 10px;
 }
 @media (min-width:1281px) {
 #menu img {
-height:50vh;
+height:calc(100vh - 80px - 60px - 120px);
 width:auto;
 }
 }
