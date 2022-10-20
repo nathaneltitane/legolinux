@@ -6,15 +6,15 @@ a {
 	outline: none;
 }
 
-a: active,
+a:active,
 a:focus,
-a: link,
-a: visited {
+a:link,
+a:visited {
 	text-decoration: none;
 	outline: none;
 }
 
-a: hover {
+a:hover {
 	color: #ff0000;
 	text-decoration: none;
 	outline: none;
