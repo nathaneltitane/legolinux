@@ -1,9 +1,10 @@
 #model {
-background:#dddddd;
-height:auto;
-width:auto;
-position:fixed;
-bottom:calc(80px + 60px);
-left:0px;
-right:0px;
+	background: #dddddd;
+	height: auto;
+	width: auto;
+	position: fixed;
+	bottom: calc(80px + 60px);
+	left: 0px;
+	right: 0px;
 }
+

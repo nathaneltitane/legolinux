@@ -1,9 +1,11 @@
 .button {
-background-color:#eeeeee;
-border-left:5px solid #999999;
-margin:5px 5px 5px 5px;
-padding:5px 10px 5px 10px;
+	background-color: #eeeeee;
+	border-left: 5px solid #999999;
+	margin: 5px 5px 5px 5px;
+	padding: 5px 10px 5px 10px;
 }
-.button a:hover{
-color:#ff0000;
+
+.button a: hover{
+	color: #ff0000;
 }
+

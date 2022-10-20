@@ -1,13 +1,16 @@
 .paypal {
-position:fixed;
-top:0px;
-left:0px;
-padding:10px 10px 10px 10px;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	padding: 10px 10px 10px 10px;
 }
+
 .paypal input[type="image"] {
-height:64px;
-width:64px;
+	height: 64px;
+	width: 64px;
 }
-.paypal:hover {
-color:#ff0000;
+
+.paypal: hover {
+	color: #ff0000;
 }
+

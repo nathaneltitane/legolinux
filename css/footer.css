@@ -1,9 +1,10 @@
 #footer {
-background:#aaaaaa;
-height:80px;
-width:auto;
-position:fixed;
-bottom:0px;
-left:0px;
-right:0px;
+	background: #aaaaaa;
+	height: 80px;
+	width: auto;
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
 }
+

@@ -1,19 +1,22 @@
 a {
-color:#666666;
-display:block;
-font-weight:normal;
-border:none;
-outline:none;
+	color: #666666;
+	display: block;
+	font-weight: normal;
+	border: none;
+	outline: none;
 }
-a:active,
+
+a: active,
 a:focus,
-a:link,
-a:visited {
-text-decoration:none;
-outline:none;
+a: link,
+a: visited {
+	text-decoration: none;
+	outline: none;
 }
-a:hover {
-color:#ff0000;
-text-decoration:none;
-outline:none;
+
+a: hover {
+	color: #ff0000;
+	text-decoration: none;
+	outline: none;
 }
+

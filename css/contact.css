@@ -1,9 +1,10 @@
 #contact {
-background:#aaaaaa;
-height:auto;
-width:auto;
-position:fixed;
-bottom:80px;
-left:0px;
-right:0px;
+	background: #aaaaaa;
+	height: auto;
+	width: auto;
+	position: fixed;
+	bottom: 80px;
+	left: 0px;
+	right: 0px;
 }
+

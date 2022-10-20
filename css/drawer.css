@@ -1,57 +1,69 @@
 .drawer {
-height:auto;
-width:325px;
-right:-325px;
-top:0px;
-position:fixed;
-padding:0px 0px 0px 0px;
-margin:0px 0px 0px 0px;
-text-overflow:ellipsis;
-opacity:0.9;
-z-index:999;
+	height: auto;
+	width: 325px;
+	right: -325px;
+	top: 0px;
+	position: fixed;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+	text-overflow: ellipsis;
+	opacity: 0.9;
+	z-index: 999;
 }
-.drawer-button {
-background-size:contain;
-background-repeat:no-repeat;
-width:auto;
-margin:0px 0px 0px 0px;
-padding:10px 10px 10px 10px;
-position:absolute;
-top:0px;
-right:0px;
 
-animation-name:drawer-open;
-animation-delay:1s;
-animation-duration:2s;
-animation-fill-mode:forwards;
+.drawer-button {
+	background-size: contain;
+	background-repeat: no-repeat;
+	width: auto;
+	margin: 0px 0px 0px 0px;
+	padding: 10px 10px 10px 10px;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+
+	animation-name: drawer-open;
+	animation-delay: 1s;
+	animation-duration: 2s;
+	animation-fill-mode: forwards;
 }
+
 .drawer-open .drawer {
-top:0px;
-right:0px;
+	top: 0px;
+	right: 0px;
 }
+
 .drawer-container {
-height:100vh;
-padding:0px 0px 0px 0px;
-margin:0px 0px 0px 0px;
-overflow:overlay;
+	height: 100vh;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+	overflow: overlay;
 }
+
 .drawer a {
-margin:0px 0px 0px 0px;
-margin:0px 0px 0px 0px;
-overflow:hidden;
-text-overflow:ellipsis;
+	margin: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
+
 @keyframes drawer-open {
-0% {right:0px;}
-10%, 90% {right:325px;}
-100% {right:325px;}
+	0% {right: 0px;}
+
+	10%, 90% {right: 325px;}
+
+	100% {right: 325px;}
+
 }
+
 .list{
-background:#bbbbbb;
+	background: #bbbbbb;
 }
+
 .category{
-padding:10px 0px 10px 0px;
+	padding: 10px 0px 10px 0px;
 }
+
 .category br {
-display:none;
+	display: none;
 }
+
