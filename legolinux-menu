@@ -68,18 +68,17 @@ echo
 # generate header
 
 cat << 'MODELS-MENU-HEADER' -> "modules/menu.html"
-
 		<script>
 
-		$(function(){
-			$.get("/modules/anchors.html", function (data) {
+			$(function(){
+				$.get("/modules/anchors.html", function (data) {
 
-				$("#anchors").append(data);
+					$("#anchors").append(data);
 
-			});
+				});
 
-			}
-		);
+				}
+			);
 
 		</script>
 
