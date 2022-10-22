@@ -249,7 +249,6 @@ else
 cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
 				<div class="grid grid-column grid-stretch">
 
-
 					<div class="grid-cell category">
 
 						${model_category}
