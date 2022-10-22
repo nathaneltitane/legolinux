@@ -181,7 +181,7 @@ do
 	count=1
 
 	# shuffle models directories list:
-	# creates random showcase of all models on each update
+	# generates random showcase of all models on each update
 
 	for model_items in $(find models/ -type f -iname flat."${extension}" | sort)
 	do
