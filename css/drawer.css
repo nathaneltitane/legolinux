@@ -7,7 +7,6 @@
 	padding: 0px 0px 0px 0px;
 	margin: 0px 0px 0px 0px;
 	text-overflow: ellipsis;
-	opacity: 0.9;
 	z-index: 999;
 }
 
@@ -22,8 +21,8 @@
 	right: 0px;
 
 	animation-name: drawer-open;
-	animation-delay: 1s;
-	animation-duration: 2s;
+	animation-delay: 0.5s;
+	animation-duration: 1s;
 	animation-fill-mode: forwards;
 }
 
@@ -48,8 +47,6 @@
 
 @keyframes drawer-open {
 	0% {right: 0px;}
-
-	10%, 90% {right: 325px;}
 
 	100% {right: 325px;}
 

@@ -1,8 +1,19 @@
 .paypal {
 	position: fixed;
 	top: 0px;
-	left: 0px;
+	left: -200px;
 	padding: 10px 10px 10px 10px;
+
+	animation-name: paypal-reveal;
+	animation-delay: 0.5s;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes paypal-reveal {
+	0% {left: -200px;}
+
+	100% {left: 0px;}
 }
 
 .paypal input[type="image"] {
@@ -10,7 +21,7 @@
 	width: 64px;
 }
 
-.paypal: hover {
-	color: #ff0000;
+.paypal:hover {
+	color: #ffcc00;
 }
 
