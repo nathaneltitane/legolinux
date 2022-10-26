@@ -44,7 +44,7 @@ script=$(basename -- "${BASH_SOURCE[0]}")
 
 # version //////////////////////////////////////////////////////////////////////
 
-version="10-20-2022"
+version="10-26-2022"
 
 # usage ////////////////////////////////////////////////////////////////////////
 
@@ -144,9 +144,9 @@ cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
 
 			</div>
 
-			<!-- instructions unavailable -->
+			<!-- instructions progress -->
 
-			<div class="list section unavailable">
+			<div class="list section progress">
 
 				<div class="grid grid-row grid-middle">
 
@@ -158,7 +158,7 @@ cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
 
 					<div class="grid-cell text-center">
 
-						UNAVAILABLE
+						IN PROGRESS
 
 					</div>
 
@@ -208,7 +208,7 @@ do
 
 # generate model drawer entries
 
-if [ -f "${model_instructions}" ]
+if [ -d "${model_instructions}" ]
 then
 
 cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"

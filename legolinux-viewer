@@ -44,7 +44,7 @@ script=$(basename -- "${BASH_SOURCE[0]}")
 
 # version //////////////////////////////////////////////////////////////////////
 
-version="10-20-2022"
+version="10-26-2022"
 
 # usage ////////////////////////////////////////////////////////////////////////
 
@@ -375,7 +375,7 @@ cat << 3D-MODEL-PAYPAL ->> "models/${path[1]}/${path[2]}/index.html"
 
 fi
 
-if [ -f "${model_instructions}" ]
+if [ -d "${model_instructions}" ]
 then
 
 cat << 3D-MODEL-PAGE-TITLE ->> "models/${path[1]}/${path[2]}/index.html"
@@ -410,29 +410,6 @@ cat << 3D-MODEL-PAGE-TITLE ->> "models/${path[1]}/${path[2]}/index.html"
 		</div>
 
 3D-MODEL-PAGE-TITLE
-
-cat << 3D-MODEL-PAGE-CONTACT ->> "models/${path[1]}/${path[2]}/index.html"
-		<!-- contact -->
-
-		<div id="contact" class="section grid">
-
-			<div class="grid-cell">
-
-				<div class="button cursor-pointer text-center">
-
-					<a class="cursor-cell" onclick="window.open('mailto:nathanel.titane@gmail.com;?Subject=INSTRUCTIONS INQUIRY // ${model_category} // ${model_title_string}'); return false;">
-
-						INSTRUCTIONS AVAILABLE // SEND INQUIRY
-
-					</a>
-
-				</div>
-
-			</div>
-
-		</div>
-
-3D-MODEL-PAGE-CONTACT
 
 else
 
@@ -472,33 +449,6 @@ cat << 3D-MODEL-PAGE-TITLE ->> "models/${path[1]}/${path[2]}/index.html"
 		</div>
 
 3D-MODEL-PAGE-TITLE
-
-cat << 3D-MODEL-PAGE-CONTACT ->> "models/${path[1]}/${path[2]}/index.html"
-		<!-- contact -->
-
-		<div id="contact" class="section">
-
-			<div class="grid">
-
-				<div class="grid-cell">
-
-					<div class="button cursor-pointer text-center">
-
-						<a class="cursor-cell" onclick="window.open('mailto:nathanel.titane@gmail.com;?Subject=INSTRUCTIONS REQUEST // ${model_category} // ${model_title_string}'); return false;">
-
-							INSTRUCTIONS IN PROGRESS // SEND REQUEST
-
-						</a>
-
-					</div>
-
-				</div>
-
-			</div>
-
-		</div>
-
-3D-MODEL-PAGE-CONTACT
 
 fi
 

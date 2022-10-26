@@ -44,7 +44,7 @@ script=$(basename -- "${BASH_SOURCE[0]}")
 
 # version //////////////////////////////////////////////////////////////////////
 
-version="10-20-2022"
+version="10-26-2022"
 
 # usage ////////////////////////////////////////////////////////////////////////
 
@@ -157,7 +157,7 @@ cat << MODEL-CONTAINER ->> "modules/menu.html"
 
 MODEL-CONTAINER
 
-if [ -f "${model_instructions}" ]
+if [ -d "${model_instructions}" ]
 then
 
 cat << MODEL-TITLE ->> "modules/menu.html"
