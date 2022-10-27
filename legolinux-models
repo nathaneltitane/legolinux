@@ -55,8 +55,8 @@ echo
 
 # variables ////////////////////////////////////////////////////////////////////
 
-local_model_items=/media/internal/Lego/models
-server_model_items="${PWD}"/models
+local_models_list=/media/internal/Lego/models
+server_models_list="${PWD}"/models
 server_backgrounds_directory="${PWD}"/background
 server_javascript_directory="${PWD}"/javascript
 
@@ -67,7 +67,7 @@ server_javascript_directory="${PWD}"/javascript
 # prepare update
 
 directories_list=(
-	"${server_model_items}"
+	"${server_models_list}"
 )
 
 for directory in ${directories_list[@]}
@@ -87,7 +87,7 @@ rsync					\
 	--exclude='*.mpd'	\
 	--exclude='*.pdf'	\
 	--exclude='LPub3D'	\
-						"${local_model_items}"/* "${server_model_items}"
+						"${local_models_list}"/* "${server_models_list}"
 
 frobulator.scs "Copy" "[ Done ]"
 echo

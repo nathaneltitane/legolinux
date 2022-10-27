@@ -183,9 +183,9 @@ do
 	# shuffle models directories list:
 	# generates random showcase of all models on each update
 
-	for model_items in $(find models/ -type f -iname flat."${extension}" | sort)
+	for models_list in $(find models/ -type f -iname flat."${extension}" | sort)
 	do
-		IFS='/' read -r -a path <<< $(echo "$model_items")
+		IFS='/' read -r -a path <<< $(echo "$models_list")
 
 		# /models/model-type/model/renders/flat/flat.${extension}
 

@@ -55,8 +55,8 @@ echo
 
 # variables ////////////////////////////////////////////////////////////////////
 
-local_model_items=/media/internal/Lego/models
-server_model_items="${PWD}"/models
+local_models_list=/media/internal/Lego/models
+server_models_list="${PWD}"/models
 server_backgrounds_directory="${PWD}"/background
 server_javascript_directory="${PWD}"/javascript
 
@@ -96,7 +96,7 @@ do
 
 	count=0
 
-	for background in $(find ${local_model_items} -type f -iname flat."${extension}")
+	for background in $(find ${local_models_list} -type f -iname flat."${extension}")
 	do
 		pad_count=$(printf "%03d" "${count}")
 
