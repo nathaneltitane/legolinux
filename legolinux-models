@@ -55,8 +55,8 @@ echo
 
 # variables ////////////////////////////////////////////////////////////////////
 
-local_models_list=/media/internal/Lego/models
-server_models_list="${PWD}"/models
+local_models_directory=/media/internal/Lego/models
+server_models_directory="${PWD}"/models
 server_backgrounds_directory="${PWD}"/background
 server_javascript_directory="${PWD}"/javascript
 
@@ -67,7 +67,7 @@ server_javascript_directory="${PWD}"/javascript
 # prepare update
 
 directories_list=(
-	"${server_models_list}"
+	"${server_models_directory}"
 )
 
 for directory in ${directories_list[@]}
@@ -79,15 +79,17 @@ done
 
 # pull /////////////////////////////////////////////////////////////////////////
 
-rsync					\
-	--archive			\
-	--quiet				\
-	--recursive			\
-	--exclude='*.ldr'	\
-	--exclude='*.mpd'	\
-	--exclude='*.pdf'	\
-	--exclude='LPub3D'	\
-						"${local_models_list}"/* "${server_models_list}"
+rsync							\
+	--archive					\
+	--quiet						\
+	--recursive					\
+	--exclude='*.ldr'			\
+	--exclude='*.mpd'			\
+	--exclude='*.pdf'			\
+	--exclude="instructions"	\
+	--exclude="configuration"	\
+	--exclude='LPub3D'			\
+								"${local_models_directory}"/* "${server_models_directory}"
 
 frobulator.scs "Copy" "[ Done ]"
 echo

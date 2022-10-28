@@ -375,7 +375,7 @@ cat << 3D-MODEL-PAYPAL ->> "models/${path[1]}/${path[2]}/index.html"
 
 fi
 
-if [ -d "${model_instructions}" ]
+if [ ! -f models/"${path[1]}"/todo ]
 then
 
 cat << 3D-MODEL-PAGE-TITLE ->> "models/${path[1]}/${path[2]}/index.html"

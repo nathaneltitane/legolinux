@@ -208,7 +208,7 @@ do
 
 # generate model drawer entries
 
-if [ -d "${model_instructions}" ]
+if [ ! -f models/"${path[1]}"/todo ]
 then
 
 cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
