@@ -100,9 +100,9 @@ do
 
 		model_paypal_id=$(cat ${path[0]}/${path[1]}/${path[2]}/paypal)
 
-		model_pieces=${path[0]}/${path[1]}/${path[2]}/paypal
+		model_pieces=${path[0]}/${path[1]}/${path[2]}/pieces
 
-		model_pieces_count=$(cat ${path[0]}/${path[1]}/${path[2]}/paypal)
+		model_pieces_count=$(cat ${path[0]}/${path[1]}/${path[2]}/pieces)
 
 		model_instructions=${path[0]}/${path[1]}/${path[2]}/instructions
 
