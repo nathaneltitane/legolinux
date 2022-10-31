@@ -405,7 +405,9 @@ cat << 3D-MODEL-PAGE-TITLE ->> "models/${path[1]}/${path[2]}/index.html"
 
 				<div class="grid-cell text-center">
 
-					${model_title_string} // ${model_pieces_count}
+					${model_title_string} //</br>
+
+					${model_pieces_count}
 
 				</div>
 
@@ -442,7 +444,9 @@ cat << 3D-MODEL-PAGE-TITLE ->> "models/${path[1]}/${path[2]}/index.html"
 
 					<div class="grid-cell text-center">
 
-						${model_title_string} // ${model_pieces_count}
+						${model_title_string} //</br>
+
+						${model_pieces_count}
 
 					</div>
 
