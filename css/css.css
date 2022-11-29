@@ -1,5 +1,6 @@
 @import url("/css/all.css");
 @import url("/css/anchors.css");
+@import url("/css/avatar.css");
 @import url("/css/background.css");
 @import url("/css/body.css");
 @import url("/css/button.css");
@@ -9,6 +10,7 @@
 @import url("/css/copyright.css");
 @import url("/css/cursor.css");
 @import url("/css/drawer.css");
+@import url("/css/fill.css");
 @import url("/css/font.css");
 @import url("/css/footer.css");
 @import url("/css/grid.css");
@@ -21,6 +23,7 @@
 @import url("/css/menu.css");
 @import url("/css/model.css");
 @import url("/css/navigation.css");
+@import url("/css/notice.css");
 @import url("/css/paypal.css");
 @import url("/css/position.css");
 @import url("/css/scrollbar.css");

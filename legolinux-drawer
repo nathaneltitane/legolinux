@@ -92,11 +92,11 @@ cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
 
 			<!-- legend -->
 
-			<div class="list section">
+			<div class="list section notice">
 
 				<div class="grid grid-column grid-middle">
 
-					<div class="grid-cell text-bold">
+					<div class="grid-cell text-bold text-center">
 
 						// NOTICE</br>
 						</br>
@@ -112,9 +112,9 @@ cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
 
 					</div>
 
-					<div class="grid-cell text-bold">
+					<div class="grid-cell text-bold text-center">
 
-						THANK YOU FOR YOUR SUPPORT! // <3</br>
+						THANK YOU FOR YOUR SUPPORT! <3 //</br>
 
 					</div>
 
@@ -166,8 +166,6 @@ cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
 
 			</div>
 
-			<div class="list section">
-
 MODEL-DRAWER-HEADER
 
 # values
@@ -212,6 +210,8 @@ if [ ! -f models/"${path[1]}"/todo ]
 then
 
 cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
+			<div class="list section">
+
 				<div class="grid grid-column grid-stretch">
 
 					<div class="grid-cell category">
@@ -242,11 +242,15 @@ cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
 
 				</div>
 
+			</div>
+
 MODEL-DRAWER-CONTENT
 
 else
 
 cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
+			<div class="list section">
+
 				<div class="grid grid-column grid-stretch">
 
 					<div class="grid-cell category">
@@ -277,6 +281,8 @@ cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
 
 				</div>
 
+			</div>
+
 MODEL-DRAWER-CONTENT
 
 fi
@@ -299,11 +305,21 @@ cat << MODEL-DRAWER-FOOTER ->> "modules/drawer.html"
 
 			<div class="grid grid-column grid-middle">
 
+				<div class="grid-cell">
+
+					<div class="avatar avatar-64 avatar-center" href=""></div>
+
+				</div>
+
+			</div>
+
+			<div class="grid grid-column grid-middle">
+
 				<div class="grid-cell text-center">
 
 					Version // ${stamp}</br>
-					Lego // Linux - Where Lego meets Linux</br>
-					Nathanel Titane - ©  <text id="year"></text>
+					Pew! Pew! Prints - Foam Blaster Printed Parts + Mods</br>
+					N Λ T H Λ N E L - ©  <text id="year"></text>
 
 				</div>
 

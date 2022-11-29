@@ -1,0 +1,12 @@
+.fill {
+	position: relative;
+}
+
+.horizontal {
+
+}
+
+.vertical {
+	margin-bottom: calc((100vh / 2) - (336px / 2));
+	margin-top: calc((100vh / 2) - (336px / 2));
+}

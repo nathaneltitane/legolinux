@@ -1,4 +1,5 @@
 .drawer {
+	background: #bbbbbbff;
 	height: auto;
 	width: 325px;
 	right: -325px;
@@ -52,11 +53,17 @@
 
 }
 
-.list{
-	background: #bbbbbb;
+.list {
+
 }
 
-.category{
+.list:last-of-type {
+	height: calc(80px + 120px);
+		bottom: 0px;
+		position: fixed;
+}
+
+.category {
 	padding: 10px 0px 10px 0px;
 }
 
