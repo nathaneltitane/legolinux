@@ -61,6 +61,8 @@
 	height: calc(80px + 120px);
 		bottom: 0px;
 		position: fixed;
+
+		width: inherit;
 }
 
 .category {
