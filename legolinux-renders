@@ -67,6 +67,7 @@ directoris_list=(
 
 for directory in ${directoris_list[@]}
 do
+	bash ../l2cu/l2cu -mpd -render thumbnail -directory "${directory}"
 	bash ../l2cu/l2cu -mpd -render flat -directory "${directory}"
 done
 

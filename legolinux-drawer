@@ -187,14 +187,20 @@ do
 	do
 		IFS='/' read -r -a path <<< $(echo "$models_list")
 
-		# /models/model-type/model/renders/flat/flat.${extension}
+		# /models/model-type/model/renders/render-type/render.${extension}
 
 		# "${path[0]}" /models
 		# "${path[1]}" /model-category
 		# "${path[2]}" /model
 		# "${path[3]}" /renders
+
+		# render types:
+
 		# "${path[4]}" /outine
-		# "${path[5]}" /flat
+		# "${path[4]}" /flat
+		# "${path[4]}" /thumbnail
+
+		# "${path[5]}" /render.extension
 
 		model_category=$(cat ${path[0]}/${path[1]}/title)
 
@@ -242,7 +248,7 @@ cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
 
 							<div class="grid-cell text-center">
 
-								<img src="/${path[0]}/${path[1]}/${path[2]}/${path[3]}/${path[4]}/${path[5]}" />
+								<img src="/${path[0]}/${path[1]}/${path[2]}/${path[3]}/thumbnail/thumbnail.png" />
 
 							</div>
 
@@ -298,7 +304,7 @@ cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
 
 							<div class="grid-cell text-center">
 
-								<img src="/${path[0]}/${path[1]}/${path[2]}/${path[3]}/${path[4]}/${path[5]}" />
+								<img src="/${path[0]}/${path[1]}/${path[2]}/${path[3]}/thumbnail/thumbnail.png" />
 
 							</div>
 
