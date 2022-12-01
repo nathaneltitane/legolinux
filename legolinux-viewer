@@ -350,27 +350,31 @@ then
 cat << 3D-MODEL-PAYPAL ->> "models/${path[1]}/${path[2]}/index.html"
 		<!-- paypal -->
 
-			<div class="paypal grid grid-column">
+			<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=${model_paypal_id}">
 
-				<div class="grid-cell grid-cell-center">
+				<div class="paypal grid grid-column">
 
-					<div class="icon icon-64 logo-yellow"></div>
+					<div class="grid-cell grid-cell-center">
+
+						<div class="icon icon-64 logo-yellow"></div>
+
+					</div>
+
+					<div class="grid-cell grid-cell-center">
+
+						\$${model_instructions_price} USD
+
+					</div>
+
+					<div class="grid-cell grid-cell-center">
+
+						BUY NOW!
+
+					</div>
 
 				</div>
 
-				<div class="grid-cell grid-cell-center">
-
-					\$${model_instructions_price} USD
-
-				</div>
-
-				<div class="grid-cell grid-cell-center">
-
-					BUY NOW!
-
-				</div>
-
-			</div>
+			</a>
 
 3D-MODEL-PAYPAL
 
