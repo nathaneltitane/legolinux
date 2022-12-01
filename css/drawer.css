@@ -8,6 +8,7 @@
 	padding: 0px 0px 0px 0px;
 	margin: 0px 0px 0px 0px;
 	text-overflow: ellipsis;
+	overflow: scroll;
 	z-index: 999;
 }
 
