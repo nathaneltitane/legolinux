@@ -4,7 +4,7 @@ canvas:focus {
 
 #canvas {
 	display: block;
-	height: calc(100vh - 80px - 120px);
+	height: calc(100vh - 80px);
 	width: 100vw;
 }
 
