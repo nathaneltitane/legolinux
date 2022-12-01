@@ -26,7 +26,7 @@ $(document).ready(function() {
 
 	});
 
-	$('#model-canvas').click(function(e) {
+	$('#canvas').click(function(e) {
 
 		// disable defaults prevention for href handling
 
