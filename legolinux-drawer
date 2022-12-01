@@ -86,87 +86,85 @@ cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
 
 	</div>
 
-	<div class="drawer-container">
+	<div class="grid grid-column grid-stretch">
 
-		<div class="grid grid-column grid-stretch">
+		<!-- legend -->
 
-			<!-- legend -->
+		<div class="list section notice">
 
-			<div class="list section notice">
+			<div class="grid grid-column grid-middle">
 
-				<div class="grid grid-column grid-middle">
+				<div class="grid-cell text-bold text-center">
 
-					<div class="grid-cell text-bold text-center">
+					// NOTICE</br>
+					</br>
 
-						// NOTICE</br>
-						</br>
+				</div>
 
-					</div>
+				<div class="grid-cell text-center">
 
-					<div class="grid-cell text-center">
+					INSTRUCTIONS ARE MADE AVAILABLE PROGRESSIVELY:</br>
+					</br>
+					PURCHASING AN INSTRUCTION SET PRIORITIZES AVAILABILITY FOR THAT MODEL!</br>
+					</br>
 
-						INSTRUCTIONS ARE MADE AVAILABLE PROGRESSIVELY:</br>
-						</br>
-						PURCHASING AN INSTRUCTION SET PRIORITIZES AVAILABILITY FOR THAT MODEL!</br>
-						</br>
+				</div>
 
-					</div>
+				<div class="grid-cell text-bold text-center">
 
-					<div class="grid-cell text-bold text-center">
-
-						THANK YOU FOR YOUR SUPPORT! <3 //</br>
-
-					</div>
+					THANK YOU FOR YOUR SUPPORT! <3 //</br>
 
 				</div>
 
 			</div>
 
-			<!-- instructions available -->
+		</div>
 
-			<div class="list section available">
+		<!-- instructions available -->
 
-				<div class="grid grid-row grid-middle">
+		<div class="list section available">
 
-					<div class="grid">
+			<div class="grid grid-row grid-middle">
 
-						<div class="icon icon-flex icon-center logo-green"></div>
+				<div class="grid">
 
-					</div>
+					<div class="icon icon-flex icon-center logo-green"></div>
 
-					<div class="grid-cell text-center">
+				</div>
 
-						AVAILABLE
+				<div class="grid-cell text-center">
 
-					</div>
+					AVAILABLE
 
 				</div>
 
 			</div>
 
-			<!-- instructions progress -->
+		</div>
 
-			<div class="list section progress">
+		<!-- instructions progress -->
 
-				<div class="grid grid-row grid-middle">
+		<div class="list section progress">
 
-					<div class="grid">
+			<div class="grid grid-row grid-middle">
 
-						<div class="icon icon-flex icon-center logo-orange"></div>
+				<div class="grid">
 
-					</div>
+					<div class="icon icon-flex icon-center logo-orange"></div>
 
-					<div class="grid-cell text-center">
+				</div>
 
-						IN PROGRESS
+				<div class="grid-cell text-center">
 
-					</div>
+					IN PROGRESS
 
 				</div>
 
 			</div>
 
-			<!-- models -->
+		</div>
+
+		<!-- models -->
 
 MODEL-DRAWER-HEADER
 
@@ -226,112 +224,112 @@ if [ ! -f models/"${path[1]}"/todo ]
 then
 
 cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
-			<div class="list section">
+		<div class="list section">
 
-				<div class="grid grid-column grid-stretch">
+			<div class="grid grid-column grid-stretch">
 
-					<div class="grid-cell category">
+				<div class="grid-cell category">
 
-						${model_category}
-
-					</div>
-
-					<a class="button" href="/models/${path[1]}/${path[2]}/">
-
-						<div class="grid grid-row grid-middle">
-
-							<div class="grid-cell-start">
-
-								<div class="icon icon-flex icon-center logo-green"></div>
-
-							</div>
-
-							<div class="grid-cell text-center">
-
-								<img src="/${path[0]}/${path[1]}/${path[2]}/${path[3]}/thumbnail/thumbnail.png" />
-
-							</div>
-
-						</div>
-
-
-						<div class="grid grid-column grid-middle">
-
-							<div class="grid-cell text-center">
-
-								${model_title}
-
-							</div>
-
-							<div class="grid-cell text-center">
-
-								${model_pieces_count} PIECES
-
-							</div>
-
-						</div>
-
-					</a>
+					${model_category}
 
 				</div>
 
+				<a class="button" href="/models/${path[1]}/${path[2]}/">
+
+					<div class="grid grid-row grid-middle">
+
+						<div class="grid-cell-start">
+
+							<div class="icon icon-flex icon-center logo-green"></div>
+
+						</div>
+
+						<div class="grid-cell text-center">
+
+							<img src="/${path[0]}/${path[1]}/${path[2]}/${path[3]}/thumbnail/thumbnail.png" />
+
+						</div>
+
+					</div>
+
+
+					<div class="grid grid-column grid-middle">
+
+						<div class="grid-cell text-center">
+
+							${model_title}
+
+						</div>
+
+						<div class="grid-cell text-center">
+
+							${model_pieces_count} PIECES
+
+						</div>
+
+					</div>
+
+				</a>
+
 			</div>
+
+		</div>
 
 MODEL-DRAWER-CONTENT
 
 else
 
 cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
-			<div class="list section">
+		<div class="list section">
 
-				<div class="grid grid-column grid-stretch">
+			<div class="grid grid-column grid-stretch">
 
-					<div class="grid-cell category">
+				<div class="grid-cell category">
 
-						${model_category}
-
-					</div>
-
-					<a class="button" href="/models/${path[1]}/${path[2]}/">
-
-						<div class="grid grid-row grid-middle">
-
-							<div class="grid-cell-start">
-
-								<div class="icon icon-flex icon-center logo-orange"></div>
-
-							</div>
-
-							<div class="grid-cell text-center">
-
-								<img src="/${path[0]}/${path[1]}/${path[2]}/${path[3]}/thumbnail/thumbnail.png" />
-
-							</div>
-
-						</div>
-
-
-						<div class="grid grid-column grid-middle">
-
-							<div class="grid-cell text-center">
-
-								${model_title}
-
-							</div>
-
-							<div class="grid-cell text-center">
-
-								${model_pieces_count} PIECES
-
-							</div>
-
-						</div>
-
-					</a>
+					${model_category}
 
 				</div>
 
+				<a class="button" href="/models/${path[1]}/${path[2]}/">
+
+					<div class="grid grid-row grid-middle">
+
+						<div class="grid-cell-start">
+
+							<div class="icon icon-flex icon-center logo-orange"></div>
+
+						</div>
+
+						<div class="grid-cell text-center">
+
+							<img src="/${path[0]}/${path[1]}/${path[2]}/${path[3]}/thumbnail/thumbnail.png" />
+
+						</div>
+
+					</div>
+
+
+					<div class="grid grid-column grid-middle">
+
+						<div class="grid-cell text-center">
+
+							${model_title}
+
+						</div>
+
+						<div class="grid-cell text-center">
+
+							${model_pieces_count} PIECES
+
+						</div>
+
+					</div>
+
+				</a>
+
 			</div>
+
+		</div>
 
 MODEL-DRAWER-CONTENT
 
@@ -345,29 +343,27 @@ done
 # generate footer
 
 cat << MODEL-DRAWER-FOOTER ->> "modules/drawer.html"
-			<!-- copyright -->
+		<!-- copyright -->
 
-			<div class="list section copyright">
+		<div class="list section copyright">
 
-				<div class="grid grid-column grid-middle">
+			<div class="grid grid-column grid-middle">
 
-					<div class="grid-cell">
+				<div class="grid-cell">
 
-						<div class="avatar avatar-64 avatar-center" href=""></div>
-
-					</div>
+					<div class="avatar avatar-64 avatar-center" href=""></div>
 
 				</div>
 
-				<div class="grid grid-column grid-middle">
+			</div>
 
-					<div class="grid-cell text-center">
+			<div class="grid grid-column grid-middle">
 
-						Version // ${stamp}</br>
-						Lego // Linux - Where Lego meets Linux</br>
-						N Λ T H Λ N E L - ©  <text id="year"></text>
+				<div class="grid-cell text-center">
 
-					</div>
+					Version // ${stamp}</br>
+					Lego // Linux - Where Lego meets Linux</br>
+					N Λ T H Λ N E L - ©  <text id="year"></text>
 
 				</div>
 
