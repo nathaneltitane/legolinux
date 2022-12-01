@@ -1,6 +1,6 @@
 .paypal {
 	position: fixed;
-	top: 0px;
+	top: 0px;;
 	left: -200px;
 	padding: 10px 10px 10px 10px;
 
@@ -14,11 +14,6 @@
 	0% {left: -200px;}
 
 	100% {left: 0px;}
-}
-
-.paypal input[type="image"] {
-	height: 64px;
-	width: 64px;
 }
 
 .paypal:hover {

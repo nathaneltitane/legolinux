@@ -44,7 +44,7 @@ script=$(basename -- "${BASH_SOURCE[0]}")
 
 # version //////////////////////////////////////////////////////////////////////
 
-version="10-26-2022"
+version="11-30-2022"
 
 # usage ////////////////////////////////////////////////////////////////////////
 
@@ -166,6 +166,8 @@ cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
 
 			</div>
 
+			<!-- models -->
+
 MODEL-DRAWER-HEADER
 
 # values
@@ -198,11 +200,19 @@ do
 
 		model_title=$(cat ${path[0]}/${path[1]}/${path[2]}/title)
 
+		model_title_string=$(echo ${model_title//\<\/\br\>/})
+
 		model_paypal=${path[0]}/${path[1]}/${path[2]}/paypal
 
 		model_paypal_id=$(cat ${path[0]}/${path[1]}/${path[2]}/paypal)
 
+		model_pieces=${path[0]}/${path[1]}/${path[2]}/pieces
+
+		model_pieces_count=$(cat ${path[0]}/${path[1]}/${path[2]}/pieces)
+
 		model_instructions=${path[0]}/${path[1]}/${path[2]}/instructions
+
+		model_instructions_price=$(cat ${path[0]}/${path[1]}/${path[2]}/price)
 
 # generate model drawer entries
 
@@ -224,7 +234,7 @@ cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
 
 						<div class="grid grid-row grid-middle">
 
-							<div class="grid">
+							<div class="grid-cell-start">
 
 								<div class="icon icon-flex icon-center logo-green"></div>
 
@@ -232,7 +242,24 @@ cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
 
 							<div class="grid-cell text-center">
 
+								<img src="/${path[0]}/${path[1]}/${path[2]}/${path[3]}/${path[4]}/${path[5]}" />
+
+							</div>
+
+						</div>
+
+
+						<div class="grid grid-column grid-middle">
+
+							<div class="grid-cell text-center">
+
 								${model_title}
+
+							</div>
+
+							<div class="grid-cell text-center">
+
+								${model_pieces_count} PIECES
 
 							</div>
 
@@ -263,7 +290,7 @@ cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
 
 						<div class="grid grid-row grid-middle">
 
-							<div class="grid">
+							<div class="grid-cell-start">
 
 								<div class="icon icon-flex icon-center logo-orange"></div>
 
@@ -271,7 +298,24 @@ cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
 
 							<div class="grid-cell text-center">
 
+								<img src="/${path[0]}/${path[1]}/${path[2]}/${path[3]}/${path[4]}/${path[5]}" />
+
+							</div>
+
+						</div>
+
+
+						<div class="grid grid-column grid-middle">
+
+							<div class="grid-cell text-center">
+
 								${model_title}
+
+							</div>
+
+							<div class="grid-cell text-center">
+
+								${model_pieces_count} PIECES
 
 							</div>
 
@@ -295,31 +339,29 @@ done
 # generate footer
 
 cat << MODEL-DRAWER-FOOTER ->> "modules/drawer.html"
-			</div>
+			<!-- copyright -->
 
-		</div>
+			<div class="list section copyright">
 
-		<!-- copyright -->
+				<div class="grid grid-column grid-middle">
 
-		<div class="list section copyright">
+					<div class="grid-cell">
 
-			<div class="grid grid-column grid-middle">
+						<div class="avatar avatar-64 avatar-center" href=""></div>
 
-				<div class="grid-cell">
-
-					<div class="avatar avatar-64 avatar-center" href=""></div>
+					</div>
 
 				</div>
 
-			</div>
+				<div class="grid grid-column grid-middle">
 
-			<div class="grid grid-column grid-middle">
+					<div class="grid-cell text-center">
 
-				<div class="grid-cell text-center">
+						Version // ${stamp}</br>
+						Lego // Linux - Where Lego meets Linux</br>
+						N Λ T H Λ N E L - ©  <text id="year"></text>
 
-					Version // ${stamp}</br>
-					Lego // Linux - Where Lego meets Linux</br>
-					N Λ T H Λ N E L - ©  <text id="year"></text>
+					</div>
 
 				</div>
 

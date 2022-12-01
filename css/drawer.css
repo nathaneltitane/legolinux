@@ -1,6 +1,6 @@
 .drawer {
 	background: #bbbbbbff;
-	height: auto;
+	height: 100vh;
 	width: 325px;
 	right: -325px;
 	top: 0px;
@@ -33,7 +33,7 @@
 }
 
 .drawer-container {
-	height: 100vh;
+	height: 100%;
 	padding: 0px 0px 0px 0px;
 	margin: 0px 0px 0px 0px;
 	overflow: overlay;
@@ -58,11 +58,7 @@
 }
 
 .list:last-of-type {
-	height: calc(80px + 120px);
-		bottom: 0px;
-		position: fixed;
-
-		width: inherit;
+	height: 200px;
 }
 
 .category {

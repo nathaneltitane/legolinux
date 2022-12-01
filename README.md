@@ -2,7 +2,7 @@
 
 [![Donate](https://img.shields.io/badge/Donate-PayPal-000000.svg?style=for-the-badge)](https://www.paypal.com/donate/?hosted_button_id=2WZT7PCW3XDX6)
 
-[[ LegoLinux // Project Page ]](https://github.com/nathaneltitane/legolinux.github.io) [ Version // 10-11-2022 ]
+[[ LegoLinux // Project Page ]](https://github.com/nathaneltitane/legolinux.github.io) [ Version // 11-30-2022 ]
 
 ---
 
@@ -25,7 +25,7 @@ Legolinux uses:
 
 ---
 
-[[ LegoLinux // Project Page ]](https://github.com/nathaneltitane/legolinux.github.io) [ Version // 10-11-2022 ]
+[[ LegoLinux // Project Page ]](https://github.com/nathaneltitane/legolinux.github.io) [ Version // 11-30-2022 ]
 
 ### Enjoying LegoLinux? Buy me a coffee to show your appreciation!
 

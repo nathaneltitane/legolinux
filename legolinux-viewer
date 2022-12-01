@@ -44,7 +44,7 @@ script=$(basename -- "${BASH_SOURCE[0]}")
 
 # version //////////////////////////////////////////////////////////////////////
 
-version="10-26-2022"
+version="11-30-2022"
 
 # usage ////////////////////////////////////////////////////////////////////////
 
@@ -350,9 +350,7 @@ then
 cat << 3D-MODEL-PAYPAL ->> "models/${path[1]}/${path[2]}/index.html"
 		<!-- paypal -->
 
-		<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=${model_paypal_id}">
-
-			<div class="paypal grid grid-row">
+			<div class="paypal grid grid-column">
 
 				<div class="grid-cell grid-cell-center">
 
@@ -360,99 +358,21 @@ cat << 3D-MODEL-PAYPAL ->> "models/${path[1]}/${path[2]}/index.html"
 
 				</div>
 
-				<div class="grid-cell grid-cell-center text-bold text-center">
+				<div class="grid-cell grid-cell-center">
 
-					\$${model_instructions_price} USD</br>
-					BUY NOW!</br>
+					\$${model_instructions_price} USD
+
+				</div>
+
+				<div class="grid-cell grid-cell-center">
+
+					BUY NOW!
 
 				</div>
 
 			</div>
-
-		</a>
 
 3D-MODEL-PAYPAL
-
-fi
-
-if [ ! -f models/"${path[1]}"/todo ]
-then
-
-cat << 3D-MODEL-PAGE-TITLE ->> "models/${path[1]}/${path[2]}/index.html"
-		<!-- model -->
-
-		<div id="model" class="section grid grid-column grid-stretch">
-
-			<div class="grid-cell category text-left">
-
-				${model_category}
-
-			</div>
-
-			<div class="button grid grid-row grid-middle">
-
-				<div class="grid">
-
-					<div class="icon icon-flex icon-center logo-green">
-
-					</div>
-
-				</div>
-
-				<div class="grid-cell text-center">
-
-						${model_title_string}</br>
-
-						${model_pieces_count} PIECES
-
-				</div>
-
-			</div>
-
-		</div>
-
-3D-MODEL-PAGE-TITLE
-
-else
-
-cat << 3D-MODEL-PAGE-TITLE ->> "models/${path[1]}/${path[2]}/index.html"
-		<!-- model -->
-
-		<div id="model" class="section grid grid-column grid-stretch">
-
-			<div class="grid grid-column grid-stretch">
-
-				<div class="grid-cell category text-left">
-
-					${model_category}
-
-				</div>
-
-				<div class="button grid grid-row grid-middle">
-
-					<div class="grid">
-
-						<div class="icon icon-flex icon-center logo-orange">
-
-						</div>
-
-					</div>
-
-					<div class="grid-cell text-center">
-
-						${model_title_string}</br>
-
-						${model_pieces_count} PIECES
-
-					</div>
-
-				</div>
-
-			</div>
-
-		</div>
-
-3D-MODEL-PAGE-TITLE
 
 fi
 

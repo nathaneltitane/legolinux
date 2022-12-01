@@ -1,14 +1,4 @@
 img {
-	display: block;
 	height: auto;
 	width: 100%;
-	margin-left: auto;
-	margin-right: auto;
 }
-
-#menu img {
-	padding: 10px 10px 10px 10px;
-	height: calc(100vh - 80px - 60px - 120px);
-	width: auto;
-}
-

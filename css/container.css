@@ -1,3 +1,9 @@
+.container {
+	background: blue;
+	position: relative;
+	bottom: 80px;
+}
+
 .hidden {
 	display: none;
 }
