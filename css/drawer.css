@@ -7,8 +7,6 @@
 	position: fixed;
 	padding: 0px 0px 0px 0px;
 	margin: 0px 0px 0px 0px;
-	text-overflow: ellipsis;
-	overflow: overlay;
 	z-index: 999;
 }
 
@@ -31,13 +29,13 @@
 .drawer-open .drawer {
 	top: 0px;
 	right: 0px;
+	overflow: overlay;
 }
 
 .drawer a {
 	margin: 0px 0px 0px 0px;
 	margin: 0px 0px 0px 0px;
 	overflow: hidden;
-	text-overflow: ellipsis;
 }
 
 @keyframes drawer-open {
