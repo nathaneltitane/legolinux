@@ -6,7 +6,7 @@
 
 ---
 
-### Welcome to [Lego // Linux](https://legolinux.com)!
+### Welcome to [Lego // Linux](https://legolinux.com)
 
 Lego // Linux - Where Lego and Linux meet!
 
