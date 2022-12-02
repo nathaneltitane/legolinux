@@ -175,7 +175,7 @@ cat << MODEL-TITLE ->> "modules/menu.html"
 
 		</div>
 
-		<a class="button" href="models/${path[1]}/${path[2]}/">
+		<a class="container" href="models/${path[1]}/${path[2]}/">
 
 			<div class="grid grid-row grid-middle">
 
@@ -214,7 +214,7 @@ cat << MODEL-TITLE ->> "modules/menu.html"
 
 		</div>
 
-		<a class="button" href="models/${path[1]}/${path[2]}/">
+		<a class="container" href="models/${path[1]}/${path[2]}/">
 
 			<div class="grid grid-row grid-middle">
 
