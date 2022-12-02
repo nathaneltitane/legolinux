@@ -2,17 +2,17 @@
 
 [![Donate](https://img.shields.io/badge/Donate-PayPal-000000.svg?style=for-the-badge)](https://www.paypal.com/donate/?hosted_button_id=2WZT7PCW3XDX6)
 
-[[ LegoLinux // Project Page ]](https://github.com/nathaneltitane/legolinux.github.io) [ Version // 11-30-2022 ]
+[[ Lego // Linux // Project Page ]](https://github.com/nathaneltitane/legolinux.github.io) [ Version // 11-30-2022 ]
 
 ---
 
-### Welcome to LegoLinux!
+### Welcome to [Lego // Linux](https://legolinux.com)!
 
-LegoLinux - Where Lego and Linux meet!
+Lego // Linux - Where Lego and Linux meet!
 
-This repository hosts the website built to showcase my hobby as an avid AFOL.
+This repository hosts the website built to showcase my AFOL Lego LDraw-made models and instructions.
 
-Legolinux uses:
+Lego // Linux uses:
 
 - [Frobulator](https://github.com/nathaneltitane/frobulator) to streamline the scripts and make redundant code a thing of the past.
 - [L²CU](https://github.com/nathaneltitane/l2cu) to automate the exporting and rendering of my models for the website.
@@ -25,7 +25,7 @@ Legolinux uses:
 
 ---
 
-[[ LegoLinux // Project Page ]](https://github.com/nathaneltitane/legolinux.github.io) [ Version // 11-30-2022 ]
+[[ Lego // Linux // Project Page ]](https://github.com/nathaneltitane/legolinux.github.io) [ Version // 11-30-2022 ]
 
 ### Enjoying LegoLinux? Buy me a coffee to show your appreciation!
 
