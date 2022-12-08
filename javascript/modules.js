@@ -14,12 +14,6 @@ $(function() {
 
 	});
 
-	$.get("/modules/anchors.html", function(data) {
-
-		$("#anchor").append(data);
-
-	});
-
 	$.get("/modules/footer.html", function(data) {
 
 		$("#footer").append(data);
