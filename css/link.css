@@ -1,7 +1,7 @@
 a {
 	color: #666666;
 	display: block;
-	font-weight: normal;
+	font-weight: bold;
 	border: none;
 	outline: none;
 }
@@ -15,7 +15,7 @@ a:visited {
 }
 
 a:hover {
-	color: #ff0000;
+	color: #7137c8ff;
 	text-decoration: none;
 	outline: none;
 }
