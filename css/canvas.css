@@ -1,10 +1,24 @@
-canvas:focus {
-	outline: none;
-}
-
 #canvas {
 	display: block;
 	height: calc(100vh - 80px);
 	width: 100vw;
+
+	opacity: 0;
+
+	animation-name: canvas-reveal;
+	animation-delay: 0.5s;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes canvas-reveal {
+	0% {opacity: 0;}
+
+	100% {opacity: 1;}
+}
+
+
+canvas:focus {
+	outline: none;
 }
 
