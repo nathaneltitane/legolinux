@@ -114,9 +114,12 @@ rsync					\
 	--archive			\
 	--quiet				\
 	--recursive			\
-	--exclude='*.ldr'	\
-	--exclude='*.mpd'	\
-	--exclude='*.pdf'	\
+	--exclude='*.ldr'			\
+	--exclude='*.mpd'			\
+	--exclude='*.pdf'			\
+	--exclude="instructions"	\
+	--exclude="configuration"	\
+	--exclude='LPub3D'			\
 						"${local_content_directory}"/* "${local_server_directory}"
 
 frobulator.scs "Server" "[ Done ]"
