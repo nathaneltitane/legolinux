@@ -7,21 +7,6 @@
 	margin: 10px 10px 10px 10px;
 }
 
-.avatar-left{
-	margin-left: 10px;
-	margin-right: auto;
-}
-
-.avatar-right{
-	margin-left: auto;
-	margin-right: 10px;
-}
-
-.avatar-center{
-	margin-left: auto;
-	margin-right: auto;
-}
-
 .avatar-flex {
 	background-size: calc(60px - 10px - 10px);
 	height: calc(60px - 10px - 10px);

@@ -44,7 +44,7 @@ script=$(basename -- "${BASH_SOURCE[0]}")
 
 # version //////////////////////////////////////////////////////////////////////
 
-version="11-30-2022"
+version="12-28-2022"
 
 # usage ////////////////////////////////////////////////////////////////////////
 
@@ -96,7 +96,8 @@ cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
 
 				<div class="grid-cell text-bold text-center">
 
-					// NOTICE</br>
+					// NOTICE //</br>
+
 					</br>
 
 				</div>
@@ -104,15 +105,18 @@ cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
 				<div class="grid-cell text-center">
 
 					INSTRUCTIONS ARE MADE AVAILABLE PROGRESSIVELY:</br>
+
 					</br>
+
 					PURCHASING AN INSTRUCTION SET PRIORITIZES AVAILABILITY FOR THAT MODEL!</br>
+
 					</br>
 
 				</div>
 
 				<div class="grid-cell text-bold text-center">
 
-					THANK YOU FOR YOUR SUPPORT! <3 //</br>
+					THANK YOU FOR YOUR SUPPORT!</br>
 
 				</div>
 
@@ -300,7 +304,7 @@ cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
 
 						</div>
 
-						<div class="grid-cell text-center">
+						<div class="grid-cell">
 
 							<img src="/${path[0]}/${path[1]}/${path[2]}/${path[3]}/thumbnail/thumbnail.png" />
 
@@ -347,21 +351,21 @@ cat << MODEL-DRAWER-FOOTER ->> "modules/drawer.html"
 
 		<div class="list section copyright">
 
-			<div class="grid grid-column grid-middle">
+			<div class="grid grid-column grid-center grid-middle">
 
-				<div class="grid-cell">
+				<div class="grid">
 
-					<div class="avatar avatar-64 avatar-center" href=""></div>
+					<div class="avatar avatar-128" href=""></div>
 
 				</div>
 
 			</div>
 
-			<div class="grid grid-column grid-middle">
+			<div class="grid grid-column grid-center grid-middle">
 
 				<div class="grid-cell text-center">
 
-					Version // ${stamp}</br>
+					Version // 12-07-2022</br>
 					Lego // Linux - Where Lego meets Linux</br>
 					N Λ T H Λ N E L - ©  <text id="year"></text>
 
