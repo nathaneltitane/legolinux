@@ -147,7 +147,7 @@ cat << MODEL-CONTAINER ->> "modules/menu.html"
 
 <div id=${model_title_string/ /-} class='container ${hidden}'>
 
-	<div class='grid flex-column flex-center flex-around flex-wrap'>
+	<div class='flex flex-column flex-center flex-around flex-wrap'>
 
 		<div class='flex-cell'>
 
@@ -167,7 +167,7 @@ if [ -d "${model_instructions}" ]
 then
 
 cat << MODEL-TITLE ->> "modules/menu.html"
-	<div id="menu" class="menu section grid flex-column flex-stretch">
+	<div id="menu" class="menu section flex flex-column flex-stretch">
 
 		<div class="category flex-cell text-left">
 
@@ -177,9 +177,9 @@ cat << MODEL-TITLE ->> "modules/menu.html"
 
 		<a class="container" href="models/${path[1]}/${path[2]}/">
 
-			<div class="grid flex-row flex-middle">
+			<div class="flex flex-row flex-middle">
 
-				<div class="grid">
+				<div class="flex">
 
 					<div class="icon icon-flex icon-center logo-green"></div>
 
@@ -206,7 +206,7 @@ MODEL-TITLE
 else
 
 cat << MODEL-TITLE ->> "modules/menu.html"
-	<div id="menu" class="menu section grid flex-column flex-stretch">
+	<div id="menu" class="menu section flex flex-column flex-stretch">
 
 		<div class="category flex-cell text-left">
 
@@ -216,9 +216,9 @@ cat << MODEL-TITLE ->> "modules/menu.html"
 
 		<a class="container" href="models/${path[1]}/${path[2]}/">
 
-			<div class="grid flex-row flex-middle">
+			<div class="flex flex-row flex-middle">
 
-				<div class="grid">
+				<div class="flex">
 
 					<div class="icon icon-flex icon-center logo-orange"></div>
 

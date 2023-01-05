@@ -86,13 +86,13 @@ cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
 
 	</div>
 
-	<div class="grid flex-column flex-stretch">
+	<div class="flex flex-column flex-stretch">
 
 		<!-- legend -->
 
 		<div class="list section notice">
 
-			<div class="grid flex-column flex-middle">
+			<div class="flex flex-column flex-middle">
 
 				<div class="flex-cell text-bold text-center">
 
@@ -128,9 +128,9 @@ cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
 
 		<div class="list section available">
 
-			<div class="grid flex-row flex-middle">
+			<div class="flex flex-row flex-middle">
 
-				<div class="grid">
+				<div class="flex">
 
 					<div class="icon icon-flex icon-center logo-green"></div>
 
@@ -150,9 +150,9 @@ cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
 
 		<div class="list section progress">
 
-			<div class="grid flex-row flex-middle">
+			<div class="flex flex-row flex-middle">
 
-				<div class="grid">
+				<div class="flex">
 
 					<div class="icon icon-flex icon-center logo-orange"></div>
 
@@ -230,7 +230,7 @@ then
 cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
 		<div class="list section">
 
-			<div class="grid flex-column flex-stretch">
+			<div class="flex flex-column flex-stretch">
 
 				<div class="flex-cell category">
 
@@ -240,7 +240,7 @@ cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
 
 				<a class="container" href="/models/${path[1]}/${path[2]}/">
 
-					<div class="grid flex-row flex-middle">
+					<div class="flex flex-row flex-middle">
 
 						<div class="flex-cell-start">
 
@@ -257,7 +257,7 @@ cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
 					</div>
 
 
-					<div class="grid flex-column flex-middle">
+					<div class="flex flex-column flex-middle">
 
 						<div class="flex-cell text-center">
 
@@ -286,7 +286,7 @@ else
 cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
 		<div class="list section">
 
-			<div class="grid flex-column flex-stretch">
+			<div class="flex flex-column flex-stretch">
 
 				<div class="flex-cell category">
 
@@ -296,7 +296,7 @@ cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
 
 				<a class="container" href="/models/${path[1]}/${path[2]}/">
 
-					<div class="grid flex-row flex-middle">
+					<div class="flex flex-row flex-middle">
 
 						<div class="flex-cell-start">
 
@@ -313,7 +313,7 @@ cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
 					</div>
 
 
-					<div class="grid flex-column flex-middle">
+					<div class="flex flex-column flex-middle">
 
 						<div class="flex-cell text-center">
 
@@ -351,9 +351,9 @@ cat << MODEL-DRAWER-FOOTER ->> "modules/drawer.html"
 
 		<div class="list section copyright">
 
-			<div class="grid flex-column flex-center flex-middle">
+			<div class="flex flex-column flex-center flex-middle">
 
-				<div class="grid">
+				<div class="flex">
 
 					<div class="avatar avatar-128" href=""></div>
 
@@ -361,7 +361,7 @@ cat << MODEL-DRAWER-FOOTER ->> "modules/drawer.html"
 
 			</div>
 
-			<div class="grid flex-column flex-center flex-middle">
+			<div class="flex flex-column flex-center flex-middle">
 
 				<div class="flex-cell text-center">
 

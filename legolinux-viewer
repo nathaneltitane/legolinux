@@ -352,7 +352,7 @@ cat << 3D-MODEL-PAYPAL ->> "models/${path[1]}/${path[2]}/index.html"
 
 			<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=${model_paypal_id}">
 
-				<div class="paypal grid flex-column">
+				<div class="paypal flex flex-column">
 
 					<div class="flex-cell flex-cell-center">
 
