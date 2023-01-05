@@ -44,7 +44,7 @@ script=$(basename -- "${BASH_SOURCE[0]}")
 
 # version //////////////////////////////////////////////////////////////////////
 
-version="11-30-2022"
+version="01-04-2022"
 
 # usage ////////////////////////////////////////////////////////////////////////
 
@@ -147,9 +147,9 @@ cat << MODEL-CONTAINER ->> "modules/menu.html"
 
 <div id=${model_title_string/ /-} class='container ${hidden}'>
 
-	<div class='grid grid-column grid-center grid-around grid-wrap'>
+	<div class='grid flex-column flex-center flex-around flex-wrap'>
 
-		<div class='grid-cell'>
+		<div class='flex-cell'>
 
 			<a href="models/${path[1]}/${path[2]}"'>
 
@@ -167,9 +167,9 @@ if [ -d "${model_instructions}" ]
 then
 
 cat << MODEL-TITLE ->> "modules/menu.html"
-	<div id="menu" class="menu section grid grid-column grid-stretch">
+	<div id="menu" class="menu section grid flex-column flex-stretch">
 
-		<div class="category grid-cell text-left">
+		<div class="category flex-cell text-left">
 
 			${model_category}
 
@@ -177,7 +177,7 @@ cat << MODEL-TITLE ->> "modules/menu.html"
 
 		<a class="container" href="models/${path[1]}/${path[2]}/">
 
-			<div class="grid grid-row grid-middle">
+			<div class="grid flex-row flex-middle">
 
 				<div class="grid">
 
@@ -185,7 +185,7 @@ cat << MODEL-TITLE ->> "modules/menu.html"
 
 				</div>
 
-				<div class="grid-cell text-center">
+				<div class="flex-cell text-center">
 
 					${model_title_string}
 
@@ -206,9 +206,9 @@ MODEL-TITLE
 else
 
 cat << MODEL-TITLE ->> "modules/menu.html"
-	<div id="menu" class="menu section grid grid-column grid-stretch">
+	<div id="menu" class="menu section grid flex-column flex-stretch">
 
-		<div class="category grid-cell text-left">
+		<div class="category flex-cell text-left">
 
 			${model_category}
 
@@ -216,7 +216,7 @@ cat << MODEL-TITLE ->> "modules/menu.html"
 
 		<a class="container" href="models/${path[1]}/${path[2]}/">
 
-			<div class="grid grid-row grid-middle">
+			<div class="grid flex-row flex-middle">
 
 				<div class="grid">
 
@@ -224,7 +224,7 @@ cat << MODEL-TITLE ->> "modules/menu.html"
 
 				</div>
 
-				<div class="grid-cell text-center">
+				<div class="flex-cell text-center">
 
 					${model_title_string}
 

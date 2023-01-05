@@ -86,15 +86,15 @@ cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
 
 	</div>
 
-	<div class="grid grid-column grid-stretch">
+	<div class="grid flex-column flex-stretch">
 
 		<!-- legend -->
 
 		<div class="list section notice">
 
-			<div class="grid grid-column grid-middle">
+			<div class="grid flex-column flex-middle">
 
-				<div class="grid-cell text-bold text-center">
+				<div class="flex-cell text-bold text-center">
 
 					// NOTICE //</br>
 
@@ -102,7 +102,7 @@ cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
 
 				</div>
 
-				<div class="grid-cell text-center">
+				<div class="flex-cell text-center">
 
 					INSTRUCTIONS ARE MADE AVAILABLE PROGRESSIVELY:</br>
 
@@ -114,7 +114,7 @@ cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
 
 				</div>
 
-				<div class="grid-cell text-bold text-center">
+				<div class="flex-cell text-bold text-center">
 
 					THANK YOU FOR YOUR SUPPORT!</br>
 
@@ -128,7 +128,7 @@ cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
 
 		<div class="list section available">
 
-			<div class="grid grid-row grid-middle">
+			<div class="grid flex-row flex-middle">
 
 				<div class="grid">
 
@@ -136,7 +136,7 @@ cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
 
 				</div>
 
-				<div class="grid-cell text-center">
+				<div class="flex-cell text-center">
 
 					AVAILABLE
 
@@ -150,7 +150,7 @@ cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
 
 		<div class="list section progress">
 
-			<div class="grid grid-row grid-middle">
+			<div class="grid flex-row flex-middle">
 
 				<div class="grid">
 
@@ -158,7 +158,7 @@ cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
 
 				</div>
 
-				<div class="grid-cell text-center">
+				<div class="flex-cell text-center">
 
 					IN PROGRESS
 
@@ -230,9 +230,9 @@ then
 cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
 		<div class="list section">
 
-			<div class="grid grid-column grid-stretch">
+			<div class="grid flex-column flex-stretch">
 
-				<div class="grid-cell category">
+				<div class="flex-cell category">
 
 					${model_category}
 
@@ -240,15 +240,15 @@ cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
 
 				<a class="container" href="/models/${path[1]}/${path[2]}/">
 
-					<div class="grid grid-row grid-middle">
+					<div class="grid flex-row flex-middle">
 
-						<div class="grid-cell-start">
+						<div class="flex-cell-start">
 
 							<div class="icon icon-flex icon-center logo-green"></div>
 
 						</div>
 
-						<div class="grid-cell text-center">
+						<div class="flex-cell text-center">
 
 							<img src="/${path[0]}/${path[1]}/${path[2]}/${path[3]}/thumbnail/thumbnail.png" />
 
@@ -257,15 +257,15 @@ cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
 					</div>
 
 
-					<div class="grid grid-column grid-middle">
+					<div class="grid flex-column flex-middle">
 
-						<div class="grid-cell text-center">
+						<div class="flex-cell text-center">
 
 							${model_title}
 
 						</div>
 
-						<div class="grid-cell text-center">
+						<div class="flex-cell text-center">
 
 							${model_pieces_count} PIECES
 
@@ -286,9 +286,9 @@ else
 cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
 		<div class="list section">
 
-			<div class="grid grid-column grid-stretch">
+			<div class="grid flex-column flex-stretch">
 
-				<div class="grid-cell category">
+				<div class="flex-cell category">
 
 					${model_category}
 
@@ -296,15 +296,15 @@ cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
 
 				<a class="container" href="/models/${path[1]}/${path[2]}/">
 
-					<div class="grid grid-row grid-middle">
+					<div class="grid flex-row flex-middle">
 
-						<div class="grid-cell-start">
+						<div class="flex-cell-start">
 
 							<div class="icon icon-flex icon-center logo-orange"></div>
 
 						</div>
 
-						<div class="grid-cell">
+						<div class="flex-cell">
 
 							<img src="/${path[0]}/${path[1]}/${path[2]}/${path[3]}/thumbnail/thumbnail.png" />
 
@@ -313,15 +313,15 @@ cat << MODEL-DRAWER-CONTENT ->> "modules/drawer.html"
 					</div>
 
 
-					<div class="grid grid-column grid-middle">
+					<div class="grid flex-column flex-middle">
 
-						<div class="grid-cell text-center">
+						<div class="flex-cell text-center">
 
 							${model_title}
 
 						</div>
 
-						<div class="grid-cell text-center">
+						<div class="flex-cell text-center">
 
 							${model_pieces_count} PIECES
 
@@ -351,7 +351,7 @@ cat << MODEL-DRAWER-FOOTER ->> "modules/drawer.html"
 
 		<div class="list section copyright">
 
-			<div class="grid grid-column grid-center grid-middle">
+			<div class="grid flex-column flex-center flex-middle">
 
 				<div class="grid">
 
@@ -361,9 +361,9 @@ cat << MODEL-DRAWER-FOOTER ->> "modules/drawer.html"
 
 			</div>
 
-			<div class="grid grid-column grid-center grid-middle">
+			<div class="grid flex-column flex-center flex-middle">
 
-				<div class="grid-cell text-center">
+				<div class="flex-cell text-center">
 
 					Version // 12-07-2022</br>
 					Lego // Linux - Where Lego meets Linux</br>

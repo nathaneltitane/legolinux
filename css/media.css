@@ -1,52 +1,135 @@
 /* // general // */
 
-@media (min-width: 321px) { /* smartphones, iphone, portrait 480x320 phones */
+@media (max-width: 320px) {
 
-	.grid-responsive {
+	.flex-responsive {
 		width: 100%;
 	}
 
+	.grid {
+		grid-template-columns: repeat(1, 1fr);
+	}
 }
 
-@media (min-width: 481px) { /* portrait e-readers (nook/kindle), smaller tablets @ 600 or @ 640 wide. */
+@media (min-width: 320px) {
 
-	.grid-responsive {
+	.flex-responsive {
 		width: 100%;
 	}
 
+	.grid {
+		grid-template-columns: repeat(1, 1fr);
+	}
 }
 
-@media (min-width: 641px) { /* portrait tablets, portrait ipad, landscape e-readers, landscape 800x480 or 854x480 phones */
+@media (min-width: 480px) {
 
-	.grid-responsive {
+	.flex-responsive {
+		width: 100%;
+	}
+
+	.grid {
+		grid-template-columns: repeat(1, 1fr);
+	}
+}
+
+@media (min-width: 640px) {
+
+	.flex-responsive {
+		width: 100%;
+	}
+
+	.grid {
+		grid-template-columns: repeat(1, 1fr);
+	}
+}
+
+@media (min-width: 800px) {
+
+	.flex-responsive {
 		width: 50%;
 	}
 
+	.grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
 }
 
-@media (min-width: 961px) { /* tablet, landscape ipad, lo-res laptops ands desktops */
+@media (min-width: 960px) {
 
-	.grid-responsive {
-		width: 30%;
+	.flex-responsive {
+		width: 50%;
 	}
 
+	.grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
 }
 
-@media (min-width: 1021px) { /* big landscape tablets, laptops, + desktops */
+@media (min-width: 1020px) {
 
-	.grid-responsive {
-		width: 30%;
+	.flex-responsive {
+		width: 50%;
 	}
 
+	.grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
 }
 
-@media (min-width: 1281px) { /* hi-res laptops + desktops */
+@media (min-width: 1200px) {
 
-	.grid-responsive {
-		width: 30%;
+	.flex-responsive {
+		width: 25%;
 	}
 
+	.grid {
+		grid-template-columns: repeat(4, 1fr);
+	}
 }
+
+@media (min-width: 1600px) {
+
+	.flex-responsive {
+		width: 20%;
+	}
+
+	.grid {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
+/* // phone // */
+
+@media (pointer: coarse) and (max-device-width: 480px) {
+
+	#drawer{
+		top: 60px;
+	}
+
+	@keyframes drawer-reveal {
+		0% {top: 60px;}
+
+		100% {top: calc(60px - 216px);}
+	}
+}
+
+/* // tablet // */
+
+@media (pointer: coarse) and (min-device-width: 800px) {
+
+	#drawer{
+		top: 60px;
+	}
+
+	@keyframes drawer-reveal {
+		0% {top: 60px;}
+
+		100% {top: calc(60px - 256px);}
+	}
+}
+
+/* // specific models // */
 
 /* // galaxy s3 // */
 
