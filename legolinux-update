@@ -71,10 +71,6 @@ do
 			option="pages"
 		;;
 
-		-s|--server)
-			option="server"
-		;;
-
 		-h|--help)
 			echo
 			echo -e "Usage: ./${script} [EXTENSION] | [OPTION] [PARAMETER]"
@@ -88,8 +84,6 @@ do
 			echo -e "-renders          Models renders content update."
 			echo -e "-models           Models pages content update."
 			echo -e "-pages            Web pages content update."
-			echo
-			echo -e "-server           Create local development server."
 			echo
 			echo -e "'${script}'       [ Version ${version} ]"
 			echo
@@ -265,18 +259,6 @@ then
 	upload &
 
 	frobulator.progress "Updating pages..."
-	echo
-fi
-
-if [[ "${option}" = "server" ]]
-then
-	scripts_list+=(
-		legolinux-server
-	)
-
-	run
-
-	frobulator.progress "Creating server..."
 	echo
 fi
 
