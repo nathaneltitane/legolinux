@@ -56,7 +56,7 @@ echo
 # requirements /////////////////////////////////////////////////////////////////
 
 directoris_list=(
-	/media/internal/Lego/models
+	/media/internal/Lego/models/
 )
 
 for directory in ${directoris_list[@]}
