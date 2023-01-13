@@ -390,8 +390,8 @@ cat << 3D-MODEL-PAGE-FOOTER ->> "models/${path[1]}/${path[2]}/index.html"
 	done
 done
 
-frobulator.inf "Parsed model entries" "[ ${count} ]"
+frobulator.inf "Models" "[ ${count} ]"
 echo
 
-frobulator.scs "3D model pages" "[ Done ]"
+frobulator.scs "Viewer" "[ Done ]"
 echo

@@ -64,8 +64,8 @@ do
 	bash ../l2cu/l2cu -mpd -export collada -directory "${directory}"
 done
 
-frobulator.inf "Parsed model entries" "[ ${count} ]"
+frobulator.inf "Models" "[ ${count} ]"
 echo
 
-frobulator.scs "Renders" "[ Done ]"
+frobulator.scs "Exports" "[ Done ]"
 echo

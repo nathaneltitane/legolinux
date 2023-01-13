@@ -115,8 +115,8 @@ do
 														"${server_javascript_directory}"/background.js
 done
 
-frobulator.inf "Parsed model entries" "[ ${count} ]"
+frobulator.inf "Models" "[ ${count} ]"
 echo
 
-frobulator.scs "Copy" "[ Done ]"
+frobulator.scs "Background" "[ Done ]"
 echo

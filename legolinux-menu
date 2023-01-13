@@ -254,8 +254,8 @@ cat << FOOTER ->> "modules/menu.html"
 
 FOOTER
 
-frobulator.inf "Parsed model entries" "[ ${count} ]"
+frobulator.inf "Models" "[ ${count} ]"
 echo
 
-frobulator.scs "Models menu" "[ Done ]"
+frobulator.scs "Menu" "[ Done ]"
 echo
