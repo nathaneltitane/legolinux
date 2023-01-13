@@ -137,7 +137,7 @@ upload () {
 		--all		\
 		--message='Models update'
 
-	frobulator.log "git push"
+	git push > /dev/null 2>&1
 }
 
 run () {
@@ -201,7 +201,6 @@ then
 	run
 
 	upload &
-	echo
 
 	frobulator.progress "Updating..."
 	echo
@@ -216,7 +215,6 @@ then
 	run
 
 	upload &
-	echo
 
 	frobulator.progress "Updating exports..."
 	echo
@@ -231,7 +229,6 @@ then
 	run
 
 	upload &
-	echo
 
 	frobulator.progress "Updating renders..."
 	echo
@@ -249,7 +246,6 @@ then
 	run
 
 	upload &
-	echo
 
 	frobulator.progress "Updating models..."
 	echo
@@ -258,7 +254,6 @@ fi
 if [[ "${option}" = "pages" ]]
 then
 	upload &
-	echo
 
 	frobulator.progress "Updating pages..."
 	echo
