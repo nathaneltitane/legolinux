@@ -375,8 +375,8 @@ cat << MODEL-DRAWER-FOOTER ->> "modules/drawer.html"
 
 MODEL-DRAWER-FOOTER
 
-frobulator.inf "Parsed model entries" "[ ${count} ]"
+frobulator.inf "Models" "[ ${count} ]"
 echo
 
-frobulator.scs "Models drawer" "[ Done ]"
+frobulator.scs "Drawer" "[ Done ]"
 echo
