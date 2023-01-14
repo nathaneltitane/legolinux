@@ -393,5 +393,5 @@ done
 frobulator.inf "Models" "[ ${count} ]"
 echo
 
-frobulator.scs "Viewer" "[ Done ]"
+frobulator.scs "Done" "[ Viewer ]"
 echo

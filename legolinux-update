@@ -174,7 +174,7 @@ option () {
 
 	#for script in ${list[@]}
 	#do
-		"${SHELL}" ./"${script}"
+		"${SHELL}" "${PWD}"/"${script}"
 	#done
 
 	upload "Models update" &
@@ -269,5 +269,5 @@ option ${list[@]}
 
 list=()
 
-frobulator.scs "Update" "[ Done ]"
+frobulator.scs "Done" "[ Update ]"
 echo
