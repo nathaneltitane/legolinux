@@ -49,10 +49,13 @@ echo
 
 # variables ////////////////////////////////////////////////////////////////////
 
-local_models_directory=/media/internal/Lego/models
-server_models_directory="${PWD}"/models
-server_backgrounds_directory="${PWD}"/background
-server_javascript_directory="${PWD}"/javascript
+local_directory=/media/internal/Lego
+local_models_directory="${local_directory}"/models
+
+server_directory="${PWD}"
+server_models_directory="${server_directory}"/models
+server_backgrounds_directory="${server_directory}"/background
+server_javascript_directory="${server_directory}"/javascript
 
 # defaults /////////////////////////////////////////////////////////////////////
 
@@ -60,19 +63,14 @@ server_javascript_directory="${PWD}"/javascript
 
 # prepare update
 
-list+=(
-	"${server_models_directory}"
-)
+if [[ -d "${server_models_directory}" ]]
+then
 
-for directory in ${list[@]}
-do
-	rm -rf "${directory}" ]
+	frobulator.delete "${server_models_directory}"
 
-	frobulator.directory "${directory}"
-done
-
-list=()
-
+	frobulator.directory "${server_directory}" models
+fi
+exit
 # pull /////////////////////////////////////////////////////////////////////////
 
 rsync							\
