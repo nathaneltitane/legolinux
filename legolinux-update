@@ -156,12 +156,7 @@ upload () {
 	git push > /dev/null 2>&1
 }
 
-run () {
-	for script in ${list[@]}
-	do
-		bash ./"${script}"
-	done
-}
+
 
 option () {
 	selection="${1}"
@@ -180,7 +175,10 @@ option () {
 	fi
 
 
-	run
+	for script in ${list[@]}
+	do
+		bash ./"${script}"
+	done
 
 	upload &
 
