@@ -159,11 +159,9 @@ upload () {
 }
 
 option () {
-
-
-	for item in ${list[@]}
+	for script in ${list[@]}
 	do
-		"${SHELL}" ./"${script}"
+		"${SHELL}" "${PWD}"/"${script}"
 	done
 
 	upload "Models update" &
