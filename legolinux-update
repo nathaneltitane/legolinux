@@ -172,7 +172,7 @@ option () {
 		list+=("${script}")
 	fi
 
-	for script in ${list[@]}
+	for item in ${list[@]}
 	do
 		"${SHELL}" "${PWD}"/"${script}"
 	done
