@@ -55,13 +55,13 @@ echo
 
 # requirements /////////////////////////////////////////////////////////////////
 
-directoris_list=(
+directoris_list+=(
 	/media/internal/Lego/models
 )
 
 for directory in ${directoris_list[@]}
 do
-	bash ../l2cu/l2cu -mpd -export collada -directory "${directory}"
+	"${SHELL}" ../l2cu/l2cu -mpd -export collada -directory "${directory}"
 done
 
 frobulator.inf "Models" "[ ${count} ]"

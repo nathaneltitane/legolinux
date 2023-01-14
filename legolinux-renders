@@ -55,7 +55,7 @@ echo
 
 # requirements /////////////////////////////////////////////////////////////////
 
-directoris_list=(
+directoris_list+=(
 	/media/internal/Lego/models/
 )
 

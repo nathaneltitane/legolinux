@@ -168,7 +168,7 @@ MODEL-DRAWER-HEADER
 
 # values
 
-extensions_list=(
+extensions_list+=(
 	png
 )
 

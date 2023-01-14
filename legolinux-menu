@@ -83,7 +83,7 @@ MODELS-MENU-HEADER
 
 # values
 
-extensions_list=(
+extensions_list+=(
 	png
 )
 

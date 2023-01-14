@@ -60,16 +60,18 @@ server_javascript_directory="${PWD}"/javascript
 
 # prepare update
 
-directories_list=(
+list+=(
 	"${server_models_directory}"
 )
 
-for directory in ${directories_list[@]}
+for directory in ${list[@]}
 do
 	rm -rf "${directory}" ]
 
-	mkdir -p "${directory}"
+	frobulator.directory "${directory}"
 done
+
+list=()
 
 # pull /////////////////////////////////////////////////////////////////////////
 

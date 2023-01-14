@@ -60,7 +60,7 @@ frobulator.fwd "Writing..."
 echo
 # values
 
-extensions_list=(
+extensions_list+=(
 	png
 )
 

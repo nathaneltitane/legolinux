@@ -147,11 +147,13 @@ echo
 # functions ////////////////////////////////////////////////////////////////////
 
 upload () {
+	message="${1}"
+
 	git add *
 
 	git commit		\
 		--all		\
-		--message='Models update'
+		--message="$${message}"
 
 	git push > /dev/null 2>&1
 }
@@ -161,7 +163,7 @@ option () {
 	then
 		# ${2} - array
 
-		list=(${@:1})
+		list+=(${@:1})
 	else
 		script="${1}"
 
@@ -172,10 +174,10 @@ option () {
 
 	for script in ${list[@]}
 	do
-		bash ./"${script}"
+		"${SHELL}" ./"${script}"
 	done
 
-	upload &
+	upload "Models update" &
 
 	frobulator.fwd "Updating..."
 	echo
@@ -185,7 +187,7 @@ option () {
 
 # requirements /////////////////////////////////////////////////////////////////
 
-list=(
+list+=(
 	git
 	rsync
 )
@@ -203,7 +205,7 @@ fi
 
 if [[ "${option}" = "all" ]]
 then
-	list=(
+	list+=(
 		legolinux-exports
 		legolinux-renders
 		legolinux-models
@@ -216,49 +218,49 @@ fi
 
 if [[ "${option}" = "exports" ]]
 then
-	list=(
+	list+=(
 		legolinux-exports
 	)
 fi
 
 if [[ "${option}" = "renders" ]]
 then
-	list=(
+	list+=(
 		legolinux-renders
 	)
 fi
 
 if [[ "${option}" = "models" ]]
 then
-	list=(
+	list+=(
 		legolinux-models
 	)
 fi
 
 if [[ "${option}" = "background" ]]
 then
-	list=(
+	list+=(
 		legolinux-background
 	)
 fi
 
 if [[ "${option}" = "drawer" ]]
 then
-	list=(
+	list+=(
 		legolinux-drawer
 	)
 fi
 
 if [[ "${option}" = "menu" ]]
 then
-	list=(
+	list+=(
 		legolinux-menu
 	)
 fi
 
 if [[ "${option}" = "viewer" ]]
 then
-	list=(
+	list+=(
 		legolinux-viewer
 	)
 fi
