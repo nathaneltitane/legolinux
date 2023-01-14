@@ -156,6 +156,13 @@ upload () {
 	git push > /dev/null 2>&1
 }
 
+run () {
+	for script in ${list[@]}
+	do
+		bash ./"${script}"
+	done
+}
+
 option () {
 	selection="${1}"
 
@@ -174,10 +181,7 @@ option () {
 
 	if [[ "${option}" = "${selection}" ]]
 	then
-		for script in ${list[@]}
-		do
-			bash ./"${script}"
-		done
+		run
 	fi
 
 	upload &
@@ -204,7 +208,19 @@ list=()
 
 if [[ "${option}" = "all" ]]
 then
+	list=(
+		legolinux-exports
+		legolinux-renders
+		legolinux-models
+		legolinux-background
+		legolinux-drawer
+		legolinux-menu
+		legolinux-viewer
+	)
+
 	option all
+
+	list=()
 fi
 
 if [[ "${option}" = "exports" ]]
