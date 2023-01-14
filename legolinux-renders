@@ -55,15 +55,17 @@ echo
 
 # requirements /////////////////////////////////////////////////////////////////
 
-directoris_list+=(
+list+=(
 	/media/internal/Lego/models/
 )
 
-for directory in ${directoris_list[@]}
+for directory in ${list[@]}
 do
-	bash ../l2cu/l2cu -mpd -render thumbnail -directory "${directory}"
-	bash ../l2cu/l2cu -mpd -render flat -directory "${directory}"
+	"${SHELL}" ../l2cu/l2cu -mpd -render thumbnail -directory "${directory}"
+	"${SHELL}" ../l2cu/l2cu -mpd -render flat -directory "${directory}"
 done
+
+list=()
 
 frobulator.scs "Renders" "[ Done ]"
 echo
