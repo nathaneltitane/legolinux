@@ -66,11 +66,10 @@ server_javascript_directory="${server_directory}"/javascript
 if [[ -d "${server_models_directory}" ]]
 then
 
-	frobulator.delete "${server_models_directory}"
+	frobulator.delete "${server_directory}" models
 
-	frobulator.directory "${server_directory}" models
 fi
-exit
+
 # pull /////////////////////////////////////////////////////////////////////////
 
 rsync							\
