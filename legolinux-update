@@ -101,7 +101,7 @@ do
 			echo -e "-n, --menu          Models menu content update."
 			echo -e "-v, --viewer        Models viewer content update."
 			echo
-			echo -e "'${script}'       [ Version ${version} ]"
+			echo -e "'${script}'         [ Version ${version} ]"
 			echo
 
 			exit
