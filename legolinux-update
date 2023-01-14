@@ -163,7 +163,7 @@ run () {
 	done
 }
 
-lglnx_option () {
+option () {
 	selection="${1}"
 
 	if [[ -n "${#list[@]}" ]]
@@ -179,15 +179,15 @@ lglnx_option () {
 		list+=("${script}")
 	fi
 
-	if [[ "${option}" = "${selection}" ]]
-	then
-		run
 
-		upload &
+	run
 
-		frobulator.progress "Updating" "[ ${selection} ]"
-		echo
-	fi
+	upload &
+
+	frobulator.progress "Updating" "[ ${selection} ]"
+	echo
+
+	list=()
 }
 
 # requirements /////////////////////////////////////////////////////////////////
@@ -206,42 +206,42 @@ list=()
 
 if [[ "${option}" = "all" ]]
 then
-	lglnx_option all
+	option all
 fi
 
 if [[ "${option}" = "exports" ]]
 then
-	lglnx_option exports
+	option exports
 fi
 
 if [[ "${option}" = "renders" ]]
 then
-	lglnx_option renders
+	option renders
 fi
 
 if [[ "${option}" = "models" ]]
 then
-	lglnx_option models
+	option models
 fi
 
 if [[ "${option}" = "background" ]]
 then
-	lglnx_option background
+	option background
 fi
 
 if [[ "${option}" = "drawer" ]]
 then
-	lglnx_option drawer
+	option drawer
 fi
 
 if [[ "${option}" = "menu" ]]
 then
-	lglnx_option menu
+	option menu
 fi
 
 if [[ "${option}" = "viewer" ]]
 then
-	lglnx_option viewer
+	option viewer
 fi
 
 frobulator.scs "Update" "[ Done ]"
