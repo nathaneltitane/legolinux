@@ -67,8 +67,20 @@ do
 			option="models"
 		;;
 
-		-p|--pages)
-			option="pages"
+		-b|--background)
+			option="background"
+		;;
+
+		-n|--menu)
+			option="menu"
+		;;
+
+		-d|--drawer)
+			option="drawer"
+		;;
+
+		-v|--viewer)
+			option="viewer"
 		;;
 
 		-h|--help)
@@ -80,10 +92,14 @@ do
 			echo -e "-directory        Specify directory to load models from."
 			echo
 			echo -e "-all              Full website framework and content update."
+			echo
 			echo -e "-exports          Models exports content update."
 			echo -e "-renders          Models renders content update."
-			echo -e "-models           Models pages content update."
-			echo -e "-pages            Web pages content update."
+			echo -e "-background       Background content update."
+			echo -e "-drawer           Drawer content update."
+			echo -e "-menu             Models menu content update."
+			echo -e "-models           Models content update."
+			echo -e "-viewer           Models viewer content update."
 			echo
 			echo -e "'${script}'       [ Version ${version} ]"
 			echo
@@ -147,6 +163,35 @@ run () {
 	done
 }
 
+option () {
+	selection="${1}"
+
+	if [[ -n "${#list[@]}" ]]
+	then
+		# ${2} - array
+
+		list=(${@:3})
+	else
+		script="${3}"
+
+		list=()
+
+		list+=("${script}")
+	fi
+
+	if [[ "${option}" = "${selection}" ]]
+	then
+		"${script}"
+
+		run
+
+		upload &
+
+		frobulator.progress "Updating" "${script#*-}"
+		echo
+	fi
+}
+
 # requirements /////////////////////////////////////////////////////////////////
 
 list=(
@@ -162,38 +207,7 @@ list=()
 
 # content
 
-if [[ "${option}" = "all" ]]
-then
-	scripts_list+=(
-		legolinux-exports
-		legolinux-renders
-		legolinux-models
-		legolinux-background
-		legolinux-drawer
-		legolinux-viewer
-	)
-
-	run
-
-	upload &
-
-	frobulator.progress "Updating..."
-	echo
-fi
-
-if [[ "${option}" = "exports" ]]
-then
-	scripts_list+=(
-		legolinux-exports
-	)
-
-	run
-
-	upload &
-
-	frobulator.progress "Updating exports..."
-	echo
-fi
+option all
 
 if [[ "${option}" = "renders" ]]
 then
