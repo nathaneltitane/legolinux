@@ -163,7 +163,7 @@ option () {
 
 	for item in ${list[@]}
 	do
-		"${SHELL}" "${PWD}"/"${script}"
+		"${SHELL}" ./"${script}"
 	done
 
 	upload "Models update" &
