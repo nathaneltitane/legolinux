@@ -163,7 +163,7 @@ run () {
 	done
 }
 
-option () {
+lglnx_option () {
 	selection="${1}"
 
 	if [[ -n "${#list[@]}" ]]
@@ -206,42 +206,42 @@ list=()
 
 if [[ "${option}" = "all" ]]
 then
-	option all
+	lglnx_option all
 fi
 
 if [[ "${option}" = "exports" ]]
 then
-	option exports
+	lglnx_option exports
 fi
 
 if [[ "${option}" = "renders" ]]
 then
-	option renders
+	lglnx_option renders
 fi
 
 if [[ "${option}" = "models" ]]
 then
-	option models
+	lglnx_option models
 fi
 
 if [[ "${option}" = "background" ]]
 then
-	option background
+	lglnx_option background
 fi
 
 if [[ "${option}" = "drawer" ]]
 then
-	option drawer
+	lglnx_option drawer
 fi
 
 if [[ "${option}" = "menu" ]]
 then
-	option menu
+	lglnx_option menu
 fi
 
 if [[ "${option}" = "viewer" ]]
 then
-	option viewer
+	lglnx_option viewer
 fi
 
 frobulator.scs "Update" "[ Done ]"
