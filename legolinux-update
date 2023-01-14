@@ -187,7 +187,7 @@ option () {
 
 		upload &
 
-		frobulator.progress "Updating" "${script%%*-}"
+		frobulator.progress "Updating" "${script%%-}"
 		echo
 	fi
 }
