@@ -378,5 +378,5 @@ MODEL-DRAWER-FOOTER
 frobulator.inf "Models" "[ ${count} ]"
 echo
 
-frobulator.scs "Drawer" "[ Done ]"
+frobulator.scs "Done" "[ Drawer ]"
 echo

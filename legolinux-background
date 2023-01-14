@@ -118,5 +118,5 @@ done
 frobulator.inf "Models" "[ ${count} ]"
 echo
 
-frobulator.scs "Background" "[ Done ]"
+frobulator.scs "Done" "[ Background ]"
 echo

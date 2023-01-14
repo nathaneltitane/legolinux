@@ -67,5 +67,5 @@ done
 frobulator.inf "Models" "[ ${count} ]"
 echo
 
-frobulator.scs "Exports" "[ Done ]"
+frobulator.scs "Done" "[ Exports ]"
 echo
