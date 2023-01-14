@@ -215,46 +215,60 @@ then
 		legolinux-menu
 		legolinux-viewer
 	)
-
-	option ${list[@]}
-
-	list=()
 fi
 
 if [[ "${option}" = "exports" ]]
 then
-	option exports
+	list=(
+		legolinux-exports
+	)
 fi
 
 if [[ "${option}" = "renders" ]]
 then
-	option renders
+	list=(
+		legolinux-renders
+	)
 fi
 
 if [[ "${option}" = "models" ]]
 then
-	option models
+	list=(
+		legolinux-models
+	)
 fi
 
 if [[ "${option}" = "background" ]]
 then
-	option background
+	list=(
+		legolinux-background
+	)
 fi
 
 if [[ "${option}" = "drawer" ]]
 then
-	option drawer
+	list=(
+		legolinux-drawer
+	)
 fi
 
 if [[ "${option}" = "menu" ]]
 then
-	option menu
+	list=(
+		legolinux-menu
+	)
 fi
 
 if [[ "${option}" = "viewer" ]]
 then
-	option viewer
+	list=(
+		legolinux-viewer
+	)
 fi
+
+option ${list[@]}
+
+list=()
 
 frobulator.scs "Update" "[ Done ]"
 echo
