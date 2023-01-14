@@ -71,12 +71,12 @@ do
 			option="background"
 		;;
 
-		-n|--menu)
-			option="menu"
-		;;
-
 		-d|--drawer)
 			option="drawer"
+		;;
+
+		-n|--menu)
+			option="menu"
 		;;
 
 		-v|--viewer)
@@ -95,10 +95,10 @@ do
 			echo
 			echo -e "-exports          Models exports content update."
 			echo -e "-renders          Models renders content update."
+			echo -e "-models           Models content update."
 			echo -e "-background       Background content update."
 			echo -e "-drawer           Drawer content update."
 			echo -e "-menu             Models menu content update."
-			echo -e "-models           Models content update."
 			echo -e "-viewer           Models viewer content update."
 			echo
 			echo -e "'${script}'       [ Version ${version} ]"
@@ -157,7 +157,7 @@ upload () {
 }
 
 run () {
-	for script in ${scripts_list[@]}
+	for script in ${list[@]}
 	do
 		bash ./"${script}"
 	done
@@ -205,47 +205,45 @@ list=()
 
 # update ///////////////////////////////////////////////////////////////////////
 
-# content
 
-option all
+if [[ "${option}" = "all" ]]
+then
+	option all
+fi
+
+if [[ "${option}" = "exports" ]]
+then
+	option exports
+fi
 
 if [[ "${option}" = "renders" ]]
 then
-	scripts_list+=(
-		legolinux-renders
-	)
-
-	run
-
-	upload &
-
-	frobulator.progress "Updating renders..."
-	echo
+	option renders
 fi
 
 if [[ "${option}" = "models" ]]
 then
-	scripts_list+=(
-		legolinux-models
-		legolinux-background
-		legolinux-drawer
-		legolinux-viewer
-	)
-
-	run
-
-	upload &
-
-	frobulator.progress "Updating models..."
-	echo
+	option models
 fi
 
-if [[ "${option}" = "pages" ]]
+if [[ "${option}" = "background" ]]
 then
-	upload &
+	option background
+fi
 
-	frobulator.progress "Updating pages..."
-	echo
+if [[ "${option}" = "drawer" ]]
+then
+	option drawer
+fi
+
+if [[ "${option}" = "menu" ]]
+then
+	option menu
+fi
+
+if [[ "${option}" = "viewer" ]]
+then
+	option viewer
 fi
 
 frobulator.scs "Update" "[ Done ]"
