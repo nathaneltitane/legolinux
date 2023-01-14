@@ -181,8 +181,6 @@ option () {
 
 	if [[ "${option}" = "${selection}" ]]
 	then
-		"${script}"
-
 		run
 
 		upload &
