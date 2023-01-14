@@ -164,15 +164,13 @@ run () {
 }
 
 option () {
-	selection="${1}"
-
 	if [[ -n "${#list[@]}" ]]
 	then
 		# ${2} - array
 
-		list=(${@:2})
+		list=(${@:1})
 	else
-		script="${2}"
+		script="${1}"
 
 		list=()
 
