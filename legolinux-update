@@ -172,10 +172,10 @@ option () {
 		list+=("${script}")
 	fi
 
-	#for script in ${list[@]}
-	#do
+	for script in ${list[@]}
+	do
 		"${SHELL}" "${PWD}"/"${script}"
-	#done
+	done
 
 	upload "Models update" &
 
