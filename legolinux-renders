@@ -62,7 +62,7 @@ list+=(
 for directory in ${list[@]}
 do
 	"${SHELL}" ../l2cu/l2cu -mpd -render thumbnail -directory "${directory}"
-	"${SHELL}" ../l2cu/l2cu -mpd -render flat -directory "${directory}"
+#	"${SHELL}" ../l2cu/l2cu -mpd -render flat -directory "${directory}"
 done
 
 list=()
