@@ -170,9 +170,9 @@ option () {
 	then
 		# ${2} - array
 
-		list=(${@:3})
+		list=(${@:2})
 	else
-		script="${3}"
+		script="${2}"
 
 		list=()
 
