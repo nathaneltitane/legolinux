@@ -100,7 +100,7 @@ do
 			--recursive			\
 								"${background}" "${server_background_directory}"/background-"${pad_count}"."${extension}"
 
-	    ((count++))
+		((count++))
 
 	done
 
