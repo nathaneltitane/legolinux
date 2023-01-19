@@ -51,7 +51,7 @@ echo
 
 local_models_directory=/media/internal/Lego/models
 server_models_directory="${PWD}"/models
-server_backgrounds_directory="${PWD}"/background
+server_background_directory="${PWD}"/background
 server_javascript_directory="${PWD}"/javascript
 
 # defaults /////////////////////////////////////////////////////////////////////
@@ -94,11 +94,11 @@ do
 	do
 		pad_count=$(printf "%03d" "${count}")
 
-	    rsync					\
+		rsync					\
 			--archive			\
 			--quiet				\
 			--recursive			\
-								"${background}" "${server_backgrounds_directory}"/background-"${pad_count}"."${extension}"
+								"${background}" "${server_background_directory}"/background-"${pad_count}"."${extension}"
 
 	    ((count++))
 
