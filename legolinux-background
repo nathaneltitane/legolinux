@@ -49,10 +49,12 @@ echo
 
 # variables ////////////////////////////////////////////////////////////////////
 
-local_models_directory=/media/internal/Lego/models
+local_directory=/media/internal/Lego
+local_models_directory="${local_directory}"/models
+
 server_directory="${PWD}"
 server_models_directory="${server_directory}"/models
-server_background_directory="${server_directory}"/background
+server_backgrounds_directory="${server_directory}"/background
 server_javascript_directory="${server_directory}"/javascript
 
 # defaults /////////////////////////////////////////////////////////////////////
