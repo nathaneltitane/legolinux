@@ -50,9 +50,10 @@ echo
 # variables ////////////////////////////////////////////////////////////////////
 
 local_models_directory=/media/internal/Lego/models
-server_models_directory="${PWD}"/models
-server_background_directory="${PWD}"/background
-server_javascript_directory="${PWD}"/javascript
+server_directory="${PWD}"
+server_models_directory="${server_directory}"/models
+server_background_directory="${server_directory}"/background
+server_javascript_directory="${server_directory}"/javascript
 
 # defaults /////////////////////////////////////////////////////////////////////
 
@@ -62,16 +63,7 @@ server_javascript_directory="${PWD}"/javascript
 
 # prepare update
 
-directories_list+=(
-	"${server_backgrounds_directory}"
-)
-
-for directory in ${directories_list[@]}
-do
-	rm -rf "${directory}" ]
-
-	mkdir -p "${directory}"
-done
+frobulator.directory "${server_directory}" background
 
 # values
 
