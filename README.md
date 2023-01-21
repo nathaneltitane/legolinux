@@ -12,7 +12,7 @@ Lego // Linux - Where Lego and Linux meet!
 
 This repository hosts the website built to showcase my AFOL Lego LDraw-made models and instructions.
 
-Lego // Linux uses:
+### Repositories
 
 - [Frobulator](https://github.com/nathaneltitane/frobulator) to streamline the scripts and make redundant code a thing of the past.
 - [L²CU](https://github.com/nathaneltitane/l2cu) to automate the exporting and rendering of my models for the website.
