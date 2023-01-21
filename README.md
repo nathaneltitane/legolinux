@@ -30,7 +30,7 @@ This repository hosts the website built to showcase my AFOL Lego LDraw-made mode
 
 [[ Dextop // Project Page ]](https://github.com/nathaneltitane/dextop)
 
-[[Frobulator]](https://github.com/nathaneltitane/frobulator)
+[[ Frobulator // Project Page ]](https://github.com/nathaneltitane/frobulator)
 
 [[ L²CU // Project Page ]](https://github.com/nathaneltitane/l2cu)
 
