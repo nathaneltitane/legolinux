@@ -76,7 +76,7 @@ cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
 
 	<div class="drawer-button cursor-cell">
 
-		<div class="icon icon-64 logo-grey"></div>
+		<div class="icon icon-64 logo-drawer"></div>
 
 	</div>
 
