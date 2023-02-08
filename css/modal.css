@@ -78,7 +78,7 @@
 
 .modal-button {
 	background: #ddddddff;
-	color: #666666ff;
+	color: #666666ff !important;
 	border-radius: 0px;
 	border: none;
 	bottom: 10px;
@@ -90,5 +90,9 @@
 }
 
 .modal-button:hover {
+	color: #ff0000ff;
+}
+
+.modal-item:hover {
 	color: #ff0000ff;
 }
