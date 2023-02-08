@@ -104,6 +104,8 @@ cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
 
 					PURCHASING AN INSTRUCTION SET PRIORITIZES AVAILABILITY FOR THAT MODEL!</br>
 
+					</br>
+
 					FEEL FREE TO <label for="modal-contact" class="modal-item cursor-pointer text-bold">// CONTACT //</label> ABOUT INQUIRIES ABOUT A SPECIFIC MODEL!</br>
 
 					</br>
