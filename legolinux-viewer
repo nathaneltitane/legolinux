@@ -381,6 +381,7 @@ cat << 3D-MODEL-PAGE-COLORS ->> "models/${path[1]}/${path[2]}/index.html"
 		</div>
 
 3D-MODEL-PAGE-COLORS
+
 cat << 3D-MODEL-PAGE-FOOTER ->> "models/${path[1]}/${path[2]}/index.html"
 		<div id="footer" class="section">
 

@@ -38,7 +38,7 @@ script=$(basename -- "${BASH_SOURCE[0]}")
 
 # version //////////////////////////////////////////////////////////////////////
 
-version="02-08-2023"
+version="01-14-2023"
 
 # usage ////////////////////////////////////////////////////////////////////////
 
@@ -103,10 +103,6 @@ cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
 					</br>
 
 					PURCHASING AN INSTRUCTION SET PRIORITIZES AVAILABILITY FOR THAT MODEL!</br>
-
-					</br>
-
-					<label for="modal-contact" class="modal-item cursor-pointer text-bold">// CONTACT //</label> US ABOUT A SPECIFIC MODEL ANYTIME!</br>
 
 					</br>
 
