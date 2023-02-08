@@ -38,7 +38,7 @@ script=$(basename -- "${BASH_SOURCE[0]}")
 
 # version //////////////////////////////////////////////////////////////////////
 
-version="01-14-2023"
+version="02-08-2023"
 
 # usage ////////////////////////////////////////////////////////////////////////
 
@@ -374,6 +374,13 @@ cat << 3D-MODEL-PAYPAL ->> "models/${path[1]}/${path[2]}/index.html"
 
 fi
 
+
+cat << 3D-MODEL-PAGE-COLORS ->> "models/${path[1]}/${path[2]}/index.html"
+		<div id="colors">
+
+		</div>
+
+3D-MODEL-PAGE-COLORS
 cat << 3D-MODEL-PAGE-FOOTER ->> "models/${path[1]}/${path[2]}/index.html"
 		<div id="footer" class="section">
 

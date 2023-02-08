@@ -14,8 +14,6 @@ $(document).ready(function() {
 
 	// prevent canvas interaction conflict
 
-	// prevent canvas interaction conflict
-
 	$('#background').click(function(e) {
 
 		// disable defaults prevention for href handling

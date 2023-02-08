@@ -1,0 +1,49 @@
+#colors {
+	height:32px;
+	position:absolute;
+	right:10px;
+	bottom: calc(80px + 10px);
+	opacity: 0;
+
+	animation-name: colors-reveal;
+	animation-delay: 1.5s;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes colors-reveal {
+	0% {opacity: 0;}
+
+	100% {opacity: 1;}
+}
+
+.color {
+	border: 5px solid #000000ff;
+	border-radius:50%;
+	cursor: pointer;
+	width: 32px;
+	height: 32px;
+	display: inline-block;
+	margin: 0px 0px 0px 0px;
+	padding: 10p 10px 10px 10px;
+}
+
+.gray-darker {
+	background-color: #333333ff;
+}
+
+.gray-dark {
+	background-color: #555555ff;
+}
+
+.gray-light {
+	background-color: #777777ff;
+}
+
+.gray-lighter {
+	background-color: #999999ff;
+}
+
+.white {
+	background-color: #ffffffff;
+}

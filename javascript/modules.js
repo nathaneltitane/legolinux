@@ -20,4 +20,10 @@ $(function() {
 
 	});
 
+	$.get("/modules/colors.html", function(data) {
+
+		$("#colors").append(data);
+
+	});
+
 });
