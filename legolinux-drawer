@@ -106,7 +106,7 @@ cat << MODEL-DRAWER-HEADER -> "modules/drawer.html"
 
 					</br>
 
-					YOU CAN <label for="modal-contact" class="modal-item cursor-pointer text-bold">// CONTACT //</label> US ABOUT INQUIRIES FOR SPECIFIC MODEL!</br>
+					<label for="modal-contact" class="modal-item cursor-pointer text-bold">// CONTACT //</label> US ABOUT A SPECIFIC MODEL ANYTIME!</br>
 
 					</br>
 
