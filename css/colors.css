@@ -4,41 +4,39 @@
 	position:fixed;
 	bottom: calc(80px + 10px);
 	right:10px;
-	opacity: 0;
+}
+
+#color-selector {
+	border:none;
+	height: calc(64px + 10px + 10px);
+	width: calc(64px + 10px + 10px);
+	position: fixed;
+	bottom: 80px;
+	right: calc(((32px + 10px + 10px) * 3) + 10px);
+	visibility: hidden;
+
+}
+
+.color {
+	width: 64px;
+	height: 64px;
+	display: inline-block;
+	position:absolute;
+	bottom: 0px;
+	right:-200px;
+	margin: 0px 0px 0px 0px;
+	padding: 10p 10px 10px 10px;
+
 	animation-name: colors-reveal;
 	animation-delay: 1.5s;
 	animation-duration: 1s;
 	animation-fill-mode: forwards;
 }
 
-#color-selector {
-	border:none;
-	height: calc(32px + 10px + 10px);
-	width: calc(32px + 10px + 10px);
-	position: fixed;
-	bottom: 80px;
-	right: calc((32px + 10px + 10px) * 4);
-	visibility: hidden;
-}
-
 @keyframes colors-reveal {
-	0% {opacity: 0;}
+	0% {right: -200px;}
 
-	100% {opacity: 1;}
-}
-
-.color {
-	border: 5px solid #000000ff;
-	border-radius:50%;
-	cursor: pointer;
-	width: 32px;
-	height: 32px;
-	display: inline-block;
-	position:absolute;
-	bottom: 0px;
-	right:0px;
-	margin: 0px 0px 0px 0px;
-	padding: 10p 10px 10px 10px;
+	100% {right: 0px;}
 }
 
 .gray-darker {
@@ -62,7 +60,6 @@
 }
 
 .selector {
-	background-color: #99ff55;
 }
 
 input[type="color"]::-webkit-color-swatch {

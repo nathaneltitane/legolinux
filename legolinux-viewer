@@ -354,13 +354,13 @@ cat << 3D-MODEL-PAYPAL ->> "models/${path[1]}/${path[2]}/index.html"
 
 					</div>
 
-					<div class="flex-cell flex-cell-center">
+					<div class="flex-cell flex-cell-center text-bold">
 
 						\$${model_instructions_price} USD
 
 					</div>
 
-					<div class="flex-cell flex-cell-center">
+					<div class="flex-cell flex-cell-center text-bold">
 
 						BUY NOW!
 
