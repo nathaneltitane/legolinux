@@ -20,6 +20,12 @@ $(function() {
 
 	});
 
+	$.get("/modules/contact.html", function(data) {
+
+		$("#contact").append(data);
+
+	});
+
 	$.get("/modules/colors.html", function(data) {
 
 		$("#colors").append(data);
