@@ -1,11 +1,12 @@
 .paypal {
+	color: #000000ff;
 	position: fixed;
 	top: 0px;;
 	left: -200px;
 	padding: 10px 10px 10px 10px;
 
 	animation-name: paypal-reveal;
-	animation-delay: 0.5s;
+	animation-delay: 1.5s;
 	animation-duration: 1s;
 	animation-fill-mode: forwards;
 }
@@ -16,7 +17,21 @@
 	100% {left: 0px;}
 }
 
-.paypal:hover {
-	color: #ffcc00;
+.paypal-id {
+	color: #000000ff;
+	position: fixed;
+	bottom: calc(80px + 10px);
+	left: 10px;
+	opacity: 0;
+
+	animation-name: paypal-id-reveal;
+	animation-delay: 1.0s;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
 }
 
+@keyframes paypal-id-reveal {
+	0% {opacity: 0;}
+
+	100% {opacity: 1;}
+}

@@ -346,25 +346,9 @@ cat << 3D-MODEL-PAYPAL ->> "models/${path[1]}/${path[2]}/index.html"
 
 			<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=${model_paypal_id}">
 
-				<div class="paypal flex flex-column">
+				<div class="paypal">
 
-					<div class="flex-cell flex-cell-center">
-
-						<div class="icon icon-64 logo-yellow"></div>
-
-					</div>
-
-					<div class="flex-cell flex-cell-center text-bold">
-
-						\$${model_instructions_price} USD
-
-					</div>
-
-					<div class="flex-cell flex-cell-center text-bold">
-
-						BUY NOW!
-
-					</div>
+					<div class="icon icon-64 logo-paypal"></div>
 
 				</div>
 
@@ -374,6 +358,14 @@ cat << 3D-MODEL-PAYPAL ->> "models/${path[1]}/${path[2]}/index.html"
 
 fi
 
+cat << 3D-MODEL-ID ->> "models/${path[1]}/${path[2]}/index.html"
+
+		<div class="paypal-id">
+
+			[ ID // ${model_paypal_id} ] - \$${model_instructions_price} USD
+
+		</div>
+3D-MODEL-ID
 
 cat << 3D-MODEL-PAGE-COLORS ->> "models/${path[1]}/${path[2]}/index.html"
 		<div id="colors">

@@ -28,7 +28,7 @@
 	padding: 10p 10px 10px 10px;
 
 	animation-name: colors-reveal;
-	animation-delay: 1.5s;
+	animation-delay: 1.0s;
 	animation-duration: 1s;
 	animation-fill-mode: forwards;
 }
