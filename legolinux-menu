@@ -147,7 +147,7 @@ cat << MODEL-CONTAINER ->> "modules/menu.html"
 
 			<a href="models/${path[1]}/${path[2]}"'>
 
-				<img src="/${path[0]}/${path[1]}/${path[2]}/${path[3]}/${path[4]}/${path[5]}" />
+				<img src="/${path[0]}/${path[1]}/${path[2]}/${path[3]}/${path[4]}/${path[5]}"/>
 
 			</a>
 
