@@ -248,7 +248,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "models/${path[1]}/${path[2]}/index.html"
 
 				var loader = new ColladaLoader();
 
-				loader.load( '/${path[0]}/${path[1]}/${path[2]}/exports/${path[2]}.dae', function ( collada ) {
+				var model = loader.load( '/${path[0]}/${path[1]}/${path[2]}/exports/${path[2]}.dae', function ( collada ) {
 
 					var collada = collada.scene;
 
