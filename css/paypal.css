@@ -1,20 +1,20 @@
 .paypal {
 	color: #000000ff;
 	position: fixed;
-	top: 0px;;
-	left: -200px;
+	top: calc(64px + 10px);
+	right: -200px;
 	padding: 10px 10px 10px 10px;
 
 	animation-name: paypal-reveal;
-	animation-delay: 1.5s;
+	animation-delay: 1.0s;
 	animation-duration: 1s;
 	animation-fill-mode: forwards;
 }
 
 @keyframes paypal-reveal {
-	0% {left: -200px;}
+	0% {right: -200px;}
 
-	100% {left: 0px;}
+	100% {right: 0px;}
 }
 
 .paypal-id {
