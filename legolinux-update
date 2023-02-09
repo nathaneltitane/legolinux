@@ -161,6 +161,8 @@ upload () {
 		--message="$${message}"
 
 	git push > /dev/null 2>&1
+
+	echo
 }
 
 option () {
