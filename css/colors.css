@@ -1,9 +1,9 @@
 #colors {
-	height:64px;
-	width:512px;
-	position:fixed;
-	bottom: calc(80px + 10px);
-	right:10px;
+	height: calc(64px + 10px + 10px);
+	width: 512px;
+	position: fixed;
+	bottom: 80px;
+	right: 0px;
 	margin: 0px 0px 0px 0px;
 	padding: 10px 10px 10px 10px;
 }
@@ -26,7 +26,7 @@
 	position:absolute;
 	bottom: 0px;
 	right:-200px;
-	margin: 0px 0px 0px 0px;
+	margin: 10px 10px 10px 10px;
 	padding: 10p 10px 10px 10px;
 
 	animation-name: colors-reveal;
