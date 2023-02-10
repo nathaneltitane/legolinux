@@ -24,6 +24,9 @@
 	right: 0px;
 	position: absolute;
 	height: fit-content;
+
+	/* width: media.css */
+
 	margin: auto;
 	padding: 0px 0px 0px 0px;
 	overflow: auto;
