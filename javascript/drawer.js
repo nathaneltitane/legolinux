@@ -34,4 +34,14 @@ $(document).ready(function() {
 
 	});
 
+
+	$('.modal').click(function(e) {
+
+		// disable defaults prevention for href handling
+
+		// e.preventDefault();
+
+		$('#drawer').removeClass('drawer-open');
+
+	});
 });
