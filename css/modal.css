@@ -96,6 +96,19 @@
 	color: #ff0000ff;
 }
 
+.modal-text {
+	background: #444444ff;
+	border: 1px solid #888888ff;
+	border-radius: 0px 5px 0px 0px;
+	color: #888888ff;
+
+	margin: 0px 0px 0px 0px;
+	padding: 5px 5px 5px 5px;
+
+	width: 100%;
+	resize: none;
+}
+
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
 	display: none;

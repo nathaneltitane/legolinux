@@ -367,7 +367,7 @@ cat << 3D-MODEL-ID ->> "models/${path[1]}/${path[2]}/index.html"
 
 		<div class="paypal-id">
 
-			<textarea rows="1" name="model-id" id="model-id" placeholder="${path[2]}" class="modal-text text-center">${path[2]}</textarea> - [ ID // ${model_paypal_id} ] - \$${model_instructions_price} USD
+			[ ID // ${model_paypal_id} ] - US\$ ${model_instructions_price}
 
 		</div>
 3D-MODEL-ID
