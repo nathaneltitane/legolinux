@@ -20,7 +20,7 @@
 .paypal-id {
 	color: #000000ff;
 	position: fixed;
-	bottom: calc(80px + 10px + 20px);
+	bottom: calc(80px + 10px);
 	left: 10px;
 	opacity: 0;
 
