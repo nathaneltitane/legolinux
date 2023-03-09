@@ -1,3 +1,6 @@
+#drawer {
+	overflow-y: auto;
+}
 .drawer {
 	background: #bbbbbbff;
 	height: 100%;
