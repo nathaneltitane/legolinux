@@ -33,7 +33,7 @@
 	top: 0px;
 	right: 0px;
 
-	animation-name: btn-load;
+	animation-name: drawer-button-reveal;
 	animation-delay: 0.5s;
 	animation-duration: 1s;
 	animation-fill-mode: forwards;
@@ -44,7 +44,7 @@
 	overflow: hidden;
 }
 
-@keyframes btn-load {
+@keyframes drawer-button-reveal {
 	0% {right: 0px;}
 
 	100% {right: 325px;}
