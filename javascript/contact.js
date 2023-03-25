@@ -21,7 +21,11 @@ $(document).ready(function() {
 
 				id = id.trim();
 
+				id = id.toUpperCase();
+
 				name = name.trim();
+
+				name = name.toUpperCase();
 
 				$(button).on(
 					"click",
