@@ -363,14 +363,31 @@ cat << 3D-MODEL-PAYPAL ->> "models/${path[1]}/${path[2]}/index.html"
 
 fi
 
-cat << 3D-MODEL-ID ->> "models/${path[1]}/${path[2]}/index.html"
+cat << 3D-MODEL-PRODUCT ->> "models/${path[1]}/${path[2]}/index.html"
 
 		<div class="paypal-id">
 
 			[ ID // ${model_paypal_id} ] - US\$ ${model_instructions_price}
 
+			<div class="product">
+
+				<div class="hide product-identifier">
+
+					${model_paypal_id}
+
+				</div>
+
+				<div class="hide product-name">
+
+					${path[2]}
+
+				</div>
+
+			</div>
+
 		</div>
-3D-MODEL-ID
+
+3D-MODEL-PRODUCT
 
 cat << 3D-MODEL-PAGE-COLORS ->> "models/${path[1]}/${path[2]}/index.html"
 		<div id="colors">
