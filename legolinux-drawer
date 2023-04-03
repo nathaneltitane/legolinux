@@ -362,7 +362,7 @@ cat << MODEL-DRAWER-FOOTER ->> "modules/drawer.html"
 
 				</div>
 
-				<a class="container" href="/models/${path[1]}/${path[2]}/">
+				<a class="container" href="https://nathaneltitane.com">
 
 					<div class="flex flex-column flex-center flex-middle">
 
