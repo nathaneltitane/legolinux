@@ -89,7 +89,10 @@ do
 
 	count=0
 
-	for background in $(find ${local_models_directory} -type f -iname flat."${extension}")
+	# shuffle models directories list:
+	# creates random showcase of all models on each update
+
+	for background in $(find ${local_models_directory} -type f -iname flat."${extension}" | shuf)
 	do
 		pad_count=$(printf "%03d" "${count}")
 
@@ -97,7 +100,7 @@ do
 			--archive			\
 			--quiet				\
 			--recursive			\
-								"${background}" "${server_background_directory}"/background-"${pad_count}"."${extension}"
+								"${background}" "${server_background_directory}"/background-"${pad_count}"."${extension}" > /dev/null 2>&1
 
 		((count++))
 
