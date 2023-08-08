@@ -1,115 +1,3 @@
-#!/bin/bash
-
-# dependencies /////////////////////////////////////////////////////////////////
-
-if [ -f "${HOME}"/.local/bin/frobulator ]
-then
-	rm -r -f "${HOME}"/.local/bin/frobulator
-fi
-
-if [[ -z $(command -v frobulator) ]]
-then
-	if [[ $(id -u -n) = "root" ]]
-	then
-		SUDO_HOME=/root
-
-		USER="${SUDO_USER}"
-
-		HOME=/home/"${USER}"
-	fi
-
-	if [[ -z $(command -v curl) ]]
-	then
-		yes | apt-get install curl
-	fi
-
-	if [ ! -d "${HOME}"/.local/bin ]
-	then
-		mkdir -p "${HOME}"/.local/bin
-	fi
-
-	curl -s -L get.frbltr.app > "${HOME}"/.local/bin/frobulator
-
-	chmod +x "${HOME}"/.local/bin/frobulator
-fi
-
-. "${HOME}"/.local/bin/frobulator
-
-# superuser ////////////////////////////////////////////////////////////////////
-
-# script ///////////////////////////////////////////////////////////////////////
-
-script=$(basename -- "${BASH_SOURCE[0]}")
-
-# version //////////////////////////////////////////////////////////////////////
-
-version="02-08-2023"
-
-# usage ////////////////////////////////////////////////////////////////////////
-
-# prompt ///////////////////////////////////////////////////////////////////////
-
-frobulator.script "Setting up ${script#*-}"
-echo
-
-# variables ////////////////////////////////////////////////////////////////////
-
-# defaults /////////////////////////////////////////////////////////////////////
-
-# functions ////////////////////////////////////////////////////////////////////
-
-frobulator.inf "Generating model entries"
-echo
-
-frobulator.fwd "Writing..."
-echo
-# values
-
-extensions_list+=(
-	png
-)
-
-for extension in ${extensions_list[@]}
-do
-	count=1
-
-	# shuffle models directories list:
-	# creates random showcase of all models on each update
-
-	for models_list in $(find models/ -type f -iname flat."${extension}" | shuf)
-	do
-		IFS=$'\n' read -r -a path <<< $(echo "$models_list")
-
-		# /models/model-type/model/renders/flat/flat.${extension}
-
-		# "${path[0]}" /models
-		# "${path[1]}" /model-category
-		# "${path[2]}" /model
-		# "${path[3]}" /renders
-		# "${path[4]}" /outine
-		# "${path[5]}" /flat
-
-		model_category=$(cat ${path[0]}/${path[1]}/title)
-
-		model_title=$(cat ${path[0]}/${path[1]}/${path[2]}/title)
-
-		model_title_string=$(echo ${model_title//\<\/\br\>/})
-
-		model_paypal=${path[0]}/${path[1]}/${path[2]}/paypal
-
-		model_paypal_id=$(cat ${path[0]}/${path[1]}/${path[2]}/paypal)
-
-		model_pieces=${path[0]}/${path[1]}/${path[2]}/pieces
-
-		model_pieces_count=$(cat ${path[0]}/${path[1]}/${path[2]}/pieces)
-
-		model_instructions=${path[0]}/${path[1]}/${path[2]}/instructions
-
-		model_instructions_price=$(cat ${path[0]}/${path[1]}/${path[2]}/price)
-
-# generate 3d model page
-
-cat << 3D-MODEL-PAGE-HEADER -> "models/${path[1]}/${path[2]}/index.html"
 <!DOCTYPE html>
 
 <html>
@@ -130,9 +18,6 @@ cat << 3D-MODEL-PAGE-HEADER -> "models/${path[1]}/${path[2]}/index.html"
 
 	</head>
 
-3D-MODEL-PAGE-HEADER
-
-cat << 3D-MODEL-PAGE-VIEWER ->> "models/${path[1]}/${path[2]}/index.html"
 	<body>
 
 		<div id="drawer">
@@ -253,7 +138,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "models/${path[1]}/${path[2]}/index.html"
 
 				var loader = new ColladaLoader();
 
-				var model = loader.load( '/${path[0]}/${path[1]}/${path[2]}/exports/${path[2]}.dae', function ( collada ) {
+				var model = loader.load( '/models/titans/kx-7259-lancer-rover/renders/flat/flat.png///exports/.dae', function ( collada ) {
 
 					var collada = collada.scene;
 
@@ -341,45 +226,22 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "models/${path[1]}/${path[2]}/index.html"
 
 		<!-- END 3D VIEWER -->
 
-3D-MODEL-PAGE-VIEWER
-
-if [ -f "${model_paypal}" ]
-then
-
-cat << 3D-MODEL-PAYPAL ->> "models/${path[1]}/${path[2]}/index.html"
-		<!-- paypal -->
-
-			<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=${model_paypal_id}">
-
-				<div class="paypal">
-
-					<div class="icon icon-64 logo-paypal"></div>
-
-				</div>
-
-			</a>
-
-3D-MODEL-PAYPAL
-
-fi
-
-cat << 3D-MODEL-PRODUCT ->> "models/${path[1]}/${path[2]}/index.html"
 
 		<div class="paypal-id">
 
-			[ ID // ${model_paypal_id} ] - US\$ ${model_instructions_price}
+			[ ID //  ] - US$ 
 
 			<div class="product">
 
 				<div class="hide product-identifier">
 
-					${model_paypal_id}
+					
 
 				</div>
 
 				<div class="hide product-name">
 
-					${path[2]}
+					
 
 				</div>
 
@@ -387,16 +249,10 @@ cat << 3D-MODEL-PRODUCT ->> "models/${path[1]}/${path[2]}/index.html"
 
 		</div>
 
-3D-MODEL-PRODUCT
-
-cat << 3D-MODEL-PAGE-COLORS ->> "models/${path[1]}/${path[2]}/index.html"
 		<div id="colors">
 
 		</div>
 
-3D-MODEL-PAGE-COLORS
-
-cat << 3D-MODEL-PAGE-FOOTER ->> "models/${path[1]}/${path[2]}/index.html"
 		<div id="footer" class="section">
 
 		</div>
@@ -405,15 +261,3 @@ cat << 3D-MODEL-PAGE-FOOTER ->> "models/${path[1]}/${path[2]}/index.html"
 
 </html>
 
-3D-MODEL-PAGE-FOOTER
-
-	((count++))
-
-	done
-done
-
-frobulator.inf "Models" "[ ${count} ]"
-echo
-
-frobulator.scs "Done" "[ Viewer ]"
-echo
