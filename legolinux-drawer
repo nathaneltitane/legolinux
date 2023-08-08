@@ -242,8 +242,6 @@ do
 
 		model_instructions_price=$(cat "${model_price}")
 
-		exit
-
 # generate model drawer entries
 
 if [ ! -f /"${model_category}"/todo ]
