@@ -43,7 +43,7 @@ script=$(basename -- "${BASH_SOURCE[0]}")
 
 # version //////////////////////////////////////////////////////////////////////
 
-version="02-08-2023"
+version="08-08-2023"
 
 # usage ////////////////////////////////////////////////////////////////////////
 
@@ -74,9 +74,6 @@ extensions_list+=(
 for extension in ${extensions_list[@]}
 do
 	count=1
-
-	# shuffle models directories list:
-	# creates random showcase of all models on each update
 
 	models_list=( $(find ${directory} -type f -iname "*.${extension}" ! -iname "*instructions*") )
 
