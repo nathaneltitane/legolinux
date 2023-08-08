@@ -30,11 +30,11 @@
 	padding: 10px 10px 10px 10px;
 
 	position: absolute;
-	top: 0px;
+	bottom: 80px;
 	right: 0px;
 
 	animation-name: drawer-button-reveal;
-	animation-delay: 0.5s;
+	animation-delay: 1.0s;
 	animation-duration: 1s;
 	animation-fill-mode: forwards;
 }

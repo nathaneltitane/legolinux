@@ -1,7 +1,7 @@
 .paypal {
 	color: #000000ff;
 	position: fixed;
-	top: calc(64px + 10px);
+	bottom: calc(80px + 64px + 10px);
 	right: -200px;
 	padding: 10px 10px 10px 10px;
 
