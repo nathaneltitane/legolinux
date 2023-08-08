@@ -54,6 +54,8 @@ echo
 
 # variables ////////////////////////////////////////////////////////////////////
 
+modules_directory="${PWD}"/modules
+
 # defaults /////////////////////////////////////////////////////////////////////
 
 # functions ////////////////////////////////////////////////////////////////////
@@ -66,7 +68,7 @@ echo
 
 # generate header
 
-cat << 'MODELS-MENU-HEADER' -> "modules/menu.html"
+cat << 'MODELS-MENU-HEADER' -> "${modules_directory}/"menu.html
 		<script>
 
 			$(function(){
@@ -89,46 +91,66 @@ MODELS-MENU-HEADER
 # values
 
 extensions_list+=(
-	png
+	dae
 )
 
 for extension in ${extensions_list[@]}
 do
 	count=1
 
-	# shuffle models directories list:
-	# creates random showcase of all models on each update
+	models_list=( $(find "${models_directory}" -type f -iname "*.${extension}" ! -iname "*instructions*" | sort) )
 
-	for models_list in $(find models/ -type f -iname flat."${extension}" | shuf)
+	# set IFS
+
+	IFS=$'\n'
+
+	for model_path in ${models_list[@]}
 	do
-		IFS='/' read -r -a path <<< $(echo "$models_list")
+		model_path=$(echo "${model_path}" | cut -d '/' -f6-)
 
-		# /models/model-type/model/renders/flat/flat.${extension}
+		# get model file name from path
 
-		# "${path[0]}" /models
-		# "${path[1]}" /model-category
-		# "${path[2]}" /model
-		# "${path[3]}" /renders
-		# "${path[4]}" /outine
-		# "${path[5]}" /flat
+		model_file="${model_path##*/}"
 
-		model_category=$(cat ${path[0]}/${path[1]}/title)
+		# strip extension from model file name
 
-		model_title=$(cat ${path[0]}/${path[1]}/${path[2]}/title)
+		model_name="${model_file%.*}"
+
+		# use model directory as root
+
+		model_directory="${model_path%/*/*}"
+
+		# define model output directories
+
+		export_directory="${render_directory}"/exports
+
+		render_directory="${model_directory}"/renders
+
+		flat_directory="${render_directory}"/flat
+
+		thumbnail_directory="${render_directory}"/thumbnail
+
+		# define model specific directories
+
+		model_category=$(cat "${model_directory%/*}"/title)
+
+		model_title=$(cat "${model_directory}"/title)
 
 		model_title_string=$(echo ${model_title//\<\/\br\>/})
 
-		model_paypal=${path[0]}/${path[1]}/${path[2]}/paypal
+		model_paypal="${model_directory}"/paypal
 
-		model_paypal_id=$(cat ${path[0]}/${path[1]}/${path[2]}/paypal)
+		model_paypal_id=$(cat "${model_paypal}")
 
-		model_pieces=${path[0]}/${path[1]}/${path[2]}/pieces
+		model_pieces="${model_directory}"/pieces
 
-		model_pieces_count=$(cat ${path[0]}/${path[1]}/${path[2]}/pieces)
+		model_pieces_count=$(cat "${model_pieces}")
 
-		model_instructions=${path[0]}/${path[1]}/${path[2]}/instructions
+		model_instructions="${model_directory}"/instructions
 
-		model_instructions_price=$(cat ${path[0]}/${path[1]}/${path[2]}/price)
+		model_price="${model_directory}"/price
+
+		model_instructions_price=$(cat "${model_price}")
 
 		# keep first container visible
 
@@ -141,7 +163,7 @@ do
 
 # generate model container
 
-cat << MODEL-CONTAINER ->> "modules/menu.html"
+cat << MODEL-CONTAINER ->> "${modules_directory}/"menu.html
 <!-- BEGIN CONTAINER -->
 
 <div id=${model_title_string/ /-} class='container ${hidden}'>
@@ -165,7 +187,7 @@ MODEL-CONTAINER
 if [ -d "${model_instructions}" ]
 then
 
-cat << MODEL-TITLE ->> "modules/menu.html"
+cat << MODEL-TITLE ->> "${modules_directory}/"menu.html
 	<div id="menu" class="menu section flex flex-column flex-stretch">
 
 		<div class="category flex-cell text-left">
@@ -204,7 +226,7 @@ MODEL-TITLE
 
 else
 
-cat << MODEL-TITLE ->> "modules/menu.html"
+cat << MODEL-TITLE ->> "${modules_directory}/"menu.html
 	<div id="menu" class="menu section flex flex-column flex-stretch">
 
 		<div class="category flex-cell text-left">
@@ -250,7 +272,7 @@ done
 
 # generate footer
 
-cat << FOOTER ->> "modules/menu.html"
+cat << FOOTER ->> "${modules_directory}/"menu.html
 <!-- END MODELS MENU -->
 
 <div id="anchors" class="section">
