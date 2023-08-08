@@ -188,7 +188,7 @@ for extension in ${extensions_list[@]}
 do
 	count=1
 
-	models_list=( $(find "${models_directory}" -type f -iname "*.${extension}" ! -iname "*instructions*") )
+	models_list=( $(find "${models_directory}" -type f -iname "*.${extension}" ! -iname "*instructions*" | sort) )
 
 	# set IFS
 
