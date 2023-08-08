@@ -142,29 +142,18 @@
 
 @media (pointer: coarse) and (max-device-width: 480px) {
 
-	#drawer{
-	top: 60px;
+	.drawer-button {
+		bottom: calc(56px + 80px);
 	}
 
-	@keyframes drawer-reveal {
-		0% {top: 60px;}
-
-		100% {top: calc(60px - 216px);}
-	}
 }
 
 /* // tablet // */
 
 @media (pointer: coarse) and (min-device-width: 800px) {
 
-	#drawer{
-	top: 60px;
-	}
-
-	@keyframes drawer-reveal {
-		0% {top: 60px;}
-
-		100% {top: calc(60px - 256px);}
+	.drawer-button {
+		bottom: calc(97px + 80px);
 	}
 }
 
