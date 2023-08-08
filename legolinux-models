@@ -59,6 +59,7 @@ local_models_directory="${local_directory}"/models
 
 server_directory="${PWD}"
 server_models_directory="${server_directory}"/models
+
 server_backgrounds_directory="${server_directory}"/background
 server_javascript_directory="${server_directory}"/javascript
 
@@ -85,7 +86,7 @@ rsync							\
 	--exclude="instructions"	\
 	--exclude="configuration"	\
 	--exclude='LPub3D'			\
-								"${local_models_directory}"/* "${server_models_directory}"
+								"${local_models_directory}" "${server_models_directory}"
 
 frobulator.scs "Done" "[ Models ]"
 echo
