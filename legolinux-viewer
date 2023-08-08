@@ -54,6 +54,8 @@ echo
 
 # variables ////////////////////////////////////////////////////////////////////
 
+directory="${PWD}"/models/
+
 # defaults /////////////////////////////////////////////////////////////////////
 
 # functions ////////////////////////////////////////////////////////////////////
@@ -66,7 +68,7 @@ echo
 # values
 
 extensions_list+=(
-	png
+	dae
 )
 
 for extension in ${extensions_list[@]}
@@ -76,40 +78,63 @@ do
 	# shuffle models directories list:
 	# creates random showcase of all models on each update
 
-	for models_list in $(find models/ -type f -iname flat."${extension}" | shuf)
+	models_list=( $(find ${directory} -type f -iname "*.${extension}" ! -iname "*instructions*") )
+
+	# set IFS
+
+	IFS=$'\n'
+
+	for model_path in ${models_list[@]}
 	do
-		IFS=$'\n' read -r -a path <<< $(echo "$models_list")
+		model_path=$(echo "${model_path}" | cut -d '/' -f6-)
 
-		# /models/model-type/model/renders/flat/flat.${extension}
+		# get model file name from path
 
-		# "${path[0]}" /models
-		# "${path[1]}" /model-category
-		# "${path[2]}" /model
-		# "${path[3]}" /renders
-		# "${path[4]}" /outine
-		# "${path[5]}" /flat
+		model_file="${model_path##*/}"
 
-		model_category=$(cat ${path[0]}/${path[1]}/title)
+		# strip extension from model file name
 
-		model_title=$(cat ${path[0]}/${path[1]}/${path[2]}/title)
+		model_name="${model_file%.*}"
+
+		# use model directory as root
+
+		model_directory="${model_path%/*/*}"
+
+		# define model output directories
+
+		export_directory="${render_directory}"/exports
+
+		render_directory="${model_directory}"/renders
+
+		flat_directory="${render_directory}"/flat
+
+		thumbnail_directory="${render_directory}"/thumbnail
+
+		# define model specific directories
+
+		model_category=$(cat "${model_directory%/*}"/title)
+
+		model_title=$(cat "${model_directory}"/title)
 
 		model_title_string=$(echo ${model_title//\<\/\br\>/})
 
-		model_paypal=${path[0]}/${path[1]}/${path[2]}/paypal
+		model_paypal="${model_directory}"/paypal
 
-		model_paypal_id=$(cat ${path[0]}/${path[1]}/${path[2]}/paypal)
+		model_paypal_id=$(cat "${model_paypal}")
 
-		model_pieces=${path[0]}/${path[1]}/${path[2]}/pieces
+		model_pieces="${model_directory}"/pieces
 
-		model_pieces_count=$(cat ${path[0]}/${path[1]}/${path[2]}/pieces)
+		model_pieces_count=$(cat "${model_pieces}")
 
-		model_instructions=${path[0]}/${path[1]}/${path[2]}/instructions
+		model_instructions="${model_directory}"/instructions
 
-		model_instructions_price=$(cat ${path[0]}/${path[1]}/${path[2]}/price)
+		model_price="${model_directory}"/price
+
+		model_instructions_price=$(cat "${model_price}")
 
 # generate 3d model page
 
-cat << 3D-MODEL-PAGE-HEADER -> "models/${path[1]}/${path[2]}/index.html"
+cat << 3D-MODEL-PAGE-HEADER -> "${model_directory}/index.html"
 <!DOCTYPE html>
 
 <html>
@@ -132,7 +157,7 @@ cat << 3D-MODEL-PAGE-HEADER -> "models/${path[1]}/${path[2]}/index.html"
 
 3D-MODEL-PAGE-HEADER
 
-cat << 3D-MODEL-PAGE-VIEWER ->> "models/${path[1]}/${path[2]}/index.html"
+cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 	<body>
 
 		<div id="drawer">
@@ -253,7 +278,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "models/${path[1]}/${path[2]}/index.html"
 
 				var loader = new ColladaLoader();
 
-				var model = loader.load( '/${path[0]}/${path[1]}/${path[2]}/exports/${path[2]}.dae', function ( collada ) {
+				var model = loader.load( '/${model_path}', function ( collada ) {
 
 					var collada = collada.scene;
 
@@ -346,7 +371,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "models/${path[1]}/${path[2]}/index.html"
 if [ -f "${model_paypal}" ]
 then
 
-cat << 3D-MODEL-PAYPAL ->> "models/${path[1]}/${path[2]}/index.html"
+cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 		<!-- paypal -->
 
 			<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=${model_paypal_id}">
@@ -363,7 +388,7 @@ cat << 3D-MODEL-PAYPAL ->> "models/${path[1]}/${path[2]}/index.html"
 
 fi
 
-cat << 3D-MODEL-PRODUCT ->> "models/${path[1]}/${path[2]}/index.html"
+cat << 3D-MODEL-PRODUCT ->> "${model_directory}/index.html"
 
 		<div class="paypal-id">
 
@@ -389,14 +414,14 @@ cat << 3D-MODEL-PRODUCT ->> "models/${path[1]}/${path[2]}/index.html"
 
 3D-MODEL-PRODUCT
 
-cat << 3D-MODEL-PAGE-COLORS ->> "models/${path[1]}/${path[2]}/index.html"
+cat << 3D-MODEL-PAGE-COLORS ->> "${model_directory}/index.html"
 		<div id="colors">
 
 		</div>
 
 3D-MODEL-PAGE-COLORS
 
-cat << 3D-MODEL-PAGE-FOOTER ->> "models/${path[1]}/${path[2]}/index.html"
+cat << 3D-MODEL-PAGE-FOOTER ->> "${model_directory}/index.html"
 		<div id="footer" class="section">
 
 		</div>
