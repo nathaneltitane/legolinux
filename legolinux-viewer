@@ -122,7 +122,7 @@ cat << 3D-MODEL-PAGE-HEADER -> "models/${path[1]}/${path[2]}/index.html"
 
 		<!-- libraries -->
 
-		<script src="/javascript/jquery-3.4.1.min.js" type="text/javascript"></script>
+		<script src="/javascript/jquery-3.7.0.min.js" type="text/javascript"></script>
 
 		<!-- scripts -->
 
