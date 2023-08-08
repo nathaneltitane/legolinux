@@ -54,7 +54,8 @@ echo
 
 # variables ////////////////////////////////////////////////////////////////////
 
-directory="${PWD}"/modules
+models_directory="${PWD}"/models
+modules_directory="${PWD}"/modules
 
 stamp=$(date +"%m-%d-%Y")
 
@@ -70,7 +71,7 @@ echo
 
 # generate header
 
-cat << MODEL-DRAWER-HEADER -> "${directory}"/drawer.html
+cat << MODEL-DRAWER-HEADER -> "${modules_directory}"/drawer.html
 <!-- scripts -->
 
 <script src="/javascript/drawer.js" type="text/javascript"></script>
@@ -187,7 +188,7 @@ for extension in ${extensions_list[@]}
 do
 	count=1
 
-	models_list=( $(find ${directory} -type f -iname "*.${extension}" ! -iname "*instructions*" | sort) )
+	models_list=( $(find "${models_directory}" -type f -iname "*.${extension}" ! -iname "*instructions*") )
 
 	# set IFS
 
@@ -243,10 +244,10 @@ do
 
 # generate model drawer entries
 
-if [ ! -f models/"${path[1]}"/todo ]
+if [ ! -f /"${model_category}"/todo ]
 then
 
-cat << MODEL-DRAWER-CONTENT ->> "${directory}"/drawer.html
+cat << MODEL-DRAWER-CONTENT ->> "${modules_directory}"/drawer.html
 		<div class="list section">
 
 			<div class="flex flex-column flex-stretch">
@@ -302,7 +303,7 @@ MODEL-DRAWER-CONTENT
 
 else
 
-cat << MODEL-DRAWER-CONTENT ->> "${directory}"/drawer.html
+cat << MODEL-DRAWER-CONTENT ->> "${modules_directory}"/drawer.html
 		<div class="list section">
 
 			<div class="flex flex-column flex-stretch">
@@ -365,7 +366,7 @@ done
 
 # generate footer
 
-cat << MODEL-DRAWER-FOOTER ->> "${directory}"/drawer.html
+cat << MODEL-DRAWER-FOOTER ->> "${modules_directory}"/drawer.html
 		<!-- copyright -->
 
 		<div class="list section copyright">

@@ -54,7 +54,7 @@ echo
 
 # variables ////////////////////////////////////////////////////////////////////
 
-directory="${PWD}"/models
+models_directory="${PWD}"/models
 
 # defaults /////////////////////////////////////////////////////////////////////
 
@@ -65,6 +65,7 @@ echo
 
 frobulator.fwd "Writing..."
 echo
+
 # values
 
 extensions_list+=(
@@ -75,7 +76,7 @@ for extension in ${extensions_list[@]}
 do
 	count=1
 
-	models_list=( $(find ${directory} -type f -iname "*.${extension}" ! -iname "*instructions*") )
+	models_list=( $(find ${models_directory} -type f -iname "*.${extension}" ! -iname "*instructions*") )
 
 	# set IFS
 
