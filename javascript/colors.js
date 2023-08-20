@@ -21,9 +21,9 @@ $(function() {
 
 		$("body").css("background-color", color);
 
-		$(".selector").css("background-color", color);
+//		$(".selector").css("background-color", color);
 
-		$(".selector").css("border-color", "#aaaaaaff");
+//		$(".selector").css("border-color", "#aaaaaaff");
 
 	},
 
