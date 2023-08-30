@@ -80,13 +80,13 @@ cat << MODEL-DRAWER-HEADER -> "${modules_directory}"/drawer.html
 
 <div class="flex flex-row flex-middle flex-around drawer-button cursor-cell">
 
-	<div id="drawr-button-label" class="flex-cell text-bold">
+	<div id="drawer-button-label" class="flex-cell text-bold">
 
 		Menu
 
 	</div>
 
-	<div id="drawr-button-icon" class="flex-cell">
+	<div id="drawer-button-icon" class="flex-cell">
 
 		<div class="icon icon-64 logo-drawer"></div>
 
