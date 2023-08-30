@@ -10,13 +10,12 @@
 
 #color-selector {
 	border:none;
-	height: calc(64px + 10px + 10px);
-	width: calc(64px + 10px + 10px);
+	height: 64px;
+	width: 64px;
 	position: fixed;
-	bottom: 80px;
-	right: calc(((32px + 10px + 10px) * 3) + 10px);
-	visibility: hidden;
-
+	bottom: calc( 80px + 64px + 64px + 10px + 10px + 10px);
+	right: 10px;
+	opacity: 0;
 }
 
 .color {
