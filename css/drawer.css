@@ -40,6 +40,10 @@
 	animation-fill-mode: forwards;
 }
 
+ .drawer-button-label-color {
+	 color: #00000000;
+}
+
 .drawer a {
 	margin: 0px 0px 0px 0px;
 	overflow: hidden;

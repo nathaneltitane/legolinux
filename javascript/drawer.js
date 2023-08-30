@@ -8,6 +8,8 @@ $(document).ready(function() {
 
 		// e.preventDefault();
 
+		$('#drawer-button-label').toggleClass('drawer-button-label-color');
+
 		$('#drawer').toggleClass('drawer-open');
 
 	});
