@@ -97,7 +97,7 @@ do
 		# use model directory as root
 
 		model_directory="${model_path%/*/*}"
-
+exit
 		# define model output directories
 
 		export_directory="${render_directory}"/exports
