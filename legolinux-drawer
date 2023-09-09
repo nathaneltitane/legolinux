@@ -252,10 +252,14 @@ do
 
 		model_instructions_price=$(cat "${model_price}")
 
-# generate model drawer entries
+		# generate model drawer entries
 
-if [ ! -f /"${model_category}"/todo ]
-then
+		if [ ! -f /"${model_category}"/todo ]
+		then
+			color="green"
+		else
+			color="orange"
+		fi
 
 cat << MODEL-DRAWER-CONTENT ->> "${modules_directory}"/drawer.html
 		<div class="list section">
@@ -274,7 +278,7 @@ cat << MODEL-DRAWER-CONTENT ->> "${modules_directory}"/drawer.html
 
 						<div class="flex-cell-start">
 
-							<div class="icon icon-flex icon-center logo-green"></div>
+							<div class="icon icon-flex icon-center logo-${color}"></div>
 
 						</div>
 
@@ -310,64 +314,6 @@ cat << MODEL-DRAWER-CONTENT ->> "${modules_directory}"/drawer.html
 		</div>
 
 MODEL-DRAWER-CONTENT
-
-else
-
-cat << MODEL-DRAWER-CONTENT ->> "${modules_directory}"/drawer.html
-		<div class="list section">
-
-			<div class="flex flex-column flex-stretch">
-
-				<div class="flex-cell category">
-
-					${model_category}
-
-				</div>
-
-				<a class="container" href="/${model_directory}">
-
-					<div class="flex flex-row flex-middle">
-
-						<div class="flex-cell-start">
-
-							<div class="icon icon-flex icon-center logo-orange"></div>
-
-						</div>
-
-						<div class="flex-cell">
-
-							<img src="/${thumbnail_directory}/thumbnail.png" />
-
-						</div>
-
-					</div>
-
-
-					<div class="flex flex-column flex-middle">
-
-						<div class="flex-cell text-center">
-
-							${model_title}
-
-						</div>
-
-						<div class="flex-cell text-center">
-
-							${model_pieces_count} PIECES
-
-						</div>
-
-					</div>
-
-				</a>
-
-			</div>
-
-		</div>
-
-MODEL-DRAWER-CONTENT
-
-fi
 
 	((count++))
 
