@@ -251,7 +251,7 @@ do
 		model_price="${model_directory}"/price
 
 		model_instructions_price=$(cat "${model_price}")
-
+exit
 # generate model drawer entries
 
 if [ ! -f /"${model_category}"/todo ]
@@ -287,7 +287,7 @@ cat << MODEL-DRAWER-CONTENT ->> "${modules_directory}"/drawer.html
 					</div>
 
 
-					<div class="flex flex-column flex-middle">
+					<div class="label flex flex-column flex-middle">
 
 						<div class="flex-cell text-center">
 
@@ -297,7 +297,7 @@ cat << MODEL-DRAWER-CONTENT ->> "${modules_directory}"/drawer.html
 
 						<div class="flex-cell text-center">
 
-							${model_pieces_count} PIECES
+							[ ${model_pieces_count} PIECES ]
 
 						</div>
 
