@@ -206,7 +206,7 @@ then
 		legolinux-models
 		legolinux-background
 		legolinux-drawer
-		legolinux-menu
+#		legolinux-menu
 		legolinux-viewer
 	)
 fi
