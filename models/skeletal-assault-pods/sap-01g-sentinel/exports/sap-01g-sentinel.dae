@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
 <asset>
-	<created>2023-09-13T22:15:38</created>
-	<modified>2023-09-13T22:15:38</modified>
+	<created>2023-09-16T01:11:01</created>
+	<modified>2023-09-16T01:11:01</modified>
 <unit name="LeoCAD" meter="0.0004" />
 	<up_axis>Z_UP</up_axis>
 </asset>
