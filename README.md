@@ -10,7 +10,7 @@
 
 Lego // Linux - Where Lego and Linux meet!
 
-This repository hosts the website built to showcase my AFOL Lego LDraw-made models and instructions.
+This repository hosts the website dedicated to showcasing AFOL Lego models and their associated LDraw-based instructions.
 
 ### Repositories:
 
