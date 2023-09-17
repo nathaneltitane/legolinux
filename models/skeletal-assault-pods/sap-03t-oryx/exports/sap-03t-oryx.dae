@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
 <asset>
-	<created>2023-09-17T13:58:21</created>
-	<modified>2023-09-17T13:58:21</modified>
+	<created>2023-09-17T15:03:36</created>
+	<modified>2023-09-17T15:03:36</modified>
 <unit name="LeoCAD" meter="0.0004" />
 	<up_axis>Z_UP</up_axis>
 </asset>
@@ -26,7 +26,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.105882 0.164706 0.203922 1</color>
 					</transparent>
 					<transparency>
@@ -55,7 +55,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.117647 0.352941 0.658824 1</color>
 					</transparent>
 					<transparency>
@@ -84,7 +84,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0 0.521569 0.168627 1</color>
 					</transparent>
 					<transparency>
@@ -113,7 +113,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.0235294 0.615686 0.623529 1</color>
 					</transparent>
 					<transparency>
@@ -142,7 +142,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.705882 0 0 1</color>
 					</transparent>
 					<transparency>
@@ -171,7 +171,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.827451 0.207843 0.615686 1</color>
 					</transparent>
 					<transparency>
@@ -200,7 +200,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.329412 0.2 0.141176 1</color>
 					</transparent>
 					<transparency>
@@ -229,7 +229,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.541176 0.572549 0.552941 1</color>
 					</transparent>
 					<transparency>
@@ -258,7 +258,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.329412 0.34902 0.333333 1</color>
 					</transparent>
 					<transparency>
@@ -287,7 +287,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.592157 0.796078 0.85098 1</color>
 					</transparent>
 					<transparency>
@@ -316,7 +316,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.345098 0.670588 0.254902 1</color>
 					</transparent>
 					<transparency>
@@ -345,7 +345,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0 0.666667 0.643137 1</color>
 					</transparent>
 					<transparency>
@@ -374,7 +374,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.941176 0.427451 0.380392 1</color>
 					</transparent>
 					<transparency>
@@ -403,7 +403,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.964706 0.662745 0.733333 1</color>
 					</transparent>
 					<transparency>
@@ -432,7 +432,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.980392 0.784314 0.0392157 1</color>
 					</transparent>
 					<transparency>
@@ -461,7 +461,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.956863 0.956863 0.956863 1</color>
 					</transparent>
 					<transparency>
@@ -490,7 +490,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.678431 0.85098 0.658824 1</color>
 					</transparent>
 					<transparency>
@@ -519,7 +519,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>1 0.839216 0.498039 1</color>
 					</transparent>
 					<transparency>
@@ -548,7 +548,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.690196 0.627451 0.435294 1</color>
 					</transparent>
 					<transparency>
@@ -577,7 +577,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.686275 0.745098 0.839216 1</color>
 					</transparent>
 					<transparency>
@@ -606,7 +606,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.403922 0.121569 0.505882 1</color>
 					</transparent>
 					<transparency>
@@ -635,7 +635,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.054902 0.243137 0.603922 1</color>
 					</transparent>
 					<transparency>
@@ -664,7 +664,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.839216 0.47451 0.137255 1</color>
 					</transparent>
 					<transparency>
@@ -693,7 +693,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.564706 0.121569 0.462745 1</color>
 					</transparent>
 					<transparency>
@@ -722,7 +722,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.647059 0.792157 0.0941176 1</color>
 					</transparent>
 					<transparency>
@@ -751,7 +751,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.537255 0.490196 0.384314 1</color>
 					</transparent>
 					<transparency>
@@ -780,7 +780,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>1 0.619608 0.803922 1</color>
 					</transparent>
 					<transparency>
@@ -809,7 +809,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.627451 0.431373 0.72549 1</color>
 					</transparent>
 					<transparency>
@@ -838,7 +838,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.803922 0.643137 0.870588 1</color>
 					</transparent>
 					<transparency>
@@ -867,7 +867,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.992157 0.764706 0.513726 1</color>
 					</transparent>
 					<transparency>
@@ -896,7 +896,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.541176 0.0705882 0.658824 1</color>
 					</transparent>
 					<transparency>
@@ -925,7 +925,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.372549 0.192157 0.0352941 1</color>
 					</transparent>
 					<transparency>
@@ -954,7 +954,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.588235 0.588235 0.588235 1</color>
 					</transparent>
 					<transparency>
@@ -983,7 +983,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.392157 0.392157 0.392157 1</color>
 					</transparent>
 					<transparency>
@@ -1012,7 +1012,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.45098 0.588235 0.784314 1</color>
 					</transparent>
 					<transparency>
@@ -1041,7 +1041,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.498039 0.768627 0.458824 1</color>
 					</transparent>
 					<transparency>
@@ -1070,7 +1070,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.996078 0.8 0.811765 1</color>
 					</transparent>
 					<transparency>
@@ -1099,7 +1099,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>1 0.788235 0.584314 1</color>
 					</transparent>
 					<transparency>
@@ -1128,7 +1128,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.666667 0.490196 0.333333 1</color>
 					</transparent>
 					<transparency>
@@ -1157,7 +1157,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.266667 0.101961 0.568627 1</color>
 					</transparent>
 					<transparency>
@@ -1186,7 +1186,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.678431 0.380392 0.25098 1</color>
 					</transparent>
 					<transparency>
@@ -1215,7 +1215,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.109804 0.345098 0.654902 1</color>
 					</transparent>
 					<transparency>
@@ -1244,7 +1244,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.733333 0.501961 0.352941 1</color>
 					</transparent>
 					<transparency>
@@ -1273,7 +1273,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.976471 0.717647 0.647059 1</color>
 					</transparent>
 					<transparency>
@@ -1302,7 +1302,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.14902 0.27451 0.603922 1</color>
 					</transparent>
 					<transparency>
@@ -1331,7 +1331,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.282353 0.380392 0.67451 1</color>
 					</transparent>
 					<transparency>
@@ -1360,7 +1360,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.717647 0.831373 0.145098 1</color>
 					</transparent>
 					<transparency>
@@ -1389,7 +1389,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.611765 0.839216 0.8 1</color>
 					</transparent>
 					<transparency>
@@ -1418,7 +1418,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.870588 0.917647 0.572549 1</color>
 					</transparent>
 					<transparency>
@@ -1447,7 +1447,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.976471 0.654902 0.466667 1</color>
 					</transparent>
 					<transparency>
@@ -1476,7 +1476,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.678431 0.380392 0.25098 1</color>
 					</transparent>
 					<transparency>
@@ -1505,7 +1505,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.784314 0.784314 0.784314 1</color>
 					</transparent>
 					<transparency>
@@ -1534,7 +1534,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.988235 0.67451 0 1</color>
 					</transparent>
 					<transparency>
@@ -1563,7 +1563,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.615686 0.764706 0.968627 1</color>
 					</transparent>
 					<transparency>
@@ -1592,7 +1592,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.529412 0.168627 0.0901961 1</color>
 					</transparent>
 					<transparency>
@@ -1621,7 +1621,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.556863 0.333333 0.592157 1</color>
 					</transparent>
 					<transparency>
@@ -1650,7 +1650,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.337255 0.305882 0.615686 1</color>
 					</transparent>
 					<transparency>
@@ -1679,7 +1679,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>1 0.92549 0.423529 1</color>
 					</transparent>
 					<transparency>
@@ -1708,7 +1708,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.466667 0.788235 0.847059 1</color>
 					</transparent>
 					<transparency>
@@ -1737,7 +1737,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.0980392 0.196078 0.352941 1</color>
 					</transparent>
 					<transparency>
@@ -1766,7 +1766,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0 0.270588 0.101961 1</color>
 					</transparent>
 					<transparency>
@@ -1795,7 +1795,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>1 0.580392 0.760784 1</color>
 					</transparent>
 					<transparency>
@@ -1824,7 +1824,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.207843 0.129412 0 1</color>
 					</transparent>
 					<transparency>
@@ -1853,7 +1853,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.670588 0.85098 1 1</color>
 					</transparent>
 					<transparency>
@@ -1882,7 +1882,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.447059 0 0.0705882 1</color>
 					</transparent>
 					<transparency>
@@ -1911,7 +1911,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.27451 0.607843 0.764706 1</color>
 					</transparent>
 					<transparency>
@@ -1940,7 +1940,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.407843 0.764706 0.886275 1</color>
 					</transparent>
 					<transparency>
@@ -1969,7 +1969,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.827451 0.94902 0.917647 1</color>
 					</transparent>
 					<transparency>
@@ -1998,7 +1998,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.886275 0.976471 0.603922 1</color>
 					</transparent>
 					<transparency>
@@ -2027,7 +2027,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.466667 0.466667 0.305882 1</color>
 					</transparent>
 					<transparency>
@@ -2056,7 +2056,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.533333 0.376471 0.368627 1</color>
 					</transparent>
 					<transparency>
@@ -2085,7 +2085,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.968627 0.521569 0.694118 1</color>
 					</transparent>
 					<transparency>
@@ -2114,7 +2114,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>1 0.427451 0.466667 1</color>
 					</transparent>
 					<transparency>
@@ -2143,7 +2143,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.847059 0.427451 0.172549 1</color>
 					</transparent>
 					<transparency>
@@ -2172,7 +2172,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.458824 0.396078 0.490196 1</color>
 					</transparent>
 					<transparency>
@@ -2201,7 +2201,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.439216 0.556863 0.486275 1</color>
 					</transparent>
 					<transparency>
@@ -2230,7 +2230,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.439216 0.505882 0.603922 1</color>
 					</transparent>
 					<transparency>
@@ -2259,7 +2259,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.823529 0.466667 0.266667 1</color>
 					</transparent>
 					<transparency>
@@ -2288,7 +2288,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.960784 0.52549 0.141176 1</color>
 					</transparent>
 					<transparency>
@@ -2317,7 +2317,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.568627 0.313726 0.109804 1</color>
 					</transparent>
 					<transparency>
@@ -2346,7 +2346,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.737255 0.705882 0.647059 1</color>
 					</transparent>
 					<transparency>
@@ -2375,7 +2375,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.980392 0.611765 0.109804 1</color>
 					</transparent>
 					<transparency>
@@ -2404,7 +2404,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>1 0.501961 0.0784314 1</color>
 					</transparent>
 					<transparency>
@@ -2433,7 +2433,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.811765 0.541176 0.278431 1</color>
 					</transparent>
 					<transparency>
@@ -2462,7 +2462,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.470588 0.988235 0.470588 1</color>
 					</transparent>
 					<transparency>
@@ -2491,7 +2491,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0 0.12549 0.627451 0.501961</color>
 					</transparent>
 					<transparency>
@@ -2520,7 +2520,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.137255 0.470588 0.254902 0.501961</color>
 					</transparent>
 					<transparency>
@@ -2549,7 +2549,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.337255 0.901961 0.27451 0.501961</color>
 					</transparent>
 					<transparency>
@@ -2578,7 +2578,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.788235 0.101961 0.0352941 0.501961</color>
 					</transparent>
 					<transparency>
@@ -2607,7 +2607,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.87451 0.4 0.584314 0.501961</color>
 					</transparent>
 					<transparency>
@@ -2636,7 +2636,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>1 0.501961 0.0509804 0.501961</color>
 					</transparent>
 					<transparency>
@@ -2665,7 +2665,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.756863 0.87451 0.941176 0.501961</color>
 					</transparent>
 					<transparency>
@@ -2694,7 +2694,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.388235 0.372549 0.321569 0.501961</color>
 					</transparent>
 					<transparency>
@@ -2723,7 +2723,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.333333 0.603922 0.717647 0.501961</color>
 					</transparent>
 					<transparency>
@@ -2752,7 +2752,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.752941 1 0 0.501961</color>
 					</transparent>
 					<transparency>
@@ -2781,7 +2781,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.682353 0.913725 0.937255 0.501961</color>
 					</transparent>
 					<transparency>
@@ -2810,7 +2810,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.588235 0.439216 0.623529 0.501961</color>
 					</transparent>
 					<transparency>
@@ -2839,7 +2839,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.988235 0.592157 0.67451 0.501961</color>
 					</transparent>
 					<transparency>
@@ -2868,7 +2868,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.960784 0.803922 0.184314 0.501961</color>
 					</transparent>
 					<transparency>
@@ -2897,7 +2897,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.988235 0.988235 0.988235 0.501961</color>
 					</transparent>
 					<transparency>
@@ -2926,7 +2926,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.647059 0.647059 0.796078 0.501961</color>
 					</transparent>
 					<transparency>
@@ -2955,7 +2955,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.854902 0.690196 0 0.501961</color>
 					</transparent>
 					<transparency>
@@ -2984,7 +2984,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.941176 0.560784 0.109804 0.501961</color>
 					</transparent>
 					<transparency>
@@ -3013,7 +3013,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.988235 0.717647 0.427451 0.501961</color>
 					</transparent>
 					<transparency>
@@ -3042,7 +3042,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.984314 0.909804 0.564706 0.501961</color>
 					</transparent>
 					<transparency>
@@ -3071,7 +3071,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.760784 0.505882 0.647059 0.501961</color>
 					</transparent>
 					<transparency>
@@ -3100,7 +3100,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.490196 0.760784 0.568627 0.501961</color>
 					</transparent>
 					<transparency>
@@ -3129,7 +3129,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.419608 0.670588 0.894118 0.501961</color>
 					</transparent>
 					<transparency>
@@ -3158,7 +3158,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.87451 0.756863 0.462745 1</color>
 					</transparent>
 					<transparency>
@@ -3187,7 +3187,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.807843 0.807843 0.807843 1</color>
 					</transparent>
 					<transparency>
@@ -3216,7 +3216,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.392157 0.352941 0.298039 1</color>
 					</transparent>
 					<transparency>
@@ -3245,7 +3245,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.105882 0.164706 0.203922 1</color>
 					</transparent>
 					<transparency>
@@ -3274,7 +3274,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.423529 0.588235 0.74902 1</color>
 					</transparent>
 					<transparency>
@@ -3303,7 +3303,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.235294 0.701961 0.443137 1</color>
 					</transparent>
 					<transparency>
@@ -3332,7 +3332,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.666667 0.301961 0.556863 1</color>
 					</transparent>
 					<transparency>
@@ -3361,7 +3361,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.964706 0.94902 0.87451 1</color>
 					</transparent>
 					<transparency>
@@ -3390,7 +3390,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.596078 0.607843 0.6 1</color>
 					</transparent>
 					<transparency>
@@ -3419,7 +3419,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.627451 0.627451 0.627451 1</color>
 					</transparent>
 					<transparency>
@@ -3448,7 +3448,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.537255 0.529412 0.533333 1</color>
 					</transparent>
 					<transparency>
@@ -3477,7 +3477,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.282353 0.301961 0.282353 1</color>
 					</transparent>
 					<transparency>
@@ -3506,7 +3506,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.356863 0.458824 0.564706 1</color>
 					</transparent>
 					<transparency>
@@ -3535,7 +3535,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.870588 0.67451 0.4 1</color>
 					</transparent>
 					<transparency>
@@ -3564,7 +3564,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.666667 0.498039 0.180392 1</color>
 					</transparent>
 					<transparency>
@@ -3593,7 +3593,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.513726 0.447059 0.309804 1</color>
 					</transparent>
 					<transparency>
@@ -3622,7 +3622,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.462745 0.301961 0.231373 1</color>
 					</transparent>
 					<transparency>
@@ -3651,7 +3651,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.67451 0.509804 0.278431 1</color>
 					</transparent>
 					<transparency>
@@ -3680,7 +3680,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.462745 0.462745 0.462745 1</color>
 					</transparent>
 					<transparency>
@@ -3709,7 +3709,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.415686 0.47451 0.266667 1</color>
 					</transparent>
 					<transparency>
@@ -3738,7 +3738,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.858824 0.67451 0.203922 1</color>
 					</transparent>
 					<transparency>
@@ -3767,7 +3767,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.0392157 0.0745098 0.152941 1</color>
 					</transparent>
 					<transparency>
@@ -3796,7 +3796,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.427451 0.431373 0.360784 1</color>
 					</transparent>
 					<transparency>
@@ -3825,7 +3825,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.760784 0.498039 0.32549 1</color>
 					</transparent>
 					<transparency>
@@ -3854,7 +3854,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.839216 0 0.14902 1</color>
 					</transparent>
 					<transparency>
@@ -3883,7 +3883,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0 0.556863 0.235294 1</color>
 					</transparent>
 					<transparency>
@@ -3912,7 +3912,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.933333 0.933333 0.933333 0.941176</color>
 					</transparent>
 					<transparency>
@@ -3941,7 +3941,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.878431 1 0.690196 0.941176</color>
 					</transparent>
 					<transparency>
@@ -3970,7 +3970,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.741176 0.776471 0.678431 0.941176</color>
 					</transparent>
 					<transparency>
@@ -3999,7 +3999,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.960784 0.952941 0.843137 0.941176</color>
 					</transparent>
 					<transparency>
@@ -4028,7 +4028,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.87451 0.4 0.584314 0.501961</color>
 					</transparent>
 					<transparency>
@@ -4057,7 +4057,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.933333 0.933333 0.933333 0.501961</color>
 					</transparent>
 					<transparency>
@@ -4086,7 +4086,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.392157 0 0.380392 0.501961</color>
 					</transparent>
 					<transparency>
@@ -4115,7 +4115,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.682353 0.913725 0.937255 0.501961</color>
 					</transparent>
 					<transparency>
@@ -4144,7 +4144,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.752941 1 0 0.501961</color>
 					</transparent>
 					<transparency>
@@ -4173,7 +4173,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0 0 0 1</color>
 					</transparent>
 					<transparency>
@@ -4202,7 +4202,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0 0 0 1</color>
 					</transparent>
 					<transparency>
@@ -4231,7 +4231,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0 0 0 1</color>
 					</transparent>
 					<transparency>
@@ -4260,7 +4260,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.388235 0.372549 0.380392 1</color>
 					</transparent>
 					<transparency>
@@ -4289,7 +4289,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.980392 0.784314 0.0392157 1</color>
 					</transparent>
 					<transparency>
@@ -4318,7 +4318,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.960784 0.803922 0.184314 0.501961</color>
 					</transparent>
 					<transparency>
@@ -4347,7 +4347,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.988235 0.988235 0.988235 0.501961</color>
 					</transparent>
 					<transparency>
@@ -4376,7 +4376,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.105882 0.164706 0.203922 1</color>
 					</transparent>
 					<transparency>
@@ -4405,7 +4405,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.117647 0.352941 0.658824 1</color>
 					</transparent>
 					<transparency>
@@ -4434,7 +4434,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.705882 0 0 1</color>
 					</transparent>
 					<transparency>
@@ -4463,7 +4463,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.839216 0.47451 0.137255 1</color>
 					</transparent>
 					<transparency>
@@ -4492,7 +4492,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.541176 0.572549 0.552941 1</color>
 					</transparent>
 					<transparency>
@@ -4521,7 +4521,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.0980392 0.196078 0.352941 1</color>
 					</transparent>
 					<transparency>
@@ -4550,7 +4550,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.403922 0.121569 0.505882 1</color>
 					</transparent>
 					<transparency>
@@ -4579,7 +4579,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.647059 0.792157 0.0941176 1</color>
 					</transparent>
 					<transparency>
@@ -4608,7 +4608,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.588235 0.588235 0.588235 1</color>
 					</transparent>
 					<transparency>
@@ -4637,7 +4637,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.537255 0.529412 0.533333 1</color>
 					</transparent>
 					<transparency>
@@ -4666,7 +4666,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.956863 0.956863 0.956863 1</color>
 					</transparent>
 					<transparency>
@@ -4695,7 +4695,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.345098 0.670588 0.254902 1</color>
 					</transparent>
 					<transparency>
@@ -4724,7 +4724,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.564706 0.121569 0.462745 1</color>
 					</transparent>
 					<transparency>
@@ -4753,7 +4753,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.627451 0.431373 0.72549 1</color>
 					</transparent>
 					<transparency>
@@ -4782,7 +4782,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.803922 0.643137 0.870588 1</color>
 					</transparent>
 					<transparency>
@@ -4811,7 +4811,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.372549 0.192157 0.0352941 1</color>
 					</transparent>
 					<transparency>
@@ -4840,7 +4840,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>1 0.92549 0.423529 1</color>
 					</transparent>
 					<transparency>
@@ -4869,7 +4869,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.207843 0.129412 0 1</color>
 					</transparent>
 					<transparency>
@@ -4898,7 +4898,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.447059 0 0.0705882 1</color>
 					</transparent>
 					<transparency>
@@ -4927,7 +4927,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.27451 0.607843 0.764706 1</color>
 					</transparent>
 					<transparency>
@@ -4956,7 +4956,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.407843 0.764706 0.886275 1</color>
 					</transparent>
 					<transparency>
@@ -4985,7 +4985,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.827451 0.94902 0.917647 1</color>
 					</transparent>
 					<transparency>
@@ -5014,7 +5014,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.568627 0.313726 0.109804 1</color>
 					</transparent>
 					<transparency>
@@ -5043,7 +5043,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>1 1 0.501961 1</color>
 					</transparent>
 					<transparency>
@@ -5072,7 +5072,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.498039 0.498039 0.498039 1</color>
 					</transparent>
 					<transparency>
@@ -5101,7 +5101,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0 0 0 0.823529</color>
 					</transparent>
 					<transparency>
@@ -5130,7 +5130,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.396078 0.403922 0.380392 1</color>
 					</transparent>
 					<transparency>
@@ -5159,7 +5159,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.815686 0.815686 0.815686 1</color>
 					</transparent>
 					<transparency>
@@ -5188,7 +5188,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.682353 0.478431 0.34902 1</color>
 					</transparent>
 					<transparency>
@@ -5217,7 +5217,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>1 1 1 0.0627451</color>
 					</transparent>
 					<transparency>
@@ -5246,7 +5246,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.105882 0.164706 0.203922 1</color>
 					</transparent>
 					<transparency>
@@ -5275,7 +5275,7 @@
 					<shininess>
 						<float>20.0</float>
 					</shininess>
-					<transparent>
+					<transparent opaque="A_ONE">
 						<color>0.5 0.5 0.5 1</color>
 					</transparent>
 					<transparency>
