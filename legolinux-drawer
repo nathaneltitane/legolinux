@@ -253,7 +253,7 @@ do
 
 		# generate model drawer entries
 
-		if [ ! -f /"${model_category}"/todo ]
+		if [ ! -f /"${model_category}"/work-in-progress ]
 		then
 			color="green"
 		else
