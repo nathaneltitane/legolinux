@@ -85,7 +85,7 @@ rsync							\
 	--exclude="instructions"	\
 	--exclude="configuration"	\
 	--exclude='LPub3D'			\
-								"${local_models_directory}"/* "${server_models_directory}" > /dev/null 2>&1
+								"${local_models_directory}"/* "${server_models_directory}" > "${sink}" 2>&1
 
 frobulator.scs "Done" "[ Models ]"
 echo
