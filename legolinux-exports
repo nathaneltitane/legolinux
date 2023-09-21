@@ -65,7 +65,10 @@ list+=(
 
 for directory in ${list[@]}
 do
-	"${SHELL}" ../l2cu/l2cu --mpd --export collada --directory "${directory}"
+	"${SHELL}" ../l2cu/l2cu							\
+					--file mpd 						\
+					--export collada				\
+					--directory "${directory}"
 done
 
 list=()
