@@ -254,7 +254,7 @@ do
 		# generate model drawer entries
 
 
-		if [ -f /"${model_directory}"/work-in-progress ]
+		if [[ -f "${model_directory}"/work-in-progress ]]
 		then
 			color="orange"
 		else
@@ -284,7 +284,7 @@ cat << MODEL-DRAWER-CONTENT ->> "${modules_directory}"/drawer.html
 
 						<div class="flex-cell text-center">
 
-							<img src="/${thumbnail_directory}/thumbnail.png" />
+							<img src="/${thumbnail_directory}/thumbnail.png"/>
 
 						</div>
 
