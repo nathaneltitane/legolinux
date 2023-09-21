@@ -253,11 +253,13 @@ do
 
 		# generate model drawer entries
 
-		color="green"
+
 
 		if [ /"${model_directory}"/work-in-progress ]
 		then
 			color="orange"
+		else
+			color="green"
 		fi
 
 cat << MODEL-DRAWER-CONTENT ->> "${modules_directory}"/drawer.html
