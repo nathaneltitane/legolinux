@@ -254,8 +254,7 @@ do
 		# generate model drawer entries
 
 
-
-		if [ /"${model_directory}"/work-in-progress ]
+		if [ -f /"${model_directory}"/work-in-progress ]
 		then
 			color="orange"
 		else
