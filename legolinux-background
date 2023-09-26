@@ -99,7 +99,7 @@ do
 			--archive			\
 			--quiet				\
 			--recursive			\
-								"${background}" "${server_background_directory}"/background-"${pad_count}"."${extension}" > /dev/null 2>&1
+								"${background}" "${server_background_directory}"/background-"${pad_count}"."${extension}" > "${sink}" 2>&1
 
 		((count++))
 
