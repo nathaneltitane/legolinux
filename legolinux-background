@@ -86,7 +86,7 @@ for extension in ${extensions_list[@]}
 do
 	# copy flat renders into background directory
 
-	counter=0
+	background_count=0
 
 	# set IFS
 
@@ -97,15 +97,15 @@ do
 
 	for background in $(find ${local_models_directory} -type f -iname flat."${extension}" | shuf)
 	do
-		pad_counter=$(printf "%03d" "${counter}")
+		pad_background_count=$(printf "%03d" "${background_count}")
 
 		rsync				\
 			--archive		\
 			--quiet			\
 			--recursive		\
-							"${background}" "${server_background_directory}"/background-"${pad_counter}"."${extension}" > "${sink}" 2>&1
+							"${background}" "${server_background_directory}"/background-"${pad_background_count}"."${extension}" > "${sink}" 2>&1
 
-		((counter++))
+		((background_count++))
 
 	done
 
@@ -120,11 +120,11 @@ do
 
 	sed													\
 		-i												\
-		-e "s/var count = .*/var count = ${counter};/g"	\
+		-e "s/var count = .*/var count = ${background_count};/g"	\
 														"${server_javascript_directory}"/background.js
 done
 
-frobulator.inf "Models" "[ ${counter} ]"
+frobulator.inf "Models" "[ ${background_count} ]"
 echo
 
 frobulator.scs "Done" "[ Background ]"
