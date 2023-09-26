@@ -2,7 +2,7 @@
 
 $(document).ready(function() {
 
-	var count = ;
+	var count = 148;
 
 	function pad(str, max) {
 
