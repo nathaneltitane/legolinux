@@ -20,4 +20,11 @@ $(document).ready(function() {
 
 		'url("/background/background-' + pad(Math.floor(Math.random() * count), 3) + '.png ")'
 	);
+
+		$('.overlay').css(
+
+		'background-image',
+
+		'url("/overlay/overlay-' + pad(Math.floor(Math.random() * count), 3) + '.png ")'
+	);
 });
