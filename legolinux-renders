@@ -67,6 +67,7 @@ for directory in ${list[@]}
 do
 	"${SHELL}" ../l2cu/l2cu --file mpd --render thumbnail --directory "${directory}"
 	"${SHELL}" ../l2cu/l2cu --file mpd --render flat      --directory "${directory}"
+	"${SHELL}" ../l2cu/l2cu --file mpd --render overlay   --directory "${directory}"
 	"${SHELL}" ../l2cu/l2cu --file mpd --pieces           --directory "${directory}"
 done
 

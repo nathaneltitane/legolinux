@@ -14,7 +14,14 @@ $(document).ready(function() {
 
 	// randomize images
 
-	$('#background').css(
+	$('#background-over').css(
+
+		'background-image',
+
+		'url("/background/background-' + pad(Math.floor(Math.random() * count), 3) + '.png ")'
+	);
+
+		$('#background-under').css(
 
 		'background-image',
 
