@@ -21,4 +21,11 @@ $(document).ready(function() {
 		'url("/images/flat/flat-' + pad(Math.floor(Math.random() * count), 3) + '.png ")'
 	);
 
+	$('#background::before').css(
+
+		'background-image',
+
+		'url("/images/overlay/overlay-' + pad(Math.floor(Math.random() * count), 3) + '.png ")'
+	);
+
 });
