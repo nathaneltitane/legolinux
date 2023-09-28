@@ -12,13 +12,22 @@ $(document).ready(function() {
 
 	}
 
+	var number = pad(Math.floor(Math.random() * count), 3)
+
 	// randomize images
 
 	$('#background').css(
 
 		'background-image',
 
-		'url("/images/flat/flat-' + pad(Math.floor(Math.random() * count), 3) + '.png ")'
+		'url("/images/flat/flat-' + number + '.png ")'
+	);
+
+		$('#background-overlay').css(
+
+		'background-image',
+
+		'url("/images/overlay/overlay-' + number + '.png ")'
 	);
 
 });
