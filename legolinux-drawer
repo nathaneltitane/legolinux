@@ -263,17 +263,11 @@ do
 cat << MODEL-DRAWER-CONTENT ->> "${modules_directory}"/drawer.html
 		<div class="list section">
 
-			<div class="flex flex-column flex-stretch">
-
-				<div class="flex-cell category">
-
-					${model_category}
-
-				</div>
+			<div class="flex flex-column flex-middle">
 
 				<a class="container" href="/${model_directory}">
 
-					<div class="flex flex-row flex-middle">
+					<div class="flex flex-column flex-middle">
 
 						<div class="flex-cell-start">
 
@@ -281,7 +275,11 @@ cat << MODEL-DRAWER-CONTENT ->> "${modules_directory}"/drawer.html
 
 						</div>
 
-						<div class="flex-cell text-center">
+					</div>
+
+					<div class="flex flex-column flex-middle">
+
+						<div class="flex-cell">
 
 							<img src="/${thumbnail_directory}/thumbnail.png"/>
 
@@ -289,8 +287,13 @@ cat << MODEL-DRAWER-CONTENT ->> "${modules_directory}"/drawer.html
 
 					</div>
 
-
 					<div class="label flex flex-column flex-middle">
+
+						<div class="flex-cell category">
+
+							${model_category}
+
+						</div>
 
 						<div class="flex-cell text-center">
 
