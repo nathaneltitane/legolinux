@@ -92,6 +92,7 @@
 	width: 100%;
 }
 
+.modal-button:active,
 .modal-button:hover {
 	color: #ff0000ff;
 }

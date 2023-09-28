@@ -2,11 +2,13 @@
 
 }
 
+.container:not(:active) > .label,
 .container:not(:hover) > .label {
     height: 0px;
     opacity: 0;
 }
 
+.container:active > .label,
 .container:hover > .label {
     height: 65px;
     opacity: 1;
