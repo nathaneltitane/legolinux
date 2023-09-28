@@ -18,13 +18,13 @@ $(document).ready(function() {
 
 		'background-image',
 
-		'url("/background/background-' + pad(Math.floor(Math.random() * count), 3) + '.png ")'
+		'url("/images/flat/flat-' + pad(Math.floor(Math.random() * count), 3) + '.png ")'
 	);
 
 		$('.overlay').css(
 
 		'background-image',
 
-		'url("/overlay/overlay-' + pad(Math.floor(Math.random() * count), 3) + '.png ")'
+		'url("/images/overlay/overlay-' + pad(Math.floor(Math.random() * count), 3) + '.png ")'
 	);
 });
