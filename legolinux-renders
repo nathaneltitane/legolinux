@@ -53,9 +53,21 @@ frobulator.script "Setting up ${script#*-}"
 
 # variables ////////////////////////////////////////////////////////////////////
 
+extension="mpd"
+
 # defaults /////////////////////////////////////////////////////////////////////
 
 # functions ////////////////////////////////////////////////////////////////////
+
+render () {
+
+	render_option="${1}"
+
+	"${SHELL}" ../l2cu/l2cu						\
+					--file ${extension}			\
+					--render ${render_option}	\
+					--directory "${directory}"
+}
 
 # requirements /////////////////////////////////////////////////////////////////
 
@@ -63,12 +75,18 @@ list+=(
 	/media/internal/Lego/models/
 )
 
+render_options=(
+	thumbnail
+	flat
+	overlay
+)
+
 for directory in ${list[@]}
 do
-	"${SHELL}" ../l2cu/l2cu --file mpd --render thumbnail --directory "${directory}"
-	"${SHELL}" ../l2cu/l2cu --file mpd --render flat      --directory "${directory}"
-	"${SHELL}" ../l2cu/l2cu --file mpd --render overlay   --directory "${directory}"
-	"${SHELL}" ../l2cu/l2cu --file mpd --pieces           --directory "${directory}"
+	for render_option in ${render_options}
+	do
+		render
+	done
 done
 
 list=()
