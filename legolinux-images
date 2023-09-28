@@ -104,7 +104,8 @@ do
 
 		# copy renders into images directory
 
-
+		frobulator.fwd "Copying..."
+		echo
 
 		image_count=0
 
