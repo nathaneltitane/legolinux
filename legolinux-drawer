@@ -291,7 +291,7 @@ cat << MODEL-DRAWER-CONTENT ->> "${modules_directory}"/drawer.html
 
 						<div class="flex-cell category">
 
-							${model_category}
+							[ ${model_category} ]
 
 						</div>
 
