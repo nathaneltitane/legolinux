@@ -69,7 +69,7 @@ server_javascript_directory="${server_directory}"/javascript
 
 # prepare update
 
-frobulator.directory "${server_images_directory}"
+frobulator.directory "${server_images_directory}" background
 
 # values
 
