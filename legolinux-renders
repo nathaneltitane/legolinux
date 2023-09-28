@@ -43,7 +43,7 @@ script=$(basename -- "${BASH_SOURCE[0]}")
 
 # version //////////////////////////////////////////////////////////////////////
 
-version="01-14-2023"
+version="09-27-2023"
 
 # usage ////////////////////////////////////////////////////////////////////////
 
@@ -61,7 +61,9 @@ extension="mpd"
 
 render () {
 
-	render_option="${1}"
+	extension="${1}"
+	render_option="${2}"
+	directory="${3}"
 
 	"${SHELL}" ../l2cu/l2cu						\
 					--file ${extension}			\
@@ -85,7 +87,7 @@ for directory in ${list[@]}
 do
 	for render_option in ${render_options}
 	do
-		render
+		render "${extension}" "${render_option}" "${directory}"
 	done
 done
 
