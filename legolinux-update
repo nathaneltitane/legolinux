@@ -80,7 +80,7 @@ do
 			option="drawer"
 		;;
 
-		-n|--menu)
+		-u|--menu)
 			option="menu"
 		;;
 
@@ -103,7 +103,7 @@ do
 			echo -e "-m, --models        Models content update."
 			echo -e "-i, --images        Model images update."
 			echo -e "-d, --drawer        Drawer content update."
-			echo -e "-n, --menu          Models menu content update."
+			echo -e "-u, --menu          Models menu content update."
 			echo -e "-v, --viewer        Models viewer content update."
 			echo
 			echo -e "'${script}'         [ Version ${version} ]"
