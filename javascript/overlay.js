@@ -18,6 +18,6 @@ $(document).ready(function() {
 
 		'background-image',
 
-		'url("/images/overlay/overlay-' + pad(Math.floor(Math.random() * count), 3) + '.png ")'
+		'url("/backgrounds/overlay/overlay-' + pad(Math.floor(Math.random() * count), 3) + '.png ")'
 	);
 });

@@ -18,7 +18,7 @@ $(document).ready(function() {
 
 		'background-image',
 
-		'url("/images/flat/flat-' + pad(Math.floor(Math.random() * count), 3) + '.png ")'
+		'url("/backgrounds/flat/flat-' + pad(Math.floor(Math.random() * count), 3) + '.png ")'
 	);
 
 });
