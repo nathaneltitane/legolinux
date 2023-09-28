@@ -73,5 +73,5 @@ done
 
 list=()
 
-frobulator.scs "Done" "[ Renders ]"
+frobulator.cpt "Complete" "[ Renders ]"
 echo

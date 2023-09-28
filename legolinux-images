@@ -151,5 +151,5 @@ done
 frobulator.inf "Models" "[ ${image_count} ]"
 echo
 
-frobulator.scs "Done" "[ Images ]"
+frobulator.cpt "Complete" "[ Images ]"
 echo

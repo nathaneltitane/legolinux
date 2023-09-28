@@ -73,5 +73,5 @@ list=()
 frobulator.inf "Models" "[ ${count} ]"
 echo
 
-frobulator.scs "Done" "[ Exports ]"
+frobulator.cpt "Complete" "[ Exports ]"
 echo
