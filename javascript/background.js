@@ -16,6 +16,7 @@ $(document).ready(function() {
 
 	$('#background').css(
 
+		'background-image',
 
 		'url("/images/flat/flat-' + pad(Math.floor(Math.random() * count), 3) + '.png ")'
 	);
