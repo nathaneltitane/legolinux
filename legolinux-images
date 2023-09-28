@@ -65,6 +65,19 @@ server_javascript_directory="${server_directory}"/javascript
 
 # functions ////////////////////////////////////////////////////////////////////
 
+synchronize () {
+
+	source="${1}"
+	destination="${2}"
+
+	rsync				\
+		--archive		\
+		--quiet			\
+		--recursive		\
+						"${source}" "${destination}" > "${sink}" 2>&1
+
+}
+
 # background ///////////////////////////////////////////////////////////////////
 
 # prepare update
@@ -76,11 +89,6 @@ frobulator.directory "${server_directory}" images
 extensions_list+=(
 	png
 )
-
-# copy images
-
-frobulator.fwd "Copying..."
-echo
 
 for extension in ${extensions_list[@]}
 do
@@ -95,6 +103,8 @@ do
 		frobulator.directory "${server_images_directory}" "${directory}"
 
 		# copy renders into images directory
+
+
 
 		image_count=0
 
@@ -121,11 +131,13 @@ do
 
 			image_name="${image_file%.*}"
 
-			rsync				\
-				--archive		\
-				--quiet			\
-				--recursive		\
-								"${image_path}" "${server_images_directory}"/${directory}/${image_name}-"${pad_image_count}"."${extension}" > "${sink}" 2>&1
+			# set synchronization paths
+
+			local_path="${image_path}"
+
+			server_path="${server_images_directory}"/${directory}/${image_name}-"${pad_image_count}"."${extension}"
+
+			synchronize "${image_path}" "${server_path}"
 
 			((image_count++))
 
