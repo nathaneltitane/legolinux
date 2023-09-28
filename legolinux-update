@@ -43,7 +43,7 @@ script=$(basename -- "${BASH_SOURCE[0]}")
 
 # version //////////////////////////////////////////////////////////////////////
 
-version="01-14-2023"
+version="09-27-2023"
 
 # usage ///////////////////////////////////////////////////////////////////////
 
@@ -72,8 +72,8 @@ do
 			option="models"
 		;;
 
-		-b|--background)
-			option="background"
+		-i|--images)
+			option="images"
 		;;
 
 		-d|--drawer)
@@ -101,7 +101,7 @@ do
 			echo -e "-e, --exports       Models exports content update."
 			echo -e "-r, --renders       Models renders content update."
 			echo -e "-m, --models        Models content update."
-			echo -e "-b, --background    Background content update."
+			echo -e "-i, --images        Model images update."
 			echo -e "-d, --drawer        Drawer content update."
 			echo -e "-n, --menu          Models menu content update."
 			echo -e "-v, --viewer        Models viewer content update."
@@ -204,7 +204,7 @@ then
 		legolinux-exports
 		legolinux-renders
 		legolinux-models
-		legolinux-background
+		legolinux-images
 		legolinux-drawer
 #		legolinux-menu
 		legolinux-viewer
@@ -232,10 +232,10 @@ then
 	)
 fi
 
-if [[ "${option}" = "background" ]]
+if [[ "${option}" = "images" ]]
 then
 	list+=(
-		legolinux-background
+		legolinux-images
 	)
 fi
 
