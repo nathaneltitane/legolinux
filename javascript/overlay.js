@@ -1,4 +1,4 @@
-// background //
+// overlay //
 
 $(document).ready(function() {
 
@@ -14,11 +14,10 @@ $(document).ready(function() {
 
 	// randomize images
 
-	$('#background').css(
+	$('.overlay').css(
 
 		'background-image',
 
-		'url("/images/flat/flat-' + pad(Math.floor(Math.random() * count), 3) + '.png ")'
+		'url("/images/overlay/overlay-' + pad(Math.floor(Math.random() * count), 3) + '.png ")'
 	);
-
 });
