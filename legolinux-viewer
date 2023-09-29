@@ -174,7 +174,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 		<script type="module">
 
-			import * as THREE from '/javascript/three/build/three.module.js';
+			import * as THREE from '/javascript/three/build/three.js';
 
 			import { ColladaLoader } from '/javascript/three/modules/loaders/ColladaLoader.js';
 
