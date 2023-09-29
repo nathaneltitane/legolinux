@@ -176,9 +176,9 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 			import * as THREE from '/javascript/three/build/three.module.js';
 
-			import { ColladaLoader } from '/javascript/three/modules/loaders/ColladaLoader.js';
+			import { ColladaLoader } from '/javascript/three/jsm/loaders/ColladaLoader.js';
 
-			import { OrbitControls } from '/javascript/three/modules/controls/OrbitControls.js';
+			import { OrbitControls } from '/javascript/three/jsm/controls/OrbitControls.js';
 
 			function init() {
 
