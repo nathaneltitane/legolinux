@@ -160,8 +160,7 @@ cat << 3D-MODEL-PAGE-HEADER -> "${model_directory}/index.html"
 			{
 				"imports": {
 					"three": "/build/three.module.js",
-					"three/addons/": "/jsm/",
-					"three/controls/": "/jsm/"
+					"three/addons/": "/jsm/"
 				}
 			}
 
@@ -190,7 +189,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 			import { ColladaLoader } from 'three/addons/loaders/ColladaLoader.js';
 
-			import { OrbitControls } from 'three/controls/OrbitControls.js';
+			import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 			function init() {
 
