@@ -159,13 +159,12 @@ cat << 3D-MODEL-PAGE-HEADER -> "${model_directory}/index.html"
 
 			{
 				"imports": {
-					"three": "../build/three.module.js",
-					"three/addons/": "./jsm/"
+					"three": "/build/three.module.js",
+					"three/addons/": "/jsm/"
 				}
 			}
 
 		</script>
-
 
 	</head>
 
