@@ -155,12 +155,6 @@ cat << 3D-MODEL-PAGE-HEADER -> "${model_directory}/index.html"
 
 		<script src="/javascript/modules.js" type="text/javascript"></script>
 
-		<script src="/build/three.module.js" type="text/javascript"></script>
-
-		<script src="/jsm/loaders/ColladaLoader.js" type="text/javascript"></script>
-
-		<script src="/jsm/controls/OrbitControls.js" type="text/javascript"></script>
-
 	</head>
 
 3D-MODEL-PAGE-HEADER
@@ -180,11 +174,11 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 		<script type="module">
 
-//			import * as THREE from '../../build/three.module.js';
+			import * as THREE from 'build/three.module.js';
 
-//			import { ColladaLoader } from '../../jsm/loaders/ColladaLoader.js';
+			import { ColladaLoader } from 'jsm/loaders/ColladaLoader.js';
 
-//			import { OrbitControls } from ../../jsm/controls/OrbitControls.js';
+			import { OrbitControls } from 'jsm/controls/OrbitControls.js';
 
 			function init() {
 
