@@ -189,7 +189,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 			import { ColladaLoader } from 'three/addons/loaders/ColladaLoader.js';
 
-			import { OrbitControls } from 'three/addons/loaders/OrbitControls.js';
+			import { OrbitControls } from 'three/controls/OrbitControls.js';
 
 			function init() {
 
