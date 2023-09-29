@@ -16,6 +16,18 @@
 
 		<script src="/javascript/modules.js" type="text/javascript"></script>
 
+		<script type="importmap">
+
+			{
+				"imports": {
+					"three": "../build/three.module.js",
+					"three/addons/": "./jsm/"
+				}
+			}
+
+		</script>
+
+
 	</head>
 
 	<body>
@@ -32,11 +44,11 @@
 
 		<script type="module">
 
-			import * as THREE from '/../../build/three.module.js';
+			import * as THREE from 'three';
 
-			import { ColladaLoader } from '/../../jsm/loaders/ColladaLoader.js';
+			import { ColladaLoader } from 'three/addons/loaders/ColladaLoader.js';
 
-			import { OrbitControls } from '/../../jsm/controls/OrbitControls.js';
+			import { OrbitControls } from 'three/addons/loaders/OrbitControls.js';
 
 			function init() {
 
