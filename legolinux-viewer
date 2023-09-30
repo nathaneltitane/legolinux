@@ -158,6 +158,7 @@ cat << 3D-MODEL-PAGE-HEADER -> "${model_directory}/index.html"
 		<script type="importmap">
 
 			{
+
 				"imports": {
 
 					"three": "/javascript/three/three.module.js",
