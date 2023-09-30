@@ -33,15 +33,6 @@
 	100% {opacity: 1;}
 }
 
-/*
-#background-overlay:active,
-#background-overlay:hover {
-	opacity: 1;
-}
-/*
-
-/* mobile device 'hover' emulation ////////////////////////////////////////// */
-
 .hover {
 	opacity: 1 !important;
 }
