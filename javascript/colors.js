@@ -4,13 +4,13 @@ $(function() {
 
 	// color selector //
 
-	var selection = document.getElementById('color-selector');
+	var selection = document.getElementById ('color-selector');
 
-	selection.addEventListener('change', function(e) {
+	selection.addEventListener ('change', function (e) {
 
 		var color = selection.value;
 
-		$("body").css("background-color", color);
+		$("body").css ("background-color", color);
 
 	},
 
@@ -19,8 +19,8 @@ $(function() {
 	);
 });
 
-function color_selector() {
+function color_selector () {
 
-	$("#color-selector").click();
+	$("#color-selector").click ();
 
 }

@@ -1,44 +1,44 @@
 // background //
 
-$(document).ready(function() {
+$(document).ready (function () {
 
 	var count = 148;
 
-	function pad(str, max) {
+	function pad (str, max) {
 
-		str = str.toString();
+		str = str.toString ();
 
-		return str.length < max ? pad("0" + str, max) : str;
+		return str.length < max ? pad ("0" + str, max) : str;
 
 	}
 
-	var number = pad(Math.floor(Math.random() * count), 3)
+	var number = pad (Math.floor(Math.random () * count), 3)
 
 	// randomize images
 
-	$('#background').css(
+	$('#background').css (
 
 		'background-image',
 
 		'url("/images/flat/flat-' + number + '.png ")'
 	);
 
-		$('#background-overlay').css(
+		$('#background-overlay').css (
 
 		'background-image',
 
 		'url("/images/overlay/overlay-' + number + '.png ")'
 	);
 
-	// mobile device 'hover' emulation
+	// mobile device hover emulation
 
-	$(document).ready(function() {
+	$(document).ready (function () {
 
-		$('#background').on('touchstart touchend', function(e) {
+		$('#background').on ('touchstart touchend', function (e) {
 
-			e.preventDefault();
+			e.preventDefault ();
 
-			$('#background-overlay').toggleClass('hover');
+			$('#background-overlay').toggleClass ('hover-overlay');
 
 		});
 

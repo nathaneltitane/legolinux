@@ -13,34 +13,34 @@ $(document).ready(function() {
 
 		$(".product"),
 
-			function (index, product) {
+		function (index, product) {
 
-				var id = $(product).find(".product-identifier")[0].innerText;
+			var id = $(product).find (".product-identifier")[0].innerText;
 
-				var name = $(product).find(".product-name")[0].innerText;
+			var name = $(product).find (".product-name")[0].innerText;
 
-				id = id.trim();
+			id = id.trim ();
 
-				id = id.toUpperCase();
+			id = id.toUpperCase ();
 
-				name = name.trim();
+			name = name.trim ();
 
-				name = name.toUpperCase();
+			name = name.toUpperCase ();
 
-				$(button).on(
-					"click",
+			$(button).on (
+				"click",
 
-					function (event) {
+				function (event) {
 
-						$(field_id).attr("value", id);
+					$(field_id).attr ("value", id);
 
-						$(field_name).attr("value", name);
+					$(field_name).attr ("value", name);
 
-					}
+				}
 
-				);
+			);
 
-			}
+		}
 
 	);
 

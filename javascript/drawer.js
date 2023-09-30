@@ -46,4 +46,19 @@ $(document).ready(function() {
 		$('#drawer').removeClass('drawer-open');
 
 	});
+
+	// mobile device hover emulation
+
+	$(document).ready (function () {
+
+		$('.container').on ('touchstart touchend', function (e) {
+
+			e.preventDefault ();
+
+			$('.label').toggleClass ('hover-expand');
+
+		});
+
+	});
+
 });

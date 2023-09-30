@@ -5,11 +5,27 @@
 .container:not(:active) > .label,
 .container:not(:hover) > .label {
     height: 0px;
+
+    -webkit-transition: height 0.25s ease;
+    -moz-transition: height 0.25s ease;
+    -o-transition: height 0.25s ease;
+    transition: height 0.25s ease;
+
     opacity: 0;
+
+    -webkit-transition: opacity 0.5s ease;
+    -moz-transition: opacity 0.5s ease;
+    -o-transition: opacity 0.5s ease;
+    transition: opacity 0.5s ease;
 }
 
 .container:active > .label,
 .container:hover > .label {
+    height: 65px;
+    opacity: 1;
+}
+
+.hover-expand {
     height: 65px;
     opacity: 1;
 }

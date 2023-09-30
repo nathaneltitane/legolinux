@@ -25,6 +25,11 @@
 	width: 100vw;
 
 	opacity: 0;
+
+	-webkit-transition: opacity 0.5s ease;
+	-moz-transition: opacity 0.5s ease;
+	-o-transition: opacity 0.5s ease;
+	transition: opacity 0.5s ease;
 }
 
 @keyframes background-reveal {
@@ -36,8 +41,4 @@
 #background-overlay:active,
 #background-overlay:hover {
 	opacity: 1;
-}
-
-.hover {
-	opacity: 1 !important;
 }
