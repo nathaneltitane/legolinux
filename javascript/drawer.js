@@ -1,49 +1,49 @@
 // drawer //
 
-$(document).ready(function() {
+$(document).ready (function () {
 
-	$('.drawer-button').click(function(e) {
+	$('.drawer-button').click (function (e) {
 
 		// disable defaults prevention for href handling
 
-		// e.preventDefault();
+		// e.preventDefault ();
 
-		$('#drawer-button-label').toggleClass('drawer-button-label-color');
+		$('#drawer-button-label').toggleClass ('drawer-button-label-color');
 
-		$('#drawer').toggleClass('drawer-open');
+		$('#drawer').toggleClass ('drawer-open');
 
 	});
 
 	// prevent canvas interaction conflict
 
-	$('#background').click(function(e) {
+	$('#background').click (function (e) {
 
 		// disable defaults prevention for href handling
 
-		// e.preventDefault();
+		// e.preventDefault ();
+
+		$('#drawer').removeClass ('drawer-open');
+
+	});
+
+	$('#canvas').click (function (e) {
+
+		// disable defaults prevention for href handling
+
+		// e.preventDefaul t();
 
 		$('#drawer').removeClass('drawer-open');
 
 	});
 
-	$('#canvas').click(function(e) {
+
+	$('.modal').click (function (e) {
 
 		// disable defaults prevention for href handling
 
-		// e.preventDefault();
+		// e.preventDefault ();
 
-		$('#drawer').removeClass('drawer-open');
-
-	});
-
-
-	$('.modal').click(function(e) {
-
-		// disable defaults prevention for href handling
-
-		// e.preventDefault();
-
-		$('#drawer').removeClass('drawer-open');
+		$('#drawer').removeClass ('drawer-open');
 
 	});
 
@@ -53,7 +53,7 @@ $(document).ready(function() {
 
 		$('.container').on ('touchstart touchend', function (e) {
 
-			e.preventDefault ();
+			// e.preventDefault ();
 
 			$('.label').toggleClass ('hover-expand');
 

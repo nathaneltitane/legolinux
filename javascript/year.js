@@ -1,7 +1,9 @@
 // year //
 
-$(document).ready(function() {
+$(document).ready (function () {
 
-	$('#year').html(new Date().getFullYear());
+	var date = new Date ().getFullYear ()
+
+	$('#year').html (date);
 
 });

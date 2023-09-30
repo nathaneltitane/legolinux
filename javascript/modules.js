@@ -2,33 +2,33 @@
 
 $(function() {
 
-	$.get("/modules/head.html", function(data) {
+	$.get("/modules/head.html", function (data) {
 
-		$("head").append(data);
-
-	});
-
-	$.get("/modules/drawer.html", function(data) {
-
-		$("#drawer").append(data);
+		$("head").append (data);
 
 	});
 
-	$.get("/modules/footer.html", function(data) {
+	$.get("/modules/drawer.html", function (data) {
 
-		$("#footer").append(data);
-
-	});
-
-	$.get("/modules/contact.html", function(data) {
-
-		$("#contact").append(data);
+		$("#drawer").append (data);
 
 	});
 
-	$.get("/modules/colors.html", function(data) {
+	$.get("/modules/footer.html", function (data) {
 
-		$("#colors").append(data);
+		$("#footer").append (data);
+
+	});
+
+	$.get("/modules/contact.html", function (data) {
+
+		$("#contact").append (data);
+
+	});
+
+	$.get("/modules/colors.html", function (data) {
+
+		$("#colors").append (data);
 
 	});
 

@@ -1,6 +1,6 @@
 // color //
 
-$(function() {
+$(function () {
 
 	$(".color").click (function () {
 

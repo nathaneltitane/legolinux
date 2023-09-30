@@ -1,6 +1,6 @@
 // colors //
 
-$(function() {
+$(function () {
 
 	// color selector //
 
