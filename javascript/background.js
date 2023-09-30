@@ -30,4 +30,18 @@ $(document).ready(function() {
 		'url("/images/overlay/overlay-' + number + '.png ")'
 	);
 
+	$('#background').bind('touchstart', function() {
+
+//		$(this).removeAttr('style').css('bottom','244px');
+
+		$(this).addClass('hover');
+
+	});
+
+	$('background').bind('touchend', function() {
+
+		$(this).removeClass('hover');
+
+	});
+
 });
