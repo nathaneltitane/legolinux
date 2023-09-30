@@ -32,15 +32,15 @@ $(document).ready(function() {
 
 	// mobile device 'hover' emulation
 
-	$('#background-overlay').bind('touchstart', function() {
+	$(document).ready(function() {
 
-		$(this).addClass('hover');
+		$('#background').on('touchstart touchend', function(e) {
 
-	});
+			e.preventDefault();
 
-	$('background-overlay').bind('touchend', function() {
+			$('#background-overlay').toggleClass('hover');
 
-		$(this).removeClass('hover');
+		});
 
 	});
 
