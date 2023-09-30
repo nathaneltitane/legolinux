@@ -265,7 +265,7 @@ cat << MODEL-DRAWER-CONTENT ->> "${modules_directory}"/drawer.html
 
 			<div class="flex flex-column flex-middle">
 
-				<a class="container" href="/${model_directory}">
+				<div class="container" href="/${model_directory}">
 
 					<div class="flex flex-column flex-middle">
 
@@ -277,7 +277,7 @@ cat << MODEL-DRAWER-CONTENT ->> "${modules_directory}"/drawer.html
 
 					</div>
 
-					<div class="flex flex-column flex-middle">
+					<a class="flex flex-column flex-middle">
 
 						<div class="flex-cell">
 
@@ -285,7 +285,7 @@ cat << MODEL-DRAWER-CONTENT ->> "${modules_directory}"/drawer.html
 
 						</div>
 
-					</div>
+					</a>
 
 					<div class="label flex flex-column flex-middle">
 
@@ -309,7 +309,7 @@ cat << MODEL-DRAWER-CONTENT ->> "${modules_directory}"/drawer.html
 
 					</div>
 
-				</a>
+				</div>
 
 			</div>
 
