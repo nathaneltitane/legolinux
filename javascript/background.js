@@ -30,6 +30,8 @@ $(document).ready(function() {
 		'url("/images/overlay/overlay-' + number + '.png ")'
 	);
 
+	// mobile device 'hover' emulation
+
 	$('#background-overlay').bind('touchstart', function() {
 
 		$(this).addClass('hover');
