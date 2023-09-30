@@ -1,6 +1,7 @@
 // colors //
 
 $(function() {
+
 	// color selector //
 
 	var selection = document.getElementById('color-selector');

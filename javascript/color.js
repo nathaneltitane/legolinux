@@ -24,7 +24,6 @@ $(function() {
 
 			$(".picker").css("background-color", color);
 
-
 		},
 
 		false);
