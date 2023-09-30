@@ -196,7 +196,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 			import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
-			function init() {
+			function init () {
 
 				// canvas
 
@@ -364,7 +364,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 			}
 
-			init();
+			init ();
 
 		</script>
 
