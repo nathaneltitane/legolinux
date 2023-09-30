@@ -57,33 +57,33 @@
 
 				// canvas
 
-				var canvas = document.querySelector('#canvas');
+				var canvas = document.querySelector ('#canvas');
 
 				// renderer
 
-				var renderer = new THREE.WebGLRenderer( { canvas, antialias: true, alpha: true } );
+				var renderer = new THREE.WebGLRenderer ( { canvas, antialias: true, alpha: true } );
 
-				renderer.setClearColor( 0x000000, 0 );
-				renderer.setPixelRatio( window.devicePixelRatio );
+				renderer.setClearColor ( 0x000000, 0 );
+				renderer.setPixelRatio ( window.devicePixelRatio );
 				renderer.shadowMap.enabled = true;
 				renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
 				// camera
 
-				var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 5000);
+				var camera = new THREE.PerspectiveCamera (45, window.innerWidth / window.innerHeight, 0.1, 5000);
 
-				camera.position.set( 45, 30, 45 );
-				camera.lookAt( 0, 0, 0 );
+				camera.position.set ( 45, 30, 45 );
+				camera.lookAt ( 0, 0, 0 );
 
 				// scene
 
-				var scene = new THREE.Scene();
+				var scene = new THREE.Scene ();
 
 				// controls
 
-				var controls = new OrbitControls( camera, renderer.domElement );
+				var controls = new OrbitControls ( camera, renderer.domElement );
 
-				controls = new OrbitControls( camera, renderer.domElement );
+				controls = new OrbitControls ( camera, renderer.domElement );
 
 				controls.keys = {
 					LEFT: 'ArrowLeft',
@@ -102,76 +102,67 @@
 
 				controls.screenSpacePanning = true;
 				controls.enablePan = true;
-				controls.target.set( 0, 0, 0 );
+				controls.target.set ( 0, 0, 0 );
 				controls.minDistance = 0.5;
 				controls.maxDistance = 1.0;
 
-				controls.update();
+				controls.update ();
 
 				// lights
 
-				var ambientLight = new THREE.AmbientLight( 0xffffff, 1 );
+				var ambientLight = new THREE.AmbientLight ( 0xffffff, 0.50 );
 
-				// scene.add( ambientLight );
+				scene.add( ambientLight );
 
 				// directional lights
 
-				var dirLight = new THREE.DirectionalLight( 0xffffff, 0.125 );
+				var directionalLight = new THREE.DirectionalLight ( 0xffffff, 0.50 );
 
-				dirLight.position.set( 0, 10, 10 );
-				dirLight.castShadow = true;
-				dirLight.shadow.mapSize.width = 512;
-				dirLight.shadow.mapSize.height = 512;
-				dirLight.shadow.camera.near = 512;
-				dirLight.shadow.camera.far = 512;
+				directionalLight.position.set ( 0, 10, 10 );
+				directionalLight.castShadow = true;
+				directionalLight.shadow.mapSize.width = 512;
+				directionalLight.shadow.mapSize.height = 512;
+				directionalLight.shadow.camera.near = 512;
+				directionalLight.shadow.camera.far = 512;
 
-				scene.add( dirLight );
+				scene.add( directionalLight );
 
 				// hemispherical lights
 
-				var hemiLight = new THREE.HemisphereLight( 0xffffff, 0xcccccc, 0.75 );
+				var hemisphereLight = new THREE.HemisphereLight ( 0xffffff, 0xcccccc, 1.00 );
 
-				hemiLight.position.set( 0, 10, 0 );
-				// hemiLight.castShadow = true;
+				hemisphereLight.position.set ( 0, 10, 0 );
 
-				scene.add( hemiLight );
+				// hemisphereLight.castShadow = true;
 
-				// point lights
-
-				var pointLight = new THREE.PointLight( 0xffffff, 0.125, 0, 2 );
-
-				pointLight.position.set(0, 10, 10);
-				pointLight.castShadow = true;
-				pointLight.shadow.mapSize.width = 512;
-				pointLight.shadow.mapSize.height = 512;
-				pointLight.shadow.camera.near = 512;
-				pointLight.shadow.camera.far = 512;
-
-				// scene.add( pointLight );
+				scene.add( hemisphereLight );
 
 				// loader
 
-				var loader = new ColladaLoader();
+				var loader = new ColladaLoader ();
 
-				var model = loader.load( '/models/mobile-fortresses/dcx-491-nemesis/exports/dcx-491-nemesis.dae', function ( collada ) {
+				var model = loader.load( '/models/mobile-fortresses/dcx-491-nemesis/exports/dcx-491-nemesis.dae',
+				function ( collada ) {
 
 					var collada = collada.scene;
 
+					collada.castShadow = true
+					collada.recieveShadow = true
+
 					// load model
 
-					scene.add( collada );
+					scene.add ( collada );
 
 					// helpers
 
 					// lights
 
-					// scene.add( new THREE.DirectionalLightHelper( dirLight, 0 , 0xaaaaaa ) );
-					// scene.add( new THREE.HemisphereLightHelper( hemiLight, 5 , 0xaaaaaa ) );
-					// scene.add( new THREE.PointLightHelper( pointLight, 0 , 0xaaaaaa ) );
+					// scene.add( new THREE.DirectionalLightHelper ( directionalLight, 0 , 0xaaaaaa ) );
+					// scene.add( new THREE.HemisphereLightHelper ( hemisphereLight, 5 , 0xaaaaaa ) );
 
 					// bounding box
 
-					var boundingboxHelper = new THREE.BoxHelper( model, 0xaaaaaa );
+					var boundingboxHelper = new THREE.BoxHelper ( model, 0xaaaaaa );
 
 					// scene.add( boundingboxHelper );
 
@@ -179,7 +170,7 @@
 
 					// orthogonal grid
 
-					const orthogonalGrid = new THREE.GridHelper( 0.5, 16, 0xaaaaaa, 0xaaaaaa );
+					const orthogonalGrid = new THREE.GridHelper ( 0.5, 16, 0xaaaaaa, 0xaaaaaa );
 
 					orthogonalGrid.position.y = 0;
 					orthogonalGrid.position.x = 0;
@@ -188,13 +179,14 @@
 
 					// polar grid
 
-					const polarGridHelper = new THREE.PolarGridHelper( 0.5, 32, 32, 32, 0xaaaaaa, 0xaaaaaa );
+					const polarGridHelper = new THREE.PolarGridHelper ( 0.5, 32, 32, 32, 0xaaaaaa, 0xaaaaaa );
 
 					polarGridHelper.position.y = 0;
 					polarGridHelper.position.x = 0;
 
-					// scene.add( polarGridHelper );
+					// scene.add ( polarGridHelper );
 
+					window.addEventListener ( 'resize', resize )
 
 				} );
 
@@ -202,32 +194,26 @@
 
 				function resize () {
 
-					const canvas = renderer.domElement;
+					camera.aspect = window.innerWidth / window.innerHeight;
 
-					const width = canvas.clientWidth;
-					const height = canvas.clientWidth;
+					camera.updateProjectionMatrix();
 
-					const resizeNeeded = canvas.width !== width || canvas.height !== height;
+					renderer.setSize ( window.innerWidth, window.innerHeight );
 
-					if ( resizeNeeded ) {
-
-						renderer.setSize ( width, height, false );
-					}
-
-					return resizeNeeded;
 				}
 
-				function render() {
+				function render () {
 
 					if ( resize ( renderer ) ) {
 
 						const canvas = renderer.domElement;
 						camera.aspect = canvas.clientWidth / canvas.clientHeight;
-						camera.updateProjectionMatrix();
+						camera.updateProjectionMatrix ();
 
 					}
 
 					renderer.render( scene, camera );
+
 					requestAnimationFrame( render );
 				}
 
