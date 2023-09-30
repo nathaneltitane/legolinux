@@ -30,15 +30,13 @@ $(document).ready(function() {
 		'url("/images/overlay/overlay-' + number + '.png ")'
 	);
 
-	$('#background').bind('touchstart', function() {
-
-//		$(this).removeAttr('style').css('bottom','244px');
+	$('#background-overlay').bind('touchstart', function() {
 
 		$(this).addClass('hover');
 
 	});
 
-	$('background').bind('touchend', function() {
+	$('background-overlay').bind('touchend', function() {
 
 		$(this).removeClass('hover');
 
