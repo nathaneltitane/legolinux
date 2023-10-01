@@ -499,7 +499,18 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						switch ( event.keyCode ) {
 
+							// A //
+
+							case 65:
+
+								orbitControls.enabled = true;
+
+								axesHelper ();
+
+								break;
+
 							// C //
+
 
 							case 67:
 								const position = camera.position.clone ();
