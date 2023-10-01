@@ -693,12 +693,12 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					}
 
-					renderer.render( scene, camera );
+					renderer.render ( scene, camera );
 
-					requestAnimationFrame( render );
+					requestAnimationFrame ( render );
 				}
 
-				requestAnimationFrame( render );
+				requestAnimationFrame ( render );
 
 			}
 
