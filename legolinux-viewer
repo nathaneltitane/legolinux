@@ -660,6 +660,15 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				} );
 
+				// helpers
+
+				function axesHelper () {
+
+					var axesHelper = new THREE.AxesHelper( 1 );
+
+					scene.add ( axesHelper );
+				}
+
 				// resize
 
 				function resize () {
