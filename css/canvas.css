@@ -1,8 +1,5 @@
 #canvas {
 	display: block;
-	height: calc(100vh - 80px);
-	width: 100vw;
-
 	opacity: 0;
 
 	animation-name: canvas-reveal;

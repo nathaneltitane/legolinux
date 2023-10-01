@@ -10,7 +10,7 @@ $(function () {
 
 		var color = selection.value;
 
-		$("body").css ("background-color", color);
+		$("#canvas").css ("background-color", color);
 
 	},
 
