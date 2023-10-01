@@ -509,8 +509,17 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 								break;
 
-							// C //
+							// M //
 
+							case 77:
+
+								orbitControls.enabled = true;
+
+								cameraHelper ();
+
+								break;
+
+							// C //
 
 							case 67:
 								const position = camera.position.clone ();
@@ -662,11 +671,23 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// helpers
 
+				// axes
+
 				function axesHelper () {
 
 					var axesHelper = new THREE.AxesHelper( 1 );
 
 					scene.add ( axesHelper );
+				}
+
+				// camera
+
+				function cameraHelper () {
+
+					var cameraHelper = new THREE.CameraHelper ( spotLight.shadow.camera, 0.25 , helperLineColor );
+
+					scene.add ( cameraHelper );
+
 				}
 
 				// resize
