@@ -54,7 +54,21 @@
 
 			import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
-			function init () {
+			import { TransformControls } from 'three/addons/controls/TransformControls.js';
+
+			function initialize () {
+
+				// viewport
+
+				const factor = 0.1;
+
+				const near = (factor * 4 );
+				const far = (near * 4 );
+
+				const viewportWidth = window.innerWidth;
+				const viewportHeight = window.innerHeight;
+
+				const viewportRatio = viewportWidth / viewportHeight;
 
 				// canvas
 
@@ -62,132 +76,426 @@
 
 				// renderer
 
-				var renderer = new THREE.WebGLRenderer ( { canvas, antialias: true, alpha: true } );
+				var renderer = new THREE.WebGLRenderer ( { canvas, precision: 'highp', antialias: true, alpha: true } );
 
 				renderer.setClearColor ( 0x000000, 0 );
 				renderer.setPixelRatio ( window.devicePixelRatio );
+				renderer.setSize ( viewportWidth, viewportHeight );
+
 				renderer.shadowMap.enabled = true;
 				renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-
-				// camera
-
-				var camera = new THREE.PerspectiveCamera (45, window.innerWidth / window.innerHeight, 0.1, 5000);
-
-				camera.position.set ( 45, 30, 45 );
-				camera.lookAt ( 0, 0, 0 );
 
 				// scene
 
 				var scene = new THREE.Scene ();
 
-				// controls
+				// camera
 
-				var controls = new OrbitControls ( camera, renderer.domElement );
+				var cameraPerspective = new THREE.PerspectiveCamera (45, viewportRatio, 0.1, 5000);
+				var cameraOrthogonal = new THREE.OrthographicCamera ( viewportWidth / - 2, viewportWidth / 2, viewportHeight / 2, viewportHeight / - 2, 1, 1000 );
 
-				controls = new OrbitControls ( camera, renderer.domElement );
+				// set camera type
 
-				controls.keys = {
-					LEFT: 'ArrowLeft',
-					UP: 'ArrowUp',
-					RIGHT: 'ArrowRight',
-					BOTTOM: 'ArrowDown'
-				}
+				var camera = cameraPerspective;
 
-				controls.mouseButtons = {
-					LEFT: THREE.MOUSE.ROTATE,
-					MIDDLE: THREE.MOUSE.PAN,
-					RIGHT: THREE.MOUSE.ROTATE
+				camera.position.set ( 45, 30, 45 );
 
-					// RIGHT: THREE.MOUSE.DOLLY
-				}
-
-				controls.screenSpacePanning = true;
-				controls.enablePan = true;
-				controls.target.set ( 0, 0, 0 );
-				controls.minDistance = 0.5;
-				controls.maxDistance = 1.0;
-
-				controls.update ();
-
-				// lights
-
-				var ambientLight = new THREE.AmbientLight ( 0xffffff, 0.50 );
-
-				scene.add( ambientLight );
-
-				// directional lights
-
-				var directionalLight = new THREE.DirectionalLight ( 0xffffff, 0.50 );
-
-				directionalLight.position.set ( 0, 10, 10 );
-				directionalLight.castShadow = true;
-				directionalLight.shadow.mapSize.width = 512;
-				directionalLight.shadow.mapSize.height = 512;
-				directionalLight.shadow.camera.near = 512;
-				directionalLight.shadow.camera.far = 512;
-
-				scene.add( directionalLight );
-
-				// hemispherical lights
-
-				var hemisphereLight = new THREE.HemisphereLight ( 0xffffff, 0xcccccc, 1.00 );
-
-				hemisphereLight.position.set ( 0, 10, 0 );
-
-				// hemisphereLight.castShadow = true;
-
-				scene.add( hemisphereLight );
+				camera.lookAt ( 0, 0, 0 );
 
 				// loader
 
 				var loader = new ColladaLoader ();
 
-				var model = loader.load( '/models/titans/rv-9625-cyclone-titan/exports/rv-9625-cyclone-titan.dae',
-				function ( collada ) {
+				var model = loader.load( '/models/titans/rv-9625-cyclone-titan/exports/rv-9625-cyclone-titan.dae', function ( collada ) {
 
 					var collada = collada.scene;
 
-					collada.castShadow = true
-					collada.recieveShadow = true
+					// edges
+
+					// collada.children[0].children.forEach ( function (node) {
+
+					// 	node.material.polygonOffset = true;
+					// 	node.material.polygonOffsetFactor = 1;
+					// 	node.material.polygonOffsetUnits = 1;
+
+					// 	var edge = new THREE.EdgesHelper(node, 0xff0000);
+
+					// 	edge.material.linewidth = 5;
+
+					// 	scene.add(edge);
+
+					// });
+
+					// enable shadow mapping for individual elements
+
+					// mesh traverse
+
+					collada.traverse (function (node) {
+
+						if (node.isMesh)
+
+							// console.log (node);
+
+							node.castShadow = true;
+
+							node.receiveShadow = true;
+
+					});
 
 					// load model
 
-					scene.add ( collada );
-
-					// helpers
+					scene.add (collada);
 
 					// lights
 
-					// scene.add( new THREE.DirectionalLightHelper ( directionalLight, 0 , 0xaaaaaa ) );
-					// scene.add( new THREE.HemisphereLightHelper ( hemisphereLight, 5 , 0xaaaaaa ) );
+					var ambientLight = new THREE.AmbientLight ( 0xffffff, 0.50 );
+
+					scene.add ( ambientLight );
+
+					// hemispherical lights
+
+					var hemisphereLight = new THREE.HemisphereLight ( 0xffffff, 0x000000, 1.00 );
+
+					hemisphereLight.position.x = 0.0;
+					hemisphereLight.position.y = 3.0;
+					hemisphereLight.position.z = 0.0;
+
+					scene.add ( hemisphereLight );
+
+					// point light
+
+					var pointLight = new THREE.PointLight( 0xffffff, 1.00, 0.00, 2.00 );
+
+					pointLight.position.x = 2.0;
+					pointLight.position.y = 2.0;
+					pointLight.position.z = 2.0;
+
+					pointLight.castShadow = true;
+
+					pointLight.shadow.bias = - 0.0125;
+					pointLight.shadow.camera.far = near;
+					pointLight.shadow.camera.near = near;
+					pointLight.shadow.focus = 0.25;
+					pointLight.shadow.mapSize.height = 4096;
+					pointLight.shadow.mapSize.width = 4096;
+
+					scene.add ( pointLight );
+
+					// directional lights
+
+					var directionalLight = new THREE.DirectionalLight ( 0xffffff, 1.00 );
+
+					directionalLight.position.x = 1.0;
+					directionalLight.position.y = 1.0;
+					directionalLight.position.z = 1.0;
+
+					directionalLight.castShadow = true;
+
+					directionalLight.shadow.bias = - 0.0125;
+					directionalLight.shadow.camera.far = near;
+					directionalLight.shadow.camera.near = near;
+					directionalLight.shadow.focus = 0.25;
+					directionalLight.shadow.mapSize.height = 4096;
+					directionalLight.shadow.mapSize.width = 4096;
+
+					scene.add ( directionalLight );
+
+					// spotLight
+
+					var spotLight = new THREE.SpotLight ( 0xffffff, 2.50, 1000 ) ;
+
+					spotLight.position.x = 0.5;
+					spotLight.position.y = 0.5;
+					spotLight.position.z = 0.5;
+
+					spotLight.castShadow = true;
+
+					spotLight.shadow.bias = - 0.0125;
+					spotLight.shadow.camera.far = near;
+					spotLight.shadow.camera.near = near;
+					spotLight.shadow.focus = 0.25;
+					spotLight.shadow.mapSize.height = 4096;
+					spotLight.shadow.mapSize.width = 4096;
+
+					spotLight.target = collada;
+
+					scene.add ( spotLight );
+
+					// manual update for static scene setup
+
+					// scene.matrixAutoUpdate = false;
+
+					scene.updateMatrix ();
+
+					// helpers
+
+					var helperLineColor = 0xaaaaaa;
+
+					// camera
+
+					var cameraHelper = new THREE.CameraHelper ( spotLight.shadow.camera, 0.25 , helperLineColor );
+
+					// scene.add ( cameraHelper);
+
+					// lights
+
+					var directionalLightHelper = new THREE.DirectionalLightHelper ( directionalLight, 0.25 , helperLineColor )
+
+					// scene.add ( directionalLightHelper );
+
+					var hemisphereLightHelper = new THREE.HemisphereLightHelper ( hemisphereLight, 0.25 , helperLineColor );
+
+					// scene.add ( hemisphereLightHelper );
+
+					var pointLightHelper = new THREE.PointLightHelper ( pointLight, 0.25 , helperLineColor )
+
+					// scene.add ( pointLightHelper );
+
+					var spotLightHelper = new THREE.SpotLightHelper ( spotLight, 0.25 , helperLineColor )
+
+					scene.add ( spotLightHelper );
 
 					// bounding box
 
-					var boundingboxHelper = new THREE.BoxHelper ( collada, 0xaaaaaa );
+					var boundingboxHelper = new THREE.BoxHelper ( collada, helperLineColor );
 
-					// scene.add( boundingboxHelper );
+					// scene.add ( boundingboxHelper );
 
-					// grids
+					// plane
+
+					var planeGeometry = new THREE.PlaneGeometry ( 1, 1 );
+					var planeMaterial = new THREE.MeshBasicMaterial ( {color: 0xdddddd, side: THREE.DoubleSide} );
+					var plane = new THREE.Mesh ( planeGeometry, planeMaterial );
+
+					plane.rotation.x = -0.5 * Math.PI;
+
+					var baseBox = new THREE.Box3().setFromObject ( collada )
+
+					var modelTop = baseBox.max.y;
+					var modelBottom = baseBox.min.y;
+
+					plane.position.y = modelBottom;
+
+					plane.receiveShadow = true;
+
+					// scene.add ( plane );
+
+					// grid
 
 					// orthogonal grid
 
-					const orthogonalGrid = new THREE.GridHelper ( 0.5, 16, 0xaaaaaa, 0xaaaaaa );
+					const orthogonalGridHelper = new THREE.GridHelper ( 1, 32, helperLineColor, helperLineColor );
 
-					orthogonalGrid.position.y = 0;
-					orthogonalGrid.position.x = 0;
+					orthogonalGridHelper.position.y = modelBottom;
 
-					// scene.add( orthogonalGrid );
+					orthogonalGridHelper.position.x = 0;
+
+					// orthogonalGridHelper.position.y = 0;
+
+					// scene.add ( orthogonalGridHelper );
 
 					// polar grid
 
-					const polarGridHelper = new THREE.PolarGridHelper ( 0.5, 32, 32, 32, 0xaaaaaa, 0xaaaaaa );
+					const polarGridHelper = new THREE.PolarGridHelper ( 0.5, 32, 32, 32, helperLineColor, helperLineColor );
 
-					polarGridHelper.position.y = 0;
+					polarGridHelper.position.y = modelBottom;
+
 					polarGridHelper.position.x = 0;
+
+					// polarGridHelper.position.y = 0;
 
 					// scene.add ( polarGridHelper );
 
-					window.addEventListener ( 'resize', resize )
+					// orbit controls
+
+					var orbitControls = new OrbitControls ( camera, renderer.domElement );
+
+					orbitControls.keys = {
+						LEFT: 'ArrowLeft',
+						UP: 'ArrowUp',
+						RIGHT: 'ArrowRight',
+						BOTTOM: 'ArrowDown'
+					}
+
+					orbitControls.mouseButtons = {
+						LEFT: THREE.MOUSE.ROTATE,
+						MIDDLE: THREE.MOUSE.PAN,
+						RIGHT: THREE.MOUSE.ROTATE
+
+						// RIGHT: THREE.MOUSE.DOLLY
+					}
+
+					orbitControls.screenSpacePanning = true;
+					orbitControls.enablePan = true;
+					orbitControls.target.set ( 0, 0, 0 );
+					orbitControls.minDistance = near;
+					orbitControls.maxDistance = far;
+
+					orbitControls.update ();
+
+					// transform controls
+
+					var transformControl = new TransformControls ( camera, renderer.domElement );
+
+					transformControl.enabled = false;
+
+					transformControl.showX = false;
+					transformControl.showY = false;
+					transformControl.showZ = false;
+
+					transformControl.addEventListener ( 'change', render );
+
+					window.addEventListener ( 'keydown', function ( event ) {
+
+						switch ( event.keyCode ) {
+
+							// C //
+
+							case 67:
+								const position = camera.position.clone ();
+
+								camera = camera.isPerspectiveCamera ? cameraOrthogonal : cameraPerspective;
+								camera.position.copy ( position );
+
+								orbit.object = camera;
+								transformControl.camera = camera;
+
+								camera.lookAt ( orbit.target.x, orbit.target.y, orbit.target.z );
+
+								resize ();
+
+								break;
+
+							// V //
+
+							case 86:
+								const randomFieldOfView = Math.random () + 0.1;
+								const randomZoom = Math.random () + 0.1;
+
+								cameraPerspective.fov = randomFieldOfView * 160;
+								cameraOrthogonal.bottom = - randomFieldOfView * 500;
+								cameraOrthogonal.top = randomFieldOfView * 500;
+
+								cameraPerspective.zoom = randomZoom * 5;
+								cameraOrthogonal.zoom = randomZoom * 5;
+
+								resize ();
+
+								break;
+
+							// SPACE //
+
+							case 32:
+
+								transformControl.enabled = ! transformControl.enabled;
+
+								break;
+
+							// X //
+
+							case 88:
+
+								transformControl.showX = ! transformControl.showX;
+
+								break;
+
+							// Y //
+
+							case 89:
+
+								transformControl.showY = ! transformControl.showY;
+
+								break;
+
+							// Z //
+
+							case 90:
+
+								transformControl.showZ = ! transformControl.showZ;
+
+								break;
+
+							// L //
+
+							case 76:
+
+								transformControl.setSpace ( transformControl.space === "local" );
+
+								break;
+
+							// Q //
+
+							case 87:
+
+								transformControl.setSpace ( transformControl.space === "world" );
+
+								break;
+
+							// SHIFT //
+
+							case 16:
+
+								transformControl.setTranslationSnap ( 100 );
+								transformControl.setRotationSnap ( THREE.MathUtils.degToRad ( 15 ) );
+								transformControl.setScaleSnap ( 0.25 );
+
+								break;
+
+							// EQUAL [ = ] //
+							// ADD [ + ] //
+
+							case 187:
+							case 107:
+
+								transformControl.setSize ( transformControl.size + 0.1 );
+
+								break;
+
+							// DASH [ — ] //
+							// SUBTRACT [ - ] //
+
+							case 189:
+							case 109:
+
+								transformControl.setSize ( Math.max ( transformControl.size - 0.1, 0.1 ) );
+
+								break;
+
+							// T //
+
+							case 84:
+
+								transformControl.setMode( "translate" );
+
+								break;
+
+							// R //
+
+							case 82:
+
+								transformControl.setMode( "rotate" );
+
+								break;
+
+							// S //
+
+							case 83:
+
+								transformControl.setMode( "scale" );
+
+								break;
+
+						}
+
+					} );
+
+					transformControl.attach ( collada );
+
+					scene.add ( transformControl );
+
+					// client window aspect ratio
+
+					window.addEventListener ( 'resize', resize );
 
 				} );
 
@@ -197,7 +505,7 @@
 
 					camera.aspect = window.innerWidth / window.innerHeight;
 
-					camera.updateProjectionMatrix();
+					camera.updateProjectionMatrix ();
 
 					renderer.setSize ( window.innerWidth, window.innerHeight );
 
@@ -208,7 +516,9 @@
 					if ( resize ( renderer ) ) {
 
 						const canvas = renderer.domElement;
+
 						camera.aspect = canvas.clientWidth / canvas.clientHeight;
+
 						camera.updateProjectionMatrix ();
 
 					}
@@ -222,7 +532,7 @@
 
 			}
 
-			init ();
+			initialize ();
 
 		</script>
 
