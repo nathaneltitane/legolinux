@@ -335,15 +335,21 @@
 
 					// transform controls
 
-					var transformControl = new TransformControls ( camera, renderer.domElement );
+					var transformControls = new TransformControls ( camera, renderer.domElement );
 
-					transformControl.enabled = false;
+					transformControls.enabled = false;
 
-					transformControl.showX = false;
-					transformControl.showY = false;
-					transformControl.showZ = false;
+					transformControls.showX = false;
+					transformControls.showY = false;
+					transformControls.showZ = false;
 
-					transformControl.addEventListener ( 'change', render );
+					transformControls.addEventListener ( 'change', render );
+
+					transformControls.addEventListener ( 'change', function (event) {
+
+						orbitControls.enabled = false;
+
+					})
 
 					window.addEventListener ( 'keydown', function ( event ) {
 
@@ -358,7 +364,7 @@
 								camera.position.copy ( position );
 
 								orbit.object = camera;
-								transformControl.camera = camera;
+								transformControls.camera = camera;
 
 								camera.lookAt ( orbit.target.x, orbit.target.y, orbit.target.z );
 
@@ -387,7 +393,7 @@
 
 							case 32:
 
-								transformControl.enabled = ! transformControl.enabled;
+								transformControls.enabled = ! transformControls.enabled;
 
 								break;
 
@@ -395,7 +401,7 @@
 
 							case 88:
 
-								transformControl.showX = ! transformControl.showX;
+								transformControls.showX = ! transformControls.showX;
 
 								break;
 
@@ -403,7 +409,7 @@
 
 							case 89:
 
-								transformControl.showY = ! transformControl.showY;
+								transformControls.showY = ! transformControls.showY;
 
 								break;
 
@@ -411,7 +417,7 @@
 
 							case 90:
 
-								transformControl.showZ = ! transformControl.showZ;
+								transformControls.showZ = ! transformControls.showZ;
 
 								break;
 
@@ -419,7 +425,7 @@
 
 							case 76:
 
-								transformControl.setSpace ( transformControl.space === "local" );
+								transformControls.setSpace ( transformControls.space === "local" );
 
 								break;
 
@@ -427,7 +433,7 @@
 
 							case 87:
 
-								transformControl.setSpace ( transformControl.space === "world" );
+								transformControls.setSpace ( transformControls.space === "world" );
 
 								break;
 
@@ -435,9 +441,9 @@
 
 							case 16:
 
-								transformControl.setTranslationSnap ( 100 );
-								transformControl.setRotationSnap ( THREE.MathUtils.degToRad ( 15 ) );
-								transformControl.setScaleSnap ( 0.25 );
+								transformControls.setTranslationSnap ( 100 );
+								transformControls.setRotationSnap ( THREE.MathUtils.degToRad ( 15 ) );
+								transformControls.setScaleSnap ( 0.25 );
 
 								break;
 
@@ -447,7 +453,7 @@
 							case 187:
 							case 107:
 
-								transformControl.setSize ( transformControl.size + 0.1 );
+								transformControls.setSize ( transformControls.size + 0.1 );
 
 								break;
 
@@ -457,7 +463,7 @@
 							case 189:
 							case 109:
 
-								transformControl.setSize ( Math.max ( transformControl.size - 0.1, 0.1 ) );
+								transformControls.setSize ( Math.max ( transformControls.size - 0.1, 0.1 ) );
 
 								break;
 
@@ -465,7 +471,7 @@
 
 							case 84:
 
-								transformControl.setMode( "translate" );
+								transformControls.setMode( "translate" );
 
 								break;
 
@@ -473,7 +479,7 @@
 
 							case 82:
 
-								transformControl.setMode( "rotate" );
+								transformControls.setMode( "rotate" );
 
 								break;
 
@@ -481,7 +487,7 @@
 
 							case 83:
 
-								transformControl.setMode( "scale" );
+								transformControls.setMode( "scale" );
 
 								break;
 
@@ -489,9 +495,9 @@
 
 					} );
 
-					transformControl.attach ( collada );
+					transformControls.attach ( collada );
 
-					scene.add ( transformControl );
+					scene.add ( transformControls );
 
 					// client window aspect ratio
 
