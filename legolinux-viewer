@@ -43,7 +43,7 @@ script=$(basename -- "${BASH_SOURCE[0]}")
 
 # version //////////////////////////////////////////////////////////////////////
 
-version="10-01-2023"
+version="10-02-2023"
 
 # usage ////////////////////////////////////////////////////////////////////////
 
@@ -177,6 +177,10 @@ cat << 3D-MODEL-PAGE-HEADER -> "${model_directory}/index.html"
 
 cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 	<body>
+
+		<div id="drawer">
+
+		</div>
 
 		<!-- interactive render container -->
 
