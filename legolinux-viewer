@@ -1249,7 +1249,7 @@ cat << 3D-MODEL-PAGE-CONTROLS ->> "${model_directory}/index.html"
 
 				<div class="flex-cell text-bold">
 
-					Purchase
+					3D Controls
 
 				</div>
 
