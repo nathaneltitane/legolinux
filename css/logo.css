@@ -38,6 +38,10 @@
 	background-image: url(/logo/logo-colors.svg);
 }
 
+.logo-controls {
+	background-image: url(/logo/logo-controls.svg);
+}
+
 .logo-drawer {
 	background-image: url(/logo/logo-drawer.svg);
 }
