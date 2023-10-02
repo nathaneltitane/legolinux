@@ -36,10 +36,6 @@
 
 	<body>
 
-		<div id="drawer">
-
-		</div>
-
 		<!-- interactive render container -->
 
 		<canvas id="canvas" class="cursor-move"></canvas>
@@ -47,6 +43,10 @@
 		<!-- BEGIN 3D VIEWER -->
 
 		<script type="module">
+
+			// this.__private  = null;
+			// this._protected = null;
+			// this.public     = null;
 
 			import * as THREE from 'three';
 
@@ -57,6 +57,9 @@
 			import { TransformControls } from 'three/addons/controls/TransformControls.js';
 
 			function initialize () {
+
+				var self  = this;
+				var debug = true;
 
 				// viewport
 
@@ -72,495 +75,962 @@
 
 				// canvas
 
-				var canvas = document.querySelector ('#canvas');
+				this.canvas = document.querySelector ('#canvas');
 
 				// renderer
 
-				var renderer = new THREE.WebGLRenderer ( { canvas, precision: 'highp', antialias: true, alpha: true } );
+				this.renderer = new THREE.WebGLRenderer ( { canvas, precision: 'highp', antialias: true, alpha: true } );
 
-				renderer.setClearColor ( 0x000000, 0 );
-				renderer.setPixelRatio ( window.devicePixelRatio );
-				renderer.setSize ( viewportWidth, viewportHeight );
+				this.renderer.setClearColor ( 0x000000, 0 );
+				this.renderer.setPixelRatio ( window.devicePixelRatio );
+				this.renderer.setSize ( viewportWidth, viewportHeight );
 
-				renderer.shadowMap.enabled = true;
-				renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+				this.renderer.shadowMap.enabled = true;
+				this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
 				// scene
 
-				var scene = new THREE.Scene ();
+				this.scene = new THREE.Scene ();
 
 				// camera
 
-				var cameraPerspective = new THREE.PerspectiveCamera (45, viewportRatio, 0.1, 5000);
-				var cameraOrthogonal = new THREE.OrthographicCamera ( viewportWidth / - 2, viewportWidth / 2, viewportHeight / 2, viewportHeight / - 2, 1, 1000 );
+				this.cameraPerspective = new THREE.PerspectiveCamera ( 45, viewportRatio, 0.1, 5000 );
+				this.cameraOrthogonal = new THREE.OrthographicCamera ( viewportWidth / - 2, viewportWidth / 2, viewportHeight / 2, viewportHeight / - 2, 1, 1000 );
 
 				// set camera type
 
-				var camera = cameraPerspective;
+				this.camera = self.cameraPerspective;
 
-				camera.position.set ( 45, 30, 45 );
+				this.camera.position.set ( 45, 30, 45 );
 
-				camera.lookAt ( 0, 0, 0 );
+				this.camera.lookAt ( 0, 0, 0 );
+
+				// lights
+
+				this.ambientLight = new THREE.AmbientLight ( 0xffffff, 0.50 );
+
+				this.scene.add ( this.ambientLight );
+
+				// hemispherical lights
+
+				this.hemisphereLight = new THREE.HemisphereLight ( 0xffffff, 0x000000, 1.00 );
+
+				this.hemisphereLight.position.x = 0.0;
+				this.hemisphereLight.position.y = 3.0;
+				this.hemisphereLight.position.z = 0.0;
+
+				this.scene.add ( this.hemisphereLight );
+
+				// point light
+
+				this.pointLight = new THREE.PointLight( 0xffffff, 1.00, 0.00, 2.00 );
+
+				this.pointLight.position.x = 2.0;
+				this.pointLight.position.y = 2.0;
+				this.pointLight.position.z = 2.0;
+
+				this.pointLight.castShadow = true;
+
+				this.pointLight.shadow.bias = - 0.0125;
+				this.pointLight.shadow.camera.far = near;
+				this.pointLight.shadow.camera.near = near;
+				this.pointLight.shadow.focus = 0.25;
+				this.pointLight.shadow.mapSize.height = 4096;
+				this.pointLight.shadow.mapSize.width = 4096;
+
+				this.scene.add ( this.pointLight );
+
+				// directional lights
+
+				this.directionalLight = new THREE.DirectionalLight ( 0xffffff, 1.00 );
+
+				this.directionalLight.position.x = 1.0;
+				this.directionalLight.position.y = 1.0;
+				this.directionalLight.position.z = 1.0;
+
+				this.directionalLight.castShadow = true;
+
+				this.directionalLight.shadow.bias = - 0.0125;
+				this.directionalLight.shadow.camera.far = near;
+				this.directionalLight.shadow.camera.near = near;
+				this.directionalLight.shadow.focus = 0.25;
+				this.directionalLight.shadow.mapSize.height = 4096;
+				this.directionalLight.shadow.mapSize.width = 4096;
+
+				this.scene.add ( this.directionalLight );
+
+				// spotLight
+
+				this.spotLight = new THREE.SpotLight ( 0xffffff, 2.50, 1000 ) ;
+
+				this.spotLight.position.x = 0.5;
+				this.spotLight.position.y = 0.5;
+				this.spotLight.position.z = 0.5;
+
+				this.spotLight.castShadow = true;
+
+				this.spotLight.shadow.bias = - 0.0125;
+				this.spotLight.shadow.camera.far = near;
+				this.spotLight.shadow.camera.near = near;
+				this.spotLight.shadow.focus = 0.25;
+				this.spotLight.shadow.mapSize.height = 4096;
+				this.spotLight.shadow.mapSize.width = 4096;
+
+				this.scene.add ( this.spotLight );
+
+				// helpers
+
+				this.helperLineColor = 0xaaaaaa;
+
+				// axes helper
+
+				this.axesHelper = null;
+
+				this._axesHelper_visible = false;
+
+				this._get_axesHelper = function () {
+
+					if (! self.axesHelper) {
+
+						self.axesHelper = new THREE.AxesHelper ( 1 );
+
+					}
+
+					return self.axesHelper;
+
+				}
+
+				this.axesHelper_ = function () {
+
+					if (this._axesHelper_visible) {
+
+						this._axesHelper_visible = false;
+
+						self.scene.remove ( self._get_axesHelper () );
+					}
+
+					else {
+
+						this._axesHelper_visible = true;
+
+						self.scene.add ( self._get_axesHelper () );
+					}
+				}
+
+				// bounding box helper
+
+				this.boundingBoxHelper = null;
+
+				this._boundingBoxHelper_visible = false;
+
+				this._get_boundingBoxHelper = function () {
+
+					if (! self.boundingBoxHelper) {
+
+						self.boundingBoxHelper = new THREE.BoxHelper ( self.colladaImport, self.helperLineColor );
+
+					}
+
+					return self.boundingBoxHelper;
+				}
+
+				this.boundingBoxHelper_ = function () {
+
+					if (this._boundingBoxHelper_visible) {
+
+						this._boundingBoxHelper_visible = false;
+
+						self.scene.remove ( self._get_boundingBoxHelper () );
+
+					}
+
+					else {
+
+						this._boundingBoxHelper_visible = true;
+
+						self.scene.add ( self._get_boundingBoxHelper () );
+					}
+				}
+
+				// camera helper
+
+				this.cameraHelper = null;
+
+				this._cameraHelper_visible = false;
+
+				this._get_cameraHelper = function () {
+
+					if (! self.cameraHelper) {
+
+						self.cameraHelper = new THREE.CameraHelper ( self.spotLight.shadow.camera, 0.25 , self.helperLineColor );
+
+					}
+
+					return self.cameraHelper;
+
+				}
+
+				this.cameraHelper_ = function () {
+
+					if (this._cameraHelper_visible) {
+
+						this._cameraHelper_visible = false;
+
+						self.scene.remove ( self._get_cameraHelper () );
+
+					}
+
+					else {
+
+						this._cameraHelper_visible = true;
+
+						self.scene.add ( self._get_cameraHelper () );
+
+					}
+
+				}
+
+				// hemisphere light helper
+
+				this.hemisphereLightHelper = null;
+
+				this._hemisphereLightHelper_visible = false;
+
+				this._get_hemisphereLightHelper = function () {
+
+					if (! self.hemisphereLightHelper) {
+
+						self.hemisphereLightHelper = new THREE.HemisphereLightHelper ( self.hemisphereLight, 0.25 , self.helperLineColor );
+
+					}
+
+					return self.hemisphereLightHelper;
+
+				}
+
+				this.hemisphereLightHelper_ = function () {
+
+					if (this._hemisphereLightHelper_visible) {
+
+						this._hemisphereLightHelper_visible = false;
+
+						self.scene.remove ( self._get_hemisphereLightHelper () );
+
+					}
+
+					else {
+
+						this._hemisphereLightHelper_visible = true;
+
+						self.scene.add ( self._get_hemisphereLightHelper () );
+
+					}
+
+				}
+
+				// point light helper
+
+								this.pointLightHelper = null;
+				this._pointLightHelper_visible = false;
+
+				this._get_pointLightHelper = function () {
+
+					if (! self.pointLightHelper) {
+
+						self.pointLightHelper = new THREE.PointLightHelper ( self.pointLight, 0.25 , self.helperLineColor )
+
+					}
+
+					return self.pointLightHelper;
+
+				}
+
+				this.pointLightHelper_ = function () {
+
+					if (this._pointLightHelper_visible) {
+
+						this._pointLightHelper_visible = false;
+
+						self.scene.remove ( self._get_pointLightHelper () );
+
+					}
+
+					else {
+
+						this._pointLightHelper_visible = true;
+
+						self.scene.add ( self._get_pointLightHelper () );
+
+					}
+
+				}
+
+				// directional light helper
+
+				this.directionalLightHelper = null;
+
+				this._directionalLightHelper_visible = false;
+
+				this._get_directionalLightHelper = function () {
+
+					if (! self.directionalLightHelper) {
+
+						self.directionalLightHelper = new THREE.DirectionalLightHelper ( self.directionalLight, 0.25 , self.helperLineColor )
+
+					}
+
+					return self.directionalLightHelper;
+
+				}
+
+				this.directionalLightHelper_ = function () {
+
+					if (this._directionalLightHelper_visible) {
+
+						this._directionalLightHelper_visible = false;
+
+						self.scene.remove ( self._get_directionalLightHelper () );
+
+					}
+
+					else {
+
+						this._directionalLightHelper_visible = true;
+
+						self.scene.add ( self._get_directionalLightHelper () );
+
+					}
+
+				}
+
+				// spotlight helper
+
+				this.spotLightHelper = null;
+
+				this._spotLightHelper_visible = false;
+
+				this._get_spotLightHelper = function () {
+
+					if (! self.spotLightHelper) {
+
+						self.spotLightHelper = new THREE.SpotLightHelper ( self.spotLight, 0.25 , self.helperLineColor )
+
+					}
+
+					return self.spotLightHelper;
+
+				}
+
+				this.spotLightHelper_ = function () {
+
+					if (this._spotLightHelper_visible) {
+
+						this._spotLightHelper_visible = false;
+
+						self.scene.remove ( self._get_spotLightHelper () );
+
+					}
+
+					else {
+
+						this._spotLightHelper_visible = true;
+
+						self.scene.add ( self._get_spotLightHelper () );
+
+					}
+
+				}
+
+				// grids
+
+				// polar grid helper
+
+				this.polarGridHelper = null;
+
+				this._polarGridHelper_visible = false;
+
+				this._get_polarGridHelper = function () {
+
+					if (! self.polarGridHelper) {
+
+						self.polarGridHelper = new THREE.PolarGridHelper ( 0.5, 32, 32, 32, self.helperLineColor, self.helperLineColor );
+
+						self.polarGridHelper.position.y = self._get_boundryBox ().min.y;
+
+						self.polarGridHelper.position.x = 0;
+
+						// self.polarGridHelper.position.y = 0;
+
+					}
+
+					return self.polarGridHelper;
+
+				}
+
+				this.polarGridHelper_ = function () {
+
+					if (this._polarGridHelper_visible) {
+
+						this._polarGridHelper_visible = false;
+
+						self.scene.remove ( self._get_polarGridHelper () );
+
+					}
+
+					else {
+
+						this._polarGridHelper_visible = true;
+
+						self.scene.add ( self._get_polarGridHelper () );
+
+					}
+
+				}
+
+				// orthogonal grid helper
+
+								this.orthogonalGridHelper = null;
+				this._orthogonalGridHelper_visible = false;
+
+				this._get_orthogonalGridHelper = function () {
+
+					if (! self.orthogonalGridHelper) {
+
+						self.orthogonalGridHelper = new THREE.GridHelper ( 1, 32, self.helperLineColor, self.helperLineColor );
+
+						self.orthogonalGridHelper.position.y = self._get_boundryBox().min.y;
+
+						self.orthogonalGridHelper.position.x = 0;
+
+						// self.orthogonalGridHelper.position.y = 0;
+
+					}
+
+					return self.orthogonalGridHelper;
+
+				}
+
+				this.orthogonalGridHelper_ = function () {
+
+					if (this._orthogonalGridHelper_visible) {
+
+						this._orthogonalGridHelper_visible = false;
+
+						self.scene.remove ( self._get_orthogonalGridHelper () );
+
+					}
+
+					else {
+
+						this._orthogonalGridHelper_visible = true;
+
+						self.scene.add ( self._get_orthogonalGridHelper () );
+
+					}
+
+				}
+
+				// boundry box
+
+				this.boundryBox = null;
+
+				this._get_boundryBox = function () {
+
+					if (! self.boundryBox) {
+
+						self.boundryBox = new THREE.Box3().setFromObject ( self.colladaImport )
+
+					}
+
+					return self.boundryBox;
+				}
+
+				// plane
+
+				this.plane = null;
+
+				this._plane_visible = false;
+
+				this._get_plane = function () {
+
+					if (! self.plane) {
+
+						console.log("plane create");
+
+						let planeGeometry = new THREE.PlaneGeometry ( 1, 1 );
+						let planeMaterial = new THREE.MeshBasicMaterial ( {color: 0xdddddd, side: THREE.DoubleSide} );
+
+						self.plane = new THREE.Mesh ( planeGeometry, planeMaterial );
+
+						self.plane.rotation.x = -0.5 * Math.PI;
+
+						self.plane.position.y = self.boundryBox.min.y;
+
+						self.plane.receiveShadow = true;
+					}
+
+					return self.plane;
+				}
+
+				this.plane_ = function () {
+
+					self.boundryBox = self._get_boundryBox ();
+
+					if (this._plane_visible) {
+
+						this._plane_visible = false;
+
+						self.scene.remove ( self._get_plane () );
+
+					}
+
+					else {
+
+						this._plane_visible = true;
+
+						self.scene.add ( self._get_plane () );
+					}
+				}
+
+				// orbit controls
+
+				this.orbitControls = null;
+
+				this._get_orbitControls = function () {
+
+					if (! this.orbitControls) {
+
+						self.orbitControls = new OrbitControls ( self.camera, self.renderer.domElement );
+
+						self.orbitControls.keys = {
+							LEFT: 'ArrowLeft',
+							UP: 'ArrowUp',
+							RIGHT: 'ArrowRight',
+							BOTTOM: 'ArrowDown'
+						}
+
+						self.orbitControls.mouseButtons = {
+							LEFT: THREE.MOUSE.ROTATE,
+							MIDDLE: THREE.MOUSE.PAN,
+							RIGHT: THREE.MOUSE.ROTATE
+
+							// RIGHT: THREE.MOUSE.DOLLY
+						}
+
+						self.orbitControls.screenSpacePanning = true;
+						self.orbitControls.enablePan = true;
+						self.orbitControls.target.set ( 0, 0, 0 );
+						self.orbitControls.minDistance = near;
+						self.orbitControls.maxDistance = far;
+
+						self.orbitControls.update ();
+					}
+
+					return self.orbitControls;
+				}
+
+				// transform controls
+
+				this.transformControls = null;
+
+				this._transformControls_enabled = false;
+
+				this._get_transformControls = function () {
+
+					console.log ("checking transformControls");
+
+					if (! self.transformControls) {
+
+						console.log ("create transformControls");
+
+						self.transformControls = new TransformControls ( self.camera, self.renderer.domElement );
+
+						self.transformControls.enabled = false;
+
+						self.transformControls.size = 0.5;
+
+						self.transformControls.showX = false;
+						self.transformControls.showY = false;
+						self.transformControls.showZ = false;
+
+						self.transformControls.addEventListener ( 'change', self.render );
+					}
+
+					return self.transformControls;
+				}
+
+				// resize
+
+				this.resize = function () {
+
+					self.camera.aspect = window.innerWidth / window.innerHeight;
+
+					self.camera.updateProjectionMatrix ();
+
+					self.renderer.setSize ( window.innerWidth, window.innerHeight );
+
+				}
+
+				this.render = function () {
+
+					if ( self.resize ( self.renderer ) ) {
+
+						self.camera.aspect = canvas.clientWidth / canvas.clientHeight;
+
+						self.camera.updateProjectionMatrix ();
+
+					}
+
+					self.renderer.render ( self.scene, self.camera );
+
+					requestAnimationFrame ( self.render );
+				}
+
+				this.transformKeys = function ( event ) {
+
+					switch ( event.keyCode ) {
+
+						// H //
+
+						case 72:
+
+							self.hemisphereLightHelper_ ();
+
+							break;
+
+						// J //
+
+						case 74:
+
+							self.pointLightHelper_ ();
+
+							break;
+
+						// D //
+
+						case 68:
+
+							self.directionalLightHelper_ ();
+
+							break;
+
+						// I //
+
+						case 73:
+
+							self.spotLightHelper_ ();
+
+							break;
+
+						// A //
+
+						case 65:
+
+							self.axesHelper_ ();
+
+							break;
+
+						// B //
+
+						case 66:
+
+							self.boundingBoxHelper_ ();
+
+							break;
+
+						// P //
+
+						case 80:
+
+							self.polarGridHelper_ ();
+
+							break;
+
+						// O //
+
+						case 79:
+
+							self.orthogonalGridHelper_ ();
+
+							break;
+
+						// L //
+
+						case 76:
+
+							self.plane_ ();
+
+							break;
+
+						// M //
+
+						case 77:
+
+							self.cameraHelper_ ();
+
+							break;
+
+						// C //
+
+						case 67:
+
+							self.position = self.camera.position.clone ();
+
+							self.camera = self.camera.isPerspectiveCamera ? self.cameraOrthogonal : self.cameraPerspective;
+
+							self.camera.position.copy ( self.position );
+
+							self.orbit.object = self.camera;
+
+							self.transformControls.camera = self.camera;
+
+							self.camera.lookAt ( self.orbit.target.x, self.orbit.target.y, self.orbit.target.z );
+
+							self.resize ();
+
+							break;
+
+						// V //
+
+						case 86:
+
+							var randomFieldOfView = Math.random () + 0.1;
+							var randomZoom = Math.random () + 0.1;
+
+							self.cameraPerspective.fov = randomFieldOfView * 160;
+							self.cameraOrthogonal.bottom = - randomFieldOfView * 500;
+							self.cameraOrthogonal.top = randomFieldOfView * 500;
+
+							self.cameraPerspective.zoom = randomZoom * 5;
+							self.cameraOrthogonal.zoom = randomZoom * 5;
+
+							self.resize ();
+
+							break;
+
+						// SPACE //
+
+						case 32:
+
+							self.transformControls.enabled = ! self.transformControls.enabled;
+
+							console.log ( "transformControls enabled = " + self.transformControls.enabled );
+
+							if (self.transformControls.enabled) {
+
+								self.orbitControls.enabled = false;
+
+							}
+
+							else {
+
+								self.orbitControls.enabled = true;
+
+							}
+
+							console.log (  "orbitControls enabled = " + self.orbitControls.enabled );
+
+							break;
+
+						// X //
+
+						case 88:
+
+							self.transformControls.showX = ! self.transformControls.showX;
+
+							break;
+
+						// Y //
+
+						case 89:
+
+							self.transformControls.showY = ! self.transformControls.showY;
+
+							break;
+
+						// Z //
+
+						case 90:
+
+							self.transformControls.showZ = ! self.transformControls.showZ;
+
+							break;
+
+						// W //
+
+						case 87:
+
+							self.transformControls.setSpace ( self.transformControls.space === "world" ? "local" : "world" );
+
+							console.log ( self.transformControls.space );
+
+							break;
+
+						// SHIFT //
+
+						case 16:
+
+							self.transformControls.setTranslationSnap ( 100 );
+							self.transformControls.setRotationSnap ( THREE.MathUtils.degToRad ( 15 ) );
+							self.transformControls.setScaleSnap ( 0.25 );
+
+							break;
+
+						// EQUAL [ = ] //
+						// ADD [ + ] //
+
+						case 187:
+						case 107:
+
+							self.transformControls.setSize ( self.transformControls.size + 0.1 );
+
+							console.log ( self.transformControls.size );
+
+							break;
+
+						// DASH [ — ] //
+						// SUBTRACT [ - ] //
+
+						case 189:
+						case 109:
+
+							self.transformControls.setSize ( Math.max ( self.transformControls.size - 0.1, 0.1 ) );
+
+							console.log ( self.transformControls.size );
+
+							break;
+
+						// T //
+
+						case 84:
+
+							self.orbitControls.enabled = false;
+
+							self.transformControls.enabled = true;
+
+							console.log ( "orbitControls enabled = " + self.orbitControls.enabled );
+
+							console.log ( "transformControls enabled = " + self.transformControls.enabled );
+
+							self.mode = "translate"
+
+							self.transformControls.setMode ( self.mode );
+
+							console.log ( self.mode );
+
+							break;
+
+						// R //
+
+						case 82:
+
+							self.orbitControls.enabled = false;
+
+							self.transformControls.enabled = true;
+
+							console.log ( "orbitControls enabled = " + self.orbitControls.enabled );
+
+							console.log ( "transformControls enabled = " + self.transformControls.enabled );
+
+							self.mode = "rotate"
+
+							self.transformControls.setMode ( self.mode );
+
+							console.log ( self.mode );
+
+							break;
+
+						// S //
+
+						case 83:
+
+							self.orbitControls.enabled = false;
+
+							self.transformControls.enabled = true;
+
+							console.log ( "orbitControls enabled = " + self.orbitControls.enabled );
+
+							console.log ( "transformControls enabled = " + self.transformControls.enabled );
+
+							self.mode = "scale"
+
+							self.transformControls.setMode ( self.mode );
+
+							console.log ( self.mode );
+
+							break;
+
+					}
+				}
 
 				// loader
 
 				var loader = new ColladaLoader ();
 
-				var model = loader.load( '/models/mobile-suits/zgmf-x09a-justice/exports/zgmf-x09a-justice.dae', function ( collada ) {
+				var model = loader.load (
 
-					var collada = collada.scene;
+					'/models/mobile-suits/zgmf-x09a-justice/exports/zgmf-x09a-justice.dae',
 
-					// edges
+						function ( collada ) {
 
-					// collada.children[0].children.forEach ( function (node) {
+						self.colladaImport = collada.scene;
 
-					// 	node.material.polygonOffset = true;
-					// 	node.material.polygonOffsetFactor = 1;
-					// 	node.material.polygonOffsetUnits = 1;
+						// edges
 
-					// 	var edge = new THREE.EdgesHelper(node, 0xff0000);
+						// collada.children[0].children.forEach ( function (node) {
 
-					// 	edge.material.linewidth = 5;
+						// 	node.material.polygonOffset = true;
+						// 	node.material.polygonOffsetFactor = 1;
+						// 	node.material.polygonOffsetUnits = 1;
 
-					// 	scene.add(edge);
+						// 	var edge = new THREE.EdgesHelper(node, 0xff0000);
 
-					// });
+						// 	edge.material.linewidth = 5;
 
-					// enable shadow mapping for individual elements
+						// 	scene.add(edge);
 
-					// mesh traverse
+						// });
 
-					collada.traverse (function (node) {
+						// enable shadow mapping for individual elements
 
-						if (node.isMesh)
+						// mesh traverse
 
-							// console.log (node);
+						self.colladaImport.traverse (function (node) {
 
-							node.castShadow = true;
+							if (node.isMesh)
 
-							node.receiveShadow = true;
+								// console.log (node);
 
-					});
+								node.castShadow = true;
 
-					// load model
+								node.receiveShadow = true;
 
-					scene.add (collada);
+						});
 
-					// lights
+						// load model
 
-					var ambientLight = new THREE.AmbientLight ( 0xffffff, 0.50 );
+						self.scene.add (self.colladaImport);
 
-					scene.add ( ambientLight );
+						// orbit controls
 
-					// hemispherical lights
+						self._get_orbitControls ();
 
-					var hemisphereLight = new THREE.HemisphereLight ( 0xffffff, 0x000000, 1.00 );
+						// transform controls
 
-					hemisphereLight.position.x = 0.0;
-					hemisphereLight.position.y = 3.0;
-					hemisphereLight.position.z = 0.0;
+						self.scene.add ( self._get_transformControls () );
 
-					scene.add ( hemisphereLight );
-
-					// point light
-
-					var pointLight = new THREE.PointLight( 0xffffff, 1.00, 0.00, 2.00 );
-
-					pointLight.position.x = 2.0;
-					pointLight.position.y = 2.0;
-					pointLight.position.z = 2.0;
-
-					pointLight.castShadow = true;
-
-					pointLight.shadow.bias = - 0.0125;
-					pointLight.shadow.camera.far = near;
-					pointLight.shadow.camera.near = near;
-					pointLight.shadow.focus = 0.25;
-					pointLight.shadow.mapSize.height = 4096;
-					pointLight.shadow.mapSize.width = 4096;
-
-					scene.add ( pointLight );
-
-					// directional lights
-
-					var directionalLight = new THREE.DirectionalLight ( 0xffffff, 1.00 );
-
-					directionalLight.position.x = 1.0;
-					directionalLight.position.y = 1.0;
-					directionalLight.position.z = 1.0;
-
-					directionalLight.castShadow = true;
-
-					directionalLight.shadow.bias = - 0.0125;
-					directionalLight.shadow.camera.far = near;
-					directionalLight.shadow.camera.near = near;
-					directionalLight.shadow.focus = 0.25;
-					directionalLight.shadow.mapSize.height = 4096;
-					directionalLight.shadow.mapSize.width = 4096;
-
-					scene.add ( directionalLight );
-
-					// spotLight
-
-					var spotLight = new THREE.SpotLight ( 0xffffff, 2.50, 1000 ) ;
-
-					spotLight.position.x = 0.5;
-					spotLight.position.y = 0.5;
-					spotLight.position.z = 0.5;
-
-					spotLight.castShadow = true;
-
-					spotLight.shadow.bias = - 0.0125;
-					spotLight.shadow.camera.far = near;
-					spotLight.shadow.camera.near = near;
-					spotLight.shadow.focus = 0.25;
-					spotLight.shadow.mapSize.height = 4096;
-					spotLight.shadow.mapSize.width = 4096;
-
-					spotLight.target = collada;
-
-					scene.add ( spotLight );
-
-					// manual update for static scene setup
-
-					// scene.matrixAutoUpdate = false;
-
-					scene.updateMatrix ();
-
-					// helpers
-
-					var helperLineColor = 0xaaaaaa;
-
-					// camera
-
-					var cameraHelper = new THREE.CameraHelper ( spotLight.shadow.camera, 0.25 , helperLineColor );
-
-					// scene.add ( cameraHelper);
-
-					// lights
-
-					var directionalLightHelper = new THREE.DirectionalLightHelper ( directionalLight, 0.25 , helperLineColor )
-
-					// scene.add ( directionalLightHelper );
-
-					var hemisphereLightHelper = new THREE.HemisphereLightHelper ( hemisphereLight, 0.25 , helperLineColor );
-
-					// scene.add ( hemisphereLightHelper );
-
-					var pointLightHelper = new THREE.PointLightHelper ( pointLight, 0.25 , helperLineColor )
-
-					// scene.add ( pointLightHelper );
-
-					var spotLightHelper = new THREE.SpotLightHelper ( spotLight, 0.25 , helperLineColor )
-
-					// scene.add ( spotLightHelper );
-
-					// bounding box
-
-					var boundingboxHelper = new THREE.BoxHelper ( collada, helperLineColor );
-
-					// scene.add ( boundingboxHelper );
-
-					// plane
-
-					var planeGeometry = new THREE.PlaneGeometry ( 1, 1 );
-					var planeMaterial = new THREE.MeshBasicMaterial ( {color: 0xdddddd, side: THREE.DoubleSide} );
-					var plane = new THREE.Mesh ( planeGeometry, planeMaterial );
-
-					plane.rotation.x = -0.5 * Math.PI;
-
-					var baseBox = new THREE.Box3().setFromObject ( collada )
-
-					var modelTop = baseBox.max.y;
-					var modelBottom = baseBox.min.y;
-
-					plane.position.y = modelBottom;
-
-					plane.receiveShadow = true;
-
-					// scene.add ( plane );
-
-					// grid
-
-					// orthogonal grid
-
-					const orthogonalGridHelper = new THREE.GridHelper ( 1, 32, helperLineColor, helperLineColor );
-
-					orthogonalGridHelper.position.y = modelBottom;
-
-					orthogonalGridHelper.position.x = 0;
-
-					// orthogonalGridHelper.position.y = 0;
-
-					// scene.add ( orthogonalGridHelper );
-
-					// polar grid
-
-					const polarGridHelper = new THREE.PolarGridHelper ( 0.5, 32, 32, 32, helperLineColor, helperLineColor );
-
-					polarGridHelper.position.y = modelBottom;
-
-					polarGridHelper.position.x = 0;
-
-					// polarGridHelper.position.y = 0;
-
-					// scene.add ( polarGridHelper );
-
-					// orbit controls
-
-					var orbitControls = new OrbitControls ( camera, renderer.domElement );
-
-					orbitControls.keys = {
-						LEFT: 'ArrowLeft',
-						UP: 'ArrowUp',
-						RIGHT: 'ArrowRight',
-						BOTTOM: 'ArrowDown'
+						self._get_transformControls ().attach ( self.colladaImport );
 					}
+				);
 
-					orbitControls.mouseButtons = {
-						LEFT: THREE.MOUSE.ROTATE,
-						MIDDLE: THREE.MOUSE.PAN,
-						RIGHT: THREE.MOUSE.ROTATE
+				// client window aspect ratio
 
-						// RIGHT: THREE.MOUSE.DOLLY
-					}
+				window.addEventListener ( 'resize', self.resize );
 
-					orbitControls.screenSpacePanning = true;
-					orbitControls.enablePan = true;
-					orbitControls.target.set ( 0, 0, 0 );
-					orbitControls.minDistance = near;
-					orbitControls.maxDistance = far;
-
-					orbitControls.update ();
-
-					// transform controls
-
-					var transformControls = new TransformControls ( camera, renderer.domElement );
-
-					transformControls.enabled = false;
-
-					transformControls.size = 0.5;
-
-					transformControls.showX = false;
-					transformControls.showY = false;
-					transformControls.showZ = false;
-
-					transformControls.addEventListener ( 'change', render );
-
-					transformControls.addEventListener ( 'change', function (event) {
-
-						orbitControls.enabled = false;
-
-					})
-
-					window.addEventListener ( 'keydown', function ( event ) {
-
-						switch ( event.keyCode ) {
-
-							// A //
-
-							case 65:
-
-								orbitControls.enabled = true;
-
-								axesHelper ();
-
-								break;
-
-							// C //
-
-
-							case 67:
-								const position = camera.position.clone ();
-
-								camera = camera.isPerspectiveCamera ? cameraOrthogonal : cameraPerspective;
-								camera.position.copy ( position );
-
-								orbit.object = camera;
-								transformControls.camera = camera;
-
-								camera.lookAt ( orbit.target.x, orbit.target.y, orbit.target.z );
-
-								resize ();
-
-								break;
-
-							// V //
-
-							case 86:
-								const randomFieldOfView = Math.random () + 0.1;
-								const randomZoom = Math.random () + 0.1;
-
-								cameraPerspective.fov = randomFieldOfView * 160;
-								cameraOrthogonal.bottom = - randomFieldOfView * 500;
-								cameraOrthogonal.top = randomFieldOfView * 500;
-
-								cameraPerspective.zoom = randomZoom * 5;
-								cameraOrthogonal.zoom = randomZoom * 5;
-
-								resize ();
-
-								break;
-
-							// SPACE //
-
-							case 32:
-
-								transformControls.enabled = ! transformControls.enabled;
-
-								break;
-
-							// X //
-
-							case 88:
-
-								transformControls.showX = ! transformControls.showX;
-
-								break;
-
-							// Y //
-
-							case 89:
-
-								transformControls.showY = ! transformControls.showY;
-
-								break;
-
-							// Z //
-
-							case 90:
-
-								transformControls.showZ = ! transformControls.showZ;
-
-								break;
-
-							// L //
-
-							case 76:
-
-								transformControls.setSpace ( transformControls.space === "local" );
-
-								break;
-
-							// W //
-
-							case 87:
-
-								transformControls.setSpace ( transformControls.space === "world" );
-
-								break;
-
-							// SHIFT //
-
-							case 16:
-
-								transformControls.setTranslationSnap ( 100 );
-								transformControls.setRotationSnap ( THREE.MathUtils.degToRad ( 15 ) );
-								transformControls.setScaleSnap ( 0.25 );
-
-								break;
-
-							// EQUAL [ = ] //
-							// ADD [ + ] //
-
-							case 187:
-							case 107:
-
-								transformControls.setSize ( transformControls.size + 0.1 );
-
-								break;
-
-							// DASH [ — ] //
-							// SUBTRACT [ - ] //
-
-							case 189:
-							case 109:
-
-								transformControls.setSize ( Math.max ( transformControls.size - 0.1, 0.1 ) );
-
-								break;
-
-							// T //
-
-							case 84:
-
-								transformControls.setMode( "translate" );
-
-								break;
-
-							// R //
-
-							case 82:
-
-								transformControls.setMode( "rotate" );
-
-								break;
-
-							// S //
-
-							case 83:
-
-								transformControls.setMode( "scale" );
-
-								break;
-
-						}
-
-					} );
-
-					transformControls.attach ( collada );
-
-					scene.add ( transformControls );
-
-					// client window aspect ratio
-
-					window.addEventListener ( 'resize', resize );
-
-				} );
-
-				// helpers
-
-				function axesHelper () {
-
-					var axesHelper = new THREE.AxesHelper( 1 );
-
-					scene.add ( axesHelper );
-				}
-
-				// resize
-
-				function resize () {
-
-					camera.aspect = window.innerWidth / window.innerHeight;
-
-					camera.updateProjectionMatrix ();
-
-					renderer.setSize ( window.innerWidth, window.innerHeight );
-
-				}
-
-				function render () {
-
-					if ( resize ( renderer ) ) {
-
-						const canvas = renderer.domElement;
-
-						camera.aspect = canvas.clientWidth / canvas.clientHeight;
-
-						camera.updateProjectionMatrix ();
-
-					}
-
-					renderer.render( scene, camera );
-
-					requestAnimationFrame( render );
-				}
-
-				requestAnimationFrame( render );
-
+				window.addEventListener ( 'keydown', self.transformKeys );
 			}
 
-			initialize ();
+			new initialize ();
 
 		</script>
 
