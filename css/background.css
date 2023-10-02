@@ -1,4 +1,5 @@
-#background {
+#background,
+#background-overlay {
 	background-color: #fefefe;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -9,7 +10,9 @@
 	width: 100vw;
 
 	opacity: 0;
+}
 
+#background {
 	animation-name: background-reveal;
 	animation-delay: 0.5s;
 	animation-duration: 1s;
@@ -17,16 +20,6 @@
 }
 
 #background-overlay {
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-position: center;
-	background-size: cover;
-
-	height: 100vh;
-	width: 100vw;
-
-	opacity: 0;
-
 	-webkit-transition: opacity 0.5s ease;
 	-moz-transition: opacity 0.5s ease;
 	-o-transition: opacity 0.5s ease;
