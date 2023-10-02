@@ -1243,6 +1243,8 @@ cat << 3D-MODEL-PRODUCT ->> "${model_directory}/index.html"
 cat << 3D-MODEL-PAGE-CONTROLS ->> "${model_directory}/index.html"
 		<!-- controls -->
 
+		<div id="controls">
+
 			<div class="flex flex-row flex-middle flex-around controls">
 
 				<div class="flex-cell text-bold">
@@ -1258,6 +1260,9 @@ cat << 3D-MODEL-PAGE-CONTROLS ->> "${model_directory}/index.html"
 				</div>
 
 			</div>
+
+		</div>
+
 
 3D-MODEL-PAGE-CONTROLS
 
