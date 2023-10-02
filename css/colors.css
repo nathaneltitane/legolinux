@@ -9,12 +9,13 @@
 }
 
 #color-selector {
-	border:none;
 	height: 64px;
 	width: 64px;
 	position: fixed;
-	bottom: calc( 80px + 64px + 64px + 10px + 10px + 10px);
-	right: 10px;
+	right: calc( 64px + 10px);
+	margin: -185px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+
 	opacity: 0;
 }
 
@@ -62,11 +63,21 @@
 .selector {
 }
 
+input[type="color"] {
+	border: 0px solid #000000ff;
+	width: 64px;
+	height: 64px;
+
+	-webkit-appearance: none;
+}
+
 input[type="color"]::-webkit-color-swatch {
-	border: none;
+	border: 0px solid #000000ff;
 }
 
 input[type="color"]::-webkit-color-swatch-wrapper {
-	padding: 0px;
+	border: 0px solid #000000ff;
+	padding: 0px 0px 0px 0px ;
 	border-radius: 0px;
+
 }

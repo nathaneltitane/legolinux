@@ -219,6 +219,20 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				const viewportRatio = viewportWidth / viewportHeight;
 
+				// colors
+
+				var black    = 0x000000
+				var charcoal = 0x333333
+				var white    = 0xffffff
+				var cloud    = 0xfefefe
+				var grey     = 0xaaaaaa
+				var red      = 0xff0000
+				var green    = 0x008000
+				var blue     = 0x0000ff
+				var purple   = 0x800080
+				var orange   = 0xffa500
+				var yellow   = 0xffff00
+
 				// canvas
 
 				this.canvas = document.querySelector ('#canvas');
@@ -253,13 +267,25 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// lights
 
-				this.ambientLight = new THREE.AmbientLight ( 0xffffff, 0.50 );
+				this.ambientLight_color = white
+
+				this.ambientLight = new THREE.AmbientLight (
+					this.ambientLight_color,			// color
+					0.25								// intensity
+				);
 
 				this.scene.add ( this.ambientLight );
 
 				// hemispherical lights
 
-				this.hemisphereLight = new THREE.HemisphereLight ( 0xffffff, 0x000000, 1.00 );
+				this.hemisphereLight_color = white
+				this.hemisphereLightHelper_color = black
+
+				this.hemisphereLight = new THREE.HemisphereLight (
+					this.hemisphereLight_color,			// color - sky
+					black,								// color - ground
+					0.75								// intensity
+				);
 
 				this.hemisphereLight.position.x = 0.0;
 				this.hemisphereLight.position.y = 3.0;
@@ -269,7 +295,15 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// point light
 
-				this.pointLight = new THREE.PointLight( 0xffffff, 1.00, 0.00, 2.00 );
+				this.pointLight_color = white
+				this.pointLightHelper_color = black
+
+				this.pointLight = new THREE.PointLight (
+					this.pointLight_color,				// color
+					1.00,								// intensity
+					0.00,								// distance - 0 = no limit
+					2.00								// decay
+				);
 
 				this.pointLight.position.x = 2.0;
 				this.pointLight.position.y = 2.0;
@@ -288,7 +322,13 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// directional lights
 
-				this.directionalLight = new THREE.DirectionalLight ( 0xffffff, 1.00 );
+				this.directionalLight_color = blue
+				this.directionalLightHelper_color = blue
+
+				this.directionalLight = new THREE.DirectionalLight (
+					this.directionalLight_color,		// color
+					1.00								// intensity
+				);
 
 				this.directionalLight.position.x = 1.0;
 				this.directionalLight.position.y = 1.0;
@@ -307,7 +347,17 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// spotLight
 
-				this.spotLight = new THREE.SpotLight ( 0xffffff, 2.50, 1000 ) ;
+				this.spotLight_color = white
+				this.directionalLightHelper_color = black
+
+				this.spotLight = new THREE.SpotLight (
+					this.spotLight_color,				// color
+					2.50,								// intensity
+					1000,								// distance
+					90,									// angle
+					0.25,								// penumbra
+					1.00								// decay
+				) ;
 
 				this.spotLight.position.x = 0.5;
 				this.spotLight.position.y = 0.5;
@@ -326,12 +376,9 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// helpers
 
-				this.helperLineColor = 0xaaaaaa;
-
 				// axes helper
 
 				this.axesHelper = null;
-
 				this._axesHelper_visible = false;
 
 				this._get_axesHelper = function () {
@@ -365,15 +412,16 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// bounding box helper
 
-				this.boundingBoxHelper = null;
+				this.boundingBoxHelper_color = grey;
 
+				this.boundingBoxHelper = null;
 				this._boundingBoxHelper_visible = false;
 
 				this._get_boundingBoxHelper = function () {
 
 					if (! self.boundingBoxHelper) {
 
-						self.boundingBoxHelper = new THREE.BoxHelper ( self.colladaImport, self.helperLineColor );
+						self.boundingBoxHelper = new THREE.BoxHelper ( self.colladaImport, this.boundingBoxHelper_color );
 
 					}
 
@@ -400,15 +448,16 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// camera helper
 
-				this.cameraHelper = null;
+				this.cameraHelper_color = null;
 
+				this.cameraHelper = null;
 				this._cameraHelper_visible = false;
 
 				this._get_cameraHelper = function () {
 
 					if (! self.cameraHelper) {
 
-						self.cameraHelper = new THREE.CameraHelper ( self.spotLight.shadow.camera, 0.25 , self.helperLineColor );
+						self.cameraHelper = new THREE.CameraHelper ( self.spotLight.shadow.camera, 0.25 , this.cameraHelper_color );
 
 					}
 
@@ -439,14 +488,13 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				// hemisphere light helper
 
 				this.hemisphereLightHelper = null;
-
 				this._hemisphereLightHelper_visible = false;
 
 				this._get_hemisphereLightHelper = function () {
 
 					if (! self.hemisphereLightHelper) {
 
-						self.hemisphereLightHelper = new THREE.HemisphereLightHelper ( self.hemisphereLight, 0.25 , self.helperLineColor );
+						self.hemisphereLightHelper = new THREE.HemisphereLightHelper ( self.hemisphereLight, 0.25 , this.hemisphereLightHelper_color );
 
 					}
 
@@ -476,14 +524,14 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// point light helper
 
-								this.pointLightHelper = null;
+				this.pointLightHelper = null;
 				this._pointLightHelper_visible = false;
 
 				this._get_pointLightHelper = function () {
 
 					if (! self.pointLightHelper) {
 
-						self.pointLightHelper = new THREE.PointLightHelper ( self.pointLight, 0.25 , self.helperLineColor )
+						self.pointLightHelper = new THREE.PointLightHelper ( self.pointLight, 0.25 , this.pointLightHelper_color )
 
 					}
 
@@ -514,14 +562,13 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				// directional light helper
 
 				this.directionalLightHelper = null;
-
 				this._directionalLightHelper_visible = false;
 
 				this._get_directionalLightHelper = function () {
 
 					if (! self.directionalLightHelper) {
 
-						self.directionalLightHelper = new THREE.DirectionalLightHelper ( self.directionalLight, 0.25 , self.helperLineColor )
+						self.directionalLightHelper = new THREE.DirectionalLightHelper ( self.directionalLight, 0.25 , this.directionalLightHelper_color )
 
 					}
 
@@ -552,14 +599,13 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				// spotlight helper
 
 				this.spotLightHelper = null;
-
 				this._spotLightHelper_visible = false;
 
 				this._get_spotLightHelper = function () {
 
 					if (! self.spotLightHelper) {
 
-						self.spotLightHelper = new THREE.SpotLightHelper ( self.spotLight, 0.25 , self.helperLineColor )
+						self.spotLightHelper = new THREE.SpotLightHelper ( self.spotLight, 0.25 , this.spotLightHelper_color )
 
 					}
 
@@ -591,15 +637,17 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// polar grid helper
 
-				this.polarGridHelper = null;
+				this.polarGridHelper_color_min = orange;
+				this.polarGridHelper_color_max = charcoal;
 
+				this.polarGridHelper = null;
 				this._polarGridHelper_visible = false;
 
 				this._get_polarGridHelper = function () {
 
 					if (! self.polarGridHelper) {
 
-						self.polarGridHelper = new THREE.PolarGridHelper ( 0.5, 32, 32, 32, self.helperLineColor, self.helperLineColor );
+						self.polarGridHelper = new THREE.PolarGridHelper ( 0.5, 32, 32, 32, this.polarGridHelper_color_min, this.polarGridHelper_color_max );
 
 						self.polarGridHelper.position.y = self._get_boundryBox ().min.y;
 
@@ -635,14 +683,17 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// orthogonal grid helper
 
-								this.orthogonalGridHelper = null;
+				this.orthogonalGridHelper_color_min = purple;
+				this.orthogonalGridHelper_color_max = charcoal;
+
+				this.orthogonalGridHelper = null;
 				this._orthogonalGridHelper_visible = false;
 
 				this._get_orthogonalGridHelper = function () {
 
 					if (! self.orthogonalGridHelper) {
 
-						self.orthogonalGridHelper = new THREE.GridHelper ( 1, 32, self.helperLineColor, self.helperLineColor );
+						self.orthogonalGridHelper = new THREE.GridHelper ( 1, 32, this.orthogonalGridHelper_color_min, this.orthogonalGridHelper_color_max );
 
 						self.orthogonalGridHelper.position.y = self._get_boundryBox().min.y;
 
@@ -693,8 +744,9 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// plane
 
-				this.plane = null;
+				this.plane_color = grey;
 
+				this.plane = null;
 				this._plane_visible = false;
 
 				this._get_plane = function () {
@@ -704,7 +756,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 						console.log("plane create");
 
 						let planeGeometry = new THREE.PlaneGeometry ( 1, 1 );
-						let planeMaterial = new THREE.MeshBasicMaterial ( {color: 0xdddddd, side: THREE.DoubleSide} );
+						let planeMaterial = new THREE.MeshBasicMaterial ( {color: this.plane_color, side: THREE.DoubleSide} );
 
 						self.plane = new THREE.Mesh ( planeGeometry, planeMaterial );
 
@@ -778,7 +830,6 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				// transform controls
 
 				this.transformControls = null;
-
 				this._transformControls_enabled = false;
 
 				this._get_transformControls = function () {
@@ -960,21 +1011,17 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 							self.transformControls.enabled = ! self.transformControls.enabled;
 
+							self.orbitControls.enabled = ! self.orbitControls.enabled;
+
+							self.transformControls.showX = ! self.transformControls.showX;
+
+							self.transformControls.showY = ! self.transformControls.showY;
+
+							self.transformControls.showZ = ! self.transformControls.showZ;
+
+							console.log ( "orbitControls enabled = " + self.orbitControls.enabled );
+
 							console.log ( "transformControls enabled = " + self.transformControls.enabled );
-
-							if (self.transformControls.enabled) {
-
-								self.orbitControls.enabled = false;
-
-							}
-
-							else {
-
-								self.orbitControls.enabled = true;
-
-							}
-
-							console.log (  "orbitControls enabled = " + self.orbitControls.enabled );
 
 							break;
 
@@ -1016,8 +1063,8 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						case 16:
 
-							self.transformControls.setTranslationSnap ( 100 );
-							self.transformControls.setRotationSnap ( THREE.MathUtils.degToRad ( 15 ) );
+							self.transformControls.setTranslationSnap ( 2.5 );
+							self.transformControls.setRotationSnap ( THREE.MathUtils.degToRad ( 360 / 24 ) );
 							self.transformControls.setScaleSnap ( 0.25 );
 
 							break;
@@ -1050,19 +1097,25 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						case 84:
 
-							self.orbitControls.enabled = false;
-
-							self.transformControls.enabled = true;
-
-							console.log ( "orbitControls enabled = " + self.orbitControls.enabled );
-
-							console.log ( "transformControls enabled = " + self.transformControls.enabled );
-
 							self.mode = "translate"
 
 							self.transformControls.setMode ( self.mode );
 
+							self.transformControls.enabled = true;
+
+							self.orbitControls.enabled = false;
+
+							self.transformControls.showX;
+
+							self.transformControls.showY;
+
+							self.transformControls.showZ;
+
 							console.log ( self.mode );
+
+							console.log ( "orbitControls enabled = " + self.orbitControls.enabled );
+
+							console.log ( "transformControls enabled = " + self.transformControls.enabled );
 
 							break;
 
@@ -1070,19 +1123,25 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						case 82:
 
-							self.orbitControls.enabled = false;
-
-							self.transformControls.enabled = true;
-
-							console.log ( "orbitControls enabled = " + self.orbitControls.enabled );
-
-							console.log ( "transformControls enabled = " + self.transformControls.enabled );
-
 							self.mode = "rotate"
 
 							self.transformControls.setMode ( self.mode );
 
+							self.transformControls.enabled = true;
+
+							self.orbitControls.enabled = false;
+
+							self.transformControls.showX;
+
+							self.transformControls.showY;
+
+							self.transformControls.showZ;
+
 							console.log ( self.mode );
+
+							console.log ( "orbitControls enabled = " + self.orbitControls.enabled );
+
+							console.log ( "transformControls enabled = " + self.transformControls.enabled );
 
 							break;
 
@@ -1090,19 +1149,25 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						case 83:
 
-							self.orbitControls.enabled = false;
-
-							self.transformControls.enabled = true;
-
-							console.log ( "orbitControls enabled = " + self.orbitControls.enabled );
-
-							console.log ( "transformControls enabled = " + self.transformControls.enabled );
-
 							self.mode = "scale"
 
 							self.transformControls.setMode ( self.mode );
 
+							self.transformControls.enabled = true;
+
+							self.orbitControls.enabled = false;
+
+							self.transformControls.showX;
+
+							self.transformControls.showY;
+
+							self.transformControls.showZ;
+
 							console.log ( self.mode );
+
+							console.log ( "orbitControls enabled = " + self.orbitControls.enabled );
+
+							console.log ( "transformControls enabled = " + self.transformControls.enabled );
 
 							break;
 
@@ -1110,6 +1175,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				}
 
 				// loader
+
 
 				var loader = new ColladaLoader ();
 
@@ -1141,7 +1207,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						// mesh traverse
 
-						self.colladaImport.traverse (function (node) {
+						self.colladaImport.traverse ( function (node) {
 
 							if (node.isMesh)
 
@@ -1151,11 +1217,11 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 								node.receiveShadow = true;
 
-						});
+						} );
 
 						// load model
 
-						self.scene.add (self.colladaImport);
+						self.scene.add ( self.colladaImport );
 
 						// orbit controls
 
@@ -1240,15 +1306,6 @@ cat << 3D-MODEL-PRODUCT ->> "${model_directory}/index.html"
 
 3D-MODEL-PRODUCT
 
-cat << 3D-MODEL-PAGE-CONTROLS ->> "${model_directory}/index.html"
-		<!-- controls -->
-
-		<div id="controls">
-
-		</div>
-
-3D-MODEL-PAGE-CONTROLS
-
 cat << 3D-MODEL-PAGE-COLORS ->> "${model_directory}/index.html"
 		<!-- colors -->
 
@@ -1257,6 +1314,15 @@ cat << 3D-MODEL-PAGE-COLORS ->> "${model_directory}/index.html"
 		</div>
 
 3D-MODEL-PAGE-COLORS
+
+cat << 3D-MODEL-PAGE-CONTROLS ->> "${model_directory}/index.html"
+		<!-- controls -->
+
+		<div id="controls">
+
+		</div>
+
+3D-MODEL-PAGE-CONTROLS
 
 cat << 3D-MODEL-PAGE-FOOTER ->> "${model_directory}/index.html"
 		<div id="footer" class="section">
