@@ -1,0 +1,37 @@
+.control {
+	color: #000000ff;
+	position: fixed;
+	bottom: calc(80px + 64px + 10px);
+	right: -200px;
+	padding: 10px 10px 10px 10px;
+
+	animation-name: control-reveal;
+	animation-delay: 1.0s;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes control-reveal {
+	0% {right: -200px;}
+
+	100% {right: 0px;}
+}
+
+.control-id {
+	color: #000000ff;
+	position: fixed;
+	top: 10px;
+	left: 10px;
+	opacity: 0;
+
+	animation-name: control-id-reveal;
+	animation-delay: 1.0s;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes control-id-reveal {
+	0% {opacity: 0;}
+
+	100% {opacity: 1;}
+}

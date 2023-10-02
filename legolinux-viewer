@@ -1240,6 +1240,13 @@ cat << 3D-MODEL-PRODUCT ->> "${model_directory}/index.html"
 
 3D-MODEL-PRODUCT
 
+cat << 3D-MODEL-PAGE-CONTROLS ->> "${model_directory}/index.html"
+		<div id="controls">
+
+		</div>
+
+3D-MODEL-PAGE-CONTROLS
+
 cat << 3D-MODEL-PAGE-COLORS ->> "${model_directory}/index.html"
 		<div id="colors">
 
