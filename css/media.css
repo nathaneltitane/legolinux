@@ -78,6 +78,13 @@
 
 }
 
+@media (max-width: 800px) {
+
+	.controls {
+		display: none;
+	}
+}
+
 @media (min-width: 960px) {
 
 	.flex-responsive {

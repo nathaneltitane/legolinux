@@ -5,22 +5,50 @@
 	right: -200px;
 	padding: 10px 10px 10px 10px;
 
-	animation-name: control-reveal;
+	animation-name: controls-reveal;
 	animation-delay: 2.5s;
 	animation-duration: 1s;
 	animation-fill-mode: forwards;
 }
 
-@keyframes control-reveal {
+@keyframes controls-reveal {
 	0% {right: -200px;}
 
 	100% {right: 0px;}
 }
 
+.controls .controls-popup {
+	background-color: #000000cc;
+	color: #ddddddff;
+	width: 325px;
+	min-height: 325px;
+	padding: 10px 10px 10px 10px;
+	margin: 0px 0px 0px 0px;
+	position: fixed;
+	bottom: calc( 80px + 10px + 64px + 64px + 64px + 64px + 10px + 10px + 10px + 10px + 10px);
+	top: 10px;
+	right: 16px;
+	z-index: 1;
 
+	opacity: 0;
+}
 
-@keyframes control-id-reveal {
-	0% {opacity: 0;}
+.controls .controls-popup::after {
+	content: "";
+	border-width: 10px;
+	border-style: solid;
+	border-color: #000000cc transparent transparent transparent;
+	position: absolute;
+	top: 100%;
+	right: calc(( 64px + 10px) / 2 / 2);
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+}
 
-	100% {opacity: 1;}
+.controls .controls-show {
+	opacity: 1;
+
+	animation-delay: 0.5s;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
 }
