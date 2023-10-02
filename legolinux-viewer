@@ -1247,7 +1247,7 @@ cat << 3D-MODEL-PAGE-CONTROLS ->> "${model_directory}/index.html"
 
 			<div class="flex flex-row flex-middle flex-around controls">
 
-				<div class="flex-cell text-bold">
+				<div class="flex-cell text-right text-bold">
 
 					3D Controls
 
