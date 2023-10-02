@@ -78,13 +78,6 @@
 
 }
 
-@media (max-width: 800px) {
-
-	.controls {
-		display: none;
-	}
-}
-
 @media (min-width: 960px) {
 
 	.flex-responsive {
@@ -149,6 +142,10 @@
 
 @media (pointer: coarse) and (max-device-width: 480px) {
 
+	.controls {
+		display: none;
+	}
+
 	.drawer-button {
 		bottom: calc(56px + 80px);
 	}
@@ -158,6 +155,10 @@
 /* // tablet // */
 
 @media (pointer: coarse) and (min-device-width: 800px) {
+
+	.controls {
+		display: none;
+	}
 
 	.drawer-button {
 		bottom: calc(97px + 80px);
