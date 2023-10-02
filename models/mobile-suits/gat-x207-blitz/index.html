@@ -77,19 +77,12 @@
 
 				const viewportRatio = viewportWidth / viewportHeight;
 
-				// colors
+				const left   = - ( viewportRatio / 2 );
+				const right  =   ( viewportRatio / 2 );
+				const top    =   ( viewportRatio / 2 );
+				const bottom = - ( viewportRatio / 2 );
 
-				var black    = 0x000000
-				var charcoal = 0x333333
-				var white    = 0xffffff
-				var cloud    = 0xfefefe
-				var grey     = 0xaaaaaa
-				var red      = 0xff0000
-				var green    = 0x008000
-				var blue     = 0x0000ff
-				var purple   = 0x800080
-				var orange   = 0xffa500
-				var yellow   = 0xffff00
+				// colors
 
 				// canvas
 
@@ -110,14 +103,33 @@
 
 				this.scene = new THREE.Scene ();
 
-				// camera
+								// camera
 
-				this.cameraPerspective = new THREE.PerspectiveCamera ( 45, viewportRatio, 0.1, 5000 );
-				this.cameraOrthogonal = new THREE.OrthographicCamera ( viewportWidth / - 2, viewportWidth / 2, viewportHeight / 2, viewportHeight / - 2, 1, 1000 );
+				// perspective
+
+				this.cameraPerspective = new THREE.PerspectiveCamera (
+					45,									// fov
+					viewportRatio,						// aspect
+					0.25,								// near
+					2.5									// far
+				);
+
+				// orthographic
+
+				this.cameraOrthographic = new THREE.OrthographicCamera (
+					left,								// left - frustum
+					right,								// right - frustum
+					top,								// top - frustum
+					bottom, 							// bottom - frustum
+					0.5,								// near
+					2.5									// far
+				);
 
 				// set camera type
 
 				this.camera = self.cameraPerspective;
+
+				// this.camera = self.cameraOrthographic;
 
 				this.camera.position.set ( 45, 30, 45 );
 
@@ -831,15 +843,13 @@
 
 							self.position = self.camera.position.clone ();
 
-							self.camera = self.camera.isPerspectiveCamera ? self.cameraOrthogonal : self.cameraPerspective;
+							self.camera = self.camera.isPerspectiveCamera ? self.cameraOrthographic : self.cameraPerspective;
 
 							self.camera.position.copy ( self.position );
 
-							self.orbit.object = self.camera;
-
 							self.transformControls.camera = self.camera;
 
-							self.camera.lookAt ( self.orbit.target.x, self.orbit.target.y, self.orbit.target.z );
+							self.camera.lookAt ( 0, 0, 0 );
 
 							self.resize ();
 
@@ -1033,7 +1043,6 @@
 				}
 
 				// loader
-
 
 				var loader = new ColladaLoader ();
 
