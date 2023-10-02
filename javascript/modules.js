@@ -32,4 +32,10 @@ $(function() {
 
 	});
 
+	$.get("/modules/controls.html", function (data) {
+
+		$("#controls").append (data);
+
+	});
+
 });
