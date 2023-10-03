@@ -190,10 +190,6 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 		<script type="module">
 
-			// this.__private  = null;
-			// this._protected = null;
-			// this.public     = null;
-
 			import * as THREE from 'three';
 
 			import { ColladaLoader } from 'three/addons/loaders/ColladaLoader.js';
@@ -205,14 +201,16 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 			function initialize () {
 
 				var self  = this;
-				var debug = true;
 
 				// viewport
 
 				const factor = 0.1;
 
-				const near = (factor * 4 );
-				const far = (near * 4 );
+				const near = ( factor * 4 );
+				const far  = ( near * 4 );
+
+				const cameraNear = near
+				const cameraFar = ( factor * 4 * 1000 )
 
 				const viewportWidth = window.innerWidth;
 				const viewportHeight = window.innerHeight;
@@ -246,9 +244,10 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				this.renderer = new THREE.WebGLRenderer ( { canvas, precision: 'highp', antialias: true, alpha: true } );
 
-				this.renderer.setClearColor ( 0x000000, 0 );
+				this.renderer.setClearColor ( black, 0 );
 				this.renderer.setPixelRatio ( window.devicePixelRatio );
 				this.renderer.setSize ( viewportWidth, viewportHeight );
+				this.renderer.clear ();
 
 				this.renderer.shadowMap.enabled = true;
 				this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
@@ -261,27 +260,27 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// perspective
 
-				this.cameraPerspective = new THREE.PerspectiveCamera (
+				this.perspectiveCamera = new THREE.PerspectiveCamera (
 					45,									// fov
 					viewportRatio,						// aspect
-					0.1,								// near
-					400									// far
+					cameraNear,							// near
+					cameraFar							// far
 				);
 
 				// orthographic
 
-				this.cameraOrthographic = new THREE.OrthographicCamera (
+				this.orthographicCamera = new THREE.OrthographicCamera (
 					left,								// left - frustum
 					right,								// right - frustum
 					top,								// top - frustum
 					bottom, 							// bottom - frustum
-					0.1,								// near
-					400									// far
+					cameraNear,							// near
+					cameraFar							// far
 				);
 
 				// set camera type
 
-				this.camera = self.cameraPerspective;
+				this.camera = self.perspectiveCamera;
 
 				this.camera.position.set ( 45, 30, 45 );
 
@@ -289,7 +288,10 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// lights
 
-				this.ambientLight_color = white
+				// ambient light
+
+				this.ambientLight_color = white;
+				this.ambientLightHelper_color = null;
 
 				this.ambientLight = new THREE.AmbientLight (
 					this.ambientLight_color,			// color
@@ -298,10 +300,10 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				this.scene.add ( this.ambientLight );
 
-				// hemispherical lights
+				// hemispherical light
 
-				this.hemisphereLight_color = white
-				this.hemisphereLightHelper_color = black
+				this.hemisphereLight_color = white;
+				this.hemisphereLightHelper_color = black;
 
 				this.hemisphereLight = new THREE.HemisphereLight (
 					this.hemisphereLight_color,			// color - sky
@@ -317,8 +319,8 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// point light
 
-				this.pointLight_color = white
-				this.pointLightHelper_color = black
+				this.pointLight_color = white;
+				this.pointLightHelper_color = black;
 
 				this.pointLight = new THREE.PointLight (
 					this.pointLight_color,				// color
@@ -334,7 +336,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				this.pointLight.castShadow = true;
 
 				this.pointLight.shadow.bias = - 0.0125;
-				this.pointLight.shadow.camera.far = near;
+				this.pointLight.shadow.camera.far = far;
 				this.pointLight.shadow.camera.near = near;
 				this.pointLight.shadow.focus = 0.25;
 				this.pointLight.shadow.mapSize.height = 4096;
@@ -344,8 +346,8 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// directional light - 0
 
-				this.directionalLight_0_color = red
-				this.directionalLight_0_Helper_color = red
+				this.directionalLight_0_color = red;
+				this.directionalLight_0_Helper_color = red;
 
 				this.directionalLight_0 = new THREE.DirectionalLight (
 				this.directionalLight_0_color,			// color
@@ -359,7 +361,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				this.directionalLight_0.castShadow = true;
 
 				this.directionalLight_0.shadow.bias = - 0.0125;
-				this.directionalLight_0.shadow.camera.far = near;
+				this.directionalLight_0.shadow.camera.far = far;
 				this.directionalLight_0.shadow.camera.near = near;
 				this.directionalLight_0.shadow.focus = 0.25;
 				this.directionalLight_0.shadow.mapSize.height = 4096;
@@ -369,22 +371,22 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// directional light - 1
 
-				this.directionalLight_1_color = green
-				this.directionalLight_1_Helper_color = green
+				this.directionalLight_1_color = green;
+				this.directionalLight_1_Helper_color = green;
 
 				this.directionalLight_1 = new THREE.DirectionalLight (
 				this.directionalLight_1_color,			// color
 					0.25								// intensity
 				);
 
-				this.directionalLight_1.position.x = -1.0;
+				this.directionalLight_1.position.x = - 1.0;
 				this.directionalLight_1.position.y = 1.0;
 				this.directionalLight_1.position.z = 1.0;
 
 				this.directionalLight_1.castShadow = true;
 
 				this.directionalLight_1.shadow.bias = - 0.0125;
-				this.directionalLight_1.shadow.camera.far = near;
+				this.directionalLight_1.shadow.camera.far = far;
 				this.directionalLight_1.shadow.camera.near = near;
 				this.directionalLight_1.shadow.focus = 0.25;
 				this.directionalLight_1.shadow.mapSize.height = 4096;
@@ -402,12 +404,12 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				this.directionalLight_2.position.x = 0.0;
 				this.directionalLight_2.position.y = 1.0;
-				this.directionalLight_2.position.z = -1.0;
+				this.directionalLight_2.position.z = - 1.0;
 
 				this.directionalLight_2.castShadow = true;
 
 				this.directionalLight_2.shadow.bias = - 0.0125;
-				this.directionalLight_2.shadow.camera.far = near;
+				this.directionalLight_2.shadow.camera.far = far;
 				this.directionalLight_2.shadow.camera.near = near;
 				this.directionalLight_2.shadow.focus = 0.25;
 				this.directionalLight_2.shadow.mapSize.height = 4096;
@@ -417,8 +419,8 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// spotLight
 
-				this.spotLight_color = white
-				this.spotLightHelper_color = black
+				this.spotLight_color = white;
+				this.spotLightHelper_color = black;
 
 				this.spotLight = new THREE.SpotLight (
 					this.spotLight_color,				// color
@@ -436,7 +438,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				this.spotLight.castShadow = true;
 
 				this.spotLight.shadow.bias = - 0.0125;
-				this.spotLight.shadow.camera.far = near;
+				this.spotLight.shadow.camera.far = far;
 				this.spotLight.shadow.camera.near = near;
 				this.spotLight.shadow.focus = 0.25;
 				this.spotLight.shadow.mapSize.height = 4096;
@@ -449,13 +451,15 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				// axes helper
 
 				this.axesHelper = null;
-				this._axesHelper_visible = false;
+				this.axesHelper_visible = false;
 
-				this._get_axesHelper = function () {
+				this.get_axesHelper = function () {
 
-					if (! self.axesHelper) {
+					if ( ! self.axesHelper ) {
 
-						self.axesHelper = new THREE.AxesHelper ( 1 );
+						const axesLength  = 0.5;
+
+						self.axesHelper = new THREE.AxesHelper ( axesLength );
 
 					}
 
@@ -465,18 +469,18 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				this.axesHelper_ = function () {
 
-					if (this._axesHelper_visible) {
+					if ( this.axesHelper_visible ) {
 
-						this._axesHelper_visible = false;
+						this.axesHelper_visible = false;
 
-						self.scene.remove ( self._get_axesHelper () );
+						self.scene.remove ( self.get_axesHelper () );
 					}
 
 					else {
 
-						this._axesHelper_visible = true;
+						this.axesHelper_visible = true;
 
-						self.scene.add ( self._get_axesHelper () );
+						self.scene.add ( self.get_axesHelper () );
 					}
 				}
 
@@ -485,11 +489,11 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				this.boundingBoxHelper_color = grey;
 
 				this.boundingBoxHelper = null;
-				this._boundingBoxHelper_visible = false;
+				this.boundingBoxHelper_visible = false;
 
-				this._get_boundingBoxHelper = function () {
+				this.get_boundingBoxHelper = function () {
 
-					if (! self.boundingBoxHelper) {
+					if ( ! self.boundingBoxHelper ) {
 
 						self.boundingBoxHelper = new THREE.BoxHelper ( self.colladaImport, this.boundingBoxHelper_color );
 
@@ -502,19 +506,19 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				this.boundingBoxHelper_ = function () {
 
-					if (this._boundingBoxHelper_visible) {
+					if ( this.boundingBoxHelper_visible ) {
 
-						this._boundingBoxHelper_visible = false;
+						this.boundingBoxHelper_visible = false;
 
-						self.scene.remove ( self._get_boundingBoxHelper () );
+						self.scene.remove ( self.get_boundingBoxHelper () );
 
 					}
 
 					else {
 
-						this._boundingBoxHelper_visible = true;
+						this.boundingBoxHelper_visible = true;
 
-						self.scene.add ( self._get_boundingBoxHelper () );
+						self.scene.add ( self.get_boundingBoxHelper () );
 					}
 				}
 
@@ -523,11 +527,11 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				this.cameraHelper_color = null;
 
 				this.cameraHelper = null;
-				this._cameraHelper_visible = false;
+				this.cameraHelper_visible = false;
 
-				this._get_cameraHelper = function () {
+				this.get_cameraHelper = function () {
 
-					if (! self.cameraHelper) {
+					if ( ! self.cameraHelper)  {
 
 						self.cameraHelper = new THREE.CameraHelper ( self.spotLight.shadow.camera, 0.25 , this.cameraHelper_color );
 
@@ -541,19 +545,19 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				this.cameraHelper_ = function () {
 
-					if (this._cameraHelper_visible) {
+					if ( this.cameraHelper_visible ) {
 
-						this._cameraHelper_visible = false;
+						this.cameraHelper_visible = false;
 
-						self.scene.remove ( self._get_cameraHelper () );
+						self.scene.remove ( self.get_cameraHelper () );
 
 					}
 
 					else {
 
-						this._cameraHelper_visible = true;
+						this.cameraHelper_visible = true;
 
-						self.scene.add ( self._get_cameraHelper () );
+						self.scene.add ( self.get_cameraHelper () );
 
 					}
 
@@ -562,11 +566,11 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				// hemisphere light helper
 
 				this.hemisphereLightHelper = null;
-				this._hemisphereLightHelper_visible = false;
+				this.hemisphereLightHelper_visible = false;
 
-				this._get_hemisphereLightHelper = function () {
+				this.get_hemisphereLightHelper = function () {
 
-					if (! self.hemisphereLightHelper) {
+					if ( ! self.hemisphereLightHelper ) {
 
 						self.hemisphereLightHelper = new THREE.HemisphereLightHelper ( self.hemisphereLight, 0.25 , this.hemisphereLightHelper_color );
 
@@ -580,19 +584,19 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				this.hemisphereLightHelper_ = function () {
 
-					if (this._hemisphereLightHelper_visible) {
+					if ( this.hemisphereLightHelper_visible ) {
 
-						this._hemisphereLightHelper_visible = false;
+						this.hemisphereLightHelper_visible = false;
 
-						self.scene.remove ( self._get_hemisphereLightHelper () );
+						self.scene.remove ( self.get_hemisphereLightHelper () );
 
 					}
 
 					else {
 
-						this._hemisphereLightHelper_visible = true;
+						this.hemisphereLightHelper_visible = true;
 
-						self.scene.add ( self._get_hemisphereLightHelper () );
+						self.scene.add ( self.get_hemisphereLightHelper () );
 
 					}
 
@@ -601,11 +605,11 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				// point light helper
 
 				this.pointLightHelper = null;
-				this._pointLightHelper_visible = false;
+				this.pointLightHelper_visible = false;
 
-				this._get_pointLightHelper = function () {
+				this.get_pointLightHelper = function () {
 
-					if (! self.pointLightHelper) {
+					if ( ! self.pointLightHelper ) {
 
 						self.pointLightHelper = new THREE.PointLightHelper ( self.pointLight, 0.25 , this.pointLightHelper_color )
 
@@ -619,32 +623,32 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				this.pointLightHelper_ = function () {
 
-					if (this._pointLightHelper_visible) {
+					if ( this.pointLightHelper_visible ) {
 
-						this._pointLightHelper_visible = false;
+						this.pointLightHelper_visible = false;
 
-						self.scene.remove ( self._get_pointLightHelper () );
+						self.scene.remove ( self.get_pointLightHelper () );
 
 					}
 
 					else {
 
-						this._pointLightHelper_visible = true;
+						this.pointLightHelper_visible = true;
 
-						self.scene.add ( self._get_pointLightHelper () );
+						self.scene.add ( self.get_pointLightHelper () );
 
 					}
 
 				}
 
-				// directional light helper 0
+				// directional light helper - 0
 
 				this.directionalLight_0_Helper = null;
-				this._directionalLight_0_Helper_visible = false;
+				this.directionalLight_0_Helper_visible = false;
 
-				this._get_directionalLight_0_Helper = function () {
+				this.get_directionalLight_0_Helper = function () {
 
-					if (! self.directionalLight_0_Helper) {
+					if ( ! self.directionalLight_0_Helper ) {
 
 						self.directionalLight_0_Helper = new THREE.DirectionalLightHelper ( self.directionalLight_0, 0.25 , this.directionalLight_0_Helper_color )
 
@@ -657,32 +661,32 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				this.directionalLight_0_Helper_ = function () {
 
-					if (this._directionalLight_0_Helper_visible) {
+					if ( this.directionalLight_0_Helper_visible ) {
 
-						this._directionalLight_0_Helper_visible = false;
+						this.directionalLight_0_Helper_visible = false;
 
-						self.scene.remove ( self._get_directionalLight_0_Helper () );
+						self.scene.remove ( self.get_directionalLight_0_Helper () );
 
 					}
 
 					else {
 
-						this._directionalLight_0_Helper_visible = true;
+						this.directionalLight_0_Helper_visible = true;
 
-						self.scene.add ( self._get_directionalLight_0_Helper () );
+						self.scene.add ( self.get_directionalLight_0_Helper () );
 
 					}
 
 				}
 
-				// directional light helper 1
+				// directional light helper - 1
 
 				this.directionalLight_1_Helper = null;
-				this._directionalLight_1_Helper_visible = false;
+				this.directionalLight_1_Helper_visible = false;
 
-				this._get_directionalLight_1_Helper = function () {
+				this.get_directionalLight_1_Helper = function () {
 
-					if (! self.directionalLight_1_Helper) {
+					if ( ! self.directionalLight_1_Helper ) {
 
 						self.directionalLight_1_Helper = new THREE.DirectionalLightHelper ( self.directionalLight_1, 0.25 , this.directionalLight_1_Helper_color )
 
@@ -696,32 +700,32 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				this.directionalLight_1_Helper_ = function () {
 
-					if (this._directionalLight_1_Helper_visible) {
+					if ( this.directionalLight_1_Helper_visible ) {
 
-						this._directionalLight_1_Helper_visible = false;
+						this.directionalLight_1_Helper_visible = false;
 
-						self.scene.remove ( self._get_directionalLight_1_Helper () );
+						self.scene.remove ( self.get_directionalLight_1_Helper () );
 
 					}
 
 					else {
 
-						this._directionalLight_1_Helper_visible = true;
+						this.directionalLight_1_Helper_visible = true;
 
-						self.scene.add ( self._get_directionalLight_1_Helper () );
+						self.scene.add ( self.get_directionalLight_1_Helper () );
 
 					}
 
 				}
 
-				// directional light helper 2
+				// directional light helper - 2
 
 				this.directionalLight_2_Helper = null;
-				this._directionalLight_2_Helper_visible = false;
+				this.directionalLight_2_Helper_visible = false;
 
-				this._get_directionalLight_2_Helper = function () {
+				this.get_directionalLight_2_Helper = function () {
 
-					if (! self.directionalLight_2_Helper) {
+					if ( ! self.directionalLight_2_Helper ) {
 
 						self.directionalLight_2_Helper = new THREE.DirectionalLightHelper ( self.directionalLight_2, 0.25 , this.directionalLight_2_Helper_color )
 
@@ -735,19 +739,19 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				this.directionalLight_2_Helper_ = function () {
 
-					if (this._directionalLight_2_Helper_visible) {
+					if ( this.directionalLight_2_Helper_visible ) {
 
-						this._directionalLight_2_Helper_visible = false;
+						this.directionalLight_2_Helper_visible = false;
 
-						self.scene.remove ( self._get_directionalLight_2_Helper () );
+						self.scene.remove ( self.get_directionalLight_2_Helper () );
 
 					}
 
 					else {
 
-						this._directionalLight_2_Helper_visible = true;
+						this.directionalLight_2_Helper_visible = true;
 
-						self.scene.add ( self._get_directionalLight_2_Helper () );
+						self.scene.add ( self.get_directionalLight_2_Helper () );
 
 					}
 
@@ -756,11 +760,11 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				// spotlight helper
 
 				this.spotLightHelper = null;
-				this._spotLightHelper_visible = false;
+				this.spotLightHelper_visible = false;
 
-				this._get_spotLightHelper = function () {
+				this.get_spotLightHelper = function () {
 
-					if (! self.spotLightHelper) {
+					if ( ! self.spotLightHelper ) {
 
 						self.spotLightHelper = new THREE.SpotLightHelper ( self.spotLight, 0.25 , this.spotLightHelper_color )
 
@@ -773,19 +777,19 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				this.spotLightHelper_ = function () {
 
-					if (this._spotLightHelper_visible) {
+					if ( this.spotLightHelper_visible ) {
 
-						this._spotLightHelper_visible = false;
+						this.spotLightHelper_visible = false;
 
-						self.scene.remove ( self._get_spotLightHelper () );
+						self.scene.remove ( self.get_spotLightHelper () );
 
 					}
 
 					else {
 
-						this._spotLightHelper_visible = true;
+						this.spotLightHelper_visible = true;
 
-						self.scene.add ( self._get_spotLightHelper () );
+						self.scene.add ( self.get_spotLightHelper () );
 
 					}
 
@@ -799,15 +803,15 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				this.polarGridHelper_color_max = charcoal;
 
 				this.polarGridHelper = null;
-				this._polarGridHelper_visible = false;
+				this.polarGridHelper_visible = false;
 
-				this._get_polarGridHelper = function () {
+				this.get_polarGridHelper = function () {
 
-					if (! self.polarGridHelper) {
+					if ( ! self.polarGridHelper ) {
 
 						self.polarGridHelper = new THREE.PolarGridHelper ( 0.5, 32, 32, 32, this.polarGridHelper_color_min, this.polarGridHelper_color_max );
 
-						self.polarGridHelper.position.y = self._get_boundryBox ().min.y;
+						self.polarGridHelper.position.y = self.get_boundryBox ().min.y;
 
 						self.polarGridHelper.position.x = 0;
 
@@ -823,19 +827,19 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				this.polarGridHelper_ = function () {
 
-					if (this._polarGridHelper_visible) {
+					if ( this.polarGridHelper_visible ) {
 
-						this._polarGridHelper_visible = false;
+						this.polarGridHelper_visible = false;
 
-						self.scene.remove ( self._get_polarGridHelper () );
+						self.scene.remove ( self.get_polarGridHelper () );
 
 					}
 
 					else {
 
-						this._polarGridHelper_visible = true;
+						this.polarGridHelper_visible = true;
 
-						self.scene.add ( self._get_polarGridHelper () );
+						self.scene.add ( self.get_polarGridHelper () );
 
 					}
 
@@ -847,15 +851,15 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				this.orthogonalGridHelper_color_max = charcoal;
 
 				this.orthogonalGridHelper = null;
-				this._orthogonalGridHelper_visible = false;
+				this.orthogonalGridHelper_visible = false;
 
-				this._get_orthogonalGridHelper = function () {
+				this.get_orthogonalGridHelper = function () {
 
-					if (! self.orthogonalGridHelper) {
+					if ( ! self.orthogonalGridHelper ) {
 
 						self.orthogonalGridHelper = new THREE.GridHelper ( 1, 32, this.orthogonalGridHelper_color_min, this.orthogonalGridHelper_color_max );
 
-						self.orthogonalGridHelper.position.y = self._get_boundryBox().min.y;
+						self.orthogonalGridHelper.position.y = self.get_boundryBox().min.y;
 
 						self.orthogonalGridHelper.position.x = 0;
 
@@ -870,33 +874,33 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				this.orthogonalGridHelper_ = function () {
 
-					if (this._orthogonalGridHelper_visible) {
+					if ( this.orthogonalGridHelper_visible ) {
 
-						this._orthogonalGridHelper_visible = false;
+						this.orthogonalGridHelper_visible = false;
 
-						self.scene.remove ( self._get_orthogonalGridHelper () );
+						self.scene.remove ( self.get_orthogonalGridHelper () );
 
 					}
 
 					else {
 
-						this._orthogonalGridHelper_visible = true;
+						this.orthogonalGridHelper_visible = true;
 
-						self.scene.add ( self._get_orthogonalGridHelper () );
+						self.scene.add ( self.get_orthogonalGridHelper () );
 
 					}
 
 				}
 
-				// boundry box
+				// plane
 
 				this.boundryBox = null;
 
-				this._get_boundryBox = function () {
+				this.get_boundryBox = function () {
 
-					if (! self.boundryBox) {
+					if ( ! self.boundryBox ) {
 
-						self.boundryBox = new THREE.Box3().setFromObject ( self.colladaImport )
+						self.boundryBox = new THREE.Box3 ().setFromObject ( self.colladaImport )
 
 						console.log ( "boundry box" );
 					}
@@ -904,23 +908,24 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 					return self.boundryBox;
 				}
 
-				// plane
-
 				this.plane_color = grey;
 
 				this.plane = null;
-				this._plane_visible = false;
+				this.plane_visible = false;
 
-				this._get_plane = function () {
+				this.get_plane = function () {
 
 					if ( ! self.plane ) {
 
-						let planeGeometry = new THREE.PlaneGeometry ( 1, 1 );
+						const planeWidth  = 1;
+						const planeLength = 1;
+
+						let planeGeometry = new THREE.PlaneGeometry ( planeWidth, planeLength );
 						let planeMaterial = new THREE.MeshBasicMaterial ( {color: this.plane_color, side: THREE.DoubleSide} );
 
 						self.plane = new THREE.Mesh ( planeGeometry, planeMaterial );
 
-						self.plane.rotation.x = -0.5 * Math.PI;
+						self.plane.rotation.x = - ( 0.5 * Math.PI );
 
 						self.plane.position.y = self.boundryBox.min.y;
 
@@ -935,31 +940,31 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				this.plane_ = function () {
 
-					self.boundryBox = self._get_boundryBox ();
+					self.boundryBox = self.get_boundryBox ();
 
-					if (this._plane_visible) {
+					if ( this.plane_visible ) {
 
-						this._plane_visible = false;
+						this.plane_visible = false;
 
-						self.scene.remove ( self._get_plane () );
+						self.scene.remove ( self.get_plane () );
 
 					}
 
 					else {
 
-						this._plane_visible = true;
+						this.plane_visible = true;
 
-						self.scene.add ( self._get_plane () );
+						self.scene.add ( self.get_plane () );
 					}
 				}
 
-				// camera switch toggle
+				// camera toggle
 
-				this.cameraSwitchToggle_ = function () {
+				this.cameraToggle_ = function () {
 
 					self.position = self.camera.position.clone ();
 
-					self.camera = self.camera.isPerspectiveCamera ? self.cameraOrthographic : self.cameraPerspective;
+					self.camera = self.camera.isPerspectiveCamera ? self.orthographicCamera : self.perspectiveCamera;
 
 					self.cameraType = self.camera.isPerspectiveCamera ? 'perspective' : 'orthographic';
 
@@ -969,7 +974,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					self.camera.lookAt ( 0, 0, 0 );
 
-					if (self.camera.isOrthographicCamera) {
+					if ( self.camera.isOrthographicCamera ) {
 
 						self.camera.zoom = 1000;
 
@@ -985,9 +990,9 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				this.orbitControls = null;
 
-				this._get_orbitControls = function () {
+				this.get_orbitControls = function () {
 
-					if (! this.orbitControls) {
+					if ( ! this.orbitControls ) {
 
 						self.orbitControls = new OrbitControls ( self.camera, self.renderer.domElement );
 
@@ -1021,13 +1026,13 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				// transform controls
 
 				this.transformControls = null;
-				this._transformControls_enabled = false;
+				this.transformControls_enabled = false;
 
-				this._get_transformControls = function () {
+				this.get_transformControls = function () {
 
 					console.log ("checking transformControls");
 
-					if (! self.transformControls) {
+					if ( ! self.transformControls ) {
 
 						console.log ("create transformControls");
 
@@ -1191,7 +1196,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						case 67:
 
-							self.cameraSwitchToggle_ ();
+							self.cameraToggle_ ();
 
 							break;
 
@@ -1202,12 +1207,12 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 							var randomFieldOfView = Math.random () + 0.1;
 							var randomZoom = Math.random () + 0.1;
 
-							self.cameraPerspective.fov = randomFieldOfView * 160;
-							self.cameraOrthographic.bottom = - randomFieldOfView * 500;
-							self.cameraOrthographic.top = randomFieldOfView * 500;
+							self.perspectiveCamera.fov = randomFieldOfView * 160;
+							self.orthographicCamera.bottom = - randomFieldOfView * 500;
+							self.orthographicCamera.top = randomFieldOfView * 500;
 
-							self.cameraPerspective.zoom = randomZoom * 5;
-							self.cameraOrthographic.zoom = randomZoom * 5;
+							self.perspectiveCamera.zoom = randomZoom * 5;
+							self.orthographicCamera.zoom = randomZoom * 5;
 
 							self.resize ();
 
@@ -1396,7 +1401,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						// edges
 
-						// collada.children[0].children.forEach ( function (node) {
+						// collada.children[0].children.forEach ( function ( node ) {
 
 						// 	node.material.polygonOffset = true;
 						// 	node.material.polygonOffsetFactor = 1;
@@ -1414,9 +1419,9 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						// mesh traverse
 
-						self.colladaImport.traverse ( function (node) {
+						self.colladaImport.traverse ( function ( node ) {
 
-							if (node.isMesh)
+							if ( node.isMesh )
 
 								// console.log (node);
 
@@ -1432,13 +1437,13 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						// orbit controls
 
-						self._get_orbitControls ();
+						self.get_orbitControls ();
 
 						// transform controls
 
-						self.scene.add ( self._get_transformControls () );
+						self.scene.add ( self.get_transformControls () );
 
-						self._get_transformControls ().attach ( self.colladaImport );
+						self.get_transformControls ().attach ( self.colladaImport );
 					}
 				);
 
