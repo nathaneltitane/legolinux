@@ -141,8 +141,6 @@
 
 				this.camera = self.cameraPerspective;
 
-				// this.camera = self.cameraOrthographic;
-
 				this.camera.position.set ( 45, 30, 45 );
 
 				this.camera.lookAt ( 0, 0, 0 );
@@ -1032,6 +1030,12 @@
 							self.transformControls.camera = self.camera;
 
 							self.camera.lookAt ( 0, 0, 0 );
+
+							if (self.camera.isOrthographicCamera) {
+
+								self.camera.zoom = 1000;
+
+							}
 
 							self.resize ();
 
