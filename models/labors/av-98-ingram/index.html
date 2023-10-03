@@ -1060,15 +1060,24 @@
 
 						case 86:
 
-							var randomFieldOfView = Math.random () + 0.1;
-							var randomZoom = Math.random () + 0.1;
+							const randomFieldOfView = Math.random () + 0.1;
+							const randomZoom = Math.random () + 0.1;
 
-							self.perspectiveCamera.fov = randomFieldOfView * 160;
-							self.orthographicCamera.bottom = - randomFieldOfView * 500;
-							self.orthographicCamera.top = randomFieldOfView * 500;
+							const perspectiveRandomFieldOfView  = ( randomFieldOfView * 160 );
+							const perspectiveRandomZoom         = ( randomZoom * 5 );
 
-							self.perspectiveCamera.zoom = randomZoom * 5;
-							self.orthographicCamera.zoom = randomZoom * 5 * 1000;
+							const orthographicRandomFieldOfView = ( randomFieldOfView * 500 );
+							const orthographicRandomZoom        = ( randomZoom * 5 * 1000 );
+
+							self.perspectiveCamera.fov = ( perspectiveRandomFieldOfView );
+
+							self.perspectiveCamera.zoom = ( perspectiveRandomZoom );
+
+							self.orthographicCamera.bottom = - ( orthographicRandomFieldOfView );
+
+							self.orthographicCamera.top = ( orthographicRandomFieldOfView );
+
+							self.orthographicCamera.zoom = ( orthographicRandomZoom );
 
 							self.resize ();
 
