@@ -1274,9 +1274,15 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						case 16:
 
-							self.transformControls.setTranslationSnap ( 2.5 );
-							self.transformControls.setRotationSnap ( THREE.MathUtils.degToRad ( 360 / 24 ) );
-							self.transformControls.setScaleSnap ( 0.25 );
+							const snapFactor = 0.25;
+
+							const translationSnap = ( this.snapFactor * 10 );
+							const rotationSnap = ( THREE.MathUtils.degToRad ( 360 / 24 ) );
+							const scaleSnap = ( this.snapfactor * 1 );
+
+							self.transformControls.setTranslationSnap ( this.translationSnap );
+							self.transformControls.setRotationSnap ( this.rotationSnap );
+							self.transformControls.setScaleSnap ( this.scaleSnap );
 
 							break;
 
