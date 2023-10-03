@@ -214,10 +214,8 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				const near = (factor * 4 );
 				const far = (near * 4 );
 
-				// define 1:1 ratio
-
 				const viewportWidth = window.innerWidth;
-				const viewportHeight = window.innerWidth;
+				const viewportHeight = window.innerHeight;
 
 				const viewportRatio = viewportWidth / viewportHeight;
 
