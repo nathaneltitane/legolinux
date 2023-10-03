@@ -1032,11 +1032,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				this.get_transformControls = function () {
 
-					console.log ("checking transformControls");
-
 					if ( ! self.transformControls ) {
-
-						console.log ("create transformControls");
 
 						self.transformControls = new TransformControls ( self.camera, self.renderer.domElement );
 
