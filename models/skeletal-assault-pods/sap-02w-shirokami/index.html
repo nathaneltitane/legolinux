@@ -905,6 +905,22 @@
 
 				}
 
+				// snap toggle
+
+				this.snapToggle_ = function () {
+
+					const snapFactor = 0.25;
+
+					const translationSnap = ( this.snapFactor * 10 );
+					const rotationSnap = ( THREE.MathUtils.degToRad ( 360 / 24 ) );
+					const scaleSnap = ( this.snapfactor * 1 );
+
+					self.transformControls.setTranslationSnap ( this.translationSnap );
+					self.transformControls.setRotationSnap ( this.rotationSnap );
+					self.transformControls.setScaleSnap ( this.scaleSnap );
+
+				}
+
 				// orbit controls
 
 				this.orbitControls = null;
@@ -1167,15 +1183,7 @@
 
 						case 16:
 
-							const snapFactor = 0.25;
-
-							const translationSnap = ( this.snapFactor * 10 );
-							const rotationSnap = ( THREE.MathUtils.degToRad ( 360 / 24 ) );
-							const scaleSnap = ( this.snapfactor * 1 );
-
-							self.transformControls.setTranslationSnap ( this.translationSnap );
-							self.transformControls.setRotationSnap ( this.rotationSnap );
-							self.transformControls.setScaleSnap ( this.scaleSnap );
+							self.snapToggle_ ();
 
 							break;
 
