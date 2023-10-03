@@ -1167,6 +1167,8 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 							self.camera = self.camera.isPerspectiveCamera ? self.cameraOrthographic : self.cameraPerspective;
 
+							self.cameraType = self.camera.isPerspectiveCamera ? 'orthographic' : 'perspective'
+
 							self.camera.position.copy ( self.position );
 
 							self.transformControls.camera = self.camera;
@@ -1181,7 +1183,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 							self.resize ();
 
-							console.log ( "camera" );
+							console.log ( "camera = " self.cameraType );
 
 							break;
 

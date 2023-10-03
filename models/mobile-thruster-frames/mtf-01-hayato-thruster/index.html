@@ -1025,6 +1025,8 @@
 
 							self.camera = self.camera.isPerspectiveCamera ? self.cameraOrthographic : self.cameraPerspective;
 
+							self.cameraType = self.camera.isPerspectiveCamera ? 'orthographic' : 'perspective'
+
 							self.camera.position.copy ( self.position );
 
 							self.transformControls.camera = self.camera;
@@ -1039,7 +1041,7 @@
 
 							self.resize ();
 
-							console.log ( "camera" );
+							console.log ( "camera = " self.cameraType );
 
 							break;
 
