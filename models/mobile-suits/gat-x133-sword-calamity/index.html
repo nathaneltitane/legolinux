@@ -915,9 +915,9 @@
 					const rotationSnap = ( THREE.MathUtils.degToRad ( 360 / 24 ) );
 					const scaleSnap = ( snapFactor / 2 );
 
-					console.log ( "snap factor = " + snapFactor);
+					var snapMode = self.transformControls.getMode ();
 
-					if ( self.transformControls.getMode == "translate" ) {
+					if ( snapMode == "translate" ) {
 
 						this.transformControls.setTranslationSnap ( translationSnap );
 
@@ -925,7 +925,7 @@
 
 					}
 
-					if ( self.transformControls.getMode == "rotate" ) {
+					if ( snapMode == "rotate" ) {
 
 						self.transformControls.setRotationSnap ( rotationSnap );
 
@@ -933,7 +933,7 @@
 
 					}
 
-					if ( self.transformControls.getMode == "scale" ) {
+					if ( snapMode == "scale" ) {
 
 						self.transformControls.setScaleSnap ( scaleSnap );
 
