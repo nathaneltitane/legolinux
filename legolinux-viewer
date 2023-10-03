@@ -1025,11 +1025,36 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				this.resize = function () {
 
-					self.camera.aspect = window.innerWidth / window.innerHeight;
+					if ( self.camera.isOrthographicCamera ) {
 
-					self.camera.updateProjectionMatrix ();
+						// update aspect ration definitions
 
-					self.renderer.setSize ( window.innerWidth, window.innerHeight );
+						const viewPortWidthOrthographic = window.innerWidth;
+						const viewPortHeightOrthographic = window.innerHeight;
+
+						// update orthographic camera aspect ratio
+
+						self.camera.left   = - ( viewPortWidthOrthographic / 2 );
+						self.camera.right  = ( viewPortWidthOrthographic / 2 );
+						self.camera.top    = ( viewPortHeightOrthographic / 2 );
+						self.camera.bottom = - (viewPortHeightOrthographic / 2 );
+
+						self.camera.updateProjectionMatrix ();
+
+						// pdate renderer size
+
+						self.renderer.setSize ( viewPortWidthOrthographic, viewPortHeightOrthographic );
+
+					}
+
+					else {
+							self.camera.aspect = window.innerWidth / window.innerHeight;
+
+							self.camera.updateProjectionMatrix ();
+
+							self.renderer.setSize ( window.innerWidth, window.innerHeight );
+
+					}
 
 				}
 
