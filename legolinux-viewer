@@ -1017,6 +1017,26 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				}
 
+				// transform toggle
+
+				this.transformToggle_ = function () {
+
+					self.transformControls.enabled = ! self.transformControls.enabled;
+
+					self.orbitControls.enabled = ! self.orbitControls.enabled;
+
+					self.transformControls.showX = ! self.transformControls.showX;
+
+					self.transformControls.showY = ! self.transformControls.showY;
+
+					self.transformControls.showZ = ! self.transformControls.showZ;
+
+					console.log ( "orbitControls enabled = " + self.orbitControls.enabled );
+
+					console.log ( "transformControls enabled = " + self.transformControls.enabled );
+
+				}
+
 				// controls space toggle
 
 				this.controlsSpace_ = function () {
@@ -1249,19 +1269,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						case 32:
 
-							self.transformControls.enabled = ! self.transformControls.enabled;
-
-							self.orbitControls.enabled = ! self.orbitControls.enabled;
-
-							self.transformControls.showX = ! self.transformControls.showX;
-
-							self.transformControls.showY = ! self.transformControls.showY;
-
-							self.transformControls.showZ = ! self.transformControls.showZ;
-
-							console.log ( "orbitControls enabled = " + self.orbitControls.enabled );
-
-							console.log ( "transformControls enabled = " + self.transformControls.enabled );
+							self.transformToggle_ ();
 
 							break;
 
