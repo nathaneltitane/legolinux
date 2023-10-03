@@ -1035,7 +1035,19 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					console.log ( "transformControls enabled = " + self.transformControls.enabled );
 
-					console.log ( "transform mode = " + self.mode );
+					if ( self.transformControls.enabled ) {
+
+						var transformStatus = "active";
+
+					}
+
+					else {
+
+						var transformStatus = "inctive";
+
+					 }
+
+					console.log ( "transform mode = " + transformModeStatus );
 
 				}
 
