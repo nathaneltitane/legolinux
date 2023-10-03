@@ -1035,9 +1035,9 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 						// update orthographic camera aspect ratio
 
 						self.camera.left   = - ( viewPortWidthOrthographic / 2 );
-						self.camera.right  = ( viewPortWidthOrthographic / 2 );
-						self.camera.top    = ( viewPortHeightOrthographic / 2 );
-						self.camera.bottom = - (viewPortHeightOrthographic / 2 );
+						self.camera.right  =   ( viewPortWidthOrthographic / 2 );
+						self.camera.top    =   ( viewPortHeightOrthographic / 2 );
+						self.camera.bottom = - ( viewPortHeightOrthographic / 2 );
 
 						self.camera.updateProjectionMatrix ();
 
