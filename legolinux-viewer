@@ -1047,7 +1047,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					 }
 
-					console.log ( "transform mode = " + transformModeStatus );
+					console.log ( "transform mode = " + transformStatus );
 
 				}
 
