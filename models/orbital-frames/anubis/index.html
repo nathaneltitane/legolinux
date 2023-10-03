@@ -850,8 +850,10 @@
 
 				this.viewToggle_ = function () {
 
-					const randomFieldOfView = Math.random () + 0.1;
-					const randomZoom = Math.random () + 0.1;
+					const randomViewFactor  = ( Math.random () + 0.1 );
+
+					const randomFieldOfView = randomViewFactor
+					const randomZoom        = randomViewFactor
 
 					const perspectiveRandomFieldOfView  = ( randomFieldOfView * 160 );
 					const perspectiveRandomZoom         = ( randomZoom * 5 );
