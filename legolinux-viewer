@@ -1051,16 +1051,36 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				this.snapToggle_ = function () {
 
-					const snapFactor = 0.25;
+					let snapFactor = 0.25;
 
-					const translationSnap = ( this.snapFactor * 10 );
+					const translationSnap = ( snapFactor * 10 );
 					const rotationSnap = ( THREE.MathUtils.degToRad ( 360 / 24 ) );
-					const scaleSnap = ( this.snapfactor * 1 );
+					const scaleSnap = ( snapFactor / 2 );
 
-					self.transformControls.setTranslationSnap ( this.translationSnap );
-					self.transformControls.setRotationSnap ( this.rotationSnap );
-					self.transformControls.setScaleSnap ( this.scaleSnap );
+					console.log ( "snap factor = " + snapFactor);
 
+					if ( self.transformControls.getMode == "translate" ) {
+
+						this.transformControls.setTranslationSnap ( translationSnap );
+
+						console.log ( "translation snap = " + translationSnap );
+
+					}
+
+					if ( self.transformControls.getMode == "rotate" ) {
+
+						self.transformControls.setRotationSnap ( rotationSnap );
+
+						console.log ( "rotation snap = " + rotationSnap );
+
+					}
+
+					if ( self.transformControls.getMode == "scale" ) {
+
+						self.transformControls.setScaleSnap ( scaleSnap );
+
+						console.log ( "scale snap = " + scaleSnap );
+					}
 				}
 
 				// orbit controls
