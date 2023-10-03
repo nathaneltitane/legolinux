@@ -1210,7 +1210,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 							self.orthographicCamera.top = randomFieldOfView * 500;
 
 							self.perspectiveCamera.zoom = randomZoom * 5;
-							self.orthographicCamera.zoom = randomZoom * 5;
+							self.orthographicCamera.zoom = randomZoom * 5 * 1000;
 
 							self.resize ();
 
