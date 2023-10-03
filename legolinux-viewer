@@ -988,6 +988,24 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				}
 
+				// camera position toggle
+
+				this.cameraPositionToggle_ = function () {
+
+					self.camera = self.orthographicCamera
+
+					self.orbitControls = new OrbitControls ( self.camera, self.renderer.domElement );
+
+					self.camera.position.set ( self.cameraPositionMatrix_x, self.cameraPositionMatrix_y, self.cameraPositionMatrix_z );
+					self.camera.lookAt ( 0, 0, 0 );
+					self.camera.zoom = 3000;
+
+					self.camera.updateProjectionMatrix ();
+
+					console.log ( "camera position = " + self.cameraPositionMatrix_x, self.cameraPositionMatrix_y, self.cameraPositionMatrix_z );
+
+				}
+
 				// view toggle
 
 				this.viewToggle_ = function () {
@@ -1312,6 +1330,96 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 						case 86:
 
 							self.viewToggle_ ();
+
+							break;
+
+						// 1 //
+
+						case 49:
+						case 97:
+
+							// front
+
+							self.cameraPositionMatrix_x = 0;
+							self.cameraPositionMatrix_y = 0;
+							self.cameraPositionMatrix_z = 1;
+
+							self.cameraPositionToggle_ ();
+
+							break;
+
+						// 2 //
+
+						case 50:
+						case 98:
+
+							// back
+
+							self.cameraPositionMatrix_x = 0;
+							self.cameraPositionMatrix_y = 0;
+							self.cameraPositionMatrix_z = -1;
+
+							self.cameraPositionToggle_ ();
+
+							break;
+
+						// 3 //
+
+						case 51:
+						case 99:
+
+							// left
+
+							self.cameraPositionMatrix_x = 1;
+							self.cameraPositionMatrix_y = 0;
+							self.cameraPositionMatrix_z = 0;
+
+							self.cameraPositionToggle_ ();
+
+							break;
+
+						// 4 //
+
+						case 52:
+						case 100:
+
+							// right
+
+							self.cameraPositionMatrix_x = -1;
+							self.cameraPositionMatrix_y = 0;
+							self.cameraPositionMatrix_z = 0;
+
+							self.cameraPositionToggle_ ();
+
+							break;
+
+						// 5 //
+
+						case 53:
+						case 101:
+
+							// top
+
+							self.cameraPositionMatrix_x = 0;
+							self.cameraPositionMatrix_y = 1;
+							self.cameraPositionMatrix_z = 0;
+
+							self.cameraPositionToggle_ ();
+
+							break;
+
+						// 6 //
+
+						case 54:
+						case 102:
+
+							// bottom
+
+							self.cameraPositionMatrix_x = 0;
+							self.cameraPositionMatrix_y = -1;
+							self.cameraPositionMatrix_z = 0;
+
+							self.cameraPositionToggle_ ();
 
 							break;
 
