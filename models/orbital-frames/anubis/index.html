@@ -834,6 +834,8 @@
 
 					if ( self.camera.isOrthographicCamera ) {
 
+						self.orbitControls = new OrbitControls ( self.camera, self.renderer.domElement );
+
 						self.camera.zoom = 1000;
 
 					}
