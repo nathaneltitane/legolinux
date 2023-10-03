@@ -1391,11 +1391,11 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 							self.transformControls.showZ;
 
-							console.log ( "transform mode = " + self.mode );
-
 							console.log ( "orbitControls enabled = " + self.orbitControls.enabled );
 
 							console.log ( "transformControls enabled = " + self.transformControls.enabled );
+
+							console.log ( "transform mode = " + self.mode );
 
 							break;
 
@@ -1417,11 +1417,11 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 							self.transformControls.showZ;
 
-							console.log ( "transform mode = " + self.mode );
-
 							console.log ( "orbitControls enabled = " + self.orbitControls.enabled );
 
 							console.log ( "transformControls enabled = " + self.transformControls.enabled );
+
+							console.log ( "transform mode = " + self.mode );
 
 							break;
 
@@ -1443,14 +1443,13 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 							self.transformControls.showZ;
 
-							console.log ( "transform mode = " + self.mode );
-
 							console.log ( "orbitControls enabled = " + self.orbitControls.enabled );
 
 							console.log ( "transformControls enabled = " + self.transformControls.enabled );
 
-							break;
+							console.log ( "transform mode = " + self.mode );
 
+							break;
 					}
 				}
 
