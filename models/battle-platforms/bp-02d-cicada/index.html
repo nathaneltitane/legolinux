@@ -84,6 +84,18 @@
 
 				// colors
 
+				var black    = 0x000000
+				var charcoal = 0x333333
+				var white    = 0xffffff
+				var cloud    = 0xfefefe
+				var grey     = 0xaaaaaa
+				var red      = 0xff0000
+				var green    = 0x008000
+				var blue     = 0x0000ff
+				var purple   = 0x800080
+				var orange   = 0xffa500
+				var yellow   = 0xffff00
+
 				// canvas
 
 				this.canvas = document.querySelector ('#canvas');
@@ -103,15 +115,15 @@
 
 				this.scene = new THREE.Scene ();
 
-								// camera
+				// camera
 
 				// perspective
 
 				this.cameraPerspective = new THREE.PerspectiveCamera (
 					45,									// fov
 					viewportRatio,						// aspect
-					0.25,								// near
-					2.5									// far
+					0.1,								// near
+					400									// far
 				);
 
 				// orthographic
@@ -121,8 +133,8 @@
 					right,								// right - frustum
 					top,								// top - frustum
 					bottom, 							// bottom - frustum
-					0.5,								// near
-					2.5									// far
+					0.1,								// near
+					400									// far
 				);
 
 				// set camera type
@@ -190,30 +202,78 @@
 
 				this.scene.add ( this.pointLight );
 
-				// directional lights
+				// directional light - 0
 
-				this.directionalLight_color = blue
-				this.directionalLightHelper_color = blue
+				this.directionalLight_0_color = red
+				this.directionalLight_0_Helper_color = red
 
-				this.directionalLight = new THREE.DirectionalLight (
-					this.directionalLight_color,		// color
-					1.00								// intensity
+				this.directionalLight_0 = new THREE.DirectionalLight (
+				this.directionalLight_0_color,			// color
+					0.25								// intensity
 				);
 
-				this.directionalLight.position.x = 1.0;
-				this.directionalLight.position.y = 1.0;
-				this.directionalLight.position.z = 1.0;
+				this.directionalLight_0.position.x = 1.0;
+				this.directionalLight_0.position.y = 1.0;
+				this.directionalLight_0.position.z = 1.0;
 
-				this.directionalLight.castShadow = true;
+				this.directionalLight_0.castShadow = true;
 
-				this.directionalLight.shadow.bias = - 0.0125;
-				this.directionalLight.shadow.camera.far = near;
-				this.directionalLight.shadow.camera.near = near;
-				this.directionalLight.shadow.focus = 0.25;
-				this.directionalLight.shadow.mapSize.height = 4096;
-				this.directionalLight.shadow.mapSize.width = 4096;
+				this.directionalLight_0.shadow.bias = - 0.0125;
+				this.directionalLight_0.shadow.camera.far = near;
+				this.directionalLight_0.shadow.camera.near = near;
+				this.directionalLight_0.shadow.focus = 0.25;
+				this.directionalLight_0.shadow.mapSize.height = 4096;
+				this.directionalLight_0.shadow.mapSize.width = 4096;
 
-				this.scene.add ( this.directionalLight );
+				this.scene.add ( this.directionalLight_0 );
+
+				// directional light - 1
+
+				this.directionalLight_1_color = green
+				this.directionalLight_1_Helper_color = green
+
+				this.directionalLight_1 = new THREE.DirectionalLight (
+				this.directionalLight_1_color,			// color
+					0.25								// intensity
+				);
+
+				this.directionalLight_1.position.x = -1.0;
+				this.directionalLight_1.position.y = 1.0;
+				this.directionalLight_1.position.z = 1.0;
+
+				this.directionalLight_1.castShadow = true;
+
+				this.directionalLight_1.shadow.bias = - 0.0125;
+				this.directionalLight_1.shadow.camera.far = near;
+				this.directionalLight_1.shadow.camera.near = near;
+				this.directionalLight_1.shadow.focus = 0.25;
+				this.directionalLight_1.shadow.mapSize.height = 4096;
+				this.directionalLight_1.shadow.mapSize.width = 4096;
+
+				this.scene.add ( this.directionalLight_1 );
+
+				this.directionalLight_2_color = blue
+				this.directionalLight_2_Helper_color = blue
+
+				this.directionalLight_2 = new THREE.DirectionalLight (
+				this.directionalLight_2_color,			// color
+					0.25								// intensity
+				);
+
+				this.directionalLight_2.position.x = 0.0;
+				this.directionalLight_2.position.y = 1.0;
+				this.directionalLight_2.position.z = -1.0;
+
+				this.directionalLight_2.castShadow = true;
+
+				this.directionalLight_2.shadow.bias = - 0.0125;
+				this.directionalLight_2.shadow.camera.far = near;
+				this.directionalLight_2.shadow.camera.near = near;
+				this.directionalLight_2.shadow.focus = 0.25;
+				this.directionalLight_2.shadow.mapSize.height = 4096;
+				this.directionalLight_2.shadow.mapSize.width = 4096;
+
+				this.scene.add ( this.directionalLight_2 );
 
 				// spotLight
 
@@ -293,6 +353,8 @@
 
 						self.boundingBoxHelper = new THREE.BoxHelper ( self.colladaImport, this.boundingBoxHelper_color );
 
+						console.log ( "bounding box" );
+
 					}
 
 					return self.boundingBoxHelper;
@@ -328,6 +390,8 @@
 					if (! self.cameraHelper) {
 
 						self.cameraHelper = new THREE.CameraHelper ( self.spotLight.shadow.camera, 0.25 , this.cameraHelper_color );
+
+						console.log ( "camera" );
 
 					}
 
@@ -366,6 +430,8 @@
 
 						self.hemisphereLightHelper = new THREE.HemisphereLightHelper ( self.hemisphereLight, 0.25 , this.hemisphereLightHelper_color );
 
+						console.log ( "hemisphere light" );
+
 					}
 
 					return self.hemisphereLightHelper;
@@ -403,6 +469,8 @@
 
 						self.pointLightHelper = new THREE.PointLightHelper ( self.pointLight, 0.25 , this.pointLightHelper_color )
 
+						console.log ( "point light" );
+
 					}
 
 					return self.pointLightHelper;
@@ -429,38 +497,117 @@
 
 				}
 
-				// directional light helper
+				// directional light helper 0
 
-				this.directionalLightHelper = null;
-				this._directionalLightHelper_visible = false;
+				this.directionalLight_0_Helper = null;
+				this._directionalLight_0_Helper_visible = false;
 
-				this._get_directionalLightHelper = function () {
+				this._get_directionalLight_0_Helper = function () {
 
-					if (! self.directionalLightHelper) {
+					if (! self.directionalLight_0_Helper) {
 
-						self.directionalLightHelper = new THREE.DirectionalLightHelper ( self.directionalLight, 0.25 , this.directionalLightHelper_color )
+						self.directionalLight_0_Helper = new THREE.DirectionalLightHelper ( self.directionalLight_0, 0.25 , this.directionalLight_0_Helper_color )
 
+						console.log ( "directional light 0" );
 					}
 
-					return self.directionalLightHelper;
+					return self.directionalLight_0_Helper;
 
 				}
 
-				this.directionalLightHelper_ = function () {
+				this.directionalLight_0_Helper_ = function () {
 
-					if (this._directionalLightHelper_visible) {
+					if (this._directionalLight_0_Helper_visible) {
 
-						this._directionalLightHelper_visible = false;
+						this._directionalLight_0_Helper_visible = false;
 
-						self.scene.remove ( self._get_directionalLightHelper () );
+						self.scene.remove ( self._get_directionalLight_0_Helper () );
 
 					}
 
 					else {
 
-						this._directionalLightHelper_visible = true;
+						this._directionalLight_0_Helper_visible = true;
 
-						self.scene.add ( self._get_directionalLightHelper () );
+						self.scene.add ( self._get_directionalLight_0_Helper () );
+
+					}
+
+				}
+
+				// directional light helper 1
+
+				this.directionalLight_1_Helper = null;
+				this._directionalLight_1_Helper_visible = false;
+
+				this._get_directionalLight_1_Helper = function () {
+
+					if (! self.directionalLight_1_Helper) {
+
+						self.directionalLight_1_Helper = new THREE.DirectionalLightHelper ( self.directionalLight_1, 0.25 , this.directionalLight_1_Helper_color )
+
+						console.log ( "directional light 1" );
+
+					}
+
+					return self.directionalLight_1_Helper;
+
+				}
+
+				this.directionalLight_1_Helper_ = function () {
+
+					if (this._directionalLight_1_Helper_visible) {
+
+						this._directionalLight_1_Helper_visible = false;
+
+						self.scene.remove ( self._get_directionalLight_1_Helper () );
+
+					}
+
+					else {
+
+						this._directionalLight_1_Helper_visible = true;
+
+						self.scene.add ( self._get_directionalLight_1_Helper () );
+
+					}
+
+				}
+
+				// directional light helper 2
+
+				this.directionalLight_2_Helper = null;
+				this._directionalLight_2_Helper_visible = false;
+
+				this._get_directionalLight_2_Helper = function () {
+
+					if (! self.directionalLight_2_Helper) {
+
+						self.directionalLight_2_Helper = new THREE.DirectionalLightHelper ( self.directionalLight_2, 0.25 , this.directionalLight_2_Helper_color )
+
+						console.log ( "directional light 2" );
+
+					}
+
+					return self.directionalLight_2_Helper;
+
+				}
+
+				this.directionalLight_2_Helper_ = function () {
+
+					if (this._directionalLight_2_Helper_visible) {
+
+						this._directionalLight_2_Helper_visible = false;
+
+						self.scene.remove ( self._get_directionalLight_2_Helper () );
+
+					}
+
+					else {
+
+						this._directionalLight_2_Helper_visible = true;
+
+						self.scene.add ( self._get_directionalLight_2_Helper () );
 
 					}
 
@@ -477,6 +624,7 @@
 
 						self.spotLightHelper = new THREE.SpotLightHelper ( self.spotLight, 0.25 , this.spotLightHelper_color )
 
+						console.log ( "spotlight" );
 					}
 
 					return self.spotLightHelper;
@@ -525,6 +673,8 @@
 
 						// self.polarGridHelper.position.y = 0;
 
+						console.log ( "polar grid" );
+
 					}
 
 					return self.polarGridHelper;
@@ -571,6 +721,7 @@
 
 						// self.orthogonalGridHelper.position.y = 0;
 
+						console.log ( "orthogonal grid" );
 					}
 
 					return self.orthogonalGridHelper;
@@ -607,6 +758,7 @@
 
 						self.boundryBox = new THREE.Box3().setFromObject ( self.colladaImport )
 
+						console.log ( "boundry box" );
 					}
 
 					return self.boundryBox;
@@ -621,9 +773,7 @@
 
 				this._get_plane = function () {
 
-					if (! self.plane) {
-
-						console.log("plane create");
+					if ( ! self.plane ) {
 
 						let planeGeometry = new THREE.PlaneGeometry ( 1, 1 );
 						let planeMaterial = new THREE.MeshBasicMaterial ( {color: this.plane_color, side: THREE.DoubleSide} );
@@ -635,6 +785,9 @@
 						self.plane.position.y = self.boundryBox.min.y;
 
 						self.plane.receiveShadow = true;
+
+						console.log ( "plane" );
+
 					}
 
 					return self.plane;
@@ -777,7 +930,11 @@
 
 						case 68:
 
-							self.directionalLightHelper_ ();
+							self.directionalLight_0_Helper_ ();
+
+							self.directionalLight_1_Helper_ ();
+
+							self.directionalLight_2_Helper_ ();
 
 							break;
 
@@ -853,6 +1010,8 @@
 
 							self.resize ();
 
+							console.log ( "camera" );
+
 							break;
 
 						// V //
@@ -863,11 +1022,11 @@
 							var randomZoom = Math.random () + 0.1;
 
 							self.cameraPerspective.fov = randomFieldOfView * 160;
-							self.cameraOrthogonal.bottom = - randomFieldOfView * 500;
-							self.cameraOrthogonal.top = randomFieldOfView * 500;
+							self.cameraOrthographic.bottom = - randomFieldOfView * 500;
+							self.cameraOrthographic.top = randomFieldOfView * 500;
 
 							self.cameraPerspective.zoom = randomZoom * 5;
-							self.cameraOrthogonal.zoom = randomZoom * 5;
+							self.cameraOrthographic.zoom = randomZoom * 5;
 
 							self.resize ();
 
