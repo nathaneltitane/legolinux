@@ -1333,6 +1333,21 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 							break;
 
+						// 0 //
+
+						case 48:
+						case 96:
+
+							// front
+
+							self.cameraPositionMatrix_x = 45;
+							self.cameraPositionMatrix_y = 30;
+							self.cameraPositionMatrix_z = 45;
+
+							self.cameraPositionToggle_ ();
+
+							break;
+
 						// 1 //
 
 						case 49:
