@@ -988,6 +988,33 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				}
 
+				// view toggle
+
+				this.viewToggle_ = function () {
+
+					const randomFieldOfView = Math.random () + 0.1;
+					const randomZoom = Math.random () + 0.1;
+
+					const perspectiveRandomFieldOfView  = ( randomFieldOfView * 160 );
+					const perspectiveRandomZoom         = ( randomZoom * 5 );
+
+					const orthographicRandomFieldOfView = ( randomFieldOfView * 500 );
+					const orthographicRandomZoom        = ( randomZoom * 5 * 1000 );
+
+					self.perspectiveCamera.fov = ( perspectiveRandomFieldOfView );
+
+					self.perspectiveCamera.zoom = ( perspectiveRandomZoom );
+
+					self.orthographicCamera.bottom = - ( orthographicRandomFieldOfView );
+
+					self.orthographicCamera.top = ( orthographicRandomFieldOfView );
+
+					self.orthographicCamera.zoom = ( orthographicRandomZoom );
+
+					self.resize ();
+
+				}
+
 				// controls space toggle
 
 				this.controlsSpace_ = function () {
@@ -1212,26 +1239,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						case 86:
 
-							const randomFieldOfView = Math.random () + 0.1;
-							const randomZoom = Math.random () + 0.1;
-
-							const perspectiveRandomFieldOfView  = ( randomFieldOfView * 160 );
-							const perspectiveRandomZoom         = ( randomZoom * 5 );
-
-							const orthographicRandomFieldOfView = ( randomFieldOfView * 500 );
-							const orthographicRandomZoom        = ( randomZoom * 5 * 1000 );
-
-							self.perspectiveCamera.fov = ( perspectiveRandomFieldOfView );
-
-							self.perspectiveCamera.zoom = ( perspectiveRandomZoom );
-
-							self.orthographicCamera.bottom = - ( orthographicRandomFieldOfView );
-
-							self.orthographicCamera.top = ( orthographicRandomFieldOfView );
-
-							self.orthographicCamera.zoom = ( orthographicRandomZoom );
-
-							self.resize ();
+							self.viewToggle_ ();
 
 							break;
 
