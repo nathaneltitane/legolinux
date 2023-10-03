@@ -988,6 +988,16 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				}
 
+				// controls space toggle
+
+				this controlsSpace_ = function () {
+
+					self.transformControls.setSpace ( self.transformControls.space === "world" ? "local" : "world" );
+
+					console.log ( "control space = " + self.transformControls.space );
+
+				}
+
 				// orbit controls
 
 				this.orbitControls = null;
@@ -1273,9 +1283,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						case 87:
 
-							self.transformControls.setSpace ( self.transformControls.space === "world" ? "local" : "world" );
-
-							console.log ( self.transformControls.space );
+							self.controlsSpace_ ();
 
 							break;
 
