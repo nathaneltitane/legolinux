@@ -953,6 +953,34 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 					}
 				}
 
+				// camera switch toggle
+
+				this.cameraSwitchToggle_ = function () {
+
+					self.position = self.camera.position.clone ();
+
+					self.camera = self.camera.isPerspectiveCamera ? self.cameraOrthographic : self.cameraPerspective;
+
+					self.cameraType = self.camera.isPerspectiveCamera ? 'perspective' : 'orthographic';
+
+					self.camera.position.copy ( self.position );
+
+					self.transformControls.camera = self.camera;
+
+					self.camera.lookAt ( 0, 0, 0 );
+
+					if (self.camera.isOrthographicCamera) {
+
+						self.camera.zoom = 1000;
+
+					}
+
+					self.resize ();
+
+					console.log ( "camera = " + self.cameraType );
+
+				}
+
 				// orbit controls
 
 				this.orbitControls = null;
@@ -1163,27 +1191,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						case 67:
 
-							self.position = self.camera.position.clone ();
-
-							self.camera = self.camera.isPerspectiveCamera ? self.cameraOrthographic : self.cameraPerspective;
-
-							self.cameraType = self.camera.isPerspectiveCamera ? 'perspective' : 'orthographic';
-
-							self.camera.position.copy ( self.position );
-
-							self.transformControls.camera = self.camera;
-
-							self.camera.lookAt ( 0, 0, 0 );
-
-							if (self.camera.isOrthographicCamera) {
-
-								self.camera.zoom = 1000;
-
-							}
-
-							self.resize ();
-
-							console.log ( "camera = " + self.cameraType );
+							self.cameraSwitchToggle_ ();
 
 							break;
 
