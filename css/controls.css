@@ -17,8 +17,9 @@
 	100% {right: 0px;}
 }
 
-.controls .controls-popup {
+.controls-popup {
 	background-color: #000000cc;
+	border-radius: 4px;
 	color: #efefefff;
 	width: 325px;
 	min-height: 150px;
@@ -31,7 +32,7 @@
 	opacity: 0;
 }
 
-.controls .controls-popup::after {
+.controls-popup::after {
 	content: "";
 	border-width: 10px;
 	border-style: solid;
