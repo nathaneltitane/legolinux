@@ -1737,11 +1737,15 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 
 						<div class="grid-4">
 
-							<a href="/${instructions_directory}/sample.png"/>
+							<div class="flex flex-middle flex-center">
 
-								<img src="/${instructions_directory}/sample.png"/>
+								<a href="/${instructions_directory}/sample.png"/>
 
-							</a>
+									<img src="/${instructions_directory}/sample.png"/>
+
+								</a>
+
+							</div>
 
 						</div>
 

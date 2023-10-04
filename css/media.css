@@ -136,6 +136,11 @@
 	.modal-content {
 		width: 50vw;
 	}
+
+	.paypal-popup {
+			right: 100px !important;
+
+	}
 }
 
 /* // phone // */
