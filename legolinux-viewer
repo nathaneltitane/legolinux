@@ -1706,7 +1706,7 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 			<div class="flex-cell">
 
 				<div class="paypal-popup">
-				<a href="/${instructions_directory}/sample.png"/>
+
 					<div class="grid">
 
 						<div class="grid-4">
@@ -1737,10 +1737,11 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 
 						<div class="grid-4">
 
-
+							<a href="/${instructions_directory}/sample.png"/>
 
 								<img src="/${instructions_directory}/sample.png"/>
 
+							</a>
 
 						</div>
 
@@ -1785,7 +1786,6 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 						</div>
 
 					</div>
-				</a>
 
 				</div>
 
