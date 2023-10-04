@@ -1783,6 +1783,23 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 
 						</div>
 
+
+
+						<div class="grid-4 text-right">
+
+							<div class="flex">
+
+								<div class="flex-cell-start">
+
+									<div class="icon icon-32 icon-center logo-${color}"></div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+
 					</div>
 
 				</div>
