@@ -1777,23 +1777,9 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 
 						</div>
 
-						<div class="grid-3">
+						<div class="grid-3 text-right">
 
-							<div class="flex">
-
-								<div class="flex-cell text-right">
-
-									${purchase_status_message}
-
-								</div>
-
-								<div class="flex-cell-start">
-
-									<div class="icon icon-32 icon-center logo-${color}"></div>
-
-								</div>
-
-							</div>
+							${purchase_status_message}
 
 						</div>
 
