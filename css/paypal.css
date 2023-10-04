@@ -17,21 +17,51 @@
 	100% {right: 0px;}
 }
 
-.paypal-id {
-	color: #000000ff;
-	position: fixed;
-	top: 10px;
-	left: 10px;
-	opacity: 0;
-
-	animation-name: paypal-id-reveal;
-	animation-delay: 1.0s;
-	animation-duration: 1s;
-	animation-fill-mode: forwards;
-}
-
 @keyframes paypal-id-reveal {
 	0% {opacity: 0;}
 
 	100% {opacity: 1;}
+}
+
+.paypal-popup {
+	background-color: #000000cc;
+	border-radius: 4px;
+	color: #efefefff;
+	width: 650px;
+	min-height: 150px;
+	padding: 20px 20px 20px 20px;
+	margin: 0px 0px 0px 0px;
+	position: fixed;
+	bottom: calc( 80px + 10px + 64px + 64px + 64px + 64px + 10px + 10px + 10px + 10px + 10px);
+	right: 16px;
+
+	display: none;
+	opacity: 0;
+}
+
+.paypal-popup .sample {
+	width:auto;
+	height:325px;
+	display:block;
+}
+
+.paypal-popup::after {
+	content: "";
+	border-width: 10px;
+	border-style: solid;
+	border-color: #000000cc transparent transparent transparent;
+	position: absolute;
+	bottom: -20px;
+	right: calc(( 64px + 10px) / 2 / 2);
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+}
+
+.paypal .paypal-show {
+	display: block;
+	opacity: 1;
+
+	animation-delay: 0.5s;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
 }
