@@ -1735,6 +1735,12 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 
 						</div>
 
+						<div class="grid-4 section">
+
+							<div class="icon icon-32 icon-center logo-${color}"></div>
+
+						</div>
+
 						<div class="grid-1 text-left">
 
 							STATUS
@@ -1768,12 +1774,6 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 						<div class="grid-1 text-right">
 
 							US\$ ${model_instructions_price}
-
-						</div>
-
-						<div class="grid-4 section">
-
-							<div class="icon icon-32 icon-center logo-${color}"></div>
 
 						</div>
 
