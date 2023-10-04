@@ -17,11 +17,7 @@
 	100% {right: 0px;}
 }
 
-@keyframes paypal-id-reveal {
-	0% {opacity: 0;}
 
-	100% {opacity: 1;}
-}
 
 .paypal-popup {
 	background-color: #000000cc;
@@ -37,6 +33,12 @@
 
 	display: none;
 	opacity: 0;
+
+		animation: paypal-popup-reveal 1s;
+	animation-delay: 1.0s;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+
 }
 
 .paypal-popup .sample {
@@ -57,11 +59,19 @@
 	margin: 0px 0px 0px 0px;
 }
 
+@keyframes paypal-popup-reveal {
+	0% {opacity: 0;}
+
+	100% {opacity: 1;}
+}
+
+
 .paypal .paypal-show {
 	display: block;
 	opacity: 1;
 
-	animation-delay: 0.5s;
-	animation-duration: 1s;
+	animation: paypal-popup-reveal 1s;
+	animation-delay: 0s;
+	animation-duration: 0.5s;
 	animation-fill-mode: forwards;
 }

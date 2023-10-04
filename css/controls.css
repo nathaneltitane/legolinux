@@ -45,11 +45,21 @@
 	margin: 0px 0px 0px 0px;
 }
 
+@keyframes controls-popup-reveal {
+	0% {opacity: 0;}
+
+	100% {opacity: 1;}
+}
+
 .controls .controls-show {
 	display: block;
 	opacity: 1;
 
-	animation-delay: 0.5s;
-	animation-duration: 1s;
+	display: block;
+	opacity: 1;
+
+	animation: paypal-popup-reveal 1s;
+	animation-delay: 0s;
+	animation-duration: 0.5s;
 	animation-fill-mode: forwards;
 }
