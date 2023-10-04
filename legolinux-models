@@ -82,7 +82,6 @@ rsync							\
 	--exclude='*.ldr'			\
 	--exclude='*.mpd'			\
 	--exclude='*.pdf'			\
-	--exclude="instructions"	\
 	--exclude="configuration"	\
 	--exclude='LPub3D'			\
 								"${local_models_directory}"/* "${server_models_directory}" > "${sink}" 2>&1

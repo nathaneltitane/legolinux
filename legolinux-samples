@@ -66,6 +66,7 @@ sample () {
 
 	"${SHELL}" ../l2cu/l2cu						\
 					--file ${extension}			\
+					--sample					\
 					--directory "${directory}"
 }
 
@@ -78,7 +79,7 @@ list+=(
 
 for directory in ${list[@]}
 do
-	sample "${extension}" "${render_option}" "${directory}"
+	sample "${extension}" "${directory}"
 done
 
 list=()
