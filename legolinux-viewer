@@ -1777,7 +1777,7 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 
 								<div class="flex-cell-start">
 
-									<div class="icon icon-64 icon-center logo-${color}"></div>
+									<div class="icon icon-32 icon-center logo-${color}"></div>
 
 								</div>
 
