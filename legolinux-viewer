@@ -1708,11 +1708,11 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 
 						</div>
 
-						<a href="/logo/logo-black.svg">
+						<a href="/models/armored-cores/cr-c75u2-close-combat/instructions/sample.png">
 
 							<div class="grid-4 text-center sample">
 
-								<img src"${instructions_directory}/sample.png" >
+								<img src="${instructions_directory}/sample.png" >
 
 							</div>
 
