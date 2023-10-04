@@ -1791,7 +1791,7 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 
 					</div>
 
-					<div class="flex-cell">
+					<div class="flex-cell container">
 
 						<a href="/${instructions_directory}/sample.png"/>
 
