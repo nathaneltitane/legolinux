@@ -1716,15 +1716,11 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 
 						<div class="grid-4 text-center sample">
 
-							<div class="grid-4 container">
+							<a href="/${instructions_directory}/sample.png">
 
-								<a href="/${instructions_directory}/sample.png">
+								<img src="/${instructions_directory}/sample.png" >
 
-									<img src="/${instructions_directory}/sample.png" >
-
-								</a>
-
-							</div>
+							</a>
 
 						</div>
 
