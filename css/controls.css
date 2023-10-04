@@ -24,24 +24,14 @@
 	padding: 20px 20px 20px 20px;
 	margin: 0px 0px 0px 0px;
 	position: fixed;
-	bottom: calc( 80px + 10px + 64px + 64px + 64px + 64px + 10px + 10px + 10px + 10px + 10px);
-	left: 16px;
+	bottom: 390px;
 	right: 16px;
+
+	min-width:325px;
+	max-width:50vw;
 
 	display: none;
 	opacity: 0;
-}
-
-.controls-popup::after {
-	content: "";
-	border-width: 10px;
-	border-style: solid;
-	border-color: #000000cc transparent transparent transparent;
-	position: absolute;
-	bottom: -20px;
-	right: calc(( 64px + 10px) / 2 / 2);
-	padding: 0px 0px 0px 0px;
-	margin: 0px 0px 0px 0px;
 }
 
 @keyframes controls-popup-reveal {
