@@ -1721,7 +1721,7 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 
 						</div>
 
-						<div class="grid-4 section text-center">
+						<div class="grid-4 section">
 
 						</div>
 
@@ -1767,7 +1767,7 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 
 						</div>
 
-						<div class="grid-4 section text-center">
+						<div class="grid-4 section">
 
 						</div>
 
