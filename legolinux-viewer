@@ -101,6 +101,8 @@ do
 
 		export_directory="${render_directory}"/exports
 
+		instructions_directory="${model_directory}"/instructions
+
 		render_directory="${model_directory}"/renders
 
 		flat_directory="${render_directory}"/flat
@@ -133,7 +135,9 @@ do
 
 		if [[ "${model_paypal_id}" = "" ]]
 		then
-			model_paypal_id="NOT YET AVAILABLE FOR PURCHASE"
+			purchase_status_message="NOT YET AVAILABLE FOR PURCHASE"
+		else
+			purchase_status_message="MODEL AVAILABLE FOR PURCHASE"
 		fi
 
 cat << 3D-MODEL-PAGE-HEADER -> "${model_directory}/index.html"
@@ -1700,7 +1704,7 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 
 						<div class="grid-4 text-center">
 
-							model name
+							${model_title}
 
 						</div>
 
@@ -1708,7 +1712,9 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 
 							<div class="grid-4 text-center sample">
 
-								<img src"/models/armored-cores/cr-c75u2-close-combat/instructions/sample.png" >
+								INSTRUCTIONS SAMPLE
+
+								<img src"${instructions_directory}/sample.png" >
 
 							</div>
 
@@ -1756,7 +1762,7 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 
 						<div class="grid-4 text-center">
 
-							AVAILABLE FOR PURCHASE
+							${purchase_status_message}
 
 						</div>
 
