@@ -68,6 +68,10 @@ do
 			option="renders"
 		;;
 
+		-s|--samples)
+			option="samples"
+		;;
+
 		-m|--models)
 			option="models"
 		;;
@@ -203,6 +207,7 @@ then
 	list+=(
 		legolinux-exports
 		legolinux-renders
+		legolinux-samples
 		legolinux-models
 		legolinux-images
 		legolinux-drawer
@@ -222,6 +227,13 @@ if [[ "${option}" = "renders" ]]
 then
 	list+=(
 		legolinux-renders
+	)
+fi
+
+if [[ "${option}" = "samples" ]]
+then
+	list+=(
+		legolinux-samples
 	)
 fi
 
