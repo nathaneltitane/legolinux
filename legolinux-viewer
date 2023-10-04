@@ -1775,15 +1775,15 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 
 						</div>
 
-						<div class="grid-1 text-left">
+						<div class="grid-3 text-left">
 
-							<div class="icon icon-flex icon-center logo-${color}"></div>
+							${purchase_status_message}
 
 						</div>
 
-						<div class="grid-3 text-right">
+						<div class="grid-1 text-right">
 
-							${purchase_status_message}
+							<div class="icon icon-flex icon-center logo-${color}"></div>
 
 						</div>
 
