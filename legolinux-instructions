@@ -59,7 +59,7 @@ extension="mpd"
 
 # functions ////////////////////////////////////////////////////////////////////
 
-sample () {
+instructions () {
 
 	extension="${1}"
 	instructions_option="${2}"
@@ -85,11 +85,11 @@ for directory in ${list[@]}
 do
 	for instructions_option in ${instructions_options}
 	do
-		render "${extension}" "${instructions_option}" "${directory}"
+		instructions "${extension}" "${instructions_option}" "${directory}"
 	done
 done
 
 list=()
 
-frobulator.cpt "Complete" "[ Samples ]"
+frobulator.cpt "Complete" "[ Instructions ]"
 echo
