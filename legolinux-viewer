@@ -1709,6 +1709,12 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 
 					<div class="grid">
 
+						<div class="grid-4">
+
+							<div class="icon icon-32 logo-${color}"></div>
+
+						</div>
+
 						<div class="grid-2 text-left">
 
 							INSTRUCTIONS PAGE SAMPLE
@@ -1732,12 +1738,6 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 								<img src="/${instructions_directory}/sample.png"/>
 
 							</a>
-
-						</div>
-
-						<div class="grid-4">
-
-							<div class="icon icon-32 logo-${color}"></div>
 
 						</div>
 
