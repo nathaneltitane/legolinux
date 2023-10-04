@@ -1775,9 +1775,7 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 
 						</div>
 
-
-						<div class="grid-4 text-center">
-
+						<div class="flex">
 
 							<div class="flex-cell-start">
 
@@ -1785,7 +1783,11 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 
 							</div>
 
-							${purchase_status_message}
+							<div class="flex-cell">
+
+								${purchase_status_message}
+
+							</div>
 
 						</div>
 
