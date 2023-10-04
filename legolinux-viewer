@@ -1735,9 +1735,9 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 
 						</div>
 
-						<div class="grid-4 section">
+						<div class="grid-4">
 
-							<div class="icon icon-32 icon-left logo-${color}"></div>
+							<div class="icon icon-32 logo-${color}"></div>
 
 						</div>
 
