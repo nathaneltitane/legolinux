@@ -133,6 +133,13 @@ do
 
 		# generate 3d model page
 
+		if [[ -f "${model_directory}"/work-in-progress ]]
+		then
+			color="orange"
+		else
+			color="green"
+		fi
+
 		if [[ "${model_paypal_id}" = "" ]]
 		then
 			purchase_status_message="NOT YET AVAILABLE FOR PURCHASE"
@@ -1768,7 +1775,7 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 
 						</div>
 
-						<div class="grid-4 text-center">
+						<div class="grid-3 text-right">
 
 							${purchase_status_message}
 
