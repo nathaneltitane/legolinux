@@ -131,8 +131,6 @@ do
 
 		model_instructions_price=$(cat "${model_price}")
 
-		model_instructions_sample="${model_instructions}"/sample.png
-
 		# generate 3d model page
 
 		if [[ "${model_paypal_id}" = "" ]]
@@ -1724,9 +1722,9 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 
 						<div class="grid-4 text-center sample">
 
-							<a href="/${model_instructions_sample}">
+							<a href="/${instructions_directory}/sample.png"/>
 
-								<img src="/${model_instructions_sample}">
+								<img src="/${instructions_directory}/sample.png"/>
 
 							</a>
 
