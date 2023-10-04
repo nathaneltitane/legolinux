@@ -1706,7 +1706,7 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 
 						<div class="grid-4 text-center">
 
-							${model_title}
+							INSTRUCTIONS SAMPLE // ${model_title}
 
 						</div>
 
