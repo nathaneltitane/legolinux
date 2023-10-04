@@ -23,8 +23,6 @@
 	background-color: #000000cc;
 	border-radius: 4px;
 	color: #efefefff;
-	width: 650px;
-	min-height: 150px;
 	padding: 20px 20px 20px 20px;
 	margin: 0px 0px 0px 0px;
 	position: fixed;
@@ -34,7 +32,7 @@
 	display: none;
 	opacity: 0;
 
-		animation: paypal-popup-reveal 1s;
+	animation: paypal-popup-reveal 1s;
 	animation-delay: 1.0s;
 	animation-duration: 1s;
 	animation-fill-mode: forwards;
@@ -42,9 +40,9 @@
 }
 
 .paypal-popup .sample {
-    display: grid;
-    height: 325px;
-    width: auto;
+    display: vlock;
+    height: auto;
+    width: 512px;
 }
 
 .paypal-popup::after {
