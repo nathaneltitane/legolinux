@@ -1695,7 +1695,7 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 
 			<div class="flex-cell">
 
-				<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=${model_paypal_id}">
+				<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=BTVHFKWFMQSXC">
 
 					<div class="icon icon-64 logo-paypal"></div>
 
@@ -1703,91 +1703,101 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 
 			</div>
 
-			<div class="flex-cell">
+			<div class="paypal-popup">
 
-				<div class="paypal-popup">
+				<div class="flex flex-row">
 
-					<div class="grid">
+					<div class="flex-cell container">
 
-						<div class="grid-4">
+						<div class="grid">
 
-							<div class="icon icon-32 logo-${color}"></div>
+							<div class="grid-4">
 
-						</div>
+								<div class="icon icon-32 icon-left logo-green"></div>
 
-						<div class="grid-4 section">
+							</div>
 
-						</div>
+							<div class="grid-4 text-center">
 
-						<div class="grid-4 text-center">
+								INSTRUCTIONS PAGE SAMPLE
 
-							INSTRUCTIONS PAGE SAMPLE
+							</div>
 
-						</div>
+							<div class="grid-2 text-left">
 
-						<div class="grid-4 text-center">
+								SERIES
 
-							${model_title}
+							</div>
 
-						</div>
+							<div class="grid-2 text-right">
 
-						<div class="grid-4 section">
+								${model_category}
 
-						</div>
+							</div>
 
-						<div class="grid-4">
+							<div class="grid-4 section">
 
-							<div class="flex flex-middle flex-center">
+							</div>
 
-								<a href="/${instructions_directory}/sample.png"/>
+							<div class="grid-1 text-left">
 
-									<img src="/${instructions_directory}/sample.png"/>
+								MODEL NAME
 
-								</a>
+							</div>
+
+							<div class="grid-3 text-right">
+
+								${model_title}
+
+							</div>
+
+							<div class="grid-1 text-left">
+
+								STATUS
+
+							</div>
+
+							<div class="grid-3 text-right">
+
+								${purchase_status_message}
+
+							</div>
+
+							<div class="grid-1 text-left">
+
+								MODEL PURCHASE ID
+
+							</div>
+
+							<div class="grid-3 text-right">
+
+								${model_paypal_id}
+
+							</div>
+
+							<div class="grid-1 text-left">
+
+								PRICE
+
+							</div>
+
+							<div class="grid-3 text-right">
+
+								US\$ ${model_instructions_price}
 
 							</div>
 
 						</div>
 
-						<div class="grid-4 section">
+					</div>
 
-						</div>
+					<div class="flex-cell">
 
-						<div class="grid-1 text-left">
+						<a href="/${instructions_directory}/sample.png"/>
 
-							STATUS
+							<img src="/${instructions_directory}/sample.png"/>
 
-						</div>
-
-						<div class="grid-3 text-right">
-
-							${purchase_status_message}
-
-						</div>
-
-						<div class="grid-3 text-left">
-
-							MODEL ID
-
-						</div>
-
-						<div class="grid-1 text-right">
-
-							${model_paypal_id}
-
-						</div>
-
-						<div class="grid-3 text-left">
-
-							PRICE
-
-						</div>
-
-						<div class="grid-1 text-right">
-
-							US\$ ${model_instructions_price}
-
-						</div>
+						</a>
 
 					</div>
 
@@ -1795,8 +1805,7 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 
 			</div>
 
-		</div>
-
+		</di
 
 3D-MODEL-PAYPAL
 
