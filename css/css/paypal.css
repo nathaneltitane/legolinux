@@ -1,0 +1,64 @@
+.paypal {
+	color: #000000ff;
+	position: fixed;
+	bottom: calc(80px + 64px + 10px);
+	right: -200px;
+	padding: 10px 10px 10px 10px;
+
+	animation-name: paypal-reveal;
+	animation-delay: 1.0s;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes paypal-reveal {
+	0% {right: -200px;}
+
+	100% {right: 0px;}
+}
+
+.paypal-popup {
+	background-color: #000000cc;
+	border-radius: 4px;
+	color: #efefefff;
+	padding: 20px 20px 20px 20px;
+	margin: 0px 0px 0px 0px;
+	position: fixed;
+	bottom: calc( 80px + 10px + 64px  + 10px );
+	left: 16px;
+	right: 160px;
+
+	display: none;
+	opacity: 0;
+}
+
+.paypal-popup::after {
+	content: "";
+	border-width: 10px;
+	border-style: solid;
+	border-color: transparent transparent transparent #000000cc;
+	position: absolute;
+	bottom: 20px;
+	right: -20px;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+}
+
+@keyframes paypal-popup-reveal {
+	0% {opacity: 0;}
+
+	100% {opacity: 1;}
+}
+
+.paypal .paypal-show {
+	display: block;
+	opacity: 1;
+
+	display: block;
+	opacity: 1;
+
+	animation: paypal-popup-reveal 1s;
+	animation-delay: 0s;
+	animation-duration: 0.5s;
+	animation-fill-mode: forwards;
+}
