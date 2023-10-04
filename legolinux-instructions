@@ -62,11 +62,12 @@ extension="mpd"
 sample () {
 
 	extension="${1}"
+	instructions_option="${2}"
 	directory="${3}"
 
 	"${SHELL}" ../l2cu/l2cu						\
 					--file ${extension}			\
-					--sample					\
+					--instructions ${instructions_option}	\
 					--directory "${directory}"
 }
 
@@ -76,10 +77,16 @@ list+=(
 	/media/internal/Lego/models/
 )
 
+instructions_options=(
+	sample
+)
 
 for directory in ${list[@]}
 do
-	sample "${extension}" "${directory}"
+	for instructions_option in ${instructions_options}
+	do
+		render "${extension}" "${instructions_option}" "${directory}"
+	done
 done
 
 list=()
