@@ -1716,9 +1716,9 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 
 						<div class="grid-4 text-center sample">
 
-							<a href="/${model_instructions_sample}">
+							<a href="${model_instructions_sample}">
 
-								<img src="/${instructions_directory}/">
+								<img src="${model_instructions_sample}">
 
 							</a>
 
