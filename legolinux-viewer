@@ -1758,8 +1758,6 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 
 						<div class="grid-4 text-center">
 
-							<hr>
-
 						</div>
 
 						<div class="grid-4 text-center">
