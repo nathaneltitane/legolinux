@@ -54,10 +54,7 @@
 	display: block;
 	opacity: 1;
 
-	display: block;
-	opacity: 1;
-
-	animation: paypal-popup-reveal 1s;
+	animation: controls-popup-reveal 1s;
 	animation-delay: 0s;
 	animation-duration: 0.5s;
 	animation-fill-mode: forwards;
