@@ -8,6 +8,10 @@ $(document).ready (function () {
 
         // e.preventDefault ();
 
+        // hide paypal popup if visible
+
+        $('.paypal-popup').removeClass ('paypal-show');
+
         $('.controls-popup').toggleClass ('controls-show');
 
     });
@@ -18,6 +22,10 @@ $(document).ready (function () {
 
         // e.preventDefaul t();
 
+         // hide paypal popup if visible
+
+        $('.paypal-popup').removeClass ('paypal-show');
+
         $('.controls-popup').removeClass ('controls-show');
 
     });
@@ -27,6 +35,10 @@ $(document).ready (function () {
         // disable defaults prevention for href handling
 
         // e.preventDefaul t();
+
+         // hide paypal popup if visible
+
+        $('.paypal-popup').removeClass ('paypal-show');
 
         $('.controls-popup').removeClass ('controls-show');
 
