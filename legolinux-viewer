@@ -1805,7 +1805,7 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 
 			</div>
 
-		</di
+		</div>
 
 3D-MODEL-PAYPAL
 
