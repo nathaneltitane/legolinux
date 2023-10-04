@@ -39,10 +39,7 @@
 }
 
 .paypal-popup .sample {
-	position:relative;
-	width:90%;
-	height:auto;
-	display:block;
+
 }
 
 .paypal-popup::after {
