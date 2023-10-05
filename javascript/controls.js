@@ -8,11 +8,7 @@ $(document).ready (function () {
 
         // e.preventDefault ();
 
-        // hide paypal popup if visible
-
-        $('.paypal-popup').removeClass ('paypal-show');
-
-        $('.controls-popup').toggleClass ('controls-show');
+        $('.controls-popup').toggleClass ('controls-popup-show');
 
     });
 
@@ -22,11 +18,7 @@ $(document).ready (function () {
 
         // e.preventDefaul t();
 
-         // hide paypal popup if visible
-
-        $('.paypal-popup').removeClass ('paypal-show');
-
-        $('.controls-popup').removeClass ('controls-show');
+        $('.controls-popup').removeClass ('controls-popup-show');
 
     });
 
@@ -36,11 +28,7 @@ $(document).ready (function () {
 
         // e.preventDefaul t();
 
-         // hide paypal popup if visible
-
-        $('.paypal-popup').removeClass ('paypal-show');
-
-        $('.controls-popup').removeClass ('controls-show');
+        $('.controls-popup').removeClass ('controls-popup-show');
 
     });
 
