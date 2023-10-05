@@ -18,10 +18,10 @@
 }
 
 .controls-popup {
-	background-color: #000000cc;
-	border-radius: 4px;
+	background-color: #000000ff;
+	border-radius: 10px;
 	color: #efefefff;
-	padding: 20px 20px 20px 20px;
+	padding: 0px 20px 0px 20px;
 	margin: 0px 0px 0px 0px;
 	position: fixed;
 	bottom: calc(80px + 10px);
@@ -30,10 +30,38 @@
 	width: 425px;
 	height: 425px;
 
-	overflow-y: scroll;
+	overflow-x: hidden;
+	overflow-y: hidden;
 
 	display: none;
 	opacity: 0;
+}
+
+.controls-popup {
+	overflow-y: scroll;
+}
+
+
+.controls-popup::before {
+    content: "";
+    background: linear-gradient(to top, transparent 25%, #000000ff 75%);
+    display: block;
+    position: sticky;
+    top: 0px;
+    height: 100px;
+    margin-left: -100%;
+    margin-right: -100%;
+}
+
+.controls-popup::after {
+    content: "";
+    background: linear-gradient(to bottom, transparent 25%, #000000ff 75%);
+    display: block;
+    position: sticky;
+    bottom: 0px;
+    height: 100px;
+    margin-left: -100%;
+    margin-right: -100%;
 }
 
 @keyframes controls-popup-reveal {

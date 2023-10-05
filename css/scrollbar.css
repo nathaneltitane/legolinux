@@ -1,11 +1,19 @@
-html > ::-webkit-scrollbar {
-	display: none;
-}
-
-body > ::-webkit-scrollbar {
-	display: none;
-}
-
 ::-webkit-scrollbar {
-	display: none;
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #00000000;
+    border-radius: 10px;
+    margin-block: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #666666ff;
+	border: 10px solid #00000000;
+	border-radius: 10px;
+ }
+
+::-webkit-scrollbar-thumb:hover {
+
 }
