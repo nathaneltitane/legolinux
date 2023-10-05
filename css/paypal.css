@@ -36,7 +36,7 @@
 	right: 74px;
 	left: 0px;
 
-	height: 0px;
+	height: 0vh;
 
 	overflow-x: hidden;
 	overflow-y: scroll;
@@ -65,13 +65,13 @@
 }
 
 @keyframes paypal-popup-reveal {
-	0% {height: 0px;}
+	0% {height: 0vh;}
 
-	100% {height: calc( (336px - 80px + 20px + 20px) * 2);}
+	100% {height: 50vh;}
 }
 
 .paypal .paypal-popup-show {
-	height: calc( (336px - 80px + 20px + 20px) * 2);
+	height: 50vh;
 
 	animation: paypal-popup-reveal 1s;
 	animation-delay: 0s;
