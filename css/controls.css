@@ -30,16 +30,11 @@
 	height: 425px;
 
 	overflow-x: hidden;
-	overflow-y: hidden;
+	overflow-y: scroll;
 
 	display: none;
 	opacity: 0;
 }
-
-.controls-popup {
-	overflow-y: scroll;
-}
-
 
 .controls-popup::before {
     content: "";
