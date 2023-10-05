@@ -1,26 +1,26 @@
-// colors //
+// color //
 
-$(function () {
+$( function () {
 
-	// color selector //
+	// color palette //
 
-	var selection = document.getElementById ('color-selector');
+	var selection = document.getElementById ( 'color-palette' );
 
-	selection.addEventListener ('change', function (e) {
+	selection.addEventListener ('change', function ( event ) {
 
 		var color = selection.value;
 
-		$("#canvas").css ("background-color", color);
+		$( "#canvas" ).css ( "background-color", color );
 
 	},
 
 	false
 
 	);
-});
+} );
 
-function color_selector () {
+function color_palette () {
 
-	$("#color-selector").click ();
+	$( "#color-palette" ).click ();
 
 }
