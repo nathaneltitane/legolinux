@@ -42,7 +42,7 @@
 	100% {opacity: 1;}
 }
 
-.paypal .paypal-show {
+.paypal .paypal-popup-show {
 	display: block;
 	opacity: 1;
 
