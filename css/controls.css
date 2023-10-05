@@ -1,0 +1,80 @@
+#controls {
+	height: 64px;
+	width: 64px;
+	position: fixed;
+	bottom: calc(80px + 64px + 64px + 64px + 10px + 10px + 10px + 10px);
+	right: 10px;
+	padding: 10px 10px 10px 10px;
+}
+
+.controls {
+	color: #000000ff;
+	position: fixed;
+	bottom: calc(80px + 64px + 64px + 64px + 10px + 10px + 10px);
+	right: -200px;
+	padding: 10px 10px 10px 10px;
+
+	animation-name: controls-reveal;
+	animation-delay: 2.5s;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes controls-reveal {
+	0% {right: -200px;}
+
+	100% {right: 0px;}
+}
+
+.controls-popup {
+	background-color: #000000ff;
+	color: #efefefff;
+	padding: 0px 20px 0px 20px;
+	margin: 0px 0px 0px 0px;
+	position: fixed;
+	bottom: 80px;
+	right: 74px;
+	left: 0px;
+
+	height: 0px;
+
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+.controls-popup::before {
+    content: "";
+    background: linear-gradient(to top, transparent 20%, #000000ff 80%);
+    display: block;
+    position: sticky;
+    top: 0px;
+    height: 40px;
+    margin-left: -100%;
+    margin-right: -100%;
+}
+
+.controls-popup::after {
+    content: "";
+    background: linear-gradient(to bottom, transparent 20%, #000000ff 80%);
+    display: block;
+    position: sticky;
+    bottom: 0px;
+    height: 40px;
+    margin-left: -100%;
+    margin-right: -100%;
+}
+
+@keyframes controls-popup-reveal {
+	0% {height: 0px;}
+
+	100% {height: calc( (336px - 80px + 20px + 20px) * 2);}
+}
+
+.controls .controls-popup-show {
+	height: calc( (336px - 80px + 20px + 20px) * 2);
+
+	animation: controls-popup-reveal 1s;
+	animation-delay: 0s;
+	animation-duration: 0.5s;
+	animation-fill-mode: forwards;
+}
