@@ -78,7 +78,7 @@ list+=(
 )
 
 instructions_options=(
-	sample
+	samples
 )
 
 for directory in ${list[@]}
