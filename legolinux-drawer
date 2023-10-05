@@ -81,7 +81,7 @@ cat << MODEL-DRAWER-HEADER -> "${modules_directory}"/drawer.html
 
 	<div id="drawer-button-label" class="flex-cell text-bold">
 
-		Menu
+		Navigate
 
 	</div>
 
