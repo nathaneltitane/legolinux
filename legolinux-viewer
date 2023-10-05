@@ -1753,9 +1753,29 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 
 					<div class="flex-cell container">
 
-						<a href="/${instructions_directory}/sample.png"/>
+						<a href="/${instructions_directory}/sample-01.png"/>
 
-							<img src="/${instructions_directory}/sample.png"/>
+							<img src="/${instructions_directory}/sample-01.png"/>
+
+						</a>
+
+					</div>
+
+					<div class="flex-cell container">
+
+						<a href="/${instructions_directory}/sample-02.png"/>
+
+							<img src="/${instructions_directory}/sample-02.png"/>
+
+						</a>
+
+					</div>
+
+					<div class="flex-cell container">
+
+						<a href="/${instructions_directory}/sample-03.png"/>
+
+							<img src="/${instructions_directory}/sample-03.png"/>
 
 						</a>
 
