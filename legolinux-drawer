@@ -97,13 +97,13 @@ cat << MODEL-DRAWER-HEADER -> "${modules_directory}"/drawer.html
 
 <div class="drawer">
 
-	<div class="flex flex-column flex-stretch">
+	<div class="flex flex-column">
 
 		<!-- legend -->
 
-		<div class="list section notice">
+		<div class="section notice">
 
-			<div class="flex flex-column flex-middle">
+			<div class="flex flex-column">
 
 				<div class="flex-cell text-bold text-center">
 
@@ -141,11 +141,11 @@ cat << MODEL-DRAWER-HEADER -> "${modules_directory}"/drawer.html
 
 		<!-- instructions available -->
 
-		<div class="list section available">
+		<div class="section available">
 
 			<div class="flex flex-row flex-middle">
 
-				<div class="flex">
+				<div class="flex-cell">
 
 					<div class="icon icon-flex icon-center logo-green"></div>
 
@@ -163,11 +163,11 @@ cat << MODEL-DRAWER-HEADER -> "${modules_directory}"/drawer.html
 
 		<!-- instructions progress -->
 
-		<div class="list section progress">
+		<div class="section progress">
 
 			<div class="flex flex-row flex-middle">
 
-				<div class="flex">
+				<div class="flex-cell">
 
 					<div class="icon icon-flex icon-center logo-orange"></div>
 
@@ -184,6 +184,10 @@ cat << MODEL-DRAWER-HEADER -> "${modules_directory}"/drawer.html
 		</div>
 
 		<!-- models -->
+
+		<div class="section models">
+
+			<div class="grid">
 
 MODEL-DRAWER-HEADER
 
@@ -261,9 +265,8 @@ do
 		fi
 
 cat << MODEL-DRAWER-CONTENT ->> "${modules_directory}"/drawer.html
-		<div class="list section">
 
-			<div class="flex flex-column flex-middle">
+			<div class="flex flex-column">
 
 				<div class="container">
 
@@ -313,8 +316,6 @@ cat << MODEL-DRAWER-CONTENT ->> "${modules_directory}"/drawer.html
 
 			</div>
 
-		</div>
-
 MODEL-DRAWER-CONTENT
 
 	((count++))
@@ -325,9 +326,13 @@ done
 # generate footer
 
 cat << MODEL-DRAWER-FOOTER ->> "${modules_directory}"/drawer.html
+			</div>
+
+		</div>
+
 		<!-- copyright -->
 
-		<div class="list section copyright">
+		<div class="section copyright">
 
 			<div class="flex flex-column flex-stretch">
 
