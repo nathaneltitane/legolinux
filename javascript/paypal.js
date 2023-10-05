@@ -8,20 +8,10 @@ $(document).ready (function () {
 
         // e.preventDefault ();
 
-        $('.paypal-popup').toggleClass ('paypal-show');
+        $('.paypal-popup').toggleClass ('paypal-popup-show');
 
     });
 
-
-    $('.paypal').hover (function (e) {
-
-        // disable defaults prevention for href handling
-
-        // e.preventDefault ();
-
-        $('.controls-popup').removeClass ('controls-show');
-
-    });
 });
 
 
