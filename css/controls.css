@@ -42,7 +42,7 @@
 	100% {opacity: 1;}
 }
 
-.controls .controls-show {
+.controls .controls-popup-show {
 	display: block;
 	opacity: 1;
 
