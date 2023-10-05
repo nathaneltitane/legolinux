@@ -18,9 +18,9 @@ $( document ).ready (function () {
 
 		if ( event.key === "?" ) {
 
-        $('#drawer-button-label').toggleClass ('drawer-button-label-color');
+            $('#drawer-button-label').toggleClass ('drawer-button-label-color');
 
-        $('.controls-popup').toggleClass ('controls-popup-show');
+            $('.controls-popup').toggleClass ('controls-popup-show');
 
 		}
 
@@ -32,8 +32,6 @@ $( document ).ready (function () {
 
         // event.preventDefault ();
 
-        $('#drawer-button-label').toggleClass ('drawer-button-label-color');
-
         $('.controls-popup').removeClass ('controls-popup-show');
 
     } );
@@ -43,8 +41,6 @@ $( document ).ready (function () {
         // disable defaults prevention for href handling
 
         // event.preventDefault ();
-
-        $('#drawer-button-label').toggleClass ('drawer-button-label-color');
 
         $('.controls-popup').removeClass ('controls-popup-show');
 

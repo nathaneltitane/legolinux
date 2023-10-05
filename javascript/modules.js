@@ -14,6 +14,12 @@ $(function() {
 
 	});
 
+	$.get("/modules/navigation.html", function (data) {
+
+		$("#drawer-button").append (data);
+
+	});
+
 	$.get("/modules/footer.html", function (data) {
 
 		$("#footer").append (data);
@@ -26,9 +32,9 @@ $(function() {
 
 	});
 
-	$.get("/modules/colors.html", function (data) {
+	$.get("/modules/color.html", function (data) {
 
-		$("#colors").append (data);
+		$("#color").append (data);
 
 	});
 
