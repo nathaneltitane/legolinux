@@ -1,17 +1,19 @@
 // paypal //
 
-$(document).ready (function () {
+$( document ).ready ( function ( ) {
 
-    $('.paypal').hover (function (e) {
+    $( '.paypal' ).hover ( function ( e ) {
 
         // disable defaults prevention for href handling
 
-        // e.preventDefault ();
+        // e.preventDefault ( );
 
-        $('.paypal-popup').toggleClass ('paypal-popup-show');
+		$( '#drawer-button-label' ).toggleClass ( 'drawer-button-label-color' );
 
-    });
+        $( '.paypal-popup' ).toggleClass ( 'paypal-popup-show' );
 
-});
+    } );
+
+} );
 
 

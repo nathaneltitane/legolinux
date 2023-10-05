@@ -1,64 +1,61 @@
 // drawer //
 
-$(document).ready (function () {
+$( document ).ready ( function ( ) {
 
-	$('.drawer-button').click (function (e) {
+	$( '.drawer-button' ).click ( function ( event ) {
 
 		// disable defaults prevention for href handling
 
-		// e.preventDefault ();
+		// event.preventDefault ( );
 
-		$('#drawer-button-label').toggleClass ('drawer-button-label-color');
+		$( '#drawer-button-label' ).toggleClass ( 'drawer-button-label-color' );
 
-		$('#drawer').toggleClass ('drawer-open');
+		$( '#drawer' ).addClass ( 'drawer-open' );
 
-	});
+	} );
 
 	// prevent canvas interaction conflict
 
-	$('#background').click (function (e) {
+	$( '.section' ).click ( function ( event ) {
 
 		// disable defaults prevention for href handling
 
-		// e.preventDefault ();
+		// event.preventDefault ( );
 
-		$('#drawer').removeClass ('drawer-open');
+		$( '#drawer-button-label' ).toggleClass ( 'drawer-button-label-color' );
 
-	});
+		$( '#drawer' ).removeClass ( 'drawer-open' );
 
-	$('#canvas').click (function (e) {
+	} );
 
-		// disable defaults prevention for href handling
+	$( document ).keyup ( function ( event ) {
 
-		// e.preventDefaul t();
+		if ( event.key === "Escape" ) {
 
-		$('#drawer').removeClass('drawer-open');
+			if ( $( '.drawer-open' ).length ) {
 
-	});
+				$( '#drawer-button-label' ).toggleClass ( 'drawer-button-label-color' );
 
+				$( '#drawer' ).removeClass ( 'drawer-open' );
 
-	$('.modal').click (function (e) {
+			}
 
-		// disable defaults prevention for href handling
+		}
 
-		// e.preventDefault ();
-
-		$('#drawer').removeClass ('drawer-open');
-
-	});
+	} );
 
 	// mobile device hover emulation
 
-	$(document).ready (function () {
+	$( document ).ready ( function ( ) {
 
-		$('.container').on ('touchstart touchend', function (e) {
+		$( '.container' ).on ( 'touchstart touchend', function ( event ) {
 
-			// e.preventDefault ();
+			// event.preventDefault ( );
 
-			$('.label').toggleClass ('hover-expand');
+			$( '.label' ).toggleClass ( 'hover-expand' );
 
-		});
+		} );
 
-	});
+	} );
 
-});
+} );

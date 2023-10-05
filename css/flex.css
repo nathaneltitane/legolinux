@@ -77,11 +77,11 @@
 	align-items: stretch;
 }
 
-.flex-wrap{
+.flex-wrap {
 	flex-wrap: wrap;
 }
 
-.flex-wrap-reverse{
+.flex-wrap-reverse {
 	flex-wrap: wrap-reverse;
 }
 
