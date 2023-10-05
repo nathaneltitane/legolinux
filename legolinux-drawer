@@ -87,7 +87,7 @@ cat << MODEL-DRAWER-HEADER -> "${modules_directory}"/drawer.html
 
 	<div id="drawer-button-icon" class="flex-cell">
 
-		<div class="icon icon-64 logo-drawer"></div>
+		<div class="icon icon-64 logo-fuschia"></div>
 
 	</div>
 
