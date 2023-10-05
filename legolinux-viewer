@@ -192,10 +192,6 @@ cat << 3D-MODEL-PAGE-HEADER -> "${model_directory}/index.html"
 cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 	<body>
 
-		<div id="drawer">
-
-		</div>
-
 		<!-- interactive render container -->
 
 		<canvas id="canvas" class="cursor-move"></canvas>
@@ -1795,14 +1791,32 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 
 fi
 
-cat << 3D-MODEL-PAGE-COLORS ->> "${model_directory}/index.html"
+cat << 3D-MODEL-PAGE-DRAWER ->> "${model_directory}/index.html"
+		<!-- drawer -->
+
+		<div id="drawer">
+
+		</div>
+
+3D-MODEL-PAGE-DRAWER
+
+cat << 3D-MODEL-PAGE-NAVIGATION ->> "${model_directory}/index.html"
+		<!-- navigation -->
+
+		<div id="drawer-button">
+
+		</div>
+
+3D-MODEL-PAGE-NAVIGATION
+
+cat << 3D-MODEL-PAGE-COLOR ->> "${model_directory}/index.html"
 		<!-- color -->
 
 		<div id="color">
 
 		</div>
 
-3D-MODEL-PAGE-COLORS
+3D-MODEL-PAGE-COLOR
 
 cat << 3D-MODEL-PAGE-CONTROLS ->> "${model_directory}/index.html"
 		<!-- controls -->
