@@ -18,6 +18,38 @@ $( document ).ready ( function ( ) {
 
 	} );
 
+    $('#canvas').click (function ( event ) {
+
+        // disable defaults prevention for href handling
+
+        // event.preventDefault ();
+
+        $('#navigation-button-label').removeClass ('navigation-label-color');
+
+        $('#paypal-button-label').removeClass ('paypal-label-color');
+
+        $('#color-button-label').removeClass ('color-label-color');
+
+        $('#controls-button-label').removeClass ('controls-label-color');
+
+    } );
+
+    $('#footer').click (function ( event ) {
+
+        // disable defaults prevention for href handling
+
+        // event.preventDefault ();
+
+        $('#navigation-button-label').removeClass ('navigation-label-color');
+
+        $('#paypal-button-label').removeClass ('paypal-label-color');
+
+        $('#color-button-label').removeClass ('color-label-color');
+
+        $('#controls-button-label').removeClass ('controls-label-color');
+
+    } );
+
 } );
 
 $( function () {
