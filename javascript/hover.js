@@ -8,7 +8,7 @@ $( document ).ready ( function ( ) {
 
         event.preventDefault ( );
 
-        $( '#background-overlay' ).addClass ( 'hover-overlay' );
+        $( '#background-overlay' ).addClass ( 'hover-background-overlay' );
 
     });
 
@@ -16,7 +16,7 @@ $( document ).ready ( function ( ) {
 
         event.preventDefault ( );
 
-        $( '#background-overlay' ).removeClass ( 'hover-overlay' );
+        $( '#background-overlay' ).removeClass ( 'hover-background-overlay' );
 
     });
 
