@@ -262,7 +262,7 @@ cat << MODEL-DRAWER-CONTENT ->> "${modules_directory}"/drawer.html
 
 						</div>
 
-						<div class="flex-cell text-right">
+						<div class="flex-cell label text-right">
 
 							${model_title} </br> ${model_pieces_count} PIECES
 
