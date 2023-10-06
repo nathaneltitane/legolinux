@@ -142,13 +142,17 @@ do
 
 		if [[ "${model_paypal_id}" = "" ]]
 		then
+			model_paypal_id="N/A"
+
 			status_font_indicator="status-font-progress"
 
 			status_message="[ NOT YET AVAILABLE FOR PURCHASE ]"
 		else
+			model_paypal_id="${model_paypal_id}"
+
 			status_font_indicator="status-font-available"
 
-			status_message="[ AVAILABLE FOR PURCHASE // ID: ${model_paypal_id} ]"
+			status_message="[ AVAILABLE FOR PURCHASE ]"
 		fi
 
 cat << 3D-MODEL-PAGE-HEADER -> "${model_directory}/index.html"
@@ -1780,6 +1784,18 @@ cat << 3D-MODEL-PAGE-SAMPLES ->> "${model_directory}/index.html"
 						<div class="grid-4">
 
 							</br>
+
+						</div>
+
+						<div class="grid-1 text-left">
+
+							MODEL ID
+
+						</div>
+
+						<div class="grid-3 ${status_font_indicator} text-right">
+
+							${model_paypal_id}
 
 						</div>
 
