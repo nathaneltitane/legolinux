@@ -123,9 +123,9 @@ cat << MODEL-DRAWER-HEADER -> "${modules_directory}"/drawer.html
 
 		</div>
 
-		<!-- instructions available -->
+		<!-- status available -->
 
-		<div class="section available">
+		<div class="section status-available">
 
 			<div class="flex flex-row flex-middle section">
 
@@ -145,9 +145,9 @@ cat << MODEL-DRAWER-HEADER -> "${modules_directory}"/drawer.html
 
 		</div>
 
-		<!-- instructions progress -->
+		<!-- status progress -->
 
-		<div class="section progress">
+		<div class="section status-progress">
 
 			<div class="flex flex-row flex-middle section">
 
