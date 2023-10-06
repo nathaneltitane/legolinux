@@ -87,7 +87,7 @@ cat << MODEL-DRAWER-HEADER -> "${modules_directory}"/drawer.html
 
 		<div class="section notice">
 
-			<div class="flex flex-column">
+			<div class="flex flex-column section">
 
 				<div class="flex-cell text-bold text-center">
 
