@@ -1,13 +1,13 @@
 .label {
-
-}
-
-.container:not(:active) > .label,
-.container:not(:hover) > .label {
     opacity: 0;
 }
 
-.container:active > .label,
-.container:hover > .label {
+.container:not(:active) .label,
+.container:not(:hover) .label {
+    opacity: 0;
+}
+
+.container:active .label,
+.container:hover .label {
     opacity: 1;
 }
