@@ -10,17 +10,17 @@ $( document ).ready (function () {
 
         $('#drawer-button-label').toggleClass ('drawer-button-label-color');
 
-        $('.controls-popup').toggleClass ('controls-popup-show');
+        $('.helper').toggleClass ('helper-show');
 
     } );
 
 	$( document ).keyup ( function ( event ) {
 
-		if ( event.key === "?" ) {
+		if ( event.key === "#" ) {
 
             $('#drawer-button-label').toggleClass ('drawer-button-label-color');
 
-            $('.controls-popup').toggleClass ('controls-popup-show');
+            $('.helper').toggleClass ('helper-show');
 
 		}
 
@@ -32,7 +32,7 @@ $( document ).ready (function () {
 
         // event.preventDefault ();
 
-        $('.controls-popup').removeClass ('controls-popup-show');
+        $('.helper').removeClass ('helper-show');
 
     } );
 
@@ -42,7 +42,7 @@ $( document ).ready (function () {
 
         // event.preventDefault ();
 
-        $('.controls-popup').removeClass ('controls-popup-show');
+        $('.helper').removeClass ('helper-show');
 
     } );
 

@@ -1,0 +1,52 @@
+.samples {
+	background-color: #000000ff;
+	color: #efefefff;
+	padding: 0px 20px 0px 20px;
+	margin: 0px 0px 0px 0px;
+	position: fixed;
+	bottom: 80px;
+	right: 74px;
+	left: 0px;
+
+	height: 0vh;
+
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+.samples::before {
+    content: "";
+    background: linear-gradient(to top, transparent 20%, #000000ff 80%);
+    display: block;
+    position: sticky;
+    top: 0px;
+    height: 40px;
+    margin-left: -100%;
+    margin-right: -100%;
+}
+
+.samples::after {
+    content: "";
+    background: linear-gradient(to bottom, transparent 20%, #000000ff 80%);
+    display: block;
+    position: sticky;
+    bottom: 0px;
+    height: 40px;
+    margin-left: -100%;
+    margin-right: -100%;
+}
+
+@keyframes samples-reveal {
+	0% {height: 0vh;}
+
+	100% {height: calc( 100vh - 80px );}
+}
+
+.samples-show {
+	height: calc( 100vh - 80px );
+
+	animation: samples-reveal 1s;
+	animation-delay: 0s;
+	animation-duration: 0.5s;
+	animation-fill-mode: forwards;
+}

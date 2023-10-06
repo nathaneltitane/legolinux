@@ -16,15 +16,10 @@ $(function() {
 
 	$.get("/modules/navigation.html", function (data) {
 
-		$("#drawer-button").append (data);
+		$("#navigation").append (data);
 
 	});
 
-	$.get("/modules/footer.html", function (data) {
-
-		$("#footer").append (data);
-
-	});
 
 	$.get("/modules/contact.html", function (data) {
 
@@ -41,6 +36,12 @@ $(function() {
 	$.get("/modules/controls.html", function (data) {
 
 		$("#controls").append (data);
+
+	});
+
+	$.get("/modules/footer.html", function (data) {
+
+		$("#footer").append (data);
 
 	});
 

@@ -2,13 +2,13 @@
 
 $( document ).ready ( function ( ) {
 
-	$( '.drawer-button' ).click ( function ( event ) {
+	$( '.navigation' ).click ( function ( event ) {
 
 		// disable defaults prevention for href handling
 
 		// event.preventDefault ( );
 
-		$( '#drawer-button-label' ).toggleClass ( 'drawer-button-label-color' );
+		$( '#navigation-label' ).toggleClass ( 'navigation-label-color' );
 
 		$( '#drawer' ).addClass ( 'drawer-open' );
 
@@ -22,7 +22,7 @@ $( document ).ready ( function ( ) {
 
 		// event.preventDefault ( );
 
-		$( '#drawer-button-label' ).toggleClass ( 'drawer-button-label-color' );
+		$( '#navigation-label' ).toggleClass ( 'navigation-label-color' );
 
 		$( '#drawer' ).removeClass ( 'drawer-open' );
 
@@ -34,7 +34,7 @@ $( document ).ready ( function ( ) {
 
 			if ( $( '.drawer-open' ).length ) {
 
-				$( '#drawer-button-label' ).toggleClass ( 'drawer-button-label-color' );
+				$( '#navigation-label' ).toggleClass ( 'navigation-label-color' );
 
 				$( '#drawer' ).removeClass ( 'drawer-open' );
 

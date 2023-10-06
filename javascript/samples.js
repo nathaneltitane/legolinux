@@ -10,7 +10,7 @@ $( document ).ready ( function ( ) {
 
 		$( '#drawer-button-label' ).toggleClass ( 'drawer-button-label-color' );
 
-        $( '.paypal-popup' ).toggleClass ( 'paypal-popup-show' );
+        $( '.samples' ).toggleClass ( 'samples-show' );
 
     } );
 
