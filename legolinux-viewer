@@ -1856,15 +1856,6 @@ cat << 3D-MODEL-PAGE-SAMPLES ->> "${model_directory}/index.html"
 
 3D-MODEL-PAGE-SAMPLES
 
-cat << 3D-MODEL-PAGE-DRAWER ->> "${model_directory}/index.html"
-		<!-- drawer -->
-
-		<div id="drawer">
-
-		</div>
-
-3D-MODEL-PAGE-DRAWER
-
 cat << 3D-MODEL-PAGE-NAVIGATION ->> "${model_directory}/index.html"
 		<!-- navigation -->
 
@@ -1891,6 +1882,15 @@ cat << 3D-MODEL-PAGE-CONTROLS ->> "${model_directory}/index.html"
 		</div>
 
 3D-MODEL-PAGE-CONTROLS
+
+cat << 3D-MODEL-PAGE-DRAWER ->> "${model_directory}/index.html"
+		<!-- drawer -->
+
+		<div id="drawer">
+
+		</div>
+
+3D-MODEL-PAGE-DRAWER
 
 cat << 3D-MODEL-PAGE-FOOTER ->> "${model_directory}/index.html"
 		<div id="footer" class="section">
