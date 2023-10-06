@@ -166,7 +166,7 @@ cat << 3D-MODEL-PAGE-HEADER -> "${model_directory}/index.html"
 
 		<script src="/javascript/modules.js" type="text/javascript"></script>
 
-		<script src="/javascript/paypal.js" type="text/javascript"></script>
+		<script src="/javascript/samples.js" type="text/javascript"></script>
 
 
 		<script type="importmap">
@@ -1701,7 +1701,7 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 
 				</div>
 
-				<div class="paypal-popup">
+				<div class="samples">
 
 					<div class="flex flex-column">
 
@@ -1749,7 +1749,9 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 
 						</div>
 
-						<div class="flex-cell container">
+						<!-- sample 01 -->
+
+						<div class="flex-cell">
 
 							<a href="/${instructions_directory}/sample-01.png"/>
 
@@ -1759,7 +1761,9 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 
 						</div>
 
-						<div class="flex-cell container">
+						<!-- sample 02 -->
+
+						<div class="flex-cell">
 
 							<a href="/${instructions_directory}/sample-02.png"/>
 
@@ -1769,7 +1773,9 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 
 						</div>
 
-						<div class="flex-cell container">
+						<!-- sample 03 -->
+
+						<div class="flex-cell">
 
 							<a href="/${instructions_directory}/sample-03.png"/>
 
@@ -1779,7 +1785,9 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 
 						</div>
 
-						<div class="flex-cell container">
+						<!-- sample 04 -->
+
+						<div class="flex-cell">
 
 							<a href="/${instructions_directory}/sample-04.png"/>
 
@@ -1789,7 +1797,9 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 
 						</div>
 
-						<div class="flex-cell container">
+						<!-- sample 05 -->
+
+						<div class="flex-cell">
 
 							<a href="/${instructions_directory}/sample-05.png"/>
 
@@ -1799,7 +1809,9 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 
 						</div>
 
-						<div class="flex-cell container">
+						<!-- sample 06 -->
+
+						<div class="flex-cell">
 
 							<a href="/${instructions_directory}/sample-06.png"/>
 
