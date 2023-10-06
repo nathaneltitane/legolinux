@@ -1863,7 +1863,7 @@ cat << 3D-MODEL-PAGE-DRAWER ->> "${model_directory}/index.html"
 cat << 3D-MODEL-PAGE-NAVIGATION ->> "${model_directory}/index.html"
 		<!-- navigation -->
 
-		<div id="drawer-button">
+		<div id="navigation">
 
 		</div>
 
