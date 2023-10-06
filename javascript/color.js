@@ -18,32 +18,37 @@ $( document ).ready ( function ( ) {
 
 	} );
 
-
-	$( function () {
-
-		// color selector //
-
-		var selection = document.getElementById ('color-palette');
-
-		selection.addEventListener ('change', function (e) {
-
-			var color = selection.value;
-
-			$("#canvas").css ("background-color", color);
-
-		},
-
-		false
-
-		);
-	});
-
-	function color_selector () {
-
-		$("#color-palette").click ();
-
-	}
-
 } );
 
+$( function () {
 
+	// color selector //
+
+	var selection = document.getElementById ('color-palette');
+
+	selection.addEventListener ('change', function (e) {
+
+		var color = selection.value;
+
+		$("#canvas").css ("background-color", color);
+
+		$('#navigation-button-label').removeClass ('navigation-label-color');
+
+        $('#paypal-button-label').removeClass ('paypal-label-color');
+
+        $('#color-button-label').removeClass ('color-label-color');
+
+        $('#controls-button-label').removeClass ('controls-label-color');
+
+	},
+
+	false
+
+	);
+});
+
+function color_selector () {
+
+	$("#color-palette").click ();
+
+}
