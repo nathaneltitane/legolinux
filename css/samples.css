@@ -58,3 +58,18 @@
 	animation-duration: 1s;
 	animation-fill-mode: forwards;
 }
+
+@keyframes samples-conceal {
+	0% {height: calc( 100vh - 80px );}
+
+	100% {height: 0vh;}
+}
+
+.samples-hide {
+	height: 0vh;
+
+	animation: samples-conceal 1s;
+	animation-delay: 0s;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}

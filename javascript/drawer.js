@@ -35,7 +35,7 @@ $( document ).ready ( function ( ) {
 
 		$( ids ).removeClass ( classes );
 
-		drawer.removeClass ( 'drawer-open' );
+		drawer.addClass ( 'drawer-close' );
 
 	} );
 

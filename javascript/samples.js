@@ -22,12 +22,41 @@ $( document ).ready ( function ( ) {
 
     var classes = classes.join ( ' ' );
 
-    $('.paypal, .samples').hover( function ( ) {
+    $('.paypal').hover (
 
-        $( ids ).toggleClass ( classes );
+        function ( ) {
 
-        samples.toggleClass ( 'samples-show' );
+            $( ids ).addClass ( classes );
 
-    });
+            if ( $('.samples-hide').length ) {
+
+                samples.removeClass ( 'samples-hide' );
+
+                samples.addClass ( 'samples-show' );
+            }
+
+            else {
+
+                samples.addClass ( 'samples-show' );
+
+            }
+
+        },
+
+        function ( ) {
+
+            // samples navigation hover failsafe
+
+            if ( ! $( '.paypal:hover' ).length && ! $( '.samples:hover' ).length ) {
+
+                $( ids ).removeClass ( classes );
+
+                samples.removeClass ( 'samples-show' );
+
+                samples.addClass ( 'samples-hide' );
+
+            }
+        }
+    );
 
 } );
