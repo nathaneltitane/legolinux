@@ -254,11 +254,17 @@ cat << MODEL-DRAWER-CONTENT ->> "${modules_directory}"/drawer.html
 
 				<div class="container">
 
-					<div class="flex flex-column flex-middle">
+					<div class="flex flex-row flex-middle">
 
 						<div class="flex-cell-start">
 
 							<div class="icon icon-flex icon-center logo-${color}"></div>
+
+						</div>
+
+						<div class="flex-cell text-right">
+
+							${model_pieces_count} PIECES
 
 						</div>
 
@@ -274,23 +280,17 @@ cat << MODEL-DRAWER-CONTENT ->> "${modules_directory}"/drawer.html
 
 					</a>
 
-					<div class="label flex flex-column flex-middle">
+					<div class="label grid">
 
-						<div class="flex-cell category">
+						<div class="grid-4 text-center">
 
 							[ ${model_category} ]
 
 						</div>
 
-						<div class="flex-cell text-center">
+						<div class="grid-4 text-center">
 
 							${model_title}
-
-						</div>
-
-						<div class="flex-cell text-center">
-
-							[ ${model_pieces_count} PIECES ]
 
 						</div>
 
