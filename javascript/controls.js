@@ -8,7 +8,13 @@ $( document ).ready (function () {
 
         // event.preventDefault ();
 
-        $('#drawer-button-label').toggleClass ('drawer-button-label-color');
+        $('#navigation-button-label').toggleClass ('navigation-label-color');
+
+        $('#paypal-button-label').toggleClass ('paypal-label-color');
+
+        $('#color-button-label').toggleClass ('color-label-color');
+
+        $('#controls-button-label').toggleClass ('controls-label-color');
 
         $('.helper').toggleClass ('helper-show');
 
@@ -18,7 +24,13 @@ $( document ).ready (function () {
 
 		if ( event.key === "#" ) {
 
-            $('#drawer-button-label').toggleClass ('drawer-button-label-color');
+            $('#navigation-button-label').toggleClass ('navigation-label-color');
+
+            $('#paypal-button-label').toggleClass ('paypal-label-color');
+
+            $('#color-button-label').toggleClass ('color-label-color');
+
+            $('#controls-button-label').toggleClass ('controls-label-color');
 
             $('.helper').toggleClass ('helper-show');
 

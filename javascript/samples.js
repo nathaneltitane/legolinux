@@ -8,7 +8,13 @@ $( document ).ready ( function ( ) {
 
         // e.preventDefault ( );
 
-		$( '#drawer-button-label' ).toggleClass ( 'drawer-button-label-color' );
+        $('#navigation-button-label').toggleClass ('navigation-label-color');
+
+        $('#paypal-button-label').toggleClass ('paypal-label-color');
+
+        $('#color-button-label').toggleClass ('color-label-color');
+
+        $('#controls-button-label').toggleClass ('controls-label-color');
 
         $( '.samples' ).toggleClass ( 'samples-show' );
 
