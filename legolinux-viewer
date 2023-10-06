@@ -146,13 +146,13 @@ do
 
 			status_font_indicator="status-font-progress"
 
-			status_message="[ NOT YET AVAILABLE FOR PURCHASE ]"
+			status_message="NOT YET AVAILABLE FOR PURCHASE"
 		else
 			model_paypal_id="${model_paypal_id}"
 
 			status_font_indicator="status-font-available"
 
-			status_message="[ AVAILABLE FOR PURCHASE ]"
+			status_message="AVAILABLE FOR PURCHASE"
 		fi
 
 cat << 3D-MODEL-PAGE-HEADER -> "${model_directory}/index.html"
