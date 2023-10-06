@@ -142,9 +142,9 @@ do
 
 		if [[ "${model_paypal_id}" = "" ]]
 		then
-			purchase_status_message="NOT YET AVAILABLE FOR PURCHASE"
+			purchase_status_message="[ NOT YET AVAILABLE FOR PURCHASE ]"
 		else
-			purchase_status_message="MODEL AVAILABLE FOR PURCHASE"
+			purchase_status_message="${model_paypal_id}"
 		fi
 
 cat << 3D-MODEL-PAGE-HEADER -> "${model_directory}/index.html"
