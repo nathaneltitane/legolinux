@@ -1723,19 +1723,7 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 
 								<div class="grid-3 text-right">
 
-									${model_name}
-
-								</div>
-
-									<div class="grid-1 text-left">
-
-									INSTRUCTIONS PRICE
-
-								</div>
-
-								<div class="grid-3 text-right">
-
-									US\$ ${model_instructions_price}
+									${model_title}
 
 								</div>
 
@@ -1748,6 +1736,18 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 								<div class="grid-3 text-right">
 
 									${model_paypal_id}
+
+								</div>
+
+									<div class="grid-1 text-left">
+
+									MODELINSTRUCTIONS PRICE
+
+								</div>
+
+								<div class="grid-3 text-right">
+
+									US\$ ${model_instructions_price}
 
 								</div>
 
