@@ -46,6 +46,14 @@ $( document ).ready (function () {
 
         $('.helper').removeClass ('helper-show');
 
+        $('#navigation-button-label').removeClass ('navigation-label-color');
+
+        $('#paypal-button-label').removeClass ('paypal-label-color');
+
+        $('#color-button-label').removeClass ('color-label-color');
+
+        $('#controls-button-label').removeClass ('controls-label-color');
+
     } );
 
     $('#footer').click (function ( event ) {
@@ -55,6 +63,14 @@ $( document ).ready (function () {
         // event.preventDefault ();
 
         $('.helper').removeClass ('helper-show');
+
+        $('#navigation-button-label').removeClass ('navigation-label-color');
+
+        $('#paypal-button-label').removeClass ('paypal-label-color');
+
+        $('#color-button-label').removeClass ('color-label-color');
+
+        $('#controls-button-label').removeClass ('controls-label-color');
 
     } );
 
