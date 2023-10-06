@@ -1771,7 +1771,7 @@ cat << 3D-MODEL-PAGE-SAMPLES ->> "${model_directory}/index.html"
 
 						</div>
 
-						<div class="grid-3 ${purchase_status_indicator} text-right">
+						<div class="grid-3 ${purchase_status_font_indicator} text-right">
 
 							${purchase_status_message}
 
