@@ -143,6 +143,17 @@
 
 				this.camera.lookAt ( 0, 0, 0 );
 
+				if ( this.camera.isOrthographicCamera ) {
+
+					this.camera.zoom = 3000;
+				}
+
+				else {
+
+					this.camera.zoom = 2;
+
+				}
+
 				// lights
 
 				// ambient light
@@ -829,15 +840,19 @@
 
 					self.transformControls.camera = self.camera;
 
-					self.camera.lookAt ( 0, 0, 0 );
+					self.camera.zoom = 2;
 
 					if ( self.camera.isOrthographicCamera ) {
 
 						self.orbitControls = new OrbitControls ( self.camera, self.renderer.domElement );
 
-						self.camera.zoom = 1000;
+						self.camera.zoom = 3000;
 
 					}
+
+					self.camera.lookAt ( 0, 0, 0 );
+
+					self.camera.updateProjectionMatrix ();
 
 					self.resize ();
 
