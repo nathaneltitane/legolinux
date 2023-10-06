@@ -1701,148 +1701,6 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 
 				</div>
 
-				<div class="samples">
-
-					<div class="flex flex-column">
-
-						<div class="flex-cell">
-
-							<div class="grid">
-
-								<div class="grid-4 text-center">
-
-									INSTRUCTIONS PAGE SAMPLE
-
-								</div>
-
-								<div class="grid-4">
-
-									</br>
-
-								</div>
-
-								<div class="grid-1 text-left">
-
-									MODEL NAME
-
-								</div>
-
-								<div class="grid-3 text-right">
-
-									${model_title}
-
-								</div>
-
-								<div class="grid-1 text-left">
-
-									MODEL PURCHASE ID
-
-								</div>
-
-								<div class="grid-3 text-right">
-
-									${model_paypal_id}
-
-								</div>
-
-									<div class="grid-1 text-left">
-
-									MODEL INSTRUCTIONS PRICE
-
-								</div>
-
-								<div class="grid-3 text-right">
-
-									US\$ ${model_instructions_price}
-
-								</div>
-
-								<div class="grid-4">
-
-									</br>
-
-								</div>
-
-							</div>
-
-						</div>
-
-						<!-- sample 01 -->
-
-						<div class="flex-cell product">
-
-							<a href="/${instructions_directory}/sample-01.png"/>
-
-								<img src="/${instructions_directory}/sample-01.png"/>
-
-							</a>
-
-						</div>
-
-						<!-- sample 02 -->
-
-						<div class="flex-cell product">
-
-							<a href="/${instructions_directory}/sample-02.png"/>
-
-								<img src="/${instructions_directory}/sample-02.png"/>
-
-							</a>
-
-						</div>
-
-						<!-- sample 03 -->
-
-						<div class="flex-cell product">
-
-							<a href="/${instructions_directory}/sample-03.png"/>
-
-								<img src="/${instructions_directory}/sample-03.png"/>
-
-							</a>
-
-						</div>
-
-						<!-- sample 04 -->
-
-						<div class="flex-cell product">
-
-							<a href="/${instructions_directory}/sample-04.png"/>
-
-								<img src="/${instructions_directory}/sample-04.png"/>
-
-							</a>
-
-						</div>
-
-						<!-- sample 05 -->
-
-						<div class="flex-cell product">
-
-							<a href="/${instructions_directory}/sample-05.png"/>
-
-								<img src="/${instructions_directory}/sample-05.png"/>
-
-							</a>
-
-						</div>
-
-						<!-- sample 06 -->
-
-						<div class="flex-cell product">
-
-							<a href="/${instructions_directory}/sample-06.png"/>
-
-								<img src="/${instructions_directory}/sample-06.png"/>
-
-							</a>
-
-						</div>
-
-					</div>
-
-				</div>
-
 			</div>
 
 		</div>
@@ -1850,6 +1708,153 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 3D-MODEL-PAYPAL
 
 fi
+
+cat << 3D-MODEL-PAGE-SAMPLES ->> "${model_directory}/index.html"
+		<!-- samples -->
+
+		<div class="samples">
+
+			<div class="flex flex-column">
+
+				<div class="flex-cell">
+
+					<div class="grid">
+
+						<div class="grid-4 text-center">
+
+							INSTRUCTIONS PAGE SAMPLE
+
+						</div>
+
+						<div class="grid-4">
+
+							</br>
+
+						</div>
+
+						<div class="grid-1 text-left">
+
+							MODEL NAME
+
+						</div>
+
+						<div class="grid-3 text-right">
+
+							${model_title}
+
+						</div>
+
+						<div class="grid-1 text-left">
+
+							MODEL PURCHASE ID
+
+						</div>
+
+						<div class="grid-3 text-right">
+
+							${model_paypal_id}
+
+						</div>
+
+							<div class="grid-1 text-left">
+
+							MODEL INSTRUCTIONS PRICE
+
+						</div>
+
+						<div class="grid-3 text-right">
+
+							US\$ ${model_instructions_price}
+
+						</div>
+
+						<div class="grid-4">
+
+							</br>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<!-- sample 01 -->
+
+				<div class="flex-cell product">
+
+					<a href="/${instructions_directory}/sample-01.png"/>
+
+						<img src="/${instructions_directory}/sample-01.png"/>
+
+					</a>
+
+				</div>
+
+				<!-- sample 02 -->
+
+				<div class="flex-cell product">
+
+					<a href="/${instructions_directory}/sample-02.png"/>
+
+						<img src="/${instructions_directory}/sample-02.png"/>
+
+					</a>
+
+				</div>
+
+				<!-- sample 03 -->
+
+				<div class="flex-cell product">
+
+					<a href="/${instructions_directory}/sample-03.png"/>
+
+						<img src="/${instructions_directory}/sample-03.png"/>
+
+					</a>
+
+				</div>
+
+				<!-- sample 04 -->
+
+				<div class="flex-cell product">
+
+					<a href="/${instructions_directory}/sample-04.png"/>
+
+						<img src="/${instructions_directory}/sample-04.png"/>
+
+					</a>
+
+				</div>
+
+				<!-- sample 05 -->
+
+				<div class="flex-cell product">
+
+					<a href="/${instructions_directory}/sample-05.png"/>
+
+						<img src="/${instructions_directory}/sample-05.png"/>
+
+					</a>
+
+				</div>
+
+				<!-- sample 06 -->
+
+				<div class="flex-cell product">
+
+					<a href="/${instructions_directory}/sample-06.png"/>
+
+						<img src="/${instructions_directory}/sample-06.png"/>
+
+					</a>
+
+				</div>
+
+			</div>
+
+		</div>
+
+3D-MODEL-PAGE-SAMPLES
 
 cat << 3D-MODEL-PAGE-DRAWER ->> "${model_directory}/index.html"
 		<!-- drawer -->
