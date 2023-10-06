@@ -280,17 +280,11 @@ cat << MODEL-DRAWER-CONTENT ->> "${modules_directory}"/drawer.html
 
 					</a>
 
-					<div class="label grid">
+					<div class="grid">
 
 						<div class="grid-4 text-center">
 
 							[ ${model_category} ]
-
-						</div>
-
-						<div class="grid-4 text-center">
-
-							${model_title}
 
 						</div>
 
