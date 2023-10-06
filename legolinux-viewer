@@ -1769,7 +1769,7 @@ cat << 3D-MODEL-PAGE-SAMPLES ->> "${model_directory}/index.html"
 
 						<div class="grid-3 text-right">
 
-							${model_paypal_id}
+							${purchase_status_message}
 
 						</div>
 
