@@ -148,7 +148,7 @@ do
 		else
 			status_font_indicator="status-font-available"
 
-			status_message="${model_paypal_id}"
+			status_message="[ AVAILABLE FOR PURCHASE // ID: ${model_paypal_id} ]"
 		fi
 
 cat << 3D-MODEL-PAGE-HEADER -> "${model_directory}/index.html"
@@ -1767,18 +1767,6 @@ cat << 3D-MODEL-PAGE-SAMPLES ->> "${model_directory}/index.html"
 
 						<div class="grid-1 text-left">
 
-							MODEL PURCHASE ID
-
-						</div>
-
-						<div class="grid-3 ${status_font_indicator} text-right">
-
-							${status_message}
-
-						</div>
-
-							<div class="grid-1 text-left">
-
 							MODEL INSTRUCTIONS PRICE
 
 						</div>
@@ -1786,6 +1774,24 @@ cat << 3D-MODEL-PAGE-SAMPLES ->> "${model_directory}/index.html"
 						<div class="grid-3 text-right">
 
 							US\$ ${model_instructions_price}
+
+						</div>
+
+						<div class="grid-4">
+
+							</br>
+
+						</div>
+
+						<div class="grid-1 text-left">
+
+							MODEL STATUS
+
+						</div>
+
+						<div class="grid-3 ${status_font_indicator} text-right">
+
+							${status_message}
 
 						</div>
 
