@@ -10,6 +10,12 @@ $( document ).ready ( function ( ) {
 
         $('#navigation-button-label').toggleClass ('navigation-label-color');
 
+        $('#paypal-button-label').toggleClass ('paypal-label-color');
+
+        $('#color-button-label').toggleClass ('color-label-color');
+
+        $('#controls-button-label').toggleClass ('controls-label-color');
+
 		$( '#drawer' ).addClass ( 'drawer-open' );
 
 	} );
@@ -24,6 +30,11 @@ $( document ).ready ( function ( ) {
 
         $('#navigation-button-label').toggleClass ('navigation-label-color');
 
+        $('#paypal-button-label').toggleClass ('paypal-label-color');
+
+        $('#color-button-label').toggleClass ('color-label-color');
+
+        $('#controls-button-label').toggleClass ('controls-label-color');
 
 		$( '#drawer' ).removeClass ( 'drawer-open' );
 
@@ -36,6 +47,12 @@ $( document ).ready ( function ( ) {
 			if ( $( '.drawer-open' ).length ) {
 
 				$('#navigation-button-label').toggleClass ('navigation-label-color');
+
+				$('#paypal-button-label').toggleClass ('paypal-label-color');
+
+				$('#color-button-label').toggleClass ('color-label-color');
+
+				$('#controls-button-label').toggleClass ('controls-label-color');
 
 				$( '#drawer' ).removeClass ( 'drawer-open' );
 
