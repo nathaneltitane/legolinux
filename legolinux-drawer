@@ -254,7 +254,7 @@ cat << MODEL-DRAWER-CONTENT ->> "${modules_directory}"/drawer.html
 
 				<div class="container">
 
-					<div class="flex flex-row flex-middle">
+					<div class="flex flex-row flex-middle section">
 
 						<div class="flex-cell-start">
 
