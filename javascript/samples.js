@@ -1,25 +1,33 @@
-// paypal //
+// samples //
 
 $( document ).ready ( function ( ) {
 
-    $( '.paypal' ).hover ( function ( e ) {
+    var samples = $( '.samples' );
 
-        // disable defaults prevention for href handling
+    var ids = [
+        '#navigation-button-label',
+        '#paypal-button-label',
+        '#color-button-label',
+        '#controls-button-label'
+    ];
 
-        // e.preventDefault ( );
+    var classes = [
+        'navigation-label-color',
+        'paypal-label-color',
+        'color-label-color',
+        'controls-label-color'
+    ];
 
-        $('#navigation-button-label').toggleClass ('navigation-label-color');
+    var ids = ids.join ( ', ' );
 
-        $('#paypal-button-label').toggleClass ('paypal-label-color');
+    var classes = classes.join ( ' ' );
 
-        $('#color-button-label').toggleClass ('color-label-color');
+    $('.paypal, .samples').hover( function ( ) {
 
-        $('#controls-button-label').toggleClass ('controls-label-color');
+        $( ids ).toggleClass ( classes );
 
-        $( '.samples' ).toggleClass ( 'samples-show' );
+        samples.toggleClass ( 'samples-show' );
 
-    } );
+    });
 
 } );
-
-

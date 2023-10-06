@@ -1,3 +1,11 @@
+#samples {
+	position: fixed;
+	bottom: 80px;
+	left: 0px;
+	right: 0px;
+
+	z-index: 888;
+}
 .samples {
 	background-color: #000000ff;
 	color: #efefefff;
@@ -47,6 +55,6 @@
 
 	animation: samples-reveal 1s;
 	animation-delay: 0s;
-	animation-duration: 0.5s;
+	animation-duration: 1s;
 	animation-fill-mode: forwards;
 }
