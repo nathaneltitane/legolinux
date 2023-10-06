@@ -14,7 +14,7 @@
 	position: fixed;
 	bottom: 80px;
 	left: 0px;
-	right: 74px;
+	right: calc( 64px + 10px +10px );
 
 	height: 0vh;
 
@@ -24,7 +24,7 @@
 
 .samples::before {
     content: "";
-    background: linear-gradient(to top, transparent 20%, #000000ff 80%);
+    background: linear-gradient( to top, transparent 20%, #000000ff 80% );
     display: block;
     position: sticky;
     top: 0px;
@@ -35,7 +35,7 @@
 
 .samples::after {
     content: "";
-    background: linear-gradient(to bottom, transparent 20%, #000000ff 80%);
+    background: linear-gradient( to bottom, transparent 20%, #000000ff 80% );
     display: block;
     position: sticky;
     bottom: 0px;
