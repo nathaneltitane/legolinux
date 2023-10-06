@@ -146,7 +146,7 @@ do
 
 			status_message="[ NOT YET AVAILABLE FOR PURCHASE ]"
 		else
-			tatus_font_indicator="status-font-available"
+			status_font_indicator="status-font-available"
 
 			status_message="${model_paypal_id}"
 		fi
