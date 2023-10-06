@@ -127,15 +127,15 @@ cat << MODEL-DRAWER-HEADER -> "${modules_directory}"/drawer.html
 
 		<div class="section available">
 
-			<div class="flex flex-row flex-middle">
+			<div class="flex flex-row flex-middle section">
 
-				<div class="flex-cell">
+				<div class="flex-cell-start">
 
 					<div class="icon icon-flex icon-center logo-green"></div>
 
 				</div>
 
-				<div class="flex-cell text-center">
+				<div class="flex-cell text-right">
 
 					AVAILABLE
 
@@ -149,15 +149,15 @@ cat << MODEL-DRAWER-HEADER -> "${modules_directory}"/drawer.html
 
 		<div class="section progress">
 
-			<div class="flex flex-row flex-middle">
+			<div class="flex flex-row flex-middle section">
 
-				<div class="flex-cell">
+				<div class="flex-cell-start">
 
 					<div class="icon icon-flex icon-center logo-orange"></div>
 
 				</div>
 
-				<div class="flex-cell text-center">
+				<div class="flex-cell text-text-right">
 
 					IN PROGRESS
 
