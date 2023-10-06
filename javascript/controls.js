@@ -2,75 +2,53 @@
 
 $( document ).ready (function () {
 
+	var helper = $( '.helper' );
+
+	var ids = [
+        '#navigation-button-label',
+        '#paypal-button-label',
+        '#color-button-label',
+        '#controls-button-label'
+    ];
+
+    var classes = [
+        'navigation-label-color',
+        'paypal-label-color',
+        'color-label-color',
+        'controls-label-color'
+    ];
+
+    var ids = ids.join ( ', ' );
+
+    var classes = classes.join ( ' ' );
+
     $('.controls').click (function ( event ) {
 
-        // disable defaults prevention for href handling
+        $( ids ).toggleClass ( classes );
 
-        // event.preventDefault ();
-
-        $('#navigation-button-label').toggleClass ('navigation-label-color');
-
-        $('#paypal-button-label').toggleClass ('paypal-label-color');
-
-        $('#color-button-label').toggleClass ('color-label-color');
-
-        $('#controls-button-label').toggleClass ('controls-label-color');
-
-        $('.helper').toggleClass ('helper-show');
+        helper.toggleClass ('helper-show');
 
     } );
+
+    // keyboard
 
 	$( document ).keyup ( function ( event ) {
 
 		if ( event.key === "#" ) {
 
-            $('#navigation-button-label').toggleClass ('navigation-label-color');
+            $( ids ).toggleClass ( classes );
 
-            $('#paypal-button-label').toggleClass ('paypal-label-color');
-
-            $('#color-button-label').toggleClass ('color-label-color');
-
-            $('#controls-button-label').toggleClass ('controls-label-color');
-
-            $('.helper').toggleClass ('helper-show');
+            helper.toggleClass ('helper-show');
 
 		}
 
 	} );
 
-    $('#canvas').click (function ( event ) {
+    $('#canvas, #footer').click (function ( event ) {
 
-        // disable defaults prevention for href handling
+         $( ids ).removeClass ( classes );
 
-        // event.preventDefault ();
-
-        $('.helper').removeClass ('helper-show');
-
-        $('#navigation-button-label').removeClass ('navigation-label-color');
-
-        $('#paypal-button-label').removeClass ('paypal-label-color');
-
-        $('#color-button-label').removeClass ('color-label-color');
-
-        $('#controls-button-label').removeClass ('controls-label-color');
-
-    } );
-
-    $('#footer').click (function ( event ) {
-
-        // disable defaults prevention for href handling
-
-        // event.preventDefault ();
-
-        $('.helper').removeClass ('helper-show');
-
-        $('#navigation-button-label').removeClass ('navigation-label-color');
-
-        $('#paypal-button-label').removeClass ('paypal-label-color');
-
-        $('#color-button-label').removeClass ('color-label-color');
-
-        $('#controls-button-label').removeClass ('controls-label-color');
+        helper.removeClass ('helper-show');
 
     } );
 

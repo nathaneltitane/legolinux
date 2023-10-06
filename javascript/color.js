@@ -2,82 +2,58 @@
 
 $( document ).ready ( function ( ) {
 
+    var ids = [
+        '#navigation-button-label',
+        '#paypal-button-label',
+        '#color-button-label',
+        '#controls-button-label'
+    ];
+
+    var classes = [
+        'navigation-label-color',
+        'paypal-label-color',
+        'color-label-color',
+        'controls-label-color'
+    ];
+
+    var ids = ids.join ( ', ' );
+
+    var classes = classes.join ( ' ' );
+
 	$( '.color' ).click ( function ( event ) {
 
-		// disable defaults prevention for href handling
-
-		// event.preventDefault ( );
-
-        $('#navigation-button-label').toggleClass ('navigation-label-color');
-
-        $('#paypal-button-label').toggleClass ('paypal-label-color');
-
-        $('#color-button-label').toggleClass ('color-label-color');
-
-        $('#controls-button-label').toggleClass ('controls-label-color');
+        $( ids ).toggleClass ( classes );
 
 	} );
 
-    $('#canvas').click (function ( event ) {
+    $('#canvas, #footer').click (function ( event ) {
 
-        // disable defaults prevention for href handling
-
-        // event.preventDefault ();
-
-        $('#navigation-button-label').removeClass ('navigation-label-color');
-
-        $('#paypal-button-label').removeClass ('paypal-label-color');
-
-        $('#color-button-label').removeClass ('color-label-color');
-
-        $('#controls-button-label').removeClass ('controls-label-color');
+        $( ids ).toggleClass ( classes );
 
     } );
 
-    $('#footer').click (function ( event ) {
+    $( function () {
 
-        // disable defaults prevention for href handling
+        // color selector //
 
-        // event.preventDefault ();
+        var color_palette = document.getElementById ('color-palette');
 
-        $('#navigation-button-label').removeClass ('navigation-label-color');
+        color_palette.addEventListener ('change', function (e) {
 
-        $('#paypal-button-label').removeClass ('paypal-label-color');
+            var color = color_palette.value;
 
-        $('#color-button-label').removeClass ('color-label-color');
+            $( ids ).removeClass ( classes );
 
-        $('#controls-button-label').removeClass ('controls-label-color');
+            $("#canvas").css ("background-color", color);
 
-    } );
+        },
+
+        false
+
+        );
+    });
 
 } );
-
-$( function () {
-
-	// color selector //
-
-	var selection = document.getElementById ('color-palette');
-
-	selection.addEventListener ('change', function (e) {
-
-		var color = selection.value;
-
-		$("#canvas").css ("background-color", color);
-
-		$('#navigation-button-label').removeClass ('navigation-label-color');
-
-        $('#paypal-button-label').removeClass ('paypal-label-color');
-
-        $('#color-button-label').removeClass ('color-label-color');
-
-        $('#controls-button-label').removeClass ('controls-label-color');
-
-	},
-
-	false
-
-	);
-});
 
 function color_selector () {
 

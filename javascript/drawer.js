@@ -2,43 +2,44 @@
 
 $( document ).ready ( function ( ) {
 
+	var drawer = $( '#drawer' );
+
+	var ids = [
+        '#navigation-button-label',
+        '#paypal-button-label',
+        '#color-button-label',
+        '#controls-button-label'
+    ];
+
+    var classes = [
+        'navigation-label-color',
+        'paypal-label-color',
+        'color-label-color',
+        'controls-label-color'
+    ];
+
+    var ids = ids.join ( ', ' );
+
+    var classes = classes.join ( ' ' );
+
 	$( '.navigation' ).click ( function ( event ) {
 
-		// disable defaults prevention for href handling
+		$( ids ).addClass ( classes );
 
-		// event.preventDefault ( );
-
-        $('#navigation-button-label').toggleClass ('navigation-label-color');
-
-        $('#paypal-button-label').toggleClass ('paypal-label-color');
-
-        $('#color-button-label').toggleClass ('color-label-color');
-
-        $('#controls-button-label').toggleClass ('controls-label-color');
-
-		$( '#drawer' ).addClass ( 'drawer-open' );
+		drawer.addClass ( 'drawer-open' );
 
 	} );
-
-	// prevent canvas interaction conflict
 
 	$( '.section' ).click ( function ( event ) {
 
-		// disable defaults prevention for href handling
 
-		// event.preventDefault ( );
+		$( ids ).removeClass ( classes );
 
-        $('#navigation-button-label').toggleClass ('navigation-label-color');
-
-        $('#paypal-button-label').toggleClass ('paypal-label-color');
-
-        $('#color-button-label').toggleClass ('color-label-color');
-
-        $('#controls-button-label').toggleClass ('controls-label-color');
-
-		$( '#drawer' ).removeClass ( 'drawer-open' );
+		drawer.removeClass ( 'drawer-open' );
 
 	} );
+
+	// keyboard
 
 	$( document ).keyup ( function ( event ) {
 
@@ -46,33 +47,13 @@ $( document ).ready ( function ( ) {
 
 			if ( $( '.drawer-open' ).length ) {
 
-				$('#navigation-button-label').toggleClass ('navigation-label-color');
+				$( ids ).toggleClass ( classes );
 
-				$('#paypal-button-label').toggleClass ('paypal-label-color');
-
-				$('#color-button-label').toggleClass ('color-label-color');
-
-				$('#controls-button-label').toggleClass ('controls-label-color');
-
-				$( '#drawer' ).removeClass ( 'drawer-open' );
+				drawer.toggleClass ( 'drawer-open' );
 
 			}
 
 		}
-
-	} );
-
-	// mobile device hover emulation
-
-	$( document ).ready ( function ( ) {
-
-		$( '.container' ).on ( 'touchstart touchend', function ( event ) {
-
-			// event.preventDefault ( );
-
-			$( '.label' ).toggleClass ( 'hover-expand' );
-
-		} );
 
 	} );
 
