@@ -30,6 +30,4 @@ $( document ).ready ( function ( ) {
 		'url("/images/overlay/overlay-' + number + '.png ")'
 	);
 
-
-
 });

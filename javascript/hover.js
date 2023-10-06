@@ -2,22 +2,22 @@
 
 // provide touch screen browser hover emulation
 
-$(document).ready (function () {
+$( document ).ready ( function ( ) {
 
-    $('#background').on ('touchstart touchend', function ( event) {
+    $( '#background' ).bind ( 'touchstart', function ( ) {
 
-        // event.preventDefault ( );
+        event.preventDefault ( );
 
-        $('#background-overlay').toggleClass ('hover-overlay');
+        $( '#background-overlay' ).addClass ( 'hover-overlay' );
 
     });
 
-    $( '.container' ).on ( 'touchstart touchend', function ( event ) {
+        $( '#background' ).bind ( 'touchend', function ( event ) {
 
-        // event.preventDefault ( );
+        event.preventDefault ( );
 
-        $( '.label' ).toggleClass ( 'hover-expand' );
+        $( '#background-overlay' ).removeClass ( 'hover-overlay' );
 
-    } );
+    });
 
 });
