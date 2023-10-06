@@ -1,26 +1,49 @@
 // color //
 
-$( function () {
+$( document ).ready ( function ( ) {
 
-	// color selector //
+	$( '.color' ).click ( function ( event ) {
 
-	var selection = document.getElementById ('color-palette');
+		// disable defaults prevention for href handling
 
-	selection.addEventListener ('change', function (e) {
+		// event.preventDefault ( );
 
-		var color = selection.value;
+        $('#navigation-button-label').toggleClass ('navigation-label-color');
 
-		$("#canvas").css ("background-color", color);
+        $('#paypal-button-label').toggleClass ('paypal-label-color');
 
-	},
+        $('#color-button-label').toggleClass ('color-label-color');
 
-	false
+        $('#controls-button-label').toggleClass ('controls-label-color');
 
-	);
-});
+	} );
 
-function color_selector () {
 
-	$("#color-palette").click ();
+	$( function () {
 
-}
+		// color selector //
+
+		var selection = document.getElementById ('color-palette');
+
+		selection.addEventListener ('change', function (e) {
+
+			var color = selection.value;
+
+			$("#canvas").css ("background-color", color);
+
+		},
+
+		false
+
+		);
+	});
+
+	function color_selector () {
+
+		$("#color-palette").click ();
+
+	}
+
+} );
+
+
