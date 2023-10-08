@@ -202,11 +202,9 @@ cat << 3D-MODEL-PAGE-HEADER -> "${model_directory}/index.html"
 cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 	<body>
 
-		<!-- interactive render container -->
+		<!-- start webgl canvas -->
 
 		<canvas id="canvas" class="cursor-move"></canvas>
-
-		<!-- BEGIN 3D VIEWER -->
 
 		<script type="module">
 
@@ -1696,7 +1694,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 		</script>
 
-		<!-- END 3D VIEWER -->
+		<!-- end webgl canvas -->
 
 3D-MODEL-PAGE-VIEWER
 
