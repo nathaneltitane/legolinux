@@ -1,12 +1,12 @@
 #canvas {
-	background-color: transparent;
+	background: transparent;
 
 	display: block;
 	opacity: 0;
 
 	animation-name: canvas-reveal;
-	animation-delay: 0.5s;
-	animation-duration: 1s;
+	animation-delay: 1s;
+	animation-duration: 2s;
 	animation-fill-mode: forwards;
 
 	z-index: 1;

@@ -45,7 +45,7 @@ $( document ).ready ( function ( ) {
 
             $( "#canvas" ).css ({
 
-                "background": "linear-gradient(to top, #aaaaaa 25%, " + color + ")"
+                "background": "linear-gradient(to top, #aaaaaa 10%, " + color + ")"
 
             });
 
