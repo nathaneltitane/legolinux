@@ -43,8 +43,7 @@
 
 	100% {right: -100vw;}
 }
-
-#drawer.drawer-close {
+.drawer-close {
 	right: -100vw;
 
 	animation: drawer-conceal 1s;
