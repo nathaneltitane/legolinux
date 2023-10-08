@@ -49,7 +49,7 @@ $( document ).ready ( function ( ) {
 
                 $( ids ).removeClass ( classes );
 
-            }, 500 );
+            }, 250 );
 
         },
 
