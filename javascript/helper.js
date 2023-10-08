@@ -62,14 +62,4 @@ $( document ).ready ( function ( ) {
 
     });
 
-    $( document ).keyup ( function ( event ) {
-
-        if ( event.key === 'Tab' ) {
-
-            toggleVisibility ( );
-
-        }
-
-    });
-
 });
