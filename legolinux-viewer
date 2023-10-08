@@ -990,7 +990,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// edges toggle
 
-				var edgesVisible = false;
+				var edgesVisible = true;
 
 				this.edgesToggle_ = function () {
 
