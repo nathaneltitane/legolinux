@@ -1636,37 +1636,35 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						self.colladaImport = collada.scene;
 
-						// edges
-
-						// collada.children[0].children.forEach ( function ( node ) {
-
-						// 	node.material.polygonOffset = true;
-						// 	node.material.polygonOffsetFactor = 1;
-						// 	node.material.polygonOffsetUnits = 1;
-
-						// 	var edge = new THREE.EdgesHelper(node, 0xff0000);
-
-						// 	edge.material.linewidth = 5;
-
-						// 	scene.add(edge);
-
-						// });
-
-						// enable shadow mapping for individual elements
-
-						// mesh traverse
+						// traverse and parse mesh items
 
 						self.colladaImport.traverse ( function ( node ) {
 
-							if ( node.isMesh )
+							if ( node.isMesh ) {
 
-								// console.log (node);
+								// edges
+
+								var edgesGeometry = new THREE.EdgesGeometry ( node.geometry );
+
+								var edgesMaterial = new THREE.LineBasicMaterial({ color: black });
+
+								edgesMaterial.linewidth = 2;
+
+								var edge = new THREE.LineSegments ( edgesGeometry, edgesMaterial );
+
+								// compute edge position
+
+								edge.geometry.computeBoundingBox ( );
+
+								node.add ( edge );
+
+								// shadows
 
 								node.castShadow = true;
-
 								node.receiveShadow = true;
 
-						} );
+							}
+						});
 
 						// load model
 
