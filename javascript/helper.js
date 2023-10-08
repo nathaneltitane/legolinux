@@ -48,7 +48,7 @@ $( document ).ready ( function ( ) {
 
                 $( ids ).removeClass ( classes );
 
-            }, 250 );
+            }, 500 );
 
         }
 
