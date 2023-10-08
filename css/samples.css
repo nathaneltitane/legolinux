@@ -6,6 +6,7 @@
 
 	z-index: 888;
 }
+
 .samples {
 	background-color: #000000ff;
 	color: #efefefff;
@@ -55,7 +56,7 @@
 
 	animation: samples-reveal 1s;
 	animation-delay: 0s;
-	animation-duration: 1s;
+	animation-duration: 0.5s;
 	animation-fill-mode: forwards;
 }
 
@@ -70,6 +71,6 @@
 
 	animation: samples-conceal 1s;
 	animation-delay: 0s;
-	animation-duration: 1s;
+	animation-duration: 0.5s;
 	animation-fill-mode: forwards;
 }

@@ -20,31 +20,26 @@ $( document ).ready ( function ( ) {
 
     var classes = classes.join ( ' ' );
 
-	$( '.color' ).click ( function ( event ) {
+    $('.color').click  (function ( event ) {
 
-        $( ids ).toggleClass ( classes );
-
-	} );
-
-    $('#canvas, #footer').click (function ( event ) {
-
-        $( ids ).toggleClass ( classes );
+        $( ids ).addClass ( classes );
 
     } );
 
+    // color selector //
+
     $( function () {
 
-        // color selector //
 
-        var color_palette = document.getElementById ('color-palette');
+        var color_palette = document.getElementById ( 'color-palette' );
 
-        color_palette.addEventListener ('change', function (e) {
+        color_palette.addEventListener ( 'change', function ( event ) {
 
             var color = color_palette.value;
 
             $( ids ).removeClass ( classes );
 
-            $("#canvas").css ("background-color", color);
+            $( "#canvas" ).css ( "background-color", color );
 
         },
 
@@ -53,10 +48,16 @@ $( document ).ready ( function ( ) {
         );
     });
 
+    $( '#canvas, #footer' ).click ( function ( event ) {
+
+         $( ids ).removeClass ( classes );
+
+    } );
+
 } );
 
-function color_selector () {
+function color_selector ( ) {
 
-	$("#color-palette").click ();
+	$( "#color-palette" ).click ( );
 
 }

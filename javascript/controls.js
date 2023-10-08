@@ -1,6 +1,6 @@
 // controls //
 
-$( document ).ready (function () {
+$( document ).ready ( function ( ) {
 
 	var helper = $( '.helper' );
 
@@ -22,33 +22,23 @@ $( document ).ready (function () {
 
     var classes = classes.join ( ' ' );
 
-    $('.controls').click (function ( event ) {
+    $('.controls').click  (function ( event ) {
 
-        $( ids ).toggleClass ( classes );
+        $( ids ).addClass ( classes );
 
-        helper.toggleClass ('helper-show');
+        helper.removeClass ( 'helper-hide' );
+
+        helper.addClass ( 'helper-show' );
 
     } );
 
-    // keyboard
-
-	$( document ).keyup ( function ( event ) {
-
-		if ( event.key === "#" ) {
-
-            $( ids ).toggleClass ( classes );
-
-            helper.toggleClass ('helper-show');
-
-		}
-
-	} );
-
-    $('#canvas, #footer').click (function ( event ) {
+    $( '#canvas, #footer' ).click ( function ( event ) {
 
          $( ids ).removeClass ( classes );
 
-        helper.removeClass ('helper-show');
+        helper.removeClass ( 'helper-show' );
+
+        helper.addClass ( 'helper-hide' );
 
     } );
 

@@ -6,7 +6,7 @@ $( document ).ready ( function ( ) {
 
     $( '#background' ).bind ( 'touchstart', function ( ) {
 
-        event.preventDefault ( );
+        // event.preventDefault ( );
 
         $( '#background-overlay' ).addClass ( 'hover-background-overlay' );
 
@@ -14,7 +14,7 @@ $( document ).ready ( function ( ) {
 
         $( '#background' ).bind ( 'touchend', function ( event ) {
 
-        event.preventDefault ( );
+        // event.preventDefault ( );
 
         $( '#background-overlay' ).removeClass ( 'hover-background-overlay' );
 

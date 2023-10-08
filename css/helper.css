@@ -1,3 +1,12 @@
+#helper {
+	position: fixed;
+	bottom: 80px;
+	left: 0px;
+	right: 0px;
+
+	z-index: 888;
+}
+
 .helper {
 	background-color: #000000ff;
 	color: #efefefff;
@@ -6,6 +15,7 @@
 	position: fixed;
 	bottom: 80px;
 	left: 0px;
+	right: calc( 100vw - 350px );
 
 	height: 0vh;
 
@@ -36,7 +46,7 @@
 }
 
 @keyframes helper-reveal {
-	0% {height: 0px;}
+	0% {height: 0vh;}
 
 	100% {height: calc( 100vh - 80px );}
 }
@@ -44,7 +54,22 @@
 .helper-show {
 	height: calc( 100vh - 80px );
 
-	animation: helpers-reveal 1s;
+	animation: helper-reveal 1s;
+	animation-delay: 0s;
+	animation-duration: 0.5s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes helper-conceal {
+	0% {height: calc( 100vh - 80px );}
+
+	100% {height: 0vh;}
+}
+
+.helper-hide {
+	height: 0vh;
+
+	animation: helper-conceal 1s;
 	animation-delay: 0s;
 	animation-duration: 0.5s;
 	animation-fill-mode: forwards;

@@ -22,39 +22,24 @@ $( document ).ready ( function ( ) {
 
     var classes = classes.join ( ' ' );
 
-	$( '.navigation' ).click ( function ( event ) {
+    $('.navigation').click ( function ( event ) {
 
-		$( ids ).addClass ( classes );
+        $( ids ).toggleClass ( classes );
 
-		drawer.addClass ( 'drawer-open' );
+        drawer.removeClass ( 'drawer-close' );
 
-	} );
+        drawer.addClass ( 'drawer-open' );
 
-	$( '.section' ).click ( function ( event ) {
+    } );
 
+    $( '.section' ).click ( function ( event ) {
 
-		$( ids ).removeClass ( classes );
+         $( ids ).removeClass ( classes );
 
-		drawer.addClass ( 'drawer-close' );
+        drawer.removeClass ( 'drawer-open' );
 
-	} );
+        drawer.addClass ( 'drawer-close' );
 
-	// keyboard
-
-	$( document ).keyup ( function ( event ) {
-
-		if ( event.key === "Escape" ) {
-
-			if ( $( '.drawer-open' ).length ) {
-
-				$( ids ).toggleClass ( classes );
-
-				drawer.toggleClass ( 'drawer-open' );
-
-			}
-
-		}
-
-	} );
+    } );
 
 } );

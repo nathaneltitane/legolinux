@@ -22,41 +22,24 @@ $( document ).ready ( function ( ) {
 
     var classes = classes.join ( ' ' );
 
-    $('.paypal').hover (
+    $('.paypal').hover  (function ( event ) {
 
-        function ( ) {
+        $( ids ).addClass ( classes );
 
-            $( ids ).addClass ( classes );
+        samples.removeClass ( 'samples-hide' );
 
-            if ( $('.samples-hide').length ) {
+        samples.addClass ( 'samples-show' );
 
-                samples.removeClass ( 'samples-hide' );
+    } );
 
-                samples.addClass ( 'samples-show' );
-            }
+    $( '#canvas, #footer' ).click ( function ( event ) {
 
-            else {
+         $( ids ).removeClass ( classes );
 
-                samples.addClass ( 'samples-show' );
+        samples.removeClass ( 'samples-show' );
 
-            }
+        samples.addClass ( 'samples-hide' );
 
-        },
-
-        function ( ) {
-
-            // samples navigation hover failsafe
-
-            if ( ! $( '.paypal:hover' ).length && ! $( '.samples:hover' ).length ) {
-
-                $( ids ).removeClass ( classes );
-
-                samples.removeClass ( 'samples-show' );
-
-                samples.addClass ( 'samples-hide' );
-
-            }
-        }
-    );
+    } );
 
 } );
