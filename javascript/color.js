@@ -20,7 +20,7 @@ $( document ).ready ( function ( ) {
 
     var classes = classes.join ( ' ' );
 
-    $('.color').click  (function ( event ) {
+    $('.color').click (function ( event ) {
 
         $( ids ).addClass ( classes );
 
@@ -30,27 +30,42 @@ $( document ).ready ( function ( ) {
 
     $( function () {
 
-
         var color_palette = document.getElementById ( 'color-palette' );
 
         color_palette.addEventListener ( 'change', function ( event ) {
 
             var color = color_palette.value;
 
-            $( ids ).removeClass ( classes );
+            if ( !color || !color.trim ( ) ) {
+
+                $( ids ).removeClass ( classes );
+
+                return;
+            }
 
             $( "#canvas" ).css ( "background-color", color );
+
+            setTimeout ( function ( ) {
+
+                $( ids ).removeClass ( classes );
+
+            }, 500 );
 
         },
 
         false
 
         );
+
     });
 
     $( '#canvas, #footer' ).click ( function ( event ) {
 
-         $( ids ).removeClass ( classes );
+        setTimeout ( function ( ) {
+
+            $( ids ).removeClass ( classes );
+
+        }, 250 );
 
     } );
 
@@ -58,6 +73,9 @@ $( document ).ready ( function ( ) {
 
 function color_selector ( ) {
 
-	$( "#color-palette" ).click ( );
+    setTimeout ( function ( ) {
 
+        $( "#color-palette" ).click ( );
+
+    }, 250 );
 }
