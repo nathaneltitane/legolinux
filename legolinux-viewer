@@ -1739,7 +1739,7 @@ cat << 3D-MODEL-PAGE-SAMPLES ->> "${model_directory}/index.html"
 
 		<div id="samples">
 
-			<div class="samples samples-hide">
+			<div class="samples">
 
 				<div class="flex flex-column">
 
