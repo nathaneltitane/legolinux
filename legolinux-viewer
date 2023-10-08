@@ -180,7 +180,6 @@ cat << 3D-MODEL-PAGE-HEADER -> "${model_directory}/index.html"
 
 		<script src="/javascript/samples.js" type="text/javascript"></script>
 
-
 		<script type="importmap">
 
 			{
