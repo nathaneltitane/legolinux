@@ -46,6 +46,10 @@
 	background-image: url(/logo/logo-drawer.svg);
 }
 
+.logo-edge {
+	background-image: url(/logo/logo-edge.svg);
+}
+
 .logo-paypal {
 	background-image: url(/logo/logo-paypal.svg);
 }
