@@ -827,6 +827,26 @@
 					}
 				}
 
+				// edges toggle
+
+				var edgesVisible = false;
+
+				this.edgesToggle_ = function () {
+
+					self.colladaImport.traverse ( function ( node ) {
+
+					if ( node.isLineSegments ) {
+
+						node.visible = edgesVisible;
+
+					}
+
+					} );
+
+					edgesVisible = !edgesVisible;
+
+				}
+
 				// camera toggle
 
 				this.cameraToggle_ = function () {
@@ -1182,6 +1202,14 @@
 
 							break;
 
+						// E //
+
+						case 69:
+
+							self.edgesToggle_ ();
+
+							break;
+
 						// M //
 
 						case 77:
@@ -1496,6 +1524,8 @@
 								edge.geometry.computeBoundingBox ( );
 
 								node.add ( edge );
+
+								edge.visible = false;
 
 								// shadows
 

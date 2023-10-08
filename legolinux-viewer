@@ -988,6 +988,26 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 					}
 				}
 
+				// edges toggle
+
+				var edgesVisible = false;
+
+				this.edgesToggle_ = function () {
+
+					self.colladaImport.traverse ( function ( node ) {
+
+					if ( node.isLineSegments ) {
+
+						node.visible = edgesVisible;
+
+					}
+
+					} );
+
+					edgesVisible = !edgesVisible;
+
+				}
+
 				// camera toggle
 
 				this.cameraToggle_ = function () {
@@ -1343,6 +1363,14 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 							break;
 
+						// E //
+
+						case 69:
+
+							self.edgesToggle_ ();
+
+							break;
+
 						// M //
 
 						case 77:
@@ -1657,6 +1685,8 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 								edge.geometry.computeBoundingBox ( );
 
 								node.add ( edge );
+
+								edge.visible = false;
 
 								// shadows
 
