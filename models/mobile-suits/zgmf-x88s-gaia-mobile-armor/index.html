@@ -1548,7 +1548,13 @@
 						self.scene.add ( self.get_transformControls ( ) );
 
 						self.get_transformControls ( ).attach ( self.colladaImport );
-					}
+					},
+
+					function (xhr) {
+
+					console.log ( (xhr.loaded / xhr.total) * 100 + '% loaded' );
+
+					},
 				);
 
 				// client window aspect ratio
