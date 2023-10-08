@@ -1,4 +1,4 @@
-// controls //
+// helper //
 
 $( document ).ready ( function ( ) {
 
