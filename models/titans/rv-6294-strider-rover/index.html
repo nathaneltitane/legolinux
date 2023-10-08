@@ -1562,6 +1562,14 @@
 				window.addEventListener ( 'resize', self.resize );
 
 				window.addEventListener ( 'keydown', self.transformKeys );
+
+				// edge toggle
+
+				document.getElementById ( 'edges' ).addEventListener ( 'click', function ( ) {
+
+					self.edgesToggle_ ( );
+
+				});
 			}
 
 			new initialize ( );
@@ -1784,6 +1792,12 @@ ROVER
 		<!-- controls -->
 
 		<div id="controls">
+
+		</div>
+
+		<!-- edges -->
+
+		<div id="edges">
 
 		</div>
 
