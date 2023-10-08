@@ -1723,6 +1723,14 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				window.addEventListener ( 'resize', self.resize );
 
 				window.addEventListener ( 'keydown', self.transformKeys );
+
+				// edge toggle
+
+				document.getElementById ( 'edges' ).addEventListener ( 'click', function ( ) {
+
+					self.edgesToggle_ ( );
+
+				});
 			}
 
 			new initialize ( );
@@ -1971,6 +1979,15 @@ cat << 3D-MODEL-PAGE-CONTROLS ->> "${model_directory}/index.html"
 		</div>
 
 3D-MODEL-PAGE-CONTROLS
+
+cat << 3D-MODEL-PAGE-EDGES ->> "${model_directory}/index.html"
+		<!-- edges -->
+
+		<div id="edges">
+
+		</div>
+
+3D-MODEL-PAGE-EDGES
 
 cat << 3D-MODEL-PAGE-DRAWER ->> "${model_directory}/index.html"
 		<!-- drawer -->
