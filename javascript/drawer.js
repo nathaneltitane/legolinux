@@ -26,9 +26,13 @@ $( document ).ready ( function ( ) {
 
         $( ids ).toggleClass ( classes );
 
-        drawer.removeClass ( 'drawer-hide' );
+        drawer.removeClass('drawer-hide');
 
-        drawer.addClass ( 'drawer-show' );
+        setTimeout ( function ( ) {
+
+            drawer.addClass ( 'drawer-show' );
+
+        }, 500 );
 
     } );
 
