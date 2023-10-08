@@ -32,7 +32,7 @@ $( document ).ready ( function ( ) {
 
             drawer.addClass ( 'drawer-show' );
 
-        }, 500 );
+        }, 250 );
 
     } );
 
