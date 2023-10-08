@@ -22,7 +22,7 @@ $( document ).ready ( function ( ) {
 
     var classes = classes.join ( ' ' );
 
-    $('.navigation').click ( function ( event ) {
+    $( '.navigation' ).click ( function ( event ) {
 
         $( ids ).toggleClass ( classes );
 
@@ -34,11 +34,14 @@ $( document ).ready ( function ( ) {
 
     $( '.section' ).click ( function ( event ) {
 
-         $( ids ).removeClass ( classes );
+        if ( drawer.hasClass ( 'drawer-open' ) ) {
 
-        drawer.removeClass ( 'drawer-open' );
+            $( ids ).removeClass ( classes );
 
-        drawer.addClass ( 'drawer-close' );
+            drawer.removeClass ( 'drawer-open' );
+
+            drawer.addClass ( 'drawer-close' );
+        }
 
     } );
 

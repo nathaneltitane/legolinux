@@ -2,9 +2,9 @@
 
 $( document ).ready ( function ( ) {
 
-	var helper = $( '.helper' );
+    var helper = $( '.helper' );
 
-	var ids = [
+    var ids = [
         '#navigation-button-label',
         '#paypal-button-label',
         '#color-button-label',
@@ -22,7 +22,7 @@ $( document ).ready ( function ( ) {
 
     var classes = classes.join ( ' ' );
 
-    $('.controls').click  (function ( event ) {
+    $( '.controls' ).click ( function ( event ) {
 
         $( ids ).addClass ( classes );
 
@@ -34,11 +34,15 @@ $( document ).ready ( function ( ) {
 
     $( '#canvas, #footer' ).click ( function ( event ) {
 
-         $( ids ).removeClass ( classes );
+        if ( helper.hasClass ( 'helper-show' ) ) {
 
-        helper.removeClass ( 'helper-show' );
+            $( ids ).removeClass ( classes );
 
-        helper.addClass ( 'helper-hide' );
+            helper.removeClass ( 'helper-show' );
+
+            helper.addClass ( 'helper-hide' );
+
+        }
 
     } );
 

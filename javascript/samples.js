@@ -22,7 +22,7 @@ $( document ).ready ( function ( ) {
 
     var classes = classes.join ( ' ' );
 
-    $('.paypal').hover  (function ( event ) {
+    $('.paypal').hover ( function ( event ) {
 
         $( ids ).addClass ( classes );
 
@@ -32,13 +32,17 @@ $( document ).ready ( function ( ) {
 
     } );
 
-    $( '#canvas, #footer' ).click ( function ( event ) {
+    $( '#canvas, #footer' ).hover ( function ( event ) {
 
-         $( ids ).removeClass ( classes );
+        if ( samples.hasClass ( 'samples-show' ) ) {
 
-        samples.removeClass ( 'samples-show' );
+            $( ids ).removeClass ( classes );
 
-        samples.addClass ( 'samples-hide' );
+            samples.removeClass ( 'samples-show' );
+
+            samples.addClass ( 'samples-hide' );
+
+        }
 
     } );
 
