@@ -217,7 +217,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 			import { TransformControls } from 'three/addons/controls/TransformControls.js';
 
-			function initialize () {
+			function initialize ( ) {
 
 				var self  = this;
 
@@ -266,14 +266,14 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				this.renderer.setClearColor ( black, 0 );
 				this.renderer.setPixelRatio ( window.devicePixelRatio );
 				this.renderer.setSize ( viewportWidth, viewportHeight );
-				this.renderer.clear ();
+				this.renderer.clear ( );
 
 				this.renderer.shadowMap.enabled = true;
 				this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
 				// scene
 
-				this.scene = new THREE.Scene ();
+				this.scene = new THREE.Scene ( );
 
 				// camera
 
@@ -483,7 +483,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				this.axesHelper = null;
 				this.axesHelper_visible = false;
 
-				this.get_axesHelper = function () {
+				this.get_axesHelper = function ( ) {
 
 					if ( ! self.axesHelper ) {
 
@@ -497,20 +497,20 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				}
 
-				this.axesHelper_ = function () {
+				this.axesHelper_ = function ( ) {
 
 					if ( this.axesHelper_visible ) {
 
 						this.axesHelper_visible = false;
 
-						self.scene.remove ( self.get_axesHelper () );
+						self.scene.remove ( self.get_axesHelper ( ) );
 					}
 
 					else {
 
 						this.axesHelper_visible = true;
 
-						self.scene.add ( self.get_axesHelper () );
+						self.scene.add ( self.get_axesHelper ( ) );
 					}
 				}
 
@@ -521,7 +521,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				this.boundingBoxHelper = null;
 				this.boundingBoxHelper_visible = false;
 
-				this.get_boundingBoxHelper = function () {
+				this.get_boundingBoxHelper = function ( ) {
 
 					if ( ! self.boundingBoxHelper ) {
 
@@ -534,13 +534,13 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 					return self.boundingBoxHelper;
 				}
 
-				this.boundingBoxHelper_ = function () {
+				this.boundingBoxHelper_ = function ( ) {
 
 					if ( this.boundingBoxHelper_visible ) {
 
 						this.boundingBoxHelper_visible = false;
 
-						self.scene.remove ( self.get_boundingBoxHelper () );
+						self.scene.remove ( self.get_boundingBoxHelper ( ) );
 
 					}
 
@@ -548,7 +548,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						this.boundingBoxHelper_visible = true;
 
-						self.scene.add ( self.get_boundingBoxHelper () );
+						self.scene.add ( self.get_boundingBoxHelper ( ) );
 					}
 				}
 
@@ -559,7 +559,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				this.cameraHelper = null;
 				this.cameraHelper_visible = false;
 
-				this.get_cameraHelper = function () {
+				this.get_cameraHelper = function ( ) {
 
 					if ( ! self.cameraHelper)  {
 
@@ -573,13 +573,13 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				}
 
-				this.cameraHelper_ = function () {
+				this.cameraHelper_ = function ( ) {
 
 					if ( this.cameraHelper_visible ) {
 
 						this.cameraHelper_visible = false;
 
-						self.scene.remove ( self.get_cameraHelper () );
+						self.scene.remove ( self.get_cameraHelper ( ) );
 
 					}
 
@@ -587,7 +587,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						this.cameraHelper_visible = true;
 
-						self.scene.add ( self.get_cameraHelper () );
+						self.scene.add ( self.get_cameraHelper ( ) );
 
 					}
 
@@ -598,7 +598,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				this.hemisphereLightHelper = null;
 				this.hemisphereLightHelper_visible = false;
 
-				this.get_hemisphereLightHelper = function () {
+				this.get_hemisphereLightHelper = function ( ) {
 
 					if ( ! self.hemisphereLightHelper ) {
 
@@ -612,13 +612,13 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				}
 
-				this.hemisphereLightHelper_ = function () {
+				this.hemisphereLightHelper_ = function ( ) {
 
 					if ( this.hemisphereLightHelper_visible ) {
 
 						this.hemisphereLightHelper_visible = false;
 
-						self.scene.remove ( self.get_hemisphereLightHelper () );
+						self.scene.remove ( self.get_hemisphereLightHelper ( ) );
 
 					}
 
@@ -626,7 +626,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						this.hemisphereLightHelper_visible = true;
 
-						self.scene.add ( self.get_hemisphereLightHelper () );
+						self.scene.add ( self.get_hemisphereLightHelper ( ) );
 
 					}
 
@@ -637,7 +637,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				this.pointLightHelper = null;
 				this.pointLightHelper_visible = false;
 
-				this.get_pointLightHelper = function () {
+				this.get_pointLightHelper = function ( ) {
 
 					if ( ! self.pointLightHelper ) {
 
@@ -651,13 +651,13 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				}
 
-				this.pointLightHelper_ = function () {
+				this.pointLightHelper_ = function ( ) {
 
 					if ( this.pointLightHelper_visible ) {
 
 						this.pointLightHelper_visible = false;
 
-						self.scene.remove ( self.get_pointLightHelper () );
+						self.scene.remove ( self.get_pointLightHelper ( ) );
 
 					}
 
@@ -665,7 +665,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						this.pointLightHelper_visible = true;
 
-						self.scene.add ( self.get_pointLightHelper () );
+						self.scene.add ( self.get_pointLightHelper ( ) );
 
 					}
 
@@ -676,7 +676,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				this.directionalLight_0_Helper = null;
 				this.directionalLight_0_Helper_visible = false;
 
-				this.get_directionalLight_0_Helper = function () {
+				this.get_directionalLight_0_Helper = function ( ) {
 
 					if ( ! self.directionalLight_0_Helper ) {
 
@@ -689,13 +689,13 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				}
 
-				this.directionalLight_0_Helper_ = function () {
+				this.directionalLight_0_Helper_ = function ( ) {
 
 					if ( this.directionalLight_0_Helper_visible ) {
 
 						this.directionalLight_0_Helper_visible = false;
 
-						self.scene.remove ( self.get_directionalLight_0_Helper () );
+						self.scene.remove ( self.get_directionalLight_0_Helper ( ) );
 
 					}
 
@@ -703,7 +703,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						this.directionalLight_0_Helper_visible = true;
 
-						self.scene.add ( self.get_directionalLight_0_Helper () );
+						self.scene.add ( self.get_directionalLight_0_Helper ( ) );
 
 					}
 
@@ -714,7 +714,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				this.directionalLight_1_Helper = null;
 				this.directionalLight_1_Helper_visible = false;
 
-				this.get_directionalLight_1_Helper = function () {
+				this.get_directionalLight_1_Helper = function ( ) {
 
 					if ( ! self.directionalLight_1_Helper ) {
 
@@ -728,13 +728,13 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				}
 
-				this.directionalLight_1_Helper_ = function () {
+				this.directionalLight_1_Helper_ = function ( ) {
 
 					if ( this.directionalLight_1_Helper_visible ) {
 
 						this.directionalLight_1_Helper_visible = false;
 
-						self.scene.remove ( self.get_directionalLight_1_Helper () );
+						self.scene.remove ( self.get_directionalLight_1_Helper ( ) );
 
 					}
 
@@ -742,7 +742,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						this.directionalLight_1_Helper_visible = true;
 
-						self.scene.add ( self.get_directionalLight_1_Helper () );
+						self.scene.add ( self.get_directionalLight_1_Helper ( ) );
 
 					}
 
@@ -753,7 +753,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				this.directionalLight_2_Helper = null;
 				this.directionalLight_2_Helper_visible = false;
 
-				this.get_directionalLight_2_Helper = function () {
+				this.get_directionalLight_2_Helper = function ( ) {
 
 					if ( ! self.directionalLight_2_Helper ) {
 
@@ -767,13 +767,13 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				}
 
-				this.directionalLight_2_Helper_ = function () {
+				this.directionalLight_2_Helper_ = function ( ) {
 
 					if ( this.directionalLight_2_Helper_visible ) {
 
 						this.directionalLight_2_Helper_visible = false;
 
-						self.scene.remove ( self.get_directionalLight_2_Helper () );
+						self.scene.remove ( self.get_directionalLight_2_Helper ( ) );
 
 					}
 
@@ -781,7 +781,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						this.directionalLight_2_Helper_visible = true;
 
-						self.scene.add ( self.get_directionalLight_2_Helper () );
+						self.scene.add ( self.get_directionalLight_2_Helper ( ) );
 
 					}
 
@@ -792,7 +792,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				this.spotLightHelper = null;
 				this.spotLightHelper_visible = false;
 
-				this.get_spotLightHelper = function () {
+				this.get_spotLightHelper = function ( ) {
 
 					if ( ! self.spotLightHelper ) {
 
@@ -805,13 +805,13 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				}
 
-				this.spotLightHelper_ = function () {
+				this.spotLightHelper_ = function ( ) {
 
 					if ( this.spotLightHelper_visible ) {
 
 						this.spotLightHelper_visible = false;
 
-						self.scene.remove ( self.get_spotLightHelper () );
+						self.scene.remove ( self.get_spotLightHelper ( ) );
 
 					}
 
@@ -819,7 +819,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						this.spotLightHelper_visible = true;
 
-						self.scene.add ( self.get_spotLightHelper () );
+						self.scene.add ( self.get_spotLightHelper ( ) );
 
 					}
 
@@ -835,13 +835,13 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				this.polarGridHelper = null;
 				this.polarGridHelper_visible = false;
 
-				this.get_polarGridHelper = function () {
+				this.get_polarGridHelper = function ( ) {
 
 					if ( ! self.polarGridHelper ) {
 
 						self.polarGridHelper = new THREE.PolarGridHelper ( 0.5, 32, 32, 32, this.polarGridHelper_color_min, this.polarGridHelper_color_max );
 
-						self.polarGridHelper.position.y = self.get_boundryBox ().min.y;
+						self.polarGridHelper.position.y = self.get_boundryBox ( ).min.y;
 
 						self.polarGridHelper.position.x = 0;
 
@@ -855,13 +855,13 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				}
 
-				this.polarGridHelper_ = function () {
+				this.polarGridHelper_ = function ( ) {
 
 					if ( this.polarGridHelper_visible ) {
 
 						this.polarGridHelper_visible = false;
 
-						self.scene.remove ( self.get_polarGridHelper () );
+						self.scene.remove ( self.get_polarGridHelper ( ) );
 
 					}
 
@@ -869,7 +869,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						this.polarGridHelper_visible = true;
 
-						self.scene.add ( self.get_polarGridHelper () );
+						self.scene.add ( self.get_polarGridHelper ( ) );
 
 					}
 
@@ -883,13 +883,13 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				this.orthogonalGridHelper = null;
 				this.orthogonalGridHelper_visible = false;
 
-				this.get_orthogonalGridHelper = function () {
+				this.get_orthogonalGridHelper = function ( ) {
 
 					if ( ! self.orthogonalGridHelper ) {
 
 						self.orthogonalGridHelper = new THREE.GridHelper ( 1, 32, this.orthogonalGridHelper_color_min, this.orthogonalGridHelper_color_max );
 
-						self.orthogonalGridHelper.position.y = self.get_boundryBox().min.y;
+						self.orthogonalGridHelper.position.y = self.get_boundryBox( ).min.y;
 
 						self.orthogonalGridHelper.position.x = 0;
 
@@ -902,13 +902,13 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				}
 
-				this.orthogonalGridHelper_ = function () {
+				this.orthogonalGridHelper_ = function ( ) {
 
 					if ( this.orthogonalGridHelper_visible ) {
 
 						this.orthogonalGridHelper_visible = false;
 
-						self.scene.remove ( self.get_orthogonalGridHelper () );
+						self.scene.remove ( self.get_orthogonalGridHelper ( ) );
 
 					}
 
@@ -916,7 +916,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						this.orthogonalGridHelper_visible = true;
 
-						self.scene.add ( self.get_orthogonalGridHelper () );
+						self.scene.add ( self.get_orthogonalGridHelper ( ) );
 
 					}
 
@@ -926,11 +926,11 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				this.boundryBox = null;
 
-				this.get_boundryBox = function () {
+				this.get_boundryBox = function ( ) {
 
 					if ( ! self.boundryBox ) {
 
-						self.boundryBox = new THREE.Box3 ().setFromObject ( self.colladaImport )
+						self.boundryBox = new THREE.Box3 ( ).setFromObject ( self.colladaImport )
 
 						console.log ( "boundry box" );
 					}
@@ -943,7 +943,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				this.plane = null;
 				this.plane_visible = false;
 
-				this.get_plane = function () {
+				this.get_plane = function ( ) {
 
 					if ( ! self.plane ) {
 
@@ -968,15 +968,15 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 					return self.plane;
 				}
 
-				this.plane_ = function () {
+				this.plane_ = function ( ) {
 
-					self.boundryBox = self.get_boundryBox ();
+					self.boundryBox = self.get_boundryBox ( );
 
 					if ( this.plane_visible ) {
 
 						this.plane_visible = false;
 
-						self.scene.remove ( self.get_plane () );
+						self.scene.remove ( self.get_plane ( ) );
 
 					}
 
@@ -984,7 +984,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						this.plane_visible = true;
 
-						self.scene.add ( self.get_plane () );
+						self.scene.add ( self.get_plane ( ) );
 					}
 				}
 
@@ -992,7 +992,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				var edgesVisible = true;
 
-				this.edgesToggle_ = function () {
+				this.edgesToggle_ = function ( ) {
 
 					self.colladaImport.traverse ( function ( node ) {
 
@@ -1010,9 +1010,9 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// camera toggle
 
-				this.cameraToggle_ = function () {
+				this.cameraToggle_ = function ( ) {
 
-					self.position = self.camera.position.clone ();
+					self.position = self.camera.position.clone ( );
 
 					self.camera = self.camera.isPerspectiveCamera ? self.orthographicCamera : self.perspectiveCamera;
 
@@ -1034,9 +1034,9 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					self.camera.lookAt ( 0, 0, 0 );
 
-					self.camera.updateProjectionMatrix ();
+					self.camera.updateProjectionMatrix ( );
 
-					self.resize ();
+					self.resize ( );
 
 					console.log ( "camera = " + self.cameraType );
 
@@ -1044,7 +1044,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// camera position toggle
 
-				this.cameraPositionToggle_ = function () {
+				this.cameraPositionToggle_ = function ( ) {
 
 					self.camera = self.orthographicCamera
 
@@ -1054,7 +1054,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 					self.camera.lookAt ( 0, 0, 0 );
 					self.camera.zoom = 3000;
 
-					self.camera.updateProjectionMatrix ();
+					self.camera.updateProjectionMatrix ( );
 
 					console.log ( "camera position = " + self.cameraPositionMatrix_x, self.cameraPositionMatrix_y, self.cameraPositionMatrix_z );
 
@@ -1062,9 +1062,9 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// view toggle
 
-				this.viewToggle_ = function () {
+				this.viewToggle_ = function ( ) {
 
-					const randomViewFactor  = ( Math.random () + 0.1 );
+					const randomViewFactor  = ( Math.random ( ) + 0.1 );
 
 					const randomFieldOfView = randomViewFactor;
 					const randomZoom        = randomViewFactor;
@@ -1085,13 +1085,13 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					self.orthographicCamera.zoom = ( orthographicRandomZoom );
 
-					self.resize ();
+					self.resize ( );
 
 				}
 
 				// transform toggle
 
-				this.transformToggle_ = function () {
+				this.transformToggle_ = function ( ) {
 
 					self.transformControls.enabled = ! self.transformControls.enabled;
 
@@ -1125,7 +1125,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// controls space toggle
 
-				this.controlsSpace_ = function () {
+				this.controlsSpace_ = function ( ) {
 
 					self.transformControls.setSpace ( self.transformControls.space === "world" ? "local" : "world" );
 
@@ -1135,7 +1135,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// snap toggle
 
-				this.snapToggle_ = function () {
+				this.snapToggle_ = function ( ) {
 
 					let snapFactor = 0.25;
 
@@ -1143,7 +1143,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 					const rotationSnap = ( THREE.MathUtils.degToRad ( 360 / 24 ) );
 					const scaleSnap = ( snapFactor / 2 );
 
-					var snapMode = self.transformControls.getMode ();
+					var snapMode = self.transformControls.getMode ( );
 
 					if ( snapMode == "translate" ) {
 
@@ -1173,7 +1173,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				this.orbitControls = null;
 
-				this.get_orbitControls = function () {
+				this.get_orbitControls = function ( ) {
 
 					if ( ! this.orbitControls ) {
 
@@ -1200,7 +1200,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 						self.orbitControls.minDistance = near;
 						self.orbitControls.maxDistance = far;
 
-						self.orbitControls.update ();
+						self.orbitControls.update ( );
 					}
 
 					return self.orbitControls;
@@ -1211,7 +1211,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				this.transformControls = null;
 				this.transformControls_enabled = false;
 
-				this.get_transformControls = function () {
+				this.get_transformControls = function ( ) {
 
 					if ( ! self.transformControls ) {
 
@@ -1233,7 +1233,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// resize
 
-				this.resize = function () {
+				this.resize = function ( ) {
 
 					if ( self.camera.isOrthographicCamera ) {
 
@@ -1249,7 +1249,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 						self.camera.top    =   ( viewPortHeightOrthographic / 2 );
 						self.camera.bottom = - ( viewPortHeightOrthographic / 2 );
 
-						self.camera.updateProjectionMatrix ();
+						self.camera.updateProjectionMatrix ( );
 
 						// pdate renderer size
 
@@ -1260,7 +1260,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 					else {
 							self.camera.aspect = window.innerWidth / window.innerHeight;
 
-							self.camera.updateProjectionMatrix ();
+							self.camera.updateProjectionMatrix ( );
 
 							self.renderer.setSize ( window.innerWidth, window.innerHeight );
 
@@ -1268,13 +1268,13 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				}
 
-				this.render = function () {
+				this.render = function ( ) {
 
 					if ( self.resize ( self.renderer ) ) {
 
 						self.camera.aspect = canvas.clientWidth / canvas.clientHeight;
 
-						self.camera.updateProjectionMatrix ();
+						self.camera.updateProjectionMatrix ( );
 
 					}
 
@@ -1291,7 +1291,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						case 72:
 
-							self.hemisphereLightHelper_ ();
+							self.hemisphereLightHelper_ ( );
 
 							break;
 
@@ -1299,7 +1299,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						case 74:
 
-							self.pointLightHelper_ ();
+							self.pointLightHelper_ ( );
 
 							break;
 
@@ -1307,11 +1307,11 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						case 68:
 
-							self.directionalLight_0_Helper_ ();
+							self.directionalLight_0_Helper_ ( );
 
-							self.directionalLight_1_Helper_ ();
+							self.directionalLight_1_Helper_ ( );
 
-							self.directionalLight_2_Helper_ ();
+							self.directionalLight_2_Helper_ ( );
 
 							break;
 
@@ -1319,7 +1319,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						case 73:
 
-							self.spotLightHelper_ ();
+							self.spotLightHelper_ ( );
 
 							break;
 
@@ -1327,7 +1327,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						case 65:
 
-							self.axesHelper_ ();
+							self.axesHelper_ ( );
 
 							break;
 
@@ -1335,7 +1335,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						case 66:
 
-							self.boundingBoxHelper_ ();
+							self.boundingBoxHelper_ ( );
 
 							break;
 
@@ -1343,7 +1343,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						case 80:
 
-							self.polarGridHelper_ ();
+							self.polarGridHelper_ ( );
 
 							break;
 
@@ -1351,7 +1351,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						case 79:
 
-							self.orthogonalGridHelper_ ();
+							self.orthogonalGridHelper_ ( );
 
 							break;
 
@@ -1359,7 +1359,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						case 76:
 
-							self.plane_ ();
+							self.plane_ ( );
 
 							break;
 
@@ -1367,7 +1367,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						case 69:
 
-							self.edgesToggle_ ();
+							self.edgesToggle_ ( );
 
 							break;
 
@@ -1375,7 +1375,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						case 77:
 
-							self.cameraHelper_ ();
+							self.cameraHelper_ ( );
 
 							break;
 
@@ -1383,7 +1383,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						case 67:
 
-							self.cameraToggle_ ();
+							self.cameraToggle_ ( );
 
 							break;
 
@@ -1391,7 +1391,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						case 86:
 
-							self.viewToggle_ ();
+							self.viewToggle_ ( );
 
 							break;
 
@@ -1406,7 +1406,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 							self.cameraPositionMatrix_y = 30;
 							self.cameraPositionMatrix_z = 45;
 
-							self.cameraPositionToggle_ ();
+							self.cameraPositionToggle_ ( );
 
 							break;
 
@@ -1421,7 +1421,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 							self.cameraPositionMatrix_y = 0;
 							self.cameraPositionMatrix_z = 1;
 
-							self.cameraPositionToggle_ ();
+							self.cameraPositionToggle_ ( );
 
 							break;
 
@@ -1436,7 +1436,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 							self.cameraPositionMatrix_y = 0;
 							self.cameraPositionMatrix_z = -1;
 
-							self.cameraPositionToggle_ ();
+							self.cameraPositionToggle_ ( );
 
 							break;
 
@@ -1451,7 +1451,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 							self.cameraPositionMatrix_y = 0;
 							self.cameraPositionMatrix_z = 0;
 
-							self.cameraPositionToggle_ ();
+							self.cameraPositionToggle_ ( );
 
 							break;
 
@@ -1466,7 +1466,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 							self.cameraPositionMatrix_y = 0;
 							self.cameraPositionMatrix_z = 0;
 
-							self.cameraPositionToggle_ ();
+							self.cameraPositionToggle_ ( );
 
 							break;
 
@@ -1481,7 +1481,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 							self.cameraPositionMatrix_y = 1;
 							self.cameraPositionMatrix_z = 0;
 
-							self.cameraPositionToggle_ ();
+							self.cameraPositionToggle_ ( );
 
 							break;
 
@@ -1496,7 +1496,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 							self.cameraPositionMatrix_y = -1;
 							self.cameraPositionMatrix_z = 0;
 
-							self.cameraPositionToggle_ ();
+							self.cameraPositionToggle_ ( );
 
 							break;
 
@@ -1504,7 +1504,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						case 32:
 
-							self.transformToggle_ ();
+							self.transformToggle_ ( );
 
 							break;
 
@@ -1536,7 +1536,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						case 87:
 
-							self.controlsSpace_ ();
+							self.controlsSpace_ ( );
 
 							break;
 
@@ -1544,7 +1544,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						case 16:
 
-							self.snapToggle_ ();
+							self.snapToggle_ ( );
 
 							break;
 
@@ -1654,7 +1654,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// loader
 
-				var loader = new ColladaLoader ();
+				var loader = new ColladaLoader ( );
 
 				var model = loader.load (
 
@@ -1674,7 +1674,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 								var edgesGeometry = new THREE.EdgesGeometry ( node.geometry, 45 );
 
-								var edgesMaterial = new THREE.LineBasicMaterial({ antialias: true, color: black });
+								var edgesMaterial = new THREE.LineBasicMaterial({ color: black });
 
 								edgesMaterial.linewidth = 2;
 
@@ -1702,13 +1702,13 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						// orbit controls
 
-						self.get_orbitControls ();
+						self.get_orbitControls ( );
 
 						// transform controls
 
-						self.scene.add ( self.get_transformControls () );
+						self.scene.add ( self.get_transformControls ( ) );
 
-						self.get_transformControls ().attach ( self.colladaImport );
+						self.get_transformControls ( ).attach ( self.colladaImport );
 					}
 				);
 
@@ -1719,7 +1719,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				window.addEventListener ( 'keydown', self.transformKeys );
 			}
 
-			new initialize ();
+			new initialize ( );
 
 		</script>
 
