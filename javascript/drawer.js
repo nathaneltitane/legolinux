@@ -40,11 +40,15 @@ $( document ).ready ( function ( ) {
 
         if ( drawer.hasClass ( 'drawer-show' ) ) {
 
-            $( ids ).removeClass ( classes );
-
             drawer.removeClass ( 'drawer-show' );
 
             drawer.addClass ( 'drawer-hide' );
+
+            setTimeout ( function ( ) {
+
+                $( ids ).removeClass ( classes );
+
+            }, 500 );
         }
 
     } );

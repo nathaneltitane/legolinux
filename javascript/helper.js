@@ -24,11 +24,15 @@ $( document ).ready ( function ( ) {
 
     $( '.controls' ).click ( function ( event ) {
 
-        $( ids ).toggleClass ( classes );
+        $( ids ).addClass ( classes );
 
         helper.removeClass ( 'helper-hide' );
 
-        helper.addClass ( 'helper-show' );
+        setTimeout ( function ( ) {
+
+            helper.addClass ( 'helper-show' );
+
+        }, 250 );
 
     } );
 
@@ -36,11 +40,16 @@ $( document ).ready ( function ( ) {
 
         if ( helper.hasClass ( 'helper-show' ) ) {
 
-            $( ids ).removeClass ( classes );
-
             helper.removeClass ( 'helper-show' );
 
             helper.addClass ( 'helper-hide' );
+
+            setTimeout ( function ( ) {
+
+                $( ids ).removeClass ( classes );
+
+            }, 250 );
+
         }
 
     } );

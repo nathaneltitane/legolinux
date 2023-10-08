@@ -28,7 +28,11 @@ $( document ).ready ( function ( ) {
 
         samples.removeClass ( 'samples-hide' );
 
-        samples.addClass ( 'samples-show' );
+        setTimeout ( function ( ) {
+
+            samples.addClass ( 'samples-show' );
+
+        }, 250 );
 
     } );
 
@@ -36,11 +40,16 @@ $( document ).ready ( function ( ) {
 
         if ( samples.hasClass ( 'samples-show' ) ) {
 
-            $( ids ).removeClass ( classes );
-
             samples.removeClass ( 'samples-show' );
 
             samples.addClass ( 'samples-hide' );
+
+            setTimeout ( function ( ) {
+
+                $( ids ).removeClass ( classes );
+
+            }, 500 );
+
         }
 
     } );
