@@ -1,6 +1,6 @@
 // helper //
 
-$( document ).ready ( function ( ) {
+function toggleVisibility ( ) {
 
     var helper = $( '.helper' );
 
@@ -18,11 +18,20 @@ $( document ).ready ( function ( ) {
         'controls-label-color'
     ];
 
-    var ids = ids.join ( ', ' );
+    ids = ids.join( ', ' );
 
-    var classes = classes.join ( ' ' );
+    classes = classes.join( ' ' );
 
-    $( '.controls' ).click ( function ( event ) {
+    if ( helper.hasClass ( 'helper-show' ) ) {
+
+        $( ids ).removeClass ( classes );
+
+        helper.removeClass ( 'helper-show' );
+
+        helper.addClass ( 'helper-hide' );
+
+
+    } else {
 
         $( ids ).addClass ( classes );
 
@@ -30,20 +39,37 @@ $( document ).ready ( function ( ) {
 
         helper.addClass ( 'helper-show' );
 
-    } );
+    }
+}
+
+$( document ).ready ( function ( ) {
+
+    $( '.controls' ).click ( function ( event ) {
+
+        toggleVisibility ( );
+
+    });
 
     $( '#canvas, #footer' ).click ( function ( event ) {
 
+        var helper = $( '.helper' );
+
         if ( helper.hasClass ( 'helper-show' ) ) {
 
-            $( ids ).removeClass ( classes );
-
-            helper.removeClass ( 'helper-show' );
-
-            helper.addClass ( 'helper-hide' );
+            toggleVisibility ( );
 
         }
 
-    } );
+    });
 
-} );
+    $( document ).keyup ( function ( event ) {
+
+        if ( event.key === 'Tab' ) {
+
+            toggleVisibility ( );
+
+        }
+
+    });
+
+});

@@ -1,6 +1,6 @@
 // samples //
 
-$( document ).ready ( function ( ) {
+function toggleVisibility ( ) {
 
     var samples = $( '.samples' );
 
@@ -18,11 +18,20 @@ $( document ).ready ( function ( ) {
         'controls-label-color'
     ];
 
-    var ids = ids.join ( ', ' );
+    ids = ids.join( ', ' );
 
-    var classes = classes.join ( ' ' );
+    classes = classes.join( ' ' );
 
-    $('.paypal').hover ( function ( event ) {
+    if ( samples.hasClass ( 'samples-show' ) ) {
+
+        $( ids ).removeClass ( classes );
+
+        samples.removeClass ( 'samples-show' );
+
+        samples.addClass ( 'samples-hide' );
+
+
+    } else {
 
         $( ids ).addClass ( classes );
 
@@ -30,20 +39,37 @@ $( document ).ready ( function ( ) {
 
         samples.addClass ( 'samples-show' );
 
-    } );
+    }
+}
+
+$( document ).ready ( function ( ) {
+
+    $( '.paypal' ).hover ( function ( event ) {
+
+        toggleVisibility ( );
+
+    });
 
     $( '#canvas, #footer' ).hover ( function ( event ) {
 
+        var samples = $( '.samples' );
+
         if ( samples.hasClass ( 'samples-show' ) ) {
 
-            $( ids ).removeClass ( classes );
-
-            samples.removeClass ( 'samples-show' );
-
-            samples.addClass ( 'samples-hide' );
+            toggleVisibility ( );
 
         }
 
-    } );
+    });
 
-} );
+    $( document ).keyup ( function ( event ) {
+
+        if ( event.key === '#' ) {
+
+            toggleVisibility ( );
+
+        }
+
+    });
+
+});
