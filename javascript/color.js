@@ -43,7 +43,11 @@ $( document ).ready ( function ( ) {
                 return;
             }
 
-            $( "#canvas" ).css ( "background-color", color );
+            $( "#canvas" ).css ({
+
+                "background": "linear-gradient(to top, #aaaaaa 25%, " + color + ")"
+
+            });
 
             setTimeout ( function ( ) {
 
