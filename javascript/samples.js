@@ -24,7 +24,7 @@ $( document ).ready ( function ( ) {
 
     $( '.paypal' ).hover ( function ( event ) {
 
-        $( ids ).toggleClass ( classes );
+        $( ids ).addClass ( classes );
 
         samples.removeClass ( 'samples-hide' );
 
