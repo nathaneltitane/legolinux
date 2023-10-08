@@ -29,7 +29,7 @@
 	100% {right: 0vw;}
 }
 
-.drawer-open {
+.drawer-show {
 	right: 0vw;
 
 	animation: drawer-reveal 1s;
@@ -43,7 +43,7 @@
 
 	100% {right: -100vw;}
 }
-.drawer-close {
+.drawer-hide {
 	right: -100vw;
 
 	animation: drawer-conceal 1s;

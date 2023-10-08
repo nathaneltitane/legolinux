@@ -26,21 +26,21 @@ $( document ).ready ( function ( ) {
 
         $( ids ).toggleClass ( classes );
 
-        drawer.removeClass ( 'drawer-close' );
+        drawer.removeClass ( 'drawer-hide' );
 
-        drawer.addClass ( 'drawer-open' );
+        drawer.addClass ( 'drawer-show' );
 
     } );
 
     $( '.section' ).click ( function ( event ) {
 
-        if ( drawer.hasClass ( 'drawer-open' ) ) {
+        if ( drawer.hasClass ( 'drawer-show' ) ) {
 
             $( ids ).removeClass ( classes );
 
-            drawer.removeClass ( 'drawer-open' );
+            drawer.removeClass ( 'drawer-show' );
 
-            drawer.addClass ( 'drawer-close' );
+            drawer.addClass ( 'drawer-hide' );
         }
 
     } );
