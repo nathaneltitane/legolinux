@@ -20,7 +20,6 @@ $( function ( ) {
 
 	});
 
-
 	$.get( "/modules/contact.html", function ( data ) {
 
 		$( "#contact" ).append ( data );
@@ -36,6 +35,12 @@ $( function ( ) {
 	$.get( "/modules/controls.html", function ( data ) {
 
 		$( "#controls" ).append ( data );
+
+	});
+
+	$.get( "/modules/helper.html", function ( data ) {
+
+		$( "#helper" ).append ( data );
 
 	});
 
