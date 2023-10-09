@@ -58,6 +58,8 @@
 
 			function initialize ( ) {
 
+				const startTime = performance.now ( );
+
 				var self  = this;
 
 				// viewport
@@ -1552,7 +1554,7 @@
 
 					function (xhr) {
 
-					console.log ( (xhr.loaded / xhr.total) * 100 + '% loaded' );
+					console.log ( 'model = ' + ( ( xhr.loaded / xhr.total ) * 100 ).toFixed ( 2 ) + '% loaded');
 
 					},
 				);
@@ -1570,6 +1572,12 @@
 					self.edgesToggle_ ( );
 
 				});
+
+				const endTime = performance.now();
+
+				const loadTime = ( ( endTime - startTime ) / 1000).toFixed ( 2 );
+
+				console.log ('load time = ' +  loadTime + ' seconds' );
 			}
 
 			new initialize ( );
