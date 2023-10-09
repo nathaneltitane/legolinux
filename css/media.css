@@ -140,7 +140,7 @@
 
 /* // phone // */
 
-@media only screen and (pointer: coarse) and (max-device-width: 480px) {
+@media only screen and (pointer: coarse) and (max-device-width: 600px) {
 
 	#controls {
 		display: none;
