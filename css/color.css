@@ -17,11 +17,6 @@
 	padding: 0px 0px 0px 0px;
 
 	opacity: 0;
-
-	animation-name: color-reveal;
-	animation-delay: 2.0s;
-	animation-duration: 1s;
-	animation-fill-mode: forwards;
 }
 
 .color {
@@ -32,7 +27,7 @@
 	padding: 10px 10px 10px 10px;
 
 	animation-name: color-reveal;
-	animation-delay: 2.0s;
+	animation-delay: 3.0s;
 	animation-duration: 1s;
 	animation-fill-mode: forwards;
 }

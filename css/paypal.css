@@ -15,7 +15,7 @@
 	padding: 10px 10px 10px 10px;
 
 	animation-name: paypal-reveal;
-	animation-delay: 1.0s;
+	animation-delay: 3.5s;
 	animation-duration: 1s;
 	animation-fill-mode: forwards;
 }

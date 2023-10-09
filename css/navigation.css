@@ -23,7 +23,7 @@
 	right: -200px;
 
 	animation-name: navigation-reveal;
-	animation-delay: 1.0s;
+	animation-delay: 1.5s;
 	animation-duration: 1s;
 	animation-fill-mode: forwards;
 }
