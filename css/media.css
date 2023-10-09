@@ -140,7 +140,9 @@
 
 /* // phone // */
 
-@media only screen and (pointer: coarse) and (max-device-width: 600px) {
+@media only screen
+and (pointer: coarse)
+and (max-device-width: 600px) {
 
 	#controls {
 		display: none;
@@ -149,12 +151,13 @@
 	.drawer-button {
 		bottom: calc(56px + 80px);
 	}
-
 }
 
 /* // tablet // */
 
-@media only screen and (pointer: coarse) and (min-device-width: 800px) {
+@media only screen
+and (pointer: coarse)
+and (min-device-width: 800px) {
 
 	#controls {
 		display: none;
@@ -167,12 +170,13 @@
 
 /* // desktop // */
 
-@media only screen and (pointer: fine) and (min-device-width: 600px) {
+@media only screen
+and (pointer: fine)
+and (min-device-width: 600px) {
 
 	#edges {
 		display: none;
 	}
-
 }
 
 /* // specific models // */
