@@ -219,6 +219,8 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 			function initialize ( ) {
 
+				console.time ( 'load time' );
+
 				var self  = this;
 
 				// viewport
@@ -1713,7 +1715,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					function (xhr) {
 
-					console.log ( (xhr.loaded / xhr.total) * 100 + '% loaded' );
+					console.log ( ((xhr.loaded / xhr.total) * 100).toFixed(2) + '% loaded' );
 
 					},
 				);
@@ -1731,6 +1733,8 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 					self.edgesToggle_ ( );
 
 				});
+
+				console.timeEnd ( 'load time' );
 			}
 
 			new initialize ( );
