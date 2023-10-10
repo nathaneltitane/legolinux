@@ -2025,5 +2025,5 @@ done
 frobulator.inf "Models" "[ ${count} ]"
 echo
 
-frobulator.scs "Done" "[ Viewer ]"
+frobulator.cpt "Complete" "[ Viewer ]"
 echo

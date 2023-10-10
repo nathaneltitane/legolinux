@@ -86,5 +86,5 @@ rsync							\
 	--exclude='LPub3D'			\
 								"${local_models_directory}"/* "${server_models_directory}" > "${sink}" 2>&1
 
-frobulator.scs "Done" "[ Models ]"
+frobulator.cpt "Complete" "[ Models ]"
 echo

@@ -283,5 +283,5 @@ FOOTER
 frobulator.inf "Models" "[ ${count} ]"
 echo
 
-frobulator.scs "Done" "[ Menu ]"
+frobulator.cpt "Complete" "[ Menu ]"
 echo
