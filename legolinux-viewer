@@ -103,6 +103,8 @@ do
 
 		instructions_directory="${model_directory}"/instructions
 
+		instructions_samples_directory="${instructions_directory}"/samples
+
 		render_directory="${model_directory}"/renders
 
 		flat_directory="${render_directory}"/flat
@@ -1842,9 +1844,9 @@ cat << 3D-MODEL-PAGE-SAMPLES ->> "${model_directory}/index.html"
 
 					<div class="flex-cell product">
 
-						<a href="/${instructions_directory}/sample-01.png"/>
+						<a href="/${instructions_samples_directory}/sample-01.png"/>
 
-							<img src="/${instructions_directory}/sample-01.png"/>
+							<img src="/${instructions_samples_directory}/sample-01.png"/>
 
 						</a>
 
@@ -1854,9 +1856,9 @@ cat << 3D-MODEL-PAGE-SAMPLES ->> "${model_directory}/index.html"
 
 					<div class="flex-cell product">
 
-						<a href="/${instructions_directory}/sample-02.png"/>
+						<a href="/${instructions_samples_directory}/sample-02.png"/>
 
-							<img src="/${instructions_directory}/sample-02.png"/>
+							<img src="/${instructions_samples_directory}/sample-02.png"/>
 
 						</a>
 
@@ -1866,9 +1868,9 @@ cat << 3D-MODEL-PAGE-SAMPLES ->> "${model_directory}/index.html"
 
 					<div class="flex-cell product">
 
-						<a href="/${instructions_directory}/sample-03.png"/>
+						<a href="/${instructions_samples_directory}/sample-03.png"/>
 
-							<img src="/${instructions_directory}/sample-03.png"/>
+							<img src="/${instructions_samples_directory}/sample-03.png"/>
 
 						</a>
 
@@ -1878,9 +1880,9 @@ cat << 3D-MODEL-PAGE-SAMPLES ->> "${model_directory}/index.html"
 
 					<div class="flex-cell product">
 
-						<a href="/${instructions_directory}/sample-04.png"/>
+						<a href="/${instructions_samples_directory}/sample-04.png"/>
 
-							<img src="/${instructions_directory}/sample-04.png"/>
+							<img src="/${instructions_samples_directory}/sample-04.png"/>
 
 						</a>
 
@@ -1890,9 +1892,9 @@ cat << 3D-MODEL-PAGE-SAMPLES ->> "${model_directory}/index.html"
 
 					<div class="flex-cell product">
 
-						<a href="/${instructions_directory}/sample-05.png"/>
+						<a href="/${instructions_samples_directory}/sample-05.png"/>
 
-							<img src="/${instructions_directory}/sample-05.png"/>
+							<img src="/${instructions_samples_directory}/sample-05.png"/>
 
 						</a>
 
@@ -1902,9 +1904,9 @@ cat << 3D-MODEL-PAGE-SAMPLES ->> "${model_directory}/index.html"
 
 					<div class="flex-cell product">
 
-						<a href="/${instructions_directory}/sample-06.png"/>
+						<a href="/${instructions_samples_directory}/sample-06.png"/>
 
-							<img src="/${instructions_directory}/sample-06.png"/>
+							<img src="/${instructions_samples_directory}/sample-06.png"/>
 
 						</a>
 
