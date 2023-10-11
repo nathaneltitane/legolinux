@@ -83,7 +83,7 @@ cat << MODEL-DRAWER-HEADER -> "${modules_directory}"/drawer.html
 
 	<div class="flex flex-column">
 
-		<!-- legend -->
+		<!-- notice -->
 
 		<div class="section notice">
 

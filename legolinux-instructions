@@ -83,7 +83,7 @@ instructions_options=(
 
 for directory in ${list[@]}
 do
-	for instructions_option in ${instructions_options}
+	for instructions_option in ${instructions_options[@]}
 	do
 		instructions "${extension}" "${instructions_option}" "${directory}"
 	done

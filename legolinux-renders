@@ -85,7 +85,7 @@ render_options=(
 
 for directory in ${list[@]}
 do
-	for render_option in ${render_options}
+	for render_option in ${render_options[@]}
 	do
 		render "${extension}" "${render_option}" "${directory}"
 	done
