@@ -1,8 +1,8 @@
-// color //
+// colors //
 
 $( document ).ready ( function ( ) {
 
-	var color = $( '#color' );
+	var colors = $( '#colors' );
 
 	var ids = [
         '#navigation-button-label',
@@ -26,11 +26,11 @@ $( document ).ready ( function ( ) {
 
 		$( ids ).addClass ( classes );
 
-        color.removeClass ( 'color-hide' );
+        colors.removeClass ( 'colors-hide' );
 
         setTimeout ( function ( ) {
 
-            color.addClass ( 'color-show' );
+            colors.addClass ( 'colors-show' );
 
         }, 250 );
 
@@ -38,9 +38,9 @@ $( document ).ready ( function ( ) {
 
 	function hide ( ) {
 
-        color.removeClass ( 'color-show' );
+        colors.removeClass ( 'colors-show' );
 
-        color.addClass ( 'color-hide' );
+        colors.addClass ( 'colors-hide' );
 
         setTimeout ( function ( ) {
 
@@ -52,7 +52,7 @@ $( document ).ready ( function ( ) {
 
     function toggle ( ) {
 
-        if ( color.hasClass ( 'color-show' ) ) {
+        if ( colors.hasClass ( 'colors-show' ) ) {
 
             hide ( );
 
@@ -71,7 +71,7 @@ $( document ).ready ( function ( ) {
 
     } );
 
-	$( '.color' ).click ( function ( event ) {
+	$( '.colors' ).click ( function ( event ) {
 
 		var color = $ ( this ).data ( 'value' );
 
@@ -85,7 +85,7 @@ $( document ).ready ( function ( ) {
 
     } );
 
-	$( '.color' ).each ( function ( ) {
+	$( '.colors' ).each ( function ( ) {
 
 		var color = $( this ).data ( 'value' );
 

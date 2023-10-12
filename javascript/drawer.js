@@ -22,7 +22,7 @@ $( document ).ready ( function ( ) {
 
     var classes = classes.join ( ' ' );
 
-    function show () {
+    function show ( ) {
 
     $( ids ).addClass ( classes );
 

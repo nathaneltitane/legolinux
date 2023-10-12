@@ -32,6 +32,12 @@ $( function ( ) {
 
 	});
 
+	$.get( "/modules/colors.html", function ( data ) {
+
+		$( "#colors" ).append ( data );
+
+	});
+
 	$.get( "/modules/controls.html", function ( data ) {
 
 		$( "#controls" ).append ( data );

@@ -1,52 +1,31 @@
-#colors {
-	background: #bbbbbbff;
+#color {
+	height: 64px;
+	width: 64px;
 	position: fixed;
-	top: 0px;
-	bottom: 0px;
-	left: -100vw;
-	width: 100vw;
-
-	overflow-y: scroll;
-
-	z-index: 888;
+	bottom: calc(80px + 64px + 64px + 10px + 10px + 10px);
+	right: 10px;
+	padding: 10px 10px 10px 10px;
 }
 
-.colors {
-	border-radius: 4px;
-	cursor: pointer;
-	width: 96px;
-	height: 96px;
-	display: inline-block;
-	margin: 10px 10px 10px 10px;
-	padding: 0px 0px 0px 0px;
-}
+.color {
+	color: #000000ff;
+	position: fixed;
+	bottom: calc(80px + 64px + 64px + 10px + 10px);
+	right: -200px;
+	padding: 10px 10px 10px 10px;
 
-@keyframes colors-reveal {
-	0% {left: -100vw;}
-
-	100% {left: 0vw;}
-}
-
-.colors-show {
-	left: 0vw;
-
-	animation: colors-reveal 1s;
-	animation-delay: 0s;
-	animation-duration: 0.5s;
+	animation-name: color-reveal;
+	animation-delay: 3.0s;
+	animation-duration: 1s;
 	animation-fill-mode: forwards;
 }
 
-@keyframes colors-conceal {
-	0% {left: 0vw;}
+@keyframes color-reveal {
+	0% {right: -200px;}
 
-	100% {left: -100vw;}
+	100% {right: 0px;}
 }
 
-.colors-hide {
-	left: -100vw;
-
-	animation: colors-conceal 1s;
-	animation-delay: 0s;
-	animation-duration: 0.5s;
-	animation-fill-mode: forwards;
+.color-label-color {
+	 color: #00000000;
 }

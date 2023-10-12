@@ -1983,6 +1983,15 @@ cat << 3D-MODEL-PAGE-COLOR ->> "${model_directory}/index.html"
 
 3D-MODEL-PAGE-COLOR
 
+cat << 3D-MODEL-PAGE-COLORS ->> "${model_directory}/index.html"
+		<!-- colors -->
+
+		<div id="colors">
+
+		</div>
+
+3D-MODEL-PAGE-COLORS
+
 cat << 3D-MODEL-PAGE-CONTROLS ->> "${model_directory}/index.html"
 		<!-- controls -->
 
