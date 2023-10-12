@@ -73,6 +73,22 @@ $( document ).ready ( function ( ) {
 
     } );
 
+    // keyboard
+
+    $( document ).on ( 'keyup', function ( event ) {
+
+        if ( event.key === 'q' ) {
+
+            setTimeout ( function ( ) {
+
+                $( "#color-palette" ).click ( );
+
+            }, 250 );
+
+        }
+
+    } );
+
 } );
 
 function color_selector ( ) {
