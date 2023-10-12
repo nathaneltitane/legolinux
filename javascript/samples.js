@@ -22,9 +22,9 @@ $( document ).ready ( function ( ) {
 
     var classes = classes.join ( ' ' );
 
-    $( '.paypal' ).hover ( function ( event ) {
+    function show () {
 
-        $( ids ).addClass ( classes );
+    $( ids ).addClass ( classes );
 
         samples.removeClass ( 'samples-hide' );
 
@@ -34,21 +34,60 @@ $( document ).ready ( function ( ) {
 
         }, 250 );
 
-    } );
+    };
 
-    $( '#canvas, #footer' ).hover ( function ( event ) {
+    function hide ( ) {
+
+        samples.removeClass ( 'samples-show' );
+
+        samples.addClass ( 'samples-hide' );
+
+        setTimeout ( function ( ) {
+
+            $( ids ).removeClass ( classes );
+
+        }, 500 );
+
+    };
+
+    function toggle ( ) {
 
         if ( samples.hasClass ( 'samples-show' ) ) {
 
-            samples.removeClass ( 'samples-show' );
+            hide ( );
 
-            samples.addClass ( 'samples-hide' );
+        }
 
-            setTimeout ( function ( ) {
+        else {
 
-                $( ids ).removeClass ( classes );
+            show ( );
 
-            }, 500 );
+        }
+    };
+
+    $( '.paypal' ).click ( function ( event ) {
+
+        show ( ) ;
+
+    } );
+
+    $( '#canvas, #footer' ).click ( function ( event ) {
+
+        if ( samples.hasClass ( 'samples-show' ) ) {
+
+            hide ( );
+
+        }
+
+    } );
+
+    // keyboard
+
+    $( document ).on ( 'keyup', function ( event ) {
+
+        if ( event.key === 'u' ) {
+
+            toggle ( );
 
         }
 
