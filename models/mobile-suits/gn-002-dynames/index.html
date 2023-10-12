@@ -859,7 +859,7 @@
 
 					self.cameraType = self.camera.isPerspectiveCamera ? 'perspective' : 'orthographic';
 
-					self.camera.position.copy ( self.position );
+					// self.camera.position.copy ( self.position );
 
 					self.transformControls.camera = self.camera;
 
@@ -892,8 +892,10 @@
 					self.orbitControls = new OrbitControls ( self.camera, self.renderer.domElement );
 
 					self.camera.position.set ( self.cameraPositionMatrix_x, self.cameraPositionMatrix_y, self.cameraPositionMatrix_z );
-					self.camera.lookAt ( 0, 0, 0 );
+
 					self.camera.zoom = 3000;
+
+					self.camera.lookAt ( 0, 0, 0 );
 
 					self.camera.updateProjectionMatrix ( );
 
