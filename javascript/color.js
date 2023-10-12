@@ -2,7 +2,9 @@
 
 $( document ).ready ( function ( ) {
 
-    var ids = [
+	var color = $( '#color' );
+
+	var ids = [
         '#navigation-button-label',
         '#paypal-button-label',
         '#color-button-label',
@@ -20,82 +22,75 @@ $( document ).ready ( function ( ) {
 
     var classes = classes.join ( ' ' );
 
-    $('.color').click (function ( event ) {
+    function show ( ) {
 
-        $( ids ).addClass ( classes );
+		$( ids ).addClass ( classes );
 
-    } );
+        color.removeClass ( 'color-hide' );
 
-    // color selector //
+        setTimeout ( function ( ) {
 
-    $( function () {
+            color.addClass ( 'color-show' );
 
-        var color_palette = document.getElementById ( 'color-palette' );
+        }, 250 );
 
-        color_palette.addEventListener ( 'change', function ( event ) {
+    };
 
-            var color = color_palette.value;
+	function hide ( ) {
 
-            if ( !color || !color.trim ( ) ) {
+        color.removeClass ( 'color-show' );
 
-                $( ids ).removeClass ( classes );
-
-                return;
-            }
-
-            $( "#canvas" ).css ({
-
-                "background": "linear-gradient(to top, #aaaaaa 10%, " + color + ")"
-
-            });
-
-            setTimeout ( function ( ) {
-
-                $( ids ).removeClass ( classes );
-
-            }, 250 );
-
-        },
-
-        false
-
-        );
-
-    });
-
-    $( '#canvas, #footer' ).click ( function ( event ) {
+        color.addClass ( 'color-hide' );
 
         setTimeout ( function ( ) {
 
             $( ids ).removeClass ( classes );
 
-        }, 250 );
+        }, 500 );
 
-    } );
+    };
 
-    // keyboard
+    function toggle ( ) {
 
-    $( document ).on ( 'keyup', function ( event ) {
+        if ( color.hasClass ( 'color-show' ) ) {
 
-        if ( event.key === 'q' ) {
-
-            setTimeout ( function ( ) {
-
-                $( "#color-palette" ).click ( );
-
-            }, 250 );
+            hide ( );
 
         }
 
+        else {
+
+            show ( );
+
+        }
+    };
+
+	$( '#color' ).hover ( function ( event ) {
+
+        show ( );
+
     } );
 
-} );
+	$( '.color' ).click ( function ( event ) {
 
-function color_selector ( ) {
+		var color = $ ( this ).data ( 'value' );
 
-    setTimeout ( function ( ) {
+		$( "#canvas" ).css ( {
 
-        $( "#color-palette" ).click ( );
+			"background": "linear-gradient(to top, #aaaaaa 10%, " + color + ")"
 
-    }, 250 );
-}
+		});
+
+        hide ( );
+
+    } );
+
+	$( '.color' ).each ( function ( ) {
+
+		var color = $( this ).data ( 'value' );
+
+		$( this ).css ( 'background-color', color );
+
+	});
+
+});
