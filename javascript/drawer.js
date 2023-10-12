@@ -22,11 +22,11 @@ $( document ).ready ( function ( ) {
 
     var classes = classes.join ( ' ' );
 
-    $( '.navigation' ).click ( function ( event ) {
+    function show () {
 
-        $( ids ).toggleClass ( classes );
+    $( ids ).addClass ( classes );
 
-        drawer.removeClass('drawer-hide');
+        drawer.removeClass ( 'drawer-hide' );
 
         setTimeout ( function ( ) {
 
@@ -34,21 +34,61 @@ $( document ).ready ( function ( ) {
 
         }, 250 );
 
+    };
+
+    function hide ( ) {
+
+        drawer.removeClass ( 'drawer-show' );
+
+        drawer.addClass ( 'drawer-hide' );
+
+        setTimeout ( function ( ) {
+
+            $( ids ).removeClass ( classes );
+
+        }, 500 );
+
+    };
+
+    function toggle ( ) {
+
+        if ( drawer.hasClass ( 'drawer-show' ) ) {
+
+            hide ( );
+
+        }
+
+        else {
+
+            show ( );
+
+        }
+    };
+
+    $( '.navigation' ).click ( function ( event ) {
+
+        show ( ) ;
+
     } );
 
     $( '.section' ).click ( function ( event ) {
 
         if ( drawer.hasClass ( 'drawer-show' ) ) {
 
-            drawer.removeClass ( 'drawer-show' );
+            hide ( );
 
-            drawer.addClass ( 'drawer-hide' );
+        }
 
-            setTimeout ( function ( ) {
+    } );
 
-                $( ids ).removeClass ( classes );
+    // keyboard
 
-            }, 500 );
+    $( document ).on ( 'keyup', function ( event ) {
+
+        if ( event.key === 'k' ) {
+
+            toggle ( );
+
         }
 
     } );
