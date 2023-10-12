@@ -22,9 +22,9 @@ $( document ).ready ( function ( ) {
 
     var classes = classes.join ( ' ' );
 
-    $( '.controls' ).click ( function ( event ) {
+    function show () {
 
-        $( ids ).addClass ( classes );
+    $( ids ).addClass ( classes );
 
         helper.removeClass ( 'helper-hide' );
 
@@ -34,21 +34,60 @@ $( document ).ready ( function ( ) {
 
         }, 250 );
 
+    };
+
+    function hide ( ) {
+
+        helper.removeClass ( 'helper-show' );
+
+        helper.addClass ( 'helper-hide' );
+
+        setTimeout ( function ( ) {
+
+            $( ids ).removeClass ( classes );
+
+        }, 500 );
+
+    };
+
+    function toggle ( ) {
+
+        if ( helper.hasClass ( 'helper-show' ) ) {
+
+            hide ( );
+
+        }
+
+        else {
+
+            show ( );
+
+        }
+    };
+
+    $( '.controls' ).click ( function ( event ) {
+
+        show ( ) ;
+
     } );
 
     $( '#canvas, #footer' ).click ( function ( event ) {
 
         if ( helper.hasClass ( 'helper-show' ) ) {
 
-            helper.removeClass ( 'helper-show' );
+            hide ( );
 
-            helper.addClass ( 'helper-hide' );
+        }
 
-            setTimeout ( function ( ) {
+    } );
 
-                $( ids ).removeClass ( classes );
+    // keyboard
 
-            }, 500 );
+    $( document ).on ( 'keyup', function ( event ) {
+
+        if ( event.key === '#' ) {
+
+            toggle ( );
 
         }
 
