@@ -1,52 +1,81 @@
 // footer //
 
-$(document).ready(function() {
-    var canvas = document.getElementById('canvas');
-    var footer = document.getElementById('footer');
-    var isMouseOrTouchActive = false;
-    var resetTimeout;
+$ ( document ) .ready ( function ( ) {
 
-    // Function to lower the footer by 80px
-    function lowerFooter() {
-        footer.style.marginBottom = '-80px';
-    }
+	var canvas = document.getElementById ( 'canvas' ) ;
 
-    // Function to reset the footer to its original position
-    function resetFooter() {
-        footer.style.marginBottom = '0px';
-    }
+	var footer = document.getElementById ( 'footer' ) ;
 
-    // Function to reset the footer after a 2-second timeout
-    function resetFooterWithTimeout() {
-        clearTimeout(resetTimeout);
-        resetTimeout = setTimeout(function() {
-            isMouseOrTouchActive = false;
-            resetFooter();
-        }, 2000); // 2-second timeout
-    }
+	var isMouseOrTouchActive = false;
 
-    // Event listener for mouse or touch activity on the canvas
-    canvas.addEventListener('mousemove,', function(event) {
-        if (!isMouseOrTouchActive) {
-            isMouseOrTouchActive = true;
-            resetFooterWithTimeout();
-            lowerFooter();
-        }
-    });
+	var resetTimeout;
 
-        canvas.addEventListener('mouseenter,', function(event) {
-        if (!isMouseOrTouchActive) {
-            isMouseOrTouchActive = true;
-            resetFooterWithTimeout();
-            lowerFooter();
-        }
-    });
+	function hide ( ) {
 
-    canvas.addEventListener('touchstart', function(event) {
-        if (!isMouseOrTouchActive) {
-            isMouseOrTouchActive = true;
-            resetFooterWithTimeout();
-            lowerFooter();
-        }
-    });
-});
+		footer.style.marginBottom = '-80px';
+
+	}
+
+	function show ( ) {
+
+		footer.style.marginBottom = '0px';
+
+	}
+
+	function showWithTimeout ( ) {
+
+		clearTimeout ( resetTimeout ) ;
+
+		resetTimeout = setTimeout ( function ( ) {
+
+			isMouseOrTouchActive = false;
+
+			show ( ) ;
+
+		}, 4000 ) ;
+
+	}
+
+	canvas.addEventListener ( 'mousemove', function ( event ) {
+
+		if ( !isMouseOrTouchActive ) {
+
+			isMouseOrTouchActive = true;
+
+			showWithTimeout ( ) ;
+
+			hide ( ) ;
+
+		}
+
+	} ) ;
+
+		canvas.addEventListener ( 'mouseenter', function ( event ) {
+
+		if ( !isMouseOrTouchActive ) {
+
+			isMouseOrTouchActive = true;
+
+			showWithTimeout ( ) ;
+
+			hide ( ) ;
+
+		}
+
+	} ) ;
+
+	canvas.addEventListener ( 'touchstart', function ( event ) {
+
+		if ( !isMouseOrTouchActive ) {
+
+			isMouseOrTouchActive = true;
+
+			showWithTimeout ( ) ;
+
+			hide ( ) ;
+
+		}
+
+	} ) ;
+
+} ) ;
