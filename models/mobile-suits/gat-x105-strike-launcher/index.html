@@ -858,9 +858,9 @@
 
 				this.wireframeToggle_ = function ( ) {
 
-					self.colladaImport.traverse(function(node) {
+					self.colladaImport.traverse ( function ( node ) {
 
-					if (node.isMesh) {
+					if ( node.isMesh ) {
 
 						if ( node.material.wireframe ) {
 
@@ -1561,7 +1561,13 @@
 
 								// wireframe
 
-								var wireframeMaterial = new THREE.MeshBasicMaterial({ color: grey, wireframe: true });
+								var wireframeMaterial = new THREE.MeshBasicMaterial ( {
+									color: node.material.color,
+									wireframe: true,
+									wireframeLinewidth: 0.125,
+									wireframeLinecap: 'round',
+									wireframeLinejoin: 'round'
+								} );
 
 								var wireframeMesh = new THREE.Mesh(node.geometry, wireframeMaterial);
 
