@@ -50,6 +50,12 @@ $( function ( ) {
 
 	});
 
+	$.get( "/modules/wireframe.html", function ( data ) {
+
+		$( "#wireframe" ).append ( data );
+
+	});
+
 	$.get( "/modules/helper.html", function ( data ) {
 
 		$( "#helper" ).append ( data );

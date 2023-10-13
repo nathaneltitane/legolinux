@@ -1740,6 +1740,14 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				});
 
+				// wireframe toggle
+
+				document.getElementById ( 'wireframe' ).addEventListener ( 'click', function ( ) {
+
+					self.wireframeToggle_ ( );
+
+				});
+
 				const endTime = performance.now();
 
 				const loadTime = ( ( endTime - startTime ) / 1000).toFixed ( 2 );
@@ -2007,6 +2015,15 @@ cat << 3D-MODEL-PAGE-EDGES ->> "${model_directory}/index.html"
 		<!-- edges -->
 
 		<div id="edges">
+
+		</div>
+
+3D-MODEL-PAGE-EDGES
+
+cat << 3D-MODEL-PAGE-EDGES ->> "${model_directory}/index.html"
+		<!-- wireframe -->
+
+		<div id="wireframe">
 
 		</div>
 
