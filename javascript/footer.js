@@ -26,7 +26,15 @@ $(document).ready(function() {
     }
 
     // Event listener for mouse or touch activity on the canvas
-    canvas.addEventListener('mousemove, mouseenter', function(event) {
+    canvas.addEventListener('mousemove,', function(event) {
+        if (!isMouseOrTouchActive) {
+            isMouseOrTouchActive = true;
+            resetFooterWithTimeout();
+            lowerFooter();
+        }
+    });
+
+        canvas.addEventListener('mouseenter,', function(event) {
         if (!isMouseOrTouchActive) {
             isMouseOrTouchActive = true;
             resetFooterWithTimeout();
