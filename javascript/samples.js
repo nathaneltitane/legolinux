@@ -65,13 +65,13 @@ $( document ).ready ( function ( ) {
         }
     };
 
-    $( '.paypal' ).click ( function ( event ) {
+    $( '.paypal' ).hover ( function ( event ) {
 
         show ( ) ;
 
     } );
 
-    $( '#canvas, #footer' ).click ( function ( event ) {
+    $( '#canvas, #footer' ).hover ( function ( event ) {
 
         if ( samples.hasClass ( 'samples-show' ) ) {
 

@@ -12,11 +12,7 @@
 }
 
 .colors {
-	border-radius: 4px;
-	cursor: pointer;
-	width: 96px;
-	height: 96px;
-	display: inline-block;
+	aspect-ratio: 1/1;
 	margin: 10px 10px 10px 10px;
 	padding: 0px 0px 0px 0px;
 }
