@@ -1577,6 +1577,14 @@
 
 				});
 
+				// wireframe toggle
+
+				document.getElementById ( 'wireframe' ).addEventListener ( 'click', function ( ) {
+
+					self.wireframeToggle_ ( );
+
+				});
+
 				const endTime = performance.now();
 
 				const loadTime = ( ( endTime - startTime ) / 1000).toFixed ( 2 );
@@ -1815,6 +1823,12 @@
 		<!-- edges -->
 
 		<div id="edges">
+
+		</div>
+
+		<!-- wireframe -->
+
+		<div id="wireframe">
 
 		</div>
 
