@@ -1962,7 +1962,7 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 
 					<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=BTVHFKWFMQSXC">
 
-						<div class="icon icon-64 logo-yellow"></div>
+						<div class="icon icon-64 logo-paypal"></div>
 
 					</a>
 
