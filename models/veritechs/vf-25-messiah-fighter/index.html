@@ -837,17 +837,17 @@
 
 				this.edgesToggle_ = function ( ) {
 
+					edgesVisible = !edgesVisible;
+
 					self.colladaImport.traverse ( function ( node ) {
 
-					if ( node.isLineSegments ) {
+						if ( node.isLineSegments ) {
 
-						node.visible = edgesVisible;
+							node.visible = edgesVisible;
 
-					}
+						}
 
 					} );
-
-					edgesVisible = !edgesVisible;
 
 				}
 
@@ -856,30 +856,32 @@
 				var wireframeVisible = false;
 				var facesVisible = true;
 
+				var edgesVisible = false;
+
 				this.wireframeToggle_ = function ( ) {
-
-					self.colladaImport.traverse ( function ( node ) {
-
-					if ( node.isMesh ) {
-
-						if ( node.material.wireframe ) {
-
-							node.visible = wireframeVisible;
-
-						}
-
-						else {
-
-							node.visible = facesVisible;
-
-						}
-
-					}
-
-					});
 
 					wireframeVisible = !wireframeVisible;
 					facesVisible = !facesVisible;
+
+					self.colladaImport.traverse ( function ( node ) {
+
+						if ( node.isMesh ) {
+
+							if ( node.material.wireframe ) {
+
+								node.visible = wireframeVisible;
+
+							}
+
+							else {
+
+								node.visible = facesVisible;
+
+							}
+
+						}
+
+					});
 
 				}
 
