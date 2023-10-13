@@ -93,4 +93,16 @@ $( document ).ready ( function ( ) {
 
 	});
 
+    // keyboard
+
+    $( document ).on ( 'keyup', function ( event ) {
+
+        if ( event.key === 'q' ) {
+
+            toggle ( );
+
+        }
+
+    } );
+
 });
