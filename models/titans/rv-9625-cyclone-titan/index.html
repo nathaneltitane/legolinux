@@ -833,7 +833,7 @@
 
 				// edges toggle
 
-				var edgesVisible = true;
+				var edgesVisible = false;
 
 				this.edgesToggle_ = function ( ) {
 
@@ -848,6 +848,38 @@
 					} );
 
 					edgesVisible = !edgesVisible;
+
+				}
+
+				// wireframe toggle
+
+				var wireframeVisible = false;
+				var facesVisible = true;
+
+				this.wireframeToggle_ = function ( ) {
+
+					self.colladaImport.traverse(function(node) {
+
+					if (node.isMesh) {
+
+						if ( node.material.wireframe ) {
+
+							node.visible = wireframeVisible;
+
+						}
+
+						else {
+
+							node.visible = facesVisible;
+
+						}
+
+					}
+
+					});
+
+					wireframeVisible = !wireframeVisible;
+					facesVisible = !facesVisible;
 
 				}
 
@@ -1519,19 +1551,39 @@
 
 								var edgesGeometry = new THREE.EdgesGeometry ( node.geometry, 45 );
 
-								var edgesMaterial = new THREE.LineBasicMaterial({ color: black });
+								var edgesMaterial = new THREE.LineBasicMaterial ( { color: black } );
 
 								edgesMaterial.linewidth = 1.25;
 
-								var edge = new THREE.LineSegments ( edgesGeometry, edgesMaterial );
+								var edges = new THREE.LineSegments ( edgesGeometry, edgesMaterial );
 
-								// compute edge position
+								edges.geometry.computeBoundingBox ( );
 
-								edge.geometry.computeBoundingBox ( );
+								// wireframe
 
-								node.add ( edge );
+								var wireframeMaterial = new THREE.MeshBasicMaterial({ color: grey, wireframe: true });
 
-								edge.visible = false;
+								var wireframeMesh = new THREE.Mesh(node.geometry, wireframeMaterial);
+
+								// initial visibility
+
+								edges.visible = false;
+
+								wireframeMesh.visible = false;
+
+								// compute positioning
+
+								edges.position.copy ( node.position );
+								edges.rotation.copy ( node.rotation );
+								edges.scale.copy ( node.scale );
+
+								wireframeMesh.position.copy ( node.position );
+								wireframeMesh.rotation.copy ( node.rotation );
+								wireframeMesh.scale.copy ( node.scale );
+
+								self.colladaImport.add ( edges );
+
+								self.colladaImport.add ( wireframeMesh );
 
 								// shadows
 
@@ -1539,6 +1591,7 @@
 								node.receiveShadow = true;
 
 							}
+
 						});
 
 						// load model
