@@ -198,6 +198,10 @@ and (min-device-width: 800px) {
 		display: none;
 	}
 
+	#controls {
+		display: none;
+	}
+
 	.drawer-button {
 		bottom: calc(97px + 80px);
 	}
@@ -210,6 +214,10 @@ and (pointer: fine)
 and (min-device-width: 600px) {
 
 	#edges {
+		display: none;
+	}
+
+	#wireframe {
 		display: none;
 	}
 }
