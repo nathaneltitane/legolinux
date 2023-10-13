@@ -171,7 +171,7 @@ cat << MODEL-DRAWER-HEADER -> "${modules_directory}"/drawer.html
 
 		<div class="section models">
 
-			<div class="grid">
+			<div class="grid grid-columns-responsive">
 
 MODEL-DRAWER-HEADER
 
