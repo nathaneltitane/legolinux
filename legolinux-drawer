@@ -209,9 +209,9 @@ do
 
 		# define model output directories
 
-		export_directory="${render_directory}"/exports
-
 		render_directory="${model_directory}"/renders
+
+		export_directory="${render_directory}"/exports
 
 		flat_directory="${render_directory}"/flat
 
