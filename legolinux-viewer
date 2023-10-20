@@ -996,7 +996,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// edges toggle
 
-				var edgesVisible = false;
+				var edgesVisible = true;
 
 				this.edgesToggle_ = function ( ) {
 
@@ -1018,8 +1018,6 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				var wireframeVisible = false;
 				var facesVisible = true;
-
-				var edgesVisible = false;
 
 				this.wireframeToggle_ = function ( ) {
 
@@ -1738,7 +1736,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 								// initial visibility
 
-								edges.visible = false;
+								edges.visible = true;
 
 								wireframeMesh.visible = false;
 
