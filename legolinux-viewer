@@ -1021,6 +1021,10 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				this.wireframeToggle_ = function ( ) {
 
+					// disable edges
+
+					self.edgesToggle_ ( );
+
 					wireframeVisible = !wireframeVisible;
 					facesVisible = !facesVisible;
 
