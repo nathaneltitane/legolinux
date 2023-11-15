@@ -40,8 +40,6 @@ This repository hosts the website dedicated to showcasing AFOL Lego models and t
 
 [[ Terminal // Project Page ]](https://github.com/nathaneltitane/terminal)
 
-[[ Termux // Project Page ]](https://github.com/nathaneltitane/termux)
-
 ### Reports:
 
 [Submit bug report or feature request](https://github.com/nathaneltitane/legolinux/issues)
