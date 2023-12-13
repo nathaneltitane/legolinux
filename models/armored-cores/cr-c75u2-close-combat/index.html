@@ -895,9 +895,9 @@
 
 					self.camera = self.camera.isPerspectiveCamera ? self.orthographicCamera : self.perspectiveCamera;
 
-					//self.cameraType = self.camera.isPerspectiveCamera ? 'perspective' : 'orthographic';
+					self.cameraType = self.camera.isPerspectiveCamera ? 'perspective' : 'orthographic';
 
-					//self.camera.position.copy ( self.position );
+					self.camera.position.copy ( self.position );
 
 					self.transformControls.camera = self.camera;
 
@@ -910,6 +910,8 @@
 						self.camera.zoom = 3000;
 
 					}
+
+					self.camera.position.set ( self.cameraPositionMatrix_x, self.cameraPositionMatrix_y, self.cameraPositionMatrix_z );
 
 					self.camera.lookAt ( 0, 0, 0 );
 
@@ -1281,7 +1283,7 @@
 						case 48:
 						case 96:
 
-							// front
+							// reset
 
 							self.cameraPositionMatrix_x = 45;
 							self.cameraPositionMatrix_y = 30;
