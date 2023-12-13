@@ -1060,7 +1060,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					self.cameraType = self.camera.isPerspectiveCamera ? 'perspective' : 'orthographic';
 
-					// self.camera.position.copy ( self.position );
+					self.camera.position.copy ( self.position );
 
 					self.transformControls.camera = self.camera;
 
