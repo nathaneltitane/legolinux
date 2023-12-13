@@ -43,7 +43,7 @@ script=$(basename -- "${BASH_SOURCE[0]}")
 
 # version //////////////////////////////////////////////////////////////////////
 
-version="10-03-2023"
+version="12-12-2023"
 
 # usage ////////////////////////////////////////////////////////////////////////
 
@@ -1074,6 +1074,8 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					}
 
+					self.camera.position.set ( self.cameraPositionMatrix_x, self.cameraPositionMatrix_y, self.cameraPositionMatrix_z );
+
 					self.camera.lookAt ( 0, 0, 0 );
 
 					self.camera.updateProjectionMatrix ( );
@@ -1444,7 +1446,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 						case 48:
 						case 96:
 
-							// front
+							// reset
 
 							self.cameraPositionMatrix_x = 45;
 							self.cameraPositionMatrix_y = 30;
