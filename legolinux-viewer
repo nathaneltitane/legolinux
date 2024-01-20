@@ -83,7 +83,7 @@ do
 
 	for model_path in ${models_list[@]}
 	do
-		model_path=$(echo "${model_path}" | cut -d '/' -f6-)
+		model_path=$(echo "${model_path}" | cut -d '/' -f8-)
 
 		# get model file name from path
 
