@@ -179,8 +179,13 @@
 and (pointer: coarse)
 and (max-device-width: 600px) {
 
+	#edges {
+	}
+
+	#wireframe {
+	}
+	
 	#controls {
-		display: none;
 	}
 
 	.drawer-button {
@@ -194,12 +199,13 @@ and (max-device-width: 600px) {
 and (pointer: coarse)
 and (min-device-width: 800px) {
 
-	#controls {
-		display: none;
+	#edges {
 	}
 
+	#wireframe {
+	}
+	
 	#controls {
-		display: none;
 	}
 
 	.drawer-button {
@@ -214,11 +220,12 @@ and (pointer: fine)
 and (min-device-width: 600px) {
 
 	#edges {
-		display: none;
 	}
 
 	#wireframe {
-		display: none;
+	}
+	
+	#controls {
 	}
 }
 

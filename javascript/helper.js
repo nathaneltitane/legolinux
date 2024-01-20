@@ -8,6 +8,8 @@ $( document ).ready ( function ( ) {
         '#navigation-button-label',
         '#paypal-button-label',
         '#color-button-label',
+        '#edges-button-label',
+        '#wireframe-button-label',
         '#controls-button-label'
     ];
 
@@ -15,6 +17,8 @@ $( document ).ready ( function ( ) {
         'navigation-label-color',
         'paypal-label-color',
         'color-label-color',
+		'edges-label-color',
+		'wireframe-label-color',
         'controls-label-color'
     ];
 

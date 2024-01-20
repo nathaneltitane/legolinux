@@ -38,12 +38,6 @@ $( function ( ) {
 
 	} );
 
-	$.get ( '/modules/controls.html', function ( data ) {
-
-		$( '#controls' ).append ( data );
-
-	} );
-
 	$.get ( '/modules/edges.html', function ( data ) {
 
 		$( '#edges' ).append ( data );
@@ -55,7 +49,13 @@ $( function ( ) {
 		$( '#wireframe' ).append ( data );
 
 	} );
+	
+	$.get ( '/modules/controls.html', function ( data ) {
 
+		$( '#controls' ).append ( data );
+
+	} );
+	
 	$.get ( '/modules/helper.html', function ( data ) {
 
 		$( '#helper' ).append ( data );

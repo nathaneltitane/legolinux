@@ -1,6 +1,6 @@
 #helper {
 	position: fixed;
-	bottom: 80px;
+	bottom: 0px;
 	left: 0px;
 	right: 0px;
 
@@ -13,7 +13,7 @@
 	padding: 0px 20px 0px 20px;
 	margin: 0px 0px 0px 0px;
 	position: fixed;
-	bottom: 80px;
+	bottom: 0px;
 	left: 0px;
 	right: calc( 100vw - 350px );
 
@@ -48,11 +48,11 @@
 @keyframes helper-reveal {
 	0% {height: 0vh;}
 
-	100% {height: calc( 100vh - 80px );}
+	100% {height: calc( 100vh - 0px );}
 }
 
 .helper-show {
-	height: calc( 100vh - 80px );
+	height: calc( 100vh - 0px );
 
 	animation: helper-reveal 1s;
 	animation-delay: 0s;
@@ -61,7 +61,7 @@
 }
 
 @keyframes helper-conceal {
-	0% {height: calc( 100vh - 80px );}
+	0% {height: calc( 100vh - 0px );}
 
 	100% {height: 0vh;}
 }
