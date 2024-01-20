@@ -43,7 +43,7 @@ script=$(basename -- "${BASH_SOURCE[0]}")
 
 # version //////////////////////////////////////////////////////////////////////
 
-version="12-12-2023"
+version="01-20-2023"
 
 # usage ////////////////////////////////////////////////////////////////////////
 
@@ -1417,6 +1417,14 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 							break;
 
+						// W //
+
+						case 87:
+
+							self.wireframeToggle_ ( );
+
+							break;
+
 						// M //
 
 						case 77:
@@ -1578,9 +1586,9 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 							break;
 
-						// W //
+						// # //
 
-						case 87:
+						case 222:
 
 							self.controlsSpace_ ( );
 
