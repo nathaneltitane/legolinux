@@ -94,7 +94,7 @@ do
 
 		-h|--help)
 			echo
-			echo -e "Usage: ./${script} [EXTENSION] | [OPTION] [PARAMETER]"
+			echo -e "Usage: ./${script} [DIRECTORY] | [OPTION] [PARAMETER]"
 			echo
 			echo -e "Utility options:"
 			echo
@@ -125,7 +125,7 @@ do
 
 		*)
 			echo
-			echo -e "Usage: ./${script} [EXTENSION] | [OPTION] [PARAMETER]"
+			echo -e "Usage: ./${script} [DIRECTORY] | [OPTION] [PARAMETER]"
 			echo
 			echo -e "${script}: Unknown option '${1}'"
 			echo -e "Type './${script} --help' for help and usage information."
@@ -162,7 +162,7 @@ upload () {
 
 	git commit		\
 		--all		\
-		--message="$${message}"
+		--message="${message}"
 
 	git push > /dev/null 2>&1
 
