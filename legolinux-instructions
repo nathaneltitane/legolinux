@@ -65,8 +65,8 @@ instructions () {
 	instructions_option="${2}"
 	directory="${3}"
 
-	"${SHELL}" ../l2cu/l2cu						\
-					--file ${extension}			\
+	"${SHELL}" ../l2cu/l2cu									\
+					--file ${extension}						\
 					--instructions ${instructions_option}	\
 					--directory "${directory}"
 }
