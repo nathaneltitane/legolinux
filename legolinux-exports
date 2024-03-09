@@ -59,9 +59,16 @@ frobulator.script "Setting up ${script#*-}"
 
 # requirements /////////////////////////////////////////////////////////////////
 
-list+=(
-	/media/internal/Lego/models
-)
+if [[ -z "${directory}" ]]
+then
+    list+=(
+        /media/internal/Lego/models
+    )
+else
+    list+=(
+        "${directory}"
+    )
+fi
 
 for directory in ${list[@]}
 do

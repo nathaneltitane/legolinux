@@ -73,9 +73,16 @@ instructions () {
 
 # requirements /////////////////////////////////////////////////////////////////
 
-list+=(
-	/media/internal/Lego/models/
-)
+if [[ -z "${directory}" ]]
+then
+    list+=(
+        /media/internal/Lego/models
+    )
+else
+    list+=(
+        "${directory}"
+    )
+fi
 
 instructions_options=(
 	samples
