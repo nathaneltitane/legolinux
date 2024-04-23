@@ -85,6 +85,10 @@ do
 	do
 		model_path=$(echo "${model_path}" | cut -d '/' -f8-)
 
+
+		exit
+
+
 		# get model file name from path
 
 		model_file="${model_path##*/}"
@@ -99,7 +103,7 @@ do
 
 		# define model output directories
 
-		export_directory="${render_directory}"/exports
+		export_directory="${model_directory}"/exports
 
 		instructions_directory="${model_directory}"/instructions
 
