@@ -1,0 +1,87 @@
+#modes {
+	position: absolute;
+	top: 0px;
+	right: calc(-256px - 10px);
+	padding: 10px 10px 10px 10px;
+	margin: 0px 0px 0px 0px;
+
+	animation-name: mode-reveal;
+	animation-delay: 5.0s;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
+
+.mode {
+	height: auto;
+	width: 256px;
+	position: relative;
+	padding: 10px 10px 10px 10px;
+	margin: 0px 0px 10px 0px;
+}
+
+.mode::before {
+	content: "";
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	border-top: 35px solid #000000ff;
+	border-left: 35px solid #00000000;
+	border-bottom: none;
+	border-right: none;
+	z-index: 2;
+}
+
+.mode-image {
+
+}
+
+.mode a {
+	color: #00000000;
+}
+
+.mode-image::before {
+	content: "";
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	border-top: 20px solid #00000000;
+	border-left: 20px solid #00000000;
+	border-bottom: none;
+	border-right: none;
+	z-index: 1;
+}
+
+.mode:hover {
+	background: #bbbbbbff;
+	border: 0px solid #00000000;
+	border-radius: 10px 0px 10px 10px;
+}
+
+.mode:hover::before {
+	content: "";
+	border-top: 25px solid #666666ff;
+	border-left: 25px solid #00000000;
+}
+
+.mode:hover > .mode-image {
+	background: #ccccccff;
+	border-radius: 5px;
+	margin: 0px 0px 0px 0px;
+	padding: 10px 10px 10px 10px;
+}
+
+.mode:hover > .mode-image::before {
+	content: "";
+	border-top: 20px solid #bbbbbbff;
+	border-left: 20px solid #00000000;
+}
+
+.mode a:hover {
+	color: #666666ff;
+}
+
+@keyframes mode-reveal {
+	0% {right: calc(-256px - 10px);}
+
+	100% {right: 0px;}
+}
