@@ -85,10 +85,6 @@ do
 	do
 		model_path=$(echo "${model_path}" | cut -d '/' -f8-)
 
-
-		exit
-
-
 		# get model file name from path
 
 		model_file="${model_path##*/}"
