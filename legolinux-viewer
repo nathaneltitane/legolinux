@@ -43,7 +43,7 @@ script=$(basename -- "${BASH_SOURCE[0]}")
 
 # version //////////////////////////////////////////////////////////////////////
 
-version="03-09-2024"
+version="04-28-2024"
 
 # usage ////////////////////////////////////////////////////////////////////////
 
@@ -108,6 +108,8 @@ do
 		render_directory="${model_directory}"/renders
 
 		flat_directory="${render_directory}"/flat
+
+		overlay_directory="${render_directory}"/overlay
 
 		thumbnail_directory="${render_directory}"/thumbnail
 
@@ -2004,6 +2006,69 @@ cat << 3D-MODEL-PAGE-SAMPLES ->> "${model_directory}/index.html"
 		</div>
 
 3D-MODEL-PAGE-SAMPLES
+
+if [[ -f "${model_directory}"/modes ]]
+then
+	# set IFS
+
+	IFS=$'\n'
+
+	model_modes_list=($(cat "${model_directory}"/modes))
+
+cat << 3D-MODEL-MODES ->> "${model_directory}/index.html"
+		<!-- modes -->
+
+		<div id="modes">
+
+			<div class="flex flex-column flex-middle flex-around">
+
+3D-MODEL-MODES
+
+	for model_mode in ${model_modes_list[@]}
+	do
+		model_mode_suffix=${model_directory##*-}
+
+		model_mode_suffix_length=${#model_mode_suffix}
+
+		model_mode_base_label=${model_directory::-${model_mode_suffix_length}}
+
+		model_mode_path_label="${model_mode_base_label}${model_mode}"
+
+		model_mode_label=${model_mode^^}
+
+cat << 3D-MODEL-MODES ->> "${model_directory}/index.html"
+				<div class="flex-cell mode">
+
+					<a class="mode-image" href="/${model_mode_path_label}"/>
+
+						<img src="/${model_mode_path_label}/renders/overlay/overlay.png"/>
+
+						<div class="flex-cell text-center text-bold">
+
+							// ${model_mode_label} MODE //
+
+						</div>
+
+					</a>
+
+				</div>
+
+3D-MODEL-MODES
+
+	done
+
+cat << 3D-MODEL-MODES ->> "${model_directory}/index.html"
+			</div>
+
+		</div>
+
+3D-MODEL-MODES
+
+	# unset IFS
+
+	IFS=''
+
+fi
 
 cat << 3D-MODEL-PAGE-HELPER ->> "${model_directory}/index.html"
 		<!-- helper -->

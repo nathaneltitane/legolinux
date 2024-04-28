@@ -69,11 +69,21 @@ $( document ).ready ( function ( ) {
         }
     };
 
-	$( '#color' ).hover ( function ( event ) {
+	$( '.color' ).click ( function ( event ) {
 
         show ( );
 
     } );
+
+	$( '#colors' ).click ( function ( event ) {
+
+		if ( colors.hasClass ( 'colors-show' ) ) {
+
+			hide ( );
+
+		}
+
+	} );
 
 	$( '.colors' ).click ( function ( event ) {
 
