@@ -12,7 +12,7 @@
 }
 
 .mode {
-	background: #eeeeee33;
+	background: #cccccc33;
 	border-radius: 20px 0px 20px 20px;
 	height: auto;
 	width: 256px;
@@ -52,6 +52,11 @@
 	border-bottom: none;
 	border-right: none;
 	z-index: 1;
+}
+
+.mode-label {
+	position: absolute:
+	bottom: 40px;
 }
 
 .mode:hover {

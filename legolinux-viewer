@@ -2043,7 +2043,7 @@ cat << 3D-MODEL-MODES ->> "${model_directory}/index.html"
 
 						<img src="/${model_mode_path_label}/renders/overlay/overlay.png"/>
 
-						<div class="flex-cell text-center text-bold">
+						<div class="flex-cell text-center text-bold mode-label">
 
 							// ${model_mode_label} MODE //
 
