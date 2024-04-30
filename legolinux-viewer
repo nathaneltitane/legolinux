@@ -2020,7 +2020,7 @@ cat << 3D-MODEL-MODES ->> "${model_directory}/index.html"
 
 		<div id="modes">
 
-			<div class="flex flex-column flex-middle flex-around">
+			<div class="flex flex-row flex-middle flex-around">
 
 3D-MODEL-MODES
 
