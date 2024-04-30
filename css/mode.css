@@ -16,13 +16,9 @@
 	width: 256px;
 	position: relative;
 	padding: 10px 10px 10px 10px;
-	margin: 0px 0px 0px 10px;
+	margin: 0px 0px 10px 10px;
 }
 
-
-.mode:first-of-type {
-	margin: 0px 0px 0px 0px
-}
 
 .mode::before {
 	content: "";
