@@ -1863,7 +1863,12 @@ cat << 3D-MODEL-MODES ->> "${model_directory}/index.html"
 
 		model_mode_base_label=${model_directory::-${model_mode_suffix_length}}
 
-		model_mode_path_label="${model_mode_base_label}${model_mode}"
+		if [[ "${model_mode}" = "" ]]
+		then
+			model_mode_path_label="${model_mode_base_label/-/}"
+		else
+			model_mode_path_label="${model_mode_base_label}${model_mode}"
+		fi
 
 		model_mode_label=${model_mode^^}
 
