@@ -1838,6 +1838,13 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 3D-MODEL-PAGE-VIEWER
 
+cat << 3D-MODEL-MODES ->> "${model_directory}/index.html"
+		<!-- modes -->
+
+		<div id="modes">
+
+3D-MODEL-MODES
+
 if [[ -f "${model_directory}"/modes ]]
 then
 	# set IFS
@@ -1845,15 +1852,6 @@ then
 	IFS=$'\n'
 
 	model_modes_list=($(cat "${model_directory}"/modes))
-
-cat << 3D-MODEL-MODES ->> "${model_directory}/index.html"
-		<!-- modes -->
-
-		<div id="modes">
-
-			<div class="flex flex-row flex-middle flex-around">
-
-3D-MODEL-MODES
 
 	for model_mode in ${model_modes_list[@]}
 	do
@@ -1870,6 +1868,8 @@ cat << 3D-MODEL-MODES ->> "${model_directory}/index.html"
 		model_mode_label=${model_mode^^}
 
 cat << 3D-MODEL-MODES ->> "${model_directory}/index.html"
+			<div class="flex flex-row flex-middle flex-around">
+
 				<div class="flex-cell mode">
 
 					<a class="mode-image" href="/${model_mode_path_label}"/>
@@ -1900,6 +1900,13 @@ cat << 3D-MODEL-MODES ->> "${model_directory}/index.html"
 	# unset IFS
 
 	IFS=''
+
+else
+
+cat << 3D-MODEL-MODES ->> "${model_directory}/index.html"
+		</div>
+
+3D-MODEL-MODES
 
 fi
 
