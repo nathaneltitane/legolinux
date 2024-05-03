@@ -55,8 +55,10 @@
 }
 
 .mode-label {
-	position: absolute:
-	bottom: 40px;
+	position: absolute;
+	bottom: 20px;
+	right: 0px;
+	left: 0px;
 }
 
 .mode:hover {
