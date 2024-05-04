@@ -248,7 +248,6 @@ do
 			color="green"
 		fi
 
-		exit
 cat << MODEL-DRAWER-CONTENT ->> "${modules_directory}"/drawer.html
 
 			<div class="flex flex-column">
