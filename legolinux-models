@@ -75,6 +75,9 @@ fi
 
 # pull /////////////////////////////////////////////////////////////////////////
 
+frobulator.inf "Syncing content" "[ models ]"
+echo
+
 rsync							\
 	--archive					\
 	--quiet						\
