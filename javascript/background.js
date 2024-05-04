@@ -2,7 +2,7 @@
 
 $( document ).ready ( function ( ) {
 
-	var count = 151;
+	var count = 150;
 
 	function pad ( str, max ) {
 
