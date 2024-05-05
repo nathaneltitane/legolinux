@@ -35,7 +35,8 @@
 }
 
 .mode-image {
-
+	border
+	border-bottom: 0px solid #00000000;
 }
 
 .mode a {
@@ -75,7 +76,8 @@
 
 .mode:hover > .mode-image {
 	background: #ccccccff;
-	border-radius: 10px;
+	border-radius: 10px 10px 10px 10px;
+	border-bottom: 45px solid #999999ff;
 	margin: 0px 0px 0px 0px;
 	padding: 10px 10px 10px 10px;
 }
