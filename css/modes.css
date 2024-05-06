@@ -5,7 +5,7 @@
 	padding: 10px 10px 10px 10px;
 	margin: 0px 0px 0px 0px;
 
-	animation-name: mode-reveal;
+	animation-name: modes-reveal;
 	animation-delay: 5.0s;
 	animation-duration: 1s;
 	animation-fill-mode: forwards;
@@ -19,16 +19,22 @@
 	position: relative;
 	padding: 10px 10px 10px 10px;
 	margin: 0px 0px 10px 10px;
-}
 
+	opacity: 0;
+
+	animation-name: mode-reveal;
+	animation-delay: 0.5s;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
 
 .mode::before {
 	content: "";
 	position: absolute;
 	top: 0px;
 	right: 0px;
-	border-top: 35px solid #000000ff;
-	border-left: 35px solid #00000000;
+	border-top: 20px solid #000000ff;
+	border-left: 20px solid #00000000;
 	border-bottom: none;
 	border-right: none;
 	z-index: 2;
@@ -88,22 +94,17 @@
 }
 
 .mode a:hover {
-	color: #00000000;
-
-	animation-name: mode-label-reveal;
-	animation-delay: 0.25s;
-	animation-duration: 0.125s;
-	animation-fill-mode: forwards;
+	color: #666666ff;
 }
 
-@keyframes mode-reveal {
+@keyframes modes-reveal {
 	0% {right: calc(-256px - 10px);}
 
 	100% {right: 0px;}
 }
 
-@keyframes mode-label-reveal {
-	0% {color: #00000000;}
+@keyframes mode-reveal {
+	0% {opacity: 0;}
 
-	100% {color: #666666ff;}
+	100% {opacity: 1;}
 }
