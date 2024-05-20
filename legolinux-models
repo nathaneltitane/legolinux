@@ -66,14 +66,7 @@ server_javascript_directory="${server_directory}"/javascript
 
 # functions ////////////////////////////////////////////////////////////////////
 
-# prepare update
-
-if [[ -d "${server_models_directory}" ]]
-then
-	frobulator.delete "${server_directory}" models
-fi
-
-# pull /////////////////////////////////////////////////////////////////////////
+# synchronize //////////////////////////////////////////////////////////////////
 
 frobulator.inf "Synchronizing entries" "[ models ]"
 echo
@@ -87,6 +80,7 @@ rsync							\
 	--exclude='*.pdf'			\
 	--exclude="configuration"	\
 	--exclude='LPub3D'			\
+	--delete					\
 								"${local_models_directory}"/* "${server_models_directory}" > "${sink}" 2>&1 &
 
 frobulator.process sync
