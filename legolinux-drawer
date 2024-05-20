@@ -221,6 +221,8 @@ do
 
 		model_category=$(cat "${model_directory%/*}"/title)
 
+		model_drawer_entry="${model_directory}"/drawer
+
 		model_title=$(cat "${model_directory}"/title)
 
 		model_title_string=$(echo ${model_title//\<\/\br\>/})
@@ -247,6 +249,9 @@ do
 		else
 			color="green"
 		fi
+
+		if [[ -f "${model_directory}"/drawer ]]
+		then
 
 cat << MODEL-DRAWER-CONTENT ->> "${modules_directory}"/drawer.html
 
@@ -285,6 +290,8 @@ cat << MODEL-DRAWER-CONTENT ->> "${modules_directory}"/drawer.html
 			</div>
 
 MODEL-DRAWER-CONTENT
+
+		fi
 
 	((count++))
 
