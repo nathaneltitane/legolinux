@@ -83,7 +83,7 @@ rsync							\
 	--delete					\
 								"${local_models_directory}"/* "${server_models_directory}" > "${sink}" 2>&1 &
 
-frobulator.process sync
+frobulator.progress sync
 
 frobulator.cpt "Complete" "[ Models ]"
 echo
