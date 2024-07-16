@@ -1,7 +1,7 @@
 #modes {
 	position: absolute;
-	top: 0px;
-	right: calc(-256px - 10px);
+	top: calc(-256px - 10px);
+	right: 0px;
 	padding: 10px 10px 10px 10px;
 	margin: 0px 0px 0px 0px;
 
@@ -14,8 +14,6 @@
 .mode {
 	background: #cccccc33;
 	border-radius: 20px 0px 20px 20px;
-	height: auto;
-	width: 256px;
 	position: relative;
 	padding: 10px 10px 10px 10px;
 	margin: 0px 0px 10px 10px;
@@ -44,6 +42,11 @@
 	border-bottom: 0px solid #00000000;
 }
 
+.mode-image img {
+	max-width: calc((100vw / 5) - (100vw / 20));
+	max-height: calc((100vw / 5) - (100vw / 20));
+}
+
 .mode a {
 	color: #00000000;
 }
@@ -65,6 +68,14 @@
 	bottom: 20px;
 	right: 0px;
 	left: 0px;
+
+	opacity: 0;
+
+	animation-name: mode-label-reveal;
+	animation-delay: 0.0s;
+	animation-duration: 0.5s;
+	animation-fill-mode: forwards;
+
 }
 
 .mode:hover {
@@ -93,17 +104,28 @@
 	border-left: 20px solid #00000000;
 }
 
+.mode:hover > .mode-image img {
+	max-width: calc((100vw / 5) * 2);
+	max-height: calc((100vw / 5) * 2);
+}
+
 .mode a:hover {
 	color: #666666ff;
 }
 
 @keyframes modes-reveal {
-	0% {right: calc(-256px - 10px);}
+	0% {top: calc(-256px - 10px);}
 
-	100% {right: 0px;}
+	100% {top: 0px;}
 }
 
 @keyframes mode-reveal {
+	0% {opacity: 0;}
+
+	100% {opacity: 1;}
+}
+
+@keyframes mode-label-reveal {
 	0% {opacity: 0;}
 
 	100% {opacity: 1;}
