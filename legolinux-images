@@ -155,10 +155,10 @@ do
 	frobulator.inf "Updating" "[ Images ]"
 	echo
 
-	sed													\
-		-i												\
-		-e "s/var count = .*/var count = ${image_count};/g"	\
-														"${server_javascript_directory}"/background.js
+	sed															\
+		-i														\
+		-e "s/var count = .*/var count = ${image_count};/g"		\
+																"${server_javascript_directory}"/background.js
 done
 
 frobulator.inf "Models" "[ ${image_count} ]"
