@@ -19,7 +19,7 @@
 0 !LPUB PAGE DOCUMENT_AUTHOR_FRONT PLACEMENT TOP_LEFT PAGE INSIDE OFFSET 0.0000 0.0000
 
 0 !LPUB PAGE MODEL_PARTS COLOR "#666666"
-0 !LPUB PAGE MODEL_PARTS CONTENT GLOBAL "968 PIECES"
+0 !LPUB PAGE MODEL_PARTS CONTENT GLOBAL "997 PIECES"
 0 !LPUB PAGE MODEL_PARTS DISPLAY GLOBAL TRUE
 0 !LPUB PAGE MODEL_PARTS FONT "Noto Sans,72,-1,0,75,0,0,0,0,0,Bold"
 0 !LPUB PAGE MODEL_PARTS MARGINS 0.2500 0.1000
@@ -593,8 +593,8 @@
 0 STEP
 1 4 -44 -6 -120 0 1 0 -1 0 0 0 0 1 41747.dat
 1 4 44 -6 -120 0 -1 0 1 0 0 0 0 1 41748.dat
-1 4 -52 -4 -120 0 1 0 0 0 -1 -1 0 0 99563.dat
-1 4 52 -4 -120 0 -1 0 0 0 -1 1 0 0 99563.dat
+1 4 -52 -6 -120 0 1 0 0 0 -1 -1 0 0 99563.dat
+1 4 52 -6 -120 0 -1 0 0 0 -1 1 0 0 99563.dat
 0 STEP
 1 4 -10 -40 -150 0 0 1 0 1 0 -1 0 0 28192.dat
 1 4 10 -40 -150 0 0 -1 0 1 0 1 0 0 28192.dat
@@ -1191,6 +1191,9 @@
 0 STEP
 0 !LEOCAD PIECE PIVOT  0 -14 -10 1 0 0 0 1 0 0 0 1
 1 0 0 -36.3816 90.5215 1 0 0 0 1 0 0 0 1 23-01-forearm.ldr
+0 STEP
+0 !LEOCAD PIECE PIVOT  20 44 10 1 0 0 0 1 0 0 0 1
+1 0 -54 -72 -64 1 0 0 0 0 -1 0 1 0 28-gun-pod.ldr
 0 NOFILE
 0 FILE 19-02-shoulder-socket.ldr
 0 
@@ -1219,9 +1222,10 @@
 0 STEP
 0 !LEOCAD PIECE PIVOT  0 -14 -10 1 0 0 0 1 0 0 0 1
 1 0 0 -36.3816 90.5215 1 0 0 0 1 0 0 0 1 23-02-forearm.ldr
+0 STEP
 0 !LEOCAD GROUP BEGIN Group #1
 0 !LEOCAD PIECE PIVOT  0 4 10 1 0 0 0 1 0 0 0 1
-1 7 -100 -32 -44 1 0 0 0 0 -1 0 1 0 26-missile-pod.ldr
+1 0 -100 -32 -44 1 0 0 0 0 -1 0 1 0 26-missile-pod.ldr
 0 !LEOCAD GROUP END
 0 NOFILE
 0 FILE 20-01-arm.ldr
@@ -1610,4 +1614,50 @@
 0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
 1 15 0 0 0 1 0 0 0 1 0 0 0 1 3062b.dat
 1 4 0 -8 0 1 0 0 0 1 0 0 0 1 98138.dat
+0 NOFILE
+0 FILE 28-gun-pod.ldr
+0 
+0 Name: 28-gun-pod.ldr
+0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
+1 0 0 -24 0 0 0 -1 0 1 0 1 0 0 3245b.dat
+0 STEP
+1 0 0 -88 10 1 0 0 0 1 0 0 0 1 40244.dat
+1 0 0 -88 -10 -1 0 0 0 1 0 0 0 -1 40244.dat
+0 STEP
+1 71 0 -152 10 0 0 1 1 0 0 0 1 0 4274.dat
+1 71 0 -152 -10 0 0 -1 1 0 0 0 -1 0 4274.dat
+0 STEP
+1 0 0 -162 0 1 0 0 0 1 0 0 0 1 43857.dat
+0 STEP
+1 0 0 24 0 0 0 1 0 1 0 -1 0 0 60471.dat
+1 0 -20 6 0 0 -1 0 0 0 -1 1 0 0 41532.dat
+0 STEP
+1 0 -20 -30 0 -1 0 0 0 1 0 0 0 -1 3062b.dat
+1 34 -20 -38 0 -1 0 0 0 1 0 0 0 -1 98138.dat
+0 STEP
+1 0 0 32 10 0 0 -1 0 1 0 1 0 0 30241.dat
+1 0 0 32 -10 1 0 0 0 1 0 0 0 1 4070.dat
+0 STEP
+1 0 0 56 0 0 0 1 0 1 0 -1 0 0 18649.dat
+0 STEP
+1 0 0 64 10 0 0 1 0 1 0 -1 0 0 87087.dat
+1 0 0 64 -10 1 0 0 0 1 0 0 0 1 4070.dat
+1 0 0 88 10 1 0 0 0 1 0 0 0 1 3665.dat
+0 STEP
+1 0 0 58 30 0 0 1 0 1 0 -1 0 0 48729b.dat
+1 0 0 58 -30 0 0 1 0 1 0 -1 0 0 48729b.dat
+0 STEP
+1 0 0 72 30 1 0 0 0 -1 0 0 0 -1 85861.dat
+1 0 0 144 30 1 0 0 0 -1 0 0 0 -1 14716.dat
+1 0 0 152 30 0 0 1 0 -1 0 1 0 0 2555.dat
+0 STEP
+1 0 0 72 -30 1 0 0 0 -1 0 0 0 -1 85861.dat
+1 0 0 144 -30 1 0 0 0 -1 0 0 0 -1 14716.dat
+1 0 0 152 -30 0 0 1 0 -1 0 1 0 0 2555.dat
+0 STEP
+1 0 0 160 0 0 0 -1 0 -1 0 -1 0 0 18649.dat
+1 0 0 152 0 0 0 1 0 -1 0 1 0 0 99780.dat
+1 0 0 168 0 0 0 -1 0 -1 0 -1 0 0 3794b.dat
+1 0 -30 74 10 1 0 0 0 1 0 0 0 1 30361c.dat
+1 0 -30 40 10 0 0 1 0 1 0 -1 0 0 98100.dat
 0 NOFILE
