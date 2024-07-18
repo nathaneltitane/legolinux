@@ -43,8 +43,8 @@
 }
 
 .mode-image img {
-	max-width: calc((100vw / 5) - (100vw / 20));
-	max-height: calc((100vw / 5) - (100vw / 20));
+	width: 256px;
+	height: 256px;
 }
 
 .mode a {
@@ -75,7 +75,6 @@
 	animation-delay: 0.0s;
 	animation-duration: 0.5s;
 	animation-fill-mode: forwards;
-
 }
 
 .mode:hover {
@@ -105,8 +104,8 @@
 }
 
 .mode:hover > .mode-image img {
-	max-width: calc((100vw / 5) * 2);
-	max-height: calc((100vw / 5) * 2);
+	width: calc(256px * 2);
+	height: calc(256px * 2);
 }
 
 .mode a:hover {
