@@ -1859,7 +1859,7 @@ then
 
 		echo $model_option_prefix
 
-		model_option_suffix=${model_directory##*/}
+		model_option_suffix=${model_directory##*-}
 
 		echo $model_option_suffix
 
