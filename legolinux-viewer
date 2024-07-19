@@ -1855,7 +1855,7 @@ then
 
 	for model_option in ${model_options_list[@]}
 	do
-		model_option_prefix=${model_directory%%*/}
+		model_option_prefix=${model_directory%%*/*/}
 
 		echo $model_option_prefix
 
