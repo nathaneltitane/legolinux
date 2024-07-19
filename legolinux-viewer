@@ -1867,7 +1867,7 @@ then
 
 		echo $model_option_suffix_length
 
-		model_option_base_label=${model_directory::-${model_mode_suffix_length}}
+		model_option_base_label=${model_directory/${model_mode_suffix}//}
 
 		echo $model_option_base_label
 
