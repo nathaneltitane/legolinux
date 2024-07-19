@@ -1838,6 +1838,79 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 3D-MODEL-PAGE-VIEWER
 
+cat << 3D-MODEL-OPTIONS ->> "${model_directory}/index.html"
+		<!-- options -->
+
+		<div id="options">
+
+3D-MODEL-OPTIONS
+
+
+if [[ -f "${model_directory}"/options ]]
+then
+	# set IFS
+
+	IFS=$'\n'
+
+	model_options_list=($(cat "${model_directory}"/options))
+
+	for model_option in ${model_options_list[@]}
+	do
+		model_option_prefix=${model_directory%%*-}
+
+		model_option_suffix=${model_directory##*-}
+
+		model_option_suffix_length=${#model_mode_suffix}
+
+		model_option_base_label=${model_directory::-${model_mode_suffix_length}}
+
+		model_option_path_label="${model_option_base_label}${model_option}"
+
+		model_option_label=${model_mode^^}
+
+cat << 3D-MODEL-OPTIONS ->> "${model_directory}/index.html"
+			<div class="flex flex-row flex-middle flex-around">
+
+				<div class="flex-cell mode">
+
+					<a class="option-image" href="/${model_option_path_label}"/>
+
+						<img src="/${model_option_path_label}/renders/overlay/overlay.png"/>
+
+						<div class="flex-cell text-center text-bold option-label">
+
+							// ${model_option_label} //
+
+						</div>
+
+					</a>
+
+				</div>
+
+3D-MODEL-OPTIONS
+
+	done
+
+cat << 3D-MODEL-OPTIONS ->> "${model_directory}/index.html"
+			</div>
+
+		</div>
+
+3D-MODEL-OPTIONS
+
+	# unset IFS
+
+	IFS=''
+
+else
+
+cat << 3D-MODEL-OPTIONS ->> "${model_directory}/index.html"
+		</div>
+
+3D-MODEL-OPTIONS
+
+fi
+
 cat << 3D-MODEL-MODES ->> "${model_directory}/index.html"
 		<!-- modes -->
 
