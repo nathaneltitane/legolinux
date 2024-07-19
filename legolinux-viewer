@@ -1845,7 +1845,6 @@ cat << 3D-MODEL-OPTIONS ->> "${model_directory}/index.html"
 
 3D-MODEL-OPTIONS
 
-
 if [[ -f "${model_directory}"/options ]]
 then
 	# set IFS
