@@ -1857,7 +1857,7 @@ then
 	do
 		model_option_directory=${model_directory%%*/*/}
 
-		model_option_suffix=${model_directory##*-}
+		model_option_suffix=${model_directory##*/}
 
 		model_option_suffix_length=${#model_option_suffix}
 
