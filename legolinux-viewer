@@ -1867,13 +1867,17 @@ then
 
 		echo $model_option_suffix_length
 
-		model_option_base_label=${model_directory/${model_mode_suffix}//}
+		model_option_base_label=${model_directory::-${model_mode_suffix_length}}
 
 		echo $model_option_base_label
 
 		model_option_path_label="${model_option_base_label}${model_option}"
 
+		echo $model_option_path_label
+
 		model_option_label=${model_option^^}
+
+		echo $model_option_label
 
 cat << 3D-MODEL-OPTIONS ->> "${model_directory}/index.html"
 			<div class="flex flex-row flex-middle flex-around">
