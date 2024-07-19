@@ -17,6 +17,20 @@
 	.modal-content {
 		width: 95vw;
 	}
+
+		#modes {
+		top: calc(128px - 10px);
+	}
+
+	.mode-image img {
+		max-width: 128px;
+		max-height: 128px;
+	}
+
+	.mode:hover > .mode-image img {
+		max-width: 256px;
+		max-height: 256px;
+	}
 }
 
 @media (min-width: 300px) {
@@ -38,17 +52,17 @@
 	}
 
 	#modes {
-		top: calc(-(100vw / 3) - 10px);
+		top: calc(128px - 10px);
 	}
 
 	.mode-image img {
-		max-width: calc(100vw / 3);
-		max-height: calc(100vw / 3);
+		max-width: 128px;
+		max-height: 128px;
 	}
 
 	.mode:hover > .mode-image img {
-		max-width: calc((100vw / 3) * 2);
-		max-height: calc((100vw / 3) * 2);
+		max-width: 256px;
+		max-height: 256px;
 	}
 }
 
@@ -71,17 +85,17 @@
 	}
 
 	#modes {
-		top: calc(-(100vw / 4) - 10px);
+		top: calc(128px - 10px);
 	}
 
 	.mode-image img {
-		max-width: calc(100vw / 4);
-		max-height: calc(100vw / 4);
+		max-width: 128px;
+		max-height: 128px;
 	}
 
 	.mode:hover > .mode-image img {
-		max-width: calc((100vw / 4) * 2);
-		max-height: calc((100vw / 4) * 2);
+		max-width: 256px;
+		max-height: 256px;
 	}
 }
 
@@ -102,6 +116,34 @@
 	.modal-content {
 		width: 85vw;
 	}
+
+	#modes {
+		top: calc(192px - 10px);
+	}
+
+	.mode-image img {
+		max-width: 192px;
+		max-height: 192px;
+	}
+
+	.mode:hover > .mode-image img {
+		max-width: 192px;
+		max-height: 192px;
+	}
+
+	#modes {
+		top: calc(192px - 10px);
+	}
+
+	.mode-image img {
+		max-width: 192px;
+		max-height: 192px;
+	}
+
+	.mode:hover > .mode-image img {
+		max-width: 384px;
+		max-height: 384px;
+	}
 }
 
 @media (min-width: 800px) {
@@ -120,6 +162,20 @@
 
 	.modal-content {
 		width: 75vw;
+	}
+
+	#modes {
+		top: calc(256px - 10px);
+	}
+
+	.mode-image img {
+		max-width: 256px;
+		max-height: 256px;
+	}
+
+	.mode:hover > .mode-image img {
+		max-width: 512px;
+		max-height: 512px;
 	}
 }
 
@@ -142,17 +198,17 @@
 	}
 
 	#modes {
-		top: calc(-(100vw / 5) - 10px);
+		top: calc(256px - 10px);
 	}
 
 	.mode-image img {
-		max-width: calc(100vw / 5);
-		max-height: calc(100vw / 5);
+		max-width: 256px;
+		max-height: 256px;
 	}
 
 	.mode:hover > .mode-image img {
-		max-width: calc((100vw / 5) * 2);
-		max-height: calc((100vw / 5) * 2);
+		max-width: 512px;
+		max-height: 512px;
 	}
 }
 
@@ -194,17 +250,17 @@
 	}
 
 	#modes {
-		top: calc(-(100vw / 6) - 10px);
+		top: calc(256px - 10px);
 	}
 
 	.mode-image img {
-		max-width: calc(100vw / 6);
-		max-height: calc(100vw / 6);
+		max-width: 256px;
+		max-height: 256px;
 	}
 
 	.mode:hover > .mode-image img {
-		max-width: calc((100vw / 6) * 2);
-		max-height: calc((100vw / 6) * 2);
+		max-width: 512px;
+		max-height: 512px;
 	}
 }
 
@@ -224,6 +280,20 @@
 
 	.modal-content {
 		width: 50vw;
+	}
+
+	#modes {
+		top: calc(256px - 10px);
+	}
+
+	.mode-image img {
+		max-width: 256px;
+		max-height: 256px;
+	}
+
+	.mode:hover > .mode-image img {
+		max-width: 512px;
+		max-height: 512px;
 	}
 }
 
