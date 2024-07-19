@@ -1863,7 +1863,7 @@ then
 
 		model_option_base_label=${model_directory::-${model_mode_suffix_length}}
 
-		model_option_path_label="${model_directory}${model_option}"
+		model_option_path_label="${model_option_prefix}${model_option}"
 
 		model_option_label=${model_option^^}
 
