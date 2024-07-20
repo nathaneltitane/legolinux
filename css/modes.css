@@ -1,6 +1,6 @@
 #modes {
 	position: absolute;
-	top: calc(-256px - 10px);
+	top: calc(-256px - 10px - 10px - 10px);
 	right: 0px;
 	padding: 10px 10px 10px 10px;
 	margin: 0px 0px 0px 0px;
@@ -104,8 +104,8 @@
 }
 
 .mode:hover > .mode-image img {
-	width: calc(256px * 2);
-	height: calc(256px * 2);
+	width: 512px;
+	height: 512px;
 }
 
 .mode a:hover {
@@ -113,7 +113,7 @@
 }
 
 @keyframes modes-reveal {
-	0% {top: calc(-256px - 10px);}
+	0% {top: calc(-256px - 10px - 10px - 10px);}
 
 	100% {top: 0px;}
 }

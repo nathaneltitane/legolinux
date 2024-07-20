@@ -18,8 +18,8 @@
 		width: 95vw;
 	}
 
-		#modes {
-		top: calc(128px - 10px);
+	#modes {
+		top: calc(128px - 10px - 10px - 10px);
 	}
 
 	.mode-image img {
@@ -28,6 +28,20 @@
 	}
 
 	.mode:hover > .mode-image img {
+		max-width: 256px;
+		max-height: 256px;
+	}
+
+	#options {
+		top: calc(128px - 10px - 10px - 10px);
+	}
+
+	.option-image img {
+		max-width: 128px;
+		max-height: 128px;
+	}
+
+	.option:hover > .option-image img {
 		max-width: 256px;
 		max-height: 256px;
 	}
@@ -52,7 +66,7 @@
 	}
 
 	#modes {
-		top: calc(128px - 10px);
+		top: calc(128px - 10px - 10px - 10px);
 	}
 
 	.mode-image img {
@@ -61,6 +75,20 @@
 	}
 
 	.mode:hover > .mode-image img {
+		max-width: 256px;
+		max-height: 256px;
+	}
+
+	#options {
+		top: calc(128px - 10px - 10px - 10px);
+	}
+
+	.option-image img {
+		max-width: 128px;
+		max-height: 128px;
+	}
+
+	.option:hover > .option-image img {
 		max-width: 256px;
 		max-height: 256px;
 	}
@@ -85,7 +113,7 @@
 	}
 
 	#modes {
-		top: calc(128px - 10px);
+		top: calc(128px - 10px - 10px - 10px);
 	}
 
 	.mode-image img {
@@ -94,6 +122,20 @@
 	}
 
 	.mode:hover > .mode-image img {
+		max-width: 256px;
+		max-height: 256px;
+	}
+
+	#options {
+		top: calc(128px - 10px - 10px - 10px);
+	}
+
+	.option-image img {
+		max-width: 128px;
+		max-height: 128px;
+	}
+
+	.option:hover > .option-image img {
 		max-width: 256px;
 		max-height: 256px;
 	}
@@ -118,7 +160,7 @@
 	}
 
 	#modes {
-		top: calc(192px - 10px);
+		top: calc(192px - 10px - 10px - 10px);
 	}
 
 	.mode-image img {
@@ -132,7 +174,7 @@
 	}
 
 	#modes {
-		top: calc(192px - 10px);
+		top: calc(192px - 10px - 10px - 10px);
 	}
 
 	.mode-image img {
@@ -141,6 +183,20 @@
 	}
 
 	.mode:hover > .mode-image img {
+		max-width: 384px;
+		max-height: 384px;
+	}
+
+    #options {
+		top: calc(192px - 10px - 10px - 10px);
+	}
+
+	.option-image img {
+		max-width: 192px;
+		max-height: 192px;
+	}
+
+	.option:hover > .option-image img {
 		max-width: 384px;
 		max-height: 384px;
 	}
@@ -165,7 +221,7 @@
 	}
 
 	#modes {
-		top: calc(256px - 10px);
+		top: calc(256px - 10px - 10px - 10px);
 	}
 
 	.mode-image img {
@@ -174,6 +230,20 @@
 	}
 
 	.mode:hover > .mode-image img {
+		max-width: 512px;
+		max-height: 512px;
+	}
+
+    #options {
+		top: calc(256px - 10px - 10px - 10px);
+	}
+
+	.option-image img {
+		max-width: 256px;
+		max-height: 256px;
+	}
+
+	.option:hover > .option-image img {
 		max-width: 512px;
 		max-height: 512px;
 	}
@@ -198,7 +268,7 @@
 	}
 
 	#modes {
-		top: calc(256px - 10px);
+		top: calc(256px - 10px - 10px - 10px);
 	}
 
 	.mode-image img {
@@ -210,6 +280,21 @@
 		max-width: 512px;
 		max-height: 512px;
 	}
+
+    #options {
+		top: calc(256px - 10px - 10px - 10px);
+	}
+
+	.option-image img {
+		max-width: 256px;
+		max-height: 256px;
+	}
+
+	.option:hover > .option-image img {
+		max-width: 512px;
+		max-height: 512px;
+	}
+
 }
 
 @media (min-width: 1200px) {
@@ -228,6 +313,34 @@
 
 	.modal-content {
 		width: 50vw;
+	}
+
+	#modes {
+		top: calc(256px - 10px - 10px - 10px);
+	}
+
+	.mode-image img {
+		max-width: 256px;
+		max-height: 256px;
+	}
+
+	.mode:hover > .mode-image img {
+		max-width: 512px;
+		max-height: 512px;
+	}
+
+    #options {
+		top: calc(256px - 10px - 10px - 10px);
+	}
+
+	.option-image img {
+		max-width: 256px;
+		max-height: 256px;
+	}
+
+	.option:hover > .option-image img {
+		max-width: 512px;
+		max-height: 512px;
 	}
 }
 
@@ -250,7 +363,7 @@
 	}
 
 	#modes {
-		top: calc(256px - 10px);
+		top: calc(256px - 10px - 10px - 10px);
 	}
 
 	.mode-image img {
@@ -259,6 +372,20 @@
 	}
 
 	.mode:hover > .mode-image img {
+		max-width: 512px;
+		max-height: 512px;
+	}
+
+    #options {
+		top: calc(256px - 10px - 10px - 10px);
+	}
+
+	.option-image img {
+		max-width: 256px;
+		max-height: 256px;
+	}
+
+	.option:hover > .option-image img {
 		max-width: 512px;
 		max-height: 512px;
 	}
@@ -283,7 +410,7 @@
 	}
 
 	#modes {
-		top: calc(256px - 10px);
+		top: calc(256px - 10px - 10px - 10px);
 	}
 
 	.mode-image img {
@@ -292,6 +419,20 @@
 	}
 
 	.mode:hover > .mode-image img {
+		max-width: 512px;
+		max-height: 512px;
+	}
+
+    #options {
+		top: calc(256px - 10px - 10px - 10px);
+	}
+
+	.option-image img {
+		max-width: 256px;
+		max-height: 256px;
+	}
+
+	.option:hover > .option-image img {
 		max-width: 512px;
 		max-height: 512px;
 	}
