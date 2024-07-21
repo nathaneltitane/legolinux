@@ -35,11 +35,13 @@
 	border-left: 20px solid #00000000;
 	border-bottom: none;
 	border-right: none;
+
 	z-index: 2;
 }
 
 .mode-image {
 	border-bottom: 0px solid #00000000;
+	text-align: center;
 }
 
 .mode-image img {
@@ -60,6 +62,7 @@
 	border-left: 20px solid #00000000;
 	border-bottom: none;
 	border-right: none;
+
 	z-index: 1;
 }
 

@@ -35,11 +35,13 @@
 	border-left: none;
 	border-bottom: none;
 	border-right: 20px solid #00000000;
+
 	z-index: 2;
 }
 
 .option-image {
 	border-bottom: 0px solid #00000000;
+	text-align: center;
 }
 
 .option-image img {
@@ -60,6 +62,7 @@
 	border-left: none;
 	border-bottom: none;
 	border-right: 20px solid #00000000;
+
 	z-index: 1;
 }
 
