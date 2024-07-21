@@ -1847,6 +1847,8 @@ cat << 3D-MODEL-OPTIONS ->> "${model_directory}/index.html"
 
 		<div id="options">
 
+			<div class="flex flex-row flex-middle flex-around">
+
 3D-MODEL-OPTIONS
 
 if [[ -f "${model_directory}"/options ]]
@@ -1892,8 +1894,6 @@ then
 		model_option_label=${model_option^^}
 
 cat << 3D-MODEL-OPTIONS ->> "${model_directory}/index.html"
-			<div class="flex flex-row flex-middle flex-around">
-
 				<div class="flex-cell option">
 
 					<a class="option-image" href="/${model_option_path_label}"/>
@@ -1939,6 +1939,8 @@ cat << 3D-MODEL-MODES ->> "${model_directory}/index.html"
 
 		<div id="modes">
 
+			<div class="flex flex-row flex-middle flex-around">
+
 3D-MODEL-MODES
 
 if [[ -f "${model_directory}"/modes ]]
@@ -1982,8 +1984,6 @@ then
 		model_mode_label=${model_mode^^}
 
 cat << 3D-MODEL-MODES ->> "${model_directory}/index.html"
-			<div class="flex flex-row flex-middle flex-around">
-
 				<div class="flex-cell mode">
 
 					<a class="mode-image" href="/${model_mode_path_label}"/>
