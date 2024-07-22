@@ -41,7 +41,6 @@
 
 .mode-image {
 	border-bottom: 0px solid #00000000;
-	text-align: center;
 }
 
 .mode-image img {
@@ -102,9 +101,7 @@
 }
 
 .mode:hover > .mode-image {
-	background: #ccccccff;
 	border-radius: 10px 10px 10px 10px;
-	border-bottom: 45px solid #999999ff;
 	margin: 0px 0px 0px 0px;
 	padding: 10px 10px 10px 10px;
 }
@@ -121,7 +118,7 @@
 }
 
 .mode a:hover {
-	color: #666666ff;
+	color: #ffffffff;
 }
 
 @keyframes modes-reveal {

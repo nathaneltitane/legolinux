@@ -41,7 +41,6 @@
 
 .option-image {
 	border-bottom: 0px solid #00000000;
-	text-align: center;
 }
 
 .option-image img {
@@ -97,16 +96,14 @@
 
 .option:hover::before {
 	content: "";
-	border-top: 25px solid #666666ff;
-	border-right: 25px solid #00000000;
+	border-top: 30px solid #666666ff;
+	border-right: 30px solid #00000000;
 }
 
 .option:hover > .option-image {
-	background: #ccccccff;
 	border-radius: 10px 10px 10px 10px;
-	border-bottom: 45px solid #999999ff;
 	margin: 0px 0px 0px 0px;
-	padding: 10px 10px 10px 10px;
+	padding: 0px 0px 0px 0px;
 }
 
 .option:hover > .option-image::before {
@@ -121,7 +118,7 @@
 }
 
 .option a:hover {
-	color: #666666ff;
+	color: #ffffffff;
 }
 
 @keyframes options-reveal {

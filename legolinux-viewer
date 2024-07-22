@@ -1896,7 +1896,7 @@ then
 cat << 3D-MODEL-OPTIONS ->> "${model_directory}/index.html"
 				<div class="flex-cell option">
 
-					<a class="option-image" href="/${model_option_path_label}"/>
+					<a class="text-center option-image" href="/${model_option_path_label}"/>
 
 						<img src="/${model_option_path_label}/renders/overlay/overlay.png"/>
 
@@ -1986,7 +1986,7 @@ then
 cat << 3D-MODEL-MODES ->> "${model_directory}/index.html"
 				<div class="flex-cell mode">
 
-					<a class="mode-image" href="/${model_mode_path_label}"/>
+					<a class="text-center mode-image" href="/${model_mode_path_label}"/>
 
 						<img src="/${model_mode_path_label}/renders/overlay/overlay.png"/>
 
