@@ -102,8 +102,10 @@
 
 .option:hover > .option-image::before {
 	content: "";
-	border-top: 20px solid #bbbbbbff;
-	border-right: 20px solid #00000000;
+	border-top: 45px solid #ff0000ff;
+	border-right: 45px solid #00000000;
+	top: 0px;
+	left: 0px;
 }
 
 .option:hover > .option-image img {
