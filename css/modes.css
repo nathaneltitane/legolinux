@@ -66,11 +66,6 @@
 }
 
 .mode-label {
-	position: absolute;
-	bottom: 20px;
-	right: 0px;
-	left: 0px;
-
 	opacity: 0;
 
 	animation-name: mode-label-reveal;
