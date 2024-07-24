@@ -88,7 +88,7 @@
 	background: #bbbbbbff;
 	border: 0px solid #00000000;
 	border-radius: 20px 0px 20px 20px;
-	margin: 0px 5px 0px 5px;
+	margin: 0px 0px 0px 0px;
 	padding: 0px 0px 0px 0px;
 }
 
@@ -96,7 +96,7 @@
 	background: #bbbbbbff;
 	border: 0px solid #00000000;
 	border-radius: 20px 0px 20px 20px;
-	margin: 0px 5px 0px 5px;
+	margin: 0px 10px 0px 10px;
 	padding: 0px 0px 0px 0px;
 }
 
@@ -114,8 +114,8 @@
 
 .mode:hover > .mode-image::before {
 	content: "";
-	border-top: 45px solid #ffaa00ff;
-	border-left: 45px solid #00000000;
+	border-top: 40px solid #ffaa00ff;
+	border-left: 40px solid #00000000;
 	top: 0px;
 	right: 0px;
 }
