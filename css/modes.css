@@ -84,10 +84,20 @@
 	z-index: 3;
 }
 
-.mode:hover {
+.mode:nth-of-type(odd):hover {
 	background: #bbbbbbff;
 	border: 0px solid #00000000;
 	border-radius: 20px 0px 20px 20px;
+	margin: 0px 5px 0px 5px;
+	padding: 0px 0px 0px 0px;
+}
+
+.mode:nth-of-type(even):hover {
+	background: #bbbbbbff;
+	border: 0px solid #00000000;
+	border-radius: 20px 0px 20px 20px;
+	margin: 0px 5px 0px 5px;
+	padding: 0px 0px 0px 0px;
 }
 
 .mode:hover::before {
@@ -104,10 +114,10 @@
 
 .mode:hover > .mode-image::before {
 	content: "";
-	border-top: 45px solid #bbbbbbff;
+	border-top: 45px solid #ffaa00ff;
 	border-left: 45px solid #00000000;
 	top: 0px;
-	left: 0px;
+	right: 0px;
 }
 
 .mode:hover > .mode-image img {

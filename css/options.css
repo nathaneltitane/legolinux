@@ -84,10 +84,20 @@
 	z-index: 3;
 }
 
-.option:hover {
+.option:nth-of-type(odd):hover {
 	background: #bbbbbbff;
 	border: 0px solid #00000000;
-	border-radius: 0px 20px 20px 20px;
+	border-radius: 20px 0px 20px 20px;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+}
+
+.option:nth-of-type(even):hover {
+	background: #bbbbbbff;
+	border: 0px solid #00000000;
+	border-radius: 20px 0px 20px 20px;
+	margin: 0px 10px 0px 10px;
+	padding: 0px 0px 0px 0px;
 }
 
 .option:hover::before {
