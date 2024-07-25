@@ -1,6 +1,6 @@
 #modes {
 	position: absolute;
-	top: calc(-128px - 10px - 10px - 10px);
+	top: calc(-128px - 10px - 10px - 10px - 10px);
 	right: 0px;
 	padding: 10px 10px 10px 10px;
 	margin: 0px 0px 0px 0px;
@@ -134,7 +134,7 @@
 }
 
 @keyframes modes-reveal {
-	0% {top: calc(-256px - 10px - 10px - 10px);}
+	0% {top: calc(-256px - 10px - 10px - 10px - 10px);}
 
 	100% {top: 0px;}
 }
