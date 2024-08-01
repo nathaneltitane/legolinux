@@ -1928,6 +1928,8 @@ cat << 3D-MODEL-OPTIONS ->> "${model_directory}/index.html"
 else
 
 cat << 3D-MODEL-OPTIONS ->> "${model_directory}/index.html"
+			</div>
+
 		</div>
 
 3D-MODEL-OPTIONS
@@ -2018,6 +2020,8 @@ cat << 3D-MODEL-MODES ->> "${model_directory}/index.html"
 else
 
 cat << 3D-MODEL-MODES ->> "${model_directory}/index.html"
+			</div>
+
 		</div>
 
 3D-MODEL-MODES
