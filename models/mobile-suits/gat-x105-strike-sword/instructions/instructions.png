@@ -1491,7 +1491,7 @@
 0 !LEOCAD PIECE PIVOT  0 4 20 1 0 0 0 1 0 0 0 1
 1 0 -1.3127 10 -100.3538 0 -0.965926 0.258819 1 0 0 0 0.258819 0.965926 14-02-hand.ldr
 0 STEP
-1 15 0.0002 76 -18 1 0 0 0 1 0 0 0 1 18-grapple-shield-sword.ldr
+1 0 0.0002 76 -18 1 0 0 0 1 0 0 0 1 18-grapple-shield-sword.ldr
 0 NOFILE
 0 FILE 14-01-hand.ldr
 0 
@@ -1596,7 +1596,7 @@
 1 72 0 -24 0 -1 0 0 0 1 0 0 0 -1 85984.dat
 1 72 0 -24 -60 1 0 0 0 1 0 0 0 1 85984.dat
 0 STEP
-1 7 -40 64 -30 1 0 0 0 1 0 0 0 1 16-shoulder-guard-sword.ldr
+1 0 -40 64 -30 1 0 0 0 1 0 0 0 1 16-shoulder-guard-sword.ldr
 0 NOFILE
 0 FILE 15-02-shoulder.ldr
 0 

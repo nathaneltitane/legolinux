@@ -1901,6 +1901,16 @@
 1 72 0 -24 0 -1 0 0 0 1 0 0 0 -1 85984.dat
 1 72 0 -24 -60 1 0 0 0 1 0 0 0 1 85984.dat
 0 NOFILE
+0 FILE 18-beam-sabre.ldr
+0 
+0 Name: 18-beam-sabre.ldr
+0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
+1 15 0 0 0 1 0 0 0 1 0 0 0 1 4073.dat
+0 STEP
+1 15 0 -20 0 0 1 0 -1 0 0 0 0 1 62462.dat
+0 STEP
+1 15 0 -40 0 -1 0 0 0 -1 0 0 0 1 3062b.dat
+0 NOFILE
 0 FILE 19-rifle.ldr
 0 
 0 Name: 19-rifle.ldr
@@ -2058,14 +2068,4 @@
 1 72 10 8 0 1 0 0 0 1 0 0 0 1 4073.dat
 1 72 -10 8 0 1 0 0 0 1 0 0 0 1 4073.dat
 0 STEP
-0 NOFILE
-0 FILE 18-beam-sabre.ldr
-0 
-0 Name: 18-beam-sabre.ldr
-0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
-1 15 0 0 0 1 0 0 0 1 0 0 0 1 4073.dat
-0 STEP
-1 15 0 -20 0 0 1 0 -1 0 0 0 0 1 62462.dat
-0 STEP
-1 15 0 -40 0 -1 0 0 0 -1 0 0 0 1 3062b.dat
 0 NOFILE
