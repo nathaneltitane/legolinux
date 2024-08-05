@@ -3,7 +3,7 @@
 	top: calc(-128px - 10px - 10px - 10px - 10px);
 	left: 0px;
 	padding: 10px 10px 10px 10px;
-	margin: 0px 0px 0px 0px;
+	margin: -10px 0px 0px 0px;
 
 	animation-name: options-reveal;
 	animation-delay: 5.0s;
@@ -16,7 +16,7 @@
 	border-radius: 0px 20px 20px 20px;
 	position: relative;
 	padding: 10px 10px 10px 10px;
-	margin: 0px 10px 0px 0px;
+	margin: 10px 10px 0px 0px;
 
 	opacity: 0;
 

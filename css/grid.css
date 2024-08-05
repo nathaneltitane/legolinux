@@ -2,6 +2,14 @@
 	display: grid;
 }
 
+.grid-left {
+    direction: ltr;
+}
+
+.grid-right {
+    direction: rtl;
+}
+
 .grid-columns-responsive {
 	/* /* media.css */
 }
