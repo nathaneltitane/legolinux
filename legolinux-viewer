@@ -1848,7 +1848,7 @@ cat << 3D-MODEL-OPTIONS ->> "${model_directory}/index.html"
 
 		<div id="options">
 
-			<div class="grid grid-left grid-columns-responsive">
+			<div class="grid grid-left grid-column-gap-10 grid-row-gap-10 grid-columns-responsive">
 
 3D-MODEL-OPTIONS
 
@@ -1942,7 +1942,7 @@ cat << 3D-MODEL-MODES ->> "${model_directory}/index.html"
 
 		<div id="modes">
 
-			<div class="grid grid-right grid-columns-responsive">
+			<div class="grid grid-right grid-column-gap-10 grid-row-gap-10 grid-columns-responsive">
 
 3D-MODEL-MODES
 

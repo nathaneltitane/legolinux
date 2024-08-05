@@ -2,8 +2,8 @@
 	position: absolute;
 	top: calc(-128px - 10px - 10px - 10px - 10px);
 	right: 0px;
-	padding: 10px 10px 10px 10px;
-	margin: -10px 0px 0px 0px;
+	padding: 10px 10px 0px 0px;
+	margin: 0px 0px 0px 0px;
 
 	animation-name: modes-reveal;
 	animation-delay: 5.0s;
@@ -15,8 +15,9 @@
 	background: #cccccc33;
 	border-radius: 20px 0px 20px 20px;
 	position: relative;
-	padding: 10px 10px 10px 10px;
-	margin: 10px 0px 0px 10px;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+
 
 	opacity: 0;
 
@@ -78,6 +79,8 @@
 #modes:has(.mode:hover) {
 	background: #aaaaaaff;
 	border-radius: 0px 0px 20px 20px;
+	padding: 10px 10px 10px;
+	margin: 0px 0px 0px 0px;
 	right: 0px;
 	left: 0px;
 
@@ -88,16 +91,16 @@
 	background: #bbbbbbff;
 	border: 0px solid #00000000;
 	border-radius: 20px 0px 20px 20px;
+	padding: 0px 0px 0px 0px;
 	margin: 0px 0px 0px 0px;
-	padding: 0px 0px 10px 0px;
 }
 
 .mode:nth-of-type(even):hover {
 	background: #bbbbbbff;
 	border: 0px solid #00000000;
 	border-radius: 20px 0px 20px 20px;
-	margin: 0px 10px 0px 10px;
-	padding: 0px 0px 10px 0px;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
 }
 
 .mode:hover::before {
@@ -108,8 +111,8 @@
 
 .mode:hover > .mode-image {
 	border-radius: 10px 10px 10px 10px;
-	margin: 0px 0px 0px 0px;
 	padding: 10px 10px 10px 10px;
+	margin: 0px 0px 0px 0px;
 }
 
 .mode:hover > .mode-image::before {
