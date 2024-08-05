@@ -2,8 +2,8 @@
 	position: absolute;
 	top: calc(-128px - 10px - 10px - 10px - 10px);
 	left: 0px;
-	padding: 10px 10px 10px 10px;
-	margin: -10px 0px 0px 0px;
+	padding: 10px 0px 0px 10px;
+	margin: 0px 0px 0px 0px;
 
 	animation-name: options-reveal;
 	animation-delay: 5.0s;
@@ -16,7 +16,7 @@
 	border-radius: 0px 20px 20px 20px;
 	position: relative;
 	padding: 10px 10px 10px 10px;
-	margin: 10px 10px 0px 0px;
+	margin: 0px 0px 0px 0px;
 
 	opacity: 0;
 
@@ -78,6 +78,8 @@
 #options:has(.option:hover) {
 	background: #aaaaaaff;
 	border-radius: 0px 0px 20px 20px;
+	padding: 10px 10px 10px;
+	margin: 0px 0px 0px 0px;
 	right: 0px;
 	left: 0px;
 
@@ -88,16 +90,16 @@
 	background: #bbbbbbff;
 	border: 0px solid #00000000;
 	border-radius: 20px 0px 20px 20px;
+	padding: 0px 0px 0px 0px;
 	margin: 0px 0px 0px 0px;
-	padding: 0px 0px 10px 0px;
 }
 
 .option:nth-of-type(even):hover {
 	background: #bbbbbbff;
 	border: 0px solid #00000000;
 	border-radius: 20px 0px 20px 20px;
-	margin: 0px 10px 0px 10px;
-	padding: 0px 0px 10px 0px;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
 }
 
 .option:hover::before {
@@ -108,8 +110,8 @@
 
 .option:hover > .option-image {
 	border-radius: 10px 10px 10px 10px;
+	padding: 10px 10px 10px 10px;
 	margin: 0px 0px 0px 0px;
-	padding: 0px 0px 0px 0px;
 }
 
 .option:hover > .option-image::before {
