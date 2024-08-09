@@ -1,5 +1,6 @@
 #modes {
 	position: absolute;
+	/* top: media.css */
 	right: 0px;
 	padding: 10px 10px 10px 10px;
 	margin: 0px 0px 0px 0px;
@@ -133,6 +134,10 @@
 
 .mode a:hover {
 	color: #ffffffff;
+}
+
+@keyframes modes-reveal {
+	/* media.css */
 }
 
 @keyframes mode-reveal {

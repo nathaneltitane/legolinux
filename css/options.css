@@ -1,5 +1,6 @@
 #options {
 	position: absolute;
+	/* top: media.css */
 	left: 0px;
 	padding: 10px 10px 10px 10px;
 	margin: 0px 0px 0px 0px;
@@ -132,6 +133,10 @@
 
 .option a:hover {
 	color: #ffffffff;
+}
+
+@keyframes options-reveal {
+	/* media.css */
 }
 
 @keyframes option-reveal {
