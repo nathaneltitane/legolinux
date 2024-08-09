@@ -43,7 +43,7 @@ script=$(basename -- "${BASH_SOURCE[0]}")
 
 # version //////////////////////////////////////////////////////////////////////
 
-version="05-20-2024"
+version="08-08-2024"
 
 # usage ////////////////////////////////////////////////////////////////////////
 
@@ -71,6 +71,11 @@ server_javascript_directory="${server_directory}"/javascript
 
 frobulator.inf "Synchronizing entries" "[ models ]"
 echo
+
+if [[ ! -d "${server_models_directory}" ]]
+then
+	mkdir -p "${server_models_directory}"
+fi
 
 rsync							\
 	--archive					\

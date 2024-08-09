@@ -43,7 +43,7 @@ script=$(basename -- "${BASH_SOURCE[0]}")
 
 # version //////////////////////////////////////////////////////////////////////
 
-version="08-01-2024"
+version="08-08-2024"
 
 # usage ////////////////////////////////////////////////////////////////////////
 
@@ -1840,7 +1840,6 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 keywords_list=(
 	super
-	strike
 )
 
 cat << 3D-MODEL-OPTIONS ->> "${model_directory}/index.html"
@@ -1892,7 +1891,9 @@ then
 			unset flag
 		fi
 
-		model_option_label=${model_option^^}
+		model_option_label=${model_option/-/ }
+
+		model_option_label=${model_option_label^^}
 
 cat << 3D-MODEL-OPTIONS ->> "${model_directory}/index.html"
 				<div class="flex-cell option">
@@ -1984,7 +1985,9 @@ then
 			unset flag
 		fi
 
-		model_mode_label=${model_mode^^}
+		model_mode_label=${model_option/-/ }
+
+		model_mode_label=${model_mode_label^^}
 
 cat << 3D-MODEL-MODES ->> "${model_directory}/index.html"
 				<div class="flex-cell mode">
