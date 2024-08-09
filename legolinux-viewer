@@ -1985,7 +1985,7 @@ then
 			unset flag
 		fi
 
-		model_mode_label=${model_option/-/ }
+		model_mode_label=${model_mode/-/ }
 
 		model_mode_label=${model_mode_label^^}
 
