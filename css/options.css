@@ -1,8 +1,7 @@
 #options {
 	position: absolute;
-	top: calc(-128px - 10px - 10px - 10px - 10px);
 	left: 0px;
-	padding: 10px 0px 0px 10px;
+	padding: 10px 10px 10px 10px;
 	margin: 0px 0px 0px 0px;
 
 	animation-name: options-reveal;
@@ -133,12 +132,6 @@
 
 .option a:hover {
 	color: #ffffffff;
-}
-
-@keyframes options-reveal {
-	0% {top: calc(-256px - 10px - 10px - 10px - 10px);}
-
-	100% {top: 0px;}
 }
 
 @keyframes option-reveal {
