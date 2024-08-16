@@ -4,11 +4,6 @@
 	right: 0px;
 	padding: 10px 10px 10px 10px;
 	margin: 0px 0px 0px 0px;
-
-	animation-name: modes-reveal;
-	animation-delay: 5.0s;
-	animation-duration: 1s;
-	animation-fill-mode: forwards;
 }
 
 .mode {
@@ -22,7 +17,7 @@
 	opacity: 0;
 
 	animation-name: mode-reveal;
-	animation-delay: 0.5s;
+	animation-delay: 3.0s;
 	animation-duration: 1s;
 	animation-fill-mode: forwards;
 }
