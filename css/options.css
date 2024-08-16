@@ -16,7 +16,7 @@
 	opacity: 0;
 
 	animation-name: option-reveal;
-	animation-delay: 3.0s;
+	animation-delay: 5.0s;
 	animation-duration: 1s;
 	animation-fill-mode: forwards;
 }
