@@ -28,17 +28,15 @@ This repository hosts the website dedicated to showcasing AFOL Lego models and t
 
 ### Projects:
 
-[[ Dextop // Project Page ]](https://github.com/nathaneltitane/dextop)
+[![GitHub Repo stars](https://img.shields.io/github/stars/nathaneltitane/dextop?style=for-the-badge&logo=gnubash&logoColor=ffffff&label=DEXTOP)](https://github.com/nathaneltitane/dextop)
 
-[[ Frobulator // Project Page ]](https://github.com/nathaneltitane/frobulator)
+[![GitHub Repo stars](https://img.shields.io/github/stars/nathaneltitane/frobulator?style=for-the-badge&logo=gnubash&logoColor=ffffff&label=FROBULATOR)](https://github.com/nathaneltitane/frobulator)
 
-[[ L²CU // Project Page ]](https://github.com/nathaneltitane/l2cu)
+[![GitHub Repo stars](https://img.shields.io/github/stars/nathaneltitane/l2cu?style=for-the-badge&logo=gnubash&logoColor=ffffff&label=L²CU)](https://github.com/nathaneltitane/l2cu)
 
-[[ Lego // Linux // Project Page ]](https://github.com/nathaneltitane/legolinux)
+[![GitHub Repo stars](https://img.shields.io/github/stars/nathaneltitane/terminal?style=for-the-badge&logo=gnubash&logoColor=ffffff&label=TERMINAL)](https://github.com/nathaneltitane/terminal)
 
-[[ Nathanel + Titane // Project Page ]](https://github.com/nathaneltitane/nathaneltitane)
-
-[[ Terminal // Project Page ]](https://github.com/nathaneltitane/terminal)
+[![GitHub Repo stars](https://img.shields.io/github/stars/nathaneltitane/nathaneltitane?style=for-the-badge&logo=gnubash&logoColor=ffffff&label=NATHANEL+TITANE)](https://github.com/nathaneltitane/nathaneltitane)
 
 ### Reports:
 
