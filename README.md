@@ -1,6 +1,6 @@
 ![LegoLinux](https://raw.githubusercontent.com/nathaneltitane/legolinux/main/legolinux.svg)
 
-[![Donate](https://img.shields.io/badge/Buy_Me_A_Coffee-2f343f.svg?style=for-the-badge&logo=buymeacoffee&label=Donate)](https://www.paypal.com/donate?hosted_button_id=ZW3CDCANHJCWJ)
+[![Donate](https://img.shields.io/badge/Paypal-2f343f.svg?style=for-the-badge&logo=paypal&label=Donate)](https://www.paypal.com/donate?hosted_button_id=ZW3CDCANHJCWJ)
 
 [[ Lego // Linux // Project Page ]](https://github.com/nathaneltitane/legolinux) [ Version // 01-21-2023 ]
 
@@ -48,4 +48,4 @@ This repository hosts the website dedicated to showcasing AFOL Lego models and t
 
 ### Enjoying Lego // Linux? Buy me a coffee to show your appreciation!
 
-[![Donate](https://img.shields.io/badge/Buy_Me_A_Coffee-2f343f.svg?style=for-the-badge&logo=buymeacoffee&label=Donate)](https://www.paypal.com/donate?hosted_button_id=ZW3CDCANHJCWJ)
+[![Donate](https://img.shields.io/badge/Paypal-2f343f.svg?style=for-the-badge&logo=paypal&label=Donate)](https://www.paypal.com/donate?hosted_button_id=ZW3CDCANHJCWJ)
