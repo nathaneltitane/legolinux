@@ -48,4 +48,4 @@ This repository hosts the website dedicated to showcasing AFOL Lego models and t
 
 ### Enjoying Lego // Linux? Buy me a coffee to show your appreciation!
 
-[![Donate](https://img.shields.io/badge/Buy_Me_A_Coffee-2f343f.svg?style=for-the-badge&logo=buymeacoffee&label=Donate)](https://buymeacoffee.com/nathaneltitane)
+[![Donate](https://img.shields.io/badge/Buy_Me_A_Coffee-2f343f.svg?style=for-the-badge&logo=buymeacoffee&label=Donate)](https://www.paypal.com/donate?hosted_button_id=ZW3CDCANHJCWJ)
