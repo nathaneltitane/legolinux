@@ -145,9 +145,10 @@ cat << MODEL-DRAWER-HEADER -> "${modules_directory}"/drawer.html
 
 					 </br>
 
-					 // THE FINAL BUILD MAY DIFFER SLIGHTLY FROM THE INSTRUCTIONS PROVIDED! //
+					 <div class="flex-cell text-bold text-center">
 
-					 </br>
+						// THE FINAL BUILD MAY DIFFER SLIGHTLY FROM THE INSTRUCTIONS PROVIDED! //</br>
+					</div>
 
 				</div>
 
