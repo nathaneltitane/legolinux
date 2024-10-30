@@ -43,7 +43,7 @@ script=$(basename -- "${BASH_SOURCE[0]}")
 
 # version //////////////////////////////////////////////////////////////////////
 
-version="03-09-2024"
+version="10-29-2024"
 
 # usage ////////////////////////////////////////////////////////////////////////
 
@@ -116,6 +116,24 @@ cat << MODEL-DRAWER-HEADER -> "${modules_directory}"/drawer.html
 				<div class="flex-cell text-bold text-center">
 
 					THANK YOU FOR YOUR SUPPORT!</br>
+
+				</div>
+
+			</div>
+
+			<div class="flex flex-column section">
+
+				<div class="flex-cell text-bold text-center">
+
+					// NOTICE //</br>
+
+					</br>
+
+				</div>
+
+				<div class="flex-cell text-center">
+
+					 Please note that while every effort is made to ensure accuracy, specific LEGO® elements may vary in color or availability. The final build may differ slightly from the instructions provided.
 
 				</div>
 
