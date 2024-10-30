@@ -125,7 +125,7 @@ cat << MODEL-DRAWER-HEADER -> "${modules_directory}"/drawer.html
 
 				<div class="flex-cell text-bold text-center">
 
-					// NOTICE //</br>
+					// DISCLAIMER //</br>
 
 					</br>
 
@@ -133,7 +133,17 @@ cat << MODEL-DRAWER-HEADER -> "${modules_directory}"/drawer.html
 
 				<div class="flex-cell text-center">
 
-					 Please note that while every effort is made to ensure accuracy, specific LEGO® elements may vary in color or availability. The final build may differ slightly from the instructions provided.
+					 PLEASE NOTE THAT WHILE EVERY EFFORT IS MADE TO ENSURE ACCURACY,</br>
+
+					 </br>
+
+					 SPECIFIC LEGO® ELEMENTS MAY VARY IN COLOR OR AVAILABILITY.</br>
+
+					 </br>
+
+					 // THE FINAL BUILD MAY DIFFER SLIGHTLY FROM THE INSTRUCTIONS PROVIDED! //
+
+					 </br>
 
 				</div>
 
