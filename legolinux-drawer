@@ -135,6 +135,12 @@ cat << MODEL-DRAWER-HEADER -> "${modules_directory}"/drawer.html
 
 				</div>
 
+				<div class="flex-cell text-bold text-center">
+
+					LEGO® IS A TRADEMARK OF THE LEGO GROUP OF COMPANIES WHICH DOES NOT SPONSOR, AUTHORIZE OR ENDORSE THIS PROJECT NOR THE PRODUCTS MADE AVAILABLE ON THIS WEBSITE.</br>
+
+				</div>
+
 				<div class="flex-cell text-center">
 
 					 PLEASE NOTE THAT WHILE EVERY EFFORT IS MADE TO ENSURE ACCURACY,</br>
@@ -148,6 +154,7 @@ cat << MODEL-DRAWER-HEADER -> "${modules_directory}"/drawer.html
 					 <div class="flex-cell text-bold text-center">
 
 						// THE FINAL BUILD MAY DIFFER SLIGHTLY FROM THE INSTRUCTIONS PROVIDED! //</br>
+
 					</div>
 
 				</div>
