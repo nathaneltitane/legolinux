@@ -244,7 +244,7 @@
 0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
 1 0 0 0 0 1 0 0 0 1 0 0 0 1 00-motorcycle.ldr
 0 STEP
-1 0 0 -336 60 1 0 0 0 1 0 0 0 1 00-pilot.ldr
+1 0 0 -320 60 1 0 0 0 1 0 0 0 1 00-pilot.ldr
 0 NOFILE
 0 FILE 00-pilot.ldr
 0 
@@ -261,24 +261,24 @@
 0 Name: 00-motorcycle.ldr
 0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
 0 !LEOCAD PIECE PIVOT  0 -14 30 1 0 0 0 1 0 0 0 1
-1 0 0 0 0 -1 0 0 0 -1 0 0 0 1 reactor.ldr
+1 0 0 0 0 -1 0 0 0 -1 0 0 0 1 16-reactor.ldr
 0 STEP
-1 0 0 54 -20 1 0 0 0 1 0 0 0 1 reactor-strut.ldr
-0 STEP
-0 !LEOCAD PIECE PIVOT  0 56 -20 1 0 0 0 1 0 0 0 1
-1 0 -30 -90 -30 1 0 0 0 1 0 0 0 1 reactor-hinge.ldr
+1 0 0 54 -20 1 0 0 0 1 0 0 0 1 17-reactor-strut.ldr
 0 STEP
 0 !LEOCAD PIECE PIVOT  0 56 -20 1 0 0 0 1 0 0 0 1
-1 0 30 -90 -30 1 0 0 0 1 0 0 0 1 reactor-hinge.ldr
+1 0 -30 -90 -30 1 0 0 0 1 0 0 0 1 18-reactor-hinge.ldr
+0 STEP
+0 !LEOCAD PIECE PIVOT  0 56 -20 1 0 0 0 1 0 0 0 1
+1 0 30 -90 -30 1 0 0 0 1 0 0 0 1 18-reactor-hinge.ldr
 0 STEP
 0 !LEOCAD PIECE PIVOT  0 -62 -10 1 0 0 0 1 0 0 0 1
-1 0 0 -64 12 1 0 0 0 0 -1 0 1 0 tank-support.ldr
+1 0 0 -64 12 1 0 0 0 0 -1 0 1 0 19-01-tank-support.ldr
 0 STEP
 0 !LEOCAD PIECE PIVOT  0 2 60 1 0 0 0 1 0 0 0 1
-1 0 0 -46 -72 -1 0 0 0 0 1 0 1 0 radiator.ldr
+1 0 0 -46 -72 -1 0 0 0 0 1 0 1 0 27-radiator.ldr
 0 STEP
 0 !LEOCAD PIECE PIVOT  0 2 -20 1 0 0 0 1 0 0 0 1
-1 0 0 77.5563 -77.272 -1 0 0 0 -0.707107 0.707107 0 0.707107 0.707107 waist-guard-hinge.ldr
+1 0 0 77.5563 -77.272 -1 0 0 0 -0.707107 0.707107 0 0.707107 0.707107 28-01-waist-guard-hinge.ldr
 0 NOFILE
 0 FILE 01-foot.ldr
 0 
@@ -421,7 +421,7 @@
 1 0 0 -54.1244 37.641 1 0 0 0 -0.866025 0.5 0 -0.5 -0.866025 48336.dat
 0 STEP
 0 !LEOCAD PIECE PIVOT  0 4 -20 1 0 0 0 1 0 0 0 1
-1 0 0 19.0401 -188.2832 1 0 0 0 -0.965926 0.258819 0 -0.258819 -0.965926 01-foot.ldr
+1 0 6.8404 14 -188.7938 0.939693 0 0.34202 0 -1 -0 0.34202 0 -0.939693 01-foot.ldr
 0 NOFILE
 0 FILE 02-02-shin.ldr
 0 
@@ -512,7 +512,7 @@
 1 0 0 -54.1244 37.641 1 0 0 0 -0.866025 0.5 0 -0.5 -0.866025 48336.dat
 0 STEP
 0 !LEOCAD PIECE PIVOT  0 4 -20 1 0 0 0 1 0 0 0 1
-1 0 0 19.0401 -188.2832 1 0 0 0 -0.965926 0.258819 0 -0.258819 -0.965926 01-foot.ldr
+1 0 -6.8404 14 -188.7938 0.939693 0 -0.34202 0 -1 0 -0.34202 0 -0.939693 01-foot.ldr
 0 NOFILE
 0 FILE 03-01-thigh.ldr
 0 
@@ -598,10 +598,10 @@
 0 STEP
 0 STEP
 0 !LEOCAD PIECE PIVOT  0 10 80 1 0 0 0 1 0 0 0 1
-1 0 -83.2937 0 -76.9333 0.965926 0 0.258819 0 1 0 -0.258819 0 0.965926 03-01-thigh.ldr
+1 0 -89.9498 0 -74.8347 0.939693 0 0.34202 0 1 0 -0.34202 0 0.939693 03-01-thigh.ldr
 0 STEP
 0 !LEOCAD PIECE PIVOT  0 10 80 1 0 0 0 1 0 0 0 1
-1 0 83.2937 0 -76.9333 0.965926 0 -0.258819 0 1 0 0.258819 0 0.965926 03-02-thigh.ldr
+1 0 89.9498 0 -74.8347 0.939693 0 -0.34202 0 1 0 0.34202 0 0.939693 03-02-thigh.ldr
 0 STEP
 0 NOFILE
 0 FILE 05-spine.ldr
@@ -707,10 +707,10 @@
 1 0 0 49.176 97.7907 1 0 0 0 0.965926 -0.258819 0 0.258819 0.965926 07-head.ldr
 0 STEP
 0 !LEOCAD PIECE PIVOT  0 10 40 1 0 0 0 1 0 0 0 1
-1 0 -90.3528 32 -38.637 0.965926 0 0.258819 0 1 0 -0.258819 0 0.965926 08-01-arm.ldr
+1 0 -100 41.3065 -36.0488 0.866026 0 0.5 0.12941 0.965926 -0.224144 -0.482963 0.258819 0.836516 08-01-arm.ldr
 0 STEP
 0 !LEOCAD PIECE PIVOT  0 10 40 1 0 0 0 1 0 0 0 1
-1 0 90.3528 32 -38.637 0.965926 0 -0.258819 0 1 0 0.258819 0 0.965926 08-02-arm.ldr
+1 0 100 41.3065 -36.0488 0.866026 -0 -0.5 -0.12941 0.965926 -0.224144 0.482963 0.258819 0.836516 08-02-arm.ldr
 0 STEP
 0 STEP
 0 STEP
@@ -786,7 +786,7 @@
 0 Name: 08-01-arm.ldr
 0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
 1 72 0 0 -10 0 0 -1 0 1 0 1 0 0 47454.dat
-1 0 0 10 40 0.965926 0 -0.258819 0 1 0 0.258819 0 0.965926 47455.dat
+1 0 0 10 40 0.866025 0 -0.5 0 1 0 0.5 0 0.866025 47455.dat
 0 STEP
 1 297 0 24 0 -1 0 0 0 1 0 0 0 -1 3022.dat
 1 72 -10 32 10 -1 0 0 0 1 0 0 0 -1 3024.dat
@@ -807,7 +807,7 @@
 0 Name: 08-02-arm.ldr
 0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
 1 72 0 0 -10 0 0 -1 0 1 0 1 0 0 47454.dat
-1 0 0 10 40 -0.965926 0 -0.258819 0 1 0 0.258819 0 -0.965926 47455.dat
+1 0 0 10 40 -0.866025 0 -0.5 0 1 0 0.5 0 -0.866025 47455.dat
 0 STEP
 1 297 0 24 0 -1 0 0 0 1 0 0 0 -1 3022.dat
 1 72 -10 32 10 -1 0 0 0 1 0 0 0 -1 3024.dat
@@ -1099,9 +1099,9 @@
 1 4 24 30 -20 0 -1 0 1 0 0 0 0 1 29120.dat
 1 4 40 20 20 0 -1 0 1 0 0 0 0 1 33909.dat
 0 NOFILE
-0 FILE wheel-01.ldr
+0 FILE 14-01-wheel-01.ldr
 0 
-0 Name: wheel-01.ldr
+0 Name: 14-01-wheel-01.ldr
 0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
 1 72 0 0 0 0 0 1 0 1 0 -1 0 0 88517.dat
 1 256 0 0 0 0 0 -1 0 1 0 1 0 0 88516.dat
@@ -1140,9 +1140,9 @@
 1 0 60.0001 0 -40 0 -1 0 0 0 -1 1 0 0 87082.dat
 1 0 60.0001 0 -76 0 0 1 1 0 0 0 1 0 3062b.dat
 0 NOFILE
-0 FILE wheel-02.ldr
+0 FILE 14-02-wheel-02.ldr
 0 
-0 Name: wheel-02.ldr
+0 Name: 14-02-wheel-02.ldr
 0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
 1 72 0 0 0 0 0 1 0 1 0 -1 0 0 88517.dat
 1 256 0 0 0 0 0 1 0 1 0 -1 0 0 88516.dat
@@ -1172,9 +1172,9 @@
 1 0 60.0001 20 20 0 1 0 -1 0 0 0 0 1 44809.dat
 1 0 -60.0001 20 20 0 1 0 -1 0 0 0 0 1 44809.dat
 0 NOFILE
-0 FILE wheel-strut-01.ldr
+0 FILE 15-01-wheel-strut-01.ldr
 0 
-0 Name: wheel-strut-01.ldr
+0 Name: 15-01-wheel-strut-01.ldr
 0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
 1 0 -40 10 0 0 0 -1 1 0 0 0 -1 0 47455.dat
 0 !LEOCAD GROUP BEGIN Group #3
@@ -1213,11 +1213,11 @@
 0 STEP
 0 !LEOCAD GROUP END
 0 !LEOCAD PIECE PIVOT  -60 0 0 1 0 0 0 1 0 0 0 1
-1 0 0 70 -230 0 -1 0 1 0 0 0 0 1 wheel-01.ldr
+1 0 0 70 -230 0 -1 0 1 0 0 0 0 1 14-01-wheel-01.ldr
 0 NOFILE
-0 FILE wheel-strut-02.ldr
+0 FILE 15-02-wheel-strut-02.ldr
 0 
-0 Name: wheel-strut-02.ldr
+0 Name: 15-02-wheel-strut-02.ldr
 0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
 1 0 -40 10 0 0 0 -1 1 0 0 0 -1 0 47455.dat
 0 !LEOCAD GROUP BEGIN Group #3
@@ -1256,11 +1256,11 @@
 0 STEP
 0 !LEOCAD GROUP END
 0 !LEOCAD PIECE PIVOT  -60 0 0 1 0 0 0 1 0 0 0 1
-1 0 0 70 -230 0 -1 0 1 0 0 0 0 1 wheel-02.ldr
+1 0 0 70 -230 0 -1 0 1 0 0 0 0 1 14-02-wheel-02.ldr
 0 NOFILE
-0 FILE reactor.ldr
+0 FILE 16-reactor.ldr
 0 
-0 Name: reactor.ldr
+0 Name: 16-reactor.ldr
 0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
 1 0 -10 0 30 -1 0 0 0 1 0 0 0 -1 87087.dat
 1 0 10 0 30 -1 0 0 0 1 0 0 0 -1 87087.dat
@@ -1307,20 +1307,20 @@
 1 0 48.6371 20.3528 64 0 -0.258819 -0.965926 0 0.965926 -0.258819 1 0 0 22484.dat
 0 STEP
 0 !LEOCAD PIECE PIVOT  -40 10 0 1 0 0 0 1 0 0 0 1
-1 0 70 -30 0 0 -1 0 -1 0 0 0 0 -1 wheel-strut-02.ldr
+1 0 70 -30 0 0 -1 0 -1 0 0 0 0 -1 15-02-wheel-strut-02.ldr
 0 STEP
 0 !LEOCAD PIECE PIVOT  -40 10 0 1 0 0 0 1 0 0 0 1
-1 0 -70 -30 0 0 1 0 -1 0 0 0 0 1 wheel-strut-01.ldr
+1 0 -70 -30 0 0 1 0 -1 0 0 0 0 1 15-01-wheel-strut-01.ldr
 0 STEP
 0 !LEOCAD PIECE PIVOT  50 12 10 1 0 0 0 1 0 0 0 1
-1 0 95.5977 12.941 28.6077 -0.866025 0.5 0 0 0 1 0.5 0.866025 0 thigh-guard-hinge-actuator-01.ldr
+1 0 95.5977 12.941 28.6077 -0.866025 0.5 0 0 0 1 0.5 0.866025 0 30-01-waist-actuator-01.ldr
 0 STEP
 0 !LEOCAD PIECE PIVOT  -50 12 10 1 0 0 0 1 0 0 0 1
-1 0 -95.5978 12.941 28.6077 -0.866025 -0.5 0 0 0 1 -0.5 0.866025 0 thigh-guard-hinge-actuator-02.ldr
+1 0 -95.5978 12.941 28.6077 -0.866025 -0.5 0 0 0 1 -0.5 0.866025 0 30-01-waist-actuator-02.ldr
 0 NOFILE
-0 FILE reactor-strut.ldr
+0 FILE 17-reactor-strut.ldr
 0 
-0 Name: reactor-strut.ldr
+0 Name: 17-reactor-strut.ldr
 0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
 1 0 -10 0 0 0 0 1 0 1 0 -1 0 0 3705.dat
 1 72 -10 0 10 0 0 1 -1 0 0 0 -1 0 60483.dat
@@ -1342,18 +1342,18 @@
 0 !LEOCAD PIECE PIVOT  0 0 -20 1 0 0 0 1 0 0 0 1
 1 72 -10 -20 -50 1 0 0 0 0 -1 0 1 0 30554a.dat
 0 NOFILE
-0 FILE reactor-hinge.ldr
+0 FILE 18-reactor-hinge.ldr
 0 
-0 Name: reactor-hinge.ldr
+0 Name: 18-reactor-hinge.ldr
 0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
 1 0 0 46 0 0 1 0 1 0 0 0 0 -1 32062.dat
 0 STEP
 1 0 0 36 0 0 0 -1 1 0 0 0 -1 0 6536.dat
 1 0 0 56 0 0 0 -1 1 0 0 0 -1 0 6536.dat
 0 NOFILE
-0 FILE tank-support.ldr
+0 FILE 19-01-tank-support.ldr
 0 
-0 Name: tank-support.ldr
+0 Name: 19-01-tank-support.ldr
 0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
 1 71 -10 0 0 0 0 1 0 1 0 -1 0 0 18677.dat
 1 71 10 0 0 0 0 1 0 1 0 -1 0 0 18677.dat
@@ -1374,11 +1374,11 @@
 1 72 28 10 -10 0 1 0 0 0 -1 -1 0 0 3941.dat
 1 72 52 10 -10 0 1 0 0 0 -1 -1 0 0 2654.dat
 0 STEP
-1 0 0 -48 100 1 0 0 0 1 0 0 0 1 tank-base.ldr
+1 0 0 -48 100 1 0 0 0 1 0 0 0 1 19-02-tank-base.ldr
 0 NOFILE
-0 FILE tank-base.ldr
+0 FILE 19-02-tank-base.ldr
 0 
-0 Name: tank-base.ldr
+0 Name: 19-02-tank-base.ldr
 0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
 1 72 0 0 0 0 0 1 0 1 0 -1 0 0 48169.dat
 1 72 -10 24 10 1 0 0 0 1 0 0 0 1 3665.dat
@@ -1412,205 +1412,44 @@
 1 4 -10 -64 -10 -1 0 0 0 1 0 0 0 -1 28192.dat
 1 4 10 -64 -10 -1 0 0 0 1 0 0 0 -1 28192.dat
 0 STEP
-1 0 0 -50 30 1 0 0 0 -0.819152 0.573576 0 -0.573576 -0.819152 windshield.ldr
+1 0 0 -50 30 1 0 0 0 -0.819152 0.573576 0 -0.573576 -0.819152 23-windshield.ldr
 0 STEP
-1 0 -30 -30 10 1 0 0 0 0 1 0 -1 0 handlebar-01.ldr
+1 0 -30 -30 10 1 0 0 0 0 1 0 -1 0 22-01-handlebar-01.ldr
 0 STEP
-1 0 30 -30 10 1 0 0 0 0 1 0 -1 0 handlebar-02.ldr
-0 STEP
-0 !LEOCAD PIECE PIVOT  0 -14 -50 1 0 0 0 1 0 0 0 1
-1 0 40 60 14 -1 0 0 0 0 1 0 1 0 tank-shell-01.ldr
+1 0 30 -30 10 1 0 0 0 0 1 0 -1 0 22-02-handlebar-02.ldr
 0 STEP
 0 !LEOCAD PIECE PIVOT  0 -14 -50 1 0 0 0 1 0 0 0 1
-1 0 -20 60 14 -1 0 0 0 0 1 0 1 0 tank-shell-02.ldr
+1 0 40 60 14 -1 0 0 0 0 1 0 1 0 21-01-tank-shell-01.ldr
 0 STEP
-1 0 0 20 38 -1 0 0 0 0 1 0 1 0 tank-shell-03.ldr
+0 !LEOCAD PIECE PIVOT  0 -14 -50 1 0 0 0 1 0 0 0 1
+1 0 -20 60 14 -1 0 0 0 0 1 0 1 0 21-02-tank-shell-02.ldr
+0 STEP
+1 0 0 20 38 -1 0 0 0 0 1 0 1 0 21-03-tank-shell-03.ldr
 0 STEP
 0 !LEOCAD PIECE PIVOT  0 26 -40 1 0 0 0 1 0 0 0 1
-1 0 0 110.9077 -25.4669 -1 0 0 0 0.258819 0.965926 0 0.965926 -0.258819 seat-01.ldr
+1 0 0 110.9077 -25.4669 -1 0 0 0 0.258819 0.965926 0 0.965926 -0.258819 20-01-seat-01.ldr
 0 STEP
 0 !LEOCAD PIECE PIVOT  0 10 -50 1 0 0 0 1 0 0 0 1
-1 0 0 168.8633 -40.996 -1 0 0 0 0.258819 0.965926 0 0.965926 -0.258819 seat-02.ldr
+1 0 0 168.8633 -40.996 -1 0 0 0 0.258819 0.965926 0 0.965926 -0.258819 20-02-seat-02.ldr
 0 STEP
 0 !LEOCAD PIECE PIVOT  0 -6 -20 1 0 0 0 1 0 0 0 1
-1 0 0 195.9131 -11.0781 1 0 0 0 0.5 0.866025 0 -0.866025 0.5 seat-03.ldr
+1 0 0 195.9131 -11.0781 1 0 0 0 0.5 0.866025 0 -0.866025 0.5 20-03-seat-03.ldr
 0 STEP
 0 !LEOCAD PIECE PIVOT  20 20 24 1 0 0 0 1 0 0 0 1
-1 0 -30 -83 50 0 -1 0 0 0 1 -1 0 0 shoulder-armor-01.ldr
+1 0 -30 -83 50 0 -1 0 0 0 1 -1 0 0 24-01-shoulder-armor-01.ldr
 0 STEP
 0 !LEOCAD PIECE PIVOT  -20 20 24 1 0 0 0 1 0 0 0 1
-1 0 30 -83 50 0 1 0 0 0 1 1 0 0 shoulder-armor-02.ldr
+1 0 30 -83 50 0 1 0 0 0 1 1 0 0 24-02-shoulder-armor-02.ldr
 0 STEP
 0 !LEOCAD PIECE PIVOT  0 37 0 1 0 0 0 1 0 0 0 1
-1 0 -50 -143 30 1 0 0 0 1 0 0 0 1 chest-armor-01.ldr
+1 0 -50 -143 30 1 0 0 0 1 0 0 0 1 25-01-chest-armor-01.ldr
 0 STEP
 0 !LEOCAD PIECE PIVOT  0 37 0 1 0 0 0 1 0 0 0 1
-1 0 50 -143 30 1 0 0 0 1 0 0 0 1 chest-armor-02.ldr
+1 0 50 -143 30 1 0 0 0 1 0 0 0 1 25-02-chest-armor-02.ldr
 0 NOFILE
-0 FILE tank-shell-01.ldr
+0 FILE 20-01-seat-01.ldr
 0 
-0 Name: tank-shell-01.ldr
-0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
-1 4 0 0 0 -1 0 0 0 1 0 0 0 -1 41765.dat
-1 4 0 -24 20 -1 0 0 0 1 0 0 0 -1 41768.dat
-0 STEP
-1 71 10 -8 -40 0 0 1 0 1 0 -1 0 0 11458.dat
-1 0 10 -16 -30 0 0 1 0 1 0 -1 0 0 3024.dat
-1 72 10 -24 -30 0 0 1 0 1 0 -1 0 0 3024.dat
-0 STEP
-1 71 0 -32 20 -1 0 0 0 1 0 0 0 -1 41770.dat
-1 71 0 -32 -30 0 0 1 0 1 0 -1 0 0 92946.dat
-1 4 -10 -24 -30 1 0 0 0 1 0 0 0 1 3040.dat
-0 STEP
-1 4 0 -56 20 -1 0 0 0 1 0 0 0 -1 41768.dat
-1 72 10 -56 -30 1 0 0 0 1 0 0 0 1 4287.dat
-0 STEP
-1 4 0 -80 20 -1 0 0 0 1 0 0 0 -1 41768.dat
-1 4 10 -80 -40 0 0 1 0 1 0 -1 0 0 3660.dat
-1 4 10 -104 -40 -1 0 0 0 1 0 0 0 -1 41748.dat
-0 STEP
-1 25 10 -64 -70 0 0 1 0 1 0 -1 0 0 3024.dat
-1 72 10 -88 -70 1 0 0 0 1 0 0 0 1 3005.dat
-1 72 10 -112 -50 1 0 0 0 1 0 0 0 1 28192.dat
-1 72 10 -112 -30 -1 0 0 0 1 0 0 0 -1 24246.dat
-0 STEP
-0 STEP
-0 STEP
-0 STEP
-0 STEP
-0 STEP
-0 STEP
-0 NOFILE
-0 FILE tank-shell-02.ldr
-0 
-0 Name: tank-shell-02.ldr
-0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
-1 4 20 0 0 -1 0 0 0 1 0 0 0 -1 41764.dat
-1 4 20 -24 20 -1 0 0 0 1 0 0 0 -1 41767.dat
-0 STEP
-1 71 10 -8 -40 0 0 1 0 1 0 -1 0 0 11458.dat
-1 0 10 -16 -30 0 0 1 0 1 0 -1 0 0 3024.dat
-1 72 10 -24 -30 0 0 1 0 1 0 -1 0 0 3024.dat
-0 STEP
-1 71 20 -32 20 -1 0 0 0 1 0 0 0 -1 41769.dat
-1 71 20 -32 -30 0 0 -1 0 1 0 1 0 0 92946.dat
-1 4 30 -24 -30 1 0 0 0 1 0 0 0 1 3040.dat
-0 STEP
-1 4 20 -56 20 -1 0 0 0 1 0 0 0 -1 41767.dat
-1 72 10 -56 -30 1 0 0 0 1 0 0 0 1 4287.dat
-0 STEP
-1 4 20 -80 20 -1 0 0 0 1 0 0 0 -1 41767.dat
-1 4 10 -80 -40 0 0 -1 0 1 0 1 0 0 3660.dat
-1 4 10 -104 -40 -1 0 0 0 1 0 0 0 -1 41747.dat
-0 STEP
-1 25 10 -64 -70 0 0 1 0 1 0 -1 0 0 3024.dat
-1 72 10 -88 -70 1 0 0 0 1 0 0 0 1 3005.dat
-1 72 10 -112 -50 1 0 0 0 1 0 0 0 1 28192.dat
-1 72 10 -112 -30 -1 0 0 0 1 0 0 0 -1 24246.dat
-0 STEP
-0 STEP
-0 STEP
-0 STEP
-0 STEP
-0 STEP
-0 STEP
-0 NOFILE
-0 FILE tank-shell-03.ldr
-0 
-0 Name: tank-shell-03.ldr
-0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
-1 4 0 0 0 -1 0 0 0 1 0 0 0 -1 43713.dat
-0 STEP
-1 71 0 8 40 1 0 0 0 1 0 0 0 1 33909.dat
-1 71 0 8 0 -1 0 0 0 1 0 0 0 -1 33909.dat
-0 STEP
-1 72 0 8 60 1 0 0 0 1 0 0 0 1 15068.dat
-1 72 0 -8 90 1 0 0 0 1 0 0 0 1 3069b.dat
-1 72 0 8 -10 1 0 0 0 1 0 0 0 1 85984.dat
-0 STEP
-0 STEP
-0 STEP
-0 STEP
-0 STEP
-0 STEP
-0 STEP
-0 STEP
-0 STEP
-0 STEP
-0 NOFILE
-0 FILE windshield.ldr
-0 
-0 Name: windshield.ldr
-0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
-1 72 -10 17.5 -50 0 0 -1 -1 0 0 0 1 0 48729b.dat
-1 72 10 17.5 -50 0 0 -1 -1 0 0 0 1 0 48729b.dat
-1 47 0 17.5 -50 -1 0 0 0 -0.087156 0.996195 0 0.996195 0.087156 27262.dat
-1 71 -10 0 0 0 0 1 0 1 0 -1 0 0 53989.dat
-1 71 10 0 0 0 0 1 0 1 0 -1 0 0 53989.dat
-0 NOFILE
-0 FILE handlebar-01.ldr
-0 
-0 Name: handlebar-01.ldr
-0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
-1 0 0 0 0 1 0 0 0 0 1 0 -1 0 15100.dat
-1 0 0 0 10 0 1 0 0 0 1 1 0 0 2780.dat
-0 STEP
-0 !LEOCAD GROUP BEGIN Group #3
-1 72 -20 -20 20 0 1 0 1 0 0 0 0 -1 11214.dat
-0 !LEOCAD PIECE PIVOT  0 20 0 1 0 0 0 1 0 0 0 1
-1 0 -20 0 20 0 1 0 1 0 0 0 0 -1 6536.dat
-0 STEP
-0 !LEOCAD GROUP END
-0 !LEOCAD GROUP BEGIN Group #2
-1 71 -10 -20 14 -1 0 0 0 0 -1 0 -1 0 11458.dat
-1 71 -20 -20 6 0 0 -1 1 0 0 0 -1 0 3665.dat
-1 0 -20 -20 -19 0 -1 0 0 0 -1 1 0 0 6628.dat
-0 STEP
-0 !LEOCAD GROUP END
-0 !LEOCAD GROUP BEGIN Group #1
-1 0 -20 -40 20 -0.965926 0 -0.258819 0 1 0 0.258819 0 -0.965926 15100.dat
-1 0 -89.5467 -40 38.635 0.258819 0.965926 0 0 0 1 0.965926 -0.258819 0 87994.dat
-0 STEP
-1 0 -54.7733 -40 29.3175 0.258819 0.965926 0 0 0 1 0.965926 -0.258819 0 3062b.dat
-1 0 -77.9556 -40 35.5292 0.258819 0.965926 0 0 0 1 0.965926 -0.258819 0 3062b.dat
-0 STEP
-1 0 -85.683 -40 37.5997 -0.258819 0.965926 0 0 0 -1 -0.965926 -0.258819 0 32828.dat
-1 0 -93.4104 -40 39.6703 0 0.965926 0.258819 -1 0 0 0 -0.258819 0.965926 98138.dat
-0 !LEOCAD GROUP END
-0 NOFILE
-0 FILE handlebar-02.ldr
-0 
-0 Name: handlebar-02.ldr
-0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
-1 0 0 0 0 -1 0 0 0 0 -1 0 -1 0 15100.dat
-1 0 0 0 10 0 1 0 0 0 1 1 0 0 2780.dat
-0 STEP
-0 !LEOCAD GROUP BEGIN Group #3
-1 72 20 -20 20 0 -1 0 1 0 0 0 0 1 11214.dat
-0 !LEOCAD PIECE PIVOT  0 20 0 1 0 0 0 1 0 0 0 1
-1 0 20 0 20 0 -1 0 1 0 0 0 0 1 6536.dat
-0 STEP
-0 !LEOCAD GROUP END
-0 !LEOCAD GROUP BEGIN Group #4
-1 71 10 -20 14 1 0 0 0 0 1 0 -1 0 11458.dat
-1 71 20 -20 6 0 0 1 -1 0 0 0 -1 0 3665.dat
-1 0 20 -20 -19 0 -1 0 0 0 -1 1 0 0 6628.dat
-0 STEP
-0 !LEOCAD GROUP END
-0 !LEOCAD GROUP BEGIN Group #1
-1 0 20 -40 20 0.965926 0 0.258819 0 -1 0 0.258819 0 -0.965926 15100.dat
-1 0 89.5467 -40 38.635 -0.258819 -0.965926 0 0 0 -1 0.965926 -0.258819 0 87994.dat
-0 STEP
-1 0 54.7733 -40 29.3175 -0.258819 -0.965926 0 0 0 -1 0.965926 -0.258819 0 3062b.dat
-1 0 77.9556 -40 35.5292 -0.258819 -0.965926 0 0 0 -1 0.965926 -0.258819 0 3062b.dat
-0 STEP
-1 0 85.683 -40 37.5997 0.258819 -0.965926 0 0 0 1 -0.965926 -0.258819 0 32828.dat
-1 0 93.4104 -40 39.6703 0 -0.965926 -0.258819 1 0 0 0 -0.258819 0.965926 98138.dat
-0 !LEOCAD GROUP END
-0 NOFILE
-0 FILE seat-01.ldr
-0 
-0 Name: seat-01.ldr
+0 Name: 20-01-seat-01.ldr
 0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
 1 72 0 32 0 1 0 0 0 1 0 0 0 1 3023.dat
 1 72 0 32 -20 1 0 0 0 1 0 0 0 1 32803.dat
@@ -1624,9 +1463,9 @@
 1 4 -10 -8 0 1 0 0 0 1 0 0 0 1 28192.dat
 1 4 10 -8 0 1 0 0 0 1 0 0 0 1 28192.dat
 0 NOFILE
-0 FILE seat-02.ldr
+0 FILE 20-02-seat-02.ldr
 0 
-0 Name: seat-02.ldr
+0 Name: 20-02-seat-02.ldr
 0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
 1 72 0 32 -40 -1 0 0 0 1 0 0 0 -1 3023.dat
 1 72 0 32 -20 -1 0 0 0 1 0 0 0 -1 32803.dat
@@ -1641,9 +1480,9 @@
 1 4 10 -8 -40 -1 0 0 0 1 0 0 0 -1 28192.dat
 1 4 -10 -8 -40 -1 0 0 0 1 0 0 0 -1 28192.dat
 0 NOFILE
-0 FILE seat-03.ldr
+0 FILE 20-03-seat-03.ldr
 0 
-0 Name: seat-03.ldr
+0 Name: 20-03-seat-03.ldr
 0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
 1 4 0 16 70 1 0 0 0 1 0 0 0 1 43713.dat
 1 71 0 8 40 0 0 -1 0 1 0 1 0 0 3002.dat
@@ -1683,33 +1522,172 @@
 1 4 4 54 50 0 -1 0 1 0 0 0 0 1 29120.dat
 1 4 4 54 130 0 -1 0 -1 0 0 0 0 -1 29119.dat
 0 STEP
-1 0 0 8 110 1 0 0 0 1 0 0 0 1 drone.ldr
+1 0 0 8 110 1 0 0 0 1 0 0 0 1 36-drone.ldr
 0 NOFILE
-0 FILE drone.ldr
+0 FILE 21-01-tank-shell-01.ldr
 0 
-0 Name: drone.ldr
+0 Name: 21-01-tank-shell-01.ldr
 0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
-1 71 0 0 0 0 0 1 0 1 0 -1 0 0 2444.dat
-1 0 -10 8 10 0 0 1 0 1 0 -1 0 0 4073.dat
-1 0 10 8 10 0 0 1 0 1 0 -1 0 0 4073.dat
+1 4 0 0 0 -1 0 0 0 1 0 0 0 -1 41765.dat
+1 4 0 -24 20 -1 0 0 0 1 0 0 0 -1 41768.dat
 0 STEP
-1 0 -10 -8 0 0 0 1 0 1 0 -1 0 0 2540.dat
-1 0 10 -8 0 0 0 -1 0 1 0 1 0 0 2540.dat
-1 72 0 -16 -10 -1 0 0 0 1 0 0 0 -1 3023.dat
+1 71 10 -8 -40 0 0 1 0 1 0 -1 0 0 11458.dat
+1 0 10 -16 -30 0 0 1 0 1 0 -1 0 0 3024.dat
+1 72 10 -24 -30 0 0 1 0 1 0 -1 0 0 3024.dat
 0 STEP
-1 4 0 -24 20 -1 0 0 0 1 0 0 0 -1 93606.dat
-1 40 0 0 40 -1 0 0 0 1 0 0 0 -1 3022.dat
-1 40 0 8 40 -1 0 0 0 1 0 0 0 -1 3022.dat
+1 71 0 -32 20 -1 0 0 0 1 0 0 0 -1 41770.dat
+1 71 0 -32 -30 0 0 1 0 1 0 -1 0 0 92946.dat
+1 4 -10 -24 -30 1 0 0 0 1 0 0 0 1 3040.dat
 0 STEP
-1 72 0 16 30 -1 0 0 0 1 0 0 0 -1 3023.dat
-1 4 0 16 50 -1 0 0 0 1 0 0 0 -1 32803.dat
+1 4 0 -56 20 -1 0 0 0 1 0 0 0 -1 41768.dat
+1 72 10 -56 -30 1 0 0 0 1 0 0 0 1 4287.dat
 0 STEP
-1 4 30 -6 20 1 0 0 0 0 1 0 -1 0 44676.dat
-1 4 -30 -6 20 1 0 0 0 0 1 0 -1 0 44676.dat
+1 4 0 -80 20 -1 0 0 0 1 0 0 0 -1 41768.dat
+1 4 10 -80 -40 0 0 1 0 1 0 -1 0 0 3660.dat
+1 4 10 -104 -40 -1 0 0 0 1 0 0 0 -1 41748.dat
+0 STEP
+1 25 10 -64 -70 0 0 1 0 1 0 -1 0 0 3024.dat
+1 72 10 -88 -70 1 0 0 0 1 0 0 0 1 3005.dat
+1 72 10 -112 -50 1 0 0 0 1 0 0 0 1 28192.dat
+1 72 10 -112 -30 -1 0 0 0 1 0 0 0 -1 24246.dat
+0 STEP
+0 STEP
+0 STEP
+0 STEP
+0 STEP
+0 STEP
+0 STEP
 0 NOFILE
-0 FILE shoulder-armor-01.ldr
+0 FILE 21-02-tank-shell-02.ldr
 0 
-0 Name: shoulder-armor-01.ldr
+0 Name: 21-02-tank-shell-02.ldr
+0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
+1 4 20 0 0 -1 0 0 0 1 0 0 0 -1 41764.dat
+1 4 20 -24 20 -1 0 0 0 1 0 0 0 -1 41767.dat
+0 STEP
+1 71 10 -8 -40 0 0 1 0 1 0 -1 0 0 11458.dat
+1 0 10 -16 -30 0 0 1 0 1 0 -1 0 0 3024.dat
+1 72 10 -24 -30 0 0 1 0 1 0 -1 0 0 3024.dat
+0 STEP
+1 71 20 -32 20 -1 0 0 0 1 0 0 0 -1 41769.dat
+1 71 20 -32 -30 0 0 -1 0 1 0 1 0 0 92946.dat
+1 4 30 -24 -30 1 0 0 0 1 0 0 0 1 3040.dat
+0 STEP
+1 4 20 -56 20 -1 0 0 0 1 0 0 0 -1 41767.dat
+1 72 10 -56 -30 1 0 0 0 1 0 0 0 1 4287.dat
+0 STEP
+1 4 20 -80 20 -1 0 0 0 1 0 0 0 -1 41767.dat
+1 4 10 -80 -40 0 0 -1 0 1 0 1 0 0 3660.dat
+1 4 10 -104 -40 -1 0 0 0 1 0 0 0 -1 41747.dat
+0 STEP
+1 25 10 -64 -70 0 0 1 0 1 0 -1 0 0 3024.dat
+1 72 10 -88 -70 1 0 0 0 1 0 0 0 1 3005.dat
+1 72 10 -112 -50 1 0 0 0 1 0 0 0 1 28192.dat
+1 72 10 -112 -30 -1 0 0 0 1 0 0 0 -1 24246.dat
+0 STEP
+0 STEP
+0 STEP
+0 STEP
+0 STEP
+0 STEP
+0 STEP
+0 NOFILE
+0 FILE 21-03-tank-shell-03.ldr
+0 
+0 Name: 21-03-tank-shell-03.ldr
+0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
+1 4 0 0 0 -1 0 0 0 1 0 0 0 -1 43713.dat
+0 STEP
+1 71 0 8 40 1 0 0 0 1 0 0 0 1 33909.dat
+1 71 0 8 0 -1 0 0 0 1 0 0 0 -1 33909.dat
+0 STEP
+1 72 0 8 60 1 0 0 0 1 0 0 0 1 15068.dat
+1 72 0 -8 90 1 0 0 0 1 0 0 0 1 3069b.dat
+1 72 0 8 -10 1 0 0 0 1 0 0 0 1 85984.dat
+0 STEP
+0 STEP
+0 STEP
+0 STEP
+0 STEP
+0 STEP
+0 STEP
+0 STEP
+0 STEP
+0 STEP
+0 NOFILE
+0 FILE 22-01-handlebar-01.ldr
+0 
+0 Name: 22-01-handlebar-01.ldr
+0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
+1 0 0 0 0 1 0 0 0 0 1 0 -1 0 15100.dat
+1 0 0 0 10 0 1 0 0 0 1 1 0 0 2780.dat
+0 STEP
+0 !LEOCAD GROUP BEGIN Group #3
+1 72 -20 -20 20 0 1 0 1 0 0 0 0 -1 11214.dat
+0 !LEOCAD PIECE PIVOT  0 20 0 1 0 0 0 1 0 0 0 1
+1 0 -20 0 20 0 1 0 1 0 0 0 0 -1 6536.dat
+0 STEP
+0 !LEOCAD GROUP END
+0 !LEOCAD GROUP BEGIN Group #2
+1 71 -10 -20 14 -1 0 0 0 0 -1 0 -1 0 11458.dat
+1 71 -20 -20 6 0 0 -1 1 0 0 0 -1 0 3665.dat
+1 0 -20 -20 -19 0 -1 0 0 0 -1 1 0 0 6628.dat
+0 STEP
+0 !LEOCAD GROUP END
+0 !LEOCAD GROUP BEGIN Group #1
+1 0 -20 -40 20 -0.965926 0 -0.258819 0 1 0 0.258819 0 -0.965926 15100.dat
+1 0 -89.5467 -40 38.635 0.258819 0.965926 0 0 0 1 0.965926 -0.258819 0 87994.dat
+0 STEP
+1 0 -54.7733 -40 29.3175 0.258819 0.965926 0 0 0 1 0.965926 -0.258819 0 3062b.dat
+1 0 -77.9556 -40 35.5292 0.258819 0.965926 0 0 0 1 0.965926 -0.258819 0 3062b.dat
+0 STEP
+1 0 -85.683 -40 37.5997 -0.258819 0.965926 0 0 0 -1 -0.965926 -0.258819 0 32828.dat
+1 0 -93.4104 -40 39.6703 0 0.965926 0.258819 -1 0 0 0 -0.258819 0.965926 98138.dat
+0 !LEOCAD GROUP END
+0 NOFILE
+0 FILE 22-02-handlebar-02.ldr
+0 
+0 Name: 22-02-handlebar-02.ldr
+0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
+1 0 0 0 0 -1 0 0 0 0 -1 0 -1 0 15100.dat
+1 0 0 0 10 0 1 0 0 0 1 1 0 0 2780.dat
+0 STEP
+0 !LEOCAD GROUP BEGIN Group #3
+1 72 20 -20 20 0 -1 0 1 0 0 0 0 1 11214.dat
+0 !LEOCAD PIECE PIVOT  0 20 0 1 0 0 0 1 0 0 0 1
+1 0 20 0 20 0 -1 0 1 0 0 0 0 1 6536.dat
+0 STEP
+0 !LEOCAD GROUP END
+0 !LEOCAD GROUP BEGIN Group #4
+1 71 10 -20 14 1 0 0 0 0 1 0 -1 0 11458.dat
+1 71 20 -20 6 0 0 1 -1 0 0 0 -1 0 3665.dat
+1 0 20 -20 -19 0 -1 0 0 0 -1 1 0 0 6628.dat
+0 STEP
+0 !LEOCAD GROUP END
+0 !LEOCAD GROUP BEGIN Group #1
+1 0 20 -40 20 0.965926 0 0.258819 0 -1 0 0.258819 0 -0.965926 15100.dat
+1 0 89.5467 -40 38.635 -0.258819 -0.965926 0 0 0 -1 0.965926 -0.258819 0 87994.dat
+0 STEP
+1 0 54.7733 -40 29.3175 -0.258819 -0.965926 0 0 0 -1 0.965926 -0.258819 0 3062b.dat
+1 0 77.9556 -40 35.5292 -0.258819 -0.965926 0 0 0 -1 0.965926 -0.258819 0 3062b.dat
+0 STEP
+1 0 85.683 -40 37.5997 0.258819 -0.965926 0 0 0 1 -0.965926 -0.258819 0 32828.dat
+1 0 93.4104 -40 39.6703 0 -0.965926 -0.258819 1 0 0 0 -0.258819 0.965926 98138.dat
+0 !LEOCAD GROUP END
+0 NOFILE
+0 FILE 23-windshield.ldr
+0 
+0 Name: 23-windshield.ldr
+0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
+1 72 -10 17.5 -50 0 0 -1 -1 0 0 0 1 0 48729b.dat
+1 72 10 17.5 -50 0 0 -1 -1 0 0 0 1 0 48729b.dat
+1 47 0 17.5 -50 -1 0 0 0 -0.087156 0.996195 0 0.996195 0.087156 27262.dat
+1 71 -10 0 0 0 0 1 0 1 0 -1 0 0 53989.dat
+1 71 10 0 0 0 0 1 0 1 0 -1 0 0 53989.dat
+0 NOFILE
+0 FILE 24-01-shoulder-armor-01.ldr
+0 
+0 Name: 24-01-shoulder-armor-01.ldr
 0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
 1 71 0 0 0 0 0 1 0 1 0 -1 0 0 67329.dat
 1 71 0 20 -28 0 0 -1 -1 0 0 0 1 0 14704.dat
@@ -1728,11 +1706,11 @@
 1 47 0 30 -44 0 0 1 1 0 0 0 1 0 98138.dat
 0 STEP
 0 !LEOCAD PIECE PIVOT  -14 62 -60 1 0 0 0 1 0 0 0 1
-1 0 -24.3698 125.4165 4.8573 -0.965926 -0.066987 -0.25 0 -0.965926 0.258819 -0.258819 0.25 0.933013 shoulder-guard-01.ldr
+1 0 -24.3698 125.4165 4.8573 -0.965926 -0.066987 -0.25 0 -0.965926 0.258819 -0.258819 0.25 0.933013 26-01-shoulder-guard-01.ldr
 0 NOFILE
-0 FILE shoulder-armor-02.ldr
+0 FILE 24-02-shoulder-armor-02.ldr
 0 
-0 Name: shoulder-armor-02.ldr
+0 Name: 24-02-shoulder-armor-02.ldr
 0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
 1 71 0 0 0 0 0 -1 0 1 0 1 0 0 67329.dat
 1 71 0 20 -28 0 0 1 1 0 0 0 1 0 14704.dat
@@ -1751,11 +1729,11 @@
 1 47 0 30 -44 0 0 1 1 0 0 0 1 0 98138.dat
 0 STEP
 0 !LEOCAD PIECE PIVOT  14 62 -60 1 0 0 0 1 0 0 0 1
-1 7 24.3698 125.4165 4.8573 -0.965926 0.066987 0.25 0 -0.965926 0.258819 0.258819 0.25 0.933013 shoulder-guard-02.ldr
+1 7 24.3698 125.4165 4.8573 -0.965926 0.066987 0.25 0 -0.965926 0.258819 0.258819 0.25 0.933013 26-02-shoulder-guard-02.ldr
 0 NOFILE
-0 FILE chest-armor-01.ldr
+0 FILE 25-01-chest-armor-01.ldr
 0 
-0 Name: chest-armor-01.ldr
+0 Name: 25-01-chest-armor-01.ldr
 0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
 1 4 0 0 0 0 0 -1 0 1 0 1 0 0 3665.dat
 1 4 10 -24 0 1 0 0 0 1 0 0 0 1 3660.dat
@@ -1771,9 +1749,9 @@
 0 STEP
 1 0 0 26 0 0 -1 0 -1 0 0 0 0 -1 6628.dat
 0 NOFILE
-0 FILE chest-armor-02.ldr
+0 FILE 25-02-chest-armor-02.ldr
 0 
-0 Name: chest-armor-02.ldr
+0 Name: 25-02-chest-armor-02.ldr
 0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
 1 4 0 0 0 0 0 1 0 1 0 -1 0 0 3665.dat
 1 4 -10 -24 0 1 0 0 0 1 0 0 0 1 3660.dat
@@ -1789,9 +1767,9 @@
 0 STEP
 1 0 0 26 0 0 -1 0 -1 0 0 0 0 -1 6628.dat
 0 NOFILE
-0 FILE shoulder-guard-01.ldr
+0 FILE 26-01-shoulder-guard-01.ldr
 0 
-0 Name: shoulder-guard-01.ldr
+0 Name: 26-01-shoulder-guard-01.ldr
 0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
 1 4 0 0 0 1 0 0 0 1 0 0 0 1 48933.dat
 0 STEP
@@ -1811,9 +1789,9 @@
 1 71 -4 42 -50 0 -1 0 0 0 1 -1 0 0 18677.dat
 1 0 -14 52 -60 0 -1 0 -1 0 0 0 0 -1 6628.dat
 0 NOFILE
-0 FILE shoulder-guard-02.ldr
+0 FILE 26-02-shoulder-guard-02.ldr
 0 
-0 Name: shoulder-guard-02.ldr
+0 Name: 26-02-shoulder-guard-02.ldr
 0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
 1 4 0 0 0 1 0 0 0 1 0 0 0 1 48933.dat
 0 STEP
@@ -1833,31 +1811,9 @@
 1 71 4 42 -50 0 1 0 0 0 -1 -1 0 0 18677.dat
 1 0 14 52 -60 0 1 0 -1 0 0 0 0 1 6628.dat
 0 NOFILE
-0 FILE chest-guard.ldr
+0 FILE 27-radiator.ldr
 0 
-0 Name: chest-guard.ldr
-0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
-1 72 0 0 0 -1 0 0 0 1 0 0 0 -1 13349.dat
-0 STEP
-1 71 0 -8 50 -1 0 0 0 1 0 0 0 -1 48183.dat
-1 71 -30 -8 0 -1 0 0 0 1 0 0 0 -1 3024.dat
-1 71 30 -8 0 -1 0 0 0 1 0 0 0 -1 3024.dat
-0 STEP
-1 0 -30 -8 0 -1 0 0 0 1 0 0 0 -1 54200.dat
-1 0 30 -8 0 -1 0 0 0 1 0 0 0 -1 54200.dat
-1 0 0 -16 60 -1 0 0 0 1 0 0 0 -1 48336.dat
-1 0 0 -16 30 -1 0 0 0 1 0 0 0 -1 3022.dat
-0 STEP
-1 72 0 -24 60 -1 0 0 0 1 0 0 0 -1 99563.dat
-1 72 0 -24 30 -1 0 0 0 1 0 0 0 -1 3068b.dat
-1 71 0 -8 0 1 0 0 0 1 0 0 0 1 4865b.dat
-0 STEP
-1 72 0 24 0 -1 0 0 0 1 0 0 0 -1 32803.dat
-1 72 0 32 -20 1 0 0 0 1 0 0 0 1 85984.dat
-0 NOFILE
-0 FILE radiator.ldr
-0 
-0 Name: radiator.ldr
+0 Name: 27-radiator.ldr
 0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
 1 0 0 0 0 1 0 0 0 1 0 0 0 1 60470.dat
 1 0 -10 0 30 0 0 -1 0 1 0 1 0 0 44301a.dat
@@ -1898,17 +1854,29 @@
 1 0 -50 -8 20 0 1 0 0 0 -1 -1 0 0 32474.dat
 0 STEP
 0 !LEOCAD PIECE PIVOT  0 -14 80 1 0 0 0 1 0 0 0 1
-1 0 0 -12 -100 -1 0 0 0 -1 0 0 0 1 chest-guard.ldr
+1 0 0 -12 -100 -1 0 0 0 -1 0 0 0 1 29-chest-guard.ldr
 0 STEP
 0 !LEOCAD PIECE PIVOT  0 0 -60 1 0 0 0 1 0 0 0 1
-1 0 50 -8 -40 -1 0 0 0 1 0 0 0 -1 actuator-01.ldr
+1 0 50 -8 -40 -1 0 0 0 1 0 0 0 -1 32-01-chest-actuator-01.ldr
 0 STEP
 0 !LEOCAD PIECE PIVOT  0 0 -60 1 0 0 0 1 0 0 0 1
-1 0 -50 -8 -40 -1 0 0 0 1 0 0 0 -1 actuator-02.ldr
+1 0 -50 -8 -40 -1 0 0 0 1 0 0 0 -1 32-02-chest-actuator-02.ldr
 0 NOFILE
-0 FILE waist-guard.ldr
+0 FILE 28-01-waist-guard-hinge.ldr
 0 
-0 Name: waist-guard.ldr
+0 Name: 28-01-waist-guard-hinge.ldr
+0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
+1 0 -10 0 0 0 0 -1 0 1 0 1 0 0 78257.dat
+1 0 10 0 0 0 0 -1 0 1 0 1 0 0 78257.dat
+0 STEP
+1 72 0 0 0 -1 0 0 0 1 0 0 0 -1 85984.dat
+0 STEP
+0 !LEOCAD PIECE PIVOT  0 -6 20 1 0 0 0 1 0 0 0 1
+1 0 0 -17.8245 13.4434 -1 0 0 0 -0.573576 0.819152 0 0.819152 0.573576 28-02-waist-guard.ldr
+0 NOFILE
+0 FILE 28-02-waist-guard.ldr
+0 
+0 Name: 28-02-waist-guard.ldr
 0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
 1 4 0 0 0 -1 0 0 0 1 0 0 0 -1 13349.dat
 1 4 0 -8 50 -1 0 0 0 1 0 0 0 -1 48183.dat
@@ -1926,55 +1894,133 @@
 1 4 30 -24 0 1 0 0 0 1 0 0 0 1 3665.dat
 1 4 30 -24 -10 0 0 -1 0 1 0 1 0 0 85984.dat
 0 NOFILE
-0 FILE waist-guard-hinge.ldr
+0 FILE 29-chest-guard.ldr
 0 
-0 Name: waist-guard-hinge.ldr
+0 Name: 29-chest-guard.ldr
 0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
-1 0 -10 0 0 0 0 -1 0 1 0 1 0 0 78257.dat
-1 0 10 0 0 0 0 -1 0 1 0 1 0 0 78257.dat
+1 72 0 0 0 -1 0 0 0 1 0 0 0 -1 13349.dat
 0 STEP
-1 72 0 0 0 -1 0 0 0 1 0 0 0 -1 85984.dat
+1 71 0 -8 50 -1 0 0 0 1 0 0 0 -1 48183.dat
+1 71 -30 -8 0 -1 0 0 0 1 0 0 0 -1 3024.dat
+1 71 30 -8 0 -1 0 0 0 1 0 0 0 -1 3024.dat
 0 STEP
-0 !LEOCAD PIECE PIVOT  0 -6 20 1 0 0 0 1 0 0 0 1
-1 0 0 -17.8245 13.4434 -1 0 0 0 -0.573576 0.819152 0 0.819152 0.573576 waist-guard.ldr
+1 0 -30 -8 0 -1 0 0 0 1 0 0 0 -1 54200.dat
+1 0 30 -8 0 -1 0 0 0 1 0 0 0 -1 54200.dat
+1 0 0 -16 60 -1 0 0 0 1 0 0 0 -1 48336.dat
+1 0 0 -16 30 -1 0 0 0 1 0 0 0 -1 3022.dat
+0 STEP
+1 72 0 -24 60 -1 0 0 0 1 0 0 0 -1 99563.dat
+1 72 0 -24 30 -1 0 0 0 1 0 0 0 -1 3068b.dat
+1 71 0 -8 0 1 0 0 0 1 0 0 0 1 4865b.dat
+0 STEP
+1 72 0 24 0 -1 0 0 0 1 0 0 0 -1 32803.dat
+1 72 0 32 -20 1 0 0 0 1 0 0 0 1 85984.dat
 0 NOFILE
-0 FILE shock-absorber-01.ldr
+0 FILE 30-01-waist-actuator-01.ldr
 0 
-0 Name: shock-absorber-01.ldr
+0 Name: 30-01-waist-actuator-01.ldr
 0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
-1 3 0 0 0 0 0 -1 0 1 0 1 0 0 87617.dat
-1 71 0 -166 0 0 0 1 0 -1 0 1 0 0 87618.dat
-0 STEP
 0 !LEOCAD GROUP BEGIN Group #1
-1 0 -20 -166 0 -1 0 0 0 -0.258819 0.965926 0 0.965926 0.258819 6536.dat
-1 0 -20 -180.8357 16.7304 0 -1 0 0.965926 0 -0.258819 0.258819 0 0.965926 6628.dat
+1 71 0 0 0 -1 0 0 0 1 0 0 0 -1 2429.dat
+0 !LEOCAD GROUP END
+0 !LEOCAD GROUP BEGIN Group #2
+1 71 0 0 0 1 0 0 0 1 0 0 0 1 2430.dat
 0 STEP
 0 !LEOCAD GROUP END
-1 0 20 0 0 0 -1 0 0 0 -1 1 0 0 32474.dat
-0 STEP
-0 !LEOCAD PIECE PIVOT  28 -12 0 1 0 0 0 1 0 0 0 1
-1 0 -20 -220.7438 10.5345 0 0 1 0.866025 -0.5 0 0.5 0.866025 0 gauntlet-01.ldr
-0 NOFILE
-0 FILE Shock-absorber-02.ldr
-0 
-0 Name: Shock-absorber-02.ldr
-0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
-1 3 0 0 0 0 0 1 0 1 0 -1 0 0 87617.dat
-1 71 0 -166 0 0 0 -1 0 -1 0 -1 0 0 87618.dat
-0 STEP
 0 !LEOCAD GROUP BEGIN Group #1
-1 0 20 -166 0 1 0 0 0 -0.258819 -0.965926 0 0.965926 -0.258819 6536.dat
-1 0 20 -180.8356 16.7303 0 -1 0 0.965926 0 -0.258819 0.258819 0 0.965926 6628.dat
+1 71 20 8 -10 -1 0 0 0 1 0 0 0 -1 18677.dat
+0 !LEOCAD GROUP END
+0 !LEOCAD GROUP BEGIN Group #2
+1 71 20 8 10 1 0 0 0 1 0 0 0 1 14418.dat
+0 STEP
+1 71 20 -8 10 -1 0 0 0 1 0 0 0 -1 99563.dat
+0 !LEOCAD GROUP END
+0 !LEOCAD GROUP BEGIN Group #1
+1 71 20 -8 -10 1 0 0 0 1 0 0 0 1 99563.dat
+0 STEP
+1 0 10 18 -20 0 0 -1 0 1 0 1 0 0 6628.dat
+0 !LEOCAD GROUP END
+0 !LEOCAD PIECE PIVOT  -30 -20 -80 1 0 0 0 1 0 0 0 1
+1 7 48.583 96.4363 -37.688 0.129408 -0.769003 0.62601 0.224144 0.637663 0.736984 -0.965926 0.044945 0.254887 31-01-thigh-guard-01.ldr
+0 NOFILE
+0 FILE 30-01-waist-actuator-02.ldr
+0 
+0 Name: 30-01-waist-actuator-02.ldr
+0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
+0 !LEOCAD GROUP BEGIN Group #2
+1 71 0 0 0 1 0 0 0 1 0 0 0 1 2429.dat
+0 !LEOCAD GROUP END
+0 !LEOCAD GROUP BEGIN Group #1
+1 71 0 0 0 -1 0 0 0 1 0 0 0 -1 2430.dat
+0 STEP
+1 71 -20 8 -10 1 0 0 0 1 0 0 0 1 18677.dat
+0 !LEOCAD GROUP END
+0 !LEOCAD GROUP BEGIN Group #2
+1 71 -20 8 10 -1 0 0 0 1 0 0 0 -1 14418.dat
 0 STEP
 0 !LEOCAD GROUP END
-1 0 -20 0 0 0 1 0 0 0 -1 -1 0 0 32474.dat
+0 !LEOCAD GROUP BEGIN Group #1
+1 71 -20 -8 -10 1 0 0 0 1 0 0 0 1 99563.dat
+0 !LEOCAD GROUP END
+0 !LEOCAD GROUP BEGIN Group #2
+1 71 -20 -8 10 -1 0 0 0 1 0 0 0 -1 99563.dat
 0 STEP
-0 !LEOCAD PIECE PIVOT  -28 -12 0 1 0 0 0 1 0 0 0 1
-1 0 20 -220.7437 10.5345 0 0 -1 -0.866025 -0.5 0 -0.5 0.866025 0 gauntlet-02.ldr
+0 !LEOCAD GROUP END
+0 !LEOCAD GROUP BEGIN Group #1
+1 0 -10 18 -20 0 0 -1 0 1 0 1 0 0 6628.dat
+0 !LEOCAD GROUP END
+0 !LEOCAD PIECE PIVOT  30 -20 -80 1 0 0 0 1 0 0 0 1
+1 7 -48.583 96.4363 -37.6881 0.12941 0.769003 -0.626009 -0.224144 0.637664 0.736983 0.965926 0.044943 0.254888 31-02-thigh-guard-02.ldr
 0 NOFILE
-0 FILE actuator-01.ldr
+0 FILE 31-01-thigh-guard-01.ldr
 0 
-0 Name: actuator-01.ldr
+0 Name: 31-01-thigh-guard-01.ldr
+0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
+1 4 0 0 0 -1 0 0 0 1 0 0 0 -1 13349.dat
+1 4 0 0 -20 1 0 0 0 1 0 0 0 1 13349.dat
+1 72 0 0 -10 0 0 1 0 1 0 -1 0 0 87079.dat
+0 STEP
+1 0 -30 -8 -10 0 0 1 0 1 0 -1 0 0 3069b.dat
+1 0 30 -8 -10 0 0 1 0 1 0 -1 0 0 3069b.dat
+0 STEP
+1 0 0 -8 50 -1 0 0 0 1 0 0 0 -1 48183.dat
+1 0 0 -8 -70 1 0 0 0 1 0 0 0 1 48183.dat
+0 STEP
+1 72 10 -16 50 0 0 -1 0 1 0 1 0 0 99563.dat
+1 72 -10 -16 50 0 0 -1 0 1 0 1 0 0 99563.dat
+0 STEP
+1 71 0 -24 -80 -1 0 0 0 1 0 0 0 -1 14418.dat
+1 72 0 -16 -80 1 0 0 0 1 0 0 0 1 32028.dat
+0 STEP
+1 4 -10 -32 -80 -1 0 0 0 1 0 0 0 -1 28192.dat
+1 4 10 -32 -80 -1 0 0 0 1 0 0 0 -1 28192.dat
+0 NOFILE
+0 FILE 31-02-thigh-guard-02.ldr
+0 
+0 Name: 31-02-thigh-guard-02.ldr
+0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
+1 4 0 0 0 -1 0 0 0 1 0 0 0 -1 13349.dat
+1 4 0 0 -20 1 0 0 0 1 0 0 0 1 13349.dat
+1 72 0 0 -10 0 0 1 0 1 0 -1 0 0 87079.dat
+0 STEP
+1 0 -30 -8 -10 0 0 1 0 1 0 -1 0 0 3069b.dat
+1 0 30 -8 -10 0 0 1 0 1 0 -1 0 0 3069b.dat
+0 STEP
+1 0 0 -8 50 -1 0 0 0 1 0 0 0 -1 48183.dat
+1 0 0 -8 -70 1 0 0 0 1 0 0 0 1 48183.dat
+0 STEP
+1 72 10 -16 50 0 0 -1 0 1 0 1 0 0 99563.dat
+1 72 -10 -16 50 0 0 -1 0 1 0 1 0 0 99563.dat
+0 STEP
+1 71 0 -24 -80 1 0 0 0 1 0 0 0 1 14418.dat
+1 72 0 -16 -80 1 0 0 0 1 0 0 0 1 32028.dat
+0 STEP
+1 4 -10 -32 -80 -1 0 0 0 1 0 0 0 -1 28192.dat
+1 4 10 -32 -80 -1 0 0 0 1 0 0 0 -1 28192.dat
+0 NOFILE
+0 FILE 32-01-chest-actuator-01.ldr
+0 
+0 Name: 32-01-chest-actuator-01.ldr
 0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
 1 72 0 0 0 0 1 0 -1 0 0 0 0 1 61054.dat
 0 STEP
@@ -1995,11 +2041,11 @@
 1 4 7 -32.1244 -20 0 0.5 -0.866025 0 -0.866025 -0.5 -1 0 0 54200.dat
 0 STEP
 0 !LEOCAD PIECE PIVOT  0 20 20 1 0 0 0 1 0 0 0 1
-1 0 0 -20 80 1 0 0 0 0 1 0 -1 0 pivot-01.ldr
+1 0 0 -20 80 1 0 0 0 0 1 0 -1 0 33-01-actuator-pivot-01.ldr
 0 NOFILE
-0 FILE actuator-02.ldr
+0 FILE 32-02-chest-actuator-02.ldr
 0 
-0 Name: actuator-02.ldr
+0 Name: 32-02-chest-actuator-02.ldr
 0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
 1 72 0 0 0 0 1 0 -1 0 0 0 0 1 61054.dat
 0 STEP
@@ -2020,11 +2066,11 @@
 1 4 -7 -32.1244 40 0 -0.5 0.866025 0 -0.866025 -0.5 1 0 0 54200.dat
 0 STEP
 0 !LEOCAD PIECE PIVOT  0 20 20 1 0 0 0 1 0 0 0 1
-1 0 0 -20 80 1 0 0 0 0 1 0 -1 0 pivot-02.ldr
+1 0 0 -20 80 1 0 0 0 0 1 0 -1 0 33-02-actuator-pivot-02.ldr
 0 NOFILE
-0 FILE pivot-01.ldr
+0 FILE 33-01-actuator-pivot-01.ldr
 0 
-0 Name: pivot-01.ldr
+0 Name: 33-01-actuator-pivot-01.ldr
 0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
 0 !LEOCAD GROUP BEGIN Group #2
 1 0 0 0 0 -1 0 0 0 1 0 0 0 -1 92907.dat
@@ -2042,11 +2088,11 @@
 0 STEP
 0 !LEOCAD GROUP END
 0 !LEOCAD PIECE PIVOT  20 0 0 1 0 0 0 1 0 0 0 1
-1 0 -20 20 -80 1 0 0 0 -0.866026 -0.5 0 0.5 -0.866026 shock-absorber-01.ldr
+1 0 -20 20 -80 1 0 0 0 -0.866026 -0.5 0 0.5 -0.866026 34-01-shock-absorber-01.ldr
 0 NOFILE
-0 FILE pivot-02.ldr
+0 FILE 33-02-actuator-pivot-02.ldr
 0 
-0 Name: pivot-02.ldr
+0 Name: 33-02-actuator-pivot-02.ldr
 0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
 0 !LEOCAD GROUP BEGIN Group #2
 1 0 0 0 0 -1 0 0 0 1 0 0 0 -1 92907.dat
@@ -2064,11 +2110,45 @@
 0 STEP
 0 !LEOCAD GROUP END
 0 !LEOCAD PIECE PIVOT  -20 0 0 1 0 0 0 1 0 0 0 1
-1 0 20 20 -80 1 0 0 0 -0.866025 -0.5 0 0.5 -0.866025 Shock-absorber-02.ldr
+1 0 20 20 -80 1 0 0 0 -0.866025 -0.5 0 0.5 -0.866025 34-02-shock-absorber-02.ldr
 0 NOFILE
-0 FILE gauntlet-01.ldr
+0 FILE 34-01-shock-absorber-01.ldr
 0 
-0 Name: gauntlet-01.ldr
+0 Name: 34-01-shock-absorber-01.ldr
+0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
+1 3 0 0 0 0 0 -1 0 1 0 1 0 0 87617.dat
+1 71 0 -166 0 0 0 1 0 -1 0 1 0 0 87618.dat
+0 STEP
+0 !LEOCAD GROUP BEGIN Group #1
+1 0 -20 -166 0 -1 0 0 0 -0.258819 0.965926 0 0.965926 0.258819 6536.dat
+1 0 -20 -180.8357 16.7304 0 -1 0 0.965926 0 -0.258819 0.258819 0 0.965926 6628.dat
+0 STEP
+0 !LEOCAD GROUP END
+1 0 20 0 0 0 -1 0 0 0 -1 1 0 0 32474.dat
+0 STEP
+0 !LEOCAD PIECE PIVOT  28 -12 0 1 0 0 0 1 0 0 0 1
+1 0 -20 -220.7438 10.5345 0 0 1 0.866025 -0.5 0 0.5 0.866025 0 35-01-gauntlet-01.ldr
+0 NOFILE
+0 FILE 34-02-shock-absorber-02.ldr
+0 
+0 Name: 34-02-shock-absorber-02.ldr
+0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
+1 3 0 0 0 0 0 1 0 1 0 -1 0 0 87617.dat
+1 71 0 -166 0 0 0 -1 0 -1 0 -1 0 0 87618.dat
+0 STEP
+0 !LEOCAD GROUP BEGIN Group #1
+1 0 20 -166 0 1 0 0 0 -0.258819 -0.965926 0 0.965926 -0.258819 6536.dat
+1 0 20 -180.8356 16.7303 0 -1 0 0.965926 0 -0.258819 0.258819 0 0.965926 6628.dat
+0 STEP
+0 !LEOCAD GROUP END
+1 0 -20 0 0 0 1 0 0 0 -1 -1 0 0 32474.dat
+0 STEP
+0 !LEOCAD PIECE PIVOT  -28 -12 0 1 0 0 0 1 0 0 0 1
+1 0 20 -220.7437 10.5345 0 0 -1 -0.866025 -0.5 0 -0.5 0.866025 0 35-02-gauntlet-02.ldr
+0 NOFILE
+0 FILE 35-01-gauntlet-01.ldr
+0 
+0 Name: 35-01-gauntlet-01.ldr
 0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
 1 72 0 0 0 1 0 0 0 1 0 0 0 1 67329.dat
 1 72 0 40 -18 0 0 1 1 0 0 0 1 0 87079.dat
@@ -2106,9 +2186,9 @@
 1 72 -10 152 0 1 0 0 0 1 0 0 0 1 85861.dat
 1 72 -10 132 0 0 -1 0 -1 0 0 0 0 -1 62462.dat
 0 NOFILE
-0 FILE gauntlet-02.ldr
+0 FILE 35-02-gauntlet-02.ldr
 0 
-0 Name: gauntlet-02.ldr
+0 Name: 35-02-gauntlet-02.ldr
 0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
 1 72 0 0 0 1 0 0 0 1 0 0 0 1 67329.dat
 1 72 0 40 -18 0 0 1 1 0 0 0 1 0 87079.dat
@@ -2146,105 +2226,25 @@
 1 72 10 152 0 -1 0 0 0 1 0 0 0 -1 85861.dat
 1 72 10 132 0 0 1 0 -1 0 0 0 0 1 62462.dat
 0 NOFILE
-0 FILE thigh-guard-hinge-actuator-01.ldr
+0 FILE 36-drone.ldr
 0 
-0 Name: thigh-guard-hinge-actuator-01.ldr
+0 Name: 36-drone.ldr
 0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
-0 !LEOCAD GROUP BEGIN Group #1
-1 71 0 0 0 -1 0 0 0 1 0 0 0 -1 2429.dat
-0 !LEOCAD GROUP END
-0 !LEOCAD GROUP BEGIN Group #2
-1 71 0 0 0 1 0 0 0 1 0 0 0 1 2430.dat
+1 71 0 0 0 0 0 1 0 1 0 -1 0 0 2444.dat
+1 0 -10 8 10 0 0 1 0 1 0 -1 0 0 4073.dat
+1 0 10 8 10 0 0 1 0 1 0 -1 0 0 4073.dat
 0 STEP
-0 !LEOCAD GROUP END
-0 !LEOCAD GROUP BEGIN Group #1
-1 71 20 8 -10 -1 0 0 0 1 0 0 0 -1 18677.dat
-0 !LEOCAD GROUP END
-0 !LEOCAD GROUP BEGIN Group #2
-1 71 20 8 10 1 0 0 0 1 0 0 0 1 14418.dat
+1 0 -10 -8 0 0 0 1 0 1 0 -1 0 0 2540.dat
+1 0 10 -8 0 0 0 -1 0 1 0 1 0 0 2540.dat
+1 72 0 -16 -10 -1 0 0 0 1 0 0 0 -1 3023.dat
 0 STEP
-1 71 20 -8 10 -1 0 0 0 1 0 0 0 -1 99563.dat
-0 !LEOCAD GROUP END
-0 !LEOCAD GROUP BEGIN Group #1
-1 71 20 -8 -10 1 0 0 0 1 0 0 0 1 99563.dat
+1 4 0 -24 20 -1 0 0 0 1 0 0 0 -1 93606.dat
+1 40 0 0 40 -1 0 0 0 1 0 0 0 -1 3022.dat
+1 40 0 8 40 -1 0 0 0 1 0 0 0 -1 3022.dat
 0 STEP
-1 0 10 18 -20 0 0 -1 0 1 0 1 0 0 6628.dat
-0 !LEOCAD GROUP END
-0 !LEOCAD PIECE PIVOT  -30 -20 -80 1 0 0 0 1 0 0 0 1
-1 7 35.1989 101.6457 -38.2723 0.129409 -0.866025 0.482963 0.224144 0.5 0.836516 -0.965926 0 0.258819 thigh-guard-01.ldr
-0 NOFILE
-0 FILE thigh-guard-hinge-actuator-02.ldr
-0 
-0 Name: thigh-guard-hinge-actuator-02.ldr
-0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
-0 !LEOCAD GROUP BEGIN Group #2
-1 71 0 0 0 1 0 0 0 1 0 0 0 1 2429.dat
-0 !LEOCAD GROUP END
-0 !LEOCAD GROUP BEGIN Group #1
-1 71 0 0 0 -1 0 0 0 1 0 0 0 -1 2430.dat
+1 72 0 16 30 -1 0 0 0 1 0 0 0 -1 3023.dat
+1 4 0 16 50 -1 0 0 0 1 0 0 0 -1 32803.dat
 0 STEP
-1 71 -20 8 -10 1 0 0 0 1 0 0 0 1 18677.dat
-0 !LEOCAD GROUP END
-0 !LEOCAD GROUP BEGIN Group #2
-1 71 -20 8 10 -1 0 0 0 1 0 0 0 -1 14418.dat
-0 STEP
-0 !LEOCAD GROUP END
-0 !LEOCAD GROUP BEGIN Group #1
-1 71 -20 -8 -10 1 0 0 0 1 0 0 0 1 99563.dat
-0 !LEOCAD GROUP END
-0 !LEOCAD GROUP BEGIN Group #2
-1 71 -20 -8 10 -1 0 0 0 1 0 0 0 -1 99563.dat
-0 STEP
-0 !LEOCAD GROUP END
-0 !LEOCAD GROUP BEGIN Group #1
-1 0 -10 18 -20 0 0 -1 0 1 0 1 0 0 6628.dat
-0 !LEOCAD GROUP END
-0 !LEOCAD PIECE PIVOT  30 -20 -80 1 0 0 0 1 0 0 0 1
-1 7 -35.1988 101.6457 -38.2723 0.12941 0.866025 -0.482963 -0.224144 0.5 0.836516 0.965926 0 0.258819 thigh-guard-02.ldr
-0 NOFILE
-0 FILE thigh-guard-01.ldr
-0 
-0 Name: thigh-guard-01.ldr
-0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
-1 4 0 0 0 -1 0 0 0 1 0 0 0 -1 13349.dat
-1 4 0 0 -20 1 0 0 0 1 0 0 0 1 13349.dat
-1 72 0 0 -10 0 0 1 0 1 0 -1 0 0 87079.dat
-0 STEP
-1 0 -30 -8 -10 0 0 1 0 1 0 -1 0 0 3069b.dat
-1 0 30 -8 -10 0 0 1 0 1 0 -1 0 0 3069b.dat
-0 STEP
-1 0 0 -8 50 -1 0 0 0 1 0 0 0 -1 48183.dat
-1 0 0 -8 -70 1 0 0 0 1 0 0 0 1 48183.dat
-0 STEP
-1 72 10 -16 50 0 0 -1 0 1 0 1 0 0 99563.dat
-1 72 -10 -16 50 0 0 -1 0 1 0 1 0 0 99563.dat
-0 STEP
-1 71 0 -24 -80 -1 0 0 0 1 0 0 0 -1 14418.dat
-1 72 0 -16 -80 1 0 0 0 1 0 0 0 1 32028.dat
-0 STEP
-1 4 -10 -32 -80 -1 0 0 0 1 0 0 0 -1 28192.dat
-1 4 10 -32 -80 -1 0 0 0 1 0 0 0 -1 28192.dat
-0 NOFILE
-0 FILE thigh-guard-02.ldr
-0 
-0 Name: thigh-guard-02.ldr
-0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
-1 4 0 0 0 -1 0 0 0 1 0 0 0 -1 13349.dat
-1 4 0 0 -20 1 0 0 0 1 0 0 0 1 13349.dat
-1 72 0 0 -10 0 0 1 0 1 0 -1 0 0 87079.dat
-0 STEP
-1 0 -30 -8 -10 0 0 1 0 1 0 -1 0 0 3069b.dat
-1 0 30 -8 -10 0 0 1 0 1 0 -1 0 0 3069b.dat
-0 STEP
-1 0 0 -8 50 -1 0 0 0 1 0 0 0 -1 48183.dat
-1 0 0 -8 -70 1 0 0 0 1 0 0 0 1 48183.dat
-0 STEP
-1 72 10 -16 50 0 0 -1 0 1 0 1 0 0 99563.dat
-1 72 -10 -16 50 0 0 -1 0 1 0 1 0 0 99563.dat
-0 STEP
-1 71 0 -24 -80 1 0 0 0 1 0 0 0 1 14418.dat
-1 72 0 -16 -80 1 0 0 0 1 0 0 0 1 32028.dat
-0 STEP
-1 4 -10 -32 -80 -1 0 0 0 1 0 0 0 -1 28192.dat
-1 4 10 -32 -80 -1 0 0 0 1 0 0 0 -1 28192.dat
+1 4 30 -6 20 1 0 0 0 0 1 0 -1 0 44676.dat
+1 4 -30 -6 20 1 0 0 0 0 1 0 -1 0 44676.dat
 0 NOFILE
