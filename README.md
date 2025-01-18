@@ -44,6 +44,8 @@ This repository hosts the website dedicated to showcasing AFOL Lego models and t
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/nathaneltitane/nathaneltitane?style=for-the-badge&logo=gnubash&logoColor=ffffff&label=NATHANEL+TITANE)](https://github.com/nathaneltitane/nathaneltitane)
 
+[![GitHub Repo stars](https://img.shields.io/github/stars/nathaneltitane/pewpewprints?style=for-the-badge&logo=gnubash&logoColor=ffffff&label=PEWPEWPRINTS)](https://github.com/nathaneltitane/pewpewprints)
+
 ---
 
 [[ Lego // Linux // Project Page ]](https://github.com/nathaneltitane/legolinux) [ Version // 01-21-2023 ]
