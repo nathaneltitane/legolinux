@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
 <asset>
-	<created>2024-11-07T16:59:10</created>
-	<modified>2024-11-07T16:59:10</modified>
+	<created>2025-05-10T15:29:38</created>
+	<modified>2025-05-10T15:29:38</modified>
 <unit name="LeoCAD" meter="0.0004" />
 	<up_axis>Z_UP</up_axis>
 </asset>
@@ -23413,13 +23413,13 @@
 				 178 167 166
 				 168 167 179
 				 173 164 172
-				 173 172 180
+				 172 180 173
 				 174 161 175
-				 174 175 181
+				 175 181 174
 				 179 167 178
-				 179 178 182
+				 178 182 179
 				 176 170 177
-				 176 177 183
+				 177 183 176
 				 200 189 188
 				 188 40 200
 				 201 197 212
