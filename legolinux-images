@@ -116,7 +116,7 @@ do
 		# shuffle models directories list:
 		# creates random showcase of all models on each update
 
-		for image_path in $(find ${local_models_directory} -type f -iname "${directory}"."${extension}" | sort)
+		for image_path in $(find ${local_models_directory} -type f -not -path "work-in-progress" -iname "${directory}"."${extension}" | sort)
 		do
 			pad_image_count=$(printf "%03d" "${image_count}")
 
