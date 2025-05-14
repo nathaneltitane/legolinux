@@ -1,33 +1,30 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function () {
 
 	const wrapper = document.getElementById('paypal-button-icon')
 
 	const link = wrapper.querySelector('a')
 
-	let previewVisible = false
+	var previewVisible = false
 
-	wrapper.addEventListener('click', (e) => {
+	wrapper.addEventListener('click', function (e) {
 
 		if (!previewVisible) {
 
 			e.preventDefault()
 
-			showPreview() // your custom function
+			showPreview() // define this separately
 
 			previewVisible = true
 
-			setTimeout(() => {
+			setTimeout(function () {
 
 				previewVisible = false
-
-			}, 3000)
+			}, 5000)
 
 		} else {
 
 			window.location.href = link.href
-
 		}
-
 	})
-
 })
+
