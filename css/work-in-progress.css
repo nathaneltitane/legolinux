@@ -1,6 +1,5 @@
 .work-in-progress {
 	position: relative;
-	border-radius: 15px;
 	overflow: hidden;
 	color: inherit;
 }
@@ -51,5 +50,14 @@
 }
 
 .container.work-in-progress:hover > * {
+	background: #333333ff;
 	color: #dc2a30ff;
+}
+
+.container.work-in-progress:hover > .section {
+	border-radius: 15px 15px 0px 0px;
+}
+
+.container.work-in-progress:hover img {
+	border-radius: 0px 0px 15px 15px;
 }
