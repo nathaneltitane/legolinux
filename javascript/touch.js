@@ -1,3 +1,5 @@
+// touch //
+
 document.addEventListener('DOMContentLoaded', function () {
 
 	const wrapper = document.getElementById('paypal-button-icon')
