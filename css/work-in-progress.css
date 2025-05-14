@@ -1,7 +1,7 @@
 .work-in-progress {
 	position: relative;
 	overflow: hidden;
-	color: inherit;
+	color: #dc2a30ff;
 }
 
 .work-in-progress::before,
@@ -51,7 +51,6 @@
 
 .container.work-in-progress:hover > * {
 	background: #333333ff;
-	color: #dc2a30ff;
 }
 
 .container.work-in-progress:hover > .section {
