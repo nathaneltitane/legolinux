@@ -58,6 +58,6 @@
 	border-radius: 15px 15px 0px 0px;
 }
 
-.container.work-in-progress:hover img {
+.container.work-in-progress:hover .flex-middle:2nd-of-type {
 	border-radius: 0px 0px 15px 15px;
 }
