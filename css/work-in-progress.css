@@ -7,8 +7,8 @@
 .work-in-progress::before {
 	background: repeating-linear-gradient(
 		45deg,
-		#dcdc20ff,
-		#dcdc20ff 20px,
+		#ffff00ff,
+		#ffff00ff 20px,
 		#333333ff 20px,
 		#333333ff 40px
 	);
