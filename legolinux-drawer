@@ -229,7 +229,9 @@ for extension in ${extensions_list[@]}
 do
 	count=1
 
-	models_list=( $(find "${models_directory}" -type f -iname "*.${extension}" ! -iname "*instructions*" | sort) )
+	models_list=( $(find "${models_directory}" -type f -iname "work-in-progress.${extension}" ! -iname "*instructions*" | sort) )
+
+	models_list+=( $(find "${models_directory}" -type f -iname "*.${extension}" ! -iname "*instructions*" | sort) )
 
 	# set IFS
 
@@ -287,11 +289,21 @@ do
 
 		# generate model drawer entries
 
-		if [[ -f "${model_directory}"/work-in-progress ]]
+		if [[ "${model_directory}" = *work-in-progress* ]]
+		then
+			color="red"
+
+			marker="work-in-progress"
+
+		elif [[ -f "${model_directory}"/work-in-progress ]]
 		then
 			color="orange"
+
+			unset marker
 		else
 			color="green"
+
+			unset marker
 		fi
 
 		if [[ -f "${model_directory}"/drawer ]]
@@ -301,7 +313,7 @@ cat << MODEL-DRAWER-CONTENT ->> "${modules_directory}"/drawer.html
 
 			<div class="flex flex-column">
 
-				<div class="container">
+				<div class="container ${marker}">
 
 					<div class="flex flex-row flex-middle section">
 
