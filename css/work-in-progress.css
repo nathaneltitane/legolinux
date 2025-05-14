@@ -1,16 +1,7 @@
 .work-in-progress {
 	position: relative;
-	overflow: hidden;
-	color: #dc2a30ff;
-}
-
-.work-in-progress::before,
-.work-in-progress::after {
-	content: '';
-	position: absolute;
-	inset: 0;
 	z-index: 0;
-	transition: opacity 0.25s;
+	border-radius:  10px 10px 10px 10px;
 }
 
 .work-in-progress::before {
@@ -21,42 +12,16 @@
 		#333333ff 20px,
 		#333333ff 40px
 	);
-	opacity: 1;
-}
+	-webkit-mask:
+		linear-gradient(#fff 0 0) content-box,
+		linear-gradient(#fff 0 0);
+	mask-composite: exclude;
 
-.work-in-progress::after {
-	background: repeating-linear-gradient(
-	45deg,
-		#ffaa00ff,
-		#ffaa00ff 20px,
-		#333333ff 20px,
-		#333333ff 40px
-	);
-	opacity: 0;
-}
-
-.container.work-in-progress:hover::before {
-	opacity: 0;
-}
-
-.container.work-in-progress:hover::after {
-	opacity: 1;
-}
-
-.work-in-progress > * {
-	position: relative;
+	content: '';
+	position: absolute;
+	inset: 0px;
+	border-radius: 10px 10px 10px 10px;
+	padding: 10px 10px 10px 10px;
+	pointer-events: none;
 	z-index: 1;
-	transition: color 0.25s;
-}
-
-.container.work-in-progress:hover > * {
-	background: #333333ff;
-}
-
-.container.work-in-progress:hover > .section {
-	border-radius: 15px 15px 0px 0px;
-}
-
-.container.work-in-progress:hover .flex-middle:2nd-of-type {
-	border-radius: 0px 0px 15px 15px;
 }
