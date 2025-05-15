@@ -1775,18 +1775,6 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 								node.castShadow = true;
 								node.receiveShadow = true;
 
-								// axes
-
-								self.axesHelper_ ( );
-
-								// bounding box
-
-								self.boundingBoxHelper_ ( );
-
-								// orthogonal grid
-
-								self.orthogonalGridHelper_ ( );
-
 							}
 
 						});
