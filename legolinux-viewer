@@ -1756,6 +1756,10 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 								wireframeMesh.visible = false;
 
+								// grids
+
+								orthogonalGridHelper.visible = true;
+
 								// compute positioning
 
 								edges.position.copy ( node.position );
@@ -1774,10 +1778,6 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 								node.castShadow = true;
 								node.receiveShadow = true;
-
-								// grids
-
-								orthogonalGridHelper.visible = true;
 
 							}
 
