@@ -291,7 +291,7 @@ do
 
 		if [[ "${model_directory}" = *work-in-progress* ]]
 		then
-			color="red"
+			color="yellow"
 
 			marker="work-in-progress"
 
