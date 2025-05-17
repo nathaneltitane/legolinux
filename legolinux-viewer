@@ -665,7 +665,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 						const canvas = document.createElement('canvas');
 
 						canvas.width = 512;
-						canvas.height = 128;
+						canvas.height = 64;
 
 						const ctx = canvas.getContext('2d');
 
