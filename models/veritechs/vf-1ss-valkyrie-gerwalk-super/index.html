@@ -436,6 +436,128 @@
 
 				}
 
+
+				// dimension label helper
+
+				this.dimensionLabels = null;
+				this.dimensionLabels_visible = false;
+
+				this.get_dimensionLabels = function () {
+
+					if ( self.dimensionLabels ) return self.dimensionLabels;
+
+					// get bounding box
+
+					const box = self.get_boundingBox();
+
+					const center = box.getCenter(new THREE.Vector3());
+
+					const size = box.getSize(new THREE.Vector3());
+
+					// convert units
+
+					const units = axisSize => ({
+
+						in: (axisSize * 39.3701).toFixed(2),
+
+						cm: (axisSize * 100).toFixed(1),
+
+						ldu: Math.round((axisSize * 1000) / 0.4)
+
+					});
+
+					const x = units(size.x);
+					const y = units(size.y);
+					const z = units(size.z);
+
+					// label maker
+
+					function makeLabel(message, color) {
+
+						const canvas = document.createElement('canvas');
+						canvas.width = 512;
+						canvas.height = 128;
+
+						const ctx = canvas.getContext('2d');
+
+						// label background
+
+						const radius = 10;
+						const width = canvas.width;
+						const height = canvas.height;
+
+						ctx.fillStyle = '#333333ee';
+						ctx.beginPath();
+						ctx.moveTo(radius, 0);
+						ctx.lineTo(width - radius, 0);
+						ctx.quadraticCurveTo(width, 0, width, radius);
+						ctx.lineTo(width, height - radius);
+						ctx.quadraticCurveTo(width, height, width - radius, height);
+						ctx.lineTo(radius, height);
+						ctx.quadraticCurveTo(0, height, 0, height - radius);
+						ctx.lineTo(0, radius);
+						ctx.quadraticCurveTo(0, 0, radius, 0);
+						ctx.closePath();
+						ctx.fill();
+
+						// per axis text color
+
+						ctx.fillStyle = color;
+						ctx.font = 'bold 20px monospace';
+						ctx.textAlign = 'center';
+						ctx.textBaseline = 'middle';
+						ctx.fillText(message, canvas.width / 2, canvas.height / 2);
+
+						const texture = new THREE.CanvasTexture ( canvas );
+
+						const spriteMaterial = new THREE.SpriteMaterial ({ map: texture, transparent: true });
+
+						const sprite = new THREE.Sprite(spriteMaterial);
+
+						// sprinte scale
+
+						sprite.scale.set(0.08, 0.02, 0.1);
+
+						return sprite;
+
+					}
+
+					const labels = [];
+
+					labels.push(makeLabel(`Width: ${x.in} in / ${x.cm} cm / ${x.ldu} LDU`, '#ff0000')); // red for x
+					labels.push(makeLabel(`Height: ${y.in} in / ${y.cm} cm / ${y.ldu} LDU`, '#00ff00')); // green for y
+					labels.push(makeLabel(`Depth: ${z.in} in / ${z.cm} cm / ${z.ldu} LDU`, '#0000ff')); // blue for z
+
+					labels[0].position.set(center.x, box.min.y, box.max.z + 0.1);
+					labels[1].position.set(box.max.x + 0.1, center.y, box.max.z);
+					labels[2].position.set(box.max.x + 0.1, box.min.y, center.z);
+
+
+					self.dimensionLabels = labels;
+
+					return self.dimensionLabels;
+				}
+
+				this.dimensionLabels_ = function () {
+
+					if ( this.dimensionLabels_visible ) {
+
+						this.dimensionLabels_visible = false;
+
+						if ( self.dimensionLabels ) {
+							self.dimensionLabels.forEach(label => self.scene.remove(label));
+							self.dimensionLabels = null;
+						}
+					}
+
+					else {
+
+						this.dimensionLabels_visible = true;
+
+						self.get_dimensionLabels().forEach(label => self.scene.add(label));
+					}
+				}
+
 				// hemisphere light helper
 
 				this.hemisphereLightHelper = null;
@@ -668,8 +790,6 @@
 
 				}
 
-				// grids
-
 				// polar grid helper
 
 				this.polarGridHelper_color_min = orange;
@@ -684,7 +804,7 @@
 
 						self.polarGridHelper = new THREE.PolarGridHelper ( 0.5, 64, 64, 64, this.polarGridHelper_color_min, this.polarGridHelper_color_max );
 
-						self.polarGridHelper.position.y = self.get_boundryBox ( ).min.y;
+						self.polarGridHelper.position.y = self.get_boundingBox ( ).min.y;
 
 						self.polarGridHelper.position.x = 0;
 
@@ -732,7 +852,7 @@
 
 						self.orthogonalGridHelper = new THREE.GridHelper ( 1, 64, this.orthogonalGridHelper_color_min, this.orthogonalGridHelper_color_max );
 
-						self.orthogonalGridHelper.position.y = self.get_boundryBox( ).min.y;
+						self.orthogonalGridHelper.position.y = self.get_boundingBox( ).min.y;
 
 						self.orthogonalGridHelper.position.x = 0;
 
@@ -765,20 +885,127 @@
 
 				}
 
-				// plane
+				// minifig
 
-				this.boundryBox = null;
+				this.minifigToggle_ = function () {
 
-				this.get_boundryBox = function ( ) {
+					const self = this;
 
-					if ( ! self.boundryBox ) {
+					if ( this.minifig_visible ) {
 
-						self.boundryBox = new THREE.Box3 ( ).setFromObject ( self.colladaImport )
+						this.minifig_visible = false;
 
-						console.log ( "boundry box" );
+						if ( self.minifig ) {
+
+							self.minifig.visible = false;
+
+							if ( self.minifigTransform ) self.minifigTransform.visible = false;
+
+						}
+
+						return;
 					}
 
-					return self.boundryBox;
+					this.minifig_visible = true;
+
+					if ( self.minifig ) {
+
+						self.minifig.visible = true;
+
+						if ( self.minifigTransform ) self.minifigTransform.visible = true;
+
+						return;
+					}
+
+					const loader = new ColladaLoader ();
+
+					loader.load('/minifigs/exports/minifig-white.dae', function ( collada ) {
+
+						const minifig = collada.scene;
+
+						minifig.name = 'minifig';
+
+						const modelBox = new THREE.Box3().setFromObject ( self.colladaImport );
+
+						const minifigBox = new THREE.Box3().setFromObject ( minifig );
+
+						const minifigHeight = minifigBox.max.y - minifigBox.min.y;
+
+						const modelHeight = modelBox.max.y - modelBox.min.y;
+
+						const modelCenter = modelBox.getCenter ( new THREE.Vector3() );
+
+						const desiredHeight = modelHeight * 0.00005;
+
+						const scaleFactor = desiredHeight / minifigHeight;
+
+						minifig.scale.setScalar ( scaleFactor );
+
+						const adjustedBox = new THREE.Box3().setFromObject ( minifig );
+
+						const yOffset = modelBox.min.y - adjustedBox.min.y;
+
+						minifig.position.set ( modelCenter.x, yOffset, modelCenter.z + 0.1 );
+
+						// edges
+
+						minifig.traverse(function ( node ) {
+
+							if ( node.isMesh ) {
+
+								const edgesGeometry = new THREE.EdgesGeometry ( node.geometry, 45 );
+								const edgesMaterial = new THREE.LineBasicMaterial ( { color: 0x000000 } );
+								const edges = new THREE.LineSegments ( edgesGeometry, edgesMaterial );
+
+								edges.position.copy ( node.position );
+								edges.rotation.copy ( node.rotation );
+								edges.scale.copy ( node.scale );
+
+								minifig.add ( edges );
+							}
+						});
+
+						// shadows
+
+						minifig.traverse ( function ( node ) {
+
+							if ( node.isMesh ) {
+
+								node.castShadow = true;
+								node.receiveShadow = true;
+
+							}
+
+						});
+
+						self.scene.add ( minifig );
+
+						const transform = self.get_transformControls();
+
+						self.scene.add ( transform );
+						transform.attach ( minifig );
+
+						self.minifig = minifig;
+						self.minifigTransform = transform;
+
+						console.log ( 'minifig loaded' );
+					});
+				};
+
+				// plane
+
+				this.boundingBox = null;
+
+				this.get_boundingBox = function ( ) {
+
+					if ( ! self.boundingBox ) {
+
+						self.boundingBox = new THREE.Box3 ( ).setFromObject ( self.colladaImport )
+
+						console.log ( "bounding box" );
+					}
+
+					return self.boundingBox;
 				}
 
 				this.plane_color = grey;
@@ -822,7 +1049,7 @@
 
 					self.plane.rotation.x = -0.5 * Math.PI;
 
-					self.plane.position.y = self.boundryBox.min.y;
+					self.plane.position.y = self.boundingBox.min.y;
 
 					self.plane.receiveShadow = true;
 
@@ -837,7 +1064,7 @@
 
 				this.plane_ = function ( ) {
 
-					self.boundryBox = self.get_boundryBox ( );
+					self.boundingBox = self.get_boundingBox ( );
 
 					if ( this.plane_visible ) {
 
@@ -1230,6 +1457,7 @@
 
 							break;
 
+
 						// A //
 
 						case 65:
@@ -1245,6 +1473,14 @@
 							self.boundingBoxHelper_ ( );
 
 							break;
+
+						// N //
+
+						case 78:
+
+							self.dimensionLabels_ ( );
+
+						break;
 
 						// P //
 
@@ -1270,11 +1506,11 @@
 
 							break;
 
-						// E //
+						// F //
 
-						case 69:
+						case 70:
 
-							self.edgesToggle_ ( );
+							self.minifigToggle_();
 
 							break;
 
@@ -1283,6 +1519,14 @@
 						case 87:
 
 							self.wireframeToggle_ ( );
+
+							break;
+
+						// E //
+
+						case 69:
+
+							self.edgesToggle_ ( );
 
 							break;
 
@@ -1646,6 +1890,17 @@
 
 						const size = modelBox.getSize ( new THREE.Vector3 () );
 
+						// unit converion - world (m) to ldraw (ldu)
+
+						const x_ldu = (size.x * 1000) / 0.4;
+						const y_ldu = (size.y * 1000) / 0.4;
+						const z_ldu = (size.z * 1000) / 0.4;
+
+						// leocad axis		three.js 	type
+						// width 	(x)		z			swapped
+						// height	(y)		y			same
+						// depth	(z)		x			swapped
+
 						console.log (
 
 							'bounding box [ model ] = ',
@@ -1654,6 +1909,31 @@
 							'z = ', size.z.toFixed(4)
 
 						)
+
+						console.log (
+
+							"model dimensions [ cm ] : ",
+							(size.x * 100).toFixed(2),
+							(size.y * 100).toFixed(2),
+							(size.z * 100).toFixed(2)
+
+						);
+
+						console.log (
+
+							"model dimensions [ ldu / three.js ] : ",
+							'x =', x_ldu.toFixed(2),
+							'y =', y_ldu.toFixed(2),
+							'z =', z_ldu.toFixed(2)
+						);
+
+						console.log (
+
+							"model dimensions [ ldu / leocad ] : ",
+							'x =', z_ldu.toFixed(2),
+							'y =', y_ldu.toFixed(2),
+							'z =', x_ldu.toFixed(2)
+						);
 
 						// orbit controls
 
@@ -1679,11 +1959,11 @@
 
 				window.addEventListener ( 'keydown', self.transformKeys );
 
-				// edge toggle
+				// minifig toggle
 
-				document.getElementById ( 'edges' ).addEventListener ( 'click', function ( ) {
+				document.getElementById ( 'minifig' ).addEventListener ( 'click', function ( ) {
 
-					self.edgesToggle_ ( );
+					self.minifigToggle_ ( );
 
 				});
 
@@ -1695,136 +1975,11 @@
 
 				});
 
-				// minifig
+				// edge toggle
 
-				var minifig = null
-				var minifigTransform = null
+				document.getElementById ( 'edges' ).addEventListener ( 'click', function ( ) {
 
-				document.getElementById('minifig').addEventListener('click', function () {
-
-					// toggle minifig visibility
-
-					if ( minifig ) {
-
-						minifig.visible = !minifig.visible
-
-						if (minifigTransform) minifigTransform.visible = minifig.visible
-
-						return
-					}
-
-					const minifigLoader = new ColladaLoader()
-
-					minifigLoader.load('/minifigs/exports/minifig-blue.dae', function ( collada ) {
-
-						minifig = collada.scene
-
-						minifig.name = 'minifig'
-
-						// compute all bounding boxes
-
-						const modelBox = new THREE.Box3().setFromObject ( self.colladaImport )
-
-						const minifigBox = new THREE.Box3().setFromObject ( minifig )
-
-						const size = minifigBox.getSize ( new THREE.Vector3 () );
-
-						const minifigHeight = minifigBox.max.y - minifigBox.min.y
-
-						const modelMin = modelBox.min
-						const modelMax = modelBox.max
-						const modelHeight = modelMax.y - modelMin.y
-						const modelCenter = modelBox.getCenter ( new THREE.Vector3() )
-
-						// use exact scale calculation
-
-						const scaleDigits = 0.00005
-
-						const desiredHeight = modelHeight * scaleDigits
-
-						const scaleFactor = desiredHeight / minifigHeight
-
-						minifig.scale.setScalar ( scaleFactor )
-
-						// re-compute bounding box after scaling
-
-						const adjustedBox = new THREE.Box3().setFromObject ( minifig )
-
-						// align minifig base to model base and center on model X and Z
-
-						const yOffset = modelMin.y - adjustedBox.min.y
-
-						minifig.position.set (
-							modelCenter.x,
-							yOffset,
-							modelCenter.z + 0.1
-						)
-
-						// minifig edges
-
-						minifig.traverse(function ( node ) {
-
-							if ( node.isMesh ) {
-
-								// create edges geometry with angle 45 degrees like your main model
-
-								const edgesGeometry = new THREE.EdgesGeometry ( node.geometry, 45 );
-								const edgesMaterial = new THREE.LineBasicMaterial({ color: 0x000000 });
-								const edges = new THREE.LineSegments ( edgesGeometry, edgesMaterial) ;
-
-								edgesMaterial.linewidth = 2.25;
-
-								// match position, rotation, scale of minifig mesh node
-
-								edges.position.copy ( node.position );
-								edges.rotation.copy ( node.rotation );
-								edges.scale.copy ( node.scale );
-
-								// add generated edges as child of minifig
-
-								minifig.add ( edges );
-
-							}
-
-						});
-
-						// minifig shadows
-
-						minifig.traverse ( function ( node ) {
-
-							if ( node.isMesh ) {
-
-								node.castShadow = true
-								node.receiveShadow = true
-
-							}
-
-						})
-
-						// add minifig to scene
-
-						self.scene.add ( minifig )
-
-						// attach transform controls to minifig
-
-						minifigTransform = self.get_transformControls ( )
-
-						self.scene.add ( minifigTransform )
-
-						minifigTransform.attach ( minifig )
-
-						console.log ( 'minifig loaded' )
-
-						console.log (
-
-							'bounding box [ minifig ] = ',
-							'x = ', size.x.toFixed(4),
-							'y = ', size.y.toFixed(4),
-							'z = ', size.z.toFixed(4)
-
-						)
-
-					})
+					self.edgesToggle_ ( );
 
 				});
 
