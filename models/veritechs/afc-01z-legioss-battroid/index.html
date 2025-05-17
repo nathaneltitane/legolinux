@@ -682,7 +682,7 @@
 
 					if ( ! self.polarGridHelper ) {
 
-						self.polarGridHelper = new THREE.PolarGridHelper ( 0.5, 32, 32, 32, this.polarGridHelper_color_min, this.polarGridHelper_color_max );
+						self.polarGridHelper = new THREE.PolarGridHelper ( 0.5, 64, 64, 64, this.polarGridHelper_color_min, this.polarGridHelper_color_max );
 
 						self.polarGridHelper.position.y = self.get_boundryBox ( ).min.y;
 
@@ -730,7 +730,7 @@
 
 					if ( ! self.orthogonalGridHelper ) {
 
-						self.orthogonalGridHelper = new THREE.GridHelper ( 1, 32, this.orthogonalGridHelper_color_min, this.orthogonalGridHelper_color_max );
+						self.orthogonalGridHelper = new THREE.GridHelper ( 1, 64, this.orthogonalGridHelper_color_min, this.orthogonalGridHelper_color_max );
 
 						self.orthogonalGridHelper.position.y = self.get_boundryBox( ).min.y;
 
@@ -1715,7 +1715,7 @@
 
 					const minifigLoader = new ColladaLoader()
 
-					minifigLoader.load('/minifigs/exports/minifig-blue.dae', function ( collada ) {
+					minifigLoader.load('/minifigs/exports/minifig-red.dae', function ( collada ) {
 
 						minifig = collada.scene
 
