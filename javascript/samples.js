@@ -11,7 +11,7 @@ $( document ).ready ( function ( ) {
         '#edges-button-label',
         '#wireframe-button-label',
         '#controls-button-label',
-        '#minifig  -button-label'
+        '#minifig-button-label'
     ];
 
     var classes = [
