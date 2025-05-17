@@ -72,9 +72,6 @@ extensions_list+=(
 	dae
 )
 
-
-
-
 for extension in ${extensions_list[@]}
 do
 	count=1
