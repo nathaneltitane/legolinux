@@ -1885,6 +1885,22 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 							modelCenter.z + 0.1
 						)
 
+						// edges
+
+								var edgesGeometry = new THREE.EdgesGeometry ( node.geometry, 45 );
+
+								var edgesMaterial = new THREE.LineBasicMaterial ( { color: black } );
+
+								edgesMaterial.linewidth = 1.25;
+
+								var edges = new THREE.LineSegments ( edgesGeometry, edgesMaterial );
+
+								edges.geometry.computeBoundingBox ( );
+
+								// initial visibility
+
+								edges.visible = true;
+
 						// minifig shadows
 
 						minifig.traverse ( function ( node ) {
