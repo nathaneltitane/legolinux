@@ -1614,8 +1614,6 @@
 
 						});
 
-
-
 						// load model
 
 						self.scene.add ( self.colladaImport );
@@ -1660,7 +1658,7 @@
 
 				});
 
-				// minifig loader
+				// minifig
 
 				var minifig = null
 				var minifigTransform = null
@@ -1689,7 +1687,7 @@
 						const minifigBox = new THREE.Box3().setFromObject ( minifig )
 						const modelBox = new THREE.Box3().setFromObject ( self.colladaImport )
 
-						// compute bounding boxes
+						// compute all bounding boxes
 
 						const minifigHeight = minifigBox.max.y - minifigBox.min.y
 
@@ -1698,11 +1696,11 @@
 						const modelHeight = modelMax.y - modelMin.y
 						const modelCenter = modelBox.getCenter ( new THREE.Vector3() )
 
-						// use your exact scale calculation
+						// use exact scale calculation
 
-						const factor = 0.00005
+						const scaleDigits = 0.00005
 
-						const desiredHeight = modelHeight * factor
+						const desiredHeight = modelHeight * scaleDigits
 
 						const scaleFactor = desiredHeight / minifigHeight
 
@@ -1722,7 +1720,7 @@
 							modelCenter.z + 0.1
 						)
 
-						// shadows
+						// minifig shadows
 
 						minifig.traverse ( function ( node ) {
 							if ( node.isMesh ) {
@@ -1731,7 +1729,7 @@
 							}
 						})
 
-						// add to scene
+						// add minifig to scene
 
 						self.scene.add ( minifig )
 
@@ -1779,10 +1777,6 @@
 			<div class="grid grid-right grid-gap-column-10 grid-gap-row-10 grid-columns-responsive">
 
 			</div>
-
-		</div>
-
-		<div id="minifig">
 
 		</div>
 
