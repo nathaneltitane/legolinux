@@ -1880,7 +1880,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					const minifigLoader = new ColladaLoader()
 
-					minifigLoader.load('/minifig/exports/minifig-${color_minifig}.dae', function ( collada ) {
+					minifigLoader.load('/minifigs/exports/minifig-${color_minifig}.dae', function ( collada ) {
 
 						minifig = collada.scene
 
