@@ -1,5 +1,5 @@
 #!/bin/bash
-
+set -x
 # dependencies /////////////////////////////////////////////////////////////////
 
 if [ -f "${HOME}"/.local/bin/frobulator ]
@@ -54,6 +54,7 @@ frobulator.script "Setting up ${script#*-}"
 # variables ////////////////////////////////////////////////////////////////////
 
 models_directory="${PWD}"/models
+minifigs_directory="${PWD}"/minifigs
 
 # defaults /////////////////////////////////////////////////////////////////////
 
@@ -71,18 +72,8 @@ extensions_list+=(
 	dae
 )
 
-colors_list=(
-	black
-	blue
-	fuschia
-	green
-	grey
-	orange
-	purple
-	red
-	white
-	yellow
-)
+
+
 
 for extension in ${extensions_list[@]}
 do
@@ -147,6 +138,29 @@ do
 		model_price="${model_directory}"/price
 
 		model_instructions_price=$(cat "${model_price}")
+
+		# randomize minifig helper color
+
+		minifig_prefix="minifig-"
+
+		minifigs_list=$(find ${minifigs_directory} -type f -iname "*.${extension}" )
+
+		for minifig_path in ${minifigs_list[@]}
+		do
+			minifig_file="${minifig_path##*/}"
+
+			file_color=${minifig_file#"${minifig_prefix}"}
+
+			color=${file_color%.*}
+
+			colors_list+=("$color")
+		done
+
+		colors_list_count=${#colors_list[@]}
+
+		color_index_random=$((RANDOM % colors_list_count))
+
+		color_minifig=${colors_list[color_index_random]}
 
 		# generate 3d model page
 
@@ -1869,13 +1883,19 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					const minifigLoader = new ColladaLoader()
 
-					minifigLoader.load('/minifig/exports/minifig-${color}.dae', function ( collada ) {
+					minifigLoader.load('/minifig/exports/minifig-${color_minifig}.dae', function ( collada ) {
 
 						minifig = collada.scene
 
 						minifig.name = 'minifig'
 
 						// compute all bounding boxes
+
+						const modelBox = new THREE.Box3().setFromObject ( self.colladaImport )
+
+						const minifigBox = new THREE.Box3().setFromObject ( minifig )
+
+						const size = minifigBox.getSize ( new THREE.Vector3 () );
 
 						const minifigHeight = minifigBox.max.y - minifigBox.min.y
 
@@ -1962,10 +1982,6 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 						minifigTransform.attach ( minifig )
 
 						console.log ( 'minifig loaded' )
-
-						const minifigBox = new THREE.Box3().setFromObject ( minifig )
-
-						const size = minifigBox.getSize ( new THREE.Vector3 () );
 
 						console.log (
 

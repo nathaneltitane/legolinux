@@ -62,8 +62,7 @@ frobulator.script "Setting up ${script#*-}"
 if [[ -z "${directory}" ]]
 then
     list+=(
-        #/media/internal/Lego/models
-        ./minifig
+        /media/internal/Lego/models
     )
 else
     list+=(

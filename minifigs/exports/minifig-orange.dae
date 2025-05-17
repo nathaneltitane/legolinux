@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
 <asset>
-	<created>2025-05-17T10:31:16</created>
-	<modified>2025-05-17T10:31:16</modified>
+	<created>2025-05-17T10:49:08</created>
+	<modified>2025-05-17T10:49:08</modified>
 <unit name="LeoCAD" meter="0.0004" />
 	<up_axis>Z_UP</up_axis>
 </asset>
@@ -20854,7 +20854,7 @@
 			<instance_geometry url="#4485_dat">
 				<bind_material>
 					<technique_common>
-						<instance_material symbol="Main_Colour" target="#Bright_Light_Orange-material"/>
+						<instance_material symbol="Main_Colour" target="#Orange-material"/>
 					</technique_common>
 				</bind_material>
 			</instance_geometry>
@@ -20884,7 +20884,7 @@
 			<instance_geometry url="#973_dat">
 				<bind_material>
 					<technique_common>
-						<instance_material symbol="Main_Colour" target="#Bright_Light_Orange-material"/>
+						<instance_material symbol="Main_Colour" target="#Orange-material"/>
 					</technique_common>
 				</bind_material>
 			</instance_geometry>
@@ -20914,7 +20914,7 @@
 			<instance_geometry url="#3819_dat">
 				<bind_material>
 					<technique_common>
-						<instance_material symbol="Main_Colour" target="#Bright_Light_Orange-material"/>
+						<instance_material symbol="Main_Colour" target="#Orange-material"/>
 					</technique_common>
 				</bind_material>
 			</instance_geometry>
@@ -20929,7 +20929,7 @@
 			<instance_geometry url="#3818_dat">
 				<bind_material>
 					<technique_common>
-						<instance_material symbol="Main_Colour" target="#Bright_Light_Orange-material"/>
+						<instance_material symbol="Main_Colour" target="#Orange-material"/>
 					</technique_common>
 				</bind_material>
 			</instance_geometry>

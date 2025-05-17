@@ -1691,13 +1691,19 @@
 
 					const minifigLoader = new ColladaLoader()
 
-					minifigLoader.load('/minifig/exports/minifig-orange.dae', function ( collada ) {
+					minifigLoader.load('/minifig/exports/minifig-green.dae', function ( collada ) {
 
 						minifig = collada.scene
 
 						minifig.name = 'minifig'
 
 						// compute all bounding boxes
+
+						const modelBox = new THREE.Box3().setFromObject ( self.colladaImport )
+
+						const minifigBox = new THREE.Box3().setFromObject ( minifig )
+
+						const size = minifigBox.getSize ( new THREE.Vector3 () );
 
 						const minifigHeight = minifigBox.max.y - minifigBox.min.y
 
@@ -1784,10 +1790,6 @@
 						minifigTransform.attach ( minifig )
 
 						console.log ( 'minifig loaded' )
-
-						const minifigBox = new THREE.Box3().setFromObject ( minifig )
-
-						const size = minifigBox.getSize ( new THREE.Vector3 () );
 
 						console.log (
 

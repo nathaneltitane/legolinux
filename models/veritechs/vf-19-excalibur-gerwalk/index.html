@@ -1699,6 +1699,12 @@
 
 						// compute all bounding boxes
 
+						const modelBox = new THREE.Box3().setFromObject ( self.colladaImport )
+
+						const minifigBox = new THREE.Box3().setFromObject ( minifig )
+
+						const size = minifigBox.getSize ( new THREE.Vector3 () );
+
 						const minifigHeight = minifigBox.max.y - minifigBox.min.y
 
 						const modelMin = modelBox.min
@@ -1784,10 +1790,6 @@
 						minifigTransform.attach ( minifig )
 
 						console.log ( 'minifig loaded' )
-
-						const minifigBox = new THREE.Box3().setFromObject ( minifig )
-
-						const size = minifigBox.getSize ( new THREE.Vector3 () );
 
 						console.log (
 
