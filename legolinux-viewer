@@ -671,7 +671,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						// label background
 
-						const radius = 10;
+						const radius = 20;
 						const width = canvas.width;
 						const height = canvas.height;
 
