@@ -625,7 +625,6 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				}
 
-
 				// dimension label helper
 
 				this.dimensionLabels = null;
@@ -664,6 +663,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 					function makeLabel(message, color) {
 
 						const canvas = document.createElement('canvas');
+
 						canvas.width = 512;
 						canvas.height = 128;
 
@@ -693,8 +693,14 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						ctx.fillStyle = color;
 						ctx.font = 'bold 20px monospace';
+
+						// font alignment
+
 						ctx.textAlign = 'center';
 						ctx.textBaseline = 'middle';
+
+						// center message in label
+
 						ctx.fillText(message, canvas.width / 2, canvas.height / 2);
 
 						const texture = new THREE.CanvasTexture ( canvas );
@@ -725,6 +731,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 					self.dimensionLabels = labels;
 
 					return self.dimensionLabels;
+
 				}
 
 				this.dimensionLabels_ = function () {
@@ -734,8 +741,11 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 						this.dimensionLabels_visible = false;
 
 						if ( self.dimensionLabels ) {
-							self.dimensionLabels.forEach(label => self.scene.remove(label));
+
+							self.dimensionLabels.forEach(label => self.scene.remove ( label ) );
+
 							self.dimensionLabels = null;
+
 						}
 					}
 
@@ -743,7 +753,9 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						this.dimensionLabels_visible = true;
 
-						self.get_dimensionLabels().forEach(label => self.scene.add(label));
+						self.get_dimensionLabels().forEach(label => self.scene.add ( label ) );
+
+						console.log ( "dimensions" );
 					}
 				}
 
@@ -1177,7 +1189,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 						self.minifig = minifig;
 						self.minifigTransform = transform;
 
-						console.log ( 'minifig loaded' );
+						console.log ( 'minifig ' );
 					});
 				};
 
