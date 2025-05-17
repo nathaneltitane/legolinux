@@ -975,48 +975,53 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				this.plane = null;
 				this.plane_visible = false;
 
-this.get_plane = function () {
+				this.get_plane = function () {
 
-	if (!self.plane) {
+					if ( !self.plane ) {
 
-		const planeWidth = 1;
-		const planeLength = 1;
-		const radius = 0.1; // corner radius
+					const planeWidth = 1;
 
-		// create a shape with rounded corners
-		const shape = new THREE.Shape();
+					const planeLength = 1;
 
-		const w = planeWidth;
-		const h = planeLength;
-		const r = radius;
+					const radius = 0.01;
 
-		// start from top-left corner and draw clockwise
-		shape.moveTo(-w/2 + r, h/2);
-		shape.lineTo(w/2 - r, h/2);
-		shape.quadraticCurveTo(w/2, h/2, w/2, h/2 - r);
-		shape.lineTo(w/2, -h/2 + r);
-		shape.quadraticCurveTo(w/2, -h/2, w/2 - r, -h/2);
-		shape.lineTo(-w/2 + r, -h/2);
-		shape.quadraticCurveTo(-w/2, -h/2, -w/2, -h/2 + r);
-		shape.lineTo(-w/2, h/2 - r);
-		shape.quadraticCurveTo(-w/2, h/2, -w/2 + r, h/2);
+					const shape = new THREE.Shape();
 
-		const geometry = new THREE.ShapeGeometry(shape);
-		const material = new THREE.MeshBasicMaterial({ color: this.plane_color, side: THREE.DoubleSide });
+					const w = planeWidth;
+					const h = planeLength;
+					const r = radius;
 
-		self.plane = new THREE.Mesh(geometry, material);
+					// start from top-left corner and draw clockwise
 
-		self.plane.rotation.x = -0.5 * Math.PI;
+					shape.moveTo(-w/2 + r, h/2);
+					shape.lineTo(w/2 - r, h/2);
+					shape.quadraticCurveTo(w/2, h/2, w/2, h/2 - r);
+					shape.lineTo(w/2, -h/2 + r);
+					shape.quadraticCurveTo(w/2, -h/2, w/2 - r, -h/2);
+					shape.lineTo(-w/2 + r, -h/2);
+					shape.quadraticCurveTo(-w/2, -h/2, -w/2, -h/2 + r);
+					shape.lineTo(-w/2, h/2 - r);
+					shape.quadraticCurveTo(-w/2, h/2, -w/2 + r, h/2);
 
-		self.plane.position.y = self.boundryBox.min.y;
+					const geometry = new THREE.ShapeGeometry(shape);
 
-		self.plane.receiveShadow = true;
+					const material = new THREE.MeshBasicMaterial({ color: this.plane_color, side: THREE.DoubleSide });
 
-		console.log("rounded plane");
-	}
+					self.plane = new THREE.Mesh(geometry, material);
 
-	return self.plane;
-}
+					self.plane.rotation.x = -0.5 * Math.PI;
+
+					self.plane.position.y = self.boundryBox.min.y;
+
+					self.plane.receiveShadow = true;
+
+					console.log ( "plane" );
+
+					}
+
+				return self.plane;
+
+				}
 
 
 				this.plane_ = function ( ) {
