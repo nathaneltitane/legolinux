@@ -482,7 +482,7 @@
 
 						// label background
 
-						const radius = 10;
+						const radius = 20;
 						const width = canvas.width;
 						const height = canvas.height;
 
@@ -530,16 +530,15 @@
 
 					const labels = [];
 
-					labels.push(makeLabel(`Width: ${x.in} in / ${x.cm} cm / ${x.ldu} LDU`, '#ff0000'));	// x - red
-					labels.push(makeLabel(`Height: ${y.in} in / ${y.cm} cm / ${y.ldu} LDU`, '#00ff00'));	// y - green
-					labels.push(makeLabel(`Depth: ${z.in} in / ${z.cm} cm / ${z.ldu} LDU`, '#0000ff'));	// z - blue
+					labels.push(makeLabel(`Width [ x ] : ${x.in} in / ${x.cm} cm / ${x.ldu} LDU`, '#ff0000'));	// x - red
+					labels.push(makeLabel(`Height [ y ] : ${y.in} in / ${y.cm} cm / ${y.ldu} LDU`, '#00ff00'));	// y - green
+					labels.push(makeLabel(`Depth [ z ] : ${z.in} in / ${z.cm} cm / ${z.ldu} LDU`, '#0000ff'));	// z - blue
 
 					// label positions relative to model bounding box
 
-					labels[0].position.set(center.x, box.min.y, box.max.z + 0.1);
-					labels[1].position.set(box.max.x + 0.1, center.y, box.max.z);
-					labels[2].position.set(box.max.x + 0.1, box.min.y, center.z);
-
+					labels[0].position.set( center.x, box.min.y + 0.025, box.max.z + 0.1 );
+					labels[1].position.set( box.max.x + 0.1, box.max.y + 0.025, box.max.z );
+					labels[2].position.set( box.max.x + 0.1, box.min.y + 0.025, center.z );
 
 					self.dimensionLabels = labels;
 
@@ -933,7 +932,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-green.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-black.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
