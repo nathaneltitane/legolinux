@@ -1,0 +1,31 @@
+#minifig {
+	height: 64px;
+	width: 64px;
+	position: fixed;
+	bottom: calc(80px + 64px + 64px + 64px + 64px + 64px + 64px + 10px + 10px + 10px + 10px +  10px + 10px + 10px);
+	right: 10px;
+	padding: 10px 10px 10px 10px;
+}
+
+.minifig {
+	color: #000000ff;
+	position: fixed;
+	bottom: calc(80px + 64px + 64px + 64px + 64px + 64px + 64px + 10px + 10px + 10px + 10px + 10px + 10px);
+	right: -200px;
+	padding: 10px 10px 10px 10px;
+
+	animation-name: minifig-reveal;
+	animation-delay: 3.5s;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes minifig-reveal {
+	0% {right: -200px;}
+
+	100% {right: 0px;}
+}
+
+.minifig-label-color {
+	 color: #00000000;
+}

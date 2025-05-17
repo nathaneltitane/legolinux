@@ -44,6 +44,12 @@ $( function ( ) {
 
 	} );
 
+	$.get ( '/modules/minifig.html', function ( data ) {
+
+		$( '#minifig' ).append ( data );
+
+	} );
+
 	$.get ( '/modules/wireframe.html', function ( data ) {
 
 		$( '#wireframe' ).append ( data );

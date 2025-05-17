@@ -1823,6 +1823,95 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				});
 
+				// minifig
+
+				var minifig = null
+				var minifigTransform = null
+
+				document.getElementById('minifig').addEventListener('click', function () {
+
+					// toggle minifig visibility
+
+					if ( minifig ) {
+
+						minifig.visible = !minifig.visible
+
+						if (minifigTransform) minifigTransform.visible = minifig.visible
+
+						return
+					}
+
+					const minifigLoader = new ColladaLoader()
+
+					minifigLoader.load('/models/minifig/exports/minifig.dae', function ( collada ) {
+
+						minifig = collada.scene
+
+						minifig.name = 'minifig'
+
+						const minifigBox = new THREE.Box3().setFromObject ( minifig )
+						const modelBox = new THREE.Box3().setFromObject ( self.colladaImport )
+
+						// compute all bounding boxes
+
+						const minifigHeight = minifigBox.max.y - minifigBox.min.y
+
+						const modelMin = modelBox.min
+						const modelMax = modelBox.max
+						const modelHeight = modelMax.y - modelMin.y
+						const modelCenter = modelBox.getCenter ( new THREE.Vector3() )
+
+						// use exact scale calculation
+
+						const scaleDigits = 0.00005
+
+						const desiredHeight = modelHeight * scaleDigits
+
+						const scaleFactor = desiredHeight / minifigHeight
+
+						minifig.scale.setScalar ( scaleFactor )
+
+						// re-compute bounding box after scaling
+
+						const adjustedBox = new THREE.Box3().setFromObject ( minifig )
+
+						// align minifig base to model base and center on model X and Z
+
+						const yOffset = modelMin.y - adjustedBox.min.y
+
+						minifig.position.set (
+							modelCenter.x,
+							yOffset,
+							modelCenter.z + 0.1
+						)
+
+						// minifig shadows
+
+						minifig.traverse ( function ( node ) {
+							if ( node.isMesh ) {
+								node.castShadow = true
+								node.receiveShadow = true
+							}
+						})
+
+						// add minifig to scene
+
+						self.scene.add ( minifig )
+
+						// attach transform controls to minifig
+
+						minifigTransform = self.get_transformControls ( )
+						self.scene.add ( minifigTransform )
+						minifigTransform.attach ( minifig )
+
+						console.log ( 'Minifig loaded, scaled to', desiredHeight.toFixed(2), 'units' )
+
+						console.log ( 'Minifig bounding box size:', minifigBox.getSize ( new THREE.Vector3 () ) )
+						console.log ( 'Model bounding box size:', modelBox.getSize ( new THREE.Vector3 () ) )
+
+					})
+				});
+
 				const endTime = performance.now();
 
 				const loadTime = ( ( endTime - startTime ) / 1000).toFixed ( 2 );
