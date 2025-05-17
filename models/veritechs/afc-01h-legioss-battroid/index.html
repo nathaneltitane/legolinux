@@ -1767,10 +1767,11 @@
 						self.scene.add ( minifigTransform )
 						minifigTransform.attach ( minifig )
 
-						console.log ( 'Minifig loaded, scaled to', desiredHeight.toFixed(2), 'units' )
+						console.log ( 'minifig loaded' )
 
-						console.log ( 'Minifig bounding box size:', minifigBox.getSize ( new THREE.Vector3 () ) )
-						console.log ( 'Model bounding box size:', modelBox.getSize ( new THREE.Vector3 () ) )
+						console.log ( 'model bounding box [ model ] = ', modelBox.getSize ( new THREE.Vector3 () ) )
+
+						console.log ( 'minifig bounding box [ minifig ] = ', minifigBox.getSize ( new THREE.Vector3 () ) )
 
 					})
 				});
