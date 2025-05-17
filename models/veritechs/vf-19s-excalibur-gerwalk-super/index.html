@@ -474,6 +474,7 @@
 					function makeLabel(message, color) {
 
 						const canvas = document.createElement('canvas');
+
 						canvas.width = 512;
 						canvas.height = 128;
 
@@ -529,9 +530,11 @@
 
 					const labels = [];
 
-					labels.push(makeLabel(`Width: ${x.in} in / ${x.cm} cm / ${x.ldu} LDU`, '#ff0000')); // red for x
-					labels.push(makeLabel(`Height: ${y.in} in / ${y.cm} cm / ${y.ldu} LDU`, '#00ff00')); // green for y
-					labels.push(makeLabel(`Depth: ${z.in} in / ${z.cm} cm / ${z.ldu} LDU`, '#0000ff')); // blue for z
+					labels.push(makeLabel(`Width: ${x.in} in / ${x.cm} cm / ${x.ldu} LDU`, '#ff0000'));	// x - red
+					labels.push(makeLabel(`Height: ${y.in} in / ${y.cm} cm / ${y.ldu} LDU`, '#00ff00'));	// y - green
+					labels.push(makeLabel(`Depth: ${z.in} in / ${z.cm} cm / ${z.ldu} LDU`, '#0000ff'));	// z - blue
+
+					// label positions relative to model bounding box
 
 					labels[0].position.set(center.x, box.min.y, box.max.z + 0.1);
 					labels[1].position.set(box.max.x + 0.1, center.y, box.max.z);
@@ -930,7 +933,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-purple.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-grey.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
