@@ -1720,21 +1720,33 @@
 							modelCenter.z + 0.1
 						)
 
-						// edges
+						// minifig edges
 
-								var edgesGeometry = new THREE.EdgesGeometry ( node.geometry, 45 );
+						minifig.traverse(function ( node ) {
 
-								var edgesMaterial = new THREE.LineBasicMaterial ( { color: black } );
+							if ( node.isMesh ) {
 
-								edgesMaterial.linewidth = 1.25;
+								// create edges geometry with angle 45 degrees like your main model
 
-								var edges = new THREE.LineSegments ( edgesGeometry, edgesMaterial );
+								const edgesGeometry = new THREE.EdgesGeometry ( node.geometry, 45 );
+								const edgesMaterial = new THREE.LineBasicMaterial({ color: 0x000000 });
+								const edges = new THREE.LineSegments ( edgesGeometry, edgesMaterial) ;
 
-								edges.geometry.computeBoundingBox ( );
+								edgesMaterial.linewidth = 2.25;
 
-								// initial visibility
+								// match position, rotation, scale of minifig mesh node
 
-								edges.visible = true;
+								edges.position.copy ( node.position );
+								edges.rotation.copy ( node.rotation );
+								edges.scale.copy ( node.scale );
+
+								// add generated edges as child of minifig
+
+								minifig.add ( edges );
+
+							}
+
+						});
 
 						// minifig shadows
 
