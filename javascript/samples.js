@@ -10,8 +10,8 @@ $( document ).ready ( function ( ) {
         '#color-button-label',
         '#edges-button-label',
         '#wireframe-button-label',
-        '#controls-button-label'
-        '#minifig-button-label'
+        '#controls-button-label',
+        '#minifig  -button-label'
     ];
 
     var classes = [
@@ -20,7 +20,7 @@ $( document ).ready ( function ( ) {
         'color-label-color',
 		'edges-label-color',
 		'wireframe-label-color',
-        'controls-label-color'
+        'controls-label-color',
         'minifig-label-color'
     ];
 
