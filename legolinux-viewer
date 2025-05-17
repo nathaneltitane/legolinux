@@ -2130,6 +2130,15 @@ cat << 3D-MODEL-PAGE-CONTROLS ->> "${model_directory}/index.html"
 
 3D-MODEL-PAGE-CONTROLS
 
+cat << 3D-MODEL-PAGE-MINIFIG ->> "${model_directory}/index.html"
+		<!-- minifig -->
+
+		<div id="minifig">
+
+		</div>
+
+3D-MODEL-PAGE-MINIFIG
+
 cat << 3D-MODEL-PAGE-WIREFRAME ->> "${model_directory}/index.html"
 		<!-- wireframe -->
 
