@@ -486,7 +486,7 @@
 						const width = canvas.width;
 						const height = canvas.height;
 
-						ctx.fillStyle = '#333333ee';
+						ctx.fillStyle = '#00000000';
 						ctx.beginPath();
 						ctx.moveTo(radius, 0);
 						ctx.lineTo(width - radius, 0);
@@ -932,7 +932,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-green.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-white.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 

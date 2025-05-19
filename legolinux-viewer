@@ -675,7 +675,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 						const width = canvas.width;
 						const height = canvas.height;
 
-						ctx.fillStyle = '#333333ee';
+						ctx.fillStyle = '#00000000';
 						ctx.beginPath();
 						ctx.moveTo(radius, 0);
 						ctx.lineTo(width - radius, 0);
