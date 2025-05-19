@@ -1155,8 +1155,6 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						const adjustedBox = new THREE.Box3().setFromObject ( minifig );
 
-						const adjustedBox = new THREE.Box3().setFromObject ( minifig );
-
 						const minifigDepth = adjustedBox.max.z - adjustedBox.min.z;
 
 						const yOffset = modelBox.min.y - adjustedBox.min.y;

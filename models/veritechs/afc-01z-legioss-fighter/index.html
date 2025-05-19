@@ -942,7 +942,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-white.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-purple.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
@@ -963,8 +963,6 @@
 						const scaleFactor = desiredHeight / minifigHeight;
 
 						minifig.scale.setScalar ( scaleFactor );
-
-						const adjustedBox = new THREE.Box3().setFromObject ( minifig );
 
 						const adjustedBox = new THREE.Box3().setFromObject ( minifig );
 
