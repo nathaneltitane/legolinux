@@ -942,7 +942,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-white.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-grey.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
@@ -982,7 +982,15 @@
 
 						const zOffset = modelBox.max.z - minifigPositionBox.min.z;
 
-						minifig.position.set(modelCenter.x, yOffset, modelBox.max.z - ( minifigPositionBox.max.z - minifigPositionBox.min.z ) / 2);
+						const minifigPosition_x = modelCenter.x
+
+						const minifigPosition_y = yOffset
+
+						const minifigPosition_z = (( minifigPositionBox.max.z - minifigPositionBox.min.z ) / 2 )
+
+						// set minifig position
+
+						minifig.position.set ( minifigPosition_x, minifigPosition_y, minifigPosition_z );
 
 						// edges
 
@@ -991,11 +999,15 @@
 							if ( node.isMesh ) {
 
 								const edgesGeometry = new THREE.EdgesGeometry ( node.geometry, 45 );
+
 								const edgesMaterial = new THREE.LineBasicMaterial ( { color: 0x000000 } );
+
 								const edges = new THREE.LineSegments ( edgesGeometry, edgesMaterial );
 
 								edges.position.copy ( node.position );
+
 								edges.rotation.copy ( node.rotation );
+
 								edges.scale.copy ( node.scale );
 
 								minifig.add ( edges );
@@ -1020,9 +1032,11 @@
 						const transform = self.get_transformControls();
 
 						self.scene.add ( transform );
+
 						transform.attach ( minifig );
 
 						self.minifig = minifig;
+
 						self.minifigTransform = transform;
 
 						console.log ( 'minifig ' );
@@ -1048,6 +1062,7 @@
 				this.plane_color = grey;
 
 				this.plane = null;
+
 				this.plane_visible = false;
 
 				this.get_plane = function () {
