@@ -942,21 +942,33 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-purple.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-white.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
 						minifig.name = 'minifig';
 
+						// define all model bounding boxes
+
 						const modelBox = new THREE.Box3().setFromObject ( self.colladaImport );
 
 						const minifigBox = new THREE.Box3().setFromObject ( minifig );
+
+						const modelCenter = modelBox.getCenter ( new THREE.Vector3() );
+
+						const minifigCenter = minifigBox.getCenter ( new THREE.Vector3() );
+
+						const minifigWidth = minifigBox.max.x - minifigBox.min.x;
+
+						const modelWidth = modelBox.max.x - modelBox.min.x;
 
 						const minifigHeight = minifigBox.max.y - minifigBox.min.y;
 
 						const modelHeight = modelBox.max.y - modelBox.min.y;
 
-						const modelCenter = modelBox.getCenter ( new THREE.Vector3() );
+						const minifigDepth = minifigBox.max.z - minifigBox.min.z;
+
+						const modelDepth = modelBox.max.z - modelBox.min.z;
 
 						const desiredHeight = modelHeight * 0.00005;
 
@@ -964,13 +976,13 @@
 
 						minifig.scale.setScalar ( scaleFactor );
 
-						const adjustedBox = new THREE.Box3().setFromObject ( minifig );
+						const minifigPositionBox = new THREE.Box3().setFromObject ( minifig );
 
-						const yOffset = modelBox.min.y - adjustedBox.min.y;
+						const yOffset = modelBox.min.y - minifigPositionBox.min.y;
 
-						const zOffset = modelBox.max.z - adjustedBox.min.z;
+						const zOffset = modelBox.max.z - minifigPositionBox.min.z;
 
-						minifig.position.set(modelCenter.x, yOffset, modelBox.max.z - ( adjustedBox.max.z - adjustedBox.min.z ) / 2);
+						minifig.position.set(modelCenter.x, yOffset, modelBox.max.z - ( minifigPositionBox.max.z - minifigPositionBox.min.z ) / 2);
 
 						// edges
 
