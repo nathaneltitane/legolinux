@@ -682,6 +682,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				// dimension label helper
 
 				this.dimensionLabels = null;
+
 				this.dimensionLabels_visible = false;
 
 				this.get_dimensionLabels = function () {
@@ -690,11 +691,11 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					// get bounding box
 
-					const box = self.get_boundingBox();
+					const box = self.get_boundingBox ();
 
-					const center = box.getCenter(new THREE.Vector3());
+					const center = box.getCenter (new THREE.Vector3() );
 
-					const size = box.getSize(new THREE.Vector3());
+					const size = box.getSize ( new THREE.Vector3() );
 
 					// convert units
 
@@ -756,6 +757,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 						// text font alignment
 
 						labelContext.textAlign = 'center';
+
 						labelContext.textBaseline = 'middle';
 
 						// center text in label
@@ -787,6 +789,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 					// label positions relative to model bounding box
 
 					const labelOffset = 0.0125
+
 					const labelMargin = 0.05
 
 					labels[0].position.set ( center.x, box.min.y + labelOffset, box.max.z + labelMargin );

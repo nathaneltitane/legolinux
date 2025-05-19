@@ -493,6 +493,7 @@
 				// dimension label helper
 
 				this.dimensionLabels = null;
+
 				this.dimensionLabels_visible = false;
 
 				this.get_dimensionLabels = function () {
@@ -501,11 +502,11 @@
 
 					// get bounding box
 
-					const box = self.get_boundingBox();
+					const box = self.get_boundingBox ();
 
-					const center = box.getCenter(new THREE.Vector3());
+					const center = box.getCenter (new THREE.Vector3() );
 
-					const size = box.getSize(new THREE.Vector3());
+					const size = box.getSize ( new THREE.Vector3() );
 
 					// convert units
 
@@ -567,6 +568,7 @@
 						// text font alignment
 
 						labelContext.textAlign = 'center';
+
 						labelContext.textBaseline = 'middle';
 
 						// center text in label
@@ -598,6 +600,7 @@
 					// label positions relative to model bounding box
 
 					const labelOffset = 0.0125
+
 					const labelMargin = 0.05
 
 					labels[0].position.set ( center.x, box.min.y + labelOffset, box.max.z + labelMargin );
@@ -1006,7 +1009,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-black.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-white.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
