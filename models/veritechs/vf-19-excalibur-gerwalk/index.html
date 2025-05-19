@@ -487,18 +487,18 @@
 						const height = canvas.height;
 
 						ctx.fillStyle = '#00000000';
-						ctx.beginPath();
-						ctx.moveTo(radius, 0);
-						ctx.lineTo(width - radius, 0);
-						ctx.quadraticCurveTo(width, 0, width, radius);
-						ctx.lineTo(width, height - radius);
-						ctx.quadraticCurveTo(width, height, width - radius, height);
-						ctx.lineTo(radius, height);
-						ctx.quadraticCurveTo(0, height, 0, height - radius);
-						ctx.lineTo(0, radius);
-						ctx.quadraticCurveTo(0, 0, radius, 0);
-						ctx.closePath();
-						ctx.fill();
+						ctx.beginPath ();
+						ctx.moveTo ( radius, 0);
+						ctx.lineTo ( width - radius, 0 );
+						ctx.quadraticCurveTo ( width, 0, width, radius );
+						ctx.lineTo ( width, height - radius );
+						ctx.quadraticCurveTo ( width, height, width - radius, height );
+						ctx.lineTo ( radius, height );
+						ctx.quadraticCurveTo ( 0, height, 0, height - radius );
+						ctx.lineTo ( 0, radius );
+						ctx.quadraticCurveTo ( 0, 0, radius, 0 );
+						ctx.closePath ();
+						ctx.fill ();
 
 						// per axis text color
 
@@ -934,7 +934,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-green.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-grey.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
