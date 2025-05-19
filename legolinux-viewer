@@ -1174,11 +1174,15 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 							if ( node.isMesh ) {
 
 								const edgesGeometry = new THREE.EdgesGeometry ( node.geometry, 45 );
+
 								const edgesMaterial = new THREE.LineBasicMaterial ( { color: 0x000000 } );
+
 								const edges = new THREE.LineSegments ( edgesGeometry, edgesMaterial );
 
 								edges.position.copy ( node.position );
+
 								edges.rotation.copy ( node.rotation );
+
 								edges.scale.copy ( node.scale );
 
 								minifig.add ( edges );
@@ -1203,6 +1207,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 						const transform = self.get_transformControls();
 
 						self.scene.add ( transform );
+
 						transform.attach ( minifig );
 
 						self.minifig = minifig;

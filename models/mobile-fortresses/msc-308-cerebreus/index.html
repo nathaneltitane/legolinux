@@ -942,7 +942,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-orange.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-red.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
@@ -985,11 +985,15 @@
 							if ( node.isMesh ) {
 
 								const edgesGeometry = new THREE.EdgesGeometry ( node.geometry, 45 );
+
 								const edgesMaterial = new THREE.LineBasicMaterial ( { color: 0x000000 } );
+
 								const edges = new THREE.LineSegments ( edgesGeometry, edgesMaterial );
 
 								edges.position.copy ( node.position );
+
 								edges.rotation.copy ( node.rotation );
+
 								edges.scale.copy ( node.scale );
 
 								minifig.add ( edges );
@@ -1014,6 +1018,7 @@
 						const transform = self.get_transformControls();
 
 						self.scene.add ( transform );
+
 						transform.attach ( minifig );
 
 						self.minifig = minifig;
