@@ -534,9 +534,9 @@
 
 					const labels = [];
 
-					labels.push ( makeLabel ( `Width [ x ] : ${x.in} in // ${x.cm} cm // ${x.ldu} LDU`, '#ff0000ff' ) );	// x - red
-					labels.push ( makeLabel ( `Height [ y ] : ${y.in} in // ${y.cm} cm // ${y.ldu} LDU`, '#00ff00ff' ) );	// y - green
-					labels.push ( makeLabel ( `Depth [ z ] : ${z.in} in // ${z.cm} cm // ${z.ldu} LDU`, '#0000ffff' ) );	// z - blue
+					labels.push ( makeLabel ( `Width [ x ] : ${x.in} in // ${x.cm} cm // ${x.ldu} ldu`, '#ff0000ff' ) );	// x - red
+					labels.push ( makeLabel ( `Height [ y ] : ${y.in} in // ${y.cm} cm // ${y.ldu} ldu`, '#00ff00ff' ) );	// y - green
+					labels.push ( makeLabel ( `Depth [ z ] : ${z.in} in // ${z.cm} cm // ${z.ldu} ldu`, '#0000ffff' ) );	// z - blue
 
 					// label positions relative to model bounding box
 
@@ -936,7 +936,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-blue.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-black.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
