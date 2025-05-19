@@ -1812,9 +1812,9 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 							break;
 
-						// G //
+						// TAB //
 
-						case 71:
+						case 9:
 
 							self.boundingBoxHelper_ ( );
 
