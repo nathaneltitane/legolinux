@@ -1778,6 +1778,16 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 							break;
 
+						// U //
+
+						case 85:
+
+							self.boundingBoxHelper_ ( );
+
+							self.dimensionLabels_ ( );
+
+							break;
+
 						// B //
 
 						case 66:
