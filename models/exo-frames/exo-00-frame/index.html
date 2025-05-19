@@ -544,7 +544,7 @@
 					// label positions relative to model bounding box
 
 					const labelOffset = 0.0125
-					const labelMargin = 0.1
+					const labelMargin = 0.05
 
 					labels[0].position.set ( center.x, box.min.y + labelOffset, box.max.z + labelMargin );
 					labels[1].position.set ( box.max.x + labelMargin, box.max.y + labelOffset, box.max.z );
@@ -942,7 +942,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-fuschia.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-white.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
