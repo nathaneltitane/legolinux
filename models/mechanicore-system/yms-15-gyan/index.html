@@ -543,9 +543,11 @@
 
 					// label positions relative to model bounding box
 
-					labels[0].position.set ( center.x, box.min.y + 0.025, box.max.z + 0.1 );
-					labels[1].position.set ( box.max.x + 0.1, box.max.y + 0.025, box.max.z );
-					labels[2].position.set ( box.max.x + 0.1, box.min.y + 0.025, center.z );
+					const labelOffset = 0.0125
+
+					labels[0].position.set ( center.x, box.min.y + labelOffset, box.max.z + 0.1 );
+					labels[1].position.set ( box.max.x + 0.1, box.max.y + labelOffset, box.max.z );
+					labels[2].position.set ( box.max.x + 0.1, box.min.y + labelOffset, center.z );
 
 					self.dimensionLabels = labels;
 
@@ -939,7 +941,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-black.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-orange.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
