@@ -383,38 +383,78 @@
 						const max = box.max;
 
 						const edges = [
+
 							// x edges
+
 							[[min.x, min.y, min.z], [max.x, min.y, min.z]],
 							[[min.x, max.y, min.z], [max.x, max.y, min.z]],
 							[[min.x, min.y, max.z], [max.x, min.y, max.z]],
 							[[min.x, max.y, max.z], [max.x, max.y, max.z]],
 
 							// y edges
+
 							[[min.x, min.y, min.z], [min.x, max.y, min.z]],
 							[[max.x, min.y, min.z], [max.x, max.y, min.z]],
 							[[min.x, min.y, max.z], [min.x, max.y, max.z]],
 							[[max.x, min.y, max.z], [max.x, max.y, max.z]],
 
 							// z edges
+
 							[[min.x, min.y, min.z], [min.x, min.y, max.z]],
 							[[max.x, min.y, min.z], [max.x, min.y, max.z]],
 							[[min.x, max.y, min.z], [min.x, max.y, max.z]],
 							[[max.x, max.y, min.z], [max.x, max.y, max.z]],
+
 						];
 
-						for ( let i = 0; i < edges.length; i++ ) {
+						const cornerSize = 0.03;
 
-							const [start, end] = edges[i];
+						const corners = [
+							[min.x, min.y, min.z],
+							[max.x, min.y, min.z],
+							[min.x, max.y, min.z],
+							[max.x, max.y, min.z],
+							[min.x, min.y, max.z],
+							[max.x, min.y, max.z],
+							[min.x, max.y, max.z],
+							[max.x, max.y, max.z],
+						];
 
-							const isX = start[0] !== end[0];
-							const isY = start[1] !== end[1];
-							const isZ = start[2] !== end[2];
+						// generate edges
 
-							const color = isX ? colorX : isY ? colorY : colorZ;
+						// for ( let i = 0; i < edges.length; i++ ) {
 
-							positions.push ( ...start, ...end );
+						//	const [start, end] = edges[i];
 
-							colors.push ( ...color.toArray(), ...color.toArray() );
+						//	const isX = start[0] !== end[0];
+						//	const isY = start[1] !== end[1];
+						//	const isZ = start[2] !== end[2];
+
+						//	const color = isX ? colorX : isY ? colorY : colorZ;
+
+						//	positions.push ( ...start, ...end );
+
+						//	colors.push ( ...color.toArray(), ...color.toArray() );
+						//}
+
+						// generate corners
+
+						for ( const [x, y, z] of corners ) {
+
+							// X axis line
+
+							positions.push(x, y, z, x + cornerSize, y, z);
+							colors.push(...colorX.toArray(), ...colorX.toArray());
+
+							// Y axis line
+
+							positions.push(x, y, z, x, y + cornerSize, z);
+							colors.push(...colorY.toArray(), ...colorY.toArray());
+
+							// Z axis line
+
+							positions.push(x, y, z, x, y, z + cornerSize);
+							colors.push(...colorZ.toArray(), ...colorZ.toArray());
 						}
 
 						geometry.setAttribute ( 'position', new THREE.Float32BufferAttribute ( positions, 3 ) );
@@ -1009,7 +1049,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-black.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-yellow.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
