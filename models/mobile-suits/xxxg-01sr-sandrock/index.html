@@ -646,9 +646,11 @@
 
 						const modelMaxAxis = Math.max ( modelSize.x, modelSize.y, modelSize.z );
 
+						const modelMinAxis = Math.min ( modelSize.x, modelSize.y, modelSize.z );
+
 						// set label scale factor
 
-						const labelScale = modelMaxAxis;
+						const labelScale = modelMinAxis;
 
 						// set sprite scale
 
@@ -1076,7 +1078,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-fuschia.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-black.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
