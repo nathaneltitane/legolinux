@@ -465,9 +465,9 @@
 
 					});
 
-					const x = units(size.x);
-					const y = units(size.y);
-					const z = units(size.z);
+					const x = units ( size.x );
+					const y = units ( size.y );
+					const z = units ( size.z );
 
 					// label maker
 
@@ -480,7 +480,7 @@
 						canvas.width = 1024;
 						canvas.height = 1024;
 
-						const ctx = canvas.getContext ( '2d' );
+						const labelContext = canvas.getContext ( '2d' );
 
 						// label background
 
@@ -488,35 +488,38 @@
 						const width = canvas.width;
 						const height = canvas.height;
 
-						ctx.fillStyle = '#00000000';
-						ctx.beginPath ();
-						ctx.moveTo ( radius, 0);
-						ctx.lineTo ( width - radius, 0 );
-						ctx.quadraticCurveTo ( width, 0, width, radius );
-						ctx.lineTo ( width, height - radius );
-						ctx.quadraticCurveTo ( width, height, width - radius, height );
-						ctx.lineTo ( radius, height );
-						ctx.quadraticCurveTo ( 0, height, 0, height - radius );
-						ctx.lineTo ( 0, radius );
-						ctx.quadraticCurveTo ( 0, 0, radius, 0 );
-						ctx.closePath ();
-						ctx.fill ();
+						labelContext.fillStyle = '#00000000';
+						labelContext.beginPath ();
+						labelContext.moveTo ( radius, 0);
+						labelContext.lineTo ( width - radius, 0 );
+						labelContext.quadraticCurveTo ( width, 0, width, radius );
+						labelContext.lineTo ( width, height - radius );
+						labelContext.quadraticCurveTo ( width, height, width - radius, height );
+						labelContext.lineTo ( radius, height );
+						labelContext.quadraticCurveTo ( 0, height, 0, height - radius );
+						labelContext.lineTo ( 0, radius );
+						labelContext.quadraticCurveTo ( 0, 0, radius, 0 );
+						labelContext.closePath ();
+						labelContext.fill ();
 
 						// per axis text color
 
-						ctx.fillStyle = color;
-						ctx.font = 'bold 20px monospace';
+						labelContext.fillStyle = color;
 
-						// font alignment
+						// text font
 
-						ctx.textAlign = 'center';
-						ctx.textBaseline = 'middle';
+						labelContext.font = 'bold 20px monospace';
 
-						// center message in label
+						// text font alignment
 
-						ctx.fillText ( message, canvas.width / 2, canvas.height / 2 );
+						labelContext.textAlign = 'center';
+						labelContext.textBaseline = 'middle';
 
-						// load message sprite
+						// center text in label
+
+						labelContext.fillText ( message, canvas.width / 2, canvas.height / 2 );
+
+						// load label sprite
 
 						const texture = new THREE.CanvasTexture ( canvas );
 
@@ -936,7 +939,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-black.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-fuschia.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
