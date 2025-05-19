@@ -650,7 +650,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						cm: (axisSize * 100).toFixed(1),
 
-						ldu: Math.round((axisSize * 1000) / 0.4)
+						ldu: Math.round ( ( axisSize * 1000 ) / 0.4 )
 
 					});
 
