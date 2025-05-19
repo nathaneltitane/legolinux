@@ -638,16 +638,21 @@
 
 						const sprite = new THREE.Sprite ( spriteMaterial );
 
-						// sprite scale (world units to canvas ratio)
-// bounding box size (largest axis)
-const modelBox = self.get_boundingBox();
-const modelSize = modelBox.getSize(new THREE.Vector3());
-const maxAxis = Math.max(modelSize.x, modelSize.y, modelSize.z);
+						// determine appropriate sprite scale factor relative to model (world units to canvas ratio)
 
-// scale label proportionally (e.g. 5% of largest model axis)
-const labelScale = maxAxis * 0.05;
+						const modelBox = self.get_boundingBox();
 
-sprite.scale.set(labelScale, labelScale * 0.25, 1); // keep aspect ratio of canvas
+						const modelSize = modelBox.getSize (new THREE.Vector3() );
+
+						const modelMaxAxis = Math.max ( modelSize.x, modelSize.y, modelSize.z );
+
+						// set label scale factor
+
+						const labelScale = maxAxis * 0.05;
+
+						// set sprite scale
+
+						sprite.scale.set ( labelScale, labelScale, labelScale );
 
 						return sprite;
 
@@ -1071,7 +1076,7 @@ sprite.scale.set(labelScale, labelScale * 0.25, 1); // keep aspect ratio of canv
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-blue.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-white.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
