@@ -514,6 +514,8 @@
 
 						ctx.fillText ( message, canvas.width / 2, canvas.height / 2 );
 
+						// load message sprite
+
 						const texture = new THREE.CanvasTexture ( canvas );
 
 						const spriteMaterial = new THREE.SpriteMaterial ( { map: texture, transparent: true } );
@@ -522,7 +524,7 @@
 
 						// sprite scale
 
-						sprite.scale.set ( 0.16, 0.04, 0.2 );
+						sprite.scale.set ( 1, 1, 1 );
 
 						return sprite;
 
@@ -932,7 +934,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-white.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-orange.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
