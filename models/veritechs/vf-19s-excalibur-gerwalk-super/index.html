@@ -505,6 +505,7 @@
 				this.cameraHelper_color = null;
 
 				this.cameraHelper = null;
+
 				this.cameraHelper_visible = false;
 
 				this.get_cameraHelper = function ( ) {
@@ -572,7 +573,9 @@
 					});
 
 					const x = units ( size.x );
+
 					const y = units ( size.y );
+
 					const z = units ( size.z );
 
 					// label maker
@@ -584,6 +587,7 @@
 						// set canvas 1:1 ratio
 
 						canvas.width = 1024;
+
 						canvas.height = 1024;
 
 						const labelContext = canvas.getContext ( '2d' );
@@ -635,8 +639,15 @@
 						const sprite = new THREE.Sprite ( spriteMaterial );
 
 						// sprite scale (world units to canvas ratio)
+// bounding box size (largest axis)
+const modelBox = self.get_boundingBox();
+const modelSize = modelBox.getSize(new THREE.Vector3());
+const maxAxis = Math.max(modelSize.x, modelSize.y, modelSize.z);
 
-						sprite.scale.set ( 0.25, 0.25, 0.25 );
+// scale label proportionally (e.g. 5% of largest model axis)
+const labelScale = maxAxis * 0.05;
+
+sprite.scale.set(labelScale, labelScale * 0.25, 1); // keep aspect ratio of canvas
 
 						return sprite;
 
@@ -1060,7 +1071,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-blue.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-yellow.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
