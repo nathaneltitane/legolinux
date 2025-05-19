@@ -1191,7 +1191,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						const minifigPosition_y = yOffset
 
-						const minifigPosition_z = ( ( minifigPositionBox.max.z - minifigPositionBox.min.z ) / 2 )
+						const minifigPosition_z = ( ( ( minifigPositionBox.max.z - minifigPositionBox.min.z ) / 2 ) + minifigDepth )
 
 						// set minifig position
 

@@ -952,7 +952,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-blue.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-grey.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
@@ -1002,7 +1002,7 @@
 
 						const minifigPosition_y = yOffset
 
-						const minifigPosition_z = ( ( minifigPositionBox.max.z - minifigPositionBox.min.z ) / 2 )
+						const minifigPosition_z = ( ( ( minifigPositionBox.max.z - minifigPositionBox.min.z ) / 2 ) + minifigDepth )
 
 						// set minifig position
 
