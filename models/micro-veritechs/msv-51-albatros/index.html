@@ -362,22 +362,76 @@
 				this.boundingBoxHelper_color = grey;
 
 				this.boundingBoxHelper = null;
+
 				this.boundingBoxHelper_visible = false;
 
-				this.get_boundingBoxHelper = function ( ) {
+				this.get_boundingBoxHelper = function () {
 
 					if ( ! self.boundingBoxHelper ) {
 
-						self.boundingBoxHelper = new THREE.BoxHelper ( self.colladaImport, this.boundingBoxHelper_color );
+						const box = self.get_boundingBox();
+
+						const geometry = new THREE.BufferGeometry();
+						const positions = [];
+						const colors = [];
+
+						const colorX = new THREE.Color(0xff0000);	// red
+						const colorY = new THREE.Color(0x00ff00);	// green
+						const colorZ = new THREE.Color(0x0000ff);	// blue
+
+						const min = box.min;
+						const max = box.max;
+
+						const edges = [
+							// x edges
+							[[min.x, min.y, min.z], [max.x, min.y, min.z]],
+							[[min.x, max.y, min.z], [max.x, max.y, min.z]],
+							[[min.x, min.y, max.z], [max.x, min.y, max.z]],
+							[[min.x, max.y, max.z], [max.x, max.y, max.z]],
+
+							// y edges
+							[[min.x, min.y, min.z], [min.x, max.y, min.z]],
+							[[max.x, min.y, min.z], [max.x, max.y, min.z]],
+							[[min.x, min.y, max.z], [min.x, max.y, max.z]],
+							[[max.x, min.y, max.z], [max.x, max.y, max.z]],
+
+							// z edges
+							[[min.x, min.y, min.z], [min.x, min.y, max.z]],
+							[[max.x, min.y, min.z], [max.x, min.y, max.z]],
+							[[min.x, max.y, min.z], [min.x, max.y, max.z]],
+							[[max.x, max.y, min.z], [max.x, max.y, max.z]],
+						];
+
+						for ( let i = 0; i < edges.length; i++ ) {
+
+							const [start, end] = edges[i];
+
+							const isX = start[0] !== end[0];
+							const isY = start[1] !== end[1];
+							const isZ = start[2] !== end[2];
+
+							const color = isX ? colorX : isY ? colorY : colorZ;
+
+							positions.push ( ...start, ...end );
+
+							colors.push ( ...color.toArray(), ...color.toArray() );
+						}
+
+						geometry.setAttribute ( 'position', new THREE.Float32BufferAttribute ( positions, 3 ) );
+
+						geometry.setAttribute ( 'color', new THREE.Float32BufferAttribute ( colors, 3 ) );
+
+						const material = new THREE.LineBasicMaterial ( { vertexColors: true } );
+
+						self.boundingBoxHelper = new THREE.LineSegments ( geometry, material );
 
 						console.log ( "bounding box" );
-
 					}
 
 					return self.boundingBoxHelper;
 				}
 
-				this.boundingBoxHelper_ = function ( ) {
+				this.boundingBoxHelper_ = function () {
 
 					if ( this.boundingBoxHelper_visible ) {
 
@@ -952,7 +1006,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-white.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-black.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
