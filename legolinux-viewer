@@ -1157,7 +1157,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						const yOffset = modelBox.min.y - adjustedBox.min.y;
 
-						minifig.position.set ( modelCenter.x, yOffset, modelCenter.z + 0.1 );
+						minifig.position.set ( modelCenter.x, yOffset, modelCenter.z + 0.05 );
 
 						// edges
 

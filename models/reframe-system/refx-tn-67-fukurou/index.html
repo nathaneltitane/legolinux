@@ -942,7 +942,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-grey.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-blue.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
@@ -968,7 +968,7 @@
 
 						const yOffset = modelBox.min.y - adjustedBox.min.y;
 
-						minifig.position.set ( modelCenter.x, yOffset, modelCenter.z + 0.1 );
+						minifig.position.set ( modelCenter.x, yOffset, modelCenter.z + 0.05 );
 
 						// edges
 
