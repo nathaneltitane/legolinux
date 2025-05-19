@@ -1153,6 +1153,8 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						const minifigBox = new THREE.Box3().setFromObject ( minifig );
 
+						// define all models positional parameters
+
 						const modelCenter = modelBox.getCenter ( new THREE.Vector3() );
 
 						const minifigCenter = minifigBox.getCenter ( new THREE.Vector3() );
@@ -1169,11 +1171,15 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						const modelDepth = modelBox.max.z - modelBox.min.z;
 
+						// set minifig scale
+
 						const desiredHeight = modelHeight * 0.00005;
 
 						const scaleFactor = desiredHeight / minifigHeight;
 
 						minifig.scale.setScalar ( scaleFactor );
+
+						// compute minifig position
 
 						const minifigPositionBox = new THREE.Box3().setFromObject ( minifig );
 
@@ -1185,7 +1191,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						const minifigPosition_y = yOffset
 
-						const minifigPosition_z = (( minifigPositionBox.max.z - minifigPositionBox.min.z ) / 2 )
+						const minifigPosition_z = ( ( minifigPositionBox.max.z - minifigPositionBox.min.z ) / 2 )
 
 						// set minifig position
 

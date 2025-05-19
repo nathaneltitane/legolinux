@@ -952,7 +952,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-purple.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-green.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
@@ -963,6 +963,8 @@
 						const modelBox = new THREE.Box3().setFromObject ( self.colladaImport );
 
 						const minifigBox = new THREE.Box3().setFromObject ( minifig );
+
+						// define all models positional parameters
 
 						const modelCenter = modelBox.getCenter ( new THREE.Vector3() );
 
@@ -980,11 +982,15 @@
 
 						const modelDepth = modelBox.max.z - modelBox.min.z;
 
+						// set minifig scale
+
 						const desiredHeight = modelHeight * 0.00005;
 
 						const scaleFactor = desiredHeight / minifigHeight;
 
 						minifig.scale.setScalar ( scaleFactor );
+
+						// compute minifig position
 
 						const minifigPositionBox = new THREE.Box3().setFromObject ( minifig );
 
@@ -996,7 +1002,7 @@
 
 						const minifigPosition_y = yOffset
 
-						const minifigPosition_z = (( minifigPositionBox.max.z - minifigPositionBox.min.z ) / 2 )
+						const minifigPosition_z = ( ( minifigPositionBox.max.z - minifigPositionBox.min.z ) / 2 )
 
 						// set minifig position
 
