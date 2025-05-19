@@ -773,6 +773,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				// hemisphere light helper
 
 				this.hemisphereLightHelper = null;
+
 				this.hemisphereLightHelper_visible = false;
 
 				this.get_hemisphereLightHelper = function ( ) {
@@ -812,6 +813,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				// point light helper
 
 				this.pointLightHelper = null;
+
 				this.pointLightHelper_visible = false;
 
 				this.get_pointLightHelper = function ( ) {
@@ -851,6 +853,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				// directional light helper - 0
 
 				this.directionalLight_0_Helper = null;
+
 				this.directionalLight_0_Helper_visible = false;
 
 				this.get_directionalLight_0_Helper = function ( ) {
@@ -889,6 +892,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				// directional light helper - 1
 
 				this.directionalLight_1_Helper = null;
+
 				this.directionalLight_1_Helper_visible = false;
 
 				this.get_directionalLight_1_Helper = function ( ) {
@@ -928,6 +932,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				// directional light helper - 2
 
 				this.directionalLight_2_Helper = null;
+
 				this.directionalLight_2_Helper_visible = false;
 
 				this.get_directionalLight_2_Helper = function ( ) {
@@ -967,6 +972,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				// spotlight helper
 
 				this.spotLightHelper = null;
+
 				this.spotLightHelper_visible = false;
 
 				this.get_spotLightHelper = function ( ) {
@@ -1005,9 +1011,11 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				// polar grid helper
 
 				this.polarGridHelper_color_min = orange;
+
 				this.polarGridHelper_color_max = charcoal;
 
 				this.polarGridHelper = null;
+
 				this.polarGridHelper_visible = false;
 
 				this.get_polarGridHelper = function ( ) {
@@ -1053,9 +1061,11 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				// orthogonal grid helper
 
 				this.orthogonalGridHelper_color_min = purple;
+
 				this.orthogonalGridHelper_color_max = charcoal;
 
 				this.orthogonalGridHelper = null;
+
 				this.orthogonalGridHelper_visible = false;
 
 				this.get_orthogonalGridHelper = function ( ) {
@@ -1210,6 +1220,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 							if ( node.isMesh ) {
 
 								node.castShadow = true;
+
 								node.receiveShadow = true;
 
 							}
