@@ -439,23 +439,25 @@
 
 						// generate corners
 
-						for ( const [x, y, z] of corners ) {
+		for ( const [x, y, z] of corners ) {
 
-							// X axis line
+			// determine axis directions toward the box center
+			const dirX = (x === min.x) ? 1 : -1;
+			const dirY = (y === min.y) ? 1 : -1;
+			const dirZ = (z === min.z) ? 1 : -1;
 
-							positions.push(x, y, z, x + cornerSize, y, z);
-							colors.push(...colorX.toArray(), ...colorX.toArray());
+			// X axis
+			positions.push(x, y, z, x + dirX * cornerSize, y, z);
+			colors.push(...colorX.toArray(), ...colorX.toArray());
 
-							// Y axis line
+			// Y axis
+			positions.push(x, y, z, x, y + dirY * cornerSize, z);
+			colors.push(...colorY.toArray(), ...colorY.toArray());
 
-							positions.push(x, y, z, x, y + cornerSize, z);
-							colors.push(...colorY.toArray(), ...colorY.toArray());
-
-							// Z axis line
-
-							positions.push(x, y, z, x, y, z + cornerSize);
-							colors.push(...colorZ.toArray(), ...colorZ.toArray());
-						}
+			// Z axis
+			positions.push(x, y, z, x, y, z + dirZ * cornerSize);
+			colors.push(...colorZ.toArray(), ...colorZ.toArray());
+		}
 
 						geometry.setAttribute ( 'position', new THREE.Float32BufferAttribute ( positions, 3 ) );
 
@@ -1049,7 +1051,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-yellow.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-black.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
