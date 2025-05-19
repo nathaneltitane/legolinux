@@ -475,8 +475,10 @@
 
 						const canvas = document.createElement ( 'canvas' );
 
-						canvas.width = 512;
-						canvas.height = 512;
+						// set canvas 1:1 ratio
+
+						canvas.width = 1024;
+						canvas.height = 1024;
 
 						const ctx = canvas.getContext ( '2d' );
 
@@ -522,9 +524,9 @@
 
 						const sprite = new THREE.Sprite ( spriteMaterial );
 
-						// sprite scale (world units)
+						// sprite scale (world units to canvas ratio)
 
-						sprite.scale.set ( 0.16, 0.04, 0.2 );
+						sprite.scale.set ( 0.25, 0.25, 0.25 );
 
 						return sprite;
 
@@ -934,7 +936,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-grey.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-red.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 

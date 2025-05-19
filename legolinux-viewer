@@ -664,8 +664,10 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						const canvas = document.createElement ( 'canvas' );
 
-						canvas.width = 512;
-						canvas.height = 512;
+						// set canvas 1:1 ratio
+
+						canvas.width = 1024;
+						canvas.height = 1024;
 
 						const ctx = canvas.getContext ( '2d' );
 
@@ -711,9 +713,9 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						const sprite = new THREE.Sprite ( spriteMaterial );
 
-						// sprite scale (world units)
+						// sprite scale (world units to canvas ratio)
 
-						sprite.scale.set ( 0.16, 0.04, 0.2 );
+						sprite.scale.set ( 0.25, 0.25, 0.25 );
 
 						return sprite;
 
