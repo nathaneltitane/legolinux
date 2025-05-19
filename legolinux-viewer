@@ -660,7 +660,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					// label maker
 
-					function makeLabel(message, color) {
+					function makeLabel (message, color ) {
 
 						const canvas = document.createElement('canvas');
 
