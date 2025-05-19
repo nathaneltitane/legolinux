@@ -1155,11 +1155,17 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						const adjustedBox = new THREE.Box3().setFromObject ( minifig );
 
+						const adjustedBox = new THREE.Box3().setFromObject ( minifig );
+
+						const minifigDepth = adjustedBox.max.z - adjustedBox.min.z;
+
 						const yOffset = modelBox.min.y - adjustedBox.min.y;
 
-						const zOffset = modelBox.max.z - adjustedBox.min.z;
+						const zOffset = modelBox.max.z + minifigDepth;
 
-						minifig.position.set(modelCenter.x, yOffset, modelBox.max.z - (adjustedBox.max.z - adjustedBox.min.z) / 2);
+						// position minifig just beyond the model’s max.z
+
+						minifig.position.set ( modelCenter.x, yOffset, zOffset );
 
 						// edges
 
