@@ -1164,17 +1164,11 @@
 
 						const minifigDepth = minifigBox.max.z - minifigBox.min.z;
 
-						console.log ( cubeHeight );
-						console.log ( modelHeight );
-						console.log ( minifigHeight );
-
 						// set minifig scale
 
-						const desiredHeight = 0.0428;
+						const scaleFactor = self.colladaImport.getWorldScale ( new THREE.Vector3() );
 
-						const scaleFactor = desiredHeight / minifigHeight;
-
-						minifig.scale.setScalar ( 0.0004 );
+						minifig.scale.setScalar ( scaleFactor );
 
 						// compute minifig position
 
