@@ -249,6 +249,8 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 			function initialize ( ) {
 
+				const editorScale = 0.0004;
+
 				const startTime = performance.now ( );
 
 				var self  = this;
@@ -1355,7 +1357,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						// set minifig scale
 
-						minifig.scale.setScalar ( 0.0004 );
+						minifig.scale.setScalar ( editorScale );
 
 						// compute minifig position
 
