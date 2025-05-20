@@ -1124,7 +1124,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-orange.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-black.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
@@ -1245,6 +1245,9 @@
 						self.minifigTransform = transform;
 
 						console.log ( 'minifig ' );
+
+						console.log('Minifig scale:', minifig.scale);
+						console.log('Minifig matrixWorld scale:', minifig.getWorldScale(new THREE.Vector3()));
 					});
 				};
 
@@ -2188,6 +2191,10 @@
 						// load model
 
 						self.scene.add ( self.colladaImport );
+
+						console.log('Model scale:', self.colladaImport.scale);
+						console.log('Model matrixWorld scale:', self.colladaImport.getWorldScale(new THREE.Vector3()));
+
 
 						const modelBox = new THREE.Box3().setFromObject ( self.colladaImport )
 
