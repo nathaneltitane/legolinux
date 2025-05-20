@@ -381,16 +381,16 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// sun light
 
-				this.sunLight_color = white;
+				// this.sunLight_color = white;
 
-				this.sunLight = new THREE.DirectionalLight (
-					this.sunLight_color,	// color
-					0.8						// intensity
-				);
+				// this.sunLight = new THREE.DirectionalLight (
+				//	this.sunLight_color,	// color
+				//	0.8						// intensity
+				// );
 
-				this.sunLight.position.set ( 5.0, 10.0, 5.0 );
+				// this.sunLight.position.set ( 5.0, 10.0, 5.0 );
 
-				this.sunLight.castShadow = true;
+				// this.sunLight.castShadow = true;
 
 				// shadow bounds (adjust to fit scene)
 				this.sunLight.shadow.camera.left = -10.0;
@@ -1454,8 +1454,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					const geometry = new THREE.ShapeGeometry(shape);
 
-const material = new THREE.MeshStandardMaterial({ color: this.plane_color, side: THREE.DoubleSide });
-
+					const material = new THREE.MeshStandardMaterial({ color: this.plane_color, side: THREE.DoubleSide });
 
 					self.plane = new THREE.Mesh(geometry, material);
 
