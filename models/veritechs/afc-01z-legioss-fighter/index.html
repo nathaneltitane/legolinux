@@ -1124,7 +1124,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-grey.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-orange.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
@@ -1165,6 +1165,7 @@
 						const minifigDepth = minifigBox.max.z - minifigBox.min.z;
 
 						console.log ( cubeHeight );
+						console.log ( modelHeight );
 						console.log ( minifigHeight );
 
 						// set minifig scale

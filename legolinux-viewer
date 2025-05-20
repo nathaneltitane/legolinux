@@ -1354,6 +1354,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 						const minifigDepth = minifigBox.max.z - minifigBox.min.z;
 
 						console.log ( cubeHeight );
+						console.log ( modelHeight );
 						console.log ( minifigHeight );
 
 						// set minifig scale
