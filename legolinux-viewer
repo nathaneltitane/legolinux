@@ -1323,7 +1323,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						// set minifig scale
 
-						const desiredHeight = modelHeight * 0.00005;
+						const desiredHeight = 0.04;
 
 						const scaleFactor = desiredHeight / minifigHeight;
 
