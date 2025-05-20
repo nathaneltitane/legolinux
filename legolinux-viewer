@@ -260,7 +260,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				const near = ( factor * 4 );
 				const far  = ( near * 4 );
 
-				const cameraNear = ( factor * 1000);
+				const cameraNear = ( factor * 1000000);
 				const cameraFar  = ( factor * 4 * 1000000000000000000 );
 
 				const viewportWidth = window.innerWidth;
