@@ -2395,12 +2395,12 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						console.log (
 							'scale [ model ] = ',
-							mainModel.scale
+							self.colladaImport.scale
 						);
 
 						console.log (
 							'scale [ model matrix ] =',
-							mainModel.getWorldScale ( new THREE.Vector3() )
+							self.colladaImport.getWorldScale ( new THREE.Vector3() )
 						);
 
 						console.log (
