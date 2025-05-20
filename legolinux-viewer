@@ -255,13 +255,13 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// viewport
 
-				const factor = 10000000;
+				const factor = 1;
 
 				const near = ( factor * 4 );
 				const far  = ( near * 4 );
 
 				const cameraNear = ( factor );
-				const cameraFar  = ( factor * ( 4 * 1000 ) );
+				const cameraFar  = ( factor * 4 * 1000 );
 
 				const viewportWidth = window.innerWidth;
 				const viewportHeight = window.innerHeight;
