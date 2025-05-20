@@ -1124,7 +1124,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-white.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-black.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
@@ -1132,9 +1132,9 @@
 
 						// define all model bounding boxes
 
-						const cubeBox = new THREE.Box3().setFromObject(self.referenceCube);
+						const cubeBox = new THREE.Box3().setFromObject ( self.colladaImport );
 
-						const modelBox = new THREE.Box3().setFromObject ( self.colladaImport );
+						const modelBox = new THREE.Box3().setFromObject ( referenceCube );
 
 						const minifigBox = new THREE.Box3().setFromObject ( minifig );
 
@@ -1164,17 +1164,13 @@
 
 						const minifigDepth = minifigBox.max.z - minifigBox.min.z;
 
-						console.log ( minifigHeight );
-
 						// set minifig scale
 
-						const targetMinifigHeight = 0.0428;
+						const desiredHeight = 0.000004;
 
-						const scaleFactor = targetMinifigHeight / minifigHeight;
+						const scaleFactor = desiredHeight / minifigHeight;
 
 						minifig.scale.setScalar ( scaleFactor );
-
-						minifig.updateMatrixWorld ( true );
 
 						// compute minifig position
 
