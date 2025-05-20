@@ -188,6 +188,7 @@
 				// ambient light
 
 				this.ambientLight_color = white;
+
 				this.ambientLightHelper_color = null;
 
 				this.ambientLight = new THREE.AmbientLight (
@@ -200,6 +201,7 @@
 				// hemispherical light
 
 				this.hemisphereLight_color = white;
+
 				this.hemisphereLightHelper_color = black;
 
 				this.hemisphereLight = new THREE.HemisphereLight (
@@ -241,6 +243,7 @@
 				// point light
 
 				this.pointLight_color = white;
+
 				this.pointLightHelper_color = black;
 
 				this.pointLight = new THREE.PointLight (
@@ -341,6 +344,7 @@
 				// spotLight
 
 				this.spotLight_color = white;
+
 				this.spotLightHelper_color = black;
 
 				this.spotLight = new THREE.SpotLight (
@@ -372,6 +376,7 @@
 				// axes helper
 
 				this.axesHelper = null;
+
 				this.axesHelper_visible = false;
 
 				this.get_axesHelper = function ( ) {
@@ -1126,7 +1131,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-purple.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-green.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
