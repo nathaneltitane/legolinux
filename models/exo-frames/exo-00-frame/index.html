@@ -1124,7 +1124,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-white.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-fuschia.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
@@ -1173,8 +1173,6 @@
 						const scaleFactor = targetMinifigHeight / minifigHeight;
 
 						minifig.scale.setScalar ( scaleFactor );
-
-						minifig.updateMatrixWorld ( true );
 
 						// compute minifig position
 

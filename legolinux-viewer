@@ -1363,8 +1363,6 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						minifig.scale.setScalar ( scaleFactor );
 
-						minifig.updateMatrixWorld ( true );
-
 						// compute minifig position
 
 						const minifigPositionBox = new THREE.Box3().setFromObject ( minifig );
