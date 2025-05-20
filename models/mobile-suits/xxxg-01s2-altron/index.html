@@ -126,7 +126,7 @@
 
 				geometry.center();
 
-				const referenceCube = new THREE.Mesh (
+				const cube = new THREE.Mesh (
 
 					geometry,
 
@@ -134,11 +134,11 @@
 
 				);
 
-				referenceCube.name = 'referenceCube';
+				cube.name = 'cube';
 
-				referenceCube.position.set ( 0, 0, 0 );
+				cube.position.set ( 0, 0, 0 );
 
-				self.scene.add ( referenceCube );
+				self.scene.add ( cube );
 
 				// camera
 
@@ -1124,7 +1124,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-black.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-red.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
@@ -1132,9 +1132,9 @@
 
 						// define all model bounding boxes
 
-						const cubeBox = new THREE.Box3().setFromObject ( referenceCube );
+						const cubeBox = new THREE.Box3().setFromObject ( cube );
 
-						const modelBox = new THREE.Box3().setFromObject ( self.colladaImport );
+						const modelBox = new THREE.Box3().setFromObject ( model );
 
 						const minifigBox = new THREE.Box3().setFromObject ( minifig );
 
@@ -2123,6 +2123,8 @@
 						function ( collada ) {
 
 						self.colladaImport = collada.scene;
+
+						self.colladaImport.name = 'model';
 
 						// traverse and parse mesh items
 

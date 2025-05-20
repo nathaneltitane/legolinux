@@ -315,7 +315,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				geometry.center();
 
-				const referenceCube = new THREE.Mesh (
+				const cube = new THREE.Mesh (
 
 					geometry,
 
@@ -323,11 +323,11 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				);
 
-				referenceCube.name = 'referenceCube';
+				cube.name = 'cube';
 
-				referenceCube.position.set ( 0, 0, 0 );
+				cube.position.set ( 0, 0, 0 );
 
-				self.scene.add ( referenceCube );
+				self.scene.add ( cube );
 
 				// camera
 
@@ -1321,9 +1321,9 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						// define all model bounding boxes
 
-						const cubeBox = new THREE.Box3().setFromObject ( referenceCube );
+						const cubeBox = new THREE.Box3().setFromObject ( cube );
 
-						const modelBox = new THREE.Box3().setFromObject ( self.colladaImport );
+						const modelBox = new THREE.Box3().setFromObject ( model );
 
 						const minifigBox = new THREE.Box3().setFromObject ( minifig );
 
@@ -2312,6 +2312,8 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 						function ( collada ) {
 
 						self.colladaImport = collada.scene;
+
+						self.colladaImport.name = 'model';
 
 						// traverse and parse mesh items
 
