@@ -1124,7 +1124,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-black.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-green.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
@@ -1174,7 +1174,7 @@
 
 						const scaleFactor = desiredHeight / minifigHeight;
 
-						minifig.scale.setScalar ( scaleFactor );
+						minifig.scale.setScalar ( 0.0004 );
 
 						// compute minifig position
 

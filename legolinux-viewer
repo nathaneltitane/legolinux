@@ -1363,7 +1363,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						const scaleFactor = desiredHeight / minifigHeight;
 
-						minifig.scale.setScalar ( scaleFactor );
+						minifig.scale.setScalar ( 0.0004 );
 
 						// compute minifig position
 
