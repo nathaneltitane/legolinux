@@ -1126,7 +1126,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-green.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-red.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
@@ -2206,11 +2206,6 @@
 						console.log (
 							'scale [ model matrix ] =',
 							self.colladaImport.getWorldScale ( new THREE.Vector3() )
-						);
-
-						console.log (
-							'scale [ minifig matrix ] =',
-							minifig.getWorldScale ( new THREE.Vector3() )
 						);
 
 						console.log (
