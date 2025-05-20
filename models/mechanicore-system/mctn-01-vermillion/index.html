@@ -72,7 +72,7 @@
 				const far  = ( near * 4 );
 
 				const cameraNear = ( factor );
-				const cameraFar  = ( factor * 4 * 1000 );
+				const cameraFar  = ( factor * 4 * 1000000 );
 
 				const viewportWidth = window.innerWidth;
 				const viewportHeight = window.innerHeight;
@@ -1124,7 +1124,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-fuschia.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-red.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
