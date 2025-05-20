@@ -2411,6 +2411,16 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				});
 
+				// dimensions toggle
+
+				document.getElementById ( 'dimensions' ).addEventListener ( 'click', function ( ) {
+
+					self.boundingBoxHelper_ ( );
+
+					self.dimensionLabels_ ( );
+
+				});
+
 				const endTime = performance.now();
 
 				const loadTime = ( ( endTime - startTime ) / 1000).toFixed ( 2 );

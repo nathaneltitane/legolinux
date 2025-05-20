@@ -1078,7 +1078,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-black.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-grey.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
@@ -2219,6 +2219,16 @@
 				document.getElementById ( 'edges' ).addEventListener ( 'click', function ( ) {
 
 					self.edgesToggle_ ( );
+
+				});
+
+				// dimensions toggle
+
+				document.getElementById ( 'dimensions' ).addEventListener ( 'click', function ( ) {
+
+					self.boundingBoxHelper_ ( );
+
+					self.dimensionLabels_ ( );
 
 				});
 
