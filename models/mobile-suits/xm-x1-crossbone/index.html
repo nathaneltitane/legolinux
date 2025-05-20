@@ -1232,6 +1232,8 @@
 
 						self.scene.add ( minifig );
 
+						console.log('Scene children:', self.scene.children.map(o => o.name));
+
 						const transform = self.get_transformControls();
 
 						self.scene.add ( transform );

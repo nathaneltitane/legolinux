@@ -1124,7 +1124,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-blue.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-yellow.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
@@ -1231,6 +1231,8 @@
 						});
 
 						self.scene.add ( minifig );
+
+						console.log('Scene children:', self.scene.children.map(o => o.name));
 
 						const transform = self.get_transformControls();
 
