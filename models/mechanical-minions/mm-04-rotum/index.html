@@ -71,8 +71,8 @@
 				const near = ( factor * 4 );
 				const far  = ( near * 4 );
 
-				const cameraNear = ( factor * 1000000);
-				const cameraFar  = ( factor * 4 * 1000000000000000000 );
+				const cameraNear = ( factor );
+				const cameraFar  = ( factor * 4 * 1000 );
 
 				const viewportWidth = window.innerWidth;
 				const viewportHeight = window.innerHeight;
@@ -166,7 +166,7 @@
 
 				this.camera = self.perspectiveCamera;
 
-				this.camera.position.set ( 90, 60, 90 );
+				this.camera.position.set ( 45, 30, 45 );
 
 				this.camera.lookAt ( 0, 0, 0 );
 
@@ -177,7 +177,7 @@
 
 				else {
 
-					this.camera.zoom = 0.1;
+					this.camera.zoom = 2;
 
 				}
 
@@ -1124,7 +1124,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-fuschia.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-green.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
