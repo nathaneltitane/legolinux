@@ -309,7 +309,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// size reference cube (1m³)
 
-				const geometry = new THREE.BoxGeometry ( 1, 1, 1 );
+				const geometry = new THREE.BoxGeometry ( 1, 1, 1 f);
 
 				// ensures centering on cube origin
 
@@ -1361,7 +1361,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						const desiredHeight = 0.0428;
 
-						const scaleFactor = desiredHeight / minifigHeight;
+						const scaleFactor = minifigHeight / 0.0004;
 
 						minifig.scale.setScalar ( scaleFactor );
 
