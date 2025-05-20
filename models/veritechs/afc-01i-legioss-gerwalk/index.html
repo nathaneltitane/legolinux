@@ -1130,6 +1130,8 @@
 
 						minifig.name = 'minifig';
 
+						minifig.updateMatrixWorld(true);
+
 						// define all model bounding boxes
 
 						const modelBox = new THREE.Box3().setFromObject ( self.colladaImport );

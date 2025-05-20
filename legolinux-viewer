@@ -1319,6 +1319,8 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						minifig.name = 'minifig';
 
+						minifig.updateMatrixWorld(true);
+
 						// define all model bounding boxes
 
 						const modelBox = new THREE.Box3().setFromObject ( self.colladaImport );

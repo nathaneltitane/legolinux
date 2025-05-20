@@ -1124,11 +1124,13 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-grey.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-orange.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
 						minifig.name = 'minifig';
+
+						minifig.updateMatrixWorld(true);
 
 						// define all model bounding boxes
 
