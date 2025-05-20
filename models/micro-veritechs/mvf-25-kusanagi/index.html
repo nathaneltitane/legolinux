@@ -967,7 +967,7 @@
 
 						// self.polarGridHelper.position.y = 0;
 
-						console.log ( "polar grid" );
+						console.log ( "grid [ polar ]" );
 
 					}
 
@@ -1017,7 +1017,7 @@
 
 						// self.orthogonalGridHelper.position.y = 0;
 
-						console.log ( "orthogonal grid" );
+						console.log ( "grid [ orthogonal ]" );
 					}
 
 					return self.orthogonalGridHelper;
@@ -1078,7 +1078,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-white.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-yellow.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
@@ -1196,7 +1196,7 @@
 
 						self.boundingBox = new THREE.Box3 ( ).setFromObject ( self.colladaImport )
 
-						console.log ( "bounding box" );
+						console.log ( "bounding box [ plane ]" );
 					}
 
 					return self.boundingBox;

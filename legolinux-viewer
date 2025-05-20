@@ -1156,7 +1156,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						// self.polarGridHelper.position.y = 0;
 
-						console.log ( "polar grid" );
+						console.log ( "grid [ polar ]" );
 
 					}
 
@@ -1206,7 +1206,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						// self.orthogonalGridHelper.position.y = 0;
 
-						console.log ( "orthogonal grid" );
+						console.log ( "grid [ orthogonal ]" );
 					}
 
 					return self.orthogonalGridHelper;
@@ -1385,7 +1385,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						self.boundingBox = new THREE.Box3 ( ).setFromObject ( self.colladaImport )
 
-						console.log ( "bounding box" );
+						console.log ( "bounding box [ plane ]" );
 					}
 
 					return self.boundingBox;
