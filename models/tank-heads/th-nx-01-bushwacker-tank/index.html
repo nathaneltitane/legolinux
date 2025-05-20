@@ -1124,7 +1124,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-green.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-purple.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
@@ -1158,11 +1158,27 @@
 
 						// set minifig scale
 
-						const targetMinifigHeight = 0.0428;
+// make sure both objects have updated world transforms
+self.referenceCube.updateMatrixWorld(true);
+minifig.updateMatrixWorld(true);
 
-						const scaleFactor = targetMinifigHeight / minifigHeight;
+// get minifig bounding box before scaling
 
-						minifig.scale.setScalar ( scaleFactor );
+// get reference cube bounding box (should be 1m³ centered at origin)
+const cubeBox = new THREE.Box3().setFromObject(self.referenceCube);
+const cubeHeight = cubeBox.max.y - cubeBox.min.y; // should be 1.0 if correctly defined
+
+// desired height relative to the cube (i.e. 4.28cm in a 1m unit world)
+const targetHeight = 0.0428; // meters
+
+// calculate scaling factor to make minifig exactly 4.28 cm tall
+const scaleFactor = targetHeight / minifigHeight;
+
+// apply scale
+minifig.scale.setScalar(scaleFactor);
+
+// update matrix again after scaling
+minifig.updateMatrixWorld(true);
 
 						// compute minifig position
 
