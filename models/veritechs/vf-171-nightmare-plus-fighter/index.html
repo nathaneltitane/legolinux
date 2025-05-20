@@ -126,9 +126,12 @@
 
 				geometry.center();
 
-				const referenceCube = new THREE.Mesh(
+				const referenceCube = new THREE.Mesh (
+
 					geometry,
+
 					new THREE.MeshBasicMaterial ( { visible: true } )
+
 				);
 
 				referenceCube.name = 'referenceCube';
@@ -1121,7 +1124,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-white.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-purple.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 

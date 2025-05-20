@@ -126,9 +126,12 @@
 
 				geometry.center();
 
-				const referenceCube = new THREE.Mesh(
+				const referenceCube = new THREE.Mesh (
+
 					geometry,
+
 					new THREE.MeshBasicMaterial ( { visible: true } )
+
 				);
 
 				referenceCube.name = 'referenceCube';
