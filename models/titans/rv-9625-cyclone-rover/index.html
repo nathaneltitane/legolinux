@@ -1105,7 +1105,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-white.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-purple.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
@@ -1265,7 +1265,8 @@
 
 					const geometry = new THREE.ShapeGeometry(shape);
 
-					const material = new THREE.MeshBasicMaterial({ color: this.plane_color, side: THREE.DoubleSide });
+const material = new THREE.MeshStandardMaterial({ color: this.plane_color, side: THREE.DoubleSide });
+
 
 					self.plane = new THREE.Mesh(geometry, material);
 

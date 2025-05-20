@@ -1265,7 +1265,8 @@
 
 					const geometry = new THREE.ShapeGeometry(shape);
 
-					const material = new THREE.MeshBasicMaterial({ color: this.plane_color, side: THREE.DoubleSide });
+const material = new THREE.MeshStandardMaterial({ color: this.plane_color, side: THREE.DoubleSide });
+
 
 					self.plane = new THREE.Mesh(geometry, material);
 
