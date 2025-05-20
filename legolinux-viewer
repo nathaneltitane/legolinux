@@ -315,7 +315,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				geometry.center();
 
-				const cube = new THREE.Mesh (
+				const referenceCube = new THREE.Mesh (
 
 					geometry,
 
@@ -323,11 +323,11 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				);
 
-				cube.name = 'cube';
+				referenceCube.name = 'referenceCube';
 
-				cube.position.set ( 0, 0, 0 );
+				referenceCube.position.set ( 0, 0, 0 );
 
-				self.scene.add ( cube );
+				self.scene.add ( referenceCube );
 
 				// camera
 
@@ -1321,7 +1321,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						// define all model bounding boxes
 
-						const cubeBox = new THREE.Box3().setFromObject ( cube );
+						const cubeBox = new THREE.Box3().setFromObject ( referenceCube );
 
 						const modelBox = new THREE.Box3().setFromObject ( model );
 
