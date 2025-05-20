@@ -130,7 +130,14 @@
 
 					geometry,
 
-					new THREE.MeshBasicMaterial ( { visible: true } )
+					new THREE.MeshBasicMaterial ({
+
+						color: 0xffffff,      // light cyan (or any color you want)
+						transparent: true,
+						opacity: 0.1,
+						depthWrite: false,    // prevents it from blocking other objects
+
+					})
 
 				);
 
@@ -1124,7 +1131,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-blue.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-orange.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
