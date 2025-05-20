@@ -196,7 +196,7 @@
 
 				this.sunLight = new THREE.DirectionalLight (
 					this.sunLight_color,	// color
-					0.1						// intensity
+					0.0						// intensity
 				);
 
 				this.sunLight.position.set ( 5.0, 10.0, 5.0 );
@@ -1106,7 +1106,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-fuschia.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-black.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
