@@ -66,7 +66,7 @@
 
 				// viewport
 
-				const factor = 0.1;
+				const factor = 1;
 
 				const near = ( factor * 4 );
 				const far  = ( near * 4 );
@@ -120,7 +120,7 @@
 
 				// size reference cube (1m³)
 
-				const geometry = new THREE.BoxGeometry(1, 1, 1);
+				const geometry = new THREE.BoxGeometry ( 1, 1, 1 );
 
 				// ensures centering on cube origin
 
@@ -172,12 +172,12 @@
 
 				if ( this.camera.isOrthographicCamera ) {
 
-					this.camera.zoom = 12000;
+					this.camera.zoom = 3000;
 				}
 
 				else {
 
-					this.camera.zoom = 0.5;
+					this.camera.zoom = 2;
 
 				}
 
@@ -1124,7 +1124,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-fuschia.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-white.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
