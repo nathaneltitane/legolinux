@@ -1397,6 +1397,8 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				this.plane_visible = false;
 
+				this.plane.receiveShadow = true;
+
 				this.get_plane = function () {
 
 					if ( !self.plane ) {

@@ -1078,7 +1078,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-grey.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-purple.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
@@ -1207,6 +1207,8 @@
 				this.plane = null;
 
 				this.plane_visible = false;
+
+				this.plane.receiveShadow = true;
 
 				this.get_plane = function () {
 
