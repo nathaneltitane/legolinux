@@ -1345,9 +1345,13 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						// set minifig scale
 
-						const desiredHeight = 0.000004;
+						const targetMinifigHeight = 0.0428;
 
-						const scaleFactor = desiredHeight / minifigHeight;
+						const minifigBox = new THREE.Box3().setFromObject ( minifig );
+
+						const minifigHeight = minifigBox.max.y - minifigBox.min.y;
+
+						const scaleFactor = targetMinifigHeight / minifigHeight;
 
 						minifig.scale.setScalar ( scaleFactor );
 
