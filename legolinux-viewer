@@ -355,7 +355,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				this.camera = self.perspectiveCamera;
 
-				this.camera.position.set ( 4500, 3000, 4500 );
+				this.camera.position.set ( 45000, 30000, 45000 );
 
 				this.camera.lookAt ( 0, 0, 0 );
 
@@ -366,7 +366,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				else {
 
-					this.camera.zoom = 2;
+					this.camera.zoom = 1;
 
 				}
 

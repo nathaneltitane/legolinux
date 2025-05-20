@@ -166,7 +166,7 @@
 
 				this.camera = self.perspectiveCamera;
 
-				this.camera.position.set ( 4500, 3000, 4500 );
+				this.camera.position.set ( 45000, 30000, 45000 );
 
 				this.camera.lookAt ( 0, 0, 0 );
 
@@ -177,7 +177,7 @@
 
 				else {
 
-					this.camera.zoom = 2;
+					this.camera.zoom = 1;
 
 				}
 
@@ -1124,7 +1124,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-fuschia.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-white.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
