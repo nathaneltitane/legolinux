@@ -120,7 +120,7 @@
 
 				// size reference cube (1m³)
 
-				const geometry = new THREE.BoxGeometry (1, 1, 1 );
+				const referenceCubeGeometry = new THREE.BoxGeometry (1, 1, 1 );
 
 				// ensures centering on cube origin
 
@@ -138,12 +138,6 @@
 				});
 
 				const referenceCube = new THREE.LineSegments(edges, lineMaterial);
-
-				referenceCube.name = 'unitReferenceCube';
-				referenceCube.position.set(0, 0, 0);
-
-				self.scene.add(referenceCube);
-				self.referenceCube = referenceCube; // optional: access later if needed
 
 				referenceCube.name = 'referenceCube';
 
@@ -1135,7 +1129,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-white.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-blue.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
