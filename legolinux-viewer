@@ -355,7 +355,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				this.camera = self.perspectiveCamera;
 
-				this.camera.position.set ( 100, 30, 100 );
+				this.camera.position.set ( 90, 60, 90 );
 
 				this.camera.lookAt ( 0, 0, 0 );
 
