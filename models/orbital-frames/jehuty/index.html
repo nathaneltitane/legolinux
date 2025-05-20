@@ -120,26 +120,30 @@
 
 				// size reference cube (1m³)
 
-				const geometry = new THREE.BoxGeometry(1, 1, 1);
+				const geometry = new THREE.BoxGeometry (1, 1, 1 );
 
 				// ensures centering on cube origin
 
 				geometry.center();
 
-				const referenceCube = new THREE.Mesh (
+				const edges = new THREE.EdgesGeometry ( referenceCubeGeometry );
 
-					geometry,
+				const lineMaterial = new THREE.LineBasicMaterial({
 
-					new THREE.MeshBasicMaterial ({
+					color: 0x00ffff, // light cyan
+					transparent: true,
+					opacity: 0.5,
+					depthWrite: false // optional: lets it render through other objects
 
-						color: 0xffffff,      // light cyan (or any color you want)
-						transparent: true,
-						opacity: 0.1,
-						depthWrite: false,    // prevents it from blocking other objects
+				});
 
-					})
+				const referenceCube = new THREE.LineSegments(edges, lineMaterial);
 
-				);
+				referenceCube.name = 'unitReferenceCube';
+				referenceCube.position.set(0, 0, 0);
+
+				self.scene.add(referenceCube);
+				self.referenceCube = referenceCube; // optional: access later if needed
 
 				referenceCube.name = 'referenceCube';
 
@@ -1131,7 +1135,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-orange.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-fuschia.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
