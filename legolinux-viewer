@@ -255,7 +255,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// viewport
 
-				const factor = 1000000;
+				const factor = 0.1;
 
 				const near = ( factor * 4 );
 				const far  = ( near * 4 );
@@ -355,7 +355,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				this.camera = self.perspectiveCamera;
 
-				this.camera.position.set ( 45000, 30000, 45000 );
+				this.camera.position.set ( 45, 30, 45 );
 
 				this.camera.lookAt ( 0, 0, 0 );
 
@@ -366,7 +366,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				else {
 
-					this.camera.zoom = 1;
+					this.camera.zoom = 2;
 
 				}
 
@@ -565,7 +565,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					if ( ! self.axesHelper ) {
 
-						const axesLength  = 1000;
+						const axesLength  = 0.5;
 
 						self.axesHelper = new THREE.AxesHelper ( axesLength );
 
@@ -1421,8 +1421,6 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						self.scene.add ( minifig );
 
-						console.log('Scene children:', self.scene.children.map(o => o.name));
-
 						const transform = self.get_transformControls();
 
 						self.scene.add ( transform );
@@ -1434,9 +1432,6 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 						self.minifigTransform = transform;
 
 						console.log ( 'minifig ' );
-
-						console.log('Minifig scale:', minifig.scale);
-						console.log('Minifig matrixWorld scale:', minifig.getWorldScale(new THREE.Vector3()));
 					});
 				};
 
@@ -2380,20 +2375,6 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 						// load model
 
 						self.scene.add ( self.colladaImport );
-
-						console.log ('loaded model scale :', self.colladaImport.scale );
-
-						console.log ('model matrix world scale:', self.colladaImport.getWorldScale ( new THREE.Vector3() ) );
-
-						const actualScale = 0.0004;
-
-						self.colladaImport.scale.setScalar ( 1 / actualScale );
-
-						self.colladaImport.updateMatrixWorld(true);
-
-						console.log ('normalized model scale :', self.colladaImport.scale );
-
-						console.log ('normalized model matrix world scale:', self.colladaImport.getWorldScale ( new THREE.Vector3() ) );
 
 						const modelBox = new THREE.Box3().setFromObject ( self.colladaImport )
 
