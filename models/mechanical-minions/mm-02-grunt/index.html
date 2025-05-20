@@ -1126,6 +1126,8 @@
 
 					loader.load('/minifigs/exports/minifig-yellow.dae', function ( collada ) {
 
+					collada.scene.updateMatrixWorld(true);
+
 						const minifig = collada.scene;
 
 						minifig.name = 'minifig';

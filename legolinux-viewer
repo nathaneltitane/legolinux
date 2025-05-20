@@ -1315,6 +1315,8 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					loader.load('/minifigs/exports/minifig-${color_minifig}.dae', function ( collada ) {
 
+					collada.scene.updateMatrixWorld(true);
+
 						const minifig = collada.scene;
 
 						minifig.name = 'minifig';
