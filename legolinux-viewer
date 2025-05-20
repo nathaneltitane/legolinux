@@ -255,7 +255,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// viewport
 
-				const factor = 1;
+				const factor = 0.1;
 
 				const near = ( factor * 4 );
 				const far  = ( near * 4 );
