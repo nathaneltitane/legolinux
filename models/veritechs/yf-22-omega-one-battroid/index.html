@@ -463,6 +463,7 @@
 						const cornerSize = 0.01;
 
 						const corners = [
+
 							[min.x, min.y, min.z],
 							[max.x, min.y, min.z],
 							[min.x, max.y, min.z],
@@ -471,6 +472,7 @@
 							[max.x, min.y, max.z],
 							[min.x, max.y, max.z],
 							[max.x, max.y, max.z],
+
 						];
 
 						// generate edges
@@ -1131,7 +1133,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-orange.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-purple.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 

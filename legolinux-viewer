@@ -652,6 +652,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 						const cornerSize = 0.01;
 
 						const corners = [
+
 							[min.x, min.y, min.z],
 							[max.x, min.y, min.z],
 							[min.x, max.y, min.z],
@@ -660,6 +661,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 							[max.x, min.y, max.z],
 							[min.x, max.y, max.z],
 							[max.x, max.y, max.z],
+
 						];
 
 						// generate edges
