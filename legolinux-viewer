@@ -379,6 +379,33 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				this.scene.add ( this.hemisphereLight );
 
+				// sun light
+
+				this.sunLight_color = white;
+
+				this.sunLight = new THREE.DirectionalLight (
+					this.sunLight_color,	// color
+					0.8						// intensity
+				);
+
+				this.sunLight.position.set ( 5.0, 10.0, 5.0 );
+
+				this.sunLight.castShadow = true;
+
+				// shadow bounds (adjust to fit scene)
+				this.sunLight.shadow.camera.left = -10.0;
+				this.sunLight.shadow.camera.right = 10.0;
+				this.sunLight.shadow.camera.top = 10.0;
+				this.sunLight.shadow.camera.bottom = -10.0;
+				this.sunLight.shadow.camera.near = 0.1;
+				this.sunLight.shadow.camera.far = 50.0;
+
+				// soft bias to reduce dimples
+
+				this.sunLight.shadow.bias = -0.0005;
+
+				this.scene.add ( this.sunLight );
+
 				// point light
 
 				this.pointLight_color = white;
@@ -1396,8 +1423,6 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				this.plane = null;
 
 				this.plane_visible = false;
-
-				this.plane.receiveShadow = true;
 
 				this.get_plane = function () {
 
