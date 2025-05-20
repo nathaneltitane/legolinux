@@ -1355,7 +1355,6 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						// set minifig scale
 
-
 						minifig.scale.setScalar ( 0.0004 );
 
 						// compute minifig position
