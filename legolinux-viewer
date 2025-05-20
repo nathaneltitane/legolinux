@@ -1489,6 +1489,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				// wireframe toggle
 
 				var wireframeVisible = false;
+
 				var facesVisible = true;
 
 				this.wireframeToggle_ = function ( ) {
@@ -2403,7 +2404,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				});
 
-				// edge toggle
+				// edges toggle
 
 				document.getElementById ( 'edges' ).addEventListener ( 'click', function ( ) {
 
