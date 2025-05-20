@@ -1329,7 +1329,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						// define all models positional parameters
 
-						const cubeHCenter = cubeBox.getCenter  ( new THREE.Vector3() );
+						const cubeCenter = cubeBox.getCenter  ( new THREE.Vector3() );
 
 						const modelCenter = modelBox.getCenter ( new THREE.Vector3() );
 
@@ -1353,6 +1353,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						const minifigDepth = minifigBox.max.z - minifigBox.min.z;
 
+						console.log ( cubeHeight );
 						console.log ( minifigHeight );
 
 						// set minifig scale

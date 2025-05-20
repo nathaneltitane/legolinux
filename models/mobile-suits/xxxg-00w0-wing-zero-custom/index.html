@@ -1124,7 +1124,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-yellow.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-red.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
@@ -1140,7 +1140,7 @@
 
 						// define all models positional parameters
 
-						const cubeHCenter = cubeBox.getCenter  ( new THREE.Vector3() );
+						const cubeCenter = cubeBox.getCenter  ( new THREE.Vector3() );
 
 						const modelCenter = modelBox.getCenter ( new THREE.Vector3() );
 
@@ -1164,6 +1164,7 @@
 
 						const minifigDepth = minifigBox.max.z - minifigBox.min.z;
 
+						console.log ( cubeHeight );
 						console.log ( minifigHeight );
 
 						// set minifig scale
