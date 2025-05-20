@@ -255,7 +255,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// viewport
 
-				const factor = 2500;
+				const factor = 0.1;
 
 				const near = ( factor * 4 );
 				const far  = ( near * 4 );
@@ -366,7 +366,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				else {
 
-					this.camera.zoom = 2;
+					this.camera.zoom = 0.1;
 
 				}
 
