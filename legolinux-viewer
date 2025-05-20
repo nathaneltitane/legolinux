@@ -366,7 +366,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				else {
 
-					this.camera.zoom = 2;
+					this.camera.zoom = 0.5;
 
 				}
 
