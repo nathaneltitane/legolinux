@@ -1124,7 +1124,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-yellow.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-purple.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
@@ -2192,9 +2192,19 @@
 
 						self.scene.add ( self.colladaImport );
 
-						console.log('Model scale:', self.colladaImport.scale);
-						console.log('Model matrixWorld scale:', self.colladaImport.getWorldScale(new THREE.Vector3()));
+						console.log ('loaded model scale :', self.colladaImport.scale );
 
+						console.log ('model matrix world scale:', self.colladaImport.getWorldScale ( new THREE.Vector3() ) );
+
+						const actualScale = 0.0004;
+
+						self.colladaImport.scale.setScalar ( 1 / actualScale );
+
+						self.colladaImport.updateMatrixWorld(true);
+
+						console.log ('normalized model scale :', self.colladaImport.scale );
+
+						console.log ('normalized model matrix world scale:', self.colladaImport.getWorldScale ( new THREE.Vector3() ) );
 
 						const modelBox = new THREE.Box3().setFromObject ( self.colladaImport )
 
