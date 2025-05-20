@@ -1126,7 +1126,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-purple.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-black.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
@@ -2219,7 +2219,7 @@
 
 						console.log (
 
-							"model dimensions [ cm ] : ",
+							"dimensions [ model  / cm ] : ",
 							(size.x * 100).toFixed(2),
 							(size.y * 100).toFixed(2),
 							(size.z * 100).toFixed(2)
@@ -2228,7 +2228,7 @@
 
 						console.log (
 
-							"model dimensions [ ldu / three.js ] : ",
+							"dimensions [ model  / ldu / three.js ] : ",
 							'x =', x_ldu.toFixed(2),
 							'y =', y_ldu.toFixed(2),
 							'z =', z_ldu.toFixed(2)
@@ -2236,7 +2236,7 @@
 
 						console.log (
 
-							"model dimensions [ ldu / leocad ] : ",
+							"dimensions [ model / ldu / leocad ] : ",
 							'x =', z_ldu.toFixed(2),
 							'y =', y_ldu.toFixed(2),
 							'z =', x_ldu.toFixed(2)
@@ -2255,7 +2255,7 @@
 
 					function (xhr) {
 
-					console.log ( 'model = ' + ( ( xhr.loaded / xhr.total ) * 100 ).toFixed ( 2 ) + '% loaded');
+					console.log ( 'load [ model ] = ' + ( ( xhr.loaded / xhr.total ) * 100 ).toFixed ( 2 ) + '% loaded');
 
 					},
 				);
