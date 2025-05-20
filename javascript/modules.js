@@ -38,6 +38,12 @@ $( function ( ) {
 
 	} );
 
+	$.get ( '/modules/dimensions.html', function ( data ) {
+
+		$( '#edges' ).append ( data );
+
+	} );
+
 	$.get ( '/modules/edges.html', function ( data ) {
 
 		$( '#edges' ).append ( data );
