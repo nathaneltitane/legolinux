@@ -66,13 +66,13 @@
 
 				// viewport
 
-				const factor = 10000;
+				const factor = 10000000;
 
 				const near = ( factor * 4 );
 				const far  = ( near * 4 );
 
 				const cameraNear = ( factor );
-				const cameraFar  = ( factor * 4 * 1000 );
+				const cameraFar  = ( factor * ( 4 * 1000 ) );
 
 				const viewportWidth = window.innerWidth;
 				const viewportHeight = window.innerHeight;
@@ -166,7 +166,7 @@
 
 				this.camera = self.perspectiveCamera;
 
-				this.camera.position.set ( 450, 300, 450 );
+				this.camera.position.set ( 4500, 3000, 4500 );
 
 				this.camera.lookAt ( 0, 0, 0 );
 
