@@ -1353,7 +1353,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						const minifigDepth = minifigBox.max.z - minifigBox.min.z;
 
-						console.log ( minifigHeight )
+						console.log ( minifigHeight );
 
 						// set minifig scale
 
@@ -1362,6 +1362,8 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 						const scaleFactor = targetMinifigHeight / minifigHeight;
 
 						minifig.scale.setScalar ( scaleFactor );
+
+						minifig.updateMatrixWorld ( true );
 
 						// compute minifig position
 
