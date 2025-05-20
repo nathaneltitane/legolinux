@@ -120,7 +120,7 @@
 
 				// size reference cube (1m³)
 
-				const geometry = new THREE.BoxGeometry ( 1, 1, 1 f);
+				const geometry = new THREE.BoxGeometry ( 1, 1, 1 );
 
 				// ensures centering on cube origin
 
@@ -1124,7 +1124,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-black.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-fuschia.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
@@ -1172,7 +1172,7 @@
 
 						const desiredHeight = 0.0428;
 
-						const scaleFactor = minifigHeight / 0.0004;
+						const scaleFactor = desiredHeight / minifigHeight;
 
 						minifig.scale.setScalar ( scaleFactor );
 
