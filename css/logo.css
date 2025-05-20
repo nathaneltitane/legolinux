@@ -42,6 +42,10 @@
 	background-image: url(/logo/logo-controls.svg);
 }
 
+.logo-dimension {
+	background-image: url(/logo/logo-dimension.svg);
+}
+
 .logo-drawer {
 	background-image: url(/logo/logo-drawer.svg);
 }
