@@ -1126,7 +1126,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-blue.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-white.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
@@ -1190,7 +1190,7 @@
 
 						// edges
 
-						minifig.traverse(function ( node ) {
+						minifig.traverse ( function ( node ) {
 
 							if ( node.isMesh ) {
 
