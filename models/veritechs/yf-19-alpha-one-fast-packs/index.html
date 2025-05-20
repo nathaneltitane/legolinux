@@ -190,33 +190,6 @@
 
 				this.scene.add ( this.hemisphereLight );
 
-				// sun light
-
-				// this.sunLight_color = white;
-
-				// this.sunLight = new THREE.DirectionalLight (
-				//	this.sunLight_color,	// color
-				//	0.8						// intensity
-				// );
-
-				// this.sunLight.position.set ( 5.0, 10.0, 5.0 );
-
-				// this.sunLight.castShadow = true;
-
-				// shadow bounds (adjust to fit scene)
-				this.sunLight.shadow.camera.left = -10.0;
-				this.sunLight.shadow.camera.right = 10.0;
-				this.sunLight.shadow.camera.top = 10.0;
-				this.sunLight.shadow.camera.bottom = -10.0;
-				this.sunLight.shadow.camera.near = 0.1;
-				this.sunLight.shadow.camera.far = 50.0;
-
-				// soft bias to reduce dimples
-
-				this.sunLight.shadow.bias = -0.0005;
-
-				this.scene.add ( this.sunLight );
-
 				// point light
 
 				this.pointLight_color = white;
@@ -1105,7 +1078,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-white.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-fuschia.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
@@ -1266,6 +1239,7 @@
 					const geometry = new THREE.ShapeGeometry(shape);
 
 					const material = new THREE.MeshStandardMaterial({ color: this.plane_color, side: THREE.DoubleSide });
+
 
 					self.plane = new THREE.Mesh(geometry, material);
 
