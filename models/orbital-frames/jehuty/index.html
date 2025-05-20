@@ -1124,15 +1124,15 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-grey.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-fuschia.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
 						minifig.name = 'minifig';
 
-						minifig.updateMatrixWorld(true);
-
 						// define all model bounding boxes
+
+						const cubeBox = new THREE.Box3().setFromObject(self.referenceCube);
 
 						const modelBox = new THREE.Box3().setFromObject ( self.colladaImport );
 
@@ -1140,45 +1140,39 @@
 
 						// define all models positional parameters
 
+						const cubeHCenter = cubeBox.getCenter  ( new THREE.Vector3() );
+
 						const modelCenter = modelBox.getCenter ( new THREE.Vector3() );
 
 						const minifigCenter = minifigBox.getCenter ( new THREE.Vector3() );
 
-						const minifigWidth = minifigBox.max.x - minifigBox.min.x;
+						const cubewidth = cubeBox.max.x - cubeBox.min.x;
 
 						const modelWidth = modelBox.max.x - modelBox.min.x;
 
-						const minifigHeight = minifigBox.max.y - minifigBox.min.y;
+						const minifigWidth = minifigBox.max.x - minifigBox.min.x;
+
+						const cubeHeight = cubeBox.max.y - cubeBox.min.y;
 
 						const modelHeight = modelBox.max.y - modelBox.min.y;
 
-						const minifigDepth = minifigBox.max.z - minifigBox.min.z;
+						const minifigHeight = minifigBox.max.y - minifigBox.min.y;
+
+						const cubeDepth = cubeBox.max.z - cubeBox.min.z;
 
 						const modelDepth = modelBox.max.z - modelBox.min.z;
 
+						const minifigDepth = minifigBox.max.z - minifigBox.min.z;
+
 						// set minifig scale
 
-// make sure both objects have updated world transforms
-self.referenceCube.updateMatrixWorld(true);
-minifig.updateMatrixWorld(true);
+						const targetMinifigHeight = 0.0428;
 
-// get minifig bounding box before scaling
+						const scaleFactor = targetMinifigHeight / minifigHeight;
 
-// get reference cube bounding box (should be 1m³ centered at origin)
-const cubeBox = new THREE.Box3().setFromObject(self.referenceCube);
-const cubeHeight = cubeBox.max.y - cubeBox.min.y; // should be 1.0 if correctly defined
+						minifig.scale.setScalar ( scaleFactor );
 
-// desired height relative to the cube (i.e. 4.28cm in a 1m unit world)
-const targetHeight = 0.0428; // meters
-
-// calculate scaling factor to make minifig exactly 4.28 cm tall
-const scaleFactor = targetHeight / minifigHeight;
-
-// apply scale
-minifig.scale.setScalar(scaleFactor);
-
-// update matrix again after scaling
-minifig.updateMatrixWorld(true);
+						minifig.updateMatrixWorld ( true );
 
 						// compute minifig position
 
