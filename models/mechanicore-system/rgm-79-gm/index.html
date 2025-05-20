@@ -1124,7 +1124,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-orange.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-green.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
@@ -1134,7 +1134,7 @@
 
 						const cubeBox = new THREE.Box3().setFromObject ( referenceCube );
 
-						const modelBox = new THREE.Box3().setFromObject ( model );
+						const modelBox = new THREE.Box3().setFromObject ( self.colladaImport );
 
 						const minifigBox = new THREE.Box3().setFromObject ( minifig );
 
@@ -2124,7 +2124,7 @@
 
 						self.colladaImport = collada.scene;
 
-						self.colladaImport.name = 'model';
+						self.colladaImport.name = 'mainModel';
 
 						// traverse and parse mesh items
 

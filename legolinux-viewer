@@ -1323,7 +1323,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						const cubeBox = new THREE.Box3().setFromObject ( referenceCube );
 
-						const modelBox = new THREE.Box3().setFromObject ( model );
+						const modelBox = new THREE.Box3().setFromObject ( self.colladaImport );
 
 						const minifigBox = new THREE.Box3().setFromObject ( minifig );
 
@@ -2313,7 +2313,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						self.colladaImport = collada.scene;
 
-						self.colladaImport.name = 'model';
+						self.colladaImport.name = 'mainModel';
 
 						// traverse and parse mesh items
 
