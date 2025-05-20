@@ -118,6 +118,25 @@
 
 				this.scene = new THREE.Scene ( );
 
+				// size reference cube (1m³)
+
+				const geometry = new THREE.BoxGeometry(1, 1, 1);
+
+				// ensures centering on cube origin
+
+				geometry.center();
+
+				const referenceCube = new THREE.Mesh(
+					geometry,
+					new THREE.MeshBasicMaterial ( { visible: true } )
+				);
+
+				referenceCube.name = 'referenceCube';
+
+				referenceCube.position.set ( 0, 0, 0 );
+
+				self.scene.add ( referenceCube );
+
 				// camera
 
 				// perspective
@@ -1102,7 +1121,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-black.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-red.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
