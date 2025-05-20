@@ -1124,7 +1124,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-white.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-purple.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
@@ -1134,7 +1134,7 @@
 
 						const cubeBox = new THREE.Box3().setFromObject ( referenceCube );
 
-						const modelBox = new THREE.Box3().setFromObject ( mainModel );
+						const modelBox = new THREE.Box3().setFromObject ( self.colladaImport );
 
 						const minifigBox = new THREE.Box3().setFromObject ( minifig );
 
@@ -1165,6 +1165,7 @@
 						const minifigDepth = minifigBox.max.z - minifigBox.min.z;
 
 						// set minifig scale
+
 
 						minifig.scale.setScalar ( 0.0004 );
 

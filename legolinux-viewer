@@ -1323,7 +1323,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						const cubeBox = new THREE.Box3().setFromObject ( referenceCube );
 
-						const modelBox = new THREE.Box3().setFromObject ( mainModel );
+						const modelBox = new THREE.Box3().setFromObject ( self.colladaImport );
 
 						const minifigBox = new THREE.Box3().setFromObject ( minifig );
 
@@ -1354,6 +1354,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 						const minifigDepth = minifigBox.max.z - minifigBox.min.z;
 
 						// set minifig scale
+
 
 						minifig.scale.setScalar ( 0.0004 );
 
