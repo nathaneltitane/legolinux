@@ -2398,6 +2398,11 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 						);
 
 						console.log (
+							'scale [ minifig matrix ] =',
+							minifig.getWorldScale ( new THREE.Vector3() )
+						);
+
+						console.log (
 
 							'bounding box [ model ] = ',
 							'x = ', size.x.toFixed(4),
