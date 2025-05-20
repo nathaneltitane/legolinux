@@ -565,7 +565,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					if ( ! self.axesHelper ) {
 
-						const axesLength  = 0.5;
+						const axesLength  = 1000;
 
 						self.axesHelper = new THREE.AxesHelper ( axesLength );
 
