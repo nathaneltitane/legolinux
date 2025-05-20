@@ -1124,7 +1124,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-grey.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-green.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
@@ -1134,7 +1134,7 @@
 
 						const cubeBox = new THREE.Box3().setFromObject ( referenceCube );
 
-						const modelBox = new THREE.Box3().setFromObject ( self.colladaImport );
+						const modelBox = new THREE.Box3().setFromObject ( mainModel );
 
 						const minifigBox = new THREE.Box3().setFromObject ( minifig );
 
@@ -1166,9 +1166,7 @@
 
 						// set minifig scale
 
-						const scaleFactor = self.colladaImport.getWorldScale ( new THREE.Vector3() );
-						console.log ( scaleFactor );
-						minifig.scale.setScalar ( scaleFactor );
+						minifig.scale.setScalar ( 0.0004 );
 
 						// compute minifig position
 
