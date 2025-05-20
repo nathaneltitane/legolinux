@@ -40,7 +40,7 @@ $( function ( ) {
 
 	$.get ( '/modules/dimensions.html', function ( data ) {
 
-		$( '#edges' ).append ( data );
+		$( '#dimensions' ).append ( data );
 
 	} );
 

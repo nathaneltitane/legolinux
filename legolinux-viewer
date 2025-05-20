@@ -2418,6 +2418,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					self.boundingBoxHelper_ ( );
 
+					self.dimensionLabels_ ( );
 
 				});
 
