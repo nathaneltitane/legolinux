@@ -377,6 +377,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				// ambient light
 
 				this.ambientLight_color = white;
+
 				this.ambientLightHelper_color = null;
 
 				this.ambientLight = new THREE.AmbientLight (
@@ -389,6 +390,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				// hemispherical light
 
 				this.hemisphereLight_color = white;
+
 				this.hemisphereLightHelper_color = black;
 
 				this.hemisphereLight = new THREE.HemisphereLight (
@@ -430,6 +432,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				// point light
 
 				this.pointLight_color = white;
+
 				this.pointLightHelper_color = black;
 
 				this.pointLight = new THREE.PointLight (
@@ -530,6 +533,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				// spotLight
 
 				this.spotLight_color = white;
+
 				this.spotLightHelper_color = black;
 
 				this.spotLight = new THREE.SpotLight (
@@ -561,6 +565,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				// axes helper
 
 				this.axesHelper = null;
+
 				this.axesHelper_visible = false;
 
 				this.get_axesHelper = function ( ) {
