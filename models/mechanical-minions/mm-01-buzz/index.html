@@ -1135,7 +1135,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-orange.dae',
+						'/minifigs/exports/minifig-purple.dae',
 
 						function ( collada ) {
 
@@ -1401,7 +1401,8 @@
 
 					if ( boundingBoxHelper_visible && dimensionLabels_visible ) {
 
-						// both on → turn both off
+						// both on >>> turn both off
+
 						self.boundingBoxHelper_();
 						self.dimensionLabels_();
 
@@ -1410,19 +1411,22 @@
 
 					} else if ( boundingBoxHelper_visible && ! dimensionLabels_visible ) {
 
-						// bounding box on → just add dimensions
+						// bounding box on >>> add dimensions
+
 						self.dimensionLabels_();
 						dimensionLabels_visible = true;
 
 					} else if ( ! boundingBoxHelper_visible && dimensionLabels_visible ) {
 
-						// dimensions on → just add bounding box
+						// dimensions on >>> add bounding box
+
 						self.boundingBoxHelper_();
 						boundingBoxHelper_visible = true;
 
 					} else {
 
-						// both off → turn both on
+						// both off >>> turn both on
+
 						self.boundingBoxHelper_();
 						self.dimensionLabels_();
 
