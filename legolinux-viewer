@@ -311,7 +311,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				this.scene = new THREE.Scene ( );
 
-				// size reference cube (1m³)
+				// size reference cube (1 m³)
 
 				const geometry = new THREE.BoxGeometry ( 1, 1, 1 );
 
@@ -326,8 +326,6 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 					new THREE.MeshBasicMaterial ( { visible: false } )
 
 				);
-
-				referenceCube.name = 'referenceCube';
 
 				referenceCube.position.set ( 0, 0, 0 );
 
