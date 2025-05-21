@@ -617,9 +617,9 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 						const positions = [];
 						const colors = [];
 
-						const colorX = new THREE.Color(0xff0000);	// // x - red
-						const colorY = new THREE.Color(0x00ff00);	// y - green
-						const colorZ = new THREE.Color(0x0000ff);	// z - blue
+						const colorX = new THREE.Color ( 0xff0000 );	// // x - red
+						const colorY = new THREE.Color ( 0x00ff00 );	// y - green
+						const colorZ = new THREE.Color ( 0x0000ff );	// z - blue
 
 						const min = box.min;
 						const max = box.max;
