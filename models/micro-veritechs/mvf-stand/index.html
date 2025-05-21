@@ -128,7 +128,7 @@
 
 				// ensures centering on cube origin
 
-				geometry.center();
+				geometry.center ( );
 
 				const referenceCube = new THREE.Mesh (
 
@@ -418,13 +418,13 @@
 
 				this.boundingBoxHelper_visible = false;
 
-				this.get_boundingBoxHelper = function () {
+				this.get_boundingBoxHelper = function  ( ) {
 
 					if ( ! self.boundingBoxHelper ) {
 
-						const box = self.get_boundingBox();
+						const box = self.get_boundingBox ( );
 
-						const geometry = new THREE.BufferGeometry();
+						const geometry = new THREE.BufferGeometry ( );
 						const positions = [];
 						const colors = [];
 
@@ -489,7 +489,7 @@
 
 						//	positions.push ( ...start, ...end );
 
-						//	colors.push ( ...color.toArray(), ...color.toArray() );
+						//	colors.push ( ...color.toArray ( ), ...color.toArray ( ) );
 						//}
 
 						// generate corners
@@ -508,19 +508,19 @@
 
 							positions.push(x, y, z, x + dirX * cornerSize, y, z);
 
-							colors.push(...colorX.toArray(), ...colorX.toArray());
+							colors.push(...colorX.toArray ( ), ...colorX.toArray ( ));
 
 							// y axis
 
 							positions.push(x, y, z, x, y + dirY * cornerSize, z);
 
-							colors.push(...colorY.toArray(), ...colorY.toArray());
+							colors.push(...colorY.toArray ( ), ...colorY.toArray ( ));
 
 							// z axis
 
 							positions.push(x, y, z, x, y, z + dirZ * cornerSize);
 
-							colors.push(...colorZ.toArray(), ...colorZ.toArray());
+							colors.push(...colorZ.toArray ( ), ...colorZ.toArray ( ));
 						}
 
 						geometry.setAttribute ( 'position', new THREE.Float32BufferAttribute ( positions, 3 ) );
@@ -537,7 +537,7 @@
 					return self.boundingBoxHelper;
 				}
 
-				this.boundingBoxHelper_ = function () {
+				this.boundingBoxHelper_ = function  ( ) {
 
 					if ( this.boundingBoxHelper_visible ) {
 
@@ -603,17 +603,17 @@
 
 				this.dimensionLabels_visible = false;
 
-				this.get_dimensionLabels = function () {
+				this.get_dimensionLabels = function  ( ) {
 
 					if ( self.dimensionLabels ) return self.dimensionLabels;
 
 					// get bounding box
 
-					const box = self.get_boundingBox ();
+					const box = self.get_boundingBox  ( );
 
-					const center = box.getCenter (new THREE.Vector3() );
+					const center = box.getCenter (new THREE.Vector3 ( ) );
 
-					const size = box.getSize ( new THREE.Vector3() );
+					const size = box.getSize ( new THREE.Vector3 ( ) );
 
 					// convert units
 
@@ -654,7 +654,7 @@
 						const height = canvas.height;
 
 						labelContext.fillStyle = '#00000000';
-						labelContext.beginPath ();
+						labelContext.beginPath  ( );
 						labelContext.moveTo ( radius, 0);
 						labelContext.lineTo ( width - radius, 0 );
 						labelContext.quadraticCurveTo ( width, 0, width, radius );
@@ -664,8 +664,8 @@
 						labelContext.quadraticCurveTo ( 0, height, 0, height - radius );
 						labelContext.lineTo ( 0, radius );
 						labelContext.quadraticCurveTo ( 0, 0, radius, 0 );
-						labelContext.closePath ();
-						labelContext.fill ();
+						labelContext.closePath  ( );
+						labelContext.fill  ( );
 
 						// per axis text color
 
@@ -695,9 +695,9 @@
 
 						// determine appropriate sprite scale factor relative to model (world units to canvas ratio)
 
-						const modelBox = self.get_boundingBox();
+						const modelBox = self.get_boundingBox ( );
 
-						const modelSize = modelBox.getSize (new THREE.Vector3() );
+						const modelSize = modelBox.getSize (new THREE.Vector3 ( ) );
 
 						const modelMaxAxis = Math.max ( modelSize.x, modelSize.y, modelSize.z );
 
@@ -737,7 +737,7 @@
 
 				}
 
-				this.dimensionLabels_ = function () {
+				this.dimensionLabels_ = function  ( ) {
 
 					if ( this.dimensionLabels_visible ) {
 
@@ -756,7 +756,7 @@
 
 						this.dimensionLabels_visible = true;
 
-						self.get_dimensionLabels().forEach(label => self.scene.add ( label ) );
+						self.get_dimensionLabels ( ).forEach(label => self.scene.add ( label ) );
 
 						console.log ( "dimensions" );
 					}
@@ -1101,7 +1101,7 @@
 
 				// minifig
 
-				this.minifigToggle_ = function () {
+				this.minifigToggle_ = function  ( ) {
 
 					const self = this;
 
@@ -1131,11 +1131,11 @@
 						return;
 					}
 
-					const loader = new ColladaLoader ();
+					const loader = new ColladaLoader  ( );
 
 					loader.load (
 
-						'/minifigs/exports/minifig-white.dae',
+						'/minifigs/exports/minifig-grey.dae',
 
 						function ( collada ) {
 
@@ -1145,15 +1145,15 @@
 
 						// define all model bounding boxes
 
-						const modelBox = new THREE.Box3().setFromObject ( self.colladaImport );
+						const modelBox = new THREE.Box3 ( ).setFromObject ( self.colladaImport );
 
-						const minifigBox = new THREE.Box3().setFromObject ( minifig );
+						const minifigBox = new THREE.Box3 ( ).setFromObject ( minifig );
 
 						// define all models positional parameters
 
-						const modelCenter = modelBox.getCenter ( new THREE.Vector3() );
+						const modelCenter = modelBox.getCenter ( new THREE.Vector3 ( ) );
 
-						const minifigCenter = minifigBox.getCenter ( new THREE.Vector3() );
+						const minifigCenter = minifigBox.getCenter ( new THREE.Vector3 ( ) );
 
 						const modelWidth = modelBox.max.x - modelBox.min.x;
 
@@ -1173,7 +1173,7 @@
 
 						// compute minifig position
 
-						const minifigPositionBox = new THREE.Box3().setFromObject ( minifig );
+						const minifigPositionBox = new THREE.Box3 ( ).setFromObject ( minifig );
 
 						const yOffset = modelBox.min.y - minifigPositionBox.min.y;
 
@@ -1227,7 +1227,7 @@
 
 						self.scene.add ( minifig );
 
-						const transform = self.get_transformControls();
+						const transform = self.get_transformControls ( );
 
 						self.scene.add ( transform );
 
@@ -1269,7 +1269,7 @@
 
 				this.plane_visible = false;
 
-				this.get_plane = function () {
+				this.get_plane = function  ( ) {
 
 					if ( !self.plane ) {
 
@@ -1279,7 +1279,7 @@
 
 					const radius = 0.01;
 
-					const shape = new THREE.Shape();
+					const shape = new THREE.Shape ( );
 
 					const w = planeWidth;
 					const h = planeLength;
@@ -1813,7 +1813,7 @@
 
 						case 70:
 
-							self.minifigToggle_();
+							self.minifigToggle_ ( );
 
 							break;
 
@@ -2189,9 +2189,9 @@
 
 						self.scene.add ( self.colladaImport );
 
-						const modelBox = new THREE.Box3().setFromObject ( self.colladaImport )
+						const modelBox = new THREE.Box3 ( ).setFromObject ( self.colladaImport )
 
-						const size = modelBox.getSize ( new THREE.Vector3 () );
+						const size = modelBox.getSize ( new THREE.Vector3  ( ) );
 
 						// unit conversions
 
@@ -2214,7 +2214,7 @@
 
 						console.log ( 'scale [ model ] = ',  self.colladaImport.scale );
 
-						console.log ( 'scale [ model matrix ] = ', self.colladaImport.getWorldScale ( new THREE.Vector3() ) );
+						console.log ( 'scale [ model matrix ] = ', self.colladaImport.getWorldScale ( new THREE.Vector3 ( ) ) );
 
 						console.log ( 'bounding box [ model ] = ' +  'x = ', size.x.toFixed(4) + ' y = ', size.y.toFixed(4) + ' z = ', size.z.toFixed(4) );
 
@@ -2282,7 +2282,7 @@
 
 				});
 
-				const endTime = performance.now();
+				const endTime = performance.now ( );
 
 				const loadTime = ( ( endTime - startTime ) / 1000).toFixed ( 2 );
 
