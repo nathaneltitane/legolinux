@@ -60,6 +60,8 @@
 
 			function initialize ( ) {
 
+				// scaling unit - 1 ldu = 0.0004 m
+
 				const editorScale = 0.0004;
 
 				const startTime = performance.now ( );
@@ -120,7 +122,7 @@
 
 				this.scene = new THREE.Scene ( );
 
-				// size reference cube (1m³)
+				// size reference cube (1 m³)
 
 				const geometry = new THREE.BoxGeometry ( 1, 1, 1 );
 
@@ -135,8 +137,6 @@
 					new THREE.MeshBasicMaterial ( { visible: false } )
 
 				);
-
-				referenceCube.name = 'referenceCube';
 
 				referenceCube.position.set ( 0, 0, 0 );
 
@@ -1133,7 +1133,11 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-black.dae', function ( collada ) {
+					loader.load (
+
+						'/minifigs/exports/minifig-grey.dae',
+
+						function ( collada ) {
 
 						const minifig = collada.scene;
 
@@ -1141,33 +1145,23 @@
 
 						// define all model bounding boxes
 
-						const cubeBox = new THREE.Box3().setFromObject ( referenceCube );
-
 						const modelBox = new THREE.Box3().setFromObject ( self.colladaImport );
 
 						const minifigBox = new THREE.Box3().setFromObject ( minifig );
 
 						// define all models positional parameters
 
-						const cubeCenter = cubeBox.getCenter  ( new THREE.Vector3() );
-
 						const modelCenter = modelBox.getCenter ( new THREE.Vector3() );
 
 						const minifigCenter = minifigBox.getCenter ( new THREE.Vector3() );
-
-						const cubewidth = cubeBox.max.x - cubeBox.min.x;
 
 						const modelWidth = modelBox.max.x - modelBox.min.x;
 
 						const minifigWidth = minifigBox.max.x - minifigBox.min.x;
 
-						const cubeHeight = cubeBox.max.y - cubeBox.min.y;
-
 						const modelHeight = modelBox.max.y - modelBox.min.y;
 
 						const minifigHeight = minifigBox.max.y - minifigBox.min.y;
-
-						const cubeDepth = cubeBox.max.z - cubeBox.min.z;
 
 						const modelDepth = modelBox.max.z - modelBox.min.z;
 
@@ -1243,10 +1237,10 @@
 
 						self.minifigTransform = transform;
 
-						console.log ( 'minifig ' );
+						console.log ( 'minifig' );
 
 						console.log (
-							'scale [ minifig ] = ',
+							'scale [ minifig ] = ',d
 							minifig.scale
 						);
 

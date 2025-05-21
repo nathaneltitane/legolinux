@@ -1322,7 +1322,11 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-${color_minifig}.dae', function ( collada ) {
+					loader.load (
+
+						'/minifigs/exports/minifig-${color_minifig}.dae',
+
+						function ( collada ) {
 
 						const minifig = collada.scene;
 
@@ -1330,33 +1334,23 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						// define all model bounding boxes
 
-						const cubeBox = new THREE.Box3().setFromObject ( referenceCube );
-
 						const modelBox = new THREE.Box3().setFromObject ( self.colladaImport );
 
 						const minifigBox = new THREE.Box3().setFromObject ( minifig );
 
 						// define all models positional parameters
 
-						const cubeCenter = cubeBox.getCenter  ( new THREE.Vector3() );
-
 						const modelCenter = modelBox.getCenter ( new THREE.Vector3() );
 
 						const minifigCenter = minifigBox.getCenter ( new THREE.Vector3() );
-
-						const cubewidth = cubeBox.max.x - cubeBox.min.x;
 
 						const modelWidth = modelBox.max.x - modelBox.min.x;
 
 						const minifigWidth = minifigBox.max.x - minifigBox.min.x;
 
-						const cubeHeight = cubeBox.max.y - cubeBox.min.y;
-
 						const modelHeight = modelBox.max.y - modelBox.min.y;
 
 						const minifigHeight = minifigBox.max.y - minifigBox.min.y;
-
-						const cubeDepth = cubeBox.max.z - cubeBox.min.z;
 
 						const modelDepth = modelBox.max.z - modelBox.min.z;
 
