@@ -428,9 +428,9 @@
 						const positions = [];
 						const colors = [];
 
-						const colorX = new THREE.Color(0xff0000);	// red
-						const colorY = new THREE.Color(0x00ff00);	// green
-						const colorZ = new THREE.Color(0x0000ff);	// blue
+						const colorX = new THREE.Color(0xff0000);	// // x - red
+						const colorY = new THREE.Color(0x00ff00);	// y - green
+						const colorZ = new THREE.Color(0x0000ff);	// z - blue
 
 						const min = box.min;
 						const max = box.max;
@@ -506,21 +506,21 @@
 
 							// x axis
 
-							positions.push(x, y, z, x + dirX * cornerSize, y, z);
+							positions.push ( x, y, z, x + dirX * cornerSize, y, z );
 
-							colors.push(...colorX.toArray(), ...colorX.toArray());
+							colors.push ( ...colorX.toArray(), ...colorX.toArray() );
 
 							// y axis
 
-							positions.push(x, y, z, x, y + dirY * cornerSize, z);
+							positions.push ( x, y, z, x, y + dirY * cornerSize, z );
 
-							colors.push(...colorY.toArray(), ...colorY.toArray());
+							colors.push ( ...colorY.toArray(), ...colorY.toArray() );
 
 							// z axis
 
-							positions.push(x, y, z, x, y, z + dirZ * cornerSize);
+							positions.push ( x, y, z, x, y, z + dirZ * cornerSize );
 
-							colors.push(...colorZ.toArray(), ...colorZ.toArray());
+							colors.push ( ...colorZ.toArray(), ...colorZ.toArray() );
 						}
 
 						geometry.setAttribute ( 'position', new THREE.Float32BufferAttribute ( positions, 3 ) );
@@ -1135,7 +1135,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-red.dae',
+						'/minifigs/exports/minifig-yellow.dae',
 
 						function ( collada ) {
 
