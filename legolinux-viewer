@@ -601,6 +601,8 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// bounding box helper
 
+				var boundingBoxHelper_visible = false;
+
 				this.boundingBoxHelper_color = grey;
 
 				this.boundingBoxHelper = null;
@@ -724,6 +726,8 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 					}
 
 					return self.boundingBoxHelper;
+
+					var boundingBoxHelper_visible = true;
 				}
 
 				this.boundingBoxHelper_ = function () {

@@ -412,6 +412,8 @@
 
 				// bounding box helper
 
+				var boundingBoxHelper_visible = false;
+
 				this.boundingBoxHelper_color = grey;
 
 				this.boundingBoxHelper = null;
@@ -535,6 +537,8 @@
 					}
 
 					return self.boundingBoxHelper;
+
+					var boundingBoxHelper_visible = true;
 				}
 
 				this.boundingBoxHelper_ = function () {
@@ -1135,7 +1139,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-grey.dae',
+						'/minifigs/exports/minifig-black.dae',
 
 						function ( collada ) {
 
