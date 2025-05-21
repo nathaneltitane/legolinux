@@ -1135,7 +1135,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-orange.dae',
+						'/minifigs/exports/minifig-fuschia.dae',
 
 						function ( collada ) {
 
@@ -2218,7 +2218,14 @@
 
 						console.log ( "dimensions [ model  / cm ] : "  + 'x = ',  x_cm.toFixed(2) + ' y = ',  y_cm.toFixed(2) + ' z = ', z_cm.toFixed(2) );
 
-						console.log ( 'dimensions [ model  / ldu / three.js ] : ' + 'x = ', x_ldu.toFixed(2) + ' y = ', y_ldu.toFixed(2) + ' z = ', z_ldu.toFixed(2) );
+						console.log(
+	'dimensions [ model / ldu / three.js ] : x = ' +
+	x_ldu.toFixed(2) +
+	' y = ' +
+	y_ldu.toFixed(2) +
+	' z = ' +
+	z_ldu.toFixed(2)
+);
 
 						console.log ( 'dimensions [ model / ldu / leocad ] : ' , 'x = ', z_ldu.toFixed(2) , ' y = ', y_ldu.toFixed(2) , ' z = ', x_ldu.toFixed(2) );
 
