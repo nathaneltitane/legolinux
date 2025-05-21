@@ -1135,7 +1135,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-yellow.dae',
+						'/minifigs/exports/minifig-fuschia.dae',
 
 						function ( collada ) {
 
@@ -2189,7 +2189,7 @@
 
 						// load model
 
-						self.scene.add ( model );
+						self.scene.add ( self.colladaImport );
 
 						const modelBox = new THREE.Box3().setFromObject ( self.colladaImport )
 
