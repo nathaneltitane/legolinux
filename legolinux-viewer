@@ -1543,7 +1543,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					// prevent enabling edges if wireframe is active
 
-					if (wireframe_visible && !modelEdges_visible) {
+					if ( wireframe_visible && !modelEdges_visible ) {
 
 						console.warn ( 'Edges cannot be enabled while wireframe mode is active.' );
 
@@ -1554,7 +1554,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					self.colladaImport.traverse(function (node) {
 
-						if (node.isLineSegments) {
+						if ( node.isLineSegments ) {
 
 							node.visible = modelEdges_visible;
 
@@ -1573,7 +1573,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					// if edges are on, disable them first
 
-					if (modelEdges_visible) {
+					if ( modelEdges_visible ) {
 
 						self.edgesToggle_(); // turns them off and sets flag
 
@@ -1584,11 +1584,11 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 					wireframe_visible = !wireframe_visible;
 					modelFaces_visible = !modelFaces_visible;
 
-					self.colladaImport.traverse(function (node) {
+					self.colladaImport.traverse( function ( node ) {
 
-						if (node.isMesh) {
+						if ( node.isMesh ) {
 
-							if (node.material.wireframe) {
+							if ( node.material.wireframe ) {
 
 								node.visible = wireframe_visible;
 
