@@ -1,27 +1,28 @@
 // touch //
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener ( 'DOMContentLoaded', function () {
 
-	const wrapper = document.getElementById('paypal-button-icon')
+	const wrapper = document.getElementById ( 'paypal-button-icon' )
 
-	const link = wrapper.querySelector('a')
+	const link = wrapper.querySelector ( 'a' )
 
 	var previewVisible = false
 
-	wrapper.addEventListener('click', function (e) {
+	wrapper.addEventListener ( 'click', function ( e ) {
 
 		if (!previewVisible) {
 
 			e.preventDefault()
 
-			showPreview() // define this separately
+			showPreview()
 
 			previewVisible = true
 
 			setTimeout(function () {
 
 				previewVisible = false
-			}, 5000)
+
+			}, 5000 )
 
 		} else {
 
