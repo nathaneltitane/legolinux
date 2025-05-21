@@ -698,16 +698,6 @@
 
 						const sprite = new THREE.Sprite ( spriteMaterial );
 
-						// determine appropriate sprite scale factor relative to model (world units to canvas ratio)
-
-						const modelBox = self.get_boundingBox();
-
-						const modelSize = modelBox.getSize (new THREE.Vector3() );
-
-						const modelMaxAxis = Math.max ( modelSize.x, modelSize.y, modelSize.z );
-
-						const modelMinAxis = Math.min ( modelSize.x, modelSize.y, modelSize.z );
-
 						// set label scale factor
 
 						const labelScale = ( 0.008 * 32 );
@@ -1170,7 +1160,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-black.dae',
+						'/minifigs/exports/minifig-white.dae',
 
 						function ( collada ) {
 
