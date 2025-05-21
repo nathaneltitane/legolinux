@@ -720,7 +720,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						self.boundingBoxHelper = new THREE.LineSegments ( geometry, material );
 
-						console.log ( "helper : " + "bounding box" );
+						console.log ( "helper [ bounding box ]" );
 					}
 
 					return self.boundingBoxHelper;
@@ -758,7 +758,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						self.cameraHelper = new THREE.CameraHelper ( self.spotLight.shadow.camera, 0.25 , this.cameraHelper_color );
 
-						console.log ( "camera" );
+						console.log ( "helper [ camera ]" );
 
 					}
 
@@ -947,7 +947,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						self.get_dimensionLabels().forEach(label => self.scene.add ( label ) );
 
-						console.log ( "dimensions" );
+						console.log ( "helper [ dimensions ]" );
 					}
 				}
 
@@ -963,7 +963,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						self.hemisphereLightHelper = new THREE.HemisphereLightHelper ( self.hemisphereLight, 0.25 , this.hemisphereLightHelper_color );
 
-						console.log ( "hemisphere light" );
+						console.log ( "helper [ light / hemisphere ]" );
 
 					}
 
@@ -1003,7 +1003,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						self.pointLightHelper = new THREE.PointLightHelper ( self.pointLight, 0.25 , this.pointLightHelper_color )
 
-						console.log ( "point light" );
+						console.log ( "helper [ light / point ]" );
 
 					}
 
@@ -1043,7 +1043,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						self.directionalLight_0_Helper = new THREE.DirectionalLightHelper ( self.directionalLight_0, 0.25 , this.directionalLight_0_Helper_color )
 
-						console.log ( "directional light 0" );
+						console.log ( "helper [ light / directional / 0 ]" );
 					}
 
 					return self.directionalLight_0_Helper;
@@ -1082,7 +1082,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						self.directionalLight_1_Helper = new THREE.DirectionalLightHelper ( self.directionalLight_1, 0.25 , this.directionalLight_1_Helper_color )
 
-						console.log ( "directional light 1" );
+						console.log ( "helper [ light / directional / 1 ]" );
 
 					}
 
@@ -1122,7 +1122,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						self.directionalLight_2_Helper = new THREE.DirectionalLightHelper ( self.directionalLight_2, 0.25 , this.directionalLight_2_Helper_color )
 
-						console.log ( "directional light 2" );
+						console.log ( "helper [ light / directional / 2 ]" );
 
 					}
 
@@ -1162,7 +1162,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						self.spotLightHelper = new THREE.SpotLightHelper ( self.spotLight, 0.25 , this.spotLightHelper_color )
 
-						console.log ( "spotlight" );
+						console.log ( "helper [ light / spot ]" );
 					}
 
 					return self.spotLightHelper;
@@ -1211,7 +1211,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						// self.polarGridHelper.position.y = 0;
 
-						console.log ( "grid [ polar ]" );
+						console.log ( "helper [ grid / polar ]" );
 
 					}
 
@@ -1261,7 +1261,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						// self.orthogonalGridHelper.position.y = 0;
 
-						console.log ( "grid [ orthogonal ]" );
+						console.log ( "helper [ grid / orthogonal ]" );
 					}
 
 					return self.orthogonalGridHelper;
@@ -1428,10 +1428,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						console.log ( 'minifig' );
 
-						console.log (
-							'scale [ minifig ] = ',
-							minifig.scale
-						);
+						console.log ( 'scale [ minifig ] : ', minifig.scale );
 
 					});
 				};
@@ -1446,7 +1443,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						self.boundingBox = new THREE.Box3().setFromObject ( self.colladaImport )
 
-						console.log ( "bounding box [ plane ]" );
+						console.log ( "helper [ bounding box / plane ]" );
 					}
 
 					return self.boundingBox;
@@ -1499,7 +1496,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					self.plane.receiveShadow = true;
 
-					console.log ( "plane" );
+					console.log ( "helper [ plane ]" );
 
 					}
 
@@ -1684,9 +1681,9 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					self.transformControls.showZ = ! self.transformControls.showZ;
 
-					console.log ( "orbitControls enabled = " + self.orbitControls.enabled );
+					console.log ( "orbit controls enabled = " + self.orbitControls.enabled );
 
-					console.log ( "transformControls enabled = " + self.transformControls.enabled );
+					console.log ( "transform controls enabled = " + self.transformControls.enabled );
 
 					if ( self.transformControls.enabled ) {
 
@@ -1710,7 +1707,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					self.transformControls.setSpace ( self.transformControls.space === "world" ? "local" : "world" );
 
-					console.log ( "control space = " + self.transformControls.space );
+					console.log ( "control [ transform ] = " + self.transformControls.space );
 
 				}
 
