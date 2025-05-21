@@ -1135,7 +1135,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-purple.dae',
+						'/minifigs/exports/minifig-black.dae',
 
 						function ( collada ) {
 
@@ -1399,30 +1399,26 @@
 
 				this.dimensionsToggle_ = function() {
 
-					if ( boundingBoxHelper_visible || dimensionLabels_visible ) {
+					if ( boundingBoxHelper_visible && dimensionLabels_visible ) {
 
-						if ( boundingBoxHelper_visible && dimensionLabels_visible ) {
+						// both on → turn both off
+						self.boundingBoxHelper_();
+						self.dimensionLabels_();
 
-							// both are on → turn both off
-							self.boundingBoxHelper_();
-							self.dimensionLabels_();
+						boundingBoxHelper_visible = false;
+						dimensionLabels_visible = false;
 
-							boundingBoxHelper_visible = false;
-							dimensionLabels_visible = false;
+					} else if ( boundingBoxHelper_visible && ! dimensionLabels_visible ) {
 
-						} else {
+						// bounding box on → just add dimensions
+						self.dimensionLabels_();
+						dimensionLabels_visible = true;
 
-							// one is on → toggle the other
-							if ( ! boundingBoxHelper_visible ) {
-								self.boundingBoxHelper_();
-								boundingBoxHelper_visible = true;
-							}
+					} else if ( ! boundingBoxHelper_visible && dimensionLabels_visible ) {
 
-							if ( ! dimensionLabels_visible ) {
-								self.dimensionLabels_();
-								dimensionLabels_visible = true;
-							}
-						}
+						// dimensions on → just add bounding box
+						self.boundingBoxHelper_();
+						boundingBoxHelper_visible = true;
 
 					} else {
 
@@ -1432,6 +1428,7 @@
 
 						boundingBoxHelper_visible = true;
 						dimensionLabels_visible = true;
+
 					}
 				};
 
