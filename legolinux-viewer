@@ -814,7 +814,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						ldu: Math.round ( ( axisSize * 1000 ) / 0.4 )
 
-					});
+					} );
 
 					const x = units ( size.x );
 
@@ -1398,7 +1398,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 								minifig.add ( edges );
 							}
-						});
+						} );
 
 						// shadows
 
@@ -1412,7 +1412,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 							}
 
-						});
+						} );
 
 						self.scene.add ( minifig );
 
@@ -1430,7 +1430,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						console.log ( 'scale [ minifig ] : ', minifig.scale );
 
-					});
+					} );
 				};
 
 				// plane
@@ -1485,7 +1485,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					const geometry = new THREE.ShapeGeometry(shape);
 
-					const material = new THREE.MeshStandardMaterial({ color: this.plane_color, side: THREE.DoubleSide });
+					const material = new THREE.MeshStandardMaterial({ color: this.plane_color, side: THREE.DoubleSide } );
 
 
 					self.plane = new THREE.Mesh(geometry, material);
@@ -1577,7 +1577,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						}
 
-					});
+					} );
 
 				}
 
@@ -2368,7 +2368,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 							}
 
-						});
+						} );
 
 						// load model
 
@@ -2439,7 +2439,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					self.minifigToggle_();
 
-				});
+				} );
 
 				// wireframe toggle
 
@@ -2447,7 +2447,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					self.wireframeToggle_();
 
-				});
+				} );
 
 				// edges toggle
 
@@ -2455,7 +2455,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					self.edgesToggle_();
 
-				});
+				} );
 
 				// dimensions toggle
 
@@ -2465,7 +2465,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					self.dimensionLabels_();
 
-				});
+				} );
 
 				const endTime = performance.now();
 
