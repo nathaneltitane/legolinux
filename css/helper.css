@@ -15,7 +15,7 @@
 	position: fixed;
 	bottom: 0px;
 	left: 0px;
-	right: calc( 100vw - 350px );
+	right: calc( 100vw - 64px - 10px - 10px);
 
 	height: 0vh;
 
