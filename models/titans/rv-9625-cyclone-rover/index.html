@@ -1135,116 +1135,117 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-green.dae',
+						'/minifigs/exports/minifig-white.dae',
 
 						function ( collada ) {
 
-						const minifig = collada.scene;
+							const minifig = collada.scene;
 
-						minifig.name = 'minifig';
+							minifig.name = 'minifig';
 
-						// define all model bounding boxes
+							// define all model bounding boxes
 
-						const modelBox = new THREE.Box3().setFromObject ( self.colladaImport );
+							const modelBox = new THREE.Box3().setFromObject ( self.colladaImport );
 
-						const minifigBox = new THREE.Box3().setFromObject ( minifig );
+							const minifigBox = new THREE.Box3().setFromObject ( minifig );
 
-						// define all models positional parameters
+							// define all models positional parameters
 
-						const modelCenter = modelBox.getCenter ( new THREE.Vector3() );
+							const modelCenter = modelBox.getCenter ( new THREE.Vector3() );
 
-						const minifigCenter = minifigBox.getCenter ( new THREE.Vector3() );
+							const minifigCenter = minifigBox.getCenter ( new THREE.Vector3() );
 
-						const modelWidth = modelBox.max.x - modelBox.min.x;
+							const modelWidth = modelBox.max.x - modelBox.min.x;
 
-						const minifigWidth = minifigBox.max.x - minifigBox.min.x;
+							const minifigWidth = minifigBox.max.x - minifigBox.min.x;
 
-						const modelHeight = modelBox.max.y - modelBox.min.y;
+							const modelHeight = modelBox.max.y - modelBox.min.y;
 
-						const minifigHeight = minifigBox.max.y - minifigBox.min.y;
+							const minifigHeight = minifigBox.max.y - minifigBox.min.y;
 
-						const modelDepth = modelBox.max.z - modelBox.min.z;
+							const modelDepth = modelBox.max.z - modelBox.min.z;
 
-						const minifigDepth = minifigBox.max.z - minifigBox.min.z;
+							const minifigDepth = minifigBox.max.z - minifigBox.min.z;
 
-						// set minifig scale
+							// set minifig scale
 
-						minifig.scale.setScalar ( editorScale );
+							minifig.scale.setScalar ( editorScale );
 
-						// compute minifig position
+							// compute minifig position
 
-						const minifigPositionBox = new THREE.Box3().setFromObject ( minifig );
+							const minifigPositionBox = new THREE.Box3().setFromObject ( minifig );
 
-						const yOffset = modelBox.min.y - minifigPositionBox.min.y;
+							const yOffset = modelBox.min.y - minifigPositionBox.min.y;
 
-						const zOffset = modelBox.max.z - minifigPositionBox.min.z;
+							const zOffset = modelBox.max.z - minifigPositionBox.min.z;
 
-						const minifigPosition_x = modelCenter.x
+							const minifigPosition_x = modelCenter.x
 
-						const minifigPosition_y = yOffset
+							const minifigPosition_y = yOffset
 
-						const minifigPosition_z = ( ( ( minifigPositionBox.max.z - minifigPositionBox.min.z ) / 2 ) + ( minifigDepth * 1.5 ) )
+							const minifigPosition_z = ( ( ( minifigPositionBox.max.z - minifigPositionBox.min.z ) / 2 ) + ( minifigDepth * 1.5 ) )
 
-						// set minifig position
+							// set minifig position
 
-						minifig.position.set ( minifigPosition_x, minifigPosition_y, minifigPosition_z );
+							minifig.position.set ( minifigPosition_x, minifigPosition_y, minifigPosition_z );
 
-						// edges
+							// edges
 
-						minifig.traverse ( function ( node ) {
+							minifig.traverse ( function ( node ) {
 
-							if ( node.isMesh ) {
+								if ( node.isMesh ) {
 
-								const edgesGeometry = new THREE.EdgesGeometry ( node.geometry, 45 );
+									const edgesGeometry = new THREE.EdgesGeometry ( node.geometry, 45 );
 
-								const edgesMaterial = new THREE.LineBasicMaterial ( { color: 0x000000 } );
+									const edgesMaterial = new THREE.LineBasicMaterial ( { color: 0x000000 } );
 
-								const edges = new THREE.LineSegments ( edgesGeometry, edgesMaterial );
+									const edges = new THREE.LineSegments ( edgesGeometry, edgesMaterial );
 
-								edges.position.copy ( node.position );
+									edges.position.copy ( node.position );
 
-								edges.rotation.copy ( node.rotation );
+									edges.rotation.copy ( node.rotation );
 
-								edges.scale.copy ( node.scale );
+									edges.scale.copy ( node.scale );
 
-								minifig.add ( edges );
-							}
-						});
+									minifig.add ( edges );
+								}
+							});
 
-						// shadows
+							// shadows
 
-						minifig.traverse ( function ( node ) {
+							minifig.traverse ( function ( node ) {
 
-							if ( node.isMesh ) {
+								if ( node.isMesh ) {
 
-								node.castShadow = true;
+									node.castShadow = true;
 
-								node.receiveShadow = true;
+									node.receiveShadow = true;
 
-							}
+								}
 
-						});
+							});
 
-						self.scene.add ( minifig );
+							self.scene.add ( minifig );
 
-						const transform = self.get_transformControls();
+							const transform = self.get_transformControls();
 
-						self.scene.add ( transform );
+							self.scene.add ( transform );
 
-						transform.attach ( minifig );
+							transform.attach ( minifig );
 
-						self.minifig = minifig;
+							self.minifig = minifig;
 
-						self.minifigTransform = transform;
+							self.minifigTransform = transform;
 
-						console.log ( 'minifig' );
+							console.log ( 'minifig' );
 
-						console.log (
-							'scale [ minifig ] = ',
-							minifig.scale
-						);
+							console.log (
+								'scale [ minifig ] = ',
+								minifig.scale
+							);
 
-					});
+						}
+					);
 				};
 
 				// plane
