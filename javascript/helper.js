@@ -8,18 +8,22 @@ $( document ).ready ( function ( ) {
         '#navigation-button-label',
         '#paypal-button-label',
         '#color-button-label',
+        '#dimensions-button-label',
         '#edges-button-label',
         '#wireframe-button-label',
-        '#controls-button-label'
+        '#controls-button-label',
+        '#minifig-button-label'
     ];
 
     var classes = [
         'navigation-label-color',
         'paypal-label-color',
         'color-label-color',
+        'dimensions-label-color',
 		'edges-label-color',
 		'wireframe-label-color',
-        'controls-label-color'
+        'controls-label-color',
+        'minifig-label-color'
     ];
 
     var ids = ids.join ( ', ' );
