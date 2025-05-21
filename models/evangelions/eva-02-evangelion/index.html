@@ -1026,15 +1026,15 @@
 					if ( ! self.polarGridHelper ) {
 
 					const ringSpacing = 0.008;
-					const rings = 128;
+					const rings = 128 / 2;
 					const radius = ringSpacing * rings;
 
 					self.polarGridHelper = new THREE.PolarGridHelper (
 
-						radius,         // total radius (0.512 m)
-						rings,          // radial lines (64 spokes)
-						rings,          // concentric rings (64)
-						rings,          // segments (optional, can match rings)
+						radius,
+						rings,
+						rings,
+						rings,
 						this.polarGridHelper_color_min,
 						this.polarGridHelper_color_max
 
@@ -1172,7 +1172,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-white.dae',
+						'/minifigs/exports/minifig-black.dae',
 
 						function ( collada ) {
 
