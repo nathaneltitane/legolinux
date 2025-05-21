@@ -1160,7 +1160,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-purple.dae',
+						'/minifigs/exports/minifig-green.dae',
 
 						function ( collada ) {
 
@@ -1802,6 +1802,14 @@
 
 							break;
 
+						// I //
+
+						case 73:
+
+							self.spotLightHelper_();
+
+							break;
+
 						// J //
 
 						case 74:
@@ -1810,23 +1818,15 @@
 
 							break;
 
-						// D //
+						// K //
 
-						case 68:
+						case 75:
 
 							self.directionalLight_0_Helper_();
 
 							self.directionalLight_1_Helper_();
 
 							self.directionalLight_2_Helper_();
-
-							break;
-
-						// I //
-
-						case 73:
-
-							self.spotLightHelper_();
 
 							break;
 
@@ -1838,14 +1838,6 @@
 
 							break;
 
-						// TAB //
-
-						case 9:
-
-							self.dimensionsToggle_();
-
-							break;
-
 						// B //
 
 						case 66:
@@ -1854,35 +1846,19 @@
 
 							break;
 
-						// N //
+						// D //
 
-						case 78:
+						case 68:
 
-							self.dimensionLabels_();
-
-						break;
-
-						// P //
-
-						case 80:
-
-							self.polarGridHelper_();
+							self.dimensionsToggle_();
 
 							break;
 
-						// O //
+						// E //
 
-						case 79:
+						case 69:
 
-							self.orthogonalGridHelper_();
-
-							break;
-
-						// L //
-
-						case 76:
-
-							self.plane_();
+							self.edgesToggle_();
 
 							break;
 
@@ -1894,19 +1870,43 @@
 
 							break;
 
+						// N //
+
+						case 78:
+
+							self.dimensionLabels_();
+
+						break;
+
+						// O //
+
+						case 79:
+
+							self.orthogonalGridHelper_();
+
+							break;
+
+						// P //
+
+						case 80:
+
+							self.polarGridHelper_();
+
+							break;
+
+						// L //
+
+						case 76:
+
+							self.plane_();
+
+							break;
+
 						// W //
 
 						case 87:
 
 							self.wireframeToggle_();
-
-							break;
-
-						// E //
-
-						case 69:
-
-							self.edgesToggle_();
 
 							break;
 
