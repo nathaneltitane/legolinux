@@ -58,13 +58,13 @@
 
 			import { TransformControls } from 'three/addons/controls/TransformControls.js';
 
-			function initialize ( ) {
+			function initialize() {
 
 				// scaling unit - 1 ldu = 0.0004 m
 
 				const editorScale = 0.0004;
 
-				const startTime = performance.now ( );
+				const startTime = performance.now();
 
 				var self  = this;
 
@@ -113,14 +113,14 @@
 				this.renderer.setClearColor ( black, 0 );
 				this.renderer.setPixelRatio ( window.devicePixelRatio );
 				this.renderer.setSize ( viewportWidth, viewportHeight );
-				this.renderer.clear ( );
+				this.renderer.clear();
 
 				this.renderer.shadowMap.enabled = true;
 				this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
 				// scene
 
-				this.scene = new THREE.Scene ( );
+				this.scene = new THREE.Scene();
 
 				// size reference cube (1 m³)
 
@@ -128,7 +128,7 @@
 
 				// ensures centering on cube origin
 
-				geometry.center ( );
+				geometry.center();
 
 				const referenceCube = new THREE.Mesh (
 
@@ -379,7 +379,7 @@
 
 				this.axesHelper_visible = false;
 
-				this.get_axesHelper = function ( ) {
+				this.get_axesHelper = function() {
 
 					if ( ! self.axesHelper ) {
 
@@ -393,20 +393,20 @@
 
 				}
 
-				this.axesHelper_ = function ( ) {
+				this.axesHelper_ = function() {
 
 					if ( this.axesHelper_visible ) {
 
 						this.axesHelper_visible = false;
 
-						self.scene.remove ( self.get_axesHelper ( ) );
+						self.scene.remove ( self.get_axesHelper() );
 					}
 
 					else {
 
 						this.axesHelper_visible = true;
 
-						self.scene.add ( self.get_axesHelper ( ) );
+						self.scene.add ( self.get_axesHelper() );
 					}
 				}
 
@@ -418,13 +418,13 @@
 
 				this.boundingBoxHelper_visible = false;
 
-				this.get_boundingBoxHelper = function  ( ) {
+				this.get_boundingBoxHelper = function () {
 
 					if ( ! self.boundingBoxHelper ) {
 
-						const box = self.get_boundingBox ( );
+						const box = self.get_boundingBox();
 
-						const geometry = new THREE.BufferGeometry ( );
+						const geometry = new THREE.BufferGeometry();
 						const positions = [];
 						const colors = [];
 
@@ -489,7 +489,7 @@
 
 						//	positions.push ( ...start, ...end );
 
-						//	colors.push ( ...color.toArray ( ), ...color.toArray ( ) );
+						//	colors.push ( ...color.toArray(), ...color.toArray() );
 						//}
 
 						// generate corners
@@ -508,19 +508,19 @@
 
 							positions.push(x, y, z, x + dirX * cornerSize, y, z);
 
-							colors.push(...colorX.toArray ( ), ...colorX.toArray ( ));
+							colors.push(...colorX.toArray(), ...colorX.toArray());
 
 							// y axis
 
 							positions.push(x, y, z, x, y + dirY * cornerSize, z);
 
-							colors.push(...colorY.toArray ( ), ...colorY.toArray ( ));
+							colors.push(...colorY.toArray(), ...colorY.toArray());
 
 							// z axis
 
 							positions.push(x, y, z, x, y, z + dirZ * cornerSize);
 
-							colors.push(...colorZ.toArray ( ), ...colorZ.toArray ( ));
+							colors.push(...colorZ.toArray(), ...colorZ.toArray());
 						}
 
 						geometry.setAttribute ( 'position', new THREE.Float32BufferAttribute ( positions, 3 ) );
@@ -537,13 +537,13 @@
 					return self.boundingBoxHelper;
 				}
 
-				this.boundingBoxHelper_ = function  ( ) {
+				this.boundingBoxHelper_ = function () {
 
 					if ( this.boundingBoxHelper_visible ) {
 
 						this.boundingBoxHelper_visible = false;
 
-						self.scene.remove ( self.get_boundingBoxHelper ( ) );
+						self.scene.remove ( self.get_boundingBoxHelper() );
 
 					}
 
@@ -551,7 +551,7 @@
 
 						this.boundingBoxHelper_visible = true;
 
-						self.scene.add ( self.get_boundingBoxHelper ( ) );
+						self.scene.add ( self.get_boundingBoxHelper() );
 					}
 				}
 
@@ -563,7 +563,7 @@
 
 				this.cameraHelper_visible = false;
 
-				this.get_cameraHelper = function ( ) {
+				this.get_cameraHelper = function() {
 
 					if ( ! self.cameraHelper)  {
 
@@ -577,13 +577,13 @@
 
 				}
 
-				this.cameraHelper_ = function ( ) {
+				this.cameraHelper_ = function() {
 
 					if ( this.cameraHelper_visible ) {
 
 						this.cameraHelper_visible = false;
 
-						self.scene.remove ( self.get_cameraHelper ( ) );
+						self.scene.remove ( self.get_cameraHelper() );
 
 					}
 
@@ -591,7 +591,7 @@
 
 						this.cameraHelper_visible = true;
 
-						self.scene.add ( self.get_cameraHelper ( ) );
+						self.scene.add ( self.get_cameraHelper() );
 
 					}
 
@@ -603,17 +603,17 @@
 
 				this.dimensionLabels_visible = false;
 
-				this.get_dimensionLabels = function  ( ) {
+				this.get_dimensionLabels = function () {
 
 					if ( self.dimensionLabels ) return self.dimensionLabels;
 
 					// get bounding box
 
-					const box = self.get_boundingBox  ( );
+					const box = self.get_boundingBox ();
 
-					const center = box.getCenter (new THREE.Vector3 ( ) );
+					const center = box.getCenter (new THREE.Vector3() );
 
-					const size = box.getSize ( new THREE.Vector3 ( ) );
+					const size = box.getSize ( new THREE.Vector3() );
 
 					// convert units
 
@@ -654,7 +654,7 @@
 						const height = canvas.height;
 
 						labelContext.fillStyle = '#00000000';
-						labelContext.beginPath  ( );
+						labelContext.beginPath ();
 						labelContext.moveTo ( radius, 0);
 						labelContext.lineTo ( width - radius, 0 );
 						labelContext.quadraticCurveTo ( width, 0, width, radius );
@@ -664,8 +664,8 @@
 						labelContext.quadraticCurveTo ( 0, height, 0, height - radius );
 						labelContext.lineTo ( 0, radius );
 						labelContext.quadraticCurveTo ( 0, 0, radius, 0 );
-						labelContext.closePath  ( );
-						labelContext.fill  ( );
+						labelContext.closePath ();
+						labelContext.fill ();
 
 						// per axis text color
 
@@ -695,9 +695,9 @@
 
 						// determine appropriate sprite scale factor relative to model (world units to canvas ratio)
 
-						const modelBox = self.get_boundingBox ( );
+						const modelBox = self.get_boundingBox();
 
-						const modelSize = modelBox.getSize (new THREE.Vector3 ( ) );
+						const modelSize = modelBox.getSize (new THREE.Vector3() );
 
 						const modelMaxAxis = Math.max ( modelSize.x, modelSize.y, modelSize.z );
 
@@ -737,7 +737,7 @@
 
 				}
 
-				this.dimensionLabels_ = function  ( ) {
+				this.dimensionLabels_ = function () {
 
 					if ( this.dimensionLabels_visible ) {
 
@@ -756,7 +756,7 @@
 
 						this.dimensionLabels_visible = true;
 
-						self.get_dimensionLabels ( ).forEach(label => self.scene.add ( label ) );
+						self.get_dimensionLabels().forEach(label => self.scene.add ( label ) );
 
 						console.log ( "dimensions" );
 					}
@@ -768,7 +768,7 @@
 
 				this.hemisphereLightHelper_visible = false;
 
-				this.get_hemisphereLightHelper = function ( ) {
+				this.get_hemisphereLightHelper = function() {
 
 					if ( ! self.hemisphereLightHelper ) {
 
@@ -782,13 +782,13 @@
 
 				}
 
-				this.hemisphereLightHelper_ = function ( ) {
+				this.hemisphereLightHelper_ = function() {
 
 					if ( this.hemisphereLightHelper_visible ) {
 
 						this.hemisphereLightHelper_visible = false;
 
-						self.scene.remove ( self.get_hemisphereLightHelper ( ) );
+						self.scene.remove ( self.get_hemisphereLightHelper() );
 
 					}
 
@@ -796,7 +796,7 @@
 
 						this.hemisphereLightHelper_visible = true;
 
-						self.scene.add ( self.get_hemisphereLightHelper ( ) );
+						self.scene.add ( self.get_hemisphereLightHelper() );
 
 					}
 
@@ -808,7 +808,7 @@
 
 				this.pointLightHelper_visible = false;
 
-				this.get_pointLightHelper = function ( ) {
+				this.get_pointLightHelper = function() {
 
 					if ( ! self.pointLightHelper ) {
 
@@ -822,13 +822,13 @@
 
 				}
 
-				this.pointLightHelper_ = function ( ) {
+				this.pointLightHelper_ = function() {
 
 					if ( this.pointLightHelper_visible ) {
 
 						this.pointLightHelper_visible = false;
 
-						self.scene.remove ( self.get_pointLightHelper ( ) );
+						self.scene.remove ( self.get_pointLightHelper() );
 
 					}
 
@@ -836,7 +836,7 @@
 
 						this.pointLightHelper_visible = true;
 
-						self.scene.add ( self.get_pointLightHelper ( ) );
+						self.scene.add ( self.get_pointLightHelper() );
 
 					}
 
@@ -848,7 +848,7 @@
 
 				this.directionalLight_0_Helper_visible = false;
 
-				this.get_directionalLight_0_Helper = function ( ) {
+				this.get_directionalLight_0_Helper = function() {
 
 					if ( ! self.directionalLight_0_Helper ) {
 
@@ -861,13 +861,13 @@
 
 				}
 
-				this.directionalLight_0_Helper_ = function ( ) {
+				this.directionalLight_0_Helper_ = function() {
 
 					if ( this.directionalLight_0_Helper_visible ) {
 
 						this.directionalLight_0_Helper_visible = false;
 
-						self.scene.remove ( self.get_directionalLight_0_Helper ( ) );
+						self.scene.remove ( self.get_directionalLight_0_Helper() );
 
 					}
 
@@ -875,7 +875,7 @@
 
 						this.directionalLight_0_Helper_visible = true;
 
-						self.scene.add ( self.get_directionalLight_0_Helper ( ) );
+						self.scene.add ( self.get_directionalLight_0_Helper() );
 
 					}
 
@@ -887,7 +887,7 @@
 
 				this.directionalLight_1_Helper_visible = false;
 
-				this.get_directionalLight_1_Helper = function ( ) {
+				this.get_directionalLight_1_Helper = function() {
 
 					if ( ! self.directionalLight_1_Helper ) {
 
@@ -901,13 +901,13 @@
 
 				}
 
-				this.directionalLight_1_Helper_ = function ( ) {
+				this.directionalLight_1_Helper_ = function() {
 
 					if ( this.directionalLight_1_Helper_visible ) {
 
 						this.directionalLight_1_Helper_visible = false;
 
-						self.scene.remove ( self.get_directionalLight_1_Helper ( ) );
+						self.scene.remove ( self.get_directionalLight_1_Helper() );
 
 					}
 
@@ -915,7 +915,7 @@
 
 						this.directionalLight_1_Helper_visible = true;
 
-						self.scene.add ( self.get_directionalLight_1_Helper ( ) );
+						self.scene.add ( self.get_directionalLight_1_Helper() );
 
 					}
 
@@ -927,7 +927,7 @@
 
 				this.directionalLight_2_Helper_visible = false;
 
-				this.get_directionalLight_2_Helper = function ( ) {
+				this.get_directionalLight_2_Helper = function() {
 
 					if ( ! self.directionalLight_2_Helper ) {
 
@@ -941,13 +941,13 @@
 
 				}
 
-				this.directionalLight_2_Helper_ = function ( ) {
+				this.directionalLight_2_Helper_ = function() {
 
 					if ( this.directionalLight_2_Helper_visible ) {
 
 						this.directionalLight_2_Helper_visible = false;
 
-						self.scene.remove ( self.get_directionalLight_2_Helper ( ) );
+						self.scene.remove ( self.get_directionalLight_2_Helper() );
 
 					}
 
@@ -955,7 +955,7 @@
 
 						this.directionalLight_2_Helper_visible = true;
 
-						self.scene.add ( self.get_directionalLight_2_Helper ( ) );
+						self.scene.add ( self.get_directionalLight_2_Helper() );
 
 					}
 
@@ -967,7 +967,7 @@
 
 				this.spotLightHelper_visible = false;
 
-				this.get_spotLightHelper = function ( ) {
+				this.get_spotLightHelper = function() {
 
 					if ( ! self.spotLightHelper ) {
 
@@ -980,13 +980,13 @@
 
 				}
 
-				this.spotLightHelper_ = function ( ) {
+				this.spotLightHelper_ = function() {
 
 					if ( this.spotLightHelper_visible ) {
 
 						this.spotLightHelper_visible = false;
 
-						self.scene.remove ( self.get_spotLightHelper ( ) );
+						self.scene.remove ( self.get_spotLightHelper() );
 
 					}
 
@@ -994,7 +994,7 @@
 
 						this.spotLightHelper_visible = true;
 
-						self.scene.add ( self.get_spotLightHelper ( ) );
+						self.scene.add ( self.get_spotLightHelper() );
 
 					}
 
@@ -1010,13 +1010,13 @@
 
 				this.polarGridHelper_visible = false;
 
-				this.get_polarGridHelper = function ( ) {
+				this.get_polarGridHelper = function() {
 
 					if ( ! self.polarGridHelper ) {
 
 						self.polarGridHelper = new THREE.PolarGridHelper ( 0.5, 64, 64, 64, this.polarGridHelper_color_min, this.polarGridHelper_color_max );
 
-						self.polarGridHelper.position.y = self.get_boundingBox ( ).min.y;
+						self.polarGridHelper.position.y = self.get_boundingBox().min.y;
 
 						self.polarGridHelper.position.x = 0;
 
@@ -1030,13 +1030,13 @@
 
 				}
 
-				this.polarGridHelper_ = function ( ) {
+				this.polarGridHelper_ = function() {
 
 					if ( this.polarGridHelper_visible ) {
 
 						this.polarGridHelper_visible = false;
 
-						self.scene.remove ( self.get_polarGridHelper ( ) );
+						self.scene.remove ( self.get_polarGridHelper() );
 
 					}
 
@@ -1044,7 +1044,7 @@
 
 						this.polarGridHelper_visible = true;
 
-						self.scene.add ( self.get_polarGridHelper ( ) );
+						self.scene.add ( self.get_polarGridHelper() );
 
 					}
 
@@ -1060,7 +1060,7 @@
 
 				this.orthogonalGridHelper_visible = false;
 
-				this.get_orthogonalGridHelper = function ( ) {
+				this.get_orthogonalGridHelper = function() {
 
 					if ( ! self.orthogonalGridHelper ) {
 
@@ -1079,13 +1079,13 @@
 
 				}
 
-				this.orthogonalGridHelper_ = function ( ) {
+				this.orthogonalGridHelper_ = function() {
 
 					if ( this.orthogonalGridHelper_visible ) {
 
 						this.orthogonalGridHelper_visible = false;
 
-						self.scene.remove ( self.get_orthogonalGridHelper ( ) );
+						self.scene.remove ( self.get_orthogonalGridHelper() );
 
 					}
 
@@ -1093,7 +1093,7 @@
 
 						this.orthogonalGridHelper_visible = true;
 
-						self.scene.add ( self.get_orthogonalGridHelper ( ) );
+						self.scene.add ( self.get_orthogonalGridHelper() );
 
 					}
 
@@ -1101,7 +1101,7 @@
 
 				// minifig
 
-				this.minifigToggle_ = function  ( ) {
+				this.minifigToggle_ = function () {
 
 					const self = this;
 
@@ -1131,11 +1131,11 @@
 						return;
 					}
 
-					const loader = new ColladaLoader  ( );
+					const loader = new ColladaLoader ();
 
 					loader.load (
 
-						'/minifigs/exports/minifig-fuschia.dae',
+						'/minifigs/exports/minifig-white.dae',
 
 						function ( collada ) {
 
@@ -1145,15 +1145,15 @@
 
 						// define all model bounding boxes
 
-						const modelBox = new THREE.Box3 ( ).setFromObject ( self.colladaImport );
+						const modelBox = new THREE.Box3().setFromObject ( self.colladaImport );
 
-						const minifigBox = new THREE.Box3 ( ).setFromObject ( minifig );
+						const minifigBox = new THREE.Box3().setFromObject ( minifig );
 
 						// define all models positional parameters
 
-						const modelCenter = modelBox.getCenter ( new THREE.Vector3 ( ) );
+						const modelCenter = modelBox.getCenter ( new THREE.Vector3() );
 
-						const minifigCenter = minifigBox.getCenter ( new THREE.Vector3 ( ) );
+						const minifigCenter = minifigBox.getCenter ( new THREE.Vector3() );
 
 						const modelWidth = modelBox.max.x - modelBox.min.x;
 
@@ -1173,7 +1173,7 @@
 
 						// compute minifig position
 
-						const minifigPositionBox = new THREE.Box3 ( ).setFromObject ( minifig );
+						const minifigPositionBox = new THREE.Box3().setFromObject ( minifig );
 
 						const yOffset = modelBox.min.y - minifigPositionBox.min.y;
 
@@ -1227,7 +1227,7 @@
 
 						self.scene.add ( minifig );
 
-						const transform = self.get_transformControls ( );
+						const transform = self.get_transformControls();
 
 						self.scene.add ( transform );
 
@@ -1251,11 +1251,11 @@
 
 				this.boundingBox = null;
 
-				this.get_boundingBox = function ( ) {
+				this.get_boundingBox = function() {
 
 					if ( ! self.boundingBox ) {
 
-						self.boundingBox = new THREE.Box3 ( ).setFromObject ( self.colladaImport )
+						self.boundingBox = new THREE.Box3().setFromObject ( self.colladaImport )
 
 						console.log ( "bounding box [ plane ]" );
 					}
@@ -1269,7 +1269,7 @@
 
 				this.plane_visible = false;
 
-				this.get_plane = function  ( ) {
+				this.get_plane = function () {
 
 					if ( !self.plane ) {
 
@@ -1279,7 +1279,7 @@
 
 					const radius = 0.01;
 
-					const shape = new THREE.Shape ( );
+					const shape = new THREE.Shape();
 
 					const w = planeWidth;
 					const h = planeLength;
@@ -1319,15 +1319,15 @@
 				}
 
 
-				this.plane_ = function ( ) {
+				this.plane_ = function() {
 
-					self.boundingBox = self.get_boundingBox ( );
+					self.boundingBox = self.get_boundingBox();
 
 					if ( this.plane_visible ) {
 
 						this.plane_visible = false;
 
-						self.scene.remove ( self.get_plane ( ) );
+						self.scene.remove ( self.get_plane() );
 
 					}
 
@@ -1335,7 +1335,7 @@
 
 						this.plane_visible = true;
 
-						self.scene.add ( self.get_plane ( ) );
+						self.scene.add ( self.get_plane() );
 					}
 				}
 
@@ -1343,7 +1343,7 @@
 
 				var edgesVisible = true;
 
-				this.edgesToggle_ = function ( ) {
+				this.edgesToggle_ = function() {
 
 					edgesVisible = !edgesVisible;
 
@@ -1365,11 +1365,11 @@
 
 				var facesVisible = true;
 
-				this.wireframeToggle_ = function ( ) {
+				this.wireframeToggle_ = function() {
 
 					// disable edges
 
-					self.edgesToggle_ ( );
+					self.edgesToggle_();
 
 					wireframeVisible = !wireframeVisible;
 					facesVisible = !facesVisible;
@@ -1398,9 +1398,9 @@
 
 				// camera toggle
 
-				this.cameraToggle_ = function ( ) {
+				this.cameraToggle_ = function() {
 
-					self.position = self.camera.position.clone ( );
+					self.position = self.camera.position.clone();
 
 					self.camera = self.camera.isPerspectiveCamera ? self.orthographicCamera : self.perspectiveCamera;
 
@@ -1424,9 +1424,9 @@
 
 					self.camera.lookAt ( 0, 0, 0 );
 
-					self.camera.updateProjectionMatrix ( );
+					self.camera.updateProjectionMatrix();
 
-					self.resize ( );
+					self.resize();
 
 					console.log ( "camera = " + self.cameraType );
 
@@ -1434,7 +1434,7 @@
 
 				// camera position toggle
 
-				this.cameraPositionToggle_ = function ( ) {
+				this.cameraPositionToggle_ = function() {
 
 					self.camera = self.orthographicCamera
 
@@ -1446,7 +1446,7 @@
 
 					self.camera.lookAt ( 0, 0, 0 );
 
-					self.camera.updateProjectionMatrix ( );
+					self.camera.updateProjectionMatrix();
 
 					console.log ( "camera position = " + self.cameraPositionMatrix_x, self.cameraPositionMatrix_y, self.cameraPositionMatrix_z );
 
@@ -1454,9 +1454,9 @@
 
 				// view toggle
 
-				this.viewToggle_ = function ( ) {
+				this.viewToggle_ = function() {
 
-					const randomViewFactor  = ( Math.random ( ) + 0.1 );
+					const randomViewFactor  = ( Math.random() + 0.1 );
 
 					const randomFieldOfView = randomViewFactor;
 					const randomZoom        = randomViewFactor;
@@ -1477,13 +1477,13 @@
 
 					self.orthographicCamera.zoom = ( orthographicRandomZoom );
 
-					self.resize ( );
+					self.resize();
 
 				}
 
 				// transform toggle
 
-				this.transformToggle_ = function ( ) {
+				this.transformToggle_ = function() {
 
 					self.transformControls.enabled = ! self.transformControls.enabled;
 
@@ -1517,7 +1517,7 @@
 
 				// controls space toggle
 
-				this.controlsSpace_ = function ( ) {
+				this.controlsSpace_ = function() {
 
 					self.transformControls.setSpace ( self.transformControls.space === "world" ? "local" : "world" );
 
@@ -1527,7 +1527,7 @@
 
 				// snap toggle
 
-				this.snapToggle_ = function ( ) {
+				this.snapToggle_ = function() {
 
 					let snapFactor = 0.25;
 
@@ -1535,7 +1535,7 @@
 					const rotationSnap = ( THREE.MathUtils.degToRad ( 360 / 24 ) );
 					const scaleSnap = ( snapFactor / 2 );
 
-					var snapMode = self.transformControls.getMode ( );
+					var snapMode = self.transformControls.getMode();
 
 					if ( snapMode == "translate" ) {
 
@@ -1565,7 +1565,7 @@
 
 				this.orbitControls = null;
 
-				this.get_orbitControls = function ( ) {
+				this.get_orbitControls = function() {
 
 					if ( ! this.orbitControls ) {
 
@@ -1592,7 +1592,7 @@
 						self.orbitControls.minDistance = near;
 						self.orbitControls.maxDistance = far;
 
-						self.orbitControls.update ( );
+						self.orbitControls.update();
 					}
 
 					return self.orbitControls;
@@ -1604,7 +1604,7 @@
 
 				this.transformControls_enabled = false;
 
-				this.get_transformControls = function ( ) {
+				this.get_transformControls = function() {
 
 					if ( ! self.transformControls ) {
 
@@ -1626,7 +1626,7 @@
 
 				// resize
 
-				this.resize = function ( ) {
+				this.resize = function() {
 
 					if ( self.camera.isOrthographicCamera ) {
 
@@ -1642,7 +1642,7 @@
 						self.camera.top    =   ( viewPortHeightOrthographic / 2 );
 						self.camera.bottom = - ( viewPortHeightOrthographic / 2 );
 
-						self.camera.updateProjectionMatrix ( );
+						self.camera.updateProjectionMatrix();
 
 						// pdate renderer size
 
@@ -1653,7 +1653,7 @@
 					else {
 							self.camera.aspect = window.innerWidth / window.innerHeight;
 
-							self.camera.updateProjectionMatrix ( );
+							self.camera.updateProjectionMatrix();
 
 							self.renderer.setSize ( window.innerWidth, window.innerHeight );
 
@@ -1661,13 +1661,13 @@
 
 				}
 
-				this.render = function ( ) {
+				this.render = function() {
 
 					if ( self.resize ( self.renderer ) ) {
 
 						self.camera.aspect = canvas.clientWidth / canvas.clientHeight;
 
-						self.camera.updateProjectionMatrix ( );
+						self.camera.updateProjectionMatrix();
 
 					}
 
@@ -1719,7 +1719,7 @@
 
 						case 72:
 
-							self.hemisphereLightHelper_ ( );
+							self.hemisphereLightHelper_();
 
 							break;
 
@@ -1727,7 +1727,7 @@
 
 						case 74:
 
-							self.pointLightHelper_ ( );
+							self.pointLightHelper_();
 
 							break;
 
@@ -1735,11 +1735,11 @@
 
 						case 68:
 
-							self.directionalLight_0_Helper_ ( );
+							self.directionalLight_0_Helper_();
 
-							self.directionalLight_1_Helper_ ( );
+							self.directionalLight_1_Helper_();
 
-							self.directionalLight_2_Helper_ ( );
+							self.directionalLight_2_Helper_();
 
 							break;
 
@@ -1747,7 +1747,7 @@
 
 						case 73:
 
-							self.spotLightHelper_ ( );
+							self.spotLightHelper_();
 
 							break;
 
@@ -1755,7 +1755,7 @@
 
 						case 65:
 
-							self.axesHelper_ ( );
+							self.axesHelper_();
 
 							break;
 
@@ -1763,9 +1763,9 @@
 
 						case 9:
 
-							self.boundingBoxHelper_ ( );
+							self.boundingBoxHelper_();
 
-							self.dimensionLabels_ ( );
+							self.dimensionLabels_();
 
 							break;
 
@@ -1773,7 +1773,7 @@
 
 						case 66:
 
-							self.boundingBoxHelper_ ( );
+							self.boundingBoxHelper_();
 
 							break;
 
@@ -1781,7 +1781,7 @@
 
 						case 78:
 
-							self.dimensionLabels_ ( );
+							self.dimensionLabels_();
 
 						break;
 
@@ -1789,7 +1789,7 @@
 
 						case 80:
 
-							self.polarGridHelper_ ( );
+							self.polarGridHelper_();
 
 							break;
 
@@ -1797,7 +1797,7 @@
 
 						case 79:
 
-							self.orthogonalGridHelper_ ( );
+							self.orthogonalGridHelper_();
 
 							break;
 
@@ -1805,7 +1805,7 @@
 
 						case 76:
 
-							self.plane_ ( );
+							self.plane_();
 
 							break;
 
@@ -1813,7 +1813,7 @@
 
 						case 70:
 
-							self.minifigToggle_ ( );
+							self.minifigToggle_();
 
 							break;
 
@@ -1821,7 +1821,7 @@
 
 						case 87:
 
-							self.wireframeToggle_ ( );
+							self.wireframeToggle_();
 
 							break;
 
@@ -1829,7 +1829,7 @@
 
 						case 69:
 
-							self.edgesToggle_ ( );
+							self.edgesToggle_();
 
 							break;
 
@@ -1837,7 +1837,7 @@
 
 						case 77:
 
-							self.cameraHelper_ ( );
+							self.cameraHelper_();
 
 							break;
 
@@ -1845,7 +1845,7 @@
 
 						case 67:
 
-							self.cameraToggle_ ( );
+							self.cameraToggle_();
 
 							break;
 
@@ -1853,7 +1853,7 @@
 
 						case 86:
 
-							self.viewToggle_ ( );
+							self.viewToggle_();
 
 							break;
 
@@ -1868,7 +1868,7 @@
 							self.cameraPositionMatrix_y = 30;
 							self.cameraPositionMatrix_z = 45;
 
-							self.cameraPositionToggle_ ( );
+							self.cameraPositionToggle_();
 
 							break;
 
@@ -1883,7 +1883,7 @@
 							self.cameraPositionMatrix_y = 0;
 							self.cameraPositionMatrix_z = 1;
 
-							self.cameraPositionToggle_ ( );
+							self.cameraPositionToggle_();
 
 							break;
 
@@ -1898,7 +1898,7 @@
 							self.cameraPositionMatrix_y = 0;
 							self.cameraPositionMatrix_z = -1;
 
-							self.cameraPositionToggle_ ( );
+							self.cameraPositionToggle_();
 
 							break;
 
@@ -1913,7 +1913,7 @@
 							self.cameraPositionMatrix_y = 0;
 							self.cameraPositionMatrix_z = 0;
 
-							self.cameraPositionToggle_ ( );
+							self.cameraPositionToggle_();
 
 							break;
 
@@ -1928,7 +1928,7 @@
 							self.cameraPositionMatrix_y = 0;
 							self.cameraPositionMatrix_z = 0;
 
-							self.cameraPositionToggle_ ( );
+							self.cameraPositionToggle_();
 
 							break;
 
@@ -1943,7 +1943,7 @@
 							self.cameraPositionMatrix_y = 1;
 							self.cameraPositionMatrix_z = 0;
 
-							self.cameraPositionToggle_ ( );
+							self.cameraPositionToggle_();
 
 							break;
 
@@ -1958,7 +1958,7 @@
 							self.cameraPositionMatrix_y = -1;
 							self.cameraPositionMatrix_z = 0;
 
-							self.cameraPositionToggle_ ( );
+							self.cameraPositionToggle_();
 
 							break;
 
@@ -1966,7 +1966,7 @@
 
 						case 32:
 
-							self.transformToggle_ ( );
+							self.transformToggle_();
 
 							break;
 
@@ -1998,7 +1998,7 @@
 
 						case 222:
 
-							self.controlsSpace_ ( );
+							self.controlsSpace_();
 
 							break;
 
@@ -2006,7 +2006,7 @@
 
 						case 16:
 
-							self.snapToggle_ ( );
+							self.snapToggle_();
 
 							break;
 
@@ -2116,7 +2116,7 @@
 
 				// loader
 
-				var loader = new ColladaLoader ( );
+				var loader = new ColladaLoader();
 
 				var model = loader.load (
 
@@ -2142,7 +2142,7 @@
 
 								var edges = new THREE.LineSegments ( edgesGeometry, edgesMaterial );
 
-								edges.geometry.computeBoundingBox ( );
+								edges.geometry.computeBoundingBox();
 
 								// wireframe
 
@@ -2189,9 +2189,9 @@
 
 						self.scene.add ( self.colladaImport );
 
-						const modelBox = new THREE.Box3 ( ).setFromObject ( self.colladaImport )
+						const modelBox = new THREE.Box3().setFromObject ( self.colladaImport )
 
-						const size = modelBox.getSize ( new THREE.Vector3  ( ) );
+						const size = modelBox.getSize ( new THREE.Vector3 () );
 
 						// unit conversions
 
@@ -2214,7 +2214,7 @@
 
 						console.log ( 'scale [ model ] = ',  self.colladaImport.scale );
 
-						console.log ( 'scale [ model matrix ] = ', self.colladaImport.getWorldScale ( new THREE.Vector3 ( ) ) );
+						console.log ( 'scale [ model matrix ] = ', self.colladaImport.getWorldScale ( new THREE.Vector3() ) );
 
 						console.log ( 'bounding box [ model ] = ' +  'x = ', size.x.toFixed(4) + ' y = ', size.y.toFixed(4) + ' z = ', size.z.toFixed(4) );
 
@@ -2226,13 +2226,13 @@
 
 						// orbit controls
 
-						self.get_orbitControls ( );
+						self.get_orbitControls();
 
 						// transform controls
 
-						self.scene.add ( self.get_transformControls ( ) );
+						self.scene.add ( self.get_transformControls() );
 
-						self.get_transformControls ( ).attach ( self.colladaImport );
+						self.get_transformControls().attach ( self.colladaImport );
 					},
 
 					function (xhr) {
@@ -2250,39 +2250,39 @@
 
 				// minifig toggle
 
-				document.getElementById ( 'minifig' ).addEventListener ( 'click', function ( ) {
+				document.getElementById ( 'minifig' ).addEventListener ( 'click', function() {
 
-					self.minifigToggle_ ( );
+					self.minifigToggle_();
 
 				});
 
 				// wireframe toggle
 
-				document.getElementById ( 'wireframe' ).addEventListener ( 'click', function ( ) {
+				document.getElementById ( 'wireframe' ).addEventListener ( 'click', function() {
 
-					self.wireframeToggle_ ( );
+					self.wireframeToggle_();
 
 				});
 
 				// edges toggle
 
-				document.getElementById ( 'edges' ).addEventListener ( 'click', function ( ) {
+				document.getElementById ( 'edges' ).addEventListener ( 'click', function() {
 
-					self.edgesToggle_ ( );
+					self.edgesToggle_();
 
 				});
 
 				// dimensions toggle
 
-				document.getElementById ( 'dimensions' ).addEventListener ( 'click', function ( ) {
+				document.getElementById ( 'dimensions' ).addEventListener ( 'click', function() {
 
-					self.boundingBoxHelper_ ( );
+					self.boundingBoxHelper_();
 
-					self.dimensionLabels_ ( );
+					self.dimensionLabels_();
 
 				});
 
-				const endTime = performance.now ( );
+				const endTime = performance.now();
 
 				const loadTime = ( ( endTime - startTime ) / 1000).toFixed ( 2 );
 
@@ -2292,7 +2292,7 @@
 
 			}
 
-			new initialize ( );
+			new initialize();
 
 		</script>
 
