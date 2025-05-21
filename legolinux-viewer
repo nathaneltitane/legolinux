@@ -1504,7 +1504,6 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				}
 
-
 				this.plane_ = function() {
 
 					self.boundingBox = self.get_boundingBox();
