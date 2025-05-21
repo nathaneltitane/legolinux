@@ -2378,7 +2378,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						// load model
 
-						self.scene.add ( self.colladaImport );
+						self.scene.add ( model );
 
 						const modelBox = new THREE.Box3().setFromObject ( self.colladaImport )
 
@@ -2411,7 +2411,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						console.log ( 'dimensions [ model  / ldu / three.js ] : ' + 'x =', x_ldu.toFixed(2) + 'y =', y_ldu.toFixed(2) + 'z =', z_ldu.toFixed(2) );
 
-						console.log ( 'dimensions [ model / ldu / leocad ] : ' + 'x =', z_ldu.toFixed(2) + 'y =', y_ldu.toFixed(2) + 'z =', x_ldu.toFixed(2) + );
+						console.log ( 'dimensions [ model / ldu / leocad ] : ' + 'x =', z_ldu.toFixed(2) + 'y =', y_ldu.toFixed(2) + 'z =', x_ldu.toFixed(2) );
 
 						// orbit controls
 
