@@ -1133,7 +1133,7 @@
 
 					const loader = new ColladaLoader ();
 
-					loader.load('/minifigs/exports/minifig-purple.dae', function ( collada ) {
+					loader.load('/minifigs/exports/minifig-orange.dae', function ( collada ) {
 
 						const minifig = collada.scene;
 
@@ -1244,6 +1244,12 @@
 						self.minifigTransform = transform;
 
 						console.log ( 'minifig ' );
+
+						console.log (
+							'scale [ minifig ] = ',
+							minifig.scale
+						);
+
 					});
 				};
 
@@ -2196,9 +2202,11 @@
 
 						// unit converion - world (m) to ldraw (ldu)
 
-						const x_ldu = (size.x * 1000) / 0.4;
-						const y_ldu = (size.y * 1000) / 0.4;
-						const z_ldu = (size.z * 1000) / 0.4;
+						// 1 ldu  = 0.0004 m
+
+						const x_ldu = (size.x * 0.0004);
+						const y_ldu = (size.y * 0.0004);
+						const z_ldu = (size.z * 0.0004);
 
 						// leocad axis		three.js 	type
 						// width 	(x)		z			swapped
