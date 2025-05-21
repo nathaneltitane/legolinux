@@ -649,7 +649,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						];
 
-						const cornerSize = ( 0.008 * 3 );
+						const cornerSize = ( 0.008 * 2 );
 
 						const corners = [
 
