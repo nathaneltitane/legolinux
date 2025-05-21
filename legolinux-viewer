@@ -1586,6 +1586,9 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// dimensions toggle
 
+				this.boundingBoxHelper_visible = false;
+				this.dimensionLabels_visible = false;
+
 				this.dimensionsToggle_ = function() {
 
 					if ( boundingBoxHelper_visible && dimensionLabels_visible ) {
