@@ -2390,6 +2390,8 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 						const y_ldu = ( size.y * 2500 );
 						const z_ldu = ( size.z * 2500 );
 
+						// 1 cm = 0.01 m
+
 						const x_cm = (size.x * 100);
 						const y_cm = (size.y * 100);
 						const z_cm = (size.z * 100);
