@@ -548,6 +548,8 @@
 
 						self.scene.remove ( self.get_boundingBoxHelper() );
 
+						boundingBoxHelper_visible = false;
+
 					}
 
 					else {
@@ -555,6 +557,8 @@
 						this.boundingBoxHelper_visible = true;
 
 						self.scene.add ( self.get_boundingBoxHelper() );
+
+						boundingBoxHelper_visible = true;
 					}
 				}
 
@@ -1138,7 +1142,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-fuschia.dae',
+						'/minifigs/exports/minifig-orange.dae',
 
 						function ( collada ) {
 
@@ -1397,8 +1401,8 @@
 
 				// dimensions toggle
 
-				this.boundingBoxHelper_visible = false;
-				this.dimensionLabels_visible = false;
+				var boundingBoxHelper_visible = false;
+				var dimensionLabels_visible = false;
 
 				this.dimensionsToggle_ = function() {
 

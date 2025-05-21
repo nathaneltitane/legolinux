@@ -737,6 +737,8 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						self.scene.remove ( self.get_boundingBoxHelper() );
 
+						boundingBoxHelper_visible = false;
+
 					}
 
 					else {
@@ -744,6 +746,8 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 						this.boundingBoxHelper_visible = true;
 
 						self.scene.add ( self.get_boundingBoxHelper() );
+
+						boundingBoxHelper_visible = true;
 					}
 				}
 
@@ -1586,8 +1590,8 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// dimensions toggle
 
-				this.boundingBoxHelper_visible = false;
-				this.dimensionLabels_visible = false;
+				var boundingBoxHelper_visible = false;
+				var dimensionLabels_visible = false;
 
 				this.dimensionsToggle_ = function() {
 
