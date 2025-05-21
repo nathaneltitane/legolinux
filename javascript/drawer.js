@@ -89,7 +89,7 @@ $( document ).ready ( function ( ) {
 
     $( document ).on ( 'keyup', function ( event ) {
 
-        if ( event.key === 'k' ) {
+        if ( event.key === '#' ) {
 
             toggle ( );
 

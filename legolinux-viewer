@@ -2260,9 +2260,9 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 							break;
 
-						// # //
+						// CTRL //
 
-						case 222:
+						case 17:
 
 							self.controlsSpace_();
 
