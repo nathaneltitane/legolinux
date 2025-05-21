@@ -1264,7 +1264,20 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					if ( ! self.orthogonalGridHelper ) {
 
-						self.orthogonalGridHelper = new THREE.GridHelper ( 1, 64, this.orthogonalGridHelper_color_min, this.orthogonalGridHelper_color_max );
+						// 20 ldu = 0.008 m
+
+						const gridSpacing = 0.008;
+						const gridDivisions = 64;
+						const gridSize = gridDivisions * gridSpacing;
+
+						self.orthogonalGridHelper = new THREE.GridHelper (
+
+							gridSize,
+							gridDivisions,
+							this.orthogonalGridHelper_color_min,
+							this.orthogonalGridHelper_color_max
+
+						);
 
 						self.orthogonalGridHelper.position.y = self.get_boundingBox( ).min.y;
 
