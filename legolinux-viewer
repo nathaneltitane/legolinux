@@ -2378,7 +2378,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						// load model
 
-						self.scene.add ( self.colladaImport );
+						self.scene.add ( model );
 
 						const modelBox = new THREE.Box3().setFromObject ( self.colladaImport )
 
