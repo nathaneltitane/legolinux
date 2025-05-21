@@ -1727,7 +1727,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						this.transformControls.setTranslationSnap ( translationSnap );
 
-						console.log ( "translation snap = " + translationSnap );
+						console.log ( "snap [ translation ] = " + translationSnap );
 
 					}
 
@@ -1735,7 +1735,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						self.transformControls.setRotationSnap ( rotationSnap );
 
-						console.log ( "rotation snap = " + rotationSnap );
+						console.log ( "snap [ rotation  ] = " + rotationSnap );
 
 					}
 
@@ -1743,7 +1743,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						self.transformControls.setScaleSnap ( scaleSnap );
 
-						console.log ( "scale snap = " + scaleSnap );
+						console.log ( "snap [ scale ] = " + scaleSnap );
 					}
 				}
 
