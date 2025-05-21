@@ -881,9 +881,9 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						// load label sprite
 
-						const texture = new THREE.CanvasTexture ( canvas );
+						const spriteTexture = new THREE.CanvasTexture ( canvas );
 
-						const spriteMaterial = new THREE.SpriteMaterial ( { map: texture, transparent: true } );
+						const spriteMaterial = new THREE.SpriteMaterial ( { map: spriteTexture, transparent: true } );
 
 						const sprite = new THREE.Sprite ( spriteMaterial );
 

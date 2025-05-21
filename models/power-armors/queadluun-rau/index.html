@@ -692,9 +692,9 @@
 
 						// load label sprite
 
-						const texture = new THREE.CanvasTexture ( canvas );
+						const spriteTexture = new THREE.CanvasTexture ( canvas );
 
-						const spriteMaterial = new THREE.SpriteMaterial ( { map: texture, transparent: true } );
+						const spriteMaterial = new THREE.SpriteMaterial ( { map: spriteTexture, transparent: true } );
 
 						const sprite = new THREE.Sprite ( spriteMaterial );
 
@@ -1170,7 +1170,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-purple.dae',
+						'/minifigs/exports/minifig-green.dae',
 
 						function ( collada ) {
 
