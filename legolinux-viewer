@@ -727,7 +727,6 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					return self.boundingBoxHelper;
 
-					var boundingBoxHelper_visible = true;
 				}
 
 				this.boundingBoxHelper_ = function () {
@@ -1586,9 +1585,6 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				}
 
 				// dimensions toggle
-
-				var boundingBoxHelper_visible = false;
-				var dimensionLabels_visible = false;
 
 				this.dimensionsToggle_ = function() {
 
