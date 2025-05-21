@@ -833,7 +833,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						const canvas = document.createElement ( 'canvas' );
 
-						// set canvas 1:1 ratio
+						// set label canvas ratio -  1:1
 
 						canvas.width = 1024;
 
