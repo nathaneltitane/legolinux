@@ -428,9 +428,9 @@
 						const positions = [];
 						const colors = [];
 
-						const colorX = new THREE.Color ( red );	// // x - red
-						const colorY = new THREE.Color ( green );	// y - green
-						const colorZ = new THREE.Color ( blue );	// z - blue
+						const colorX = new THREE.Color ( red );
+						const colorY = new THREE.Color ( green );
+						const colorZ = new THREE.Color ( blue );
 
 						const min = box.min;
 						const max = box.max;
@@ -723,14 +723,14 @@
 					const labels = [];
 
 					labels.push ( makeLabel ( `Width [ x ] : ${x.in} in // ${x.cm} cm // ${x.ldu} ldu`, '#ff0000ff' ) );	// x - red
-					labels.push ( makeLabel ( `Height [ y ] : ${y.in} in // ${y.cm} cm // ${y.ldu} ldu`, '#00ff00ff' ) );	// y - green
+					labels.push ( makeLabel ( `Height [ y ] : ${y.in} in // ${y.cm} cm // ${y.ldu} ldu`, '#008000ff' ) );	// y - green
 					labels.push ( makeLabel ( `Depth [ z ] : ${z.in} in // ${z.cm} cm // ${z.ldu} ldu`, '#0000ffff' ) );	// z - blue
 
 					// label positions relative to model bounding box
 
-					const labelOffset = 0.0125
+					const labelOffset = ( 0.008 * 2 );
 
-					const labelMargin = 0.05
+					const labelMargin = ( 0.008 * 8 );
 
 					labels[0].position.set ( center.x, box.min.y + labelOffset, box.max.z + labelMargin );
 					labels[1].position.set ( box.max.x + labelMargin, box.max.y + labelOffset, box.max.z );
@@ -1170,7 +1170,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-purple.dae',
+						'/minifigs/exports/minifig-black.dae',
 
 						function ( collada ) {
 
