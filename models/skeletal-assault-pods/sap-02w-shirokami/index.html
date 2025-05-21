@@ -1146,7 +1146,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-yellow.dae',
+						'/minifigs/exports/minifig-orange.dae',
 
 						function ( collada ) {
 
@@ -1368,9 +1368,9 @@
 
 				// wireframe toggle
 
-				var wireframeVisible = false;
+				var wireframe_visible = false;
 
-				var facesVisible = true;
+				var modelFaces_visible = true;
 
 				this.wireframeToggle_ = function() {
 
@@ -1378,8 +1378,8 @@
 
 					self.edgesToggle_();
 
-					wireframeVisible = !wireframeVisible;
-					facesVisible = !facesVisible;
+					wireframe_visible = !wireframe_visible;
+					modelFaces_visible = !modelFaces_visible;
 
 					self.colladaImport.traverse ( function ( node ) {
 
@@ -1387,13 +1387,13 @@
 
 							if ( node.material.wireframe ) {
 
-								node.visible = wireframeVisible;
+								node.visible = wireframe_visible;
 
 							}
 
 							else {
 
-								node.visible = facesVisible;
+								node.visible = modelFaces_visible;
 
 							}
 

@@ -1557,9 +1557,9 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// wireframe toggle
 
-				var wireframeVisible = false;
+				var wireframe_visible = false;
 
-				var facesVisible = true;
+				var modelFaces_visible = true;
 
 				this.wireframeToggle_ = function() {
 
@@ -1567,8 +1567,8 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					self.edgesToggle_();
 
-					wireframeVisible = !wireframeVisible;
-					facesVisible = !facesVisible;
+					wireframe_visible = !wireframe_visible;
+					modelFaces_visible = !modelFaces_visible;
 
 					self.colladaImport.traverse ( function ( node ) {
 
@@ -1576,13 +1576,13 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 							if ( node.material.wireframe ) {
 
-								node.visible = wireframeVisible;
+								node.visible = wireframe_visible;
 
 							}
 
 							else {
 
-								node.visible = facesVisible;
+								node.visible = modelFaces_visible;
 
 							}
 
