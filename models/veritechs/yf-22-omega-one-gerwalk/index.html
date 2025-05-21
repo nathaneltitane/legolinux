@@ -625,7 +625,7 @@
 
 						ldu: Math.round ( ( axisSize * 1000 ) / 0.4 )
 
-					});
+					} );
 
 					const x = units ( size.x );
 
@@ -1135,7 +1135,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-yellow.dae',
+						'/minifigs/exports/minifig-purple.dae',
 
 						function ( collada ) {
 
@@ -1209,7 +1209,7 @@
 
 								minifig.add ( edges );
 							}
-						});
+						} );
 
 						// shadows
 
@@ -1223,7 +1223,7 @@
 
 							}
 
-						});
+						} );
 
 						self.scene.add ( minifig );
 
@@ -1241,7 +1241,7 @@
 
 						console.log ( 'scale [ minifig ] : ', minifig.scale );
 
-					});
+					} );
 				};
 
 				// plane
@@ -1296,7 +1296,7 @@
 
 					const geometry = new THREE.ShapeGeometry(shape);
 
-					const material = new THREE.MeshStandardMaterial({ color: this.plane_color, side: THREE.DoubleSide });
+					const material = new THREE.MeshStandardMaterial({ color: this.plane_color, side: THREE.DoubleSide } );
 
 
 					self.plane = new THREE.Mesh(geometry, material);
@@ -1388,7 +1388,7 @@
 
 						}
 
-					});
+					} );
 
 				}
 
@@ -2179,7 +2179,7 @@
 
 							}
 
-						});
+						} );
 
 						// load model
 
@@ -2250,7 +2250,7 @@
 
 					self.minifigToggle_();
 
-				});
+				} );
 
 				// wireframe toggle
 
@@ -2258,7 +2258,7 @@
 
 					self.wireframeToggle_();
 
-				});
+				} );
 
 				// edges toggle
 
@@ -2266,7 +2266,7 @@
 
 					self.edgesToggle_();
 
-				});
+				} );
 
 				// dimensions toggle
 
@@ -2276,7 +2276,7 @@
 
 					self.dimensionLabels_();
 
-				});
+				} );
 
 				const endTime = performance.now();
 
