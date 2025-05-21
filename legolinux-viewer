@@ -945,6 +945,8 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 							self.dimensionLabels = null;
 
+							dimensionLabels_visible = false;
+
 						}
 					}
 
@@ -953,6 +955,8 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 						this.dimensionLabels_visible = true;
 
 						self.get_dimensionLabels().forEach(label => self.scene.add ( label ) );
+
+						dimensionLabels_visible = true;
 
 						console.log ( "helper [ dimensions ]" );
 					}

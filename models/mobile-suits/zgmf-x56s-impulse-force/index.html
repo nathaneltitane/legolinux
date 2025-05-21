@@ -756,6 +756,8 @@
 
 							self.dimensionLabels = null;
 
+							dimensionLabels_visible = false;
+
 						}
 					}
 
@@ -764,6 +766,8 @@
 						this.dimensionLabels_visible = true;
 
 						self.get_dimensionLabels().forEach(label => self.scene.add ( label ) );
+
+						dimensionLabels_visible = true;
 
 						console.log ( "helper [ dimensions ]" );
 					}
@@ -1142,7 +1146,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-black.dae',
+						'/minifigs/exports/minifig-grey.dae',
 
 						function ( collada ) {
 
