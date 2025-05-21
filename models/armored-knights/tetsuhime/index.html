@@ -1135,7 +1135,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-green.dae',
+						'/minifigs/exports/minifig-fuschia.dae',
 
 						function ( collada ) {
 
@@ -1391,6 +1391,49 @@
 					} );
 
 				}
+
+				// dimensions toggle
+
+				var boundingBoxHelper_visible = false;
+				var dimensionLabels_visible = false;
+
+				this.dimensionsToggle_ = function() {
+
+					if ( boundingBoxHelper_visible || dimensionLabels_visible ) {
+
+						if ( boundingBoxHelper_visible && dimensionLabels_visible ) {
+
+							// both are on → turn both off
+							self.boundingBoxHelper_();
+							self.dimensionLabels_();
+
+							boundingBoxHelper_visible = false;
+							dimensionLabels_visible = false;
+
+						} else {
+
+							// one is on → toggle the other
+							if ( ! boundingBoxHelper_visible ) {
+								self.boundingBoxHelper_();
+								boundingBoxHelper_visible = true;
+							}
+
+							if ( ! dimensionLabels_visible ) {
+								self.dimensionLabels_();
+								dimensionLabels_visible = true;
+							}
+						}
+
+					} else {
+
+						// both off → turn both on
+						self.boundingBoxHelper_();
+						self.dimensionLabels_();
+
+						boundingBoxHelper_visible = true;
+						dimensionLabels_visible = true;
+					}
+				};
 
 				// camera toggle
 
@@ -1759,9 +1802,7 @@
 
 						case 9:
 
-							self.boundingBoxHelper_();
-
-							self.dimensionLabels_();
+							self.dimensionsToggle_();
 
 							break;
 
@@ -2281,29 +2322,7 @@
 
 				document.getElementById ( 'dimensions' ).addEventListener ( 'click', function() {
 
-if (self.boundingBoxHelper_visible || self.dimensionLabels_visible) {
-
-	if (self.boundingBoxHelper_visible && self.dimensionLabels_visible) {
-
-		// both on → turn both off
-		self.boundingBoxHelper_();
-		self.dimensionLabels_();
-
-	} else {
-
-		// one on → toggle the other
-		if (!self.boundingBoxHelper_visible) self.boundingBoxHelper_();
-		if (!self.dimensionLabels_visible) self.dimensionLabels_();
-
-	}
-
-} else {
-
-	// both off → turn both on
-	self.boundingBoxHelper_();
-	self.dimensionLabels_();
-
-}
+					self.dimensionsToggle_();
 
 				} );
 
