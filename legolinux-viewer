@@ -1496,7 +1496,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					if ( !self.plane ) {
 
-					const planeRatio = 128 * 0.08;
+					const planeRatio = 64 * 0.08;
 
 					const planeWidth = planeRatio;
 
