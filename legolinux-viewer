@@ -249,6 +249,8 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 			function initialize ( ) {
 
+				// scaling unit - 1 ldu = 0.0004 m
+
 				const editorScale = 0.0004;
 
 				const startTime = performance.now ( );
@@ -1432,10 +1434,10 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						self.minifigTransform = transform;
 
-						console.log ( 'minifig ' );
+						console.log ( 'minifig' );
 
 						console.log (
-							'scale [ minifig ] = ',
+							'scale [ minifig ] = ',d
 							minifig.scale
 						);
 
