@@ -249,7 +249,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 			function initialize() {
 
-				// scaling unit - 1 ldu = 0.0004 m
+				// scaling unit - 1 stud = 0.008 m = 20 ldu >>> 1 ldu = 0.0004 m
 
 				const editorScale = 0.0004;
 
