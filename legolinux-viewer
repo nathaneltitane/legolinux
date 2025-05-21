@@ -1496,11 +1496,13 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					if ( !self.plane ) {
 
-					const planeWidth = 1;
+					const planeRatio = 128 * 0.08;
 
-					const planeLength = 1;
+					const planeWidth = planeRatio;
 
-					const radius = 0.01;
+					const planeLength = planeRatio;
+
+					const radius = 0.08;
 
 					const shape = new THREE.Shape();
 
