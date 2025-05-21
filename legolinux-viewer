@@ -603,8 +603,6 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				var boundingBoxHelper_visible = false;
 
-				this.boundingBoxHelper_color = grey;
-
 				this.boundingBoxHelper = null;
 
 				this.boundingBoxHelper_visible = false;
@@ -651,7 +649,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						];
 
-						const cornerSize = 0.01;
+						const cornerSize = ( 0.008 * 4 );
 
 						const corners = [
 
@@ -817,7 +815,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						in: (axisSize * 39.3701).toFixed ( 2 ),
 
-						cm: (axisSize * 100).toFixed(1),
+						cm: (axisSize * 100).toFixed ( 1 ),
 
 						ldu: Math.round ( ( axisSize * 1000 ) / 0.4 )
 
@@ -845,7 +843,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						// label background
 
-						const radius = 20;
+						const radius = 0.008;
 						const width = canvas.width;
 						const height = canvas.height;
 
