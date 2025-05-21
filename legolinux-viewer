@@ -1535,62 +1535,56 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 					}
 				}
 
-				// edges toggle
+// edges toggle
 
-				var edgesVisible = true;
+var modelEdges_visible = true;
 
-				this.edgesToggle_ = function() {
+this.edgesToggle_ = function() {
 
-					edgesVisible = !edgesVisible;
+	// prevent enabling edges if wireframe is active
+	if (wireframe_visible && !modelEdges_visible) {
+		console.warn('⚠️ Edges cannot be enabled while wireframe is active.');
+		return;
+	}
 
-					self.colladaImport.traverse ( function ( node ) {
+	modelEdges_visible = !modelEdges_visible;
 
-						if ( node.isLineSegments ) {
+	self.colladaImport.traverse(function (node) {
+		if (node.isLineSegments) {
+			node.visible = modelEdges_visible;
+		}
+	});
+};
 
-							node.visible = edgesVisible;
 
-						}
+// wireframe toggle
 
-					} );
+var wireframe_visible = false;
+var modelFaces_visible = true;
 
-				}
+this.wireframeToggle_ = function() {
 
-				// wireframe toggle
+	// if edges are on, disable them first
+	if (modelEdges_visible) {
+		self.edgesToggle_(); // turns them off and sets flag
+	}
 
-				var wireframe_visible = false;
+	wireframe_visible = !wireframe_visible;
+	modelFaces_visible = !modelFaces_visible;
 
-				var modelFaces_visible = true;
+	self.colladaImport.traverse(function (node) {
+		if (node.isMesh) {
 
-				this.wireframeToggle_ = function() {
+			if (node.material.wireframe) {
+				node.visible = wireframe_visible;
+			} else {
+				node.visible = modelFaces_visible;
+			}
 
-					// disable edges
+		}
+	});
+};
 
-					self.edgesToggle_();
-
-					wireframe_visible = !wireframe_visible;
-					modelFaces_visible = !modelFaces_visible;
-
-					self.colladaImport.traverse ( function ( node ) {
-
-						if ( node.isMesh ) {
-
-							if ( node.material.wireframe ) {
-
-								node.visible = wireframe_visible;
-
-							}
-
-							else {
-
-								node.visible = modelFaces_visible;
-
-							}
-
-						}
-
-					} );
-
-				}
 
 				// dimensions toggle
 
