@@ -2426,7 +2426,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					function (xhr) {
 
-					console.log ( 'load [ model ] = ' + ( ( xhr.loaded / xhr.total ) * 100 ).toFixed ( 2 ) + '% loaded');
+					console.log ( 'load [ model ] = ' + ( ( xhr.loaded / xhr.total ) * 100 ).toFixed ( 2 ) + '%');
 
 					},
 				);
