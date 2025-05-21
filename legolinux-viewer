@@ -1214,7 +1214,20 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					if ( ! self.polarGridHelper ) {
 
-						self.polarGridHelper = new THREE.PolarGridHelper ( 0.5, 64, 64, 64, this.polarGridHelper_color_min, this.polarGridHelper_color_max );
+					const ringSpacing = 0.008;
+					const rings = 128;
+					const radius = ringSpacing * rings;
+
+					self.polarGridHelper = new THREE.PolarGridHelper (
+
+						radius,         // total radius (0.512 m)
+						rings,          // radial lines (64 spokes)
+						rings,          // concentric rings (64)
+						rings,          // segments (optional, can match rings)
+						this.polarGridHelper_color_min,
+						this.polarGridHelper_color_max
+
+					);
 
 						self.polarGridHelper.position.y = self.get_boundingBox().min.y;
 
