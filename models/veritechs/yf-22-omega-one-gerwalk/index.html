@@ -1135,7 +1135,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-black.dae',
+						'/minifigs/exports/minifig-white.dae',
 
 						function ( collada ) {
 
@@ -2193,15 +2193,21 @@
 
 						// 1 ldu  = 0.0004 m
 
-						const x_ldu = ( size.x * 2500 );
-						const y_ldu = ( size.y * 2500 );
-						const z_ldu = ( size.z * 2500 );
+						const x_ldu = ( ( size.x * 1000 ) / 0.4 );
+						const y_ldu = ( ( size.y * 1000 ) / 0.4 );
+						const z_ldu = ( ( size.z * 1000 ) / 0.4 );
 
 						// 1 cm = 0.01 m
 
-						const x_cm = (size.x * 100);
-						const y_cm = (size.y * 100);
-						const z_cm = (size.z * 100);
+						const x_cm = ( size.x * 100 );
+						const y_cm = ( size.y * 100 );
+						const z_cm = ( size.z * 100 );
+
+						// 1 m = 39.3701 in
+
+						const x_in = ( size.x * 39.3701 );
+						const y_in = ( size.y * 39.3701 );
+						const z_in = ( size.z * 39.3701 );
 
 						// leocad axis		three.js 	type
 						// width 	(x)		z			swapped
