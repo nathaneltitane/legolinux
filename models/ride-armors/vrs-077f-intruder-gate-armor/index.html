@@ -1146,7 +1146,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-blue.dae',
+						'/minifigs/exports/minifig-yellow.dae',
 
 						function ( collada ) {
 
@@ -1346,56 +1346,74 @@
 					}
 				}
 
-// edges toggle
+				// edges toggle
 
-var modelEdges_visible = true;
+				var modelEdges_visible = true;
 
-this.edgesToggle_ = function() {
+				this.edgesToggle_ = function() {
 
-	// prevent enabling edges if wireframe is active
-	if (wireframe_visible && !modelEdges_visible) {
-		console.warn('⚠️ Edges cannot be enabled while wireframe is active.');
-		return;
-	}
+					// prevent enabling edges if wireframe is active
 
-	modelEdges_visible = !modelEdges_visible;
+					if (wireframe_visible && !modelEdges_visible) {
 
-	self.colladaImport.traverse(function (node) {
-		if (node.isLineSegments) {
-			node.visible = modelEdges_visible;
-		}
-	});
-};
+						console.warn ( 'Edges cannot be enabled while wireframe mode is active.' );
 
+						return;
+					}
 
-// wireframe toggle
+					modelEdges_visible = !modelEdges_visible;
 
-var wireframe_visible = false;
-var modelFaces_visible = true;
+					self.colladaImport.traverse(function (node) {
 
-this.wireframeToggle_ = function() {
+						if (node.isLineSegments) {
 
-	// if edges are on, disable them first
-	if (modelEdges_visible) {
-		self.edgesToggle_(); // turns them off and sets flag
-	}
+							node.visible = modelEdges_visible;
 
-	wireframe_visible = !wireframe_visible;
-	modelFaces_visible = !modelFaces_visible;
+						}
 
-	self.colladaImport.traverse(function (node) {
-		if (node.isMesh) {
+					});
 
-			if (node.material.wireframe) {
-				node.visible = wireframe_visible;
-			} else {
-				node.visible = modelFaces_visible;
-			}
+				};
 
-		}
-	});
-};
+				// wireframe toggle
 
+				var wireframe_visible = false;
+				var modelFaces_visible = true;
+
+				this.wireframeToggle_ = function() {
+
+					// if edges are on, disable them first
+
+					if (modelEdges_visible) {
+
+						self.edgesToggle_(); // turns them off and sets flag
+
+						console.warn ( 'Edges cannot be enabled while wireframe mode is active.' );
+
+					}
+
+					wireframe_visible = !wireframe_visible;
+					modelFaces_visible = !modelFaces_visible;
+
+					self.colladaImport.traverse(function (node) {
+
+						if (node.isMesh) {
+
+							if (node.material.wireframe) {
+
+								node.visible = wireframe_visible;
+
+							} else {
+
+								node.visible = modelFaces_visible;
+
+							}
+
+						}
+
+					});
+
+				};
 
 				// dimensions toggle
 
