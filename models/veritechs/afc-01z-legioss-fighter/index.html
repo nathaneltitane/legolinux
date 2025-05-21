@@ -1135,7 +1135,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-white.dae',
+						'/minifigs/exports/minifig-grey.dae',
 
 						function ( collada ) {
 
@@ -2281,9 +2281,29 @@
 
 				document.getElementById ( 'dimensions' ).addEventListener ( 'click', function() {
 
-					self.boundingBoxHelper_();
+if (self.boundingBoxHelper_visible || self.dimensionLabels_visible) {
 
-					self.dimensionLabels_();
+	if (self.boundingBoxHelper_visible && self.dimensionLabels_visible) {
+
+		// both on → turn both off
+		self.boundingBoxHelper_();
+		self.dimensionLabels_();
+
+	} else {
+
+		// one on → toggle the other
+		if (!self.boundingBoxHelper_visible) self.boundingBoxHelper_();
+		if (!self.dimensionLabels_visible) self.dimensionLabels_();
+
+	}
+
+} else {
+
+	// both off → turn both on
+	self.boundingBoxHelper_();
+	self.dimensionLabels_();
+
+}
 
 				} );
 
