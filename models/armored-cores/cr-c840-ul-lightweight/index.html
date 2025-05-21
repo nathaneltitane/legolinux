@@ -414,8 +414,6 @@
 
 				var boundingBoxHelper_visible = false;
 
-				this.boundingBoxHelper_color = grey;
-
 				this.boundingBoxHelper = null;
 
 				this.boundingBoxHelper_visible = false;
@@ -462,7 +460,7 @@
 
 						];
 
-						const cornerSize = 0.01;
+						const cornerSize = ( 0.008 * 4 );
 
 						const corners = [
 
@@ -628,7 +626,7 @@
 
 						in: (axisSize * 39.3701).toFixed ( 2 ),
 
-						cm: (axisSize * 100).toFixed(1),
+						cm: (axisSize * 100).toFixed ( 1 ),
 
 						ldu: Math.round ( ( axisSize * 1000 ) / 0.4 )
 
@@ -656,7 +654,7 @@
 
 						// label background
 
-						const radius = 20;
+						const radius = 0.008;
 						const width = canvas.width;
 						const height = canvas.height;
 
@@ -1172,7 +1170,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-purple.dae',
+						'/minifigs/exports/minifig-yellow.dae',
 
 						function ( collada ) {
 
