@@ -2334,6 +2334,15 @@
 
 				window.addEventListener ( 'keydown', self.transformKeys );
 
+				// plane toggle
+
+				document.getElementById ( 'minifig' ).addEventListener ( 'click', function() {
+
+					self.plane_();
+
+				} );
+
+
 				// minifig toggle
 
 				document.getElementById ( 'minifig' ).addEventListener ( 'click', function() {

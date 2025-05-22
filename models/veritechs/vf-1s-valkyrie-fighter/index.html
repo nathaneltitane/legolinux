@@ -1160,7 +1160,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-red.dae',
+						'/minifigs/exports/minifig-orange.dae',
 
 						function ( collada ) {
 
@@ -2333,6 +2333,15 @@
 				window.addEventListener ( 'resize', self.resize );
 
 				window.addEventListener ( 'keydown', self.transformKeys );
+
+				// plane toggle
+
+				document.getElementById ( 'minifig' ).addEventListener ( 'click', function() {
+
+					self.plane_();
+
+				} );
+
 
 				// minifig toggle
 
