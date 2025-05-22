@@ -68,6 +68,12 @@ $( function ( ) {
 
 	} );
 	
+	$.get ( '/modules/plane.html', function ( data ) {
+
+		$( '#plane' ).append ( data );
+
+	} );
+
 	$.get ( '/modules/helper.html', function ( data ) {
 
 		$( '#helper' ).append ( data );
