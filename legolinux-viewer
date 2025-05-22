@@ -2525,7 +2525,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// plane toggle
 
-				document.getElementById ( 'minifig' ).addEventListener ( 'click', function() {
+				document.getElementById ( 'plane' ).addEventListener ( 'click', function() {
 
 					self.plane_();
 
