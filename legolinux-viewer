@@ -2774,6 +2774,16 @@ cat << 3D-MODEL-PAGE-CONTROLS ->> "${model_directory}/index.html"
 
 3D-MODEL-PAGE-CONTROLS
 
+
+cat << 3D-MODEL-PAGE-PLANE ->> "${model_directory}/index.html"
+		<!-- plane -->
+
+		<div id="plane">
+
+		</div>
+
+3D-MODEL-PAGE-PLANE
+
 cat << 3D-MODEL-PAGE-DIMENSIONS ->> "${model_directory}/index.html"
 		<!-- dimensions -->
 
