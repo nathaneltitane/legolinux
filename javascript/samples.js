@@ -12,6 +12,7 @@ $( document ).ready ( function ( ) {
         '#edges-button-label',
         '#wireframe-button-label',
         '#controls-button-label',
+        '#plane-button-label',
         '#minifig-button-label'
     ];
 
@@ -23,6 +24,7 @@ $( document ).ready ( function ( ) {
 		'edges-label-color',
 		'wireframe-label-color',
         'controls-label-color',
+        'plane-label-color',
         'minifig-label-color'
     ];
 
