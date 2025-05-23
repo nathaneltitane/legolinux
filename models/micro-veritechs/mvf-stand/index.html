@@ -58,10 +58,6 @@
 
 			import { TransformControls } from 'three/addons/controls/TransformControls.js';
 
-			import { LineSegments2 } from 'three/examples/jsm/lines/LineSegments2.js';
-import { LineMaterial } from 'three/examples/jsm/lines/LineMaterial.js';
-import { LineGeometry } from 'three/examples/jsm/lines/LineGeometry.js';
-
 			function initialize() {
 
 				// scaling unit - 1 stud = 0.008 m = 20 ldu >>> 1 ldu = 0.0004 m
@@ -1007,80 +1003,68 @@ import { LineGeometry } from 'three/examples/jsm/lines/LineGeometry.js';
 
 				}
 
-// polar grid helper (custom with thick lines)
+				// polar grid helper
 
+				this.polarGridHelper_color_min = orange;
 
+				this.polarGridHelper_color_max = charcoal;
 
-this.polarGridHelper = null;
-this.polarGridHelper_visible = false;
+				this.polarGridHelper = null;
 
-this.get_polarGridHelper = function() {
+				this.polarGridHelper_visible = false;
 
-	if ( ! self.polarGridHelper ) {
+				this.get_polarGridHelper = function() {
 
-		const ringSpacing = 0.008;
-		const rings = 64;
-		const radius = ringSpacing * rings;
-		const segments = 64;
+					if ( ! self.polarGridHelper ) {
 
-		const positions = [];
+					const ringSpacing = 0.008;
+					const rings = 128 / 2;
+					const radius = ringSpacing * rings;
 
-		// radial lines
-		for ( let i = 0; i < segments; i++ ) {
-			const angle = (i / segments) * Math.PI * 2;
-			const x = Math.cos(angle) * radius;
-			const z = Math.sin(angle) * radius;
-			positions.push(0, 0, 0, x, 0, z);
-		}
+					self.polarGridHelper = new THREE.PolarGridHelper (
 
-		// concentric rings
-		for ( let i = 1; i <= rings; i++ ) {
-			const r = i * ringSpacing;
-			for ( let j = 0; j < segments; j++ ) {
-				const a1 = (j / segments) * Math.PI * 2;
-				const a2 = ((j + 1) / segments) * Math.PI * 2;
-				const x1 = Math.cos(a1) * r;
-				const z1 = Math.sin(a1) * r;
-				const x2 = Math.cos(a2) * r;
-				const z2 = Math.sin(a2) * r;
-				positions.push(x1, 0, z1, x2, 0, z2);
-			}
-		}
+						radius,
+						rings,
+						rings,
+						rings,
+						this.polarGridHelper_color_min,
+						this.polarGridHelper_color_max
 
-		const geometry = new LineGeometry();
-		geometry.setPositions(positions);
+					);
 
-		const material = new LineMaterial({
-			color: this.polarGridHelper_color_min,
-			linewidth: 0.0025,	// in world units (e.g. meters)
-			transparent: true,
-			opacity: 1.0,
-			depthWrite: false
-		});
+						self.polarGridHelper.position.y = self.get_boundingBox().min.y;
 
-		material.resolution.set(window.innerWidth, window.innerHeight);
+						self.polarGridHelper.position.x = 0;
 
-		self.polarGridHelper = new LineSegments2(geometry, material);
-		self.polarGridHelper.position.y = self.get_boundingBox().min.y;
-		self.polarGridHelper.name = 'polarGridHelper';
+						// self.polarGridHelper.position.y = 0;
 
-		console.log("helper [ grid / polar thick ]");
-	}
+						console.log ( "helper [ grid / polar ]" );
 
-	return self.polarGridHelper;
-};
+					}
 
-this.polarGridHelper_ = function() {
+					return self.polarGridHelper;
 
-	if ( this.polarGridHelper_visible ) {
-		this.polarGridHelper_visible = false;
-		self.scene.remove(self.get_polarGridHelper());
-	} else {
-		this.polarGridHelper_visible = true;
-		self.scene.add(self.get_polarGridHelper());
-	}
-};
+				}
 
+				this.polarGridHelper_ = function() {
+
+					if ( this.polarGridHelper_visible ) {
+
+						this.polarGridHelper_visible = false;
+
+						self.scene.remove ( self.get_polarGridHelper() );
+
+					}
+
+					else {
+
+						this.polarGridHelper_visible = true;
+
+						self.scene.add ( self.get_polarGridHelper() );
+
+					}
+
+				}
 
 				// orthogonal grid helper
 
@@ -1180,7 +1164,7 @@ this.polarGridHelper_ = function() {
 
 					loader.load (
 
-						'/minifigs/exports/minifig-orange.dae',
+						'/minifigs/exports/minifig-purple.dae',
 
 						function ( collada ) {
 
