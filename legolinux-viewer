@@ -1838,7 +1838,9 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 					let snapFactor = 0.25;
 
 					const translationSnap = ( snapFactor * 10 );
+
 					const rotationSnap = ( THREE.MathUtils.degToRad ( 360 / 24 ) );
+
 					const scaleSnap = ( snapFactor / 2 );
 
 					var snapMode = self.transformControls.getMode();
