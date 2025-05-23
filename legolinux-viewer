@@ -291,6 +291,10 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				var orange   = 0xffa500;
 				var yellow   = 0xffff00;
 
+				// edges
+
+				var lineThickness = 2;
+
 				// canvas
 
 				this.canvas = document.querySelector ('#canvas');
@@ -1411,7 +1415,13 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 								const edgesGeometry = new THREE.EdgesGeometry ( node.geometry, 45 );
 
-								const edgesMaterial = new THREE.LineBasicMaterial ( { color: 0x000000 } );
+								const edgesMaterial = new THREE.LineBasicMaterial ( {
+
+									color: black,
+
+									linewidth: lineThickness
+
+								} );
 
 								const edges = new THREE.LineSegments ( edgesGeometry, edgesMaterial );
 
@@ -1528,11 +1538,11 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					self.plane.receiveShadow = true;
 
-					// edges overlay
+					// edges
 
 					const edgesGeometry = new THREE.EdgesGeometry ( geometry );
 
-					const edgesMaterial = new THREE.LineBasicMaterial( { color: black, linewidth: 10 } );
+					const edgesMaterial = new THREE.LineBasicMaterial( { color: black, linewidth: lineThickness } );
 
 					const edges = new THREE.LineSegments ( edgesGeometry, edgesMaterial );
 
@@ -2421,7 +2431,13 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 								var edgesGeometry = new THREE.EdgesGeometry ( node.geometry, 45 );
 
-								var edgesMaterial = new THREE.LineBasicMaterial ( { color: black } );
+								var edgesMaterial = new THREE.LineBasicMaterial ( {
+
+									color: black,
+
+									linewidth: lineThickness
+
+								} );
 
 								edgesMaterial.linewidth = 1.25;
 
