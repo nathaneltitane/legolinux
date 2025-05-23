@@ -1164,7 +1164,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-red.dae',
+						'/minifigs/exports/minifig-black.dae',
 
 						function ( collada ) {
 
@@ -1331,11 +1331,14 @@
 						shape.lineTo(-w/2, h/2 - r);
 						shape.quadraticCurveTo(-w/2, h/2, -w/2 + r, h/2);
 
-						const geometry = new THREE.ShapeGeometry(shape);
+						const geometry = new THREE.ShapeGeometry ( shape );
 
-						const material = new THREE.MeshStandardMaterial( {
+						const material = new THREE.MeshStandardMaterial ( {
+
 							color: this.plane_color,
+
 							side: THREE.DoubleSide
+
 						} );
 
 						self.plane = new THREE.Mesh(geometry, material);
@@ -1358,11 +1361,11 @@
 
 						} );
 
-						self.planeEdges = new THREE.LineSegments(edgesGeometry, edgesMaterial);
+						self.planeEdges = new THREE.LineSegments ( edgesGeometry, edgesMaterial );
 
-						self.planeEdges.rotation.copy(self.plane.rotation);
+						self.planeEdges.rotation.copy (self.plane.rotation );
 
-						self.planeEdges.position.copy(self.plane.position);
+						self.planeEdges.position.copy (self.plane.position );
 
 						console.log ( "helper [ plane ]" );
 
@@ -1426,21 +1429,23 @@
 				// wireframe toggle
 
 				var wireframe_visible = false;
+
 				var modelFaces_visible = true;
 
 				this.wireframeToggle_ = function() {
 
-					// if edges are on, disable them first
+					// edges on >>> turn edges off
 
 					if ( modelEdges_visible ) {
 
-						self.edgesToggle_(); // turns them off and sets flag
+						self.edgesToggle_();
 
 						console.warn ( 'Edges cannot be enabled while wireframe mode is active.' );
 
 					}
 
 					wireframe_visible = !wireframe_visible;
+
 					modelFaces_visible = !modelFaces_visible;
 
 					self.colladaImport.traverse( function ( node ) {
@@ -1466,6 +1471,7 @@
 				// dimensions toggle
 
 				var boundingBoxHelper_visible = false;
+
 				var dimensionLabels_visible = false;
 
 				this.dimensionsToggle_ = function() {
