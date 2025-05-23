@@ -1542,7 +1542,13 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					const edgesGeometry = new THREE.EdgesGeometry ( geometry );
 
-					const edgesMaterial = new THREE.LineBasicMaterial( { color: black, linewidth: lineThickness } );
+					const edgesMaterial = new THREE.LineBasicMaterial ( {
+
+						color: black,
+
+						linewidth: lineThickness
+
+					} );
 
 					const edges = new THREE.LineSegments ( edgesGeometry, edgesMaterial );
 

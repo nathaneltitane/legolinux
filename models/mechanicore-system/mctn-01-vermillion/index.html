@@ -1164,7 +1164,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-purple.dae',
+						'/minifigs/exports/minifig-black.dae',
 
 						function ( collada ) {
 
@@ -1353,7 +1353,13 @@
 
 					const edgesGeometry = new THREE.EdgesGeometry ( geometry );
 
-					const edgesMaterial = new THREE.LineBasicMaterial( { color: black, linewidth: lineThickness } );
+					const edgesMaterial = new THREE.LineBasicMaterial ( {
+
+						color: black,
+
+						linewidth: lineThickness
+
+					} );
 
 					const edges = new THREE.LineSegments ( edgesGeometry, edgesMaterial );
 
