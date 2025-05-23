@@ -58,6 +58,10 @@
 
 			import { TransformControls } from 'three/addons/controls/TransformControls.js';
 
+			import { LineSegments2 } from 'three/examples/jsm/lines/LineSegments2.js';
+import { LineMaterial } from 'three/examples/jsm/lines/LineMaterial.js';
+import { LineGeometry } from 'three/examples/jsm/lines/LineGeometry.js';
+
 			function initialize() {
 
 				// scaling unit - 1 stud = 0.008 m = 20 ldu >>> 1 ldu = 0.0004 m
@@ -1005,9 +1009,7 @@
 
 // polar grid helper (custom with thick lines)
 
-import { LineSegments2 } from 'three/examples/jsm/lines/LineSegments2.js';
-import { LineMaterial } from 'three/examples/jsm/lines/LineMaterial.js';
-import { LineGeometry } from 'three/examples/jsm/lines/LineGeometry.js';
+
 
 this.polarGridHelper = null;
 this.polarGridHelper_visible = false;
@@ -1077,7 +1079,7 @@ this.polarGridHelper_ = function() {
 		this.polarGridHelper_visible = true;
 		self.scene.add(self.get_polarGridHelper());
 	}
-}
+};
 
 
 				// orthogonal grid helper
@@ -1178,7 +1180,7 @@ this.polarGridHelper_ = function() {
 
 					loader.load (
 
-						'/minifigs/exports/minifig-white.dae',
+						'/minifigs/exports/minifig-black.dae',
 
 						function ( collada ) {
 
