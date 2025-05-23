@@ -1164,7 +1164,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-blue.dae',
+						'/minifigs/exports/minifig-white.dae',
 
 						function ( collada ) {
 
@@ -1305,75 +1305,70 @@
 
 					if ( !self.plane ) {
 
-					const planeRatio = 128 * 0.008;
+						const planeRatio = 128 * 0.008;
 
-					const planeWidth = planeRatio;
+						const planeWidth = planeRatio;
 
-					const planeLength = planeRatio;
+						const planeLength = planeRatio;
 
-					const radius = 0.008;
+						const radius = 0.008;
 
-					const shape = new THREE.Shape();
+						const shape = new THREE.Shape();
 
-					const w = planeWidth;
-					const h = planeLength;
-					const r = radius;
+						const w = planeWidth;
+						const h = planeLength;
+						const r = radius;
 
-					// start from top-left corner and draw clockwise
+						// start from top-left corner and draw clockwise
 
-					shape.moveTo(-w/2 + r, h/2);
-					shape.lineTo(w/2 - r, h/2);
-					shape.quadraticCurveTo(w/2, h/2, w/2, h/2 - r);
-					shape.lineTo(w/2, -h/2 + r);
-					shape.quadraticCurveTo(w/2, -h/2, w/2 - r, -h/2);
-					shape.lineTo(-w/2 + r, -h/2);
-					shape.quadraticCurveTo(-w/2, -h/2, -w/2, -h/2 + r);
-					shape.lineTo(-w/2, h/2 - r);
-					shape.quadraticCurveTo(-w/2, h/2, -w/2 + r, h/2);
+						shape.moveTo(-w/2 + r, h/2);
+						shape.lineTo(w/2 - r, h/2);
+						shape.quadraticCurveTo(w/2, h/2, w/2, h/2 - r);
+						shape.lineTo(w/2, -h/2 + r);
+						shape.quadraticCurveTo(w/2, -h/2, w/2 - r, -h/2);
+						shape.lineTo(-w/2 + r, -h/2);
+						shape.quadraticCurveTo(-w/2, -h/2, -w/2, -h/2 + r);
+						shape.lineTo(-w/2, h/2 - r);
+						shape.quadraticCurveTo(-w/2, h/2, -w/2 + r, h/2);
 
-					const geometry = new THREE.ShapeGeometry(shape);
+						const geometry = new THREE.ShapeGeometry(shape);
 
-					const material = new THREE.MeshStandardMaterial ( {
+						const material = new THREE.MeshStandardMaterial( {
+							color: this.plane_color,
+							side: THREE.DoubleSide
+						} );
 
-						color: this.plane_color,
+						self.plane = new THREE.Mesh(geometry, material);
 
-						side: THREE.DoubleSide
+						self.plane.rotation.x = -0.5 * Math.PI;
 
-					} );
+						self.plane.position.y = self.boundingBox.min.y;
 
-					self.plane = new THREE.Mesh ( geometry, material );
+						self.plane.receiveShadow = true;
 
-					self.plane.rotation.x = -0.5 * Math.PI;
+						// edges overlay
 
-					self.plane.position.y = self.boundingBox.min.y;
+						const edgesGeometry = new THREE.EdgesGeometry ( geometry );
 
-					self.plane.receiveShadow = true;
+						const edgesMaterial = new THREE.LineBasicMaterial ( {
 
-					// edges
+							color: black,
 
-					const edgesGeometry = new THREE.EdgesGeometry ( geometry );
+							linewidth: lineThickness
 
-					const edgesMaterial = new THREE.LineBasicMaterial ( {
+						} );
 
-						color: black,
+						self.planeEdges = new THREE.LineSegments(edgesGeometry, edgesMaterial);
 
-						linewidth: lineThickness
+						self.planeEdges.rotation.copy(self.plane.rotation);
 
-					} );
+						self.planeEdges.position.copy(self.plane.position);
 
-					const edges = new THREE.LineSegments ( edgesGeometry, edgesMaterial );
-
-					edges.rotation.copy ( self.plane.rotation );
-
-					edges.position.copy ( self.plane.position );
-
-					self.scene.add ( edges );
-
-					console.log ( "helper [ plane ]" );
+						console.log ( "helper [ plane ]" );
 
 					}
 
-				return self.plane;
+					return self.plane;
 
 				}
 
@@ -1386,6 +1381,7 @@
 						this.plane_visible = false;
 
 						self.scene.remove ( self.get_plane() );
+						self.scene.remove ( self.planeEdges );
 
 					}
 
@@ -1394,6 +1390,7 @@
 						this.plane_visible = true;
 
 						self.scene.add ( self.get_plane() );
+						self.scene.add ( self.planeEdges );
 					}
 				}
 
