@@ -1160,7 +1160,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-white.dae',
+						'/minifigs/exports/minifig-orange.dae',
 
 						function ( collada ) {
 
@@ -1323,16 +1323,35 @@
 
 					const geometry = new THREE.ShapeGeometry(shape);
 
-					const material = new THREE.MeshStandardMaterial({ color: this.plane_color, side: THREE.DoubleSide } );
+					const material = new THREE.MeshStandardMaterial ( {
 
+						color: this.plane_color,
 
-					self.plane = new THREE.Mesh(geometry, material);
+						side: THREE.DoubleSide
+
+					} );
+
+					self.plane = new THREE.Mesh ( geometry, material );
 
 					self.plane.rotation.x = -0.5 * Math.PI;
 
 					self.plane.position.y = self.boundingBox.min.y;
 
 					self.plane.receiveShadow = true;
+
+					// edges overlay
+
+					const edgesGeometry = new THREE.EdgesGeometry ( geometry );
+
+					const edgesMaterial = new THREE.LineBasicMaterial( { color: black } );
+
+					const edges = new THREE.LineSegments ( edgesGeometry, edgesMaterial );
+
+					edges.rotation.copy ( self.plane.rotation );
+
+					edges.position.copy ( self.plane.position );
+
+					self.scene.add ( edges );
 
 					console.log ( "helper [ plane ]" );
 

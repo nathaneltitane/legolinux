@@ -1323,32 +1323,35 @@
 
 					const geometry = new THREE.ShapeGeometry(shape);
 
-		const material = new THREE.MeshStandardMaterial( {
-			color: this.plane_color,
-			side: THREE.DoubleSide
-		} );
+					const material = new THREE.MeshStandardMaterial ( {
 
-		self.plane = new THREE.Mesh(geometry, material);
+						color: this.plane_color,
 
-		self.plane.rotation.x = -0.5 * Math.PI;
+						side: THREE.DoubleSide
 
-		self.plane.position.y = self.boundingBox.min.y;
+					} );
 
-		self.plane.receiveShadow = true;
+					self.plane = new THREE.Mesh ( geometry, material );
 
-		// edges overlay
+					self.plane.rotation.x = -0.5 * Math.PI;
 
-		const edgesGeometry = new THREE.EdgesGeometry(geometry);
+					self.plane.position.y = self.boundingBox.min.y;
 
-		const edgesMaterial = new THREE.LineBasicMaterial( { color: black } );
+					self.plane.receiveShadow = true;
 
-		const edges = new THREE.LineSegments(edgesGeometry, edgesMaterial);
+					// edges overlay
 
-		edges.rotation.copy(self.plane.rotation);
+					const edgesGeometry = new THREE.EdgesGeometry ( geometry );
 
-		edges.position.copy(self.plane.position);
+					const edgesMaterial = new THREE.LineBasicMaterial( { color: black } );
 
-		self.scene.add(edges);
+					const edges = new THREE.LineSegments ( edgesGeometry, edgesMaterial );
+
+					edges.rotation.copy ( self.plane.rotation );
+
+					edges.position.copy ( self.plane.position );
+
+					self.scene.add ( edges );
 
 					console.log ( "helper [ plane ]" );
 
