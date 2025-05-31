@@ -1327,146 +1327,152 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				this.minifigToggle_ = function () {
 
-	const self = this;
+					const self = this;
 
-	if ( this.minifig_visible ) {
+					if ( this.minifig_visible ) {
 
-		this.minifig_visible = false;
+						this.minifig_visible = false;
 
-		if ( self.minifig ) {
+						if ( self.minifig ) {
 
-			self.minifig.visible = false;
+							self.minifig.visible = false;
 
-			if ( self.minifigTransform ) self.minifigTransform.visible = false;
+							if ( self.minifigTransform ) self.minifigTransform.visible = false;
 
-		}
+						}
 
-		return;
-	}
+						return;
+					}
 
-	this.minifig_visible = true;
+					this.minifig_visible = true;
 
-	if ( self.minifig ) {
+					if ( self.minifig ) {
 
-		self.minifig.visible = true;
+						self.minifig.visible = true;
 
-		if ( self.minifigTransform ) self.minifigTransform.visible = true;
+						if ( self.minifigTransform ) self.minifigTransform.visible = true;
 
-		return;
-	}
+						return;
+					}
 
-	const loader = new ColladaLoader ();
+					const loader = new ColladaLoader ();
 
-	loader.load (
+					loader.load (
 
-		'/minifigs/exports/minifig-${color_minifig}.dae',
+						'/minifigs/exports/minifig-${color_minifig}.dae',
 
-		function ( collada ) {
+						function ( collada ) {
 
-		const minifig = collada.scene;
+						const minifig = collada.scene;
 
-		minifig.name = 'minifig';
+						minifig.name = 'minifig';
 
-		// define all model bounding boxes
+						// define all model bounding boxes
 
-		const modelBox = new THREE.Box3().setFromObject ( self.colladaImport );
+						const modelBox = new THREE.Box3().setFromObject ( self.colladaImport );
 
-		const minifigBox = new THREE.Box3().setFromObject ( minifig );
+						const minifigBox = new THREE.Box3().setFromObject ( minifig );
 
-		// define all models positional parameters
+						// define all models positional parameters
 
-		const modelCenter = modelBox.getCenter ( new THREE.Vector3() );
+						const modelCenter = modelBox.getCenter ( new THREE.Vector3() );
 
-		const minifigCenter = minifigBox.getCenter ( new THREE.Vector3() );
+						const minifigCenter = minifigBox.getCenter ( new THREE.Vector3() );
 
-		const modelWidth = modelBox.max.x - modelBox.min.x;
+						const modelWidth = modelBox.max.x - modelBox.min.x;
 
-		const minifigWidth = minifigBox.max.x - minifigBox.min.x;
+						const minifigWidth = minifigBox.max.x - minifigBox.min.x;
 
-		const modelHeight = modelBox.max.y - modelBox.min.y;
+						const modelHeight = modelBox.max.y - modelBox.min.y;
 
-		const minifigHeight = minifigBox.max.y - minifigBox.min.y;
+						const minifigHeight = minifigBox.max.y - minifigBox.min.y;
 
-		const modelDepth = modelBox.max.z - modelBox.min.z;
+						const modelDepth = modelBox.max.z - modelBox.min.z;
 
-		const minifigDepth = minifigBox.max.z - minifigBox.min.z;
+						const minifigDepth = minifigBox.max.z - minifigBox.min.z;
 
-		// set minifig scale
+						// set minifig scale
 
-		minifig.scale.setScalar ( editorScale );
+						minifig.scale.setScalar ( editorScale );
 
-		// compute minifig position
+						// compute minifig position
 
-		const minifigPositionBox = new THREE.Box3().setFromObject ( minifig );
+						const minifigPositionBox = new THREE.Box3().setFromObject ( minifig );
 
-		const yOffset = modelBox.min.y - minifigPositionBox.min.y;
+						const yOffset = modelBox.min.y - minifigPositionBox.min.y;
 
-		const zOffset = modelBox.max.z - minifigPositionBox.min.z;
+						const zOffset = modelBox.max.z - minifigPositionBox.min.z;
 
-		const minifigPosition_x = minifigCenter.x;
+						const minifigPosition_x = minifigCenter.x
 
-		const minifigPosition_y = yOffset;
+						const minifigPosition_y = yOffset
 
-		const minifigPosition_z = ( modelDepth - ( modelDepth / 2 ) + minifigDepth );
+						const minifigPosition_z = ( modelDepth - ( modelDepth / 2 ) + minifigDepth )
 
-		// set minifig position
+						// set minifig position
 
-		minifig.position.set ( minifigPosition_x, minifigPosition_y, minifigPosition_z );
+						minifig.position.set ( minifigPosition_x, minifigPosition_y, minifigPosition_z );
 
-		// edges (entire minifig scene)
+						// edges
 
-		const edgesGeometry = new THREE.EdgesGeometry ( minifig, 45 );
+						minifig.traverse ( function ( node ) {
 
-		const edgesMaterial = new THREE.LineBasicMaterial ( {
+							if ( node.isMesh ) {
 
-			color: black
+								const edgesGeometry = new THREE.EdgesGeometry ( node.geometry, 45 );
 
-		} );
+								const edgesMaterial = new THREE.LineBasicMaterial ( {
 
-		const edges = new THREE.LineSegments ( edgesGeometry, edgesMaterial );
+									color: black,
 
-		edges.position.copy ( minifig.position );
+									linewidth: lineThickness
 
-		edges.rotation.copy ( minifig.rotation );
+								} );
 
-		edges.scale.copy ( minifig.scale );
+								const edges = new THREE.LineSegments ( edgesGeometry, edgesMaterial );
 
-		self.scene.add ( minifig );
+								edges.position.copy ( node.position );
 
-		self.scene.add ( edges );
+								edges.rotation.copy ( node.rotation );
 
-		allEdges.push( edges );
+								edges.scale.copy ( node.scale );
 
-		// shadows
+								minifig.add ( edges );
+							}
+						} );
 
-		minifig.traverse ( function ( node ) {
+						// shadows
 
-			if ( node.isMesh ) {
+						minifig.traverse ( function ( node ) {
 
-				node.castShadow = true;
+							if ( node.isMesh ) {
 
-				node.receiveShadow = true;
+								node.castShadow = true;
 
-			}
+								node.receiveShadow = true;
 
-		} );
+							}
 
-		const transform = self.get_transformControls();
+						} );
 
-		self.scene.add ( transform );
+						self.scene.add ( minifig );
 
-		transform.attach ( minifig );
+						const transform = self.get_transformControls();
 
-		self.minifig = minifig;
+						self.scene.add ( transform );
 
-		self.minifigTransform = transform;
+						transform.attach ( minifig );
 
-		console.log ( 'minifig' );
+						self.minifig = minifig;
 
-		console.log ( 'scale [ minifig ] : ', minifig.scale );
+						self.minifigTransform = transform;
 
-	} );
-};
+						console.log ( 'minifig' );
+
+						console.log ( 'scale [ minifig ] : ', minifig.scale );
+
+					} );
+				};
 
 				// plane
 
