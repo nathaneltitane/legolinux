@@ -2480,12 +2480,15 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 								// wireframe
 
 								var wireframeMaterial = new THREE.MeshBasicMaterial ( {
+
 									color: node.material.color,
 									wireframe: true,
 									wireframeLinewidth: 0.125,
 									wireframeLinecap: 'round',
 									wireframeLinejoin: 'round'
-								} );
+
+									}
+								);
 
 								var wireframeMesh = new THREE.Mesh( node.geometry, wireframeMaterial );
 
@@ -2498,11 +2501,15 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 								// compute positioning
 
 								edges.position.copy ( node.position );
+
 								edges.rotation.copy ( node.rotation );
+
 								edges.scale.copy ( node.scale );
 
 								wireframeMesh.position.copy ( node.position );
+
 								wireframeMesh.rotation.copy ( node.rotation );
+
 								wireframeMesh.scale.copy ( node.scale );
 
 								self.colladaImport.add ( edges );
@@ -2514,6 +2521,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 								// shadows
 
 								node.castShadow = true;
+
 								node.receiveShadow = true;
 
 							}
