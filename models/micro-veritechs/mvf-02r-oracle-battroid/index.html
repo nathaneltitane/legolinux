@@ -58,6 +58,12 @@
 
 			import { TransformControls } from 'three/addons/controls/TransformControls.js';
 
+			import { LineSegments2 } from '/javascript/three/modules/lines/LineSegments2.js';
+
+			import { LineMaterial } from '/javascript/three/modules/lines/LineMaterial.js';
+
+			import { LineGeometry } from '/javascript/three/modules/lines/LineGeometry.js';
+
 			function initialize() {
 
 				// scaling unit - 1 stud = 0.008 m = 20 ldu >>> 1 ldu = 0.0004 m
@@ -1349,7 +1355,7 @@
 
 						self.plane.receiveShadow = true;
 
-						// edges overlay
+						// edges
 
 						const edgesGeometry = new THREE.EdgesGeometry ( geometry );
 
@@ -1399,30 +1405,41 @@
 
 				// edges toggle
 
-				var modelEdges_visible = true;
-
 				this.edgesToggle_ = function() {
 
-					// prevent enabling edges if wireframe is active
+					edgeThicknessState = ( edgeThicknessState + 1 ) % 3;
 
-					if ( wireframe_visible && !modelEdges_visible ) {
+					if ( edgeThicknessState === 0 ) {
 
-						console.warn ( 'Edges cannot be enabled while wireframe mode is active.' );
+						for ( var i = 0; i < modelEdges.length; i++ ) {
 
-						return;
-					}
-
-					modelEdges_visible = !modelEdges_visible;
-
-					self.colladaImport.traverse(function (node) {
-
-						if ( node.isLineSegments ) {
-
-							node.visible = modelEdges_visible;
+							modelEdges[i].scale.set ( 0, 0, 0 ); // none
 
 						}
 
-					});
+					}
+
+					else {
+
+						for ( var i = 0; i < modelEdges.length; i++ ) {
+
+							modelEdges[i].visible = true;
+
+							if ( edgeThicknessState === 1 ) {
+
+								modelEdges[i].scale.set ( 1, 1, 1 ); // thin
+
+							}
+
+							else if ( edgeThicknessState === 2 ) {
+
+								modelEdges[i].scale.set ( 1.01, 1.01, 1.01 ); // thick
+
+							}
+
+						}
+
+					}
 
 				};
 
@@ -2235,6 +2252,14 @@
 
 				var loader = new ColladaLoader();
 
+				// global vars for edges
+
+				var modelEdges = [];
+
+				 // 0: nne - 1: thin - 2: thick
+
+				var edgeThicknessState = 2;
+
 				var model = loader.load (
 
 					'/models/micro-veritechs/mvf-02r-oracle-battroid/exports/mvf-02r-oracle-battroid.dae',
@@ -2255,13 +2280,9 @@
 
 								var edgesMaterial = new THREE.LineBasicMaterial ( {
 
-									color: black,
-
-									linewidth: lineThickness
+									color: black
 
 								} );
-
-								edgesMaterial.linewidth = 1.25;
 
 								var edges = new THREE.LineSegments ( edgesGeometry, edgesMaterial );
 
@@ -2277,11 +2298,11 @@
 									wireframeLinejoin: 'round'
 								} );
 
-								var wireframeMesh = new THREE.Mesh(node.geometry, wireframeMaterial);
+								var wireframeMesh = new THREE.Mesh( node.geometry, wireframeMaterial );
 
 								// initial visibility
 
-								edges.visible = true;
+								edges.visible = false;
 
 								wireframeMesh.visible = false;
 
@@ -2298,6 +2319,8 @@
 								self.colladaImport.add ( edges );
 
 								self.colladaImport.add ( wireframeMesh );
+
+								modelEdges.push( edges );
 
 								// shadows
 
@@ -2365,6 +2388,7 @@
 						self.scene.add ( self.get_transformControls() );
 
 						self.get_transformControls().attach ( self.colladaImport );
+
 					},
 
 					function ( xhr ) {
@@ -2372,6 +2396,7 @@
 					console.log ( 'load [ model ] : ' + ( ( xhr.loaded / xhr.total ) * 100 ).toFixed ( 2 ) + '%');
 
 					},
+
 				);
 
 				// client window aspect ratio
