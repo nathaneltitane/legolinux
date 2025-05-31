@@ -247,11 +247,11 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 			import { TransformControls } from 'three/addons/controls/TransformControls.js';
 
-			import { LineSegments2 } from '/javascript/three/modules/lines/LineSegments2.js';
+			// import { LineSegments2 } from '/javascript/three/modules/lines/LineSegments2.js';
 
-			import { LineMaterial } from '/javascript/three/modules/lines/LineMaterial.js';
+			// import { LineMaterial } from '/javascript/three/modules/lines/LineMaterial.js';
 
-			import { LineGeometry } from '/javascript/three/modules/lines/LineGeometry.js';
+			// import { LineGeometry } from '/javascript/three/modules/lines/LineGeometry.js';
 
 			function initialize() {
 
@@ -1413,7 +1413,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						minifig.position.set ( minifigPosition_x, minifigPosition_y, minifigPosition_z );
 
-						// edges
+						// edges - minifig
 
 						minifig.traverse ( function ( node ) {
 
@@ -1441,7 +1441,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 							}
 						} );
 
-						// shadows
+						// shadows - minifig
 
 						minifig.traverse ( function ( node ) {
 
@@ -1544,7 +1544,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						self.plane.receiveShadow = true;
 
-						// edges
+						// edges - plane
 
 						const edgesGeometry = new THREE.EdgesGeometry ( geometry );
 
@@ -1592,7 +1592,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 					}
 				}
 
-				// edges toggle
+				// edges toggle - model
 
 				this.edgesToggle_ = function() {
 
@@ -2463,7 +2463,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 							if ( node.isMesh ) {
 
-								// edges
+								// edges - model
 
 								var edgesGeometry = new THREE.EdgesGeometry ( node.geometry, 45 );
 

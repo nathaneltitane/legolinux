@@ -58,11 +58,11 @@
 
 			import { TransformControls } from 'three/addons/controls/TransformControls.js';
 
-			import { LineSegments2 } from '/javascript/three/modules/lines/LineSegments2.js';
+			// import { LineSegments2 } from '/javascript/three/modules/lines/LineSegments2.js';
 
-			import { LineMaterial } from '/javascript/three/modules/lines/LineMaterial.js';
+			// import { LineMaterial } from '/javascript/three/modules/lines/LineMaterial.js';
 
-			import { LineGeometry } from '/javascript/three/modules/lines/LineGeometry.js';
+			// import { LineGeometry } from '/javascript/three/modules/lines/LineGeometry.js';
 
 			function initialize() {
 
@@ -1170,7 +1170,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-red.dae',
+						'/minifigs/exports/minifig-orange.dae',
 
 						function ( collada ) {
 
@@ -1224,7 +1224,7 @@
 
 						minifig.position.set ( minifigPosition_x, minifigPosition_y, minifigPosition_z );
 
-						// edges
+						// edges - minifig
 
 						minifig.traverse ( function ( node ) {
 
@@ -1252,7 +1252,7 @@
 							}
 						} );
 
-						// shadows
+						// shadows - minifig
 
 						minifig.traverse ( function ( node ) {
 
@@ -1355,7 +1355,7 @@
 
 						self.plane.receiveShadow = true;
 
-						// edges
+						// edges - plane
 
 						const edgesGeometry = new THREE.EdgesGeometry ( geometry );
 
@@ -1403,7 +1403,7 @@
 					}
 				}
 
-				// edges toggle
+				// edges toggle - model
 
 				this.edgesToggle_ = function() {
 
@@ -2274,7 +2274,7 @@
 
 							if ( node.isMesh ) {
 
-								// edges
+								// edges - model
 
 								var edgesGeometry = new THREE.EdgesGeometry ( node.geometry, 45 );
 
@@ -2291,12 +2291,15 @@
 								// wireframe
 
 								var wireframeMaterial = new THREE.MeshBasicMaterial ( {
+
 									color: node.material.color,
 									wireframe: true,
 									wireframeLinewidth: 0.125,
 									wireframeLinecap: 'round',
 									wireframeLinejoin: 'round'
-								} );
+
+									}
+								);
 
 								var wireframeMesh = new THREE.Mesh( node.geometry, wireframeMaterial );
 
@@ -2309,11 +2312,15 @@
 								// compute positioning
 
 								edges.position.copy ( node.position );
+
 								edges.rotation.copy ( node.rotation );
+
 								edges.scale.copy ( node.scale );
 
 								wireframeMesh.position.copy ( node.position );
+
 								wireframeMesh.rotation.copy ( node.rotation );
+
 								wireframeMesh.scale.copy ( node.scale );
 
 								self.colladaImport.add ( edges );
@@ -2325,6 +2332,7 @@
 								// shadows
 
 								node.castShadow = true;
+
 								node.receiveShadow = true;
 
 							}
