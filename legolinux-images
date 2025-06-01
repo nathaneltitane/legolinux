@@ -118,6 +118,10 @@ do
 
 		for image_path in $(find ${local_models_directory} -type f -not -path "work-in-progress" -iname "${directory}"."${extension}" | sort)
 		do
+			# get model directory
+
+			model_directory="${image_path%/*/*/*}"
+
 			pad_image_count=$(printf "%03d" "${image_count}")
 
 			# get model base directory from path
@@ -138,7 +142,10 @@ do
 
 			server_path="${server_images_directory}"/${directory}/${image_name}-"${pad_image_count}"."${extension}"
 
-			synchronize "${image_path}" "${server_path}"
+			if [ -f "${model_directory}"/background ]
+			then
+				synchronize "${image_path}" "${server_path}"
+			fi
 
 			((image_count++))
 
