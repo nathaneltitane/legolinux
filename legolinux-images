@@ -122,13 +122,17 @@ do
 
 				image_count=$(printf "%03d" "${count}")
 
-				# get model base directory from path
+				# get model image base directory from path
 
 				image_directory="${image_path%/*}"
 
-				# get model file name from path
+				# get model image file name from path
 
 				image_file="${image_path##*/}"
+
+				# get model image file extension from path
+
+				image_extension="${image_file##*.}"
 
 				# strip extension from model file name
 
