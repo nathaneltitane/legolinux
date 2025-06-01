@@ -102,12 +102,7 @@ do
 	do
 		frobulator.directory "${server_images_directory}" "${directory}"
 
-		# copy renders into images directory
-
-		frobulator.fwd "Copying..."
-		echo
-
-		image_count=0
+		count=0
 
 		# set IFS
 
@@ -122,32 +117,33 @@ do
 
 			model_directory="${image_path%/*/*/*}"
 
-			pad_image_count=$(printf "%03d" "${image_count}")
-
-			# get model base directory from path
-
-			image_directory="${image_path%/*}"
-
-			# get model file name from path
-
-			image_file="${image_path##*/}"
-
-			# strip extension from model file name
-
-			image_name="${image_file%.*}"
-
-			# set synchronization paths
-
-			local_path="${image_path}"
-
-			server_path="${server_images_directory}"/${directory}/${image_name}-"${pad_image_count}"."${extension}"
-
 			if [ -f "${model_directory}"/background ]
 			then
+
+				image_count=$(printf "%03d" "${count}")
+
+				# get model base directory from path
+
+				image_directory="${image_path%/*}"
+
+				# get model file name from path
+
+				image_file="${image_path##*/}"
+
+				# strip extension from model file name
+
+				image_name="${image_file%.*}"
+
+				# set synchronization paths
+
+				local_path="${image_path}"
+
+				server_path="${server_images_directory}"/${directory}/${image_name}-"${image_count}"."${extension}"
+
 				synchronize "${image_path}" "${server_path}"
 			fi
 
-			((image_count++))
+			((count++))
 
 		done
 
@@ -157,18 +153,19 @@ do
 
 	IFS=''
 
-	# update random background generator with new file count
-
-	frobulator.inf "Updating" "[ Images ]"
-	echo
-
-	sed															\
-		-i														\
-		-e "s/var count = .*/var count = ${image_count};/g"		\
-																"${server_javascript_directory}"/background.js
 done
 
-frobulator.inf "Models" "[ ${image_count} ]"
+# update random background generator with new image file count
+
+frobulator.inf "Updating" "[ Images ]"
+echo
+
+sed															\
+	-i														\
+	-e "s/var count = .*/var count = ${count};/g"		\
+															"${server_javascript_directory}"/background.js
+
+frobulator.inf "Models" "[ ${count} ]"
 echo
 
 frobulator.cpt "Complete" "[ Images ]"
