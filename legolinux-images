@@ -84,6 +84,9 @@ synchronize () {
 
 frobulator.directory "${server_directory}" images
 
+frobulator.fwd "Copying..."
+echo
+
 # values
 
 extensions_list+=(
