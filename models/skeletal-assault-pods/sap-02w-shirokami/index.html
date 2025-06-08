@@ -1173,7 +1173,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-white.dae',
+						'/minifigs/exports/minifig-red.dae',
 
 						function ( collada ) {
 
@@ -1418,6 +1418,8 @@
 
 							modelEdges[i].scale.set ( 0, 0, 0 ); // none
 
+							modelEdges[i].visible = false;
+
 						}
 
 					}
@@ -1432,11 +1434,15 @@
 
 								modelEdges[i].scale.set ( 1, 1, 1 ); // thin
 
+								modelEdges[i].visible = true;
+
 							}
 
 							else if ( edgeThicknessState === 2 ) {
 
 								modelEdges[i].scale.set ( 1.01, 1.01, 1.01 ); // thick
+
+								modelEdges[i].visible = true;
 
 							}
 
@@ -2259,7 +2265,9 @@
 
 				var modelEdges = [];
 
-				 // 0: nne - 1: thin - 2: thick
+				var modelEdges_visible = false;
+
+				 // 0: none - 1: thin - 2: thick
 
 				var edgeThicknessState = 2;
 
@@ -2331,6 +2339,8 @@
 								self.colladaImport.add ( wireframeMesh );
 
 								modelEdges.push( edges );
+
+								var modelEdges_visible = true;
 
 								// shadows
 
