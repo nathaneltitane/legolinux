@@ -1,8 +1,8 @@
-// samples //
+// modes //
 
 $( document ).ready ( function ( ) {
 
-	var samples = $( '.samples' );
+	var modes = $( '#modes' );
 
 	var ids = [
         '#navigation-button-label',
@@ -36,11 +36,11 @@ $( document ).ready ( function ( ) {
 
     $( ids ).addClass ( classes );
 
-        samples.removeClass ( 'samples-hide' );
+        modes.removeClass ( 'modes-hide' );
 
         setTimeout ( function ( ) {
 
-            samples.addClass ( 'samples-show' );
+            modes.addClass ( 'modes-show' );
 
         }, 250 );
 
@@ -48,9 +48,9 @@ $( document ).ready ( function ( ) {
 
     function hide ( ) {
 
-        samples.removeClass ( 'samples-show' );
+        modes.removeClass ( 'modes-show' );
 
-        samples.addClass ( 'samples-hide' );
+        modes.addClass ( 'modes-hide' );
 
         setTimeout ( function ( ) {
 
@@ -62,7 +62,7 @@ $( document ).ready ( function ( ) {
 
     function toggle ( ) {
 
-        if ( samples.hasClass ( 'samples-show' ) ) {
+        if ( modes.hasClass ( 'modes-show' ) ) {
 
             hide ( );
 
@@ -83,7 +83,7 @@ $( document ).ready ( function ( ) {
 
     $( '#canvas, #footer' ).hover ( function ( event ) {
 
-        if ( samples.hasClass ( 'samples-show' ) ) {
+        if ( modes.hasClass ( 'modes-show' ) ) {
 
             hide ( );
 
