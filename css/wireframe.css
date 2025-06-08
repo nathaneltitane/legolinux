@@ -7,6 +7,10 @@
 	padding: 10px 10px 10px 10px;
 }
 
+#wireframe-button-label {
+	padding: 0px 10px 0px 0px;
+}
+
 .wireframe {
 	color: #000000ff;
 	position: fixed;

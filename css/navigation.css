@@ -7,6 +7,10 @@
 	padding: 10px 10px 10px 10px;
 }
 
+#navigation-button-label {
+	padding: 0px 10px 0px 0px;
+}
+
 @keyframes navigation-reveal {
 	0% {right: -200px;}
 

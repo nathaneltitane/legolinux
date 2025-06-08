@@ -7,6 +7,10 @@
 	padding: 10px 10px 10px 10px;
 }
 
+#paypal-button-label {
+	padding: 0px 10px 0px 0px;
+}
+
 .paypal {
 	color: #000000ff;
 	position: fixed;

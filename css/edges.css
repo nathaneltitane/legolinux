@@ -7,6 +7,10 @@
 	padding: 10px 10px 10px 10px;
 }
 
+#edges-button-label {
+	padding: 0px 10px 0px 0px;
+}
+
 .edges {
 	color: #000000ff;
 	position: fixed;
