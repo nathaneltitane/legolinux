@@ -18,51 +18,55 @@ $( document ).ready ( function ( ) {
 
     var ids = ids.join ( ', ' );
 
-    function show ( ) {
+    if ( $( 'body' ).height() < 920 ) {
 
-        $( ids ).removeClass ( 'modes-hide' );
+        function show ( ) {
 
-        $( ids ).addClass ( 'modes-show' );
+            $( ids ).removeClass ( 'modes-hide' );
 
-    };
+            $( ids ).addClass ( 'modes-show' );
 
-    function hide ( ) {
+        };
 
-        $( ids ).removeClass ( 'modes-show' );
+        function hide ( ) {
 
-        $( ids ).addClass ( 'modes-hide' );
+            $( ids ).removeClass ( 'modes-show' );
 
-    };
+            $( ids ).addClass ( 'modes-hide' );
 
-    function toggle ( ) {
+        };
 
-        if ( $( ids ).hasClass ( 'modes-show' ) ) {
+        function toggle ( ) {
 
-            hide ( );
+            if ( $( ids ).hasClass ( 'modes-show' ) ) {
 
-        }
+                hide ( );
 
-        else {
+            }
 
-            show ( );
+            else {
 
-        }
-    };
+                show ( );
 
-    $( '#modes' ).hover ( function ( event ) {
+            }
+        };
 
-        hide ( ) ;
+        $( '#modes' ).hover ( function ( event ) {
 
-    } );
+            hide ( ) ;
 
-    $( '#canvas, #footer' ).hover ( function ( event ) {
+        } );
 
-        if ( $( ids ).hasClass ( 'modes-hide' ) ) {
+        $( '#canvas, #footer' ).hover ( function ( event ) {
 
-            show ( );
+            if ( $( ids ).hasClass ( 'modes-hide' ) ) {
 
-        }
+                show ( );
 
-    } );
+            }
+
+        } );
+
+    }
 
 } );

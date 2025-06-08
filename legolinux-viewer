@@ -206,6 +206,8 @@ cat << 3D-MODEL-PAGE-HEADER -> "${model_directory}/index.html"
 
 		<script src="/javascript/helper.js" type="text/javascript"></script>
 
+		<script src="/javascript/labels.js" type="text/javascript"></script>
+
 		<script src="/javascript/modes.js" type="text/javascript"></script>
 
 		<script src="/javascript/samples.js" type="text/javascript"></script>
@@ -2774,17 +2776,20 @@ cat << 3D-MODEL-OPTIONS ->> "${model_directory}/index.html"
 
 fi
 
-cat << 3D-MODEL-MODES ->> "${model_directory}/index.html"
-		<!-- modes -->
-
-		<div id="modes">
-
-			<div class="grid grid-right grid-gap-column-10 grid-gap-row-10 grid-columns-responsive">
-
-3D-MODEL-MODES
-
 if [[ -f "${model_directory}"/modes ]]
 then
+	modes_count=$(cat "${model_directory}"/modes | wc -l)
+
+	cat <<- 3D-MODEL-MODES >> "${model_directory}/index.html"
+			<!-- modes -->
+
+			<div id="modes">
+
+				<div class="grid grid-right grid-gap-column-10 grid-gap-row-10 grid-columns-${modes_count}">
+
+	3D-MODEL-MODES
+
+
 	# set IFS
 
 	IFS=$'\n'
@@ -2825,7 +2830,7 @@ then
 
 		model_mode_label=${model_mode_label^^}
 
-cat << 3D-MODEL-MODES ->> "${model_directory}/index.html"
+		cat <<- 3D-MODEL-MODES >> "${model_directory}/index.html"
 				<div class="flex-cell mode">
 
 					<a class="text-center mode-image" href="/${model_mode_path_label}"/>
@@ -2842,29 +2847,20 @@ cat << 3D-MODEL-MODES ->> "${model_directory}/index.html"
 
 				</div>
 
-3D-MODEL-MODES
+		3D-MODEL-MODES
 
 	done
 
-cat << 3D-MODEL-MODES ->> "${model_directory}/index.html"
+	cat <<- 3D-MODEL-MODES >> "${model_directory}/index.html"
+				</div>
+
 			</div>
 
-		</div>
-
-3D-MODEL-MODES
+	3D-MODEL-MODES
 
 	# unset IFS
 
 	IFS=''
-
-else
-
-cat << 3D-MODEL-MODES ->> "${model_directory}/index.html"
-			</div>
-
-		</div>
-
-3D-MODEL-MODES
 
 fi
 

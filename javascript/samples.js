@@ -34,8 +34,6 @@ $( document ).ready ( function ( ) {
 
     function show () {
 
-    $( ids ).addClass ( classes );
-
         samples.removeClass ( 'samples-hide' );
 
         setTimeout ( function ( ) {
