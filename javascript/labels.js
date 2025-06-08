@@ -2,7 +2,7 @@
 
 $( document ).ready ( function ( ) {
 
-    var labels = [
+    var ids = [
         '#navigation-button-label',
         '#paypal-button-label',
         '#color-button-label',

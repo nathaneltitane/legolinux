@@ -171,6 +171,32 @@
 	}
 }
 
+@media (min-height: 920px) {
+
+	#modes {
+		margin: 0px 0px 0px 0px;
+	}
+
+	#modes:has(.mode:hover) {
+		margin: 0px 0px 0px 0px;
+	}
+
+}
+
+
+
+@media (max-height: 920px) {
+
+	#modes {
+		margin: 0px 74px 0px 74px;
+	}
+
+	#modes:has(.mode:hover) {
+		margin: 0px 84px 0px 84px;
+	}
+
+}
+
 /* // phone // */
 
 @media only screen
