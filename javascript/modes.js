@@ -2,67 +2,41 @@
 
 $( document ).ready ( function ( ) {
 
-	var modes = $( '.mode' );
+	var modes = $( '#modes' );
 
 	var ids = [
-        '#navigation-button-label',
-        '#paypal-button-label',
-        '#color-button-label',
-        '#dimensions-button-label',
-        '#edges-button-label',
-        '#wireframe-button-label',
-        '#controls-button-label',
-        '#plane-button-label',
-        '#minifig-button-label'
-    ];
-
-    var classes = [
-        'navigation-label-color',
-        'paypal-label-color',
-        'color-label-color',
-        'dimensions-label-color',
-		'edges-label-color',
-		'wireframe-label-color',
-        'controls-label-color',
-        'plane-label-color',
-        'minifig-label-color'
+        '#navigation',
+        '#paypal',
+        '#color',
+        '#dimensions',
+        '#edges',
+        '#wireframe',
+        '#controls',
+        '#plane',
+        '#minifig'
     ];
 
     var ids = ids.join ( ', ' );
 
-    var classes = classes.join ( ' ' );
+    function show ( ) {
 
-    function show () {
+        $( ids ).removeClass ( 'modes-hide' );
 
-    $( ids ).addClass ( classes );
-
-        modes.removeClass ( 'modes-hide' );
-
-        setTimeout ( function ( ) {
-
-            modes.addClass ( 'modes-show' );
-
-        }, 250 );
+        $( ids ).addClass ( 'modes-show' );
 
     };
 
     function hide ( ) {
 
-        modes.removeClass ( 'modes-show' );
+        $( ids ).removeClass ( 'modes-show' );
 
-        modes.addClass ( 'modes-hide' );
-
-        setTimeout ( function ( ) {
-
-            $( ids ).removeClass ( classes );
-
-        }, 500 );
+        $( ids ).addClass ( 'modes-hide' );
 
     };
 
     function toggle ( ) {
 
-        if ( modes.hasClass ( 'modes-show' ) ) {
+        if ( $( ids ).hasClass ( 'modes-show' ) ) {
 
             hide ( );
 
@@ -75,24 +49,17 @@ $( document ).ready ( function ( ) {
         }
     };
 
+    $( '#modes' ).hover ( function ( event ) {
 
-    $( '#canvas, #footer' ).hover ( function ( event ) {
-
-        if ( modes.hasClass ( 'modes-show' ) ) {
-
-            hide ( );
-
-        }
+        hide ( ) ;
 
     } );
 
-    // keyboard
+    $( '#canvas, #footer' ).hover ( function ( event ) {
 
-    $( document ).on ( 'keyup', function ( event ) {
+        if ( $( ids ).hasClass ( 'modes-hide' ) ) {
 
-        if ( event.key === 'u' ) {
-
-            toggle ( );
+            show ( );
 
         }
 
