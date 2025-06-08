@@ -2,7 +2,7 @@
 
 $( document ).ready ( function ( ) {
 
-	var modes = $( '#modes' );
+	var modes = $( '.mode' );
 
 	var ids = [
         '#navigation-button-label',
@@ -75,11 +75,6 @@ $( document ).ready ( function ( ) {
         }
     };
 
-    $( '.paypal' ).hover ( function ( event ) {
-
-        show ( ) ;
-
-    } );
 
     $( '#canvas, #footer' ).hover ( function ( event ) {
 
