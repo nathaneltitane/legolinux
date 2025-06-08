@@ -18,7 +18,7 @@ $( document ).ready ( function ( ) {
 
     var ids = ids.join ( ', ' );
 
-    if ( $( 'body' ).height() < 920 ) {
+    if ( $( 'body' ).height() < 1000 ) {
 
         function show ( ) {
 
