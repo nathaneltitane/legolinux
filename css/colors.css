@@ -9,19 +9,24 @@
 	overflow-y: scroll;
 
 	z-index: 888;
+
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: calc(64px + 8px);
 }
 
 .colors {
 	aspect-ratio: 1/1;
-	border-radius: 10px 10px 10px 10px;
-	margin: 10px 10px 10px 10px;
+	border-radius: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
 	padding: 0px 0px 0px 0px;
 }
 
 @keyframes colors-reveal {
 	0% {left: -100vw;}
 
-	100% {left: 0vw;}
+	100% {left: calc(-64px - 8px);}
 }
 
 .colors-show {
@@ -34,7 +39,7 @@
 }
 
 @keyframes colors-conceal {
-	0% {left: 0vw;}
+	0% {left: calc(-64px - 8px);}
 
 	100% {left: -100vw;}
 }

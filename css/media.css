@@ -188,11 +188,11 @@
 @media (max-height: 920px) {
 
 	#modes {
-		margin: 0px 74px 0px 74px;
+		margin: 0px 62px 0px 62px;
 	}
 
 	#modes:has(.mode:hover) {
-		margin: 0px 84px 0px 84px;
+		margin: 0px 0px 0px 0px;
 	}
 
 }

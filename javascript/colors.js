@@ -71,7 +71,7 @@ $( document ).ready ( function ( ) {
 
 	$( '.color' ).click ( function ( event ) {
 
-        show ( );
+        toggle ( );
 
     } );
 

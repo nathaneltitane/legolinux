@@ -77,7 +77,7 @@ $( document ).ready ( function ( ) {
 
     $( '.controls' ).click ( function ( event ) {
 
-        show ( ) ;
+        toggle ( ) ;
 
     } );
 
