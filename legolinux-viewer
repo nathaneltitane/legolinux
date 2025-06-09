@@ -2458,7 +2458,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				var modelEdges = [];
 
-				var modelEdges_visible = false;
+				var modelEdges_visible = true;
 
 				 // 0: none - 1: thin - 2: thick
 
@@ -2509,7 +2509,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 								// initial visibility
 
-								edges.visible = false;
+								edges.visible = true;
 
 								wireframeMesh.visible = false;
 
@@ -2531,9 +2531,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 								self.colladaImport.add ( wireframeMesh );
 
-								modelEdges.push( edges );
-
-								var modelEdges_visible = true;
+								modelEdges.push ( edges );
 
 								// shadows
 
