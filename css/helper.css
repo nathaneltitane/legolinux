@@ -10,39 +10,16 @@
 .helper {
 	background-color: #000000ff;
 	color: #efefefff;
-	padding: 0px 20px 0px 20px;
+	padding: 20px 20px 0px 20px;
 	margin: 0px 0px 0px 0px;
 	position: fixed;
 	bottom: 0px;
 	left: 0px;
-
-	width: calc( 100vw - 64px - 10px - 10px);
+	right: calc( 64px + 6px);
 	height: 0vh;
 
 	overflow-x: hidden;
 	overflow-y: scroll;
-}
-
-.helper::before {
-    content: "";
-    background: linear-gradient(to top, transparent 20%, #000000ff 80%);
-    display: block;
-    position: sticky;
-    top: 0px;
-    height: 40px;
-    margin-left: -100%;
-    margin-right: -100%;
-}
-
-.helper::after {
-    content: "";
-    background: linear-gradient(to bottom, transparent 20%, #000000ff 80%);
-    display: block;
-    position: sticky;
-    bottom: 0px;
-    height: 40px;
-    margin-left: -100%;
-    margin-right: -100%;
 }
 
 @keyframes helper-reveal {
