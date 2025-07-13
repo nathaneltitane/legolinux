@@ -1177,7 +1177,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-orange.dae',
+						'/minifigs/exports/minifig-white.dae',
 
 						function ( collada ) {
 
@@ -1414,6 +1414,14 @@
 
 				this.edgesToggle_ = function() {
 
+					if ( wireframe_visible ) {
+
+						console.warn ( 'Edges cannot be enabled while wireframe mode is active.' );
+
+						return;
+
+					}
+
 					edgeThicknessState = ( edgeThicknessState + 1 ) % 3;
 
 					if ( edgeThicknessState === 0 ) {
@@ -1426,9 +1434,7 @@
 
 						}
 
-					}
-
-					else {
+					} else {
 
 						for ( var i = 0; i < modelEdges.length; i++ ) {
 
@@ -1438,22 +1444,15 @@
 
 								modelEdges[i].scale.set ( 1, 1, 1 ); // thin
 
-								modelEdges[i].visible = true;
-
-							}
-
-							else if ( edgeThicknessState === 2 ) {
+							} else if ( edgeThicknessState === 2 ) {
 
 								modelEdges[i].scale.set ( 1.01, 1.01, 1.01 ); // thick
-
-								modelEdges[i].visible = true;
 
 							}
 
 						}
 
 					}
-
 				};
 
 				// wireframe toggle
