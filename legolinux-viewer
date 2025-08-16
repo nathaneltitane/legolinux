@@ -190,6 +190,19 @@ cat << 3D-MODEL-PAGE-HEADER -> "${model_directory}/index.html"
 
 	<head>
 
+		<|-- meta -->
+
+		<meta property="og:title"			content="My 3D Model - ${model_title_string}" />
+		<meta property="og:description"		content="Preview this 3D model in the viewer." />
+		<meta property="og:image"			content="https://legolinux.com/${thumbnail_directory}thumbnail.png" />
+		<meta property="og:url"				content="https://example.com/${model_path}" />
+		<meta property="og:type"			content="website" />
+
+		<meta name="twitter:card"			content="summary_large_image" />
+		<meta name="twitter:title"			content="My 3D Model - ${model_title_string}" />
+		<meta name="twitter:description"	content="Preview this 3D model in the viewer." />
+		<meta name="twitter:image"			content="https://legolinux.com/${thumbnail_directory}thumbnail.png" />
+
 		<!-- css -->
 
 		<link rel="stylesheet" href="/css/css.css" type="text/css" />
