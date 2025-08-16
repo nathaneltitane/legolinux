@@ -192,10 +192,6 @@ cat << 3D-MODEL-PAGE-HEADER -> "${model_directory}/index.html"
 
 		<!-- meta -->
 
-		<title>Lego // Linux - Where Lego meets Linux</title>
-
-		<meta name="description" content="Custom LEGO MOC builds inspired by anime mecha and sci-fi, brought to life with open-source 3D model previews and complete with instructions.">
-
 		<meta property="og:type"			content="website">
 		<meta property="og:url"				content="https://legolinux.com/${model_directory}">
 		<meta name="og:title"				content="3D model preview - ${model_title_string}">
