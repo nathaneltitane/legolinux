@@ -190,11 +190,12 @@ cat << 3D-MODEL-PAGE-HEADER -> "${model_directory}/index.html"
 
 	<head>
 
-		<!-- meta -->
+		<!-- title -->
 
 		<title>LEGO // LINUX - ${model_title_string}</title>
 
-		<meta name="description" content="Preview this model in 3D.">
+		<meta name="title"					content="LEGO // LINUX - ${model_title_string}">
+		<meta name="description"			content="Preview this model in 3D.">
 
 		<meta property="og:type"			content="website">
 		<meta property="og:url"				content="https://legolinux.com/${model_directory}">
