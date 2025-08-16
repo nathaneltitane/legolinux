@@ -190,7 +190,7 @@ cat << 3D-MODEL-PAGE-HEADER -> "${model_directory}/index.html"
 
 	<head>
 
-		<|-- meta -->
+		<!-- meta -->
 
 		<meta property="og:title"			content="My 3D Model - ${model_title_string}" />
 		<meta property="og:description"		content="Preview this 3D model in the viewer." />
