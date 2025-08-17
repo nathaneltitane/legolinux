@@ -53,7 +53,7 @@ frobulator.script "Setting up ${script#*-}"
 
 # variables ////////////////////////////////////////////////////////////////////
 
-models_directory="${PWD}"/models
+models_directory="${PWD}"/models/veritechs/vf-1s-valkyrie-fighter/
 minifigs_directory="${PWD}"/minifigs
 
 # defaults /////////////////////////////////////////////////////////////////////
@@ -2693,10 +2693,6 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 3D-MODEL-PAGE-VIEWER
 
-keywords_list=(
-	super
-)
-
 cat << 3D-MODEL-OPTIONS ->> "${model_directory}/index.html"
 		<!-- options -->
 
@@ -2718,33 +2714,21 @@ then
 	do
 		model_option_directory=${model_directory}
 
-		model_option_prefix=${model_option_directory%*-}
+		model_option_prefix=${model_option_directory%%-*}
 
 		model_option_suffix=${model_option_directory##*-}
 
-		if [[ "${model_option_suffix}" =~ ${keywords_list[@]} ]]
-		then
-			flag=keyword
+		model_option_directory=${model_option_directory/-${model_mode_suffix}/}
 
-			model_option_directory=${model_option_directory/-${model_mode_suffix}/}
+		model_option_prefix=${model_option_directory%*-}
 
-			model_option_prefix=${model_option_directory%*-}
-
-			model_option_suffix=${model_option_directory##*-}
-		fi
+		model_option_suffix=${model_option_directory##*-}
 
 		model_option_suffix_length=${#model_option_suffix}
 
 		model_option_base_label=${model_option_directory::-${model_option_suffix_length}}
 
 		model_option_path_label="${model_option_base_label}${model_option}"
-
-		if [[ "${flag}" = "keyword" ]]
-		then
-			model_option_path_label="${model_option_path_label}-super"
-
-			unset flag
-		fi
 
 		model_option_label=${model_option/-/ }
 
@@ -2817,31 +2801,21 @@ then
 	do
 		model_mode_directory=${model_directory}
 
+		model_mode_prefix=${model_mode%%-*}
+
+		model_mode_suffix=${model_mode##*-}
+
+		model_mode_directory=${model_mode_directory/-${model_mode_suffix}/}
+
 		model_mode_prefix=${model_mode_directory%*-}
 
 		model_mode_suffix=${model_mode_directory##*-}
 
-		if [[ "${model_mode_suffix}" =~ ${keywords_list[@]} ]]
-		then
-			flag=keyword
-
-			model_mode_directory=${model_mode_directory/-${model_mode_suffix}/}
-
-			model_mode_prefix=${model_mode_directory%*-}
-
-			model_mode_suffix=${model_mode_directory##*-}
-		fi
-
 		model_mode_suffix_length=${#model_mode_suffix}
+
 		model_mode_base_label=${model_mode_directory::-${model_mode_suffix_length}}
+
 		model_mode_path_label="${model_mode_base_label}${model_mode}"
-
-		if [[ "${flag}" = "keyword" ]]
-		then
-			model_mode_path_label="${model_mode_path_label}-super"
-
-			unset flag
-		fi
 
 		model_mode_label=${model_mode/-/ }
 
