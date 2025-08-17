@@ -1,189 +1,3 @@
-#!/bin/bash
-
-# dependencies /////////////////////////////////////////////////////////////////
-
-if [ -f "${HOME}"/.local/bin/frobulator ]
-then
-	rm -r -f "${HOME}"/.local/bin/frobulator
-fi
-
-if [[ -z $(command -v frobulator) ]]
-then
-	if [[ $(id -u -n) = "root" ]]
-	then
-		SUDO_HOME=/root
-
-		USER="${SUDO_USER}"
-
-		HOME=/home/"${USER}"
-	fi
-
-	if [[ -z $(command -v curl) ]]
-	then
-		yes | apt-get install curl
-	fi
-
-	if [ ! -d "${HOME}"/.local/bin ]
-	then
-		mkdir -p "${HOME}"/.local/bin
-	fi
-
-	curl -s -L get.frbltr.app > "${HOME}"/.local/bin/frobulator
-
-	chmod +x "${HOME}"/.local/bin/frobulator
-fi
-
-. "${HOME}"/.local/bin/frobulator
-
-# superuser ////////////////////////////////////////////////////////////////////
-
-# script ///////////////////////////////////////////////////////////////////////
-
-script=$(basename -- "${BASH_SOURCE[0]}")
-
-# version //////////////////////////////////////////////////////////////////////
-
-version="07-12-2025"
-
-# usage ////////////////////////////////////////////////////////////////////////
-
-# prompt ///////////////////////////////////////////////////////////////////////
-
-frobulator.script "Setting up ${script#*-}"
-
-# variables ////////////////////////////////////////////////////////////////////
-
-models_directory="${PWD}"/models
-minifigs_directory="${PWD}"/minifigs
-
-# defaults /////////////////////////////////////////////////////////////////////
-
-# functions ////////////////////////////////////////////////////////////////////
-
-frobulator.inf "Generating model entries"
-echo
-
-frobulator.fwd "Writing..."
-echo
-
-# values
-
-extensions_list+=(
-	dae
-)
-
-for extension in ${extensions_list[@]}
-do
-	count=1
-
-	models_list=( $(find ${models_directory} -type f -iname "*.${extension}" ! -iname "*instructions*") )
-
-	# set IFS
-
-	IFS=$'\n'
-
-	for model_path in ${models_list[@]}
-	do
-		model_path=$(echo "${model_path}" | cut -d '/' -f6-)
-
-		# get model file name from path
-
-		model_file="${model_path##*/}"
-
-		# strip extension from model file name
-
-		model_name="${model_file%.*}"
-
-		# use model directory as root
-
-		model_directory="${model_path%/*/*}"
-
-		# define model output directories
-
-		export_directory="${model_directory}"/exports
-
-		instructions_directory="${model_directory}"/instructions
-
-		instructions_samples_directory="${instructions_directory}"/samples
-
-		render_directory="${model_directory}"/renders
-
-		flat_directory="${render_directory}"/flat
-
-		overlay_directory="${render_directory}"/overlay
-
-		thumbnail_directory="${render_directory}"/thumbnail
-
-		# define model specific directories
-
-		model_category=$(cat "${model_directory%/*}"/title)
-
-		model_title=$(cat "${model_directory}"/title)
-
-		model_title_string=$(echo ${model_title//\<\/\br\>/})
-
-		model_paypal="${model_directory}"/paypal
-
-		model_paypal_id=$(cat "${model_paypal}")
-
-		model_pieces="${model_directory}"/pieces
-
-		model_pieces_count=$(cat "${model_pieces}")
-
-		model_instructions="${model_directory}"/instructions
-
-		model_price="${model_directory}"/price
-
-		model_instructions_price=$(cat "${model_price}")
-
-		# randomize minifig helper color
-
-		minifig_prefix="minifig-"
-
-		minifigs_list=$(find ${minifigs_directory} -type f -iname "*.${extension}" )
-
-		for minifig_path in ${minifigs_list[@]}
-		do
-			minifig_file="${minifig_path##*/}"
-
-			file_color=${minifig_file#"${minifig_prefix}"}
-
-			color=${file_color%.*}
-
-			colors_list+=("$color")
-		done
-
-		colors_list_count=${#colors_list[@]}
-
-		color_index_random=$((RANDOM % colors_list_count))
-
-		color_minifig=${colors_list[color_index_random]}
-
-		# generate 3d model page
-
-		if [[ -f "${model_directory}"/work-in-progress ]]
-		then
-			color="orange"
-		else
-			color="green"
-		fi
-
-		if [[ "${model_paypal_id}" = "" ]]
-		then
-			model_paypal_id="N/A"
-
-			status_font_indicator="status-font-progress"
-
-			status_message="NOT YET AVAILABLE FOR PURCHASE"
-		else
-			model_paypal_id="${model_paypal_id}"
-
-			status_font_indicator="status-font-available"
-
-			status_message="AVAILABLE FOR PURCHASE"
-		fi
-
-cat << 3D-MODEL-PAGE-HEADER -> "${model_directory}/index.html"
 <!DOCTYPE html>
 
 <html>
@@ -192,23 +6,23 @@ cat << 3D-MODEL-PAGE-HEADER -> "${model_directory}/index.html"
 
 		<!-- title -->
 
-		<title>LEGO // LINUX - ${model_title_string}</title>
+		<title>LEGO // LINUX - REFX-TN-86 KOUMORI</title>
 
-		<meta name="title"					content="LEGO // LINUX - ${model_title_string}">
+		<meta name="title"					content="LEGO // LINUX - REFX-TN-86 KOUMORI">
 		<meta name="description"			content="Preview this model in 3D.">
 
 		<meta property="og:type"			content="website">
-		<meta property="og:url"				content="https://legolinux.com/${model_directory}">
-		<meta name="og:title"				content="INTERACTIVE MODEL PREVIEW - ${model_title_string}">
+		<meta property="og:url"				content="https://legolinux.com/models/reframe-system/refx-tn-86-koumori">
+		<meta name="og:title"				content="INTERACTIVE MODEL PREVIEW - REFX-TN-86 KOUMORI">
 		<meta property="og:description"		content="Preview this model in 3D!">
-		<meta property="og:image"			content="https://legolinux.com/${overlay_directory}/overlay.png">
+		<meta property="og:image"			content="https://legolinux.com/models/reframe-system/refx-tn-86-koumori/renders/overlay/overlay.png">
 
 		<meta name="twitter:card"			content="summary_large_image">
 		<meta property="twitter:domain"		content="legolinux.com">
 		<meta property="twitter:url"		content="https://legolinux.com">
-		<meta name="twitter:title"			content="INTERACTIVE MODEL PREVIEW - ${model_title_string}">
+		<meta name="twitter:title"			content="INTERACTIVE MODEL PREVIEW - REFX-TN-86 KOUMORI">
 		<meta name="twitter:description"	content="Preview this model in 3D!">
-		<meta name="twitter:image"			content="https://legolinux.com/${overlay_directory}/overlay.png">
+		<meta name="twitter:image"			content="https://legolinux.com/models/reframe-system/refx-tn-86-koumori/renders/overlay/overlay.png">
 
 		<!-- css -->
 
@@ -252,9 +66,6 @@ cat << 3D-MODEL-PAGE-HEADER -> "${model_directory}/index.html"
 
 	</head>
 
-3D-MODEL-PAGE-HEADER
-
-cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 	<body>
 
 		<!-- start webgl canvas -->
@@ -938,9 +749,9 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					const labels = [];
 
-					labels.push ( makeLabel ( \`Width [ x ] : \${x.in} in // \${x.cm} cm // \${x.ldu} ldu\`, '#ff0000ff' ) );	// x - red
-					labels.push ( makeLabel ( \`Height [ y ] : \${y.in} in // \${y.cm} cm // \${y.ldu} ldu\`, '#008000ff' ) );	// y - green
-					labels.push ( makeLabel ( \`Depth [ z ] : \${z.in} in // \${z.cm} cm // \${z.ldu} ldu\`, '#0000ffff' ) );	// z - blue
+					labels.push ( makeLabel ( `Width [ x ] : ${x.in} in // ${x.cm} cm // ${x.ldu} ldu`, '#ff0000ff' ) );	// x - red
+					labels.push ( makeLabel ( `Height [ y ] : ${y.in} in // ${y.cm} cm // ${y.ldu} ldu`, '#008000ff' ) );	// y - green
+					labels.push ( makeLabel ( `Depth [ z ] : ${z.in} in // ${z.cm} cm // ${z.ldu} ldu`, '#0000ffff' ) );	// z - blue
 
 					// label positions relative to model bounding box
 
@@ -1386,7 +1197,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					loader.load (
 
-						'/minifigs/exports/minifig-${color_minifig}.dae',
+						'/minifigs/exports/minifig-white.dae',
 
 						function ( collada ) {
 
@@ -2485,7 +2296,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				var model = loader.load (
 
-					'/${model_path}',
+					'/models/reframe-system/refx-tn-86-koumori/exports/refx-tn-86-koumori.dae',
 
 						function ( collada ) {
 
@@ -2691,201 +2502,16 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 		<!-- end webgl canvas -->
 
-3D-MODEL-PAGE-VIEWER
-
-keywords_list=(
-	super
-)
-
-cat << 3D-MODEL-OPTIONS ->> "${model_directory}/index.html"
 		<!-- options -->
 
 		<div id="options">
 
 			<div class="grid grid-left grid-gap-column-10 grid-gap-row-10 grid-columns-responsive">
 
-3D-MODEL-OPTIONS
-
-if [[ -f "${model_directory}"/options ]]
-then
-	# set IFS
-
-	IFS=$'\n'
-
-	model_options_list=($(cat "${model_directory}"/options))
-
-	for model_option in ${model_options_list[@]}
-	do
-		model_option_directory=${model_directory}
-
-		model_option_prefix=${model_option_directory%%-*}
-
-		model_option_suffix=${model_option_directory##*-}
-
-		if [[ "${model_option_suffix}" =~ ${keywords_list[@]} ]]
-		then
-			flag=keyword
-
-			model_option_directory=${model_option_directory/-${model_mode_suffix}/}
-
-			model_option_prefix=${model_option_directory%*-}
-
-			model_option_suffix=${model_option_directory##*-}
-		fi
-
-		model_option_suffix_length=${#model_option_suffix}
-
-		model_option_base_label=${model_option_directory::-${model_option_suffix_length}}
-
-		model_option_path_label="${model_option_base_label}${model_option}"
-
-		if [[ "${flag}" = "keyword" ]]
-		then
-			model_option_path_label="${model_option_path_label}-super"
-
-			unset flag
-		fi
-
-		model_option_label=${model_option/-/ }
-
-		model_option_label=${model_option_label^^}
-
-cat << 3D-MODEL-OPTIONS ->> "${model_directory}/index.html"
-				<div class="flex-cell option">
-
-					<a class="text-center option-image" href="/${model_option_path_label}"/>
-
-						<img src="/${model_option_path_label}/renders/overlay/overlay.png"/>
-
-						<div class="flex-cell text-center text-bold option-label">
-
-							// ${model_option_label} //
-
-						</div>
-
-					</a>
-
-				</div>
-
-3D-MODEL-OPTIONS
-
-	done
-
-cat << 3D-MODEL-OPTIONS ->> "${model_directory}/index.html"
 			</div>
 
 		</div>
 
-3D-MODEL-OPTIONS
-
-	# unset IFS
-
-	IFS=''
-
-else
-
-cat << 3D-MODEL-OPTIONS ->> "${model_directory}/index.html"
-			</div>
-
-		</div>
-
-3D-MODEL-OPTIONS
-
-fi
-
-if [[ -f "${model_directory}"/modes ]]
-then
-	modes_count=$(cat "${model_directory}"/modes | wc -l)
-
-	cat <<- 3D-MODEL-MODES >> "${model_directory}/index.html"
-			<!-- modes -->
-
-			<div id="modes">
-
-				<div class="grid grid-right grid-gap-column-10 grid-gap-row-10 grid-columns-${modes_count}">
-
-	3D-MODEL-MODES
-
-
-	# set IFS
-
-	IFS=$'\n'
-
-	model_modes_list=($(cat "${model_directory}"/modes))
-
-	for model_mode in ${model_modes_list[@]}
-	do
-		model_mode_directory=${model_directory}
-
-		model_mode_prefix=${model_mode_directory%%-*}
-
-		model_mode_suffix=${model_mode_directory##*-}
-
-		if [[ "${model_mode_suffix}" =~ ${keywords_list[@]} ]]
-		then
-			flag=keyword
-
-			model_mode_directory=${model_mode_directory/-${model_mode_suffix}/}
-
-			model_mode_prefix=${model_mode_directory%*-}
-
-			model_mode_suffix=${model_mode_directory##*-}
-		fi
-
-		model_mode_suffix_length=${#model_mode_suffix}
-		model_mode_base_label=${model_mode_directory::-${model_mode_suffix_length}}
-		model_mode_path_label="${model_mode_base_label}${model_mode}"
-
-		if [[ "${flag}" = "keyword" ]]
-		then
-			model_mode_path_label="${model_mode_path_label}-super"
-
-			unset flag
-		fi
-
-		model_mode_label=${model_mode/-/ }
-
-		model_mode_label=${model_mode_label^^}
-
-		cat <<- 3D-MODEL-MODES >> "${model_directory}/index.html"
-				<div class="flex-cell mode">
-
-					<a class="text-center mode-image" href="/${model_mode_path_label}"/>
-
-						<img src="/${model_mode_path_label}/renders/overlay/overlay.png"/>
-
-						<div class="flex-cell text-center text-bold mode-label">
-
-							// ${model_mode_label} MODE //
-
-						</div>
-
-					</a>
-
-				</div>
-
-		3D-MODEL-MODES
-
-	done
-
-	cat <<- 3D-MODEL-MODES >> "${model_directory}/index.html"
-				</div>
-
-			</div>
-
-	3D-MODEL-MODES
-
-	# unset IFS
-
-	IFS=''
-
-fi
-
-
-if [ -f "${model_paypal}" ]
-then
-
-cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 		<!-- paypal -->
 
 		<div id="paypal">
@@ -2900,7 +2526,7 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 
 				<div id="paypal-button-icon" class="flex-cell">
 
-					<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=${model_paypal_id}">
+					<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9AWWL5Z6TB2H8">
 
 						<div class="icon icon-64 logo-paypal"></div>
 
@@ -2912,84 +2538,54 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 
 		</div>
 
-3D-MODEL-PAYPAL
-
-fi
-
-cat << 3D-MODEL-PAGE-CONTROLS ->> "${model_directory}/index.html"
 		<!-- controls -->
 
 		<div id="controls">
 
 		</div>
 
-3D-MODEL-PAGE-CONTROLS
-
-
-cat << 3D-MODEL-PAGE-PLANE ->> "${model_directory}/index.html"
 		<!-- plane -->
 
 		<div id="plane">
 
 		</div>
 
-3D-MODEL-PAGE-PLANE
-
-cat << 3D-MODEL-PAGE-DIMENSIONS ->> "${model_directory}/index.html"
 		<!-- dimensions -->
 
 		<div id="dimensions">
 
 		</div>
 
-3D-MODEL-PAGE-DIMENSIONS
-
-cat << 3D-MODEL-PAGE-MINIFIG ->> "${model_directory}/index.html"
 		<!-- minifig -->
 
 		<div id="minifig">
 
 		</div>
 
-3D-MODEL-PAGE-MINIFIG
-
-cat << 3D-MODEL-PAGE-WIREFRAME ->> "${model_directory}/index.html"
 		<!-- wireframe -->
 
 		<div id="wireframe">
 
 		</div>
 
-3D-MODEL-PAGE-WIREFRAME
-
-cat << 3D-MODEL-PAGE-EDGES ->> "${model_directory}/index.html"
 		<!-- edges -->
 
 		<div id="edges">
 
 		</div>
 
-3D-MODEL-PAGE-EDGES
-
-cat << 3D-MODEL-PAGE-COLOR ->> "${model_directory}/index.html"
 		<!-- color -->
 
 		<div id="color">
 
 		</div>
 
-3D-MODEL-PAGE-COLOR
-
-cat << 3D-MODEL-PAGE-COLORS ->> "${model_directory}/index.html"
 		<!-- colors -->
 
 		<div id="colors">
 
 		</div>
 
-3D-MODEL-PAGE-COLORS
-
-cat << 3D-MODEL-PAGE-SAMPLES ->> "${model_directory}/index.html"
 		<!-- samples -->
 
 		<div id="samples">
@@ -3010,7 +2606,7 @@ cat << 3D-MODEL-PAGE-SAMPLES ->> "${model_directory}/index.html"
 
 							<div class="grid-span-3 text-right">
 
-								${model_title}
+								REFX-TN-86 KOUMORI
 
 							</div>
 
@@ -3022,7 +2618,7 @@ cat << 3D-MODEL-PAGE-SAMPLES ->> "${model_directory}/index.html"
 
 							<div class="grid-span-3 text-right">
 
-								US\$ ${model_instructions_price}
+								US$ 15.00
 
 							</div>
 
@@ -3038,9 +2634,9 @@ cat << 3D-MODEL-PAGE-SAMPLES ->> "${model_directory}/index.html"
 
 							</div>
 
-							<div class="grid-span-3 ${status_font_indicator} text-right">
+							<div class="grid-span-3 status-font-available text-right">
 
-								${model_paypal_id}
+								9AWWL5Z6TB2H8
 
 							</div>
 
@@ -3050,9 +2646,9 @@ cat << 3D-MODEL-PAGE-SAMPLES ->> "${model_directory}/index.html"
 
 							</div>
 
-							<div class="grid-span-3 ${status_font_indicator} text-right">
+							<div class="grid-span-3 status-font-available text-right">
 
-								${status_message}
+								AVAILABLE FOR PURCHASE
 
 							</div>
 
@@ -3070,9 +2666,9 @@ cat << 3D-MODEL-PAGE-SAMPLES ->> "${model_directory}/index.html"
 
 					<div class="flex-cell product">
 
-						<a href="/${instructions_samples_directory}/sample-01.png"/>
+						<a href="/models/reframe-system/refx-tn-86-koumori/instructions/samples/sample-01.png"/>
 
-							<img src="/${instructions_samples_directory}/sample-01.png"/>
+							<img src="/models/reframe-system/refx-tn-86-koumori/instructions/samples/sample-01.png"/>
 
 						</a>
 
@@ -3082,9 +2678,9 @@ cat << 3D-MODEL-PAGE-SAMPLES ->> "${model_directory}/index.html"
 
 					<div class="flex-cell product">
 
-						<a href="/${instructions_samples_directory}/sample-02.png"/>
+						<a href="/models/reframe-system/refx-tn-86-koumori/instructions/samples/sample-02.png"/>
 
-							<img src="/${instructions_samples_directory}/sample-02.png"/>
+							<img src="/models/reframe-system/refx-tn-86-koumori/instructions/samples/sample-02.png"/>
 
 						</a>
 
@@ -3094,9 +2690,9 @@ cat << 3D-MODEL-PAGE-SAMPLES ->> "${model_directory}/index.html"
 
 					<div class="flex-cell product">
 
-						<a href="/${instructions_samples_directory}/sample-03.png"/>
+						<a href="/models/reframe-system/refx-tn-86-koumori/instructions/samples/sample-03.png"/>
 
-							<img src="/${instructions_samples_directory}/sample-03.png"/>
+							<img src="/models/reframe-system/refx-tn-86-koumori/instructions/samples/sample-03.png"/>
 
 						</a>
 
@@ -3106,9 +2702,9 @@ cat << 3D-MODEL-PAGE-SAMPLES ->> "${model_directory}/index.html"
 
 					<div class="flex-cell product">
 
-						<a href="/${instructions_samples_directory}/sample-04.png"/>
+						<a href="/models/reframe-system/refx-tn-86-koumori/instructions/samples/sample-04.png"/>
 
-							<img src="/${instructions_samples_directory}/sample-04.png"/>
+							<img src="/models/reframe-system/refx-tn-86-koumori/instructions/samples/sample-04.png"/>
 
 						</a>
 
@@ -3118,9 +2714,9 @@ cat << 3D-MODEL-PAGE-SAMPLES ->> "${model_directory}/index.html"
 
 					<div class="flex-cell product">
 
-						<a href="/${instructions_samples_directory}/sample-05.png"/>
+						<a href="/models/reframe-system/refx-tn-86-koumori/instructions/samples/sample-05.png"/>
 
-							<img src="/${instructions_samples_directory}/sample-05.png"/>
+							<img src="/models/reframe-system/refx-tn-86-koumori/instructions/samples/sample-05.png"/>
 
 						</a>
 
@@ -3130,9 +2726,9 @@ cat << 3D-MODEL-PAGE-SAMPLES ->> "${model_directory}/index.html"
 
 					<div class="flex-cell product">
 
-						<a href="/${instructions_samples_directory}/sample-06.png"/>
+						<a href="/models/reframe-system/refx-tn-86-koumori/instructions/samples/sample-06.png"/>
 
-							<img src="/${instructions_samples_directory}/sample-06.png"/>
+							<img src="/models/reframe-system/refx-tn-86-koumori/instructions/samples/sample-06.png"/>
 
 						</a>
 
@@ -3144,36 +2740,24 @@ cat << 3D-MODEL-PAGE-SAMPLES ->> "${model_directory}/index.html"
 
 		</div>
 
-3D-MODEL-PAGE-SAMPLES
-
-cat << 3D-MODEL-PAGE-HELPER ->> "${model_directory}/index.html"
 		<!-- helper -->
 
 		<div id="helper">
 
 		</div>
 
-3D-MODEL-PAGE-HELPER
-
-cat << 3D-MODEL-PAGE-NAVIGATION ->> "${model_directory}/index.html"
 		<!-- navigation -->
 
 		<div id="navigation">
 
 		</div>
 
-3D-MODEL-PAGE-NAVIGATION
-
-cat << 3D-MODEL-PAGE-DRAWER ->> "${model_directory}/index.html"
 		<!-- drawer -->
 
 		<div id="drawer">
 
 		</div>
 
-3D-MODEL-PAGE-DRAWER
-
-cat << 3D-MODEL-PAGE-FOOTER ->> "${model_directory}/index.html"
 		<div id="footer" class="section">
 
 		</div>
@@ -3182,15 +2766,3 @@ cat << 3D-MODEL-PAGE-FOOTER ->> "${model_directory}/index.html"
 
 </html>
 
-3D-MODEL-PAGE-FOOTER
-
-	((count++))
-
-	done
-done
-
-frobulator.inf "Models" "[ ${count} ]"
-echo
-
-frobulator.cpt "Complete" "[ Viewer ]"
-echo
