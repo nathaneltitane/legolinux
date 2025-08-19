@@ -2759,7 +2759,7 @@ cat << 3D-MODEL-OPTIONS ->> "${model_directory}/index.html"
 
 						<div class="flex-cell text-center text-bold option-label">
 
-							// ${model_option_label} //
+							// ${model_option_label} OPTION //
 
 						</div>
 
