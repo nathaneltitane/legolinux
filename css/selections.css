@@ -28,7 +28,8 @@
 
 }
 
-.mode-image img {
+.mode-image img,
+.option-image img {
 	width: 128px;
 	height: 128px;
 }
