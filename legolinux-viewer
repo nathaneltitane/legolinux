@@ -53,7 +53,7 @@ frobulator.script "Setting up ${script#*-}"
 
 # variables ////////////////////////////////////////////////////////////////////
 
-models_directory="${PWD}"/models
+models_directory="${PWD}"/models/veritechs/yf-19-alpha-one-fighter/
 minifigs_directory="${PWD}"/minifigs
 
 # defaults /////////////////////////////////////////////////////////////////////
@@ -2697,14 +2697,14 @@ keywords_list=(
 	super
 )
 
-cat << 3D-MODEL-OPTIONS ->> "${model_directory}/index.html"
-		<!-- options -->
+cat << 3D-MODEL-SELECTIONS ->> "${model_directory}/index.html"
+		<!-- modes / options -->
 
-		<div id="options">
+		<div id="modes">
 
 			<div class="grid grid-left grid-gap-column-10 grid-gap-row-10 grid-columns-responsive">
 
-3D-MODEL-OPTIONS
+3D-MODEL-SELECTIONS
 
 if [[ -f "${model_directory}"/options ]]
 then
@@ -2771,41 +2771,11 @@ cat << 3D-MODEL-OPTIONS ->> "${model_directory}/index.html"
 
 	done
 
-cat << 3D-MODEL-OPTIONS ->> "${model_directory}/index.html"
-			</div>
-
-		</div>
-
-3D-MODEL-OPTIONS
-
-	# unset IFS
-
-	IFS=''
-
-else
-
-cat << 3D-MODEL-OPTIONS ->> "${model_directory}/index.html"
-			</div>
-
-		</div>
-
-3D-MODEL-OPTIONS
-
 fi
 
 if [[ -f "${model_directory}"/modes ]]
 then
 	modes_count=$(cat "${model_directory}"/modes | wc -l)
-
-	cat <<- 3D-MODEL-MODES >> "${model_directory}/index.html"
-			<!-- modes -->
-
-			<div id="modes">
-
-				<div class="grid grid-right grid-gap-column-10 grid-gap-row-10 grid-columns-${modes_count}">
-
-	3D-MODEL-MODES
-
 
 	# set IFS
 
@@ -2868,19 +2838,18 @@ then
 
 	done
 
-	cat <<- 3D-MODEL-MODES >> "${model_directory}/index.html"
-				</div>
+fi
 
+cat << 3D-MODEL-SELECTIONS ->> "${model_directory}/index.html"
 			</div>
 
-	3D-MODEL-MODES
+		</div>
+
+3D-MODEL-SELECTIONS
 
 	# unset IFS
 
 	IFS=''
-
-fi
-
 
 if [ -f "${model_paypal}" ]
 then

@@ -1,4 +1,4 @@
-#modes {
+#selections {
 	position: absolute;
 	top: 0px;
 	left: 0px;
@@ -46,7 +46,7 @@
 	animation-fill-mode: forwards;
 }
 
-#modes:has(.mode:hover) {
+#selections:has(.mode:hover) {
 	background: #aaaaaaff;
 	border-radius: 0px 0px 20px 20px;
 	padding: 10px 10px 10px;
@@ -87,7 +87,7 @@
 	color: #ffffffff;
 }
 
-@keyframes modes-reveal {
+@keyframes selections-reveal {
 	/* media.css */
 }
 
@@ -103,10 +103,10 @@
 	100% {opacity: 1;}
 }
 
-.modes-hide {
+.selections-hide {
 	opacity: 0;
 }
 
-.modes-show {
+.selections-show {
 	opacity: 1;
 }
