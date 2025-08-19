@@ -2698,9 +2698,9 @@ keywords_list=(
 )
 
 cat << 3D-MODEL-SELECTIONS ->> "${model_directory}/index.html"
-		<!-- modes / options -->
+		<!-- selections -->
 
-		<div id="modes">
+		<div id="selections">
 
 			<div class="grid grid-left grid-gap-column-10 grid-gap-row-10 grid-columns-responsive">
 
