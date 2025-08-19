@@ -53,7 +53,7 @@ frobulator.script "Setting up ${script#*-}"
 
 # variables ////////////////////////////////////////////////////////////////////
 
-models_directory="${PWD}"/models/veritechs/yf-19-alpha-one-fighter/
+models_directory="${PWD}"/models/veritechs
 minifigs_directory="${PWD}"/minifigs
 
 # defaults /////////////////////////////////////////////////////////////////////
