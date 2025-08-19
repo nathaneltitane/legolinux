@@ -173,11 +173,11 @@
 
 @media (min-height: 920px) {
 
-	#modes {
+	#selections {
 		margin: 0px 0px 0px 0px;
 	}
 
-	#modes:has(.mode:hover) {
+	#selections:has(.mode:hover) {
 		margin: 0px 0px 0px 0px;
 	}
 
@@ -187,11 +187,11 @@
 
 @media (max-height: 920px) {
 
-	#modes {
+	#selections {
 		margin: 0px 62px 0px 62px;
 	}
 
-	#modes:has(.mode:hover) {
+	#selections:has(.mode:hover) {
 		margin: 0px 0px 0px 0px;
 	}
 
