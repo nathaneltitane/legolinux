@@ -202,70 +202,70 @@ list=()
 if [[ "${option}" = "all" ]]
 then
 	list+=(
-		legolinux-exports
-		legolinux-renders
-		legolinux-instructions
-		legolinux-models
-		legolinux-images
-		legolinux-drawer
-#		legolinux-menu
-		legolinux-viewer
+		mechablocks-exports
+		mechablocks-renders
+		mechablocks-instructions
+		mechablocks-models
+		mechablocks-images
+		mechablocks-drawer
+#		mechablocks-menu
+		mechablocks-viewer
 	)
 fi
 
 if [[ "${option}" = "exports" ]]
 then
 	list+=(
-		legolinux-exports
+		mechablocks-exports
 	)
 fi
 
 if [[ "${option}" = "renders" ]]
 then
 	list+=(
-		legolinux-renders
+		mechablocks-renders
 	)
 fi
 
 if [[ "${option}" = "instructions" ]]
 then
 	list+=(
-		legolinux-instructions
+		mechablocks-instructions
 	)
 fi
 
 if [[ "${option}" = "models" ]]
 then
 	list+=(
-		legolinux-models
+		mechablocks-models
 	)
 fi
 
 if [[ "${option}" = "images" ]]
 then
 	list+=(
-		legolinux-images
+		mechablocks-images
 	)
 fi
 
 if [[ "${option}" = "drawer" ]]
 then
 	list+=(
-		legolinux-drawer
+		mechablocks-drawer
 	)
 fi
 
 if [[ "${option}" = "menu" ]]
 then
 	list+=(
-		legolinux-menu
+		mechablocks-menu
 	)
 fi
 
 if [[ "${option}" = "viewer" ]]
 then
 	list+=(
-		legolinux-viewer
+		mechablocks-viewer
 	)
 fi
 

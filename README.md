@@ -1,12 +1,12 @@
-![LegoLinux](https://raw.githubusercontent.com/nathaneltitane/legolinux/main/legolinux.svg)
+![mechablocks](https://raw.githubusercontent.com/nathaneltitane/mechablocks/main/mechablocks.svg)
 
 [![Donate](https://img.shields.io/badge/Paypal-2f343f.svg?style=for-the-badge&logo=paypal&label=Donate)](https://www.paypal.com/donate?hosted_button_id=ZW3CDCANHJCWJ)
 
-[[ Lego // Linux // Project Page ]](https://github.com/nathaneltitane/legolinux) [ Version // 01-21-2023 ]
+[[ Lego // Linux // Project Page ]](https://github.com/nathaneltitane/mechablocks) [ Version // 01-21-2023 ]
 
 ---
 
-### Welcome to [Lego // Linux](https://legolinux.com)
+### Welcome to [Lego // Linux](https://mechablocks.com)
 
 Lego // Linux - Where Lego and Linux meet!
 
@@ -28,7 +28,7 @@ This repository hosts the website dedicated to showcasing AFOL Lego models and t
 
 ### Reports:
 
-[Submit bug report or feature request](https://github.com/nathaneltitane/legolinux/issues)
+[Submit bug report or feature request](https://github.com/nathaneltitane/mechablocks/issues)
 
 ### Projects:
 
@@ -42,7 +42,7 @@ This repository hosts the website dedicated to showcasing AFOL Lego models and t
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/nathaneltitane/terminal?style=for-the-badge&logo=gnubash&logoColor=ffffff&label=TERMINAL)](https://github.com/nathaneltitane/terminal)
 
-[![GitHub Repo stars](https://img.shields.io/github/stars/nathaneltitane/legolinux?style=for-the-badge&logo=gnubash&logoColor=ffffff&label=LEGO%20//%20LINUX)](https://github.com/nathaneltitane/legolinux)
+[![GitHub Repo stars](https://img.shields.io/github/stars/nathaneltitane/mechablocks?style=for-the-badge&logo=gnubash&logoColor=ffffff&label=LEGO%20//%20LINUX)](https://github.com/nathaneltitane/mechablocks)
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/nathaneltitane/pixtrm?style=for-the-badge&logo=gnubash&logoColor=ffffff&label=PIXTRM)](https://github.com/nathaneltitane/pixtrm)
 
@@ -52,7 +52,7 @@ This repository hosts the website dedicated to showcasing AFOL Lego models and t
 
 ---
 
-[[ Lego // Linux // Project Page ]](https://github.com/nathaneltitane/legolinux) [ Version // 01-21-2023 ]
+[[ Mecha // Blocks // Project Page ]](https://github.com/nathaneltitane/mechablocks) [ Version // 01-21-2023 ]
 
 ### Enjoying Lego // Linux? Buy me a coffee to show your appreciation!
 
