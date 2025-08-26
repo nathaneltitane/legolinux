@@ -2899,7 +2899,7 @@ cat << 3D-MODEL-OPTIONS ->> "${model_directory}/index.html"
 
 					<a class="text-center option-image" href="/${model_option_path_label}"/>
 
-						<img src="/${model_option_path_label}/${overlay_directory}/overlay.png"/>
+						<img src="/${model_option_path_label}/${overlay_directory}/overlay.png" alt="${model_title} LEGO® MOC - ${model_option_label} OPTION"/>
 
 						<div class="flex-cell text-center text-bold option-label">
 
@@ -2966,7 +2966,7 @@ then
 
 					<a class="text-center mode-image" href="/${model_mode_path_label}"/>
 
-						<img src="/${model_mode_path_label}/${overlay_directory}/overlay.png"/>
+						<img src="/${overlay_directory}/overlay.png" alt="${model_title} LEGO® MOC - ${model_mode_label} MODE"/>
 
 						<div class="flex-cell text-center text-bold mode-label">
 
