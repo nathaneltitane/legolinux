@@ -322,7 +322,7 @@ cat << 3D-MODEL-PAGE-HEADER -> "${model_directory}/index.html"
 		}
 		</script>
 
-		<!-- webpage (about + primary image) -->
+		<!-- webpage information + primary image -->
 
 		<script type="application/ld+json">
 
