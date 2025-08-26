@@ -275,7 +275,7 @@ cat << 3D-MODEL-PAGE-HEADER -> "${model_directory}/index.html"
 					"name": "What do I get when I purchase?",
 					"acceptedAnswer": {
 						"@type": "Answer",
-						"text": "A digital set of step-by-step building instructions for the ${model_title} LEGO® MOC."
+						"text": "A digital set of step-by-step building instructions for the '${model_title}' LEGO® MOC."
 					}
 				},
 				{
@@ -303,7 +303,7 @@ cat << 3D-MODEL-PAGE-HEADER -> "${model_directory}/index.html"
 			"category": "LEGO® MOC",
 			"description": "Custom Armored Core–inspired LEGO® MOC with interactive 3D preview. Purchase step-by-step building instructions (digital download).",
 			"image": [
-				"https://mechablocks.com/models/armored-cores/cr-c75u2-close-combat/${overlay_directory}/overlay.png",
+				"https://mechablocks.com/${overlay_directory}/overlay.png",
 				"https://mechablocks.com/models/armored-cores/cr-c75u2-close-combat/instructions/samples/sample-01.png",
 				"https://mechablocks.com/models/armored-cores/cr-c75u2-close-combat/instructions/samples/sample-02.png",
 				"https://mechablocks.com/models/armored-cores/cr-c75u2-close-combat/instructions/samples/sample-03.png"
