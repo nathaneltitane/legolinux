@@ -314,7 +314,7 @@ cat << 3D-MODEL-PAGE-HEADER -> "${model_directory}/index.html"
 			"url": "https://mechablocks.com/models/armored-cores/cr-c75u2-close-combat",
 			"offers": {
 				"@type": "Offer",
-				"price": "${model_price}",
+				"price": "${model_instructions_price}",
 				"priceCurrency": "USD",
 				"availability": "https://schema.org/InStock",
 				"url": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=${model_paypal_id}"
