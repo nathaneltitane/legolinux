@@ -144,7 +144,6 @@ do
 
 		# randomize minifig helper color
 
-		exit
 		minifig_prefix="minifig-"
 
 		minifigs_list=$(find ${minifigs_directory} -type f -iname "*.${extension}" )
