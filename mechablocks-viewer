@@ -98,6 +98,12 @@ do
 
 		model_directory="${model_path%/*/*}"
 
+		# define model category
+
+		model_category_directory="${model_path%/*/*/*}"
+
+		model_category_title=$(cat "${model_path%/*/*/*}"/title)
+
 		# define model output directories
 
 		export_directory="${model_directory}"/exports
@@ -138,6 +144,7 @@ do
 
 		# randomize minifig helper color
 
+		exit
 		minifig_prefix="minifig-"
 
 		minifigs_list=$(find ${minifigs_directory} -type f -iname "*.${extension}" )
@@ -253,6 +260,138 @@ cat << 3D-MODEL-PAGE-HEADER -> "${model_directory}/index.html"
 				}
 
 			}
+
+		</script>
+
+		<!-- information -->
+
+		<script type="application/ld+json">
+
+		{
+			"@context": "https://schema.org",
+			"@type": "FAQPage",
+			"mainEntity": [
+				{
+					"@type": "Question",
+					"name": "What do I get when I purchase?",
+					"acceptedAnswer": {
+						"@type": "Answer",
+						"text": "A digital set of step-by-step building instructions for the ${model_title} LEGO® MOC."
+					}
+				},
+				{
+					"@type": "Question",
+					"name": "Can I preview dimensions before buying?",
+					"acceptedAnswer": {
+						"@type": "Answer",
+						"text": "Yes. The live 3D viewer lets you toggle dimensions to inspect width, height, and depth."
+					}
+				}
+			]
+		}
+
+		</script>
+
+		<!-- product -->
+
+		<script type="application/ld+json">
+
+		{
+			"@context": "https://schema.org",
+			"@type": "Product",
+			"name": "${model_title} – LEGO® MOC Instructions",
+			"brand": { "@type": "Brand", "name": "MechaBlocks" },
+			"category": "LEGO® MOC",
+			"description": "Custom Armored Core–inspired LEGO® MOC with interactive 3D preview. Purchase step-by-step building instructions (digital download).",
+			"image": [
+				"https://mechablocks.com/models/armored-cores/cr-c75u2-close-combat/${overlay_directory}/overlay.png",
+				"https://mechablocks.com/models/armored-cores/cr-c75u2-close-combat/instructions/samples/sample-01.png",
+				"https://mechablocks.com/models/armored-cores/cr-c75u2-close-combat/instructions/samples/sample-02.png",
+				"https://mechablocks.com/models/armored-cores/cr-c75u2-close-combat/instructions/samples/sample-03.png"
+				"https://mechablocks.com/models/armored-cores/cr-c75u2-close-combat/instructions/samples/sample-04.png"
+				"https://mechablocks.com/models/armored-cores/cr-c75u2-close-combat/instructions/samples/sample-05.png"
+				"https://mechablocks.com/models/armored-cores/cr-c75u2-close-combat/instructions/samples/sample-06.png"
+			],
+			"url": "https://mechablocks.com/models/armored-cores/cr-c75u2-close-combat",
+			"offers": {
+				"@type": "Offer",
+				"price": "${model_price}",
+				"priceCurrency": "USD",
+				"availability": "https://schema.org/InStock",
+				"url": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=${model_paypal_id}"
+			}
+		}
+		</script>
+
+		<!-- webpage (about + primary image) -->
+
+		<script type="application/ld+json">
+
+		{
+			"@context": "https://schema.org",
+			"@type": "WebPage",
+			"name": "${model_title} – LEGO® MOC 3D Preview + Instructions",
+			"url": "https://mechablocks.com/models/armored-cores/cr-c75u2-close-combat",
+			"description": "Build the '${model_title}' LEGO® MOC. Preview the model in 3D, see dimensions, and purchase step-by-step instructions.",
+			"primaryImageOfPage": {
+				"@type": "ImageObject",
+				"url": "https://mechablocks.com/${overlay_directory}/overlay.png"
+			},
+			"isPartOf": {
+				"@type": "WebSite",
+				"name": "MechaBlocks",
+				"url": "https://mechablocks.com"
+			}
+		}
+
+		</script>
+
+		<!-- breadcrumbs -->
+
+		<script type="application/ld+json">
+
+		{
+			"@context": "https://schema.org",
+			"@type": "BreadcrumbList",
+			"itemListElement": [
+				{
+					"@type": "ListItem",
+					"position": 1,
+					"name": "Home",
+					"item": "https://mechablocks.com/"
+				},
+				{
+					"@type": "ListItem",
+					"position": 2,
+					"name": "Armored Cores",
+					"item": "https://mechablocks.com/${model_category_directory}"
+				},
+				{
+					"@type": "ListItem",
+					"position": 3,
+					"name": "${model_title}"
+				}
+			]
+		}
+
+		</script>
+
+		<!-- 3d model metadata -->
+
+		<script type="application/ld+json">
+
+		{
+			"@context": "https://schema.org",
+			"@type": "3DModel",
+			"name": "${model_title} – LEGO® MOC (Collada / DAE)",
+			"encodingFormat": "model/vnd.collada+xml",
+			"contentUrl": "https://mechablocks.com/${model_path}",
+			"isBasedOn": "${model_category_title}",
+			"creator": {
+				"@type": "Person",
+				"name": "Nathanel Titane"
+			}
+		}
 
 		</script>
 
@@ -2761,7 +2900,7 @@ cat << 3D-MODEL-OPTIONS ->> "${model_directory}/index.html"
 
 					<a class="text-center option-image" href="/${model_option_path_label}"/>
 
-						<img src="/${model_option_path_label}/renders/overlay/overlay.png"/>
+						<img src="/${model_option_path_label}/${overlay_directory}/overlay.png"/>
 
 						<div class="flex-cell text-center text-bold option-label">
 
@@ -2828,7 +2967,7 @@ then
 
 					<a class="text-center mode-image" href="/${model_mode_path_label}"/>
 
-						<img src="/${model_mode_path_label}/renders/overlay/overlay.png"/>
+						<img src="/${model_mode_path_label}/${overlay_directory}/overlay.png"/>
 
 						<div class="flex-cell text-center text-bold mode-label">
 
@@ -3045,7 +3184,7 @@ cat << 3D-MODEL-PAGE-SAMPLES ->> "${model_directory}/index.html"
 
 					<div class="flex-cell product">
 
-						<a href="/${instructions_samples_directory}/sample-01.png"/>
+						<a href="/${instructions_samples_directory}/sample-01.png" alt="${model_title} LEGO® MOC - instruction sample - page 1"/>
 
 							<img src="/${instructions_samples_directory}/sample-01.png"/>
 
@@ -3057,9 +3196,9 @@ cat << 3D-MODEL-PAGE-SAMPLES ->> "${model_directory}/index.html"
 
 					<div class="flex-cell product">
 
-						<a href="/${instructions_samples_directory}/sample-02.png"/>
+						<a href="/${instructions_samples_directory}/sample-02.png""/>
 
-							<img src="/${instructions_samples_directory}/sample-02.png"/>
+							<img src="/${instructions_samples_directory}/sample-02.png" alt="${model_title} LEGO® MOC - instruction sample - page 2"/>
 
 						</a>
 
@@ -3071,7 +3210,7 @@ cat << 3D-MODEL-PAGE-SAMPLES ->> "${model_directory}/index.html"
 
 						<a href="/${instructions_samples_directory}/sample-03.png"/>
 
-							<img src="/${instructions_samples_directory}/sample-03.png"/>
+							<img src="/${instructions_samples_directory}/sample-03.png" alt="${model_title} LEGO® MOC - instruction sample - page 3"/>
 
 						</a>
 
@@ -3083,7 +3222,7 @@ cat << 3D-MODEL-PAGE-SAMPLES ->> "${model_directory}/index.html"
 
 						<a href="/${instructions_samples_directory}/sample-04.png"/>
 
-							<img src="/${instructions_samples_directory}/sample-04.png"/>
+							<img src="/${instructions_samples_directory}/sample-04.png" alt="${model_title} LEGO® MOC - instruction sample - page 4"/>
 
 						</a>
 
@@ -3095,7 +3234,7 @@ cat << 3D-MODEL-PAGE-SAMPLES ->> "${model_directory}/index.html"
 
 						<a href="/${instructions_samples_directory}/sample-05.png"/>
 
-							<img src="/${instructions_samples_directory}/sample-05.png"/>
+							<img src="/${instructions_samples_directory}/sample-05.png" alt="${model_title} LEGO® MOC - instruction sample - page 5"/>
 
 						</a>
 
@@ -3107,7 +3246,7 @@ cat << 3D-MODEL-PAGE-SAMPLES ->> "${model_directory}/index.html"
 
 						<a href="/${instructions_samples_directory}/sample-06.png"/>
 
-							<img src="/${instructions_samples_directory}/sample-06.png"/>
+							<img src="/${instructions_samples_directory}/sample-06.png" alt="${model_title} LEGO® MOC - instruction sample - page 6"/>
 
 						</a>
 
@@ -3147,6 +3286,34 @@ cat << 3D-MODEL-PAGE-DRAWER ->> "${model_directory}/index.html"
 		</div>
 
 3D-MODEL-PAGE-DRAWER
+
+cat << 3D-MODEL-PAGE-FAQ ->> "${model_directory}/index.html"
+
+		<!-- frequently asked questions -->
+
+		<div id="drawer">
+
+			<section aria-labelledby="faq-title">
+
+				<h2 id="faq-title">CR-C75U2 – FAQ</h2>
+
+				<dl>
+
+					<dt>What do I get when I purchase?</dt>
+
+					<dd>You receive a digital set of step-by-step building instructions for the CR-C75U2 Close Combat LEGO® MOC.</dd>
+
+					<dt>Can I preview dimensions before buying?</dt>
+
+					<dd>Yes. Use the 3D preview to toggle edges and dimensions and inspect width, height, and depth.</dd>
+
+				</dl>
+
+			</section>
+
+		</div>
+
+3D-MODEL-PAGE-FAQ
 
 cat << 3D-MODEL-PAGE-FOOTER ->> "${model_directory}/index.html"
 		<div id="footer" class="section">
