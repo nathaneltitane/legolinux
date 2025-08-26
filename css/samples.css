@@ -30,7 +30,7 @@
 }
 
 .samples-show {
-	height: calc( 100vh - 0px );
+	height: calc( 100vh + 20px );
 
 	animation: samples-reveal 1s;
 	animation-delay: 0s;
