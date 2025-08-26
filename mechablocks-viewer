@@ -3195,7 +3195,7 @@ cat << 3D-MODEL-PAGE-SAMPLES ->> "${model_directory}/index.html"
 
 					<div class="flex-cell product">
 
-						<a href="/${instructions_samples_directory}/sample-02.png""/>
+						<a href="/${instructions_samples_directory}/sample-02.png"/>
 
 							<img src="/${instructions_samples_directory}/sample-02.png" alt="${model_title} LEGO® MOC - Instruction Sample - Page 2"/>
 

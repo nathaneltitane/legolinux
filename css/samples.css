@@ -26,11 +26,11 @@
 @keyframes samples-reveal {
 	0% {height: 0vh;}
 
-	100% {height: calc( 100vh - 0px );}
+	100% {height: calc( 100vh + 20px );}
 }
 
 .samples-show {
-	height: calc( 100vh + 20px );
+	height: calc( 100vh - 0px );
 
 	animation: samples-reveal 1s;
 	animation-delay: 0s;
