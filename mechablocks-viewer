@@ -190,16 +190,16 @@ cat << 3D-MODEL-PAGE-HEADER -> "${model_directory}/index.html"
 
 	<head>
 
+		<!-- viewport -->
+
+		<meta name="viewport"				content="width=device-width, initial-scale=1.0">
+
 		<!-- title -->
 
 		<title>MECHA // BLOCKS - ${model_title_string}</title>
 
 		<meta name="title"					content="MECHA // BLOCKS - ${model_title_string}">
 		<meta name="description"			content="Preview this model in 3D!">
-
-		<!-- viewport -->
-
-		<meta name="viewport"				content="width=device-width, initial-scale=1.0">
 
 		<!-- social media -->
 
