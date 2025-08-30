@@ -1,0 +1,9 @@
+.landing {
+	background: transparent;
+	color: #222222ff;
+	padding: 10px 10px 10px 10px;
+	margin: 0px 0px 0px 0px;
+	position: absolute;
+	z-index: 999;
+}
+
