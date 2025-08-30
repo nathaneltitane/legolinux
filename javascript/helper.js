@@ -5,7 +5,7 @@ $( document ).ready ( function ( ) {
 	var helper = $( '.helper' );
 
 	var ids = [
-        '#navigation-button-label',
+        '#browse-button-label',
         '#paypal-button-label',
         '#color-button-label',
         '#dimensions-button-label',
@@ -17,7 +17,7 @@ $( document ).ready ( function ( ) {
     ];
 
     var classes = [
-        'navigation-label-color',
+        'browse-label-color',
         'paypal-label-color',
         'color-label-color',
         'dimensions-label-color',

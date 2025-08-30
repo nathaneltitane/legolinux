@@ -3,7 +3,7 @@
 $( document ).ready ( function ( ) {
 
     var ids = [
-        '#navigation-button-label',
+        '#browse-button-label',
         '#paypal-button-label',
         '#color-button-label',
         '#dimensions-button-label',

@@ -5,7 +5,7 @@ $( document ).ready ( function ( ) {
 	var modes = $( '#modes' );
 
 	var ids = [
-        '#navigation',
+        '#browse',
         '#paypal',
         '#color',
         '#dimensions',
