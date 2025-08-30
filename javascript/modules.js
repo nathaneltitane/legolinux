@@ -14,9 +14,9 @@ $( function ( ) {
 
 	} );
 
-	$.get ( '/modules/navigation.html', function ( data ) {
+	$.get ( '/modules/browse.html', function ( data ) {
 
-		$( '#navigation' ).append ( data );
+		$( '#browse' ).append ( data );
 
 	} );
 
