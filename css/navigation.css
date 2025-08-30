@@ -1,4 +1,4 @@
-#navigation {
+#browse {
 	height: 64px;
 	width: 64px;
 	position: fixed;
@@ -7,17 +7,17 @@
 	padding: 10px 10px 10px 10px;
 }
 
-#navigation-button-label {
+#browse-button-label {
 	padding: 0px 10px 0px 0px;
 }
 
-@keyframes navigation-reveal {
+@keyframes browse-reveal {
 	0% {right: -200px;}
 
 	100% {right: 0px;}
 }
 
-.navigation {
+.browse {
 	color: #000000ff;
 	margin: 0px 0px 0px 0px;
 	padding: 10px 4px 10px 10px;
@@ -26,12 +26,12 @@
 	bottom: calc(80px);
 	right: -200px;
 
-	animation-name: navigation-reveal;
+	animation-name: browse-reveal;
 	animation-delay: 1.5s;
 	animation-duration: 1s;
 	animation-fill-mode: forwards;
 }
 
-.navigation-label-color {
+.browse-label-color {
 	 color: #00000000;
 }

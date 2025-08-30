@@ -3,6 +3,7 @@
 @import url("/css/avatar.css");
 @import url("/css/background.css");
 @import url("/css/body.css");
+@import url("/css/browse.css");
 @import url("/css/canvas.css");
 @import url("/css/color.css");
 @import url("/css/colors.css");
@@ -30,7 +31,6 @@
 @import url("/css/media.css");
 @import url("/css/minifig.css");
 @import url("/css/modal.css");
-@import url("/css/navigation.css");
 @import url("/css/notice.css");
 @import url("/css/paypal.css");
 @import url("/css/plane.css");
