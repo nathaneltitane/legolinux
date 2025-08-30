@@ -5,7 +5,7 @@ $( document ).ready ( function ( ) {
 	var drawer = $( '#drawer' );
 
 	var ids = [
-        '#navigation-button-label',
+        '#browse-button-label',
         '#paypal-button-label',
         '#color-button-label',
         '#edges-button-label',
@@ -14,7 +14,7 @@ $( document ).ready ( function ( ) {
     ];
 
     var classes = [
-        'navigation-label-color',
+        'browse-label-color',
         'paypal-label-color',
         'color-label-color',
 		'edges-label-color',
@@ -69,7 +69,7 @@ $( document ).ready ( function ( ) {
         }
     };
 
-    $( '.navigation' ).click ( function ( event ) {
+    $( '.browse' ).click ( function ( event ) {
 
         show ( ) ;
 
