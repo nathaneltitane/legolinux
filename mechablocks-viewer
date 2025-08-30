@@ -3269,9 +3269,9 @@ cat << 3D-MODEL-PAGE-HELPER ->> "${model_directory}/index.html"
 3D-MODEL-PAGE-HELPER
 
 cat << 3D-MODEL-PAGE-NAVIGATION ->> "${model_directory}/index.html"
-		<!-- navigation -->
+		<!-- browse -->
 
-		<div id="navigation">
+		<div id="browse">
 
 		</div>
 
