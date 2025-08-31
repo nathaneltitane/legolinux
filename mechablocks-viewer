@@ -3215,7 +3215,9 @@ cat << 3D-MODEL-PAGE-SAMPLES ->> "${model_directory}/index.html"
 
 							</div>
 
-							<div class="grid-span-3  text-center">
+							</br>
+
+							<div class="grid-span-3 ${status_font_indicator} text-center">
 
 								<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=${model_paypal_id}">
 
