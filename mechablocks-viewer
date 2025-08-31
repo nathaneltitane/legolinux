@@ -3013,11 +3013,7 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 
 				<div id="paypal-button-icon" class="flex-cell">
 
-					<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=${model_paypal_id}">
-
-						<div class="icon icon-64 logo-paypal"></div>
-
-					</a>
+					<div class="icon icon-64 logo-paypal"></div>
 
 				</div>
 
@@ -3218,6 +3214,12 @@ cat << 3D-MODEL-PAGE-SAMPLES ->> "${model_directory}/index.html"
 								${model_paypal_id}
 
 							</div>
+
+							<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=${model_paypal_id}">
+
+								BUY
+
+							</a>
 
 							<div class="grid-span-4">
 
