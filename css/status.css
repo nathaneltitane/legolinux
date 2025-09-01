@@ -40,6 +40,6 @@
 	font-weight: bold;
 }
 
-a.status-button-available:hover {
-		color: #efefefff !important;
+.status-button-available:hover {
+	color: #efefefff !important;
 }
