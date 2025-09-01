@@ -181,12 +181,20 @@ do
 			status_font_indicator="status-font-progress"
 
 			status_message="NOT YET AVAILABLE FOR PURCHASE"
+
+			status_button_message="NOT YET AVAILABLE FOR PURCHASE"
+
+			status_button_color="status-button-progress"
 		else
 			model_paypal_id="${model_paypal_id}"
 
 			status_font_indicator="status-font-available"
 
 			status_message="AVAILABLE FOR PURCHASE"
+
+			status_button_message="PURCHASE INSTRUCTIONS"
+
+			status_button_color="status-button-available"
 		fi
 
 cat << 3D-MODEL-PAGE-HEADER -> "${model_directory}/index.html"
@@ -3221,11 +3229,11 @@ cat << 3D-MODEL-PAGE-SAMPLES ->> "${model_directory}/index.html"
 
 							</div>
 
-							<div class="grid-span-4 ${status_font_indicator} text-center">
+							<div class="grid-span-4 text-center">
 
-								<a class="button purchase" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=${model_paypal_id}">
+								<a class="button purchase ${status_button_color}" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=${model_paypal_id}">
 
-									BUY INSTRUCTIONS
+									"${status_button_message}"
 
 								</a>
 
