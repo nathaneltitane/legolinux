@@ -75,7 +75,7 @@ $( document ).ready ( function ( ) {
 
     $( '.paypal' ).click ( function ( event ) {
 
-        show ( ) ;
+        toggle ( ) ;
 
     } );
 
