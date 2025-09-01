@@ -73,7 +73,7 @@ $( document ).ready ( function ( ) {
         }
     };
 
-    $( '.paypal' ).hover ( function ( event ) {
+    $( '.paypal' ).click ( function ( event ) {
 
         show ( ) ;
 
