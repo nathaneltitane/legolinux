@@ -128,6 +128,8 @@ do
 
 		model_title_string=$(echo ${model_title//\<\/\br\>/})
 
+		paypal_currency="US\$"
+
 		model_paypal="${model_directory}"/paypal
 
 		model_paypal_id=$(cat "${model_paypal}")
@@ -3225,7 +3227,7 @@ cat << 3D-MODEL-PAGE-SAMPLES ->> "${model_directory}/index.html"
 
 							<div class="grid-span-3 text-right">
 
-								US\$ ${model_instructions_price}
+								${paypal_currency} ${model_instructions_price}
 
 							</div>
 
