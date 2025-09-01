@@ -3159,7 +3159,7 @@ cat << 3D-MODEL-PAGE-SAMPLES ->> "${model_directory}/index.html"
 
 											</br>
 
-											TIP: Use the minifig icon to get an idea of the scale!
+											TIP: TOGGLE THE MINIFIG TOOL ICON TO GET AN IDEA OF THE SCALE!
 
 										</dd>
 
