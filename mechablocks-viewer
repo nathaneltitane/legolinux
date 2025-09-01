@@ -3233,7 +3233,7 @@ cat << 3D-MODEL-PAGE-SAMPLES ->> "${model_directory}/index.html"
 
 								<a class="button purchase ${status_button_color}" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=${model_paypal_id}">
 
-									"${status_button_message}"
+									${status_button_message}
 
 								</a>
 

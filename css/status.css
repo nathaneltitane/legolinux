@@ -8,6 +8,12 @@
 	background: #37a537;
 }
 
+.status-button-available {
+	background: #8de08d;
+	color: #37a537 !important;
+	font-weight: bold;
+}
+
 .status-font-available {
 	color: #8de08d !important;
 	font-weight: bold;
@@ -21,6 +27,12 @@
 
 .status-background-progress {
 	background: #ff9e5e;
+}
+
+.status-button-progress {
+	background: #b44e0b;
+	color: #ff9e5e !important;
+	font-weight: bold;
 }
 
 .status-font-progress {
