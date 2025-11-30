@@ -450,9 +450,9 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// scaling unit - 1 stud = 0.008 m = 20 ldu >>> 1 ldu = 0.0004 m
 
-				const editorScale = 0.0004;
+				const editor_scale = 0.0004;
 
-				const startTime = performance.now();
+				const start_time = performance.now ( );
 
 				var self  = this;
 
@@ -1823,7 +1823,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						// set minifig scale
 
-						minifig.scale.setScalar ( editorScale );
+						minifig.scale.setScalar ( editor_scale );
 
 						// compute minifig position
 
@@ -3082,7 +3082,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				const endTime = performance.now();
 
-				const loadTime = ( ( endTime - startTime ) / 1000).toFixed ( 2 );
+				const loadTime = ( ( endTime - start_time ) / 1000).toFixed ( 2 );
 
 				console.log ( 'load [ time / s ] = ' +  loadTime );
 
