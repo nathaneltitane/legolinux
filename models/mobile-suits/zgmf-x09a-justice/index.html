@@ -339,7 +339,102 @@
 				this.renderer.setSize ( viewportWidth, viewportHeight );
 				this.renderer.clear ( );
 
+				// device information overlay  - debugging
 
+				var device_info_overlay = null;
+				var debug_overlay_enabled = true;
+
+				function create_device_overlay_if_needed ( ) {
+
+					if ( device_info_overlay ) {
+
+						return;
+
+					}
+
+					device_info_overlay = document.createElement ( 'div' );
+
+					device_info_overlay.id = 'device-info-overlay';
+
+					device_info_overlay.style.position = 'fixed';
+					device_info_overlay.style.left = '0.75rem';
+					device_info_overlay.style.bottom = '0.75rem';
+					device_info_overlay.style.zIndex = '9998';
+					device_info_overlay.style.padding = '0.35rem 0.6rem';
+					device_info_overlay.style.borderRadius = '0.5rem';
+					device_info_overlay.style.background = 'rgba(0, 0, 0, 0.65)';
+					device_info_overlay.style.color = '#ffffff';
+					device_info_overlay.style.fontFamily = 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
+					device_info_overlay.style.fontSize = '0.75rem';
+					device_info_overlay.style.lineHeight = '1.15';
+					device_info_overlay.style.pointerEvents = 'none';
+					device_info_overlay.style.whiteSpace = 'pre';
+
+					document.body.appendChild ( device_info_overlay );
+
+				}
+
+				function set_debug_overlay_enabled ( enabled ) {
+
+					debug_overlay_enabled = enabled;
+
+					if ( enabled ) {
+
+						create_device_overlay_if_needed ();
+
+						device_info_overlay.textContent =
+							'device: [' + device_type + ']\n' +
+							'os: [' +  + ']\n' +
+							'dpr: [' + pixelRatio.toFixed ( 2 ) + ']';
+
+						device_info_overlay.style.display = 'block';
+
+					} else {
+
+						if ( device_info_overlay ) {
+
+							device_info_overlay.remove ( );
+							device_info_overlay = null;
+
+						}
+
+					}
+
+				}
+
+				// enable overlay by default?
+
+				set_debug_overlay_enabled ( false );
+
+				// global keyboard toggle for debug overlay ('~' key)
+
+				if ( ! window._device_overlay_listener_added ) {
+
+					window._device_overlay_listener_added = true;
+
+					window.addEventListener ( 'keydown', function ( event ) {
+
+						// ignore when typing in inputs / textareas
+
+						var tag = event.target.tagName.toLowerCase ();
+
+						if ( tag === 'input' || tag === 'textarea' || event.target.isContentEditable ) {
+
+							return;
+
+						}
+
+						if ( event.key === '`' || event.key === '\~' ) {
+
+							set_debug_overlay_enabled ( ! debug_overlay_enabled );
+
+							console.log ( 'debug overlay : ' + ( debug_overlay_enabled ? 'on' : 'off' ) );
+
+						}
+
+					});
+
+				}
 
 				this.renderer.shadowMap.enabled = true;
 				this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
