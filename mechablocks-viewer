@@ -500,7 +500,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				} else {
 
-					var device_type = 'desktop / laptop';
+					var device_type = 'pc / os';
 
 				}
 
