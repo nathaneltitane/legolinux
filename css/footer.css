@@ -4,23 +4,22 @@
 	height: 80px;
 	width: auto;
 	position: fixed;
-	left: 0;
-	right: 0;
-	bottom: 0;                           /* always flush with bottom */
+	bottom: -80px;
+	left: 0px;
+	right: 0px;
 
-	transform: translateY(100%);         /* start hidden off-screen */
 	animation-name: footer-reveal;
 	animation-delay: 0.5s;
 	animation-duration: 1s;
 	animation-fill-mode: forwards;
 }
 
-/* wrapper height can stay as-is */
 .footer {
 	height: 80px;
 }
 
 @keyframes footer-reveal {
-	0%   { transform: translateY(100%); }
-	100% { transform: translateY(0); }
+	0% {bottom: -80px;}
+
+	100% {bottom: 0px;}
 }
