@@ -436,6 +436,41 @@
 
 				}
 
+				// debug overlay - mobile friendly
+
+				var last_tap_time = 0;
+
+				if (!window._device_overlay_double_tap_added) {
+
+					window._device_overlay_double_tap_added = true;
+
+					window.addEventListener('touchend', function (event) {
+
+						var current_time = Date.now ( );
+						var tap_gap = current_time - last_tap_time;
+
+						// double tap (100ms–350ms)
+
+						if (tap_gap > 100 && tap_gap < 350) {
+
+							set_debug_overlay_enabled(!debug_overlay_enabled);
+
+							console.log (
+								'debug overlay (double-tap): ' +
+								(debug_overlay_enabled ? 'on' : 'off')
+							);
+
+							event.preventDefault();
+
+							event.stopPropagation();
+						}
+
+						last_tap_time = current_time;
+
+					}, { passive: false });
+
+				}
+
 				// webgl context loss handling (ios / mobile safety)
 
 				this.renderer.domElement.addEventListener ( 'webglcontextlost', function ( event ) {
@@ -1547,7 +1582,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-black.dae',
+						'/minifigs/exports/minifig-red.dae',
 
 						function ( collada ) {
 
