@@ -325,12 +325,19 @@
 
 				// renderer
 
-				this.renderer = new THREE.WebGLRenderer ( { canvas, precision: 'highp', antialias: true, alpha: true } );
+				this.renderer = new THREE.WebGLRenderer ( {
+
+					canvas,
+					precision: 'highp',
+					antialias: ! isMobile,
+					alpha: true
+
+				} );
 
 				this.renderer.setClearColor ( black, 0 );
-				this.renderer.setPixelRatio ( window.devicePixelRatio );
+				this.renderer.setPixelRatio ( pixelRatio );
 				this.renderer.setSize ( viewportWidth, viewportHeight );
-				this.renderer.clear();
+				this.renderer.clear ( );
 
 				this.renderer.shadowMap.enabled = true;
 				this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
@@ -1440,7 +1447,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-yellow.dae',
+						'/minifigs/exports/minifig-white.dae',
 
 						function ( collada ) {
 
