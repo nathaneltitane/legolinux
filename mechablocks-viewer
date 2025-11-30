@@ -469,12 +469,12 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				const viewport_width = window.innerWidth;
 				const viewport_height = window.innerHeight;
 
-				const viewportRatio = viewport_width / viewport_height;
+				const viewport_ratio = viewport_width / viewport_height;
 
-				const left   = - ( viewportRatio / 2 );
-				const right  =   ( viewportRatio / 2 );
-				const top    =   ( viewportRatio / 2 );
-				const bottom = - ( viewportRatio / 2 );
+				const left   = - ( viewport_ratio / 2 );
+				const right  =   ( viewport_ratio / 2 );
+				const top    =   ( viewport_ratio / 2 );
+				const bottom = - ( viewport_ratio / 2 );
 
 				// device detection
 
@@ -773,7 +773,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				this.perspectiveCamera = new THREE.PerspectiveCamera (
 					45,									// fov
-					viewportRatio,						// aspect
+					viewport_ratio,						// aspect
 					camera_near,							// near
 					camera_far							// far
 				);
