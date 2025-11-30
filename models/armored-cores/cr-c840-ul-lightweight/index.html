@@ -275,11 +275,11 @@
 
 				const mobile_device = /Mobi|Android|iPhone|iPad|iPod/i.test ( navigator.userAgent );
 
-				const maxMobileDPR = 2;
+				const maximum_mobile_device_pixel_ratio = 2;
 
 				const devicePixelRatio_ = ( window.devicePixelRatio || 1 );
 
-				const pixelRatio = mobile_device ? Math.min ( maxMobileDPR, devicePixelRatio_ ) : devicePixelRatio_;
+				const pixelRatio = mobile_device ? Math.min ( maximum_mobile_device_pixel_ratio, devicePixelRatio_ ) : devicePixelRatio_;
 
 				if (mobile_device) {
 
@@ -1448,7 +1448,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-white.dae',
+						'/minifigs/exports/minifig-green.dae',
 
 						function ( collada ) {
 
