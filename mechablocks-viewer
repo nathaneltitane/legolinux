@@ -504,7 +504,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				}
 
-				console.log ( 'device: [' + device_type + ']' );
+				console.log ( 'device: [ ' + device_type + ' ]' );
 
 				// colors
 
