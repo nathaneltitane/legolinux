@@ -273,15 +273,15 @@
 
 				// device detection
 
-				const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test ( navigator.userAgent );
+				const mobile_device = /Mobi|Android|iPhone|iPad|iPod/i.test ( navigator.userAgent );
 
 				const maxMobileDPR = 2;
 
 				const devicePixelRatio_ = ( window.devicePixelRatio || 1 );
 
-				const pixelRatio = isMobile ? Math.min ( maxMobileDPR, devicePixelRatio_ ) : devicePixelRatio_;
+				const pixelRatio = mobile_device ? Math.min ( maxMobileDPR, devicePixelRatio_ ) : devicePixelRatio_;
 
-				if (isMobile) {
+				if (mobile_device) {
 
 					if (/iPhone|iPad|iPod/i.test (navigator.userAgent) ) {
 
@@ -329,7 +329,7 @@
 
 					canvas,
 					precision: 'highp',
-					antialias: ! isMobile,
+					antialias: ! mobile_device,
 					alpha: true
 
 				} );
@@ -547,8 +547,9 @@
 				this.pointLight.shadow.camera.far = far;
 				this.pointLight.shadow.camera.near = near;
 				this.pointLight.shadow.focus = 0.25;
-				this.pointLight.shadow.mapSize.height = 4096;
-				this.pointLight.shadow.mapSize.width = 4096;
+				this.pointLight.shadow.mapSize.height = mobile_device ? 2048 : 4096;
+				this.pointLight.shadow.mapSize.width  = mobile_device ? 2048 : 4096;
+
 
 				this.scene.add ( this.pointLight );
 
@@ -1447,7 +1448,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-white.dae',
+						'/minifigs/exports/minifig-green.dae',
 
 						function ( collada ) {
 
