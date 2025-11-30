@@ -528,7 +528,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// canvas
 
-				this.canvas = document.querySelector ('#canvas');
+				this.canvas = document.querySelector ( '#canvas' );
 
 				// renderer
 
