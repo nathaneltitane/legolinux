@@ -454,7 +454,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				const start_time = performance.now ( );
 
-				var self  = this;
+				var self = this;
 
 				// viewport
 
