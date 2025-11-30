@@ -437,9 +437,6 @@ ZGEUG3DCATJD4"
 
 				}
 
-				this.renderer.shadowMap.enabled = true;
-				this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-
 				// webgl context loss handling (ios / mobile safety)
 
 				this.renderer.domElement.addEventListener ( 'webglcontextlost', function ( event ) {
@@ -499,6 +496,11 @@ ZGEUG3DCATJD4"
 					document.body.appendChild ( overlay );
 
 				} );
+
+				// renderer shadowmap integration
+
+				this.renderer.shadowMap.enabled = true;
+				this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
 				// scene
 

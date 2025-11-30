@@ -641,9 +641,6 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				}
 
-				this.renderer.shadowMap.enabled = true;
-				this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-
 				// webgl context loss handling (ios / mobile safety)
 
 				this.renderer.domElement.addEventListener ( 'webglcontextlost', function ( event ) {
@@ -703,6 +700,11 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 					document.body.appendChild ( overlay );
 
 				} );
+
+				// renderer shadowmap integration
+
+				this.renderer.shadowMap.enabled = true;
+				this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
 				// scene
 

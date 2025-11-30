@@ -436,9 +436,6 @@
 
 				}
 
-				this.renderer.shadowMap.enabled = true;
-				this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-
 				// webgl context loss handling (ios / mobile safety)
 
 				this.renderer.domElement.addEventListener ( 'webglcontextlost', function ( event ) {
@@ -498,6 +495,11 @@
 					document.body.appendChild ( overlay );
 
 				} );
+
+				// renderer shadowmap integration
+
+				this.renderer.shadowMap.enabled = true;
+				this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
 				// scene
 
@@ -1545,7 +1547,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-white.dae',
+						'/minifigs/exports/minifig-fuschia.dae',
 
 						function ( collada ) {
 
