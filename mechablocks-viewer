@@ -629,11 +629,11 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						}
 
-						if ( event.key === '`' || event.key === '~' ) {
+						if ( event.key === '`' || event.key === '\~' ) {
 
 							set_debug_overlay_enabled ( ! debug_overlay_enabled );
 
-							console.log ( 'debug overlay: ' + ( debug_overlay_enabled ? 'on' : 'off' ) );
+							console.log ( 'debug overlay : ' + ( debug_overlay_enabled ? 'on' : 'off' ) );
 
 						}
 
