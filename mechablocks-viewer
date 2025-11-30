@@ -522,7 +522,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// edges
 
-				var lineThickness = 2;
+				var lineThickness = 1;
 
 				// canvas
 
