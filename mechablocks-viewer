@@ -549,7 +549,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				var device_info_overlay = null;
 				var debug_overlay_enabled = true;
 
-				function create_device_overlay_if_needed () {
+				function create_device_overlay_if_needed ( ) {
 
 					if ( device_info_overlay ) {
 
@@ -598,7 +598,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						if ( device_info_overlay ) {
 
-							device_info_overlay.remove ();
+							device_info_overlay.remove ( );
 							device_info_overlay = null;
 
 						}
@@ -637,7 +637,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						}
 
-					} );
+					});
 
 				}
 
