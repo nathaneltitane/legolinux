@@ -522,9 +522,9 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// edges
 
-				var lineThickness = 1;
+				var line_thickness = 1;
 
-				console.log ( 'line thickness : ' + lineThickness );
+				console.log ( 'line thickness : ' + line_thickness );
 
 				// canvas
 
@@ -1855,7 +1855,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 									color: black,
 
-									linewidth: lineThickness
+									linewidth: line_thickness
 
 								} );
 
@@ -1982,7 +1982,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 							color: black,
 
-							linewidth: lineThickness
+							linewidth: line_thickness
 
 						} );
 
