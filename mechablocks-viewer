@@ -689,7 +689,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					button.onclick = function () {
 
-					location.reload ();
+						location.reload ();
 
 					};
 
