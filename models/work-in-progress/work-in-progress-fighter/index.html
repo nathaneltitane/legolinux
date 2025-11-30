@@ -259,12 +259,12 @@
 				const far  = ( near * 4 );
 
 				const camera_near = ( factor );
-				const cameraFar  = ( factor * 4 * 1000 );
+				const camera_far  = ( factor * 4 * 1000 );
 
-				const viewportWidth = window.innerWidth;
-				const viewportHeight = window.innerHeight;
+				const viewport_width = window.innerWidth;
+				const viewport_height = window.innerHeight;
 
-				const viewportRatio = viewportWidth / viewportHeight;
+				const viewportRatio = viewport_width / viewport_height;
 
 				const left   = - ( viewportRatio / 2 );
 				const right  =   ( viewportRatio / 2 );
@@ -338,7 +338,7 @@
 
 				this.renderer.setClearColor ( black, 0 );
 				this.renderer.setPixelRatio ( pixelRatio );
-				this.renderer.setSize ( viewportWidth, viewportHeight );
+				this.renderer.setSize ( viewport_width, viewport_height );
 				this.renderer.clear ( );
 
 				// debugging overlay - standard
@@ -570,7 +570,7 @@
 					45,									// fov
 					viewportRatio,						// aspect
 					camera_near,							// near
-					cameraFar							// far
+					camera_far							// far
 				);
 
 				// orthographic
@@ -581,7 +581,7 @@
 					top,								// top - frustum
 					bottom, 							// bottom - frustum
 					camera_near,							// near
-					cameraFar							// far
+					camera_far							// far
 				);
 
 				// set camera type
@@ -1584,7 +1584,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-purple.dae',
+						'/minifigs/exports/minifig-green.dae',
 
 						function ( collada ) {
 
