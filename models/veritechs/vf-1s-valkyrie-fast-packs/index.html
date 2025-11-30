@@ -277,13 +277,13 @@
 
 				const maximum_mobile_device_pixel_ratio = 2;
 
-				const devicePixelRatio_ = ( window.devicePixelRatio || 1 );
+				const device_pixel_ratio = ( window.devicePixelRatio || 1 );
 
-				const pixelRatio = mobile_device ? Math.min ( maximum_mobile_device_pixel_ratio, devicePixelRatio_ ) : devicePixelRatio_;
+				const pixelRatio = mobile_device ? Math.min ( maximum_mobile_device_pixel_ratio, device_pixel_ratio ) : device_pixel_ratio;
 
 				if (mobile_device) {
 
-					if (/iPhone|iPad|iPod/i.test (navigator.userAgent) ) {
+					if (/iPhone|iPad|iPod/i.test ( navigator.userAgent ) ) {
 
 						var device_type = 'apple / ios';
 
@@ -1584,7 +1584,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-fuschia.dae',
+						'/minifigs/exports/minifig-white.dae',
 
 						function ( collada ) {
 
