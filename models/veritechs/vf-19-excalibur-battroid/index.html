@@ -271,6 +271,36 @@
 				const top    =   ( viewportRatio / 2 );
 				const bottom = - ( viewportRatio / 2 );
 
+				// device detection
+
+				const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test ( navigator.userAgent );
+
+				const maxMobileDPR = 2;
+
+				const devicePixelRatio_ = ( window.devicePixelRatio || 1 );
+
+				const pixelRatio = isMobile ? Math.min ( maxMobileDPR, devicePixelRatio_ ) : devicePixelRatio_;
+
+				if (isMobile) {
+
+					if (/iPhone|iPad|iPod/i.test (navigator.userAgent) ) {
+
+						var device_type = 'apple / ios';
+
+					} else {
+
+						var device_type = 'android / mobile';
+
+					}
+
+				} else {
+
+					var device_type = 'desktop / laptop';
+
+				}
+
+				console.log ( 'device: [' + device_type + ']' );
+
 				// colors
 
 				var black    = 0x000000;
@@ -1410,7 +1440,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-red.dae',
+						'/minifigs/exports/minifig-white.dae',
 
 						function ( collada ) {
 
