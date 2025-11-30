@@ -343,36 +343,36 @@
 
 				// debugging overlay - standard
 
-				var device_info_overlay = null;
+				var device_information_overlay = null;
 				var debug_overlay_enabled = true;
 
 				function create_device_overlay_if_needed ( ) {
 
-					if ( device_info_overlay ) {
+					if ( device_information_overlay ) {
 
 						return;
 
 					}
 
-					device_info_overlay = document.createElement ( 'div' );
+					device_information_overlay = document.createElement ( 'div' );
 
-					device_info_overlay.id = 'device-info-overlay';
+					device_information_overlay.id = 'device-information-overlay';
 
-					device_info_overlay.style.position = 'fixed';
-					device_info_overlay.style.left = '0.75rem';
-					device_info_overlay.style.bottom = '0.75rem';
-					device_info_overlay.style.zIndex = '9998';
-					device_info_overlay.style.padding = '0.35rem 0.6rem';
-					device_info_overlay.style.borderRadius = '0.5rem';
-					device_info_overlay.style.background = 'rgba(0, 0, 0, 0.65)';
-					device_info_overlay.style.color = '#ffffff';
-					device_info_overlay.style.fontFamily = 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
-					device_info_overlay.style.fontSize = '0.75rem';
-					device_info_overlay.style.lineHeight = '1.15';
-					device_info_overlay.style.pointerEvents = 'none';
-					device_info_overlay.style.whiteSpace = 'pre';
+					device_information_overlay.style.position = 'fixed';
+					device_information_overlay.style.left = '0.75rem';
+					device_information_overlay.style.bottom = '0.75rem';
+					device_information_overlay.style.zIndex = '9998';
+					device_information_overlay.style.padding = '0.35rem 0.6rem';
+					device_information_overlay.style.borderRadius = '0.5rem';
+					device_information_overlay.style.background = 'rgba(0, 0, 0, 0.65)';
+					device_information_overlay.style.color = '#ffffff';
+					device_information_overlay.style.fontFamily = 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
+					device_information_overlay.style.fontSize = '0.75rem';
+					device_information_overlay.style.lineHeight = '1.15';
+					device_information_overlay.style.pointerEvents = 'none';
+					device_information_overlay.style.whiteSpace = 'pre';
 
-					document.body.appendChild ( device_info_overlay );
+					document.body.appendChild ( device_information_overlay );
 
 				}
 
@@ -384,19 +384,19 @@
 
 						create_device_overlay_if_needed ();
 
-						device_info_overlay.textContent =
+						device_information_overlay.textContent =
 							'device: [' + device_type + ']\n' +
 							'os: [' +  + ']\n' +
 							'dpr: [' + pixelRatio.toFixed ( 2 ) + ']';
 
-						device_info_overlay.style.display = 'block';
+						device_information_overlay.style.display = 'block';
 
 					} else {
 
-						if ( device_info_overlay ) {
+						if ( device_information_overlay ) {
 
-							device_info_overlay.remove ( );
-							device_info_overlay = null;
+							device_information_overlay.remove ( );
+							device_information_overlay = null;
 
 						}
 
@@ -1584,7 +1584,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-fuschia.dae',
+						'/minifigs/exports/minifig-red.dae',
 
 						function ( collada ) {
 
