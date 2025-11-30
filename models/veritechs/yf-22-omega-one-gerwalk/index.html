@@ -305,6 +305,66 @@
 				this.renderer.shadowMap.enabled = true;
 				this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
+				// webgl context loss handling (ios / mobile safety)
+
+				this.renderer.domElement.addEventListener ( 'webglcontextlost', function ( event ) {
+
+					event.preventDefault ();
+
+					console.warn ( 'webgl context lost - showing fallback overlay' );
+
+					// avoid adding multiple overlays if context is lost more than once
+
+					if ( document.getElementById ( 'webgl-context-lost' ) ) return;
+
+					var overlay = document.createElement ( 'div' );
+
+					overlay.id = 'webgl-context-lost';
+
+					overlay.style.position = 'fixed';
+					overlay.style.inset = '0';
+					overlay.style.zIndex = '9999';
+					overlay.style.display = 'flex';
+					overlay.style.flexDirection = 'column';
+					overlay.style.alignItems = 'center';
+					overlay.style.justifyContent = 'center';
+					overlay.style.background = 'rgba(0, 0, 0, 0.9)';
+					overlay.style.color = '#ffffff';
+					overlay.style.fontFamily = 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
+					overlay.style.padding = '1.5rem';
+					overlay.style.textAlign = 'center';
+
+					var title = document.createElement ( 'div' );
+					title.textContent = 'your device ran out of graphics resources';
+					title.style.fontSize = '1.25rem';
+					title.style.marginBottom = '0.75rem';
+
+					var message = document.createElement ( 'div' );
+					message.textContent = 'reload this page to restart the 3d viewer.';
+					message.style.marginBottom = '1.25rem';
+
+					var button = document.createElement ( 'button' );
+					button.textContent = 'reload viewer';
+					button.style.padding = '0.5rem 1.25rem';
+					button.style.borderRadius = '999px';
+					button.style.border = 'none';
+					button.style.cursor = 'pointer';
+					button.style.fontWeight = 'bold';
+
+					button.onclick = function () {
+
+					location.reload ();
+
+					};
+
+					overlay.appendChild ( title );
+					overlay.appendChild ( message );
+					overlay.appendChild ( button );
+
+					document.body.appendChild ( overlay );
+
+				} );
+
 				// scene
 
 				this.scene = new THREE.Scene();
@@ -1350,7 +1410,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-red.dae',
+						'/minifigs/exports/minifig-white.dae',
 
 						function ( collada ) {
 
