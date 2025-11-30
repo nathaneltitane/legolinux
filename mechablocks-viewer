@@ -463,7 +463,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				const near = ( factor * 4 );
 				const far  = ( near * 4 );
 
-				const cameraNear = ( factor );
+				const camera_near = ( factor );
 				const cameraFar  = ( factor * 4 * 1000 );
 
 				const viewportWidth = window.innerWidth;
@@ -774,7 +774,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				this.perspectiveCamera = new THREE.PerspectiveCamera (
 					45,									// fov
 					viewportRatio,						// aspect
-					cameraNear,							// near
+					camera_near,							// near
 					cameraFar							// far
 				);
 
@@ -785,7 +785,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 					right,								// right - frustum
 					top,								// top - frustum
 					bottom, 							// bottom - frustum
-					cameraNear,							// near
+					camera_near,							// near
 					cameraFar							// far
 				);
 
