@@ -682,7 +682,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				this.renderer.domElement.addEventListener ( 'webglcontextlost', function ( event ) {
 
-					event.preventDefault ();
+					event.preventDefault ( );
 
 					console.warn ( 'webgl context lost - showing fallback overlay' );
 
@@ -724,9 +724,9 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 					button.style.cursor = 'pointer';
 					button.style.fontWeight = 'bold';
 
-					button.onclick = function () {
+					button.onclick = function ( ) {
 
-						location.reload ();
+						location.reload ( );
 
 					};
 
@@ -774,7 +774,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				this.perspectiveCamera = new THREE.PerspectiveCamera (
 					45,									// fov
 					viewport_ratio,						// aspect
-					camera_near,							// near
+					camera_near,						// near
 					camera_far							// far
 				);
 
@@ -785,7 +785,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 					right,								// right - frustum
 					top,								// top - frustum
 					bottom, 							// bottom - frustum
-					camera_near,							// near
+					camera_near,						// near
 					camera_far							// far
 				);
 
@@ -1008,7 +1008,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				this.axesHelper_visible = false;
 
-				this.get_axesHelper = function() {
+				this.get_axesHelper = function ( ) {
 
 					if ( ! self.axesHelper ) {
 
@@ -1022,7 +1022,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				}
 
-				this.axesHelper_ = function() {
+				this.axesHelper_ = function ( ) {
 
 					if ( this.axesHelper_visible ) {
 
