@@ -532,24 +532,27 @@
 					overlay.style.flexDirection = 'column';
 					overlay.style.alignItems = 'center';
 					overlay.style.justifyContent = 'center';
-					overlay.style.background = 'rgba(0, 0, 0, 0.9)';
-					overlay.style.color = '#ffffff';
-					overlay.style.fontFamily = 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
-					overlay.style.padding = '1.5rem';
+					overlay.style.background = '#cccccccc';
+					overlay.style.color = '#666666ff';
+					device_information_overlay.style.fontFamily = 'system-ui, -apple-system, monospace';
+					overlay.style.padding = '20px 20px 20px 20px';
 					overlay.style.textAlign = 'center';
 
 					var title = document.createElement ( 'div' );
-					title.textContent = 'your device ran out of graphics resources';
-					title.style.fontSize = '1.25rem';
-					title.style.marginBottom = '0.75rem';
+
+					title.textContent = 'Your device ran out of graphics resources:';
+					title.style.fontSize = '20px';
+					title.style.marginBottom = '20px';
 
 					var message = document.createElement ( 'div' );
-					message.textContent = 'reload this page to restart the 3d viewer.';
-					message.style.marginBottom = '1.25rem';
+
+					message.textContent = 'Reload this page to restart the 3D viewer.';
+					message.style.marginBottom = '20px';
 
 					var button = document.createElement ( 'button' );
+
 					button.textContent = 'reload viewer';
-					button.style.padding = '0.5rem 1.25rem';
+					button.style.padding = '10px 10px 10px 10px';
 					button.style.borderRadius = '999px';
 					button.style.border = 'none';
 					button.style.cursor = 'pointer';
@@ -746,8 +749,8 @@
 				this.directionalLight_0.shadow.camera.far = far;
 				this.directionalLight_0.shadow.camera.near = near;
 				this.directionalLight_0.shadow.focus = 0.25;
-				this.directionalLight_0.shadow.mapSize.height = 4096;
-				this.directionalLight_0.shadow.mapSize.width = 4096;
+				this.directionalLight_0.shadow.mapSize.height = mobile_device ? 2048 : 4096;
+				this.directionalLight_0.shadow.mapSize.width = mobile_device ? 2048 : 4096;
 
 				this.scene.add ( this.directionalLight_0 );
 
@@ -772,8 +775,8 @@
 				this.directionalLight_1.shadow.camera.far = far;
 				this.directionalLight_1.shadow.camera.near = near;
 				this.directionalLight_1.shadow.focus = 0.25;
-				this.directionalLight_1.shadow.mapSize.height = 4096;
-				this.directionalLight_1.shadow.mapSize.width = 4096;
+				this.directionalLight_1.shadow.mapSize.height = mobile_device ? 2048 : 4096;
+				this.directionalLight_1.shadow.mapSize.width = mobile_device ? 2048 : 4096;
 
 				this.scene.add ( this.directionalLight_1 );
 
@@ -796,8 +799,8 @@
 				this.directionalLight_2.shadow.camera.far = far;
 				this.directionalLight_2.shadow.camera.near = near;
 				this.directionalLight_2.shadow.focus = 0.25;
-				this.directionalLight_2.shadow.mapSize.height = 4096;
-				this.directionalLight_2.shadow.mapSize.width = 4096;
+				this.directionalLight_2.shadow.mapSize.height = mobile_device ? 2048 : 4096;
+				this.directionalLight_2.shadow.mapSize.width = mobile_device ? 2048 : 4096;
 
 				this.scene.add ( this.directionalLight_2 );
 
@@ -826,8 +829,8 @@
 				this.spotLight.shadow.camera.far = far;
 				this.spotLight.shadow.camera.near = near;
 				this.spotLight.shadow.focus = 0.25;
-				this.spotLight.shadow.mapSize.height = 4096;
-				this.spotLight.shadow.mapSize.width = 4096;
+				this.spotLight.shadow.mapSize.height = mobile_device ? 2048 : 4096;
+				this.spotLight.shadow.mapSize.width = mobile_device ? 2048 : 4096;
 
 				this.scene.add ( this.spotLight );
 
@@ -1620,7 +1623,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-white.dae',
+						'/minifigs/exports/minifig-green.dae',
 
 						function ( collada ) {
 
