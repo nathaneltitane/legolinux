@@ -378,6 +378,7 @@
 				// debugging overlay - standard
 
 				var device_information_overlay = null;
+
 				var debug_overlay_enabled = true;
 
 				function create_device_overlay_if_needed ( ) {
@@ -393,13 +394,13 @@
 					device_information_overlay.id = 'device-information-overlay';
 
 					device_information_overlay.style.position = 'fixed';
-					device_information_overlay.style.left = '0.75rem';
-					device_information_overlay.style.bottom = '0.75rem';
+					device_information_overlay.style.left = '10px';
+					device_information_overlay.style.bottom = '10px';
 					device_information_overlay.style.zIndex = '9998';
-					device_information_overlay.style.padding = '0.35rem 0.6rem';
-					device_information_overlay.style.borderRadius = '0.5rem';
+					device_information_overlay.style.padding = '10px 10px 10px 10px';
+					device_information_overlay.style.borderRadius = '10px';
 					device_information_overlay.style.background = 'rgba(0, 0, 0, 0.65)';
-					device_information_overlay.style.color = '#ffffff';
+					device_information_overlay.style.color = '#ffffffff';
 					device_information_overlay.style.fontFamily = 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
 					device_information_overlay.style.fontSize = '0.75rem';
 					device_information_overlay.style.lineHeight = '1.15';
@@ -1620,7 +1621,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-green.dae',
+						'/minifigs/exports/minifig-fuschia.dae',
 
 						function ( collada ) {
 
