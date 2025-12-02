@@ -311,7 +311,7 @@
 
 				const device_pixel_ratio = ( window.devicePixelRatio || 1 );
 
-				const pixelRatio = mobile_device ? Math.min ( maximum_mobile_device_pixel_ratio, device_pixel_ratio ) : device_pixel_ratio;
+				const pixel_ratio = mobile_device ? Math.min ( maximum_mobile_device_pixel_ratio, device_pixel_ratio ) : device_pixel_ratio;
 
 				if (mobile_device) {
 
@@ -371,7 +371,7 @@
 				} );
 
 				this.renderer.setClearColor ( black, 0 );
-				this.renderer.setPixelRatio ( pixelRatio );
+				this.renderer.setPixelRatio ( pixel_ratio );
 				this.renderer.setSize ( viewport_width, viewport_height );
 				this.renderer.clear ( );
 
@@ -421,9 +421,9 @@
 						create_device_overlay_if_needed ();
 
 						device_information_overlay.textContent =
-							'device : [' + device_type + ']\n' +
-							'os : [' + os + ']\n' +
-							'dpr : [' + pixelRatio.toFixed ( 2 ) + ']';
+							'device : [ ' + device_type + ' ]'			+ ''\n' +
+							'operating system : [ ' + os + ' ]'						+ '\n' +
+							'device pixel ratio : [ ' + pixel_ratio.toFixed ( 2 ) + ' ]';
 
 						device_information_overlay.style.display = 'block';
 
@@ -1620,7 +1620,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-white.dae',
+						'/minifigs/exports/minifig-grey.dae',
 
 						function ( collada ) {
 
