@@ -638,6 +638,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 						if ( device_information_overlay ) {
 
 							device_information_overlay.remove ( );
+
 							device_information_overlay = null;
 
 						}
