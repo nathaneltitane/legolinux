@@ -875,15 +875,15 @@
 
 				// bounding box helper
 
-				var boundingBoxHelper_visible = false;
+				var bounding_box_helper_visible = false;
 
-				this.boundingBoxHelper = null;
+				this.bounding_box_helper = null;
 
-				this.boundingBoxHelper_visible = false;
+				this.bounding_box_helper_visible = false;
 
-				this.get_boundingBoxHelper = function ( ) {
+				this.get_bounding_box_helper = function ( ) {
 
-					if ( ! self.boundingBoxHelper ) {
+					if ( ! self.bounding_box_helper ) {
 
 						const box = self.get_boundingBox( );
 
@@ -992,34 +992,34 @@
 
 						const material = new THREE.LineBasicMaterial ( { vertexColors: true } );
 
-						self.boundingBoxHelper = new THREE.LineSegments ( geometry, material );
+						self.bounding_box_helper = new THREE.LineSegments ( geometry, material );
 
 						console.log ( "helper [ bounding box ]" );
 					}
 
-					return self.boundingBoxHelper;
+					return self.bounding_box_helper;
 
 				}
 
-				this.boundingBoxHelper_ = function ( ) {
+				this.bounding_box_helper_ = function ( ) {
 
-					if ( this.boundingBoxHelper_visible ) {
+					if ( this.bounding_box_helper_visible ) {
 
-						this.boundingBoxHelper_visible = false;
+						this.bounding_box_helper_visible = false;
 
-						self.scene.remove ( self.get_boundingBoxHelper( ) );
+						self.scene.remove ( self.get_bounding_box_helper( ) );
 
-						boundingBoxHelper_visible = false;
+						bounding_box_helper_visible = false;
 
 					}
 
 					else {
 
-						this.boundingBoxHelper_visible = true;
+						this.bounding_box_helper_visible = true;
 
-						self.scene.add ( self.get_boundingBoxHelper( ) );
+						self.scene.add ( self.get_bounding_box_helper( ) );
 
-						boundingBoxHelper_visible = true;
+						bounding_box_helper_visible = true;
 					}
 				}
 
@@ -1623,7 +1623,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-yellow.dae',
+						'/minifigs/exports/minifig-white.dae',
 
 						function ( collada ) {
 
@@ -1945,44 +1945,44 @@
 
 				// dimensions toggle
 
-				var boundingBoxHelper_visible = false;
+				var bounding_box_helper_visible = false;
 
 				var dimensionLabels_visible = false;
 
 				this.dimensionsToggle_ = function( ) {
 
-					if ( boundingBoxHelper_visible && dimensionLabels_visible ) {
+					if ( bounding_box_helper_visible && dimensionLabels_visible ) {
 
 						// both on >>> turn both off
 
-						self.boundingBoxHelper_( );
+						self.bounding_box_helper_( );
 						self.dimensionLabels_( );
 
-						boundingBoxHelper_visible = false;
+						bounding_box_helper_visible = false;
 						dimensionLabels_visible = false;
 
-					} else if ( boundingBoxHelper_visible && ! dimensionLabels_visible ) {
+					} else if ( bounding_box_helper_visible && ! dimensionLabels_visible ) {
 
 						// bounding box on >>> add dimensions
 
 						self.dimensionLabels_( );
 						dimensionLabels_visible = true;
 
-					} else if ( ! boundingBoxHelper_visible && dimensionLabels_visible ) {
+					} else if ( ! bounding_box_helper_visible && dimensionLabels_visible ) {
 
 						// dimensions on >>> add bounding box
 
-						self.boundingBoxHelper_( );
-						boundingBoxHelper_visible = true;
+						self.bounding_box_helper_( );
+						bounding_box_helper_visible = true;
 
 					} else {
 
 						// both off >>> turn both on
 
-						self.boundingBoxHelper_( );
+						self.bounding_box_helper_( );
 						self.dimensionLabels_( );
 
-						boundingBoxHelper_visible = true;
+						bounding_box_helper_visible = true;
 						dimensionLabels_visible = true;
 
 					}
@@ -2357,7 +2357,7 @@
 
 						case 66:
 
-							self.boundingBoxHelper_( );
+							self.bounding_box_helper_( );
 
 							break;
 
