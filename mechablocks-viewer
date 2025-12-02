@@ -163,7 +163,7 @@ do
 
 		colors_list_count=${#colors_list[@]}
 
-		color_index_random=$((RANDOM % colors_list_count ) )
+		color_index_random=$(( RANDOM % colors_list_count ))
 
 		color_minifig=${colors_list[color_index_random]}
 
@@ -3701,7 +3701,7 @@ cat << 3D-MODEL-PAGE-FOOTER ->> "${model_directory}/index.html"
 
 3D-MODEL-PAGE-FOOTER
 
-	((count++ ) )
+	((count++ ))
 
 	done
 done
