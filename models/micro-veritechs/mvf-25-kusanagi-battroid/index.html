@@ -433,6 +433,7 @@
 						if ( device_information_overlay ) {
 
 							device_information_overlay.remove ( );
+
 							device_information_overlay = null;
 
 						}
@@ -479,13 +480,14 @@
 
 				var last_tap_time = 0;
 
-				if (!window._device_overlay_double_tap_added) {
+				if ( !window._device_overlay_double_tap_added ) {
 
 					window._device_overlay_double_tap_added = true;
 
-					window.addEventListener('touchend', function (event) {
+					window.addEventListener ( 'touchend', function ( event ) {
 
 						var current_time = Date.now ( );
+
 						var tap_gap = current_time - last_tap_time;
 
 						// double tap (100ms–350ms)
@@ -494,14 +496,11 @@
 
 							set_debug_overlay_enabled(!debug_overlay_enabled);
 
-							console.log (
-								'debug overlay (double-tap): ' +
-								(debug_overlay_enabled ? 'on' : 'off')
-							);
+							console.log ( 'debug overlay ( double-tap ): ' + ( debug_overlay_enabled ? 'on' : 'off' ) );
 
-							event.preventDefault();
+							event.preventDefault ( );
 
-							event.stopPropagation();
+							event.stopPropagation ( );
 						}
 
 						last_tap_time = current_time;
@@ -1621,7 +1620,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-yellow.dae',
+						'/minifigs/exports/minifig-white.dae',
 
 						function ( collada ) {
 
