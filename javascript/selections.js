@@ -18,7 +18,7 @@ $ ( document ) .ready ( function ( ) {
 
 	function show ( ) {
 
-		selections.style.marginBottom = '0px';
+		selections.style.marginTop = '0px';
 
 	}
 
