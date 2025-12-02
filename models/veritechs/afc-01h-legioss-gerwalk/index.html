@@ -248,15 +248,25 @@
 			let operating_system =  "Unknown";
 
 			if (/Windows/.test(userAgent)) {
+
 				operating_system =  "Windows";
+
 			} else if (/Macintosh|MacIntel|MacPPC|Mac68K/.test(userAgent)) {
+
 				operating_system =  "Mac OS";
+
 			} else if (/Android/.test(userAgent)) {
+
 				operating_system =  "Android";
+
 			} else if (/iPhone|iPad|iPod/.test(userAgent)) {
+
 				operating_system =  "iOS";
+
 			} else if (/Linux/.test(userAgent)) {
+
 				operating_system =  "Linux";
+
 			}
 
 			return operating_system;
@@ -1608,7 +1618,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-fuschia.dae',
+						'/minifigs/exports/minifig-white.dae',
 
 						function ( collada ) {
 
