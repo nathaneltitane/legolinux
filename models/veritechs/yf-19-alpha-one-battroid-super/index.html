@@ -1625,7 +1625,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-white.dae',
+						'/minifigs/exports/minifig-blue.dae',
 
 						function ( collada ) {
 
@@ -1723,7 +1723,7 @@
 
 						self.scene.add ( minifig );
 
-						const transform = self.get_transformControls ( );
+						const transform = self.get_transform_controls ( );
 
 						self.scene.add ( transform );
 
@@ -1958,9 +1958,11 @@
 						// both on >>> turn both off
 
 						self.bounding_box_helper_ ( );
+
 						self.dimension_labels_ ( );
 
 						bounding_box_helper_visible = false;
+
 						dimension_labels_visible = false;
 
 					} else if ( bounding_box_helper_visible && ! dimension_labels_visible ) {
@@ -1968,6 +1970,7 @@
 						// bounding box on >>> add dimensions
 
 						self.dimension_labels_ ( );
+
 						dimension_labels_visible = true;
 
 					} else if ( ! bounding_box_helper_visible && dimension_labels_visible ) {
@@ -1975,6 +1978,7 @@
 						// dimensions on >>> add bounding box
 
 						self.bounding_box_helper_ ( );
+
 						bounding_box_helper_visible = true;
 
 					} else {
@@ -1982,9 +1986,11 @@
 						// both off >>> turn both on
 
 						self.bounding_box_helper_ ( );
+
 						self.dimension_labels_ ( );
 
 						bounding_box_helper_visible = true;
+
 						dimension_labels_visible = true;
 
 					}
@@ -2002,7 +2008,7 @@
 
 					self.camera.position.copy ( self.position );
 
-					self.transformControls.camera = self.camera;
+					self.transform_controls.camera = self.camera;
 
 					self.camera.zoom = 2;
 
@@ -2028,7 +2034,7 @@
 
 				// camera position toggle
 
-				this.cameraPosition_toggle_ = function ( ) {
+				this.camera_position_toggle_ = function ( ) {
 
 					self.camera = self.orthographicCamera
 
@@ -2079,21 +2085,21 @@
 
 				this.transform_toggle_ = function ( ) {
 
-					self.transformControls.enabled = ! self.transformControls.enabled;
+					self.transform_controls.enabled = ! self.transform_controls.enabled;
 
 					self.orbitControls.enabled = ! self.orbitControls.enabled;
 
-					self.transformControls.showX = ! self.transformControls.showX;
+					self.transform_controls.showX = ! self.transform_controls.showX;
 
-					self.transformControls.showY = ! self.transformControls.showY;
+					self.transform_controls.showY = ! self.transform_controls.showY;
 
-					self.transformControls.showZ = ! self.transformControls.showZ;
+					self.transform_controls.showZ = ! self.transform_controls.showZ;
 
 					console.log ( "orbit controls enabled = " + self.orbitControls.enabled );
 
-					console.log ( "transform controls enabled = " + self.transformControls.enabled );
+					console.log ( "transform controls enabled = " + self.transform_controls.enabled );
 
-					if ( self.transformControls.enabled ) {
+					if ( self.transform_controls.enabled ) {
 
 						var transformStatus = "active";
 
@@ -2113,9 +2119,9 @@
 
 				this.controlsSpace_ = function ( ) {
 
-					self.transformControls.setSpace ( self.transformControls.space === "world" ? "local" : "world" );
+					self.transform_controls.setSpace ( self.transform_controls.space === "world" ? "local" : "world" );
 
-					console.log ( "control [ transform ] = " + self.transformControls.space );
+					console.log ( "control [ transform ] = " + self.transform_controls.space );
 
 				}
 
@@ -2131,11 +2137,11 @@
 
 					const scaleSnap = ( snapFactor / 2 );
 
-					var snapMode = self.transformControls.getMode ( );
+					var snapMode = self.transform_controls.getMode ( );
 
 					if ( snapMode == "translate" ) {
 
-						this.transformControls.setTranslationSnap ( translationSnap );
+						this.transform_controls.setTranslationSnap ( translationSnap );
 
 						console.log ( "snap [ translation ] = " + translationSnap );
 
@@ -2143,7 +2149,7 @@
 
 					if ( snapMode == "rotate" ) {
 
-						self.transformControls.setRotationSnap ( rotationSnap );
+						self.transform_controls.setRotationSnap ( rotationSnap );
 
 						console.log ( "snap [ rotation  ] = " + rotationSnap );
 
@@ -2151,7 +2157,7 @@
 
 					if ( snapMode == "scale" ) {
 
-						self.transformControls.setScaleSnap ( scaleSnap );
+						self.transform_controls.setScaleSnap ( scaleSnap );
 
 						console.log ( "snap [ scale ] = " + scaleSnap );
 					}
@@ -2196,28 +2202,28 @@
 
 				// transform controls
 
-				this.transformControls = null;
+				this.transform_controls = null;
 
-				this.transformControls_enabled = false;
+				this.transform_controls_enabled = false;
 
-				this.get_transformControls = function ( ) {
+				this.get_transform_controls = function ( ) {
 
-					if ( ! self.transformControls ) {
+					if ( ! self.transform_controls ) {
 
-						self.transformControls = new TransformControls ( self.camera, self.renderer.domElement );
+						self.transform_controls = new TransformControls ( self.camera, self.renderer.domElement );
 
-						self.transformControls.enabled = false;
+						self.transform_controls.enabled = false;
 
-						self.transformControls.size = 0.5;
+						self.transform_controls.size = 0.5;
 
-						self.transformControls.showX = false;
-						self.transformControls.showY = false;
-						self.transformControls.showZ = false;
+						self.transform_controls.showX = false;
+						self.transform_controls.showY = false;
+						self.transform_controls.showZ = false;
 
-						self.transformControls.addEventListener ( 'change', self.render );
+						self.transform_controls.addEventListener ( 'change', self.render );
 					}
 
-					return self.transformControls;
+					return self.transform_controls;
 				}
 
 				// resize
@@ -2462,7 +2468,7 @@
 							self.cameraPositionMatrix_y = 30;
 							self.cameraPositionMatrix_z = 45;
 
-							self.cameraPosition_toggle_ ( );
+							self.camera_position_toggle_ ( );
 
 							break;
 
@@ -2477,7 +2483,7 @@
 							self.cameraPositionMatrix_y = 0;
 							self.cameraPositionMatrix_z = 1;
 
-							self.cameraPosition_toggle_ ( );
+							self.camera_position_toggle_ ( );
 
 							break;
 
@@ -2492,7 +2498,7 @@
 							self.cameraPositionMatrix_y = 0;
 							self.cameraPositionMatrix_z = -1;
 
-							self.cameraPosition_toggle_ ( );
+							self.camera_position_toggle_ ( );
 
 							break;
 
@@ -2507,7 +2513,7 @@
 							self.cameraPositionMatrix_y = 0;
 							self.cameraPositionMatrix_z = 0;
 
-							self.cameraPosition_toggle_ ( );
+							self.camera_position_toggle_ ( );
 
 							break;
 
@@ -2522,7 +2528,7 @@
 							self.cameraPositionMatrix_y = 0;
 							self.cameraPositionMatrix_z = 0;
 
-							self.cameraPosition_toggle_ ( );
+							self.camera_position_toggle_ ( );
 
 							break;
 
@@ -2537,7 +2543,7 @@
 							self.cameraPositionMatrix_y = 1;
 							self.cameraPositionMatrix_z = 0;
 
-							self.cameraPosition_toggle_ ( );
+							self.camera_position_toggle_ ( );
 
 							break;
 
@@ -2552,7 +2558,7 @@
 							self.cameraPositionMatrix_y = -1;
 							self.cameraPositionMatrix_z = 0;
 
-							self.cameraPosition_toggle_ ( );
+							self.camera_position_toggle_ ( );
 
 							break;
 
@@ -2568,7 +2574,7 @@
 
 						case 88:
 
-							self.transformControls.showX = ! self.transformControls.showX;
+							self.transform_controls.showX = ! self.transform_controls.showX;
 
 							break;
 
@@ -2576,7 +2582,7 @@
 
 						case 89:
 
-							self.transformControls.showY = ! self.transformControls.showY;
+							self.transform_controls.showY = ! self.transform_controls.showY;
 
 							break;
 
@@ -2584,7 +2590,7 @@
 
 						case 90:
 
-							self.transformControls.showZ = ! self.transformControls.showZ;
+							self.transform_controls.showZ = ! self.transform_controls.showZ;
 
 							break;
 
@@ -2610,9 +2616,9 @@
 						case 187:
 						case 107:
 
-							self.transformControls.setSize ( self.transformControls.size + 0.1 );
+							self.transform_controls.setSize ( self.transform_controls.size + 0.1 );
 
-							console.log ( "size [ widget  ] = " + self.transformControls.size );
+							console.log ( "size [ widget  ] = " + self.transform_controls.size );
 
 							break;
 
@@ -2622,9 +2628,9 @@
 						case 189:
 						case 109:
 
-							self.transformControls.setSize ( Math.max ( self.transformControls.size - 0.1, 0.1 ) );
+							self.transform_controls.setSize ( Math.max ( self.transform_controls.size - 0.1, 0.1 ) );
 
-							console.log ( "size [ widget  ] = " + self.transformControls.size );
+							console.log ( "size [ widget  ] = " + self.transform_controls.size );
 
 							break;
 
@@ -2634,21 +2640,21 @@
 
 							self.mode = "translate"
 
-							self.transformControls.setMode ( self.mode );
+							self.transform_controls.setMode ( self.mode );
 
-							self.transformControls.enabled = true;
+							self.transform_controls.enabled = true;
 
 							self.orbitControls.enabled = false;
 
-							self.transformControls.showX;
+							self.transform_controls.showX;
 
-							self.transformControls.showY;
+							self.transform_controls.showY;
 
-							self.transformControls.showZ;
+							self.transform_controls.showZ;
 
 							console.log ( "orbit controls enabled = " + self.orbitControls.enabled );
 
-							console.log ( "transform controls enabled = " + self.transformControls.enabled );
+							console.log ( "transform controls enabled = " + self.transform_controls.enabled );
 
 							console.log ( "mode [ transform ] = " + self.mode );
 
@@ -2660,21 +2666,21 @@
 
 							self.mode = "rotate"
 
-							self.transformControls.setMode ( self.mode );
+							self.transform_controls.setMode ( self.mode );
 
-							self.transformControls.enabled = true;
+							self.transform_controls.enabled = true;
 
 							self.orbitControls.enabled = false;
 
-							self.transformControls.showX;
+							self.transform_controls.showX;
 
-							self.transformControls.showY;
+							self.transform_controls.showY;
 
-							self.transformControls.showZ;
+							self.transform_controls.showZ;
 
 							console.log ( "orbit controls enabled = " + self.orbitControls.enabled );
 
-							console.log ( "transform controls enabled = " + self.transformControls.enabled );
+							console.log ( "transform controls enabled = " + self.transform_controls.enabled );
 
 							console.log ( "mode [ transform ] = " + self.mode );
 
@@ -2686,21 +2692,21 @@
 
 							self.mode = "scale"
 
-							self.transformControls.setMode ( self.mode );
+							self.transform_controls.setMode ( self.mode );
 
-							self.transformControls.enabled = true;
+							self.transform_controls.enabled = true;
 
 							self.orbitControls.enabled = false;
 
-							self.transformControls.showX;
+							self.transform_controls.showX;
 
-							self.transformControls.showY;
+							self.transform_controls.showY;
 
-							self.transformControls.showZ;
+							self.transform_controls.showZ;
 
 							console.log ( "orbit controls enabled = " + self.orbitControls.enabled );
 
-							console.log ( "transform controls enabled = " + self.transformControls.enabled );
+							console.log ( "transform controls enabled = " + self.transform_controls.enabled );
 
 							console.log ( "mode [ transform ] = " + self.mode );
 
@@ -2855,9 +2861,9 @@
 
 						// transform controls
 
-						self.scene.add ( self.get_transformControls ( ) );
+						self.scene.add ( self.get_transform_controls ( ) );
 
-						self.get_transformControls ( ).attach ( self.colladaImport );
+						self.get_transform_controls ( ).attach ( self.colladaImport );
 
 					},
 
