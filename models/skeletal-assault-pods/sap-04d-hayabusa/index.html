@@ -1625,7 +1625,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-white.dae',
+						'/minifigs/exports/minifig-blue.dae',
 
 						function ( collada ) {
 
@@ -2020,7 +2020,7 @@
 
 					}
 
-					self.camera.position.set ( self.cameraPositionMatrix_x, self.cameraPositionMatrix_y, self.cameraPositionMatrix_z );
+					self.camera.position.set ( self.camera_position_matrix_x, self.camera_position_matrix_y, self.camera_position_matrix_z );
 
 					self.camera.lookAt ( 0, 0, 0 );
 
@@ -2040,7 +2040,7 @@
 
 					self.orbitControls = new OrbitControls ( self.camera, self.renderer.domElement );
 
-					self.camera.position.set ( self.cameraPositionMatrix_x, self.cameraPositionMatrix_y, self.cameraPositionMatrix_z );
+					self.camera.position.set ( self.camera_position_matrix_x, self.camera_position_matrix_y, self.camera_position_matrix_z );
 
 					self.camera.zoom = 3000;
 
@@ -2048,7 +2048,7 @@
 
 					self.camera.updateProjectionMatrix ( );
 
-					console.log ( "camera position = " + self.cameraPositionMatrix_x, self.cameraPositionMatrix_y, self.cameraPositionMatrix_z );
+					console.log ( "camera position = " + self.camera_position_matrix_x, self.camera_position_matrix_y, self.camera_position_matrix_z );
 
 				}
 
@@ -2464,9 +2464,9 @@
 
 							// reset
 
-							self.cameraPositionMatrix_x = 45;
-							self.cameraPositionMatrix_y = 30;
-							self.cameraPositionMatrix_z = 45;
+							self.camera_position_matrix_x = 45;
+							self.camera_position_matrix_y = 30;
+							self.camera_position_matrix_z = 45;
 
 							self.camera_position_toggle_ ( );
 
@@ -2479,9 +2479,9 @@
 
 							// front
 
-							self.cameraPositionMatrix_x = 0;
-							self.cameraPositionMatrix_y = 0;
-							self.cameraPositionMatrix_z = 1;
+							self.camera_position_matrix_x = 0;
+							self.camera_position_matrix_y = 0;
+							self.camera_position_matrix_z = 1;
 
 							self.camera_position_toggle_ ( );
 
@@ -2494,9 +2494,9 @@
 
 							// back
 
-							self.cameraPositionMatrix_x = 0;
-							self.cameraPositionMatrix_y = 0;
-							self.cameraPositionMatrix_z = -1;
+							self.camera_position_matrix_x = 0;
+							self.camera_position_matrix_y = 0;
+							self.camera_position_matrix_z = -1;
 
 							self.camera_position_toggle_ ( );
 
@@ -2509,9 +2509,9 @@
 
 							// left
 
-							self.cameraPositionMatrix_x = 1;
-							self.cameraPositionMatrix_y = 0;
-							self.cameraPositionMatrix_z = 0;
+							self.camera_position_matrix_x = 1;
+							self.camera_position_matrix_y = 0;
+							self.camera_position_matrix_z = 0;
 
 							self.camera_position_toggle_ ( );
 
@@ -2524,9 +2524,9 @@
 
 							// right
 
-							self.cameraPositionMatrix_x = -1;
-							self.cameraPositionMatrix_y = 0;
-							self.cameraPositionMatrix_z = 0;
+							self.camera_position_matrix_x = -1;
+							self.camera_position_matrix_y = 0;
+							self.camera_position_matrix_z = 0;
 
 							self.camera_position_toggle_ ( );
 
@@ -2539,9 +2539,9 @@
 
 							// top
 
-							self.cameraPositionMatrix_x = 0;
-							self.cameraPositionMatrix_y = 1;
-							self.cameraPositionMatrix_z = 0;
+							self.camera_position_matrix_x = 0;
+							self.camera_position_matrix_y = 1;
+							self.camera_position_matrix_z = 0;
 
 							self.camera_position_toggle_ ( );
 
@@ -2554,9 +2554,9 @@
 
 							// bottom
 
-							self.cameraPositionMatrix_x = 0;
-							self.cameraPositionMatrix_y = -1;
-							self.cameraPositionMatrix_z = 0;
+							self.camera_position_matrix_x = 0;
+							self.camera_position_matrix_y = -1;
+							self.camera_position_matrix_z = 0;
 
 							self.camera_position_toggle_ ( );
 
