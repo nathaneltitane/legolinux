@@ -650,7 +650,7 @@
 
 				this.ambientLight_color = white;
 
-				this.ambientLightHelper_color = null;
+				this.ambient_light_helper_color = null;
 
 				this.ambientLight = new THREE.AmbientLight (
 					this.ambientLight_color,			// color
@@ -705,7 +705,7 @@
 
 				this.pointLight_color = white;
 
-				this.pointLightHelper_color = black;
+				this.point_light_helper_color = black;
 
 				this.pointLight = new THREE.PointLight (
 					this.pointLight_color,				// color
@@ -810,7 +810,7 @@
 
 				this.spotLight_color = white;
 
-				this.spotLightHelper_color = black;
+				this.spot_light_helper_color = black;
 
 				this.spotLight = new THREE.SpotLight (
 					this.spotLight_color,				// color
@@ -1236,7 +1236,7 @@
 
 					if ( ! self.hemisphere_light_helper ) {
 
-						self.hemisphere_light_helper = new THREE.HemisphereLightHelper ( self.hemisphereLight, 0.25 , this.hemisphere_light_helper_color );
+						self.hemisphere_light_helper = new THREE.Hemisphere_light_helper ( self.hemisphereLight, 0.25 , this.hemisphere_light_helper_color );
 
 						console.log ( "helper [ light / hemisphere ]" );
 
@@ -1268,39 +1268,39 @@
 
 				// point light helper
 
-				this.pointLightHelper = null;
+				this.point_light_helper = null;
 
-				this.pointLightHelper_visible = false;
+				this.point_light_helper_visible = false;
 
-				this.get_pointLightHelper = function ( ) {
+				this.get_point_light_helper = function ( ) {
 
-					if ( ! self.pointLightHelper ) {
+					if ( ! self.point_light_helper ) {
 
-						self.pointLightHelper = new THREE.PointLightHelper ( self.pointLight, 0.25 , this.pointLightHelper_color )
+						self.point_light_helper = new THREE.Point_light_helper ( self.pointLight, 0.25 , this.point_light_helper_color )
 
 						console.log ( "helper [ light / point ]" );
 
 					}
 
-					return self.pointLightHelper;
+					return self.point_light_helper;
 
 				}
 
-				this.pointLightHelper_ = function ( ) {
+				this.point_light_helper_ = function ( ) {
 
-					if ( this.pointLightHelper_visible ) {
+					if ( this.point_light_helper_visible ) {
 
-						this.pointLightHelper_visible = false;
+						this.point_light_helper_visible = false;
 
-						self.scene.remove ( self.get_pointLightHelper ( ) );
+						self.scene.remove ( self.get_point_light_helper ( ) );
 
 					}
 
 					else {
 
-						this.pointLightHelper_visible = true;
+						this.point_light_helper_visible = true;
 
-						self.scene.add ( self.get_pointLightHelper ( ) );
+						self.scene.add ( self.get_point_light_helper ( ) );
 
 					}
 
@@ -1316,7 +1316,7 @@
 
 					if ( ! self.directional_light_0_helper ) {
 
-						self.directional_light_0_helper = new THREE.DirectionalLightHelper ( self.directional_light_0, 0.25 , this.directional_light_0_helper_color )
+						self.directional_light_0_helper = new THREE.Directional_light_helper ( self.directional_light_0, 0.25 , this.directional_light_0_helper_color )
 
 						console.log ( "helper [ light / directional / 0 ]" );
 					}
@@ -1355,7 +1355,7 @@
 
 					if ( ! self.directional_light_1_helper ) {
 
-						self.directional_light_1_helper = new THREE.DirectionalLightHelper ( self.directional_light_1, 0.25 , this.directional_light_1_helper_color )
+						self.directional_light_1_helper = new THREE.Directional_light_helper ( self.directional_light_1, 0.25 , this.directional_light_1_helper_color )
 
 						console.log ( "helper [ light / directional / 1 ]" );
 
@@ -1395,7 +1395,7 @@
 
 					if ( ! self.directional_light_2_helper ) {
 
-						self.directional_light_2_helper = new THREE.DirectionalLightHelper ( self.directional_light_2, 0.25 , this.directional_light_2_helper_color )
+						self.directional_light_2_helper = new THREE.Directional_light_helper ( self.directional_light_2, 0.25 , this.directional_light_2_helper_color )
 
 						console.log ( "helper [ light / directional / 2 ]" );
 
@@ -1427,38 +1427,38 @@
 
 				// spotlight helper
 
-				this.spotLightHelper = null;
+				this.spot_light_helper = null;
 
-				this.spotLightHelper_visible = false;
+				this.spot_light_helper_visible = false;
 
-				this.get_spotLightHelper = function ( ) {
+				this.get_spot_light_helper = function ( ) {
 
-					if ( ! self.spotLightHelper ) {
+					if ( ! self.spot_light_helper ) {
 
-						self.spotLightHelper = new THREE.SpotLightHelper ( self.spotLight, 0.25 , this.spotLightHelper_color )
+						self.spot_light_helper = new THREE.Spot_light_helper ( self.spotLight, 0.25 , this.spot_light_helper_color )
 
 						console.log ( "helper [ light / spot ]" );
 					}
 
-					return self.spotLightHelper;
+					return self.spot_light_helper;
 
 				}
 
-				this.spotLightHelper_ = function ( ) {
+				this.spot_light_helper_ = function ( ) {
 
-					if ( this.spotLightHelper_visible ) {
+					if ( this.spot_light_helper_visible ) {
 
-						this.spotLightHelper_visible = false;
+						this.spot_light_helper_visible = false;
 
-						self.scene.remove ( self.get_spotLightHelper ( ) );
+						self.scene.remove ( self.get_spot_light_helper ( ) );
 
 					}
 
 					else {
 
-						this.spotLightHelper_visible = true;
+						this.spot_light_helper_visible = true;
 
-						self.scene.add ( self.get_spotLightHelper ( ) );
+						self.scene.add ( self.get_spot_light_helper ( ) );
 
 					}
 
@@ -1466,62 +1466,62 @@
 
 				// polar grid helper
 
-				this.polarGridHelper_color_min = orange;
+				this.polar_grid_helper_color_min = orange;
 
-				this.polarGridHelper_color_max = charcoal;
+				this.polar_grid_helper_color_max = charcoal;
 
-				this.polarGridHelper = null;
+				this.polar_grid_helper = null;
 
-				this.polarGridHelper_visible = false;
+				this.polar_grid_helper_visible = false;
 
-				this.get_polarGridHelper = function ( ) {
+				this.get_polar_grid_helper = function ( ) {
 
-					if ( ! self.polarGridHelper ) {
+					if ( ! self.polar_grid_helper ) {
 
 					const ringSpacing = 0.008;
 					const rings = 128 / 2;
 					const radius = ringSpacing * rings;
 
-					self.polarGridHelper = new THREE.PolarGridHelper (
+					self.polar_grid_helper = new THREE.Polar_grid_helper (
 
 						radius,
 						rings,
 						rings,
 						rings,
-						this.polarGridHelper_color_min,
-						this.polarGridHelper_color_max
+						this.polar_grid_helper_color_min,
+						this.polar_grid_helper_color_max
 
 					);
 
-						self.polarGridHelper.position.y = self.get_boundingBox ( ).min.y;
+						self.polar_grid_helper.position.y = self.get_boundingBox ( ).min.y;
 
-						self.polarGridHelper.position.x = 0;
+						self.polar_grid_helper.position.x = 0;
 
-						// self.polarGridHelper.position.y = 0;
+						// self.polar_grid_helper.position.y = 0;
 
 						console.log ( "helper [ grid / polar ]" );
 
 					}
 
-					return self.polarGridHelper;
+					return self.polar_grid_helper;
 
 				}
 
-				this.polarGridHelper_ = function ( ) {
+				this.polar_grid_helper_ = function ( ) {
 
-					if ( this.polarGridHelper_visible ) {
+					if ( this.polar_grid_helper_visible ) {
 
-						this.polarGridHelper_visible = false;
+						this.polar_grid_helper_visible = false;
 
-						self.scene.remove ( self.get_polarGridHelper ( ) );
+						self.scene.remove ( self.get_polar_grid_helper ( ) );
 
 					}
 
 					else {
 
-						this.polarGridHelper_visible = true;
+						this.polar_grid_helper_visible = true;
 
-						self.scene.add ( self.get_polarGridHelper ( ) );
+						self.scene.add ( self.get_polar_grid_helper ( ) );
 
 					}
 
@@ -1529,17 +1529,17 @@
 
 				// orthogonal grid helper
 
-				this.orthogonalGridHelper_color_min = purple;
+				this.orthogonal_grid_helper_color_min = purple;
 
-				this.orthogonalGridHelper_color_max = charcoal;
+				this.orthogonal_grid_helper_color_max = charcoal;
 
-				this.orthogonalGridHelper = null;
+				this.orthogonal_grid_helper = null;
 
-				this.orthogonalGridHelper_visible = false;
+				this.orthogonal_grid_helper_visible = false;
 
-				this.get_orthogonalGridHelper = function ( ) {
+				this.get_orthogonal_grid_helper = function ( ) {
 
-					if ( ! self.orthogonalGridHelper ) {
+					if ( ! self.orthogonal_grid_helper ) {
 
 						// 20 ldu = 0.008 m
 
@@ -1547,43 +1547,43 @@
 						const gridDivisions = 128;
 						const gridSize = gridDivisions * gridSpacing;
 
-						self.orthogonalGridHelper = new THREE.GridHelper (
+						self.orthogonal_grid_helper = new THREE._grid_helper (
 
 							gridSize,
 							gridDivisions,
-							this.orthogonalGridHelper_color_min,
-							this.orthogonalGridHelper_color_max
+							this.orthogonal_grid_helper_color_min,
+							this.orthogonal_grid_helper_color_max
 
 						);
 
-						self.orthogonalGridHelper.position.y = self.get_boundingBox ( ).min.y;
+						self.orthogonal_grid_helper.position.y = self.get_boundingBox ( ).min.y;
 
-						self.orthogonalGridHelper.position.x = 0;
+						self.orthogonal_grid_helper.position.x = 0;
 
-						// self.orthogonalGridHelper.position.y = 0;
+						// self.orthogonal_grid_helper.position.y = 0;
 
 						console.log ( "helper [ grid / orthogonal ]" );
 					}
 
-					return self.orthogonalGridHelper;
+					return self.orthogonal_grid_helper;
 
 				}
 
-				this.orthogonalGridHelper_ = function ( ) {
+				this.orthogonal_grid_helper_ = function ( ) {
 
-					if ( this.orthogonalGridHelper_visible ) {
+					if ( this.orthogonal_grid_helper_visible ) {
 
-						this.orthogonalGridHelper_visible = false;
+						this.orthogonal_grid_helper_visible = false;
 
-						self.scene.remove ( self.get_orthogonalGridHelper ( ) );
+						self.scene.remove ( self.get_orthogonal_grid_helper ( ) );
 
 					}
 
 					else {
 
-						this.orthogonalGridHelper_visible = true;
+						this.orthogonal_grid_helper_visible = true;
 
-						self.scene.add ( self.get_orthogonalGridHelper ( ) );
+						self.scene.add ( self.get_orthogonal_grid_helper ( ) );
 
 					}
 
@@ -1591,7 +1591,7 @@
 
 				// minifig
 
-				this.minifigToggle_ = function ( ) {
+				this.minifig_toggle_ = function ( ) {
 
 					const self = this;
 
@@ -1625,7 +1625,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-white.dae',
+						'/minifigs/exports/minifig-yellow.dae',
 
 						function ( collada ) {
 
@@ -1860,7 +1860,7 @@
 
 				// edges toggle - model
 
-				this.edgesToggle_ = function ( ) {
+				this.edges_toggle_ = function ( ) {
 
 					if ( wireframe_visible ) {
 
@@ -1909,13 +1909,13 @@
 
 				var modelFaces_visible = true;
 
-				this.wireframeToggle_ = function ( ) {
+				this.wireframe_toggle_ = function ( ) {
 
 					// edges on >>> turn edges off
 
 					if ( modelEdges_visible ) {
 
-						self.edgesToggle_ ( );
+						self.edges_toggle_ ( );
 
 						console.warn ( 'Edges cannot be enabled while wireframe mode is active.' );
 
@@ -1951,7 +1951,7 @@
 
 				var dimension_labels_visible = false;
 
-				this.dimensionsToggle_ = function ( ) {
+				this.dimensions_toggle_ = function ( ) {
 
 					if ( bounding_box_helper_visible && dimension_labels_visible ) {
 
@@ -1992,7 +1992,7 @@
 
 				// camera toggle
 
-				this.cameraToggle_ = function ( ) {
+				this.camera_toggle_ = function ( ) {
 
 					self.position = self.camera.position.clone ( );
 
@@ -2028,7 +2028,7 @@
 
 				// camera position toggle
 
-				this.cameraPositionToggle_ = function ( ) {
+				this.cameraPosition_toggle_ = function ( ) {
 
 					self.camera = self.orthographicCamera
 
@@ -2048,7 +2048,7 @@
 
 				// view toggle
 
-				this.viewToggle_ = function ( ) {
+				this.view_toggle_ = function ( ) {
 
 					const randomViewFactor  = ( Math.random ( ) + 0.1 );
 
@@ -2077,7 +2077,7 @@
 
 				// transform toggle
 
-				this.transformToggle_ = function ( ) {
+				this.transform_toggle_ = function ( ) {
 
 					self.transformControls.enabled = ! self.transformControls.enabled;
 
@@ -2121,7 +2121,7 @@
 
 				// snap toggle
 
-				this.snapToggle_ = function ( ) {
+				this.snap_toggle_ = function ( ) {
 
 					let snapFactor = 0.25;
 
@@ -2323,7 +2323,7 @@
 
 						case 73:
 
-							self.spotLightHelper_ ( );
+							self.spot_light_helper_ ( );
 
 							break;
 
@@ -2331,7 +2331,7 @@
 
 						case 74:
 
-							self.pointLightHelper_ ( );
+							self.point_light_helper_ ( );
 
 							break;
 
@@ -2367,7 +2367,7 @@
 
 						case 68:
 
-							self.dimensionsToggle_ ( );
+							self.dimensions_toggle_ ( );
 
 							break;
 
@@ -2375,7 +2375,7 @@
 
 						case 69:
 
-							self.edgesToggle_ ( );
+							self.edges_toggle_ ( );
 
 							break;
 
@@ -2383,7 +2383,7 @@
 
 						case 70:
 
-							self.minifigToggle_ ( );
+							self.minifig_toggle_ ( );
 
 							break;
 
@@ -2399,7 +2399,7 @@
 
 						case 79:
 
-							self.orthogonalGridHelper_ ( );
+							self.orthogonal_grid_helper_ ( );
 
 							break;
 
@@ -2407,7 +2407,7 @@
 
 						case 80:
 
-							self.polarGridHelper_ ( );
+							self.polar_grid_helper_ ( );
 
 							break;
 
@@ -2423,7 +2423,7 @@
 
 						case 87:
 
-							self.wireframeToggle_ ( );
+							self.wireframe_toggle_ ( );
 
 							break;
 
@@ -2439,7 +2439,7 @@
 
 						case 67:
 
-							self.cameraToggle_ ( );
+							self.camera_toggle_ ( );
 
 							break;
 
@@ -2447,7 +2447,7 @@
 
 						case 86:
 
-							self.viewToggle_ ( );
+							self.view_toggle_ ( );
 
 							break;
 
@@ -2462,7 +2462,7 @@
 							self.cameraPositionMatrix_y = 30;
 							self.cameraPositionMatrix_z = 45;
 
-							self.cameraPositionToggle_ ( );
+							self.cameraPosition_toggle_ ( );
 
 							break;
 
@@ -2477,7 +2477,7 @@
 							self.cameraPositionMatrix_y = 0;
 							self.cameraPositionMatrix_z = 1;
 
-							self.cameraPositionToggle_ ( );
+							self.cameraPosition_toggle_ ( );
 
 							break;
 
@@ -2492,7 +2492,7 @@
 							self.cameraPositionMatrix_y = 0;
 							self.cameraPositionMatrix_z = -1;
 
-							self.cameraPositionToggle_ ( );
+							self.cameraPosition_toggle_ ( );
 
 							break;
 
@@ -2507,7 +2507,7 @@
 							self.cameraPositionMatrix_y = 0;
 							self.cameraPositionMatrix_z = 0;
 
-							self.cameraPositionToggle_ ( );
+							self.cameraPosition_toggle_ ( );
 
 							break;
 
@@ -2522,7 +2522,7 @@
 							self.cameraPositionMatrix_y = 0;
 							self.cameraPositionMatrix_z = 0;
 
-							self.cameraPositionToggle_ ( );
+							self.cameraPosition_toggle_ ( );
 
 							break;
 
@@ -2537,7 +2537,7 @@
 							self.cameraPositionMatrix_y = 1;
 							self.cameraPositionMatrix_z = 0;
 
-							self.cameraPositionToggle_ ( );
+							self.cameraPosition_toggle_ ( );
 
 							break;
 
@@ -2552,7 +2552,7 @@
 							self.cameraPositionMatrix_y = -1;
 							self.cameraPositionMatrix_z = 0;
 
-							self.cameraPositionToggle_ ( );
+							self.cameraPosition_toggle_ ( );
 
 							break;
 
@@ -2560,7 +2560,7 @@
 
 						case 32:
 
-							self.transformToggle_ ( );
+							self.transform_toggle_ ( );
 
 							break;
 
@@ -2592,7 +2592,7 @@
 
 						case 16:
 
-							self.snapToggle_ ( );
+							self.snap_toggle_ ( );
 
 							break;
 
@@ -2888,7 +2888,7 @@
 
 				document.getElementById ( 'minifig' ).addEventListener ( 'click', function ( ) {
 
-					self.minifigToggle_ ( );
+					self.minifig_toggle_ ( );
 
 				} );
 
@@ -2896,7 +2896,7 @@
 
 				document.getElementById ( 'wireframe' ).addEventListener ( 'click', function ( ) {
 
-					self.wireframeToggle_ ( );
+					self.wireframe_toggle_ ( );
 
 				} );
 
@@ -2904,7 +2904,7 @@
 
 				document.getElementById ( 'edges' ).addEventListener ( 'click', function ( ) {
 
-					self.edgesToggle_ ( );
+					self.edges_toggle_ ( );
 
 				} );
 
@@ -2912,7 +2912,7 @@
 
 				document.getElementById ( 'dimensions' ).addEventListener ( 'click', function ( ) {
 
-					self.dimensionsToggle_ ( );
+					self.dimensions_toggle_ ( );
 
 				} );
 
