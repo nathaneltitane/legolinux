@@ -626,7 +626,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 						create_device_overlay_if_needed ();
 
 						device_information_overlay.textContent =
-							'device : [ ' + device_type + ' ]'			+ ''\n' +
+							'device : [ ' + device_type + ' ]'			+ '\n' +
 							'operating system : [ ' + os + ' ]'						+ '\n' +
 							'device pixel ratio : [ ' + pixel_ratio.toFixed ( 2 ) + ' ]';
 
