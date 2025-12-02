@@ -615,6 +615,8 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				}
 
+				const os = get_operating_system ();
+
 				function set_debug_overlay_enabled ( enabled ) {
 
 					debug_overlay_enabled = enabled;
@@ -625,7 +627,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						device_information_overlay.textContent =
 							'device: [' + device_type + ']\n' +
-							'os: [' +  + ']\n' +
+							'os: [' + os + ']\n' +
 							'dpr: [' + pixelRatio.toFixed ( 2 ) + ']';
 
 						device_information_overlay.style.display = 'block';

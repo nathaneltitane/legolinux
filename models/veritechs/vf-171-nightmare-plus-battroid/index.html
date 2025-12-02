@@ -410,6 +410,8 @@
 
 				}
 
+				const os = get_operating_system ();
+
 				function set_debug_overlay_enabled ( enabled ) {
 
 					debug_overlay_enabled = enabled;
@@ -420,7 +422,7 @@
 
 						device_information_overlay.textContent =
 							'device: [' + device_type + ']\n' +
-							'os: [' +  + ']\n' +
+							'os: [' + os + ']\n' +
 							'dpr: [' + pixelRatio.toFixed ( 2 ) + ']';
 
 						device_information_overlay.style.display = 'block';
@@ -1618,7 +1620,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-green.dae',
+						'/minifigs/exports/minifig-white.dae',
 
 						function ( collada ) {
 
