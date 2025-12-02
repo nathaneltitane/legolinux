@@ -604,7 +604,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 					device_information_overlay.style.zIndex = '9998';
 					device_information_overlay.style.padding = '10px 10px 10px 10px';
 					device_information_overlay.style.borderRadius = '10px';
-					device_information_overlay.style.background = 'rgba(0, 0, 0, 0.65)';
+					device_information_overlay.style.background = '#eeeeee33';
 					device_information_overlay.style.color = '#ffffffff';
 					device_information_overlay.style.fontFamily = 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
 					device_information_overlay.style.fontSize = '0.75rem';
