@@ -123,50 +123,6 @@ cat << MODEL-DRAWER-HEADER -> "${modules_directory}"/drawer.html
 
 		</div>
 
-		<div class="section disclaimer">
-
-			<div class="flex flex-column section">
-
-				<div class="flex-cell text-bold text-center">
-
-					// DISCLAIMER //</br>
-
-					</br>
-
-				</div>
-
-				<div class="flex-cell text-bold text-center">
-
-					LEGO® IS A TRADEMARK OF THE LEGO® GROUP OF COMPANIES</br>
-
-					WHICH DOES NOT SPONSOR, AUTHORIZE OR ENDORSE THIS PROJECT</br>
-
-					NOR THE PRODUCTS MADE AVAILABLE ON THIS WEBSITE.</br>
-
-					</br>
-
-				</div>
-
-				<div class="flex-cell text-center">
-
-					WHILE EVERY EFFORT IS MADE TO ENSURE ACCURACY,</br>
-
-					SPECIFIC LEGO® ELEMENTS MAY VARY IN COLOR OR AVAILABILITY.</br>
-
-					</br>
-
-					 <div class="flex-cell text-bold text-center">
-
-						// THE FINAL BUILD COLORS MAY DIFFER FROM THE INSTRUCTIONS PROVIDED! //</br>
-
-					</div>
-
-				</div>
-
-			</div>
-
-		</div>
-
 		<!-- status available -->
 
 		<div class="section status-available">
@@ -357,6 +313,52 @@ done
 # generate footer
 
 cat << MODEL-DRAWER-FOOTER ->> "${modules_directory}"/drawer.html
+			</div>
+
+		</div>
+
+		<!-- disclaimer -->
+
+		<div class="section disclaimer">
+
+			<div class="flex flex-column section">
+
+				<div class="flex-cell text-bold text-center">
+
+					// DISCLAIMER //</br>
+
+					</br>
+
+				</div>
+
+				<div class="flex-cell text-bold text-center">
+
+					LEGO® IS A TRADEMARK OF THE LEGO® GROUP OF COMPANIES</br>
+
+					WHICH DOES NOT SPONSOR, AUTHORIZE OR ENDORSE THIS PROJECT</br>
+
+					NOR THE PRODUCTS MADE AVAILABLE ON THIS WEBSITE.</br>
+
+					</br>
+
+				</div>
+
+				<div class="flex-cell text-center">
+
+					WHILE EVERY EFFORT IS MADE TO ENSURE ACCURACY,</br>
+
+					SPECIFIC LEGO® ELEMENTS MAY VARY IN COLOR OR AVAILABILITY.</br>
+
+					</br>
+
+					 <div class="flex-cell text-bold text-center">
+
+						// THE FINAL BUILD COLORS MAY DIFFER FROM THE INSTRUCTIONS PROVIDED! //</br>
+
+					</div>
+
+				</div>
+
 			</div>
 
 		</div>
