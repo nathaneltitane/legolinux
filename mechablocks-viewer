@@ -683,7 +683,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				}
 
-				// debugging overlay - mobile friendly
+				// debugging overlay - mobile / touch
 
 				var last_tap_time = 0;
 
