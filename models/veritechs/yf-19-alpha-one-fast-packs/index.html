@@ -961,27 +961,27 @@
 
 							// aim axes corners toward model box center
 
-							const dirX = (x === min.x) ? 1 : -1;
+							const direction_x = (x === min.x) ? 1 : -1;
 
-							const dirY = (y === min.y) ? 1 : -1;
+							const direction_y = (y === min.y) ? 1 : -1;
 
-							const dirZ = (z === min.z) ? 1 : -1;
+							const direction_z = (z === min.z) ? 1 : -1;
 
 							// x axis
 
-							positions.push ( x, y, z, x + dirX * cornerSize, y, z );
+							positions.push ( x, y, z, x + direction_x * cornerSize, y, z );
 
 							colors.push ( ...color_x.toArray( ), ...color_x.toArray( ) );
 
 							// y axis
 
-							positions.push ( x, y, z, x, y + dirY * cornerSize, z );
+							positions.push ( x, y, z, x, y + direction_y * cornerSize, z );
 
 							colors.push ( ...color_y.toArray( ), ...color_y.toArray( ) );
 
 							// z axis
 
-							positions.push ( x, y, z, x, y, z + dirZ * cornerSize );
+							positions.push ( x, y, z, x, y, z + direction_z * cornerSize );
 
 							colors.push ( ...color_z.toArray( ), ...color_z.toArray( ) );
 						}
@@ -1623,7 +1623,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-white.dae',
+						'/minifigs/exports/minifig-black.dae',
 
 						function ( collada ) {
 
