@@ -13,7 +13,7 @@
 
 			function gtag ( ){dataLayer.push(arguments);}
 
-			gtag('js', new Date ( ));
+			gtag('js', new Date (  ) ) ;
 
 			gtag('config', 'G-4XY1M84019');
 
@@ -249,23 +249,23 @@
 
 			let operating_system =  "Unknown";
 
-			if (/Windows/.test(userAgent)) {
+			if ( /Windows/.test(userAgent ) ) {
 
 				operating_system =  "Windows";
 
-			} else if (/Macintosh|MacIntel|MacPPC|Mac68K/.test(userAgent)) {
+			} else if ( /Macintosh|MacIntel|MacPPC|Mac68K/.test(userAgent ) ) {
 
 				operating_system =  "Mac OS";
 
-			} else if (/Android/.test(userAgent)) {
+			} else if ( /Android/.test(userAgent ) ) {
 
 				operating_system =  "Android";
 
-			} else if (/iPhone|iPad|iPod/.test(userAgent)) {
+			} else if ( /iPhone|iPad|iPod/.test(userAgent ) ) {
 
 				operating_system =  "iOS";
 
-			} else if (/Linux/.test(userAgent)) {
+			} else if ( /Linux/.test(userAgent ) ) {
 
 				operating_system =  "Linux";
 
@@ -315,9 +315,9 @@
 
 				const pixel_ratio = mobile_device ? Math.min ( maximum_mobile_device_pixel_ratio, device_pixel_ratio ) : device_pixel_ratio;
 
-				if (mobile_device) {
+				if ( mobile_device) {
 
-					if (/iPhone|iPad|iPod/i.test ( navigator.userAgent ) ) {
+					if ( /iPhone|iPad|iPod/i.test ( navigator.userAgent ) ) {
 
 						var device_type = 'apple / ios';
 
@@ -494,7 +494,7 @@
 
 						// double tap (100ms–350ms)
 
-						if (tap_gap > 100 && tap_gap < 350) {
+						if ( tap_gap > 100 && tap_gap < 350) {
 
 							set_debug_overlay_enabled(!debug_overlay_enabled);
 
@@ -1035,7 +1035,7 @@
 
 				this.get_camera_helper = function ( ) {
 
-					if ( ! self.camera_helper)  {
+					if ( ! self.camera_helper) {
 
 						self.camera_helper = new THREE.CameraHelper ( self.spotLight.shadow.camera, 0.25 , this.camera_helper_color );
 
@@ -1625,7 +1625,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-purple.dae',
+						'/minifigs/exports/minifig-blue.dae',
 
 						function ( collada ) {
 
