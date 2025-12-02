@@ -661,7 +661,7 @@
 
 				this.hemisphereLight_color = white;
 
-				this.hemisphereLightHelper_color = black;
+				this.hemisphere_light_helper_color = black;
 
 				this.hemisphereLight = new THREE.HemisphereLight (
 					this.hemisphereLight_color,			// color - sky
@@ -1025,41 +1025,41 @@
 
 				// camera helper
 
-				this.cameraHelper_color = null;
+				this.camera_helper_color = null;
 
-				this.cameraHelper = null;
+				this.camera_helper = null;
 
-				this.cameraHelper_visible = false;
+				this.camera_helper_visible = false;
 
-				this.get_cameraHelper = function( ) {
+				this.get_camera_helper = function( ) {
 
-					if ( ! self.cameraHelper)  {
+					if ( ! self.camera_helper)  {
 
-						self.cameraHelper = new THREE.CameraHelper ( self.spotLight.shadow.camera, 0.25 , this.cameraHelper_color );
+						self.camera_helper = new THREE.CameraHelper ( self.spotLight.shadow.camera, 0.25 , this.camera_helper_color );
 
 						console.log ( "helper [ camera ]" );
 
 					}
 
-					return self.cameraHelper;
+					return self.camera_helper;
 
 				}
 
-				this.cameraHelper_ = function( ) {
+				this.camera_helper_ = function( ) {
 
-					if ( this.cameraHelper_visible ) {
+					if ( this.camera_helper_visible ) {
 
-						this.cameraHelper_visible = false;
+						this.camera_helper_visible = false;
 
-						self.scene.remove ( self.get_cameraHelper( ) );
+						self.scene.remove ( self.get_camera_helper( ) );
 
 					}
 
 					else {
 
-						this.cameraHelper_visible = true;
+						this.camera_helper_visible = true;
 
-						self.scene.add ( self.get_cameraHelper( ) );
+						self.scene.add ( self.get_camera_helper( ) );
 
 					}
 
@@ -1067,13 +1067,13 @@
 
 				// dimension label helper
 
-				this.dimensionLabels = null;
+				this.dimension_labels = null;
 
-				this.dimensionLabels_visible = false;
+				this.dimension_labels_visible = false;
 
-				this.get_dimensionLabels = function ( ) {
+				this.get_dimension_labels = function ( ) {
 
-					if ( self.dimensionLabels ) return self.dimensionLabels;
+					if ( self.dimension_labels ) return self.dimension_labels;
 
 					// get bounding box
 
@@ -1103,7 +1103,7 @@
 
 					// label maker
 
-					function makeLabel ( message, color ) {
+					function generate_label ( message, color ) {
 
 						const canvas = document.createElement ( 'canvas' );
 
@@ -1113,7 +1113,7 @@
 
 						canvas.height = 1024;
 
-						const labelContext = canvas.getContext ( '2d' );
+						const label_context = canvas.getContext ( '2d' );
 
 						// label background
 
@@ -1121,45 +1121,45 @@
 						const width = canvas.width;
 						const height = canvas.height;
 
-						labelContext.fillStyle = '#00000000';
-						labelContext.beginPath ( );
-						labelContext.moveTo ( radius, 0);
-						labelContext.lineTo ( width - radius, 0 );
-						labelContext.quadraticCurveTo ( width, 0, width, radius );
-						labelContext.lineTo ( width, height - radius );
-						labelContext.quadraticCurveTo ( width, height, width - radius, height );
-						labelContext.lineTo ( radius, height );
-						labelContext.quadraticCurveTo ( 0, height, 0, height - radius );
-						labelContext.lineTo ( 0, radius );
-						labelContext.quadraticCurveTo ( 0, 0, radius, 0 );
-						labelContext.closePath ( );
-						labelContext.fill ( );
+						label_context.fillStyle = '#00000000';
+						label_context.beginPath ( );
+						label_context.moveTo ( radius, 0);
+						label_context.lineTo ( width - radius, 0 );
+						label_context.quadraticCurveTo ( width, 0, width, radius );
+						label_context.lineTo ( width, height - radius );
+						label_context.quadraticCurveTo ( width, height, width - radius, height );
+						label_context.lineTo ( radius, height );
+						label_context.quadraticCurveTo ( 0, height, 0, height - radius );
+						label_context.lineTo ( 0, radius );
+						label_context.quadraticCurveTo ( 0, 0, radius, 0 );
+						label_context.closePath ( );
+						label_context.fill ( );
 
 						// per axis text color
 
-						labelContext.fillStyle = color;
+						label_context.fillStyle = color;
 
 						// text font
 
-						labelContext.font = 'bold 20px monospace';
+						label_context.font = 'bold 20px monospace';
 
 						// text font alignment
 
-						labelContext.textAlign = 'center';
+						label_context.textAlign = 'center';
 
-						labelContext.textBaseline = 'middle';
+						label_context.textBaseline = 'middle';
 
 						// center text in label
 
-						labelContext.fillText ( message, canvas.width / 2, canvas.height / 2 );
+						label_context.fillText ( message, canvas.width / 2, canvas.height / 2 );
 
 						// load label sprite
 
-						const spriteTexture = new THREE.CanvasTexture ( canvas );
+						const sprite_texture = new THREE.CanvasTexture ( canvas );
 
-						const spriteMaterial = new THREE.SpriteMaterial ( { map: spriteTexture, transparent: true } );
+						const sprite_material = new THREE.SpriteMaterial ( { map: sprite_texture, transparent: true } );
 
-						const sprite = new THREE.Sprite ( spriteMaterial );
+						const sprite = new THREE.Sprite ( sprite_material );
 
 						// set label scale factor
 
@@ -1175,9 +1175,9 @@
 
 					const labels = [];
 
-					labels.push ( makeLabel ( `Width [ x ] : ${x.in} in // ${x.cm} cm // ${x.ldu} ldu`, '#ff0000ff' ) );	// x - red
-					labels.push ( makeLabel ( `Height [ y ] : ${y.in} in // ${y.cm} cm // ${y.ldu} ldu`, '#008000ff' ) );	// y - green
-					labels.push ( makeLabel ( `Depth [ z ] : ${z.in} in // ${z.cm} cm // ${z.ldu} ldu`, '#0000ffff' ) );	// z - blue
+					labels.push ( generate_label ( `Width [ x ] : ${x.in} in // ${x.cm} cm // ${x.ldu} ldu`, '#ff0000ff' ) );	// x - red
+					labels.push ( generate_label ( `Height [ y ] : ${y.in} in // ${y.cm} cm // ${y.ldu} ldu`, '#008000ff' ) );	// y - green
+					labels.push ( generate_label ( `Depth [ z ] : ${z.in} in // ${z.cm} cm // ${z.ldu} ldu`, '#0000ffff' ) );	// z - blue
 
 					// label positions relative to model bounding box
 
@@ -1189,36 +1189,36 @@
 					labels[1].position.set ( box.max.x + labelMargin, box.max.y + labelOffset, box.max.z );
 					labels[2].position.set ( box.max.x + labelMargin, box.min.y + labelOffset, center.z );
 
-					self.dimensionLabels = labels;
+					self.dimension_labels = labels;
 
-					return self.dimensionLabels;
+					return self.dimension_labels;
 
 				}
 
-				this.dimensionLabels_ = function ( ) {
+				this.dimension_labels_ = function ( ) {
 
-					if ( this.dimensionLabels_visible ) {
+					if ( this.dimension_labels_visible ) {
 
-						this.dimensionLabels_visible = false;
+						this.dimension_labels_visible = false;
 
-						if ( self.dimensionLabels ) {
+						if ( self.dimension_labels ) {
 
-							self.dimensionLabels.forEach ( label => self.scene.remove ( label ) );
+							self.dimension_labels.forEach ( label => self.scene.remove ( label ) );
 
-							self.dimensionLabels = null;
+							self.dimension_labels = null;
 
-							dimensionLabels_visible = false;
+							dimension_labels_visible = false;
 
 						}
 					}
 
 					else {
 
-						this.dimensionLabels_visible = true;
+						this.dimension_labels_visible = true;
 
-						self.get_dimensionLabels( ).forEach(label => self.scene.add ( label ) );
+						self.get_dimension_labels( ).forEach(label => self.scene.add ( label ) );
 
-						dimensionLabels_visible = true;
+						dimension_labels_visible = true;
 
 						console.log ( "helper [ dimensions ]" );
 					}
@@ -1226,39 +1226,39 @@
 
 				// hemisphere light helper
 
-				this.hemisphereLightHelper = null;
+				this.hemisphere_light_helper = null;
 
-				this.hemisphereLightHelper_visible = false;
+				this.hemisphere_light_helper_visible = false;
 
-				this.get_hemisphereLightHelper = function( ) {
+				this.get_hemisphere_light_helper = function( ) {
 
-					if ( ! self.hemisphereLightHelper ) {
+					if ( ! self.hemisphere_light_helper ) {
 
-						self.hemisphereLightHelper = new THREE.HemisphereLightHelper ( self.hemisphereLight, 0.25 , this.hemisphereLightHelper_color );
+						self.hemisphere_light_helper = new THREE.HemisphereLightHelper ( self.hemisphereLight, 0.25 , this.hemisphere_light_helper_color );
 
 						console.log ( "helper [ light / hemisphere ]" );
 
 					}
 
-					return self.hemisphereLightHelper;
+					return self.hemisphere_light_helper;
 
 				}
 
-				this.hemisphereLightHelper_ = function( ) {
+				this.hemisphere_light_helper_ = function( ) {
 
-					if ( this.hemisphereLightHelper_visible ) {
+					if ( this.hemisphere_light_helper_visible ) {
 
-						this.hemisphereLightHelper_visible = false;
+						this.hemisphere_light_helper_visible = false;
 
-						self.scene.remove ( self.get_hemisphereLightHelper( ) );
+						self.scene.remove ( self.get_hemisphere_light_helper( ) );
 
 					}
 
 					else {
 
-						this.hemisphereLightHelper_visible = true;
+						this.hemisphere_light_helper_visible = true;
 
-						self.scene.add ( self.get_hemisphereLightHelper( ) );
+						self.scene.add ( self.get_hemisphere_light_helper( ) );
 
 					}
 
@@ -1623,7 +1623,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-yellow.dae',
+						'/minifigs/exports/minifig-white.dae',
 
 						function ( collada ) {
 
@@ -1947,28 +1947,28 @@
 
 				var bounding_box_helper_visible = false;
 
-				var dimensionLabels_visible = false;
+				var dimension_labels_visible = false;
 
 				this.dimensionsToggle_ = function( ) {
 
-					if ( bounding_box_helper_visible && dimensionLabels_visible ) {
+					if ( bounding_box_helper_visible && dimension_labels_visible ) {
 
 						// both on >>> turn both off
 
 						self.bounding_box_helper_( );
-						self.dimensionLabels_( );
+						self.dimension_labels_( );
 
 						bounding_box_helper_visible = false;
-						dimensionLabels_visible = false;
+						dimension_labels_visible = false;
 
-					} else if ( bounding_box_helper_visible && ! dimensionLabels_visible ) {
+					} else if ( bounding_box_helper_visible && ! dimension_labels_visible ) {
 
 						// bounding box on >>> add dimensions
 
-						self.dimensionLabels_( );
-						dimensionLabels_visible = true;
+						self.dimension_labels_( );
+						dimension_labels_visible = true;
 
-					} else if ( ! bounding_box_helper_visible && dimensionLabels_visible ) {
+					} else if ( ! bounding_box_helper_visible && dimension_labels_visible ) {
 
 						// dimensions on >>> add bounding box
 
@@ -1980,10 +1980,10 @@
 						// both off >>> turn both on
 
 						self.bounding_box_helper_( );
-						self.dimensionLabels_( );
+						self.dimension_labels_( );
 
 						bounding_box_helper_visible = true;
-						dimensionLabels_visible = true;
+						dimension_labels_visible = true;
 
 					}
 				};
@@ -2313,7 +2313,7 @@
 
 						case 72:
 
-							self.hemisphereLightHelper_( );
+							self.hemisphere_light_helper_( );
 
 							break;
 
@@ -2389,7 +2389,7 @@
 
 						case 78:
 
-							self.dimensionLabels_( );
+							self.dimension_labels_( );
 
 						break;
 
@@ -2429,7 +2429,7 @@
 
 						case 77:
 
-							self.cameraHelper_( );
+							self.camera_helper_( );
 
 							break;
 
