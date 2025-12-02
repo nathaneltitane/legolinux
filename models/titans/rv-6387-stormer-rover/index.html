@@ -273,8 +273,6 @@
 
 			}
 
-			console.log ("operating system : ", get_operating_system ( ) );
-
 			function initialize ( ) {
 
 				// scaling unit - 1 stud = 0.008 m = 20 ldu >>> 1 ldu = 0.0004 m
@@ -334,6 +332,8 @@
 				}
 
 				console.log ( 'device [ type / platform ] : ' + device_type );
+
+				console.log ("operating system : ", get_operating_system ( ) );
 
 				// colors
 
@@ -421,9 +421,9 @@
 						create_device_overlay_if_needed ();
 
 						device_information_overlay.textContent =
-							'device: [' + device_type + ']\n' +
-							'os: [' + os + ']\n' +
-							'dpr: [' + pixelRatio.toFixed ( 2 ) + ']';
+							'device : [' + device_type + ']\n' +
+							'os : [' + os + ']\n' +
+							'dpr : [' + pixelRatio.toFixed ( 2 ) + ']';
 
 						device_information_overlay.style.display = 'block';
 
@@ -1620,7 +1620,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-white.dae',
+						'/minifigs/exports/minifig-blue.dae',
 
 						function ( collada ) {
 
