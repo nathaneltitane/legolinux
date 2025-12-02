@@ -11,9 +11,9 @@
 		<script>
 			window.dataLayer = window.dataLayer || [];
 
-			function gtag(){dataLayer.push(arguments);}
+			function gtag( ){dataLayer.push(arguments);}
 
-			gtag('js', new Date());
+			gtag('js', new Date( ));
 
 			gtag('config', 'G-4XY1M84019');
 
@@ -412,7 +412,7 @@ ZGEUG3DCATJD4"
 
 				}
 
-				const os = operating_system ();
+				const os = operating_system ( );
 
 				function set_debug_overlay_enabled ( enabled ) {
 
@@ -420,7 +420,7 @@ ZGEUG3DCATJD4"
 
 					if ( enabled ) {
 
-						create_device_overlay_if_needed ();
+						create_device_overlay_if_needed ( );
 
 						device_information_overlay.textContent =
 							'device : [ ' + device_type + ' ]' + '\n' +
@@ -457,7 +457,7 @@ ZGEUG3DCATJD4"
 
 						// ignore when typing in inputs / textareas
 
-						var tag = event.target.tagName.toLowerCase ();
+						var tag = event.target.tagName.toLowerCase ( );
 
 						if ( tag === 'input' || tag === 'textarea' || event.target.isContentEditable ) {
 
@@ -580,7 +580,7 @@ ZGEUG3DCATJD4"
 
 				// scene
 
-				this.scene = new THREE.Scene();
+				this.scene = new THREE.Scene( );
 
 				// size reference cube (1 m³)
 
@@ -588,7 +588,7 @@ ZGEUG3DCATJD4"
 
 				// ensures centering on cube origin
 
-				geometry.center();
+				geometry.center( );
 
 				const referenceCube = new THREE.Mesh (
 
@@ -863,14 +863,14 @@ ZGEUG3DCATJD4"
 
 						this.axesHelper_visible = false;
 
-						self.scene.remove ( self.get_axesHelper() );
+						self.scene.remove ( self.get_axesHelper( ) );
 					}
 
 					else {
 
 						this.axesHelper_visible = true;
 
-						self.scene.add ( self.get_axesHelper() );
+						self.scene.add ( self.get_axesHelper( ) );
 					}
 				}
 
@@ -882,19 +882,19 @@ ZGEUG3DCATJD4"
 
 				this.boundingBoxHelper_visible = false;
 
-				this.get_boundingBoxHelper = function () {
+				this.get_boundingBoxHelper = function ( ) {
 
 					if ( ! self.boundingBoxHelper ) {
 
-						const box = self.get_boundingBox();
+						const box = self.get_boundingBox( );
 
-						const geometry = new THREE.BufferGeometry();
+						const geometry = new THREE.BufferGeometry( );
 						const positions = [];
 						const colors = [];
 
-						const colorX = new THREE.Color ( red );
-						const colorY = new THREE.Color ( green );
-						const colorZ = new THREE.Color ( blue );
+						const color_x = new THREE.Color ( red );
+						const color_y = new THREE.Color ( green );
+						const color_z = new THREE.Color ( blue );
 
 						const min = box.min;
 						const max = box.max;
@@ -949,11 +949,11 @@ ZGEUG3DCATJD4"
 						//	const isY = start[1] !== end[1];
 						//	const isZ = start[2] !== end[2];
 
-						//	const color = isX ? colorX : isY ? colorY : colorZ;
+						//	const color = isX ? color_x : isY ? color_y : color_z;
 
 						//	positions.push ( ...start, ...end );
 
-						//	colors.push ( ...color.toArray(), ...color.toArray() );
+						//	colors.push ( ...color.toArray( ), ...color.toArray( ) );
 						//}
 
 						// generate corners
@@ -972,19 +972,19 @@ ZGEUG3DCATJD4"
 
 							positions.push ( x, y, z, x + dirX * cornerSize, y, z );
 
-							colors.push ( ...colorX.toArray(), ...colorX.toArray() );
+							colors.push ( ...color_x.toArray( ), ...color_x.toArray( ) );
 
 							// y axis
 
 							positions.push ( x, y, z, x, y + dirY * cornerSize, z );
 
-							colors.push ( ...colorY.toArray(), ...colorY.toArray() );
+							colors.push ( ...color_y.toArray( ), ...color_y.toArray( ) );
 
 							// z axis
 
 							positions.push ( x, y, z, x, y, z + dirZ * cornerSize );
 
-							colors.push ( ...colorZ.toArray(), ...colorZ.toArray() );
+							colors.push ( ...color_z.toArray( ), ...color_z.toArray( ) );
 						}
 
 						geometry.setAttribute ( 'position', new THREE.Float32BufferAttribute ( positions, 3 ) );
@@ -1002,13 +1002,13 @@ ZGEUG3DCATJD4"
 
 				}
 
-				this.boundingBoxHelper_ = function () {
+				this.boundingBoxHelper_ = function ( ) {
 
 					if ( this.boundingBoxHelper_visible ) {
 
 						this.boundingBoxHelper_visible = false;
 
-						self.scene.remove ( self.get_boundingBoxHelper() );
+						self.scene.remove ( self.get_boundingBoxHelper( ) );
 
 						boundingBoxHelper_visible = false;
 
@@ -1018,7 +1018,7 @@ ZGEUG3DCATJD4"
 
 						this.boundingBoxHelper_visible = true;
 
-						self.scene.add ( self.get_boundingBoxHelper() );
+						self.scene.add ( self.get_boundingBoxHelper( ) );
 
 						boundingBoxHelper_visible = true;
 					}
@@ -1032,7 +1032,7 @@ ZGEUG3DCATJD4"
 
 				this.cameraHelper_visible = false;
 
-				this.get_cameraHelper = function() {
+				this.get_cameraHelper = function( ) {
 
 					if ( ! self.cameraHelper)  {
 
@@ -1046,13 +1046,13 @@ ZGEUG3DCATJD4"
 
 				}
 
-				this.cameraHelper_ = function() {
+				this.cameraHelper_ = function( ) {
 
 					if ( this.cameraHelper_visible ) {
 
 						this.cameraHelper_visible = false;
 
-						self.scene.remove ( self.get_cameraHelper() );
+						self.scene.remove ( self.get_cameraHelper( ) );
 
 					}
 
@@ -1060,7 +1060,7 @@ ZGEUG3DCATJD4"
 
 						this.cameraHelper_visible = true;
 
-						self.scene.add ( self.get_cameraHelper() );
+						self.scene.add ( self.get_cameraHelper( ) );
 
 					}
 
@@ -1072,17 +1072,17 @@ ZGEUG3DCATJD4"
 
 				this.dimensionLabels_visible = false;
 
-				this.get_dimensionLabels = function () {
+				this.get_dimensionLabels = function ( ) {
 
 					if ( self.dimensionLabels ) return self.dimensionLabels;
 
 					// get bounding box
 
-					const box = self.get_boundingBox ();
+					const box = self.get_boundingBox ( );
 
-					const center = box.getCenter (new THREE.Vector3() );
+					const center = box.getCenter (new THREE.Vector3( ) );
 
-					const size = box.getSize ( new THREE.Vector3() );
+					const size = box.getSize ( new THREE.Vector3( ) );
 
 					// convert units
 
@@ -1123,7 +1123,7 @@ ZGEUG3DCATJD4"
 						const height = canvas.height;
 
 						labelContext.fillStyle = '#00000000';
-						labelContext.beginPath ();
+						labelContext.beginPath ( );
 						labelContext.moveTo ( radius, 0);
 						labelContext.lineTo ( width - radius, 0 );
 						labelContext.quadraticCurveTo ( width, 0, width, radius );
@@ -1133,8 +1133,8 @@ ZGEUG3DCATJD4"
 						labelContext.quadraticCurveTo ( 0, height, 0, height - radius );
 						labelContext.lineTo ( 0, radius );
 						labelContext.quadraticCurveTo ( 0, 0, radius, 0 );
-						labelContext.closePath ();
-						labelContext.fill ();
+						labelContext.closePath ( );
+						labelContext.fill ( );
 
 						// per axis text color
 
@@ -1196,7 +1196,7 @@ ZGEUG3DCATJD4"
 
 				}
 
-				this.dimensionLabels_ = function () {
+				this.dimensionLabels_ = function ( ) {
 
 					if ( this.dimensionLabels_visible ) {
 
@@ -1217,7 +1217,7 @@ ZGEUG3DCATJD4"
 
 						this.dimensionLabels_visible = true;
 
-						self.get_dimensionLabels().forEach(label => self.scene.add ( label ) );
+						self.get_dimensionLabels( ).forEach(label => self.scene.add ( label ) );
 
 						dimensionLabels_visible = true;
 
@@ -1231,7 +1231,7 @@ ZGEUG3DCATJD4"
 
 				this.hemisphereLightHelper_visible = false;
 
-				this.get_hemisphereLightHelper = function() {
+				this.get_hemisphereLightHelper = function( ) {
 
 					if ( ! self.hemisphereLightHelper ) {
 
@@ -1245,13 +1245,13 @@ ZGEUG3DCATJD4"
 
 				}
 
-				this.hemisphereLightHelper_ = function() {
+				this.hemisphereLightHelper_ = function( ) {
 
 					if ( this.hemisphereLightHelper_visible ) {
 
 						this.hemisphereLightHelper_visible = false;
 
-						self.scene.remove ( self.get_hemisphereLightHelper() );
+						self.scene.remove ( self.get_hemisphereLightHelper( ) );
 
 					}
 
@@ -1259,7 +1259,7 @@ ZGEUG3DCATJD4"
 
 						this.hemisphereLightHelper_visible = true;
 
-						self.scene.add ( self.get_hemisphereLightHelper() );
+						self.scene.add ( self.get_hemisphereLightHelper( ) );
 
 					}
 
@@ -1271,7 +1271,7 @@ ZGEUG3DCATJD4"
 
 				this.pointLightHelper_visible = false;
 
-				this.get_pointLightHelper = function() {
+				this.get_pointLightHelper = function( ) {
 
 					if ( ! self.pointLightHelper ) {
 
@@ -1285,13 +1285,13 @@ ZGEUG3DCATJD4"
 
 				}
 
-				this.pointLightHelper_ = function() {
+				this.pointLightHelper_ = function( ) {
 
 					if ( this.pointLightHelper_visible ) {
 
 						this.pointLightHelper_visible = false;
 
-						self.scene.remove ( self.get_pointLightHelper() );
+						self.scene.remove ( self.get_pointLightHelper( ) );
 
 					}
 
@@ -1299,7 +1299,7 @@ ZGEUG3DCATJD4"
 
 						this.pointLightHelper_visible = true;
 
-						self.scene.add ( self.get_pointLightHelper() );
+						self.scene.add ( self.get_pointLightHelper( ) );
 
 					}
 
@@ -1311,7 +1311,7 @@ ZGEUG3DCATJD4"
 
 				this.directionalLight_0_Helper_visible = false;
 
-				this.get_directionalLight_0_Helper = function() {
+				this.get_directionalLight_0_Helper = function( ) {
 
 					if ( ! self.directionalLight_0_Helper ) {
 
@@ -1324,13 +1324,13 @@ ZGEUG3DCATJD4"
 
 				}
 
-				this.directionalLight_0_Helper_ = function() {
+				this.directionalLight_0_Helper_ = function( ) {
 
 					if ( this.directionalLight_0_Helper_visible ) {
 
 						this.directionalLight_0_Helper_visible = false;
 
-						self.scene.remove ( self.get_directionalLight_0_Helper() );
+						self.scene.remove ( self.get_directionalLight_0_Helper( ) );
 
 					}
 
@@ -1338,7 +1338,7 @@ ZGEUG3DCATJD4"
 
 						this.directionalLight_0_Helper_visible = true;
 
-						self.scene.add ( self.get_directionalLight_0_Helper() );
+						self.scene.add ( self.get_directionalLight_0_Helper( ) );
 
 					}
 
@@ -1350,7 +1350,7 @@ ZGEUG3DCATJD4"
 
 				this.directionalLight_1_Helper_visible = false;
 
-				this.get_directionalLight_1_Helper = function() {
+				this.get_directionalLight_1_Helper = function( ) {
 
 					if ( ! self.directionalLight_1_Helper ) {
 
@@ -1364,13 +1364,13 @@ ZGEUG3DCATJD4"
 
 				}
 
-				this.directionalLight_1_Helper_ = function() {
+				this.directionalLight_1_Helper_ = function( ) {
 
 					if ( this.directionalLight_1_Helper_visible ) {
 
 						this.directionalLight_1_Helper_visible = false;
 
-						self.scene.remove ( self.get_directionalLight_1_Helper() );
+						self.scene.remove ( self.get_directionalLight_1_Helper( ) );
 
 					}
 
@@ -1378,7 +1378,7 @@ ZGEUG3DCATJD4"
 
 						this.directionalLight_1_Helper_visible = true;
 
-						self.scene.add ( self.get_directionalLight_1_Helper() );
+						self.scene.add ( self.get_directionalLight_1_Helper( ) );
 
 					}
 
@@ -1390,7 +1390,7 @@ ZGEUG3DCATJD4"
 
 				this.directionalLight_2_Helper_visible = false;
 
-				this.get_directionalLight_2_Helper = function() {
+				this.get_directionalLight_2_Helper = function( ) {
 
 					if ( ! self.directionalLight_2_Helper ) {
 
@@ -1404,13 +1404,13 @@ ZGEUG3DCATJD4"
 
 				}
 
-				this.directionalLight_2_Helper_ = function() {
+				this.directionalLight_2_Helper_ = function( ) {
 
 					if ( this.directionalLight_2_Helper_visible ) {
 
 						this.directionalLight_2_Helper_visible = false;
 
-						self.scene.remove ( self.get_directionalLight_2_Helper() );
+						self.scene.remove ( self.get_directionalLight_2_Helper( ) );
 
 					}
 
@@ -1418,7 +1418,7 @@ ZGEUG3DCATJD4"
 
 						this.directionalLight_2_Helper_visible = true;
 
-						self.scene.add ( self.get_directionalLight_2_Helper() );
+						self.scene.add ( self.get_directionalLight_2_Helper( ) );
 
 					}
 
@@ -1430,7 +1430,7 @@ ZGEUG3DCATJD4"
 
 				this.spotLightHelper_visible = false;
 
-				this.get_spotLightHelper = function() {
+				this.get_spotLightHelper = function( ) {
 
 					if ( ! self.spotLightHelper ) {
 
@@ -1443,13 +1443,13 @@ ZGEUG3DCATJD4"
 
 				}
 
-				this.spotLightHelper_ = function() {
+				this.spotLightHelper_ = function( ) {
 
 					if ( this.spotLightHelper_visible ) {
 
 						this.spotLightHelper_visible = false;
 
-						self.scene.remove ( self.get_spotLightHelper() );
+						self.scene.remove ( self.get_spotLightHelper( ) );
 
 					}
 
@@ -1457,7 +1457,7 @@ ZGEUG3DCATJD4"
 
 						this.spotLightHelper_visible = true;
 
-						self.scene.add ( self.get_spotLightHelper() );
+						self.scene.add ( self.get_spotLightHelper( ) );
 
 					}
 
@@ -1473,7 +1473,7 @@ ZGEUG3DCATJD4"
 
 				this.polarGridHelper_visible = false;
 
-				this.get_polarGridHelper = function() {
+				this.get_polarGridHelper = function( ) {
 
 					if ( ! self.polarGridHelper ) {
 
@@ -1492,7 +1492,7 @@ ZGEUG3DCATJD4"
 
 					);
 
-						self.polarGridHelper.position.y = self.get_boundingBox().min.y;
+						self.polarGridHelper.position.y = self.get_boundingBox( ).min.y;
 
 						self.polarGridHelper.position.x = 0;
 
@@ -1506,13 +1506,13 @@ ZGEUG3DCATJD4"
 
 				}
 
-				this.polarGridHelper_ = function() {
+				this.polarGridHelper_ = function( ) {
 
 					if ( this.polarGridHelper_visible ) {
 
 						this.polarGridHelper_visible = false;
 
-						self.scene.remove ( self.get_polarGridHelper() );
+						self.scene.remove ( self.get_polarGridHelper( ) );
 
 					}
 
@@ -1520,7 +1520,7 @@ ZGEUG3DCATJD4"
 
 						this.polarGridHelper_visible = true;
 
-						self.scene.add ( self.get_polarGridHelper() );
+						self.scene.add ( self.get_polarGridHelper( ) );
 
 					}
 
@@ -1536,7 +1536,7 @@ ZGEUG3DCATJD4"
 
 				this.orthogonalGridHelper_visible = false;
 
-				this.get_orthogonalGridHelper = function() {
+				this.get_orthogonalGridHelper = function( ) {
 
 					if ( ! self.orthogonalGridHelper ) {
 
@@ -1568,13 +1568,13 @@ ZGEUG3DCATJD4"
 
 				}
 
-				this.orthogonalGridHelper_ = function() {
+				this.orthogonalGridHelper_ = function( ) {
 
 					if ( this.orthogonalGridHelper_visible ) {
 
 						this.orthogonalGridHelper_visible = false;
 
-						self.scene.remove ( self.get_orthogonalGridHelper() );
+						self.scene.remove ( self.get_orthogonalGridHelper( ) );
 
 					}
 
@@ -1582,7 +1582,7 @@ ZGEUG3DCATJD4"
 
 						this.orthogonalGridHelper_visible = true;
 
-						self.scene.add ( self.get_orthogonalGridHelper() );
+						self.scene.add ( self.get_orthogonalGridHelper( ) );
 
 					}
 
@@ -1590,7 +1590,7 @@ ZGEUG3DCATJD4"
 
 				// minifig
 
-				this.minifigToggle_ = function () {
+				this.minifigToggle_ = function ( ) {
 
 					const self = this;
 
@@ -1620,7 +1620,7 @@ ZGEUG3DCATJD4"
 						return;
 					}
 
-					const loader = new ColladaLoader ();
+					const loader = new ColladaLoader ( );
 
 					loader.load (
 
@@ -1634,15 +1634,15 @@ ZGEUG3DCATJD4"
 
 						// define all model bounding boxes
 
-						const modelBox = new THREE.Box3().setFromObject ( self.colladaImport );
+						const modelBox = new THREE.Box3( ).setFromObject ( self.colladaImport );
 
-						const minifigBox = new THREE.Box3().setFromObject ( minifig );
+						const minifigBox = new THREE.Box3( ).setFromObject ( minifig );
 
 						// define all models positional parameters
 
-						const modelCenter = modelBox.getCenter ( new THREE.Vector3() );
+						const modelCenter = modelBox.getCenter ( new THREE.Vector3( ) );
 
-						const minifigCenter = minifigBox.getCenter ( new THREE.Vector3() );
+						const minifigCenter = minifigBox.getCenter ( new THREE.Vector3( ) );
 
 						const modelWidth = modelBox.max.x - modelBox.min.x;
 
@@ -1662,7 +1662,7 @@ ZGEUG3DCATJD4"
 
 						// compute minifig position
 
-						const minifigPositionBox = new THREE.Box3().setFromObject ( minifig );
+						const minifigPositionBox = new THREE.Box3( ).setFromObject ( minifig );
 
 						const yOffset = modelBox.min.y - minifigPositionBox.min.y;
 
@@ -1722,7 +1722,7 @@ ZGEUG3DCATJD4"
 
 						self.scene.add ( minifig );
 
-						const transform = self.get_transformControls();
+						const transform = self.get_transformControls( );
 
 						self.scene.add ( transform );
 
@@ -1743,11 +1743,11 @@ ZGEUG3DCATJD4"
 
 				this.boundingBox = null;
 
-				this.get_boundingBox = function() {
+				this.get_boundingBox = function( ) {
 
 					if ( ! self.boundingBox ) {
 
-						self.boundingBox = new THREE.Box3().setFromObject ( self.colladaImport )
+						self.boundingBox = new THREE.Box3( ).setFromObject ( self.colladaImport )
 
 						console.log ( "helper [ bounding box / plane ]" );
 					}
@@ -1761,7 +1761,7 @@ ZGEUG3DCATJD4"
 
 				this.plane_visible = false;
 
-				this.get_plane = function () {
+				this.get_plane = function ( ) {
 
 					if ( !self.plane ) {
 
@@ -1773,7 +1773,7 @@ ZGEUG3DCATJD4"
 
 						const radius = 0.008;
 
-						const shape = new THREE.Shape();
+						const shape = new THREE.Shape( );
 
 						const w = planeWidth;
 						const h = planeLength;
@@ -1835,15 +1835,15 @@ ZGEUG3DCATJD4"
 
 				}
 
-				this.plane_ = function() {
+				this.plane_ = function( ) {
 
-					self.boundingBox = self.get_boundingBox();
+					self.boundingBox = self.get_boundingBox( );
 
 					if ( this.plane_visible ) {
 
 						this.plane_visible = false;
 
-						self.scene.remove ( self.get_plane() );
+						self.scene.remove ( self.get_plane( ) );
 						self.scene.remove ( self.planeEdges );
 
 					}
@@ -1852,14 +1852,14 @@ ZGEUG3DCATJD4"
 
 						this.plane_visible = true;
 
-						self.scene.add ( self.get_plane() );
+						self.scene.add ( self.get_plane( ) );
 						self.scene.add ( self.planeEdges );
 					}
 				}
 
 				// edges toggle - model
 
-				this.edgesToggle_ = function() {
+				this.edgesToggle_ = function( ) {
 
 					if ( wireframe_visible ) {
 
@@ -1908,13 +1908,13 @@ ZGEUG3DCATJD4"
 
 				var modelFaces_visible = true;
 
-				this.wireframeToggle_ = function() {
+				this.wireframeToggle_ = function( ) {
 
 					// edges on >>> turn edges off
 
 					if ( modelEdges_visible ) {
 
-						self.edgesToggle_();
+						self.edgesToggle_( );
 
 						console.warn ( 'Edges cannot be enabled while wireframe mode is active.' );
 
@@ -1950,14 +1950,14 @@ ZGEUG3DCATJD4"
 
 				var dimensionLabels_visible = false;
 
-				this.dimensionsToggle_ = function() {
+				this.dimensionsToggle_ = function( ) {
 
 					if ( boundingBoxHelper_visible && dimensionLabels_visible ) {
 
 						// both on >>> turn both off
 
-						self.boundingBoxHelper_();
-						self.dimensionLabels_();
+						self.boundingBoxHelper_( );
+						self.dimensionLabels_( );
 
 						boundingBoxHelper_visible = false;
 						dimensionLabels_visible = false;
@@ -1966,22 +1966,22 @@ ZGEUG3DCATJD4"
 
 						// bounding box on >>> add dimensions
 
-						self.dimensionLabels_();
+						self.dimensionLabels_( );
 						dimensionLabels_visible = true;
 
 					} else if ( ! boundingBoxHelper_visible && dimensionLabels_visible ) {
 
 						// dimensions on >>> add bounding box
 
-						self.boundingBoxHelper_();
+						self.boundingBoxHelper_( );
 						boundingBoxHelper_visible = true;
 
 					} else {
 
 						// both off >>> turn both on
 
-						self.boundingBoxHelper_();
-						self.dimensionLabels_();
+						self.boundingBoxHelper_( );
+						self.dimensionLabels_( );
 
 						boundingBoxHelper_visible = true;
 						dimensionLabels_visible = true;
@@ -1991,9 +1991,9 @@ ZGEUG3DCATJD4"
 
 				// camera toggle
 
-				this.cameraToggle_ = function() {
+				this.cameraToggle_ = function( ) {
 
-					self.position = self.camera.position.clone();
+					self.position = self.camera.position.clone( );
 
 					self.camera = self.camera.isPerspectiveCamera ? self.orthographicCamera : self.perspectiveCamera;
 
@@ -2017,9 +2017,9 @@ ZGEUG3DCATJD4"
 
 					self.camera.lookAt ( 0, 0, 0 );
 
-					self.camera.updateProjectionMatrix();
+					self.camera.updateProjectionMatrix( );
 
-					self.resize();
+					self.resize( );
 
 					console.log ( "camera = " + self.cameraType );
 
@@ -2027,7 +2027,7 @@ ZGEUG3DCATJD4"
 
 				// camera position toggle
 
-				this.cameraPositionToggle_ = function() {
+				this.cameraPositionToggle_ = function( ) {
 
 					self.camera = self.orthographicCamera
 
@@ -2039,7 +2039,7 @@ ZGEUG3DCATJD4"
 
 					self.camera.lookAt ( 0, 0, 0 );
 
-					self.camera.updateProjectionMatrix();
+					self.camera.updateProjectionMatrix( );
 
 					console.log ( "camera position = " + self.cameraPositionMatrix_x, self.cameraPositionMatrix_y, self.cameraPositionMatrix_z );
 
@@ -2047,9 +2047,9 @@ ZGEUG3DCATJD4"
 
 				// view toggle
 
-				this.viewToggle_ = function() {
+				this.viewToggle_ = function( ) {
 
-					const randomViewFactor  = ( Math.random() + 0.1 );
+					const randomViewFactor  = ( Math.random( ) + 0.1 );
 
 					const randomFieldOfView = randomViewFactor;
 					const randomZoom        = randomViewFactor;
@@ -2070,13 +2070,13 @@ ZGEUG3DCATJD4"
 
 					self.orthographicCamera.zoom = ( orthographicRandomZoom );
 
-					self.resize();
+					self.resize( );
 
 				}
 
 				// transform toggle
 
-				this.transformToggle_ = function() {
+				this.transformToggle_ = function( ) {
 
 					self.transformControls.enabled = ! self.transformControls.enabled;
 
@@ -2110,7 +2110,7 @@ ZGEUG3DCATJD4"
 
 				// controls space toggle
 
-				this.controlsSpace_ = function() {
+				this.controlsSpace_ = function( ) {
 
 					self.transformControls.setSpace ( self.transformControls.space === "world" ? "local" : "world" );
 
@@ -2120,7 +2120,7 @@ ZGEUG3DCATJD4"
 
 				// snap toggle
 
-				this.snapToggle_ = function() {
+				this.snapToggle_ = function( ) {
 
 					let snapFactor = 0.25;
 
@@ -2130,7 +2130,7 @@ ZGEUG3DCATJD4"
 
 					const scaleSnap = ( snapFactor / 2 );
 
-					var snapMode = self.transformControls.getMode();
+					var snapMode = self.transformControls.getMode( );
 
 					if ( snapMode == "translate" ) {
 
@@ -2160,7 +2160,7 @@ ZGEUG3DCATJD4"
 
 				this.orbitControls = null;
 
-				this.get_orbitControls = function() {
+				this.get_orbitControls = function( ) {
 
 					if ( ! this.orbitControls ) {
 
@@ -2187,7 +2187,7 @@ ZGEUG3DCATJD4"
 						self.orbitControls.minDistance = near;
 						self.orbitControls.maxDistance = far;
 
-						self.orbitControls.update();
+						self.orbitControls.update( );
 					}
 
 					return self.orbitControls;
@@ -2199,7 +2199,7 @@ ZGEUG3DCATJD4"
 
 				this.transformControls_enabled = false;
 
-				this.get_transformControls = function() {
+				this.get_transformControls = function( ) {
 
 					if ( ! self.transformControls ) {
 
@@ -2221,7 +2221,7 @@ ZGEUG3DCATJD4"
 
 				// resize
 
-				this.resize = function() {
+				this.resize = function( ) {
 
 					if ( self.camera.isOrthographicCamera ) {
 
@@ -2237,7 +2237,7 @@ ZGEUG3DCATJD4"
 						self.camera.top    =   ( viewPortHeightOrthographic / 2 );
 						self.camera.bottom = - ( viewPortHeightOrthographic / 2 );
 
-						self.camera.updateProjectionMatrix();
+						self.camera.updateProjectionMatrix( );
 
 						// update renderer size
 
@@ -2248,7 +2248,7 @@ ZGEUG3DCATJD4"
 					else {
 							self.camera.aspect = window.innerWidth / window.innerHeight;
 
-							self.camera.updateProjectionMatrix();
+							self.camera.updateProjectionMatrix( );
 
 							self.renderer.setSize ( window.innerWidth, window.innerHeight );
 
@@ -2256,13 +2256,13 @@ ZGEUG3DCATJD4"
 
 				}
 
-				this.render = function() {
+				this.render = function( ) {
 
 					if ( self.resize ( self.renderer ) ) {
 
 						self.camera.aspect = canvas.clientWidth / canvas.clientHeight;
 
-						self.camera.updateProjectionMatrix();
+						self.camera.updateProjectionMatrix( );
 
 					}
 
@@ -2314,7 +2314,7 @@ ZGEUG3DCATJD4"
 
 						case 72:
 
-							self.hemisphereLightHelper_();
+							self.hemisphereLightHelper_( );
 
 							break;
 
@@ -2322,7 +2322,7 @@ ZGEUG3DCATJD4"
 
 						case 73:
 
-							self.spotLightHelper_();
+							self.spotLightHelper_( );
 
 							break;
 
@@ -2330,7 +2330,7 @@ ZGEUG3DCATJD4"
 
 						case 74:
 
-							self.pointLightHelper_();
+							self.pointLightHelper_( );
 
 							break;
 
@@ -2338,11 +2338,11 @@ ZGEUG3DCATJD4"
 
 						case 75:
 
-							self.directionalLight_0_Helper_();
+							self.directionalLight_0_Helper_( );
 
-							self.directionalLight_1_Helper_();
+							self.directionalLight_1_Helper_( );
 
-							self.directionalLight_2_Helper_();
+							self.directionalLight_2_Helper_( );
 
 							break;
 
@@ -2350,7 +2350,7 @@ ZGEUG3DCATJD4"
 
 						case 65:
 
-							self.axesHelper_();
+							self.axesHelper_( );
 
 							break;
 
@@ -2358,7 +2358,7 @@ ZGEUG3DCATJD4"
 
 						case 66:
 
-							self.boundingBoxHelper_();
+							self.boundingBoxHelper_( );
 
 							break;
 
@@ -2366,7 +2366,7 @@ ZGEUG3DCATJD4"
 
 						case 68:
 
-							self.dimensionsToggle_();
+							self.dimensionsToggle_( );
 
 							break;
 
@@ -2374,7 +2374,7 @@ ZGEUG3DCATJD4"
 
 						case 69:
 
-							self.edgesToggle_();
+							self.edgesToggle_( );
 
 							break;
 
@@ -2382,7 +2382,7 @@ ZGEUG3DCATJD4"
 
 						case 70:
 
-							self.minifigToggle_();
+							self.minifigToggle_( );
 
 							break;
 
@@ -2390,7 +2390,7 @@ ZGEUG3DCATJD4"
 
 						case 78:
 
-							self.dimensionLabels_();
+							self.dimensionLabels_( );
 
 						break;
 
@@ -2398,7 +2398,7 @@ ZGEUG3DCATJD4"
 
 						case 79:
 
-							self.orthogonalGridHelper_();
+							self.orthogonalGridHelper_( );
 
 							break;
 
@@ -2406,7 +2406,7 @@ ZGEUG3DCATJD4"
 
 						case 80:
 
-							self.polarGridHelper_();
+							self.polarGridHelper_( );
 
 							break;
 
@@ -2414,7 +2414,7 @@ ZGEUG3DCATJD4"
 
 						case 76:
 
-							self.plane_();
+							self.plane_( );
 
 							break;
 
@@ -2422,7 +2422,7 @@ ZGEUG3DCATJD4"
 
 						case 87:
 
-							self.wireframeToggle_();
+							self.wireframeToggle_( );
 
 							break;
 
@@ -2430,7 +2430,7 @@ ZGEUG3DCATJD4"
 
 						case 77:
 
-							self.cameraHelper_();
+							self.cameraHelper_( );
 
 							break;
 
@@ -2438,7 +2438,7 @@ ZGEUG3DCATJD4"
 
 						case 67:
 
-							self.cameraToggle_();
+							self.cameraToggle_( );
 
 							break;
 
@@ -2446,7 +2446,7 @@ ZGEUG3DCATJD4"
 
 						case 86:
 
-							self.viewToggle_();
+							self.viewToggle_( );
 
 							break;
 
@@ -2461,7 +2461,7 @@ ZGEUG3DCATJD4"
 							self.cameraPositionMatrix_y = 30;
 							self.cameraPositionMatrix_z = 45;
 
-							self.cameraPositionToggle_();
+							self.cameraPositionToggle_( );
 
 							break;
 
@@ -2476,7 +2476,7 @@ ZGEUG3DCATJD4"
 							self.cameraPositionMatrix_y = 0;
 							self.cameraPositionMatrix_z = 1;
 
-							self.cameraPositionToggle_();
+							self.cameraPositionToggle_( );
 
 							break;
 
@@ -2491,7 +2491,7 @@ ZGEUG3DCATJD4"
 							self.cameraPositionMatrix_y = 0;
 							self.cameraPositionMatrix_z = -1;
 
-							self.cameraPositionToggle_();
+							self.cameraPositionToggle_( );
 
 							break;
 
@@ -2506,7 +2506,7 @@ ZGEUG3DCATJD4"
 							self.cameraPositionMatrix_y = 0;
 							self.cameraPositionMatrix_z = 0;
 
-							self.cameraPositionToggle_();
+							self.cameraPositionToggle_( );
 
 							break;
 
@@ -2521,7 +2521,7 @@ ZGEUG3DCATJD4"
 							self.cameraPositionMatrix_y = 0;
 							self.cameraPositionMatrix_z = 0;
 
-							self.cameraPositionToggle_();
+							self.cameraPositionToggle_( );
 
 							break;
 
@@ -2536,7 +2536,7 @@ ZGEUG3DCATJD4"
 							self.cameraPositionMatrix_y = 1;
 							self.cameraPositionMatrix_z = 0;
 
-							self.cameraPositionToggle_();
+							self.cameraPositionToggle_( );
 
 							break;
 
@@ -2551,7 +2551,7 @@ ZGEUG3DCATJD4"
 							self.cameraPositionMatrix_y = -1;
 							self.cameraPositionMatrix_z = 0;
 
-							self.cameraPositionToggle_();
+							self.cameraPositionToggle_( );
 
 							break;
 
@@ -2559,7 +2559,7 @@ ZGEUG3DCATJD4"
 
 						case 32:
 
-							self.transformToggle_();
+							self.transformToggle_( );
 
 							break;
 
@@ -2591,7 +2591,7 @@ ZGEUG3DCATJD4"
 
 						case 16:
 
-							self.snapToggle_();
+							self.snapToggle_( );
 
 							break;
 
@@ -2599,7 +2599,7 @@ ZGEUG3DCATJD4"
 
 						case 17:
 
-							self.controlsSpace_();
+							self.controlsSpace_( );
 
 							break;
 
@@ -2709,7 +2709,7 @@ ZGEUG3DCATJD4"
 
 				// loader
 
-				var loader = new ColladaLoader();
+				var loader = new ColladaLoader( );
 
 				// global vars for edges
 
@@ -2747,7 +2747,7 @@ ZGEUG3DCATJD4"
 
 								var edges = new THREE.LineSegments ( edgesGeometry, edgesMaterial );
 
-								edges.geometry.computeBoundingBox();
+								edges.geometry.computeBoundingBox( );
 
 								// wireframe
 
@@ -2804,9 +2804,9 @@ ZGEUG3DCATJD4"
 
 						self.scene.add ( self.colladaImport );
 
-						const modelBox = new THREE.Box3().setFromObject ( self.colladaImport )
+						const modelBox = new THREE.Box3( ).setFromObject ( self.colladaImport )
 
-						const size = modelBox.getSize ( new THREE.Vector3 () );
+						const size = modelBox.getSize ( new THREE.Vector3 ( ) );
 
 						// unit conversions
 
@@ -2836,7 +2836,7 @@ ZGEUG3DCATJD4"
 
 						console.log ( 'scale [ model ] : ',  self.colladaImport.scale );
 
-						console.log ( 'scale [ model matrix ] : ', self.colladaImport.getWorldScale ( new THREE.Vector3() ) );
+						console.log ( 'scale [ model matrix ] : ', self.colladaImport.getWorldScale ( new THREE.Vector3( ) ) );
 
 						console.log ( 'bounding box [ model ] : ' +  'x = ', size.x.toFixed ( 4 ) + ' y = ', size.y.toFixed ( 4 ) + ' z = ', size.z.toFixed ( 4 ) );
 
@@ -2850,13 +2850,13 @@ ZGEUG3DCATJD4"
 
 						// orbit controls
 
-						self.get_orbitControls();
+						self.get_orbitControls( );
 
 						// transform controls
 
-						self.scene.add ( self.get_transformControls() );
+						self.scene.add ( self.get_transformControls( ) );
 
-						self.get_transformControls().attach ( self.colladaImport );
+						self.get_transformControls( ).attach ( self.colladaImport );
 
 					},
 
@@ -2876,46 +2876,46 @@ ZGEUG3DCATJD4"
 
 				// plane toggle
 
-				document.getElementById ( 'plane' ).addEventListener ( 'click', function() {
+				document.getElementById ( 'plane' ).addEventListener ( 'click', function( ) {
 
-					self.plane_();
+					self.plane_( );
 
 				} );
 
 
 				// minifig toggle
 
-				document.getElementById ( 'minifig' ).addEventListener ( 'click', function() {
+				document.getElementById ( 'minifig' ).addEventListener ( 'click', function( ) {
 
-					self.minifigToggle_();
+					self.minifigToggle_( );
 
 				} );
 
 				// wireframe toggle
 
-				document.getElementById ( 'wireframe' ).addEventListener ( 'click', function() {
+				document.getElementById ( 'wireframe' ).addEventListener ( 'click', function( ) {
 
-					self.wireframeToggle_();
+					self.wireframeToggle_( );
 
 				} );
 
 				// edges toggle
 
-				document.getElementById ( 'edges' ).addEventListener ( 'click', function() {
+				document.getElementById ( 'edges' ).addEventListener ( 'click', function( ) {
 
-					self.edgesToggle_();
+					self.edgesToggle_( );
 
 				} );
 
 				// dimensions toggle
 
-				document.getElementById ( 'dimensions' ).addEventListener ( 'click', function() {
+				document.getElementById ( 'dimensions' ).addEventListener ( 'click', function( ) {
 
-					self.dimensionsToggle_();
+					self.dimensionsToggle_( );
 
 				} );
 
-				const endTime = performance.now();
+				const endTime = performance.now( );
 
 				const loadTime = ( ( endTime - start_time ) / 1000).toFixed ( 2 );
 
@@ -2923,7 +2923,7 @@ ZGEUG3DCATJD4"
 
 			}
 
-			new initialize();
+			new initialize( );
 
 		</script>
 
