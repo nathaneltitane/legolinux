@@ -241,6 +241,30 @@
 
 			// import { LineGeometry } from '/javascript/three/modules/lines/LineGeometry.js';
 
+			function get_operating_system ( ) {
+
+			const userAgent = window.navigator.userAgent;
+
+			let operating_system =  "Unknown";
+
+			if (/Windows/.test(userAgent)) {
+				operating_system =  "Windows";
+			} else if (/Macintosh|MacIntel|MacPPC|Mac68K/.test(userAgent)) {
+				operating_system =  "Mac OS";
+			} else if (/Android/.test(userAgent)) {
+				operating_system =  "Android";
+			} else if (/iPhone|iPad|iPod/.test(userAgent)) {
+				operating_system =  "iOS";
+			} else if (/Linux/.test(userAgent)) {
+				operating_system =  "Linux";
+			}
+
+			return operating_system;
+
+			}
+
+			console.log ("operating system : ", get_operating_system ( ) );
+
 			function initialize ( ) {
 
 				// scaling unit - 1 stud = 0.008 m = 20 ldu >>> 1 ldu = 0.0004 m
@@ -477,7 +501,7 @@
 
 				this.renderer.domElement.addEventListener ( 'webglcontextlost', function ( event ) {
 
-					event.preventDefault ();
+					event.preventDefault ( );
 
 					console.warn ( 'webgl context lost - showing fallback overlay' );
 
@@ -519,9 +543,9 @@
 					button.style.cursor = 'pointer';
 					button.style.fontWeight = 'bold';
 
-					button.onclick = function () {
+					button.onclick = function ( ) {
 
-						location.reload ();
+						location.reload ( );
 
 					};
 
@@ -569,7 +593,7 @@
 				this.perspectiveCamera = new THREE.PerspectiveCamera (
 					45,									// fov
 					viewport_ratio,						// aspect
-					camera_near,							// near
+					camera_near,						// near
 					camera_far							// far
 				);
 
@@ -580,7 +604,7 @@
 					right,								// right - frustum
 					top,								// top - frustum
 					bottom, 							// bottom - frustum
-					camera_near,							// near
+					camera_near,						// near
 					camera_far							// far
 				);
 
@@ -803,7 +827,7 @@
 
 				this.axesHelper_visible = false;
 
-				this.get_axesHelper = function() {
+				this.get_axesHelper = function ( ) {
 
 					if ( ! self.axesHelper ) {
 
@@ -817,7 +841,7 @@
 
 				}
 
-				this.axesHelper_ = function() {
+				this.axesHelper_ = function ( ) {
 
 					if ( this.axesHelper_visible ) {
 
@@ -1584,7 +1608,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-grey.dae',
+						'/minifigs/exports/minifig-white.dae',
 
 						function ( collada ) {
 

@@ -446,6 +446,30 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 			// import { LineGeometry } from '/javascript/three/modules/lines/LineGeometry.js';
 
+			function get_operating_system ( ) {
+
+			const userAgent = window.navigator.userAgent;
+
+			let operating_system =  "Unknown";
+
+			if (/Windows/.test(userAgent)) {
+				operating_system =  "Windows";
+			} else if (/Macintosh|MacIntel|MacPPC|Mac68K/.test(userAgent)) {
+				operating_system =  "Mac OS";
+			} else if (/Android/.test(userAgent)) {
+				operating_system =  "Android";
+			} else if (/iPhone|iPad|iPod/.test(userAgent)) {
+				operating_system =  "iOS";
+			} else if (/Linux/.test(userAgent)) {
+				operating_system =  "Linux";
+			}
+
+			return operating_system;
+
+			}
+
+			console.log ("operating system : ", get_operating_system ( ) );
+
 			function initialize ( ) {
 
 				// scaling unit - 1 stud = 0.008 m = 20 ldu >>> 1 ldu = 0.0004 m
