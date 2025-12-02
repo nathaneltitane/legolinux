@@ -1625,7 +1625,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-white.dae',
+						'/minifigs/exports/minifig-purple.dae',
 
 						function ( collada ) {
 
@@ -1870,31 +1870,31 @@
 
 					}
 
-					edgeThicknessState = ( edgeThicknessState + 1 ) % 3;
+					edge_thickness_state = ( edge_thickness_state + 1 ) % 3;
 
-					if ( edgeThicknessState === 0 ) {
+					if ( edge_thickness_state === 0 ) {
 
-						for ( var i = 0; i < modelEdges.length; i++ ) {
+						for ( var i = 0; i < model_edges.length; i++ ) {
 
-							modelEdges[i].scale.set ( 0, 0, 0 ); // none
+							model_edges[i].scale.set ( 0, 0, 0 ); // none
 
-							modelEdges[i].visible = false;
+							model_edges[i].visible = false;
 
 						}
 
 					} else {
 
-						for ( var i = 0; i < modelEdges.length; i++ ) {
+						for ( var i = 0; i < model_edges.length; i++ ) {
 
-							modelEdges[i].visible = true;
+							model_edges[i].visible = true;
 
-							if ( edgeThicknessState === 1 ) {
+							if ( edge_thickness_state === 1 ) {
 
-								modelEdges[i].scale.set ( 1, 1, 1 ); // thin
+								model_edges[i].scale.set ( 1, 1, 1 ); // thin
 
-							} else if ( edgeThicknessState === 2 ) {
+							} else if ( edge_thickness_state === 2 ) {
 
-								modelEdges[i].scale.set ( 1.01, 1.01, 1.01 ); // thick
+								model_edges[i].scale.set ( 1.01, 1.01, 1.01 ); // thick
 
 							}
 
@@ -1907,13 +1907,13 @@
 
 				var wireframe_visible = false;
 
-				var modelFaces_visible = true;
+				var model_faces_visible = true;
 
 				this.wireframe_toggle_ = function ( ) {
 
 					// edges on >>> turn edges off
 
-					if ( modelEdges_visible ) {
+					if ( model_edges_visible ) {
 
 						self.edges_toggle_ ( );
 
@@ -1923,7 +1923,7 @@
 
 					wireframe_visible = !wireframe_visible;
 
-					modelFaces_visible = !modelFaces_visible;
+					model_faces_visible = !model_faces_visible;
 
 					self.colladaImport.traverse( function ( node ) {
 
@@ -1935,7 +1935,7 @@
 
 							} else {
 
-								node.visible = modelFaces_visible;
+								node.visible = model_faces_visible;
 
 							}
 
@@ -2714,13 +2714,13 @@
 
 				// global vars for edges
 
-				var modelEdges = [];
+				var model_edges = [];
 
-				var modelEdges_visible = true;
+				var model_edges_visible = true;
 
 				 // 0: none - 1: thin - 2: thick
 
-				var edgeThicknessState = 2;
+				var edge_thickness_state = 2;
 
 				var model = loader.load (
 
@@ -2789,7 +2789,7 @@
 
 								self.colladaImport.add ( wireframeMesh );
 
-								modelEdges.push ( edges );
+								model_edges.push ( edges );
 
 								// shadows
 
