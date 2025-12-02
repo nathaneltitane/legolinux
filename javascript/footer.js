@@ -32,7 +32,7 @@ $ ( document ) .ready ( function ( ) {
 
 			show ( ) ;
 
-		}, 200 ) ;
+		}, 2000 ) ;
 
 	}
 
