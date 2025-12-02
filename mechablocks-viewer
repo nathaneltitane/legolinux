@@ -446,7 +446,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 			// import { LineGeometry } from '/javascript/three/modules/lines/LineGeometry.js';
 
-			function get_operating_system ( ) {
+			function operating_system ( ) {
 
 			const userAgent = window.navigator.userAgent;
 
@@ -538,7 +538,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				console.log ( 'device [ type / platform ] : ' + device_type );
 
-				console.log ("operating system : ", get_operating_system ( ) );
+				console.log ( 'operating system [ type / name ] : ' + operating_system ( ) );
 
 				// colors
 
@@ -615,7 +615,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				}
 
-				const os = get_operating_system ();
+				const os = operating_system ();
 
 				function set_debug_overlay_enabled ( enabled ) {
 

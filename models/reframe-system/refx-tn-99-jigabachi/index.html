@@ -242,7 +242,7 @@ ZGEUG3DCATJD4"
 
 			// import { LineGeometry } from '/javascript/three/modules/lines/LineGeometry.js';
 
-			function get_operating_system ( ) {
+			function operating_system ( ) {
 
 			const userAgent = window.navigator.userAgent;
 
@@ -334,7 +334,7 @@ ZGEUG3DCATJD4"
 
 				console.log ( 'device [ type / platform ] : ' + device_type );
 
-				console.log ("operating system : ", get_operating_system ( ) );
+				console.log ( 'operating system [ type / name ] : ' + operating_system ( ) );
 
 				// colors
 
@@ -411,7 +411,7 @@ ZGEUG3DCATJD4"
 
 				}
 
-				const os = get_operating_system ();
+				const os = operating_system ();
 
 				function set_debug_overlay_enabled ( enabled ) {
 
