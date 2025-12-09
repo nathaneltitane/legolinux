@@ -265,8 +265,6 @@ cat << 3D-MODEL-PAGE-HEADER -> "${model_directory}/index.html"
 
 		<script src="/javascript/labels.js" type="text/javascript"></script>
 
-		<script src="/javascript/modes.js" type="text/javascript"></script>
-
 		<script src="/javascript/samples.js" type="text/javascript"></script>
 
 		<script src="/javascript/selections.js" type="text/javascript"></script>
@@ -3088,42 +3086,82 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// plane toggle
 
-				document.getElementById ( 'plane' ).addEventListener ( 'click', function ( ) {
+				document.addEventListener ( 'click', function ( event ) {
 
-					self.plane_ ( );
+					var target = event.target.closest ( '#plane, .plane' );
+
+					if ( target ) {
+
+						event.preventDefault ( );
+
+						self.plane_ ( );
+
+					}
 
 				} );
 
 
 				// minifig toggle
 
-				document.getElementById ( 'minifig' ).addEventListener ( 'click', function ( ) {
+				document.addEventListener ( 'click', function ( event ) {
 
-					self.minifig_toggle_ ( );
+					var target = event.target.closest ( '#minifig, .minifig' );
+
+					if ( target ) {
+
+						event.preventDefault ( );
+
+						self.minifigToggle_ ( );
+
+					}
 
 				} );
 
 				// wireframe toggle
 
-				document.getElementById ( 'wireframe' ).addEventListener ( 'click', function ( ) {
+				document.addEventListener ( 'click', function ( event ) {
 
-					self.wireframe_toggle_ ( );
+					var target = event.target.closest ( '#wireframe, .wireframe' );
+
+					if ( target ) {
+
+						event.preventDefault ( );
+
+						self.wireframeToggle_ ( );
+
+					}
 
 				} );
 
 				// edges toggle
 
-				document.getElementById ( 'edges' ).addEventListener ( 'click', function ( ) {
+				document.addEventListener ( 'click', function ( event ) {
 
-					self.edges_toggle_ ( );
+					var target = event.target.closest ( '#edges, .edges' );
+
+					if ( target ) {
+
+						event.preventDefault ( );
+
+						self.edgesToggle_ ( );
+
+					}
 
 				} );
 
 				// dimensions toggle
 
-				document.getElementById ( 'dimensions' ).addEventListener ( 'click', function ( ) {
+				document.addEventListener ( 'click', function ( event ) {
 
-					self.dimensions_toggle_ ( );
+					var target = event.target.closest ( '#dimensions, .dimensions' );
+
+					if ( target ) {
+
+						event.preventDefault ( );
+
+						self.dimensionsToggle_ ( );
+
+					}
 
 				} );
 
@@ -3300,109 +3338,6 @@ cat << 3D-MODEL-SELECTIONS ->> "${model_directory}/index.html"
 	# unset IFS
 
 	IFS=''
-
-if [ -f "${model_paypal}" ]
-then
-
-cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
-		<!-- paypal -->
-
-		<div id="paypal">
-
-			<div class="flex flex-row flex-middle flex-around paypal">
-
-				<div id="paypal-button-label" class="flex-cell text-bold">
-
-					Purchase
-
-				</div>
-
-				<div id="paypal-button-icon" class="flex-cell">
-
-					<div class="icon icon-64 logo-paypal"></div>
-
-				</div>
-
-			</div>
-
-		</div>
-
-3D-MODEL-PAYPAL
-
-fi
-
-cat << 3D-MODEL-PAGE-CONTROLS ->> "${model_directory}/index.html"
-		<!-- controls -->
-
-		<div id="controls">
-
-		</div>
-
-3D-MODEL-PAGE-CONTROLS
-
-
-cat << 3D-MODEL-PAGE-PLANE ->> "${model_directory}/index.html"
-		<!-- plane -->
-
-		<div id="plane">
-
-		</div>
-
-3D-MODEL-PAGE-PLANE
-
-cat << 3D-MODEL-PAGE-DIMENSIONS ->> "${model_directory}/index.html"
-		<!-- dimensions -->
-
-		<div id="dimensions">
-
-		</div>
-
-3D-MODEL-PAGE-DIMENSIONS
-
-cat << 3D-MODEL-PAGE-MINIFIG ->> "${model_directory}/index.html"
-		<!-- minifig -->
-
-		<div id="minifig">
-
-		</div>
-
-3D-MODEL-PAGE-MINIFIG
-
-cat << 3D-MODEL-PAGE-WIREFRAME ->> "${model_directory}/index.html"
-		<!-- wireframe -->
-
-		<div id="wireframe">
-
-		</div>
-
-3D-MODEL-PAGE-WIREFRAME
-
-cat << 3D-MODEL-PAGE-EDGES ->> "${model_directory}/index.html"
-		<!-- edges -->
-
-		<div id="edges">
-
-		</div>
-
-3D-MODEL-PAGE-EDGES
-
-cat << 3D-MODEL-PAGE-COLOR ->> "${model_directory}/index.html"
-		<!-- color -->
-
-		<div id="color">
-
-		</div>
-
-3D-MODEL-PAGE-COLOR
-
-cat << 3D-MODEL-PAGE-COLORS ->> "${model_directory}/index.html"
-		<!-- colors -->
-
-		<div id="colors">
-
-		</div>
-
-3D-MODEL-PAGE-COLORS
 
 cat << 3D-MODEL-PAGE-SAMPLES ->> "${model_directory}/index.html"
 		<!-- samples -->
@@ -3672,15 +3607,6 @@ cat << 3D-MODEL-PAGE-HELPER ->> "${model_directory}/index.html"
 
 3D-MODEL-PAGE-HELPER
 
-cat << 3D-MODEL-PAGE-NAVIGATION ->> "${model_directory}/index.html"
-		<!-- browse -->
-
-		<div id="browse">
-
-		</div>
-
-3D-MODEL-PAGE-NAVIGATION
-
 cat << 3D-MODEL-PAGE-DRAWER ->> "${model_directory}/index.html"
 		<!-- drawer -->
 
@@ -3691,7 +3617,7 @@ cat << 3D-MODEL-PAGE-DRAWER ->> "${model_directory}/index.html"
 3D-MODEL-PAGE-DRAWER
 
 cat << 3D-MODEL-PAGE-FOOTER ->> "${model_directory}/index.html"
-		<div id="footer" class="section">
+		<div id="footer"">
 
 		</div>
 

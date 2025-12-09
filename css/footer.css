@@ -7,9 +7,6 @@
 	left: 0px;
 	right: 0px;
 
-	margin: 0px 0px 0px 0px;
-	padding: 10px 10px 10px 10px;
-
 	animation-name: footer-reveal;
 	animation-delay: 0.5s;
 	animation-duration: 1s;
@@ -17,15 +14,71 @@
 }
 
 .footer {
+	background: #00000000;
+	border-radius: 0px 0px 0px 0px;
+	position: fixed;
+	height: 80px;
+	bottom: -80px;
 	left: 0px;
 	right: 0px;
 
+	margin: 0px 40px 0px 40px;
+	padding: 10px 0px 0px 0px;
+
 	overflow-x: scroll;
+	overflow-y: hidden;
 	white-space: nowrap;
+
+	animation-name: footer-reveal;
+	animation-delay: 0.5s;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
 }
 
 @keyframes footer-reveal {
 	0% {bottom: -80px;}
 
 	100% {bottom: 0px;}
+}
+
+.footer-button {
+	background: #00000000;
+	color: #666666ff;
+	border-radius: 0px;
+	border: none;
+	bottom: 10px;
+	left: 10px;
+	right: 10px;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	width: 80px;
+}
+
+
+
+/* fully right: show left arrow on left edge */
+
+#footer::before {
+	content: '‹';
+	font-size: 40px;
+	z-index: 999;
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	height: 80px;
+	margin: 0px 10px 0px 10px;
+	padding: 10px 0px 0px 0px;
+
+}
+
+#footer::after {
+	content: '›';
+	font-size: 40px;
+	z-index: 999;
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+	height: 80px;
+	margin: 0px 10px 0px 10px;
+	padding: 10px 0px 0px 0px;
 }

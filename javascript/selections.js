@@ -12,7 +12,7 @@ $ ( document ) .ready ( function ( ) {
 
 	function hide ( ) {
 
-		selections.style.marginTop = '-180px';
+		selections.style.marginTop = '-500px';
 
 	}
 

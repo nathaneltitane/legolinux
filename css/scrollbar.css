@@ -1,3 +1,11 @@
+/* scrollbar x */
+
+::-webkit-scrollbar {
+    height: 5px;
+}
+
+/* scrollbar y */
+
 ::-webkit-scrollbar {
     width: 5px;
 }

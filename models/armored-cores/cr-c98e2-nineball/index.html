@@ -63,8 +63,6 @@
 
 		<script src="/javascript/labels.js" type="text/javascript"></script>
 
-		<script src="/javascript/modes.js" type="text/javascript"></script>
-
 		<script src="/javascript/samples.js" type="text/javascript"></script>
 
 		<script src="/javascript/selections.js" type="text/javascript"></script>
@@ -1625,7 +1623,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-yellow.dae',
+						'/minifigs/exports/minifig-grey.dae',
 
 						function ( collada ) {
 
@@ -2883,42 +2881,82 @@
 
 				// plane toggle
 
-				document.getElementById ( 'plane' ).addEventListener ( 'click', function ( ) {
+				document.addEventListener ( 'click', function ( event ) {
 
-					self.plane_ ( );
+					var target = event.target.closest ( '#plane, .plane' );
+
+					if ( target ) {
+
+						event.preventDefault ( );
+
+						self.plane_ ( );
+
+					}
 
 				} );
 
 
 				// minifig toggle
 
-				document.getElementById ( 'minifig' ).addEventListener ( 'click', function ( ) {
+				document.addEventListener ( 'click', function ( event ) {
 
-					self.minifig_toggle_ ( );
+					var target = event.target.closest ( '#minifig, .minifig' );
+
+					if ( target ) {
+
+						event.preventDefault ( );
+
+						self.minifigToggle_ ( );
+
+					}
 
 				} );
 
 				// wireframe toggle
 
-				document.getElementById ( 'wireframe' ).addEventListener ( 'click', function ( ) {
+				document.addEventListener ( 'click', function ( event ) {
 
-					self.wireframe_toggle_ ( );
+					var target = event.target.closest ( '#wireframe, .wireframe' );
+
+					if ( target ) {
+
+						event.preventDefault ( );
+
+						self.wireframeToggle_ ( );
+
+					}
 
 				} );
 
 				// edges toggle
 
-				document.getElementById ( 'edges' ).addEventListener ( 'click', function ( ) {
+				document.addEventListener ( 'click', function ( event ) {
 
-					self.edges_toggle_ ( );
+					var target = event.target.closest ( '#edges, .edges' );
+
+					if ( target ) {
+
+						event.preventDefault ( );
+
+						self.edgesToggle_ ( );
+
+					}
 
 				} );
 
 				// dimensions toggle
 
-				document.getElementById ( 'dimensions' ).addEventListener ( 'click', function ( ) {
+				document.addEventListener ( 'click', function ( event ) {
 
-					self.dimensions_toggle_ ( );
+					var target = event.target.closest ( '#dimensions, .dimensions' );
+
+					if ( target ) {
+
+						event.preventDefault ( );
+
+						self.dimensionsToggle_ ( );
+
+					}
 
 				} );
 
@@ -2943,76 +2981,6 @@
 			<div class="grid grid-left grid-gap-column-10 grid-gap-row-10 grid-columns-responsive">
 
 			</div>
-
-		</div>
-
-		<!-- paypal -->
-
-		<div id="paypal">
-
-			<div class="flex flex-row flex-middle flex-around paypal">
-
-				<div id="paypal-button-label" class="flex-cell text-bold">
-
-					Purchase
-
-				</div>
-
-				<div id="paypal-button-icon" class="flex-cell">
-
-					<div class="icon icon-64 logo-paypal"></div>
-
-				</div>
-
-			</div>
-
-		</div>
-
-		<!-- controls -->
-
-		<div id="controls">
-
-		</div>
-
-		<!-- plane -->
-
-		<div id="plane">
-
-		</div>
-
-		<!-- dimensions -->
-
-		<div id="dimensions">
-
-		</div>
-
-		<!-- minifig -->
-
-		<div id="minifig">
-
-		</div>
-
-		<!-- wireframe -->
-
-		<div id="wireframe">
-
-		</div>
-
-		<!-- edges -->
-
-		<div id="edges">
-
-		</div>
-
-		<!-- color -->
-
-		<div id="color">
-
-		</div>
-
-		<!-- colors -->
-
-		<div id="colors">
 
 		</div>
 
@@ -3278,19 +3246,13 @@
 
 		</div>
 
-		<!-- browse -->
-
-		<div id="browse">
-
-		</div>
-
 		<!-- drawer -->
 
 		<div id="drawer">
 
 		</div>
 
-		<div id="footer" class="section">
+		<div id="footer"">
 
 		</div>
 
