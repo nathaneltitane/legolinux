@@ -1623,7 +1623,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-black.dae',
+						'/minifigs/exports/minifig-white.dae',
 
 						function ( collada ) {
 
@@ -2881,82 +2881,42 @@
 
 				// plane toggle
 
-				document.addEventListener ( 'click', function ( event ) {
+				document.getElementById ( 'plane' ).addEventListener ( 'click', function ( ) {
 
-					var target = event.target.closest ( '#plane, .plane' );
-
-					if ( target ) {
-
-						event.preventDefault ( );
-
-						self.plane_ ( );
-
-					}
+					self.plane_ ( );
 
 				} );
 
 
 				// minifig toggle
 
-				document.addEventListener ( 'click', function ( event ) {
+				document.getElementById ( 'minifig' ).addEventListener ( 'click', function ( ) {
 
-					var target = event.target.closest ( '#minifig, .minifig' );
-
-					if ( target ) {
-
-						event.preventDefault ( );
-
-						self.minifigToggle_ ( );
-
-					}
+					self.minifig_toggle_ ( );
 
 				} );
 
 				// wireframe toggle
 
-				document.addEventListener ( 'click', function ( event ) {
+				document.getElementById ( 'wireframe' ).addEventListener ( 'click', function ( ) {
 
-					var target = event.target.closest ( '#wireframe, .wireframe' );
-
-					if ( target ) {
-
-						event.preventDefault ( );
-
-						self.wireframeToggle_ ( );
-
-					}
+					self.wireframe_toggle_ ( );
 
 				} );
 
 				// edges toggle
 
-				document.addEventListener ( 'click', function ( event ) {
+				document.getElementById ( 'edges' ).addEventListener ( 'click', function ( ) {
 
-					var target = event.target.closest ( '#edges, .edges' );
-
-					if ( target ) {
-
-						event.preventDefault ( );
-
-						self.edgesToggle_ ( );
-
-					}
+					self.edges_toggle_ ( );
 
 				} );
 
 				// dimensions toggle
 
-				document.addEventListener ( 'click', function ( event ) {
+				document.getElementById ( 'dimensions' ).addEventListener ( 'click', function ( ) {
 
-					var target = event.target.closest ( '#dimensions, .dimensions' );
-
-					if ( target ) {
-
-						event.preventDefault ( );
-
-						self.dimensionsToggle_ ( );
-
-					}
+					self.dimensions_toggle_ ( );
 
 				} );
 
@@ -3011,6 +2971,28 @@
 </a>
 
 </div>
+
+			</div>
+
+		</div>
+
+		<!-- paypal -->
+
+		<div id="paypal">
+
+			<div class="flex flex-row flex-middle flex-around paypal">
+
+				<div id="paypal-button-label" class="flex-cell text-bold">
+
+					Purchase
+
+				</div>
+
+				<div id="paypal-button-icon" class="flex-cell">
+
+					<div class="icon icon-64 logo-paypal"></div>
+
+				</div>
 
 			</div>
 
@@ -3278,13 +3260,124 @@
 
 		</div>
 
+		<!-- browse -->
+
+		<div id="browse">
+
+		</div>
+
 		<!-- drawer -->
 
 		<div id="drawer">
 
 		</div>
 
-		<div id="footer"">
+
+		<div class="footer">
+
+			<!-- modal loaders -->
+
+			<div id="contact-modal">
+
+			</div>
+
+			<!-- footer -->
+
+			<div class="flex flex-row flex-middle flex-around">
+
+				<!-- contact -->
+
+				<div id="home">
+
+				</div>
+
+				<!-- contact -->
+
+				<div id="contact">
+
+				</div>
+
+				<!-- shop -->
+
+				<div id="shop">
+
+				</div>
+
+				<!-- github -->
+
+				<div id="github">
+
+				</div>
+
+				<!-- donations -->
+
+				<div id="donations">
+
+				</div>
+
+				<!-- helpers and controls -->
+
+				<!-- browse -->
+
+				<div id="browse">
+
+				</div>
+
+				<!-- paypal -->
+
+				<div id="paypal">
+
+				</div>
+
+				<!-- controls -->
+
+				<div id="controls">
+
+				</div>
+
+				<!-- plane -->
+
+				<div id="plane">
+
+				</div>
+
+				<!-- dimensions -->
+
+				<div id="dimensions">
+
+				</div>
+
+				<!-- minifig -->
+
+				<div id="minifig">
+
+				</div>
+
+				<!-- wireframe -->
+
+				<div id="wireframe">
+
+				</div>
+
+				<!-- edges -->
+
+				<div id="edges">
+
+				</div>
+
+				<!-- color -->
+
+				<div id="color">
+
+				</div>
+
+				<!-- colors -->
+
+				<div id="colors">
+
+				</div>
+
+			</div>
 
 		</div>
 
