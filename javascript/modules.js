@@ -4,67 +4,71 @@ $( function ( ) {
 
 	// index //
 
-	$.get ( '/modules/head.html', function ( data ) {
+	if ( $( '#landing' ).length ) {
 
-		$( 'head' ).append ( data );
+		$.get ( '/modules/head.html', function ( data ) {
 
-	} );
+			$( 'head' ).append ( data );
 
-	$.get ( '/modules/drawer.html', function ( data ) {
+		} );
 
-		$( '#drawer' ).append ( data );
+		$.get ( '/modules/drawer.html', function ( data ) {
 
-	} );
+			$( '#drawer' ).append ( data );
 
-	$.get ( '/modules/footer.html', function ( data ) {
+		} );
 
-		$( '#footer' ).append ( data );
+		$.get ( '/modules/footer.html', function ( data ) {
 
-	} );
+			$( '#footer' ).append ( data );
 
-	// standard //
+		} );
 
-	$.get ( '/modules/home.html', function ( data ) {
+		// standard //
 
-		$( '#home' ).append ( data );
+		$.get ( '/modules/home.html', function ( data ) {
 
-	} );
+			$( '#home' ).append ( data );
 
-	$.get ( '/modules/contact-modal.html', function ( data ) {
+		} );
 
-		$( '#contact-modal' ).append ( data );
+		$.get ( '/modules/contact-modal.html', function ( data ) {
 
-	} );
+			$( '#contact-modal' ).append ( data );
 
-	$.get ( '/modules/contact.html', function ( data ) {
+		} );
 
-		$( '#contact' ).append ( data );
+		$.get ( '/modules/contact.html', function ( data ) {
 
-	} );
+			$( '#contact' ).append ( data );
 
-	$.get ( '/modules/shop.html', function ( data ) {
+		} );
 
-		$( '#shop' ).append ( data );
+		$.get ( '/modules/shop.html', function ( data ) {
 
-	} );
+			$( '#shop' ).append ( data );
 
-	$.get ( '/modules/github.html', function ( data ) {
+		} );
 
-		$( '#github' ).append ( data );
+		$.get ( '/modules/github.html', function ( data ) {
 
-	} );
+			$( '#github' ).append ( data );
 
-	$.get ( '/modules/donations.html', function ( data ) {
+		} );
 
-		$( '#donations' ).append ( data );
+		$.get ( '/modules/donations.html', function ( data ) {
 
-	} );
+			$( '#donations' ).append ( data );
 
-	$.get ( '/modules/browse.html', function ( data ) {
+		} );
 
-		$( '#browse' ).append ( data );
+		$.get ( '/modules/browse.html', function ( data ) {
 
-	} );
+			$( '#browse' ).append ( data );
+
+		} );
+
+	}
 
 	// canvas controls //
 
