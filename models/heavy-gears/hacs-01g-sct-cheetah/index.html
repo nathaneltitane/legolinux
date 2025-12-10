@@ -395,6 +395,7 @@
 
 					device_information_overlay.style.position = 'fixed';
 					device_information_overlay.style.left = '10px';
+					device_information_overlay.style.right = '10px';
 					device_information_overlay.style.bottom = '90px';
 					device_information_overlay.style.zIndex = '9998';
 					device_information_overlay.style.padding = '20px 20px 20px 20px';
@@ -422,8 +423,8 @@
 						create_device_overlay_if_needed ( );
 
 						device_information_overlay.textContent =
-							'device : [ ' + device_type + ' ]' + '\n' +
-							'operating system : [ ' + os + ' ]' + '\n' +
+							'device             : [ ' + device_type + ' ]' + '\n' +
+							'operating system   : [ ' + os + ' ]' + '\n' +
 							'device pixel ratio : [ ' + pixel_ratio.toFixed ( 2 ) + ' ]';
 
 						device_information_overlay.style.display = 'block';
@@ -1623,7 +1624,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-white.dae',
+						'/minifigs/exports/minifig-fuschia.dae',
 
 						function ( collada ) {
 
@@ -3241,107 +3242,111 @@
 		</div>
 
 
-		<div class="footer">
+		<div id="footer">
 
-			<!-- modal loaders -->
+			<div class="footer">
 
-			<div id="contact-modal">
+				<!-- modal loaders -->
 
-			</div>
-
-			<!-- footer -->
-
-			<div class="flex flex-row flex-middle flex-around">
-
-				<!-- contact -->
-
-				<div id="home">
+				<div id="contact-modal">
 
 				</div>
 
-				<!-- contact -->
+				<!-- footer -->
 
-				<div id="contact">
+				<div class="flex flex-row flex-middle flex-around">
 
-				</div>
+					<!-- contact -->
 
-				<!-- shop -->
+					<div id="home">
 
-				<div id="shop">
+					</div>
 
-				</div>
+					<!-- contact -->
 
-				<!-- github -->
+					<div id="contact">
 
-				<div id="github">
+					</div>
 
-				</div>
+					<!-- shop -->
 
-				<!-- donations -->
+					<div id="shop">
 
-				<div id="donations">
+					</div>
 
-				</div>
+					<!-- github -->
 
-				<!-- helpers and controls -->
+					<div id="github">
 
-				<!-- browse -->
+					</div>
 
-				<div id="browse">
+					<!-- donations -->
 
-				</div>
+					<div id="donations">
 
-				<!-- paypal -->
+					</div>
 
-				<div id="paypal">
+					<!-- helpers and controls -->
 
-				</div>
+					<!-- browse -->
 
-				<!-- controls -->
+					<div id="browse">
 
-				<div id="controls">
+					</div>
 
-				</div>
+					<!-- paypal -->
 
-				<!-- plane -->
+					<div id="paypal">
 
-				<div id="plane">
+					</div>
 
-				</div>
+					<!-- controls -->
 
-				<!-- dimensions -->
+					<div id="controls">
 
-				<div id="dimensions">
+					</div>
 
-				</div>
+					<!-- plane -->
 
-				<!-- minifig -->
+					<div id="plane">
 
-				<div id="minifig">
+					</div>
 
-				</div>
+					<!-- dimensions -->
 
-				<!-- wireframe -->
+					<div id="dimensions">
 
-				<div id="wireframe">
+					</div>
 
-				</div>
+					<!-- minifig -->
 
-				<!-- edges -->
+					<div id="minifig">
 
-				<div id="edges">
+					</div>
 
-				</div>
+					<!-- wireframe -->
 
-				<!-- color -->
+					<div id="wireframe">
 
-				<div id="color">
+					</div>
 
-				</div>
+					<!-- edges -->
 
-				<!-- colors -->
+					<div id="edges">
 
-				<div id="colors">
+					</div>
+
+					<!-- color -->
+
+					<div id="color">
+
+					</div>
+
+					<!-- colors -->
+
+					<div id="colors">
+
+					</div>
 
 				</div>
 

@@ -54,10 +54,6 @@
 	width: 80px;
 }
 
-
-
-/* fully right: show left arrow on left edge */
-
 #footer::before {
 	content: '‹';
 	font-size: 40px;
