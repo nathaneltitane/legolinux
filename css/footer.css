@@ -13,6 +13,31 @@
 	animation-fill-mode: forwards;
 }
 
+#footer::before {
+	content: '‹';
+	font-size: 40px;
+	z-index: 999;
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	height: 80px;
+	margin: 0px 10px 0px 10px;
+	padding: 10px 0px 0px 0px;
+
+}
+
+#footer::after {
+	content: '›';
+	font-size: 40px;
+	z-index: 999;
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+	height: 80px;
+	margin: 0px 10px 0px 10px;
+	padding: 10px 0px 0px 0px;
+}
+
 .footer {
 	position: fixed;
 	bottom: 0;
@@ -27,6 +52,11 @@
 	white-space: nowrap;
 
 	-webkit-overflow-scrolling: touch;
+
+	animation-name: footer-reveal;
+	animation-delay: 0.5s;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
 }
 
 .footer-button {
@@ -40,31 +70,6 @@
 	margin: 0px 0px 0px 0px;
 	padding: 0px 0px 0px 0px;
 	width: 80px;
-}
-
-.footer::before {
-	content: '‹';
-	font-size: 40px;
-	z-index: 999;
-	position: absolute;
-	left: 0px;
-	bottom: 0px;
-	height: 80px;
-	margin: 0px 10px 0px 10px;
-	padding: 10px 0px 0px 0px;
-
-}
-
-.footer::after {
-	content: '›';
-	font-size: 40px;
-	z-index: 999;
-	position: absolute;
-	right: 0px;
-	bottom: 0px;
-	height: 80px;
-	margin: 0px 10px 0px 10px;
-	padding: 10px 0px 0px 0px;
 }
 
 @keyframes footer-reveal {

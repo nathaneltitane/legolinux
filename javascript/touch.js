@@ -1,6 +1,6 @@
 // touch //
 
-document.addEventListener ( 'DOMContentLoaded', function () {
+document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	const wrapper = document.getElementById ( 'paypal-button-icon' )
 
@@ -10,15 +10,15 @@ document.addEventListener ( 'DOMContentLoaded', function () {
 
 	wrapper.addEventListener ( 'click', function ( e ) {
 
-		if (!previewVisible) {
+		if ( !previewVisible ) {
 
-			e.preventDefault()
+			e.preventDefault ( )
 
-			showPreview()
+			showPreview ( )
 
 			previewVisible = true
 
-			setTimeout(function () {
+			setTimeout ( function ( ) {
 
 				previewVisible = false
 

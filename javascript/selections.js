@@ -6,19 +6,17 @@ $ ( document ) .ready ( function ( ) {
 
 	var selections = document.getElementById ( 'selections' ) ;
 
-	var isMouseOrTouchActive = false;
-
-	var resetTimeout;
+	var resetTimeout ;
 
 	function hide ( ) {
 
-		selections.style.marginTop = '-500px';
+		selections.style.marginTop = '-500px' ;
 
 	}
 
 	function show ( ) {
 
-		selections.style.marginTop = '0px';
+		selections.style.marginTop = '0px' ;
 
 	}
 
@@ -28,54 +26,66 @@ $ ( document ) .ready ( function ( ) {
 
 		resetTimeout = setTimeout ( function ( ) {
 
-			isMouseOrTouchActive = false;
-
 			show ( ) ;
 
 		}, 1000 ) ;
 
 	}
 
-	canvas.addEventListener ( 'mousemove', function ( event ) {
+	function isCanvasTarget ( event ) {
 
-		if ( !isMouseOrTouchActive ) {
+		return canvas && ( event.target === canvas || canvas.contains ( event.target ) ) ;
 
-			isMouseOrTouchActive = true;
+	}
 
-			showWithTimeout ( ) ;
+	document.addEventListener ( 'pointerdown', function ( event ) {
 
-			hide ( ) ;
+		// only hide on mouse button press or touch press and only when interacting with canvas //
 
-		}
+		if ( ! isCanvasTarget ( event ) ) {
 
-	} ) ;
-
-		canvas.addEventListener ( 'mouseenter', function ( event ) {
-
-		if ( !isMouseOrTouchActive ) {
-
-			isMouseOrTouchActive = true;
-
-			showWithTimeout ( ) ;
-
-			hide ( ) ;
+			return ;
 
 		}
 
-	} ) ;
+		if ( event.pointerType === 'mouse' ) {
 
-	canvas.addEventListener ( 'touchstart', function ( event ) {
+			if ( event.button !== 0 ) {
 
-		if ( !isMouseOrTouchActive ) {
+				return ;
 
-			isMouseOrTouchActive = true;
-
-			showWithTimeout ( ) ;
+			}
 
 			hide ( ) ;
 
+			return ;
+
 		}
 
-	} ) ;
+		if ( event.pointerType === 'touch' ) {
+
+			hide ( ) ;
+
+			return ;
+
+		}
+
+	}, { passive: true } ) ;
+
+	document.addEventListener ( 'pointerup', function ( event ) {
+
+		// show after interaction ends //
+
+		showWithTimeout ( ) ;
+
+	}, { passive: true } ) ;
+
+	document.addEventListener ( 'pointercancel', function ( event ) {
+
+		// show if touch is cancelled //
+
+		showWithTimeout ( ) ;
+
+	}, { passive: true } ) ;
 
 } ) ;
