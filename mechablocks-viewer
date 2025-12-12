@@ -3631,14 +3631,6 @@ cat << 3D-MODEL-PAGE-FOOTER ->> "${model_directory}/index.html"
 
 					</div>
 
-					<!-- helpers and controls -->
-
-					<!-- browse -->
-
-					<div id="browse">
-
-					</div>
-
 3D-MODEL-PAGE-FOOTER
 
 if [ -f "${model_paypal}" ]
@@ -3653,7 +3645,7 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 
 3D-MODEL-PAYPAL
 
-cat << 3D-MODEL-PAGE-FOOTER ->> "${model_directory}/index.html"
+cat << 3D-MODEL-PAGE-HELPERS ->> "${model_directory}/index.html"
 					<!-- controls -->
 
 					<div id="controls">
@@ -3708,7 +3700,7 @@ cat << 3D-MODEL-PAGE-FOOTER ->> "${model_directory}/index.html"
 
 		</div>
 
-3D-MODEL-PAGE-FOOTER
+3D-MODEL-PAGE-HELPERS
 
 fi
 

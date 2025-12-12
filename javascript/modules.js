@@ -24,51 +24,51 @@ $( function ( ) {
 
 		} );
 
-		// standard //
-
-		$.get ( '/modules/home.html', function ( data ) {
-
-			$( '#home' ).append ( data );
-
-		} );
-
-		$.get ( '/modules/contact-modal.html', function ( data ) {
-
-			$( '#contact-modal' ).append ( data );
-
-		} );
-
-		$.get ( '/modules/contact.html', function ( data ) {
-
-			$( '#contact' ).append ( data );
-
-		} );
-
-		$.get ( '/modules/shop.html', function ( data ) {
-
-			$( '#shop' ).append ( data );
-
-		} );
-
-		$.get ( '/modules/github.html', function ( data ) {
-
-			$( '#github' ).append ( data );
-
-		} );
-
-		$.get ( '/modules/donations.html', function ( data ) {
-
-			$( '#donations' ).append ( data );
-
-		} );
-
-		$.get ( '/modules/browse.html', function ( data ) {
-
-			$( '#browse' ).append ( data );
-
-		} );
-
 	}
+
+	// standard //
+
+	$.get ( '/modules/home.html', function ( data ) {
+
+		$( '#home' ).append ( data );
+
+	} );
+
+	$.get ( '/modules/contact-modal.html', function ( data ) {
+
+		$( '#contact-modal' ).append ( data );
+
+	} );
+
+	$.get ( '/modules/contact.html', function ( data ) {
+
+		$( '#contact' ).append ( data );
+
+	} );
+
+	$.get ( '/modules/shop.html', function ( data ) {
+
+		$( '#shop' ).append ( data );
+
+	} );
+
+	$.get ( '/modules/github.html', function ( data ) {
+
+		$( '#github' ).append ( data );
+
+	} );
+
+	$.get ( '/modules/donations.html', function ( data ) {
+
+		$( '#donations' ).append ( data );
+
+	} );
+
+	$.get ( '/modules/browse.html', function ( data ) {
+
+		$( '#browse' ).append ( data );
+
+	} );
 
 	// canvas controls //
 
