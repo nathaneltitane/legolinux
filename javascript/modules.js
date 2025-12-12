@@ -24,6 +24,12 @@ $( function ( ) {
 
 	// standard //
 
+	$.get ( '/modules/browse.html', function ( data ) {
+
+		$( '#browse' ).append ( data );
+
+	} );
+
 	$.get ( '/modules/home.html', function ( data ) {
 
 		$( '#home' ).append ( data );
@@ -57,12 +63,6 @@ $( function ( ) {
 	$.get ( '/modules/donations.html', function ( data ) {
 
 		$( '#donations' ).append ( data );
-
-	} );
-
-	$.get ( '/modules/browse.html', function ( data ) {
-
-		$( '#browse' ).append ( data );
 
 	} );
 
