@@ -3684,11 +3684,7 @@ cat << 3D-MODEL-PAGE-HELPERS ->> "${model_directory}/index.html"
 
 					</div>
 
-					<!-- colors -->
 
-					<div id="colors">
-
-					</div>
 
 				</div>
 
