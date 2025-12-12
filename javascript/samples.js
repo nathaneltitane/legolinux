@@ -73,13 +73,13 @@ $( document ).ready ( function ( ) {
         }
     };
 
-    $( '.paypal' ).click ( function ( event ) {
+    $( '#paypal' ).click ( function ( event ) {
 
         toggle ( ) ;
 
     } );
 
-    $( '#canvas, #footer' ).hover ( function ( event ) {
+    $( '#canvas' ).hover ( function ( event ) {
 
         if ( samples.hasClass ( 'samples-show' ) ) {
 

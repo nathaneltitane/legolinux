@@ -3300,36 +3300,6 @@ cat << 3D-MODEL-SELECTIONS ->> "${model_directory}/index.html"
 
 	IFS=''
 
-if [ -f "${model_paypal}" ]
-then
-
-cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
-		<!-- paypal -->
-
-		<div id="paypal">
-
-			<div class="flex flex-row flex-middle flex-around paypal">
-
-				<div id="paypal-button-label" class="flex-cell text-bold">
-
-					Purchase
-
-				</div>
-
-				<div id="paypal-button-icon" class="flex-cell">
-
-					<div class="icon icon-64 logo-paypal"></div>
-
-				</div>
-
-			</div>
-
-		</div>
-
-3D-MODEL-PAYPAL
-
-fi
-
 cat << 3D-MODEL-PAGE-SAMPLES ->> "${model_directory}/index.html"
 		<!-- samples -->
 
@@ -3617,7 +3587,6 @@ cat << 3D-MODEL-PAGE-DRAWER ->> "${model_directory}/index.html"
 3D-MODEL-PAGE-DRAWER
 
 cat << 3D-MODEL-PAGE-FOOTER ->> "${model_directory}/index.html"
-
 		<div id="footer">
 
 			<div class="footer">
@@ -3670,12 +3639,21 @@ cat << 3D-MODEL-PAGE-FOOTER ->> "${model_directory}/index.html"
 
 					</div>
 
+3D-MODEL-PAGE-FOOTER
+
+if [ -f "${model_paypal}" ]
+then
+
+cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 					<!-- paypal -->
 
 					<div id="paypal">
 
 					</div>
 
+3D-MODEL-PAYPAL
+
+cat << 3D-MODEL-PAGE-FOOTER ->> "${model_directory}/index.html"
 					<!-- controls -->
 
 					<div id="controls">
@@ -3731,6 +3709,8 @@ cat << 3D-MODEL-PAGE-FOOTER ->> "${model_directory}/index.html"
 		</div>
 
 3D-MODEL-PAGE-FOOTER
+
+fi
 
 cat << 3D-MODEL-PAGE ->> "${model_directory}/index.html"
 	</body>
