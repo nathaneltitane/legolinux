@@ -79,7 +79,7 @@ $( document ).ready ( function ( ) {
 
     } );
 
-    $( '#canvas' ).hover ( function ( event ) {
+    $( '#canvas' ).click ( function ( event ) {
 
         if ( samples.hasClass ( 'samples-show' ) ) {
 
