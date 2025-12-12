@@ -3577,6 +3577,15 @@ cat << 3D-MODEL-PAGE-DRAWER ->> "${model_directory}/index.html"
 
 3D-MODEL-PAGE-DRAWER
 
+cat << 3D-MODEL-PAGE-COLORS ->> "${model_directory}/index.html"
+		<!-- colors -->
+
+		<div id="colors">
+
+		</div>
+
+3D-MODEL-PAGE-COLORS
+
 cat << 3D-MODEL-PAGE-FOOTER ->> "${model_directory}/index.html"
 		<div id="footer">
 
@@ -3622,11 +3631,6 @@ cat << 3D-MODEL-PAGE-FOOTER ->> "${model_directory}/index.html"
 
 					</div>
 
-					<!-- browse -->
-
-					<div id="browse">
-
-					</div>
 3D-MODEL-PAGE-FOOTER
 
 if [ -f "${model_paypal}" ]

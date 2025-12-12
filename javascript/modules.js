@@ -16,11 +16,17 @@ $( function ( ) {
 
 	} );
 
-	$.get ( '/modules/footer.html', function ( data ) {
+	// prevent redundant footer load on viewer canvas //
 
-		$( '#footer' ).append ( data );
+	if ( ! $( '.footer' ).length ) {
 
-	} );
+		$.get ( '/modules/footer.html', function ( data ) {
+
+			$( '#footer' ).append ( data );
+
+		} );
+
+	}
 
 	// standard //
 

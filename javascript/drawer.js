@@ -69,7 +69,7 @@ $( document ).ready ( function ( ) {
         }
     };
 
-    $( '.browse' ).click ( function ( event ) {
+    $( '#browse' ).click ( function ( event ) {
 
         show ( ) ;
 
