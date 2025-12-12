@@ -29,12 +29,6 @@
 	-webkit-overflow-scrolling: touch;
 }
 
-@keyframes footer-reveal {
-	0% {bottom: -80px;}
-
-	100% {bottom: 0px;}
-}
-
 .footer-button {
 	background: #00000000;
 	color: #666666ff;
@@ -48,7 +42,7 @@
 	width: 80px;
 }
 
-#footer::before {
+.footer::before {
 	content: '‹';
 	font-size: 40px;
 	z-index: 999;
@@ -61,7 +55,7 @@
 
 }
 
-#footer::after {
+.footer::after {
 	content: '›';
 	font-size: 40px;
 	z-index: 999;
@@ -71,4 +65,10 @@
 	height: 80px;
 	margin: 0px 10px 0px 10px;
 	padding: 10px 0px 0px 0px;
+}
+
+@keyframes footer-reveal {
+	0% {bottom: -80px;}
+
+	100% {bottom: 0px;}
 }
