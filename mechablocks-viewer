@@ -3589,18 +3589,6 @@ cat << 3D-MODEL-PAGE-DRAWER ->> "${model_directory}/index.html"
 cat << 3D-MODEL-PAGE-FOOTER ->> "${model_directory}/index.html"
 		<div id="footer">
 
-			<div class="footer">
-
-				<!-- modal loaders -->
-
-				<div id="contact-modal">
-
-				</div>
-
-				<!-- footer -->
-
-				<div class="flex flex-row flex-middle flex-around">
-
 
 3D-MODEL-PAGE-FOOTER
 
@@ -3617,57 +3605,7 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 3D-MODEL-PAYPAL
 
 cat << 3D-MODEL-PAGE-HELPERS ->> "${model_directory}/index.html"
-					<!-- controls -->
 
-					<div id="controls">
-
-					</div>
-
-					<!-- plane -->
-
-					<div id="plane">
-
-					</div>
-
-					<!-- dimensions -->
-
-					<div id="dimensions">
-
-					</div>
-
-					<!-- minifig -->
-
-					<div id="minifig">
-
-					</div>
-
-					<!-- wireframe -->
-
-					<div id="wireframe">
-
-					</div>
-
-					<!-- edges -->
-
-					<div id="edges">
-
-					</div>
-
-					<!-- color -->
-
-					<div id="color">
-
-					</div>
-
-					<!-- colors -->
-
-					<div id="colors">
-
-					</div>
-
-				</div>
-
-			</div>
 
 		</div>
 
