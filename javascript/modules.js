@@ -30,11 +30,15 @@ $( function ( ) {
 
 	// standard //
 
-	$.get ( '/modules/home.html', function ( data ) {
+	if ( ! $( '#landing' ).length ) {
 
-		$( '#home' ).append ( data );
+		$.get ( '/modules/home.html', function ( data ) {
 
-	} );
+			$( '#home' ).append ( data );
+
+		} );
+
+	}
 
 	$.get ( '/modules/contact-modal.html', function ( data ) {
 
