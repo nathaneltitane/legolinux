@@ -79,3 +79,30 @@ $ ( document ) .ready ( function ( ) {
 	} ) ;
 
 } ) ;
+
+// scroll footer items
+
+document.addEventListener('DOMContentLoaded', function ( ) {
+
+	const footer = document.querySelector ( '.footer' )
+
+	if ( !footer ) {
+
+		return
+
+	}
+
+	footer.addEventListener( 'wheel', function ( event ) {
+
+		if ( event.deltaY === 0 ) {
+
+			return
+		}
+
+		event.preventDefault ( )
+
+		footer.scrollLeft += event.deltaY
+
+	}, { passive: false } )
+
+})
