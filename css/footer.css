@@ -14,34 +14,65 @@
 }
 
 #footer::before {
+	background-image: linear-gradient(
+		to right,
+		rgba(170, 170, 170, 1) 0%,
+		rgba(170, 170, 170, 0) 100%
+	);
+
+	border-radius: 20px 0px 0px 0px;
 	content: '‹';
 	font-size: 40px;
 	z-index: 999;
+
 	position: absolute;
 	left: 0px;
 	bottom: 0px;
-	height: 80px;
-	margin: 0px 10px 0px 10px;
-	padding: 10px 0px 0px 0px;
 
+	width: 80px;
+	height: 80px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
 }
 
 #footer::after {
+	background-image: linear-gradient(
+		to left,
+		rgba(170, 170, 170, 1) 0%,
+		rgba(170, 170, 170, 0) 100%
+	);
+
+	border-radius: 0px 20px 0px 0px;
+
 	content: '›';
 	font-size: 40px;
 	z-index: 999;
+
 	position: absolute;
 	right: 0px;
 	bottom: 0px;
+
+	width: 80px;
 	height: 80px;
-	margin: 0px 10px 0px 10px;
-	padding: 10px 0px 0px 0px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
 }
 
 .footer {
 	position: fixed;
 	bottom: 0;
-	width: 100vw;
+	left: 0px;
+	right: 0px;
 	height: 80px;
 
 	display: flex;
@@ -68,7 +99,7 @@
 	left: 10px;
 	right: 10px;
 	margin: 0px 0px 0px 0px;
-	padding: 0px 0px 0px 0px;
+	padding: 10px 0px 0px 0px;
 	width: 80px;
 }
 
