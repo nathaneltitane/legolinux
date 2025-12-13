@@ -14,11 +14,11 @@
 }
 
 #footer::before {
-/*	background-image: linear-gradient(
+	background-image: linear-gradient(
 		to right,
 		rgba(170, 170, 170, 1) 0%,
 		rgba(170, 170, 170, 0) 100%
-	);*/
+	);
 
 	border-radius: 20px 0px 0px 0px;
 	content: '‹';
@@ -29,7 +29,7 @@
 	left: 0px;
 	bottom: 0px;
 
-	width: 80px;
+	width: 30px;
 	height: 80px;
 
 	display: flex;
@@ -41,11 +41,11 @@
 }
 
 #footer::after {
-/*	background-image: linear-gradient(
+	background-image: linear-gradient(
 		to left,
 		rgba(170, 170, 170, 1) 0%,
 		rgba(170, 170, 170, 0) 100%
-	);*/
+	);
 
 	border-radius: 0px 20px 0px 0px;
 
@@ -57,7 +57,7 @@
 	right: 0px;
 	bottom: 0px;
 
-	width: 80px;
+	width: 30px;
 	height: 80px;
 
 	display: flex;
