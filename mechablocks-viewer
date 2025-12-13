@@ -3589,7 +3589,7 @@ cat << 3D-MODEL-PAGE-COLORS ->> "${model_directory}/index.html"
 cat << 3D-MODEL-PAGE-FOOTER ->> "${model_directory}/index.html"
 		<div id="footer">
 
-			<div class="footer scroll-right">
+			<div class="footer">
 
 				<!-- modal loaders -->
 
