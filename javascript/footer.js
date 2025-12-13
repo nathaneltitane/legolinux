@@ -190,7 +190,6 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	} ) ;
 
-
 	footer_update ( ) ;
 
 } ) ;
