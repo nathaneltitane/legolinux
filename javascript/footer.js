@@ -193,5 +193,3 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 	update_edges ( ) ;
 
 } ) ;
-
-

@@ -69,11 +69,11 @@
 }
 
 #footer .scroll-right::before {
-	content: ' ';
+	content: '';
 }
 
 #footer .scroll-left::after {
-	content: ' ';
+	content: '';
 }
 
 .footer {
