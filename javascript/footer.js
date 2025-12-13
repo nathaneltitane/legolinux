@@ -90,33 +90,19 @@ $ ( document ) .ready ( function ( ) {
 
 } ) ;
 
+// inititalize scroll pointer class //
 
-// // scroll footer items
-//
-// document.addEventListener ( 'DOMContentLoaded', function ( ) {
-//
-// 	const footer = document.querySelector ( '.footer' )
-//
-// 	if ( !footer ) {
-//
-// 		return
-//
-// 	}
-//
-// 	footer.addEventListener ( 'wheel', function ( event ) {
-//
-// 		if ( event.deltaY === 0 ) {
-//
-// 			return
-// 		}
-//
-// 		event.preventDefault ( )
-//
-// 		footer.scrollLeft += event.deltaY
-//
-// 	}, { passive: false } )
-//
-// } )
+$ ( document ) .ready ( function ( ) {
+
+	var wrapper = document.getElementById ( 'footer' ) ;
+
+	var footer = document.querySelector ( '.footer' ) ;
+
+	wrapper.classList.remove ( 'scroll-left' ) ;
+
+} ) ;
+
+// handle scroll event //
 
 document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
