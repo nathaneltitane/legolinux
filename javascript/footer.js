@@ -130,7 +130,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	}
 
-	function update_edges ( ) {
+	function footer_update ( ) {
 
 		var max_scroll = footer.scrollWidth - footer.clientWidth ;
 
@@ -170,7 +170,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		footer.scrollLeft += event.deltaY ;
 
-		update_edges ( ) ;
+		footer_update ( ) ;
 
 	}, { passive: false } ) ;
 
@@ -178,7 +178,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	footer.addEventListener ( 'scroll', function ( ) {
 
-		update_edges ( ) ;
+		footer_update ( ) ;
 
 	} ) ;
 
@@ -186,10 +186,10 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	window.addEventListener ( 'resize', function ( ) {
 
-		update_edges ( ) ;
+		footer_update ( ) ;
 
 	} ) ;
 
-	update_edges ( ) ;
+	footer_update ( ) ;
 
 } ) ;
