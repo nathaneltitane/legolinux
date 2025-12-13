@@ -68,6 +68,14 @@
 	padding: 0px 0px 0px 0px;
 }
 
+#footer .scroll-right::before {
+	content: ' ';
+}
+
+#footer .scroll-left::after {
+	content: ' ';
+}
+
 .footer {
 	position: fixed;
 	bottom: 0;

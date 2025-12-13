@@ -91,29 +91,107 @@ $ ( document ) .ready ( function ( ) {
 } ) ;
 
 
-// scroll footer items
+// // scroll footer items
+//
+// document.addEventListener ( 'DOMContentLoaded', function ( ) {
+//
+// 	const footer = document.querySelector ( '.footer' )
+//
+// 	if ( !footer ) {
+//
+// 		return
+//
+// 	}
+//
+// 	footer.addEventListener ( 'wheel', function ( event ) {
+//
+// 		if ( event.deltaY === 0 ) {
+//
+// 			return
+// 		}
+//
+// 		event.preventDefault ( )
+//
+// 		footer.scrollLeft += event.deltaY
+//
+// 	}, { passive: false } )
+//
+// } )
 
-document.addEventListener('DOMContentLoaded', function ( ) {
+document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
-	const footer = document.querySelector ( '.footer' )
+	var wrapper = document.getElementById ( 'footer' ) ;
 
-	if ( !footer ) {
+	var footer = document.querySelector ( '.footer' ) ;
 
-		return
+	if ( ! wrapper || ! footer ) {
+
+		return ;
 
 	}
 
-	footer.addEventListener( 'wheel', function ( event ) {
+	function update_edges ( ) {
+
+		var max_scroll = footer.scrollWidth - footer.clientWidth ;
+
+		if ( footer.scrollLeft <= 0 ) {
+
+			wrapper.classList.add ( 'scroll-right' ) ;
+
+		} else {
+
+			wrapper.classList.remove ( 'scroll-right' ) ;
+
+		}
+
+		if ( footer.scrollLeft >= max_scroll - 1 ) {
+
+			wrapper.classList.add ( 'scroll-left' ) ;
+
+		} else {
+
+			wrapper.classList.remove ( 'scroll-left' ) ;
+
+		}
+
+	}
+
+	// map vertical mousewheel to horizontal scroll //
+
+	footer.addEventListener ( 'wheel', function ( event ) {
 
 		if ( event.deltaY === 0 ) {
 
-			return
+			return ;
+
 		}
 
-		event.preventDefault ( )
+		event.preventDefault ( ) ;
 
-		footer.scrollLeft += event.deltaY
+		footer.scrollLeft += event.deltaY ;
 
-	}, { passive: false } )
+		update_edges ( ) ;
 
-})
+	}, { passive: false } ) ;
+
+	// handle drag, trackpad, touch momentum scroll //
+
+	footer.addEventListener ( 'scroll', function ( ) {
+
+		update_edges ( ) ;
+
+	} ) ;
+
+	// handle layout changes affecting scroll width //
+
+	window.addEventListener ( 'resize', function ( ) {
+
+		update_edges ( ) ;
+
+	} ) ;
+
+	update_edges ( ) ;
+
+} ) ;
+
+
