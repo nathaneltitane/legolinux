@@ -3601,6 +3601,21 @@ cat << 3D-MODEL-PAGE-FOOTER ->> "${model_directory}/index.html"
 
 				<div class="flex flex-row flex-middle flex-around">
 
+3D-MODEL-PAGE-FOOTER
+
+if [ -f "${model_paypal}" ]
+then
+
+cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
+					<!-- paypal -->
+
+					<div id="paypal">
+
+					</div>
+
+3D-MODEL-PAYPAL
+
+cat << 3D-MODEL-PAGE-HELPERS ->> "${model_directory}/index.html"
 					<!-- controls -->
 
 					<div id="controls">
@@ -3642,21 +3657,7 @@ cat << 3D-MODEL-PAGE-FOOTER ->> "${model_directory}/index.html"
 					<div id="color">
 
 					</div>
-3D-MODEL-PAGE-FOOTER
 
-if [ -f "${model_paypal}" ]
-then
-
-cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
-					<!-- paypal -->
-
-					<div id="paypal">
-
-					</div>
-
-3D-MODEL-PAYPAL
-
-cat << 3D-MODEL-PAGE-HELPERS ->> "${model_directory}/index.html"
 					<!-- contact -->
 
 					<div id="home">
