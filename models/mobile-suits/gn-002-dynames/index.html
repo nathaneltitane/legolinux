@@ -1481,7 +1481,7 @@
 					const rings = 128 / 2;
 					const radius = ringSpacing * rings;
 
-					self.polar_grid_helper = new THREE.Polar_grid_helper (
+					self.polar_grid_helper = new THREE.PolarGridHelper (
 
 						radius,
 						rings,
@@ -1546,7 +1546,7 @@
 						const gridDivisions = 128;
 						const gridSize = gridDivisions * gridSpacing;
 
-						self.orthogonal_grid_helper = new THREE._grid_helper (
+						self.orthogonal_grid_helper = new THREE.GridHelper (
 
 							gridSize,
 							gridDivisions,
@@ -1624,7 +1624,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-blue.dae',
+						'/minifigs/exports/minifig-white.dae',
 
 						function ( collada ) {
 
