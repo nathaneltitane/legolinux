@@ -86,7 +86,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	// footer slot readiness gate //
 
-	var slot_identifiers = [
+	var slot_identifiers_list = [
 		'paypal',
 		'controls',
 		'plane',
@@ -105,11 +105,11 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	function all_slots_ready ( ) {
 
-		for ( var i = 0 ; i < slot_identifiers.length ; i ++ ) {
+		for ( var i = 0 ; i < slot_identifiers_list.length ; i ++ ) {
 
-			var el = document.getElementById ( slot_identifiers [ i ] ) ;
+			var slot_identifier = document.getElementById ( slot_identifiers_list [ i ] ) ;
 
-			if ( ! el || el.innerHTML.trim ( ) === '' ) {
+			if ( ! slot_identifier || slot_identifier.innerHTML.trim ( ) === '' ) {
 
 				return false ;
 
@@ -123,7 +123,13 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	function footer_loaded ( ) {
 
-		if ( all_slots_ready ( ) ) {
+		if ( ! all_slots_ready ( ) ) {
+
+			return ;
+
+		}
+
+		canvas_ready ( function ( ) {
 
 			wrapper.classList.add ( 'footer-visible' ) ;
 
@@ -133,7 +139,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 			observer.disconnect ( ) ;
 
-		}
+		} ) ;
 
 	}
 

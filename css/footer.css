@@ -7,7 +7,7 @@
 	left: 0px;
 	right: 0px;
 
-	transition: bottom 1000ms linear;
+	transition: bottom 250ms linear;
 }
 
 #footer.footer-visible {
