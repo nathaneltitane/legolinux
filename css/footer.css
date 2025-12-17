@@ -7,10 +7,11 @@
 	left: 0px;
 	right: 0px;
 
-	animation-name: footer-reveal;
-	animation-delay: 0.5s;
-	animation-duration: 1s;
-	animation-fill-mode: forwards;
+	transition: bottom 1000ms linear;
+}
+
+#footer.footer-visible {
+	bottom: 0px;
 }
 
 #footer::before {
@@ -106,10 +107,14 @@
 
 	-webkit-overflow-scrolling: touch;
 
-	animation-name: footer-reveal;
-	animation-delay: 0.5s;
-	animation-duration: 1s;
-	animation-fill-mode: forwards;
+	visibility: hidden;
+	opacity: 0;
+	transition: opacity 150ms linear;
+}
+
+.footer.footer-loaded {
+	visibility: visible ;
+	opacity: 1 ;
 }
 
 .footer-button {

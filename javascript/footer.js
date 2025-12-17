@@ -1,22 +1,36 @@
 // footer //
 
-$ ( document ) .ready ( function ( ) {
+document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	var canvas = document.getElementById ( 'canvas' ) ;
 
-	var footer = document.getElementById ( 'footer' ) ;
+	var wrapper = document.getElementById ( 'footer' ) ;
+
+	var footer = document.querySelector ( '.footer' ) ;
+
+	if ( ! wrapper || ! footer ) {
+
+		return ;
+
+	}
+
+	// initial hidden state until all slots are ready //
+
+	wrapper.classList.remove ( 'footer-ready' ) ;
+
+	// footer hide / show behavior //
 
 	var resetTimeout ;
 
 	function hide ( ) {
 
-		footer.style.marginBottom = '-80px' ;
+		wrapper.style.marginBottom = '-80px' ;
 
 	}
 
 	function show ( ) {
 
-		footer.style.marginBottom = '0px' ;
+		wrapper.style.marginBottom = '0px' ;
 
 	}
 
@@ -40,7 +54,7 @@ $ ( document ) .ready ( function ( ) {
 
 	document.addEventListener ( 'pointerdown', function ( event ) {
 
-		// only hide on mouse button press or touch press and only when interacting with canvas //
+		// only hide on canvas interaction //
 
 		if ( ! isCanvasTarget ( event ) ) {
 
@@ -48,77 +62,106 @@ $ ( document ) .ready ( function ( ) {
 
 		}
 
-		if ( event.pointerType === 'mouse' ) {
+		if ( event.pointerType === 'mouse' && event.button !== 0 ) {
 
-			if ( event.button !== 0 ) {
+			return ;
 
-				return ;
+		}
+
+		hide ( ) ;
+
+	}, { passive: true } ) ;
+
+	document.addEventListener ( 'pointerup', function ( ) {
+
+		showWithTimeout ( ) ;
+
+	}, { passive: true } ) ;
+
+	document.addEventListener ( 'pointercancel', function ( ) {
+
+		showWithTimeout ( ) ;
+
+	}, { passive: true } ) ;
+
+	// footer slot readiness gate //
+
+	var slot_identifiers = [
+		'paypal',
+		'controls',
+		'plane',
+		'dimensions',
+		'minifig',
+		'wireframe',
+		'edges',
+		'color',
+		'home',
+		'contact',
+		'shop',
+		'github',
+		'donations',
+		'browse'
+	] ;
+
+	function all_slots_ready ( ) {
+
+		for ( var i = 0 ; i < slot_identifiers.length ; i ++ ) {
+
+			var el = document.getElementById ( slot_identifiers [ i ] ) ;
+
+			if ( ! el || el.innerHTML.trim ( ) === '' ) {
+
+				return false ;
 
 			}
 
-			hide ( ) ;
-
-			return ;
-
 		}
 
-		if ( event.pointerType === 'touch' ) {
-
-			hide ( ) ;
-
-			return ;
-
-		}
-
-	}, { passive: true } ) ;
-
-	document.addEventListener ( 'pointerup', function ( event ) {
-
-		// show after interaction ends //
-
-		showWithTimeout ( ) ;
-
-	}, { passive: true } ) ;
-
-	document.addEventListener ( 'pointercancel', function ( event ) {
-
-		// show if touch is cancelled //
-
-		showWithTimeout ( ) ;
-
-	}, { passive: true } ) ;
-
-} ) ;
-
-// inititalize scroll pointer class //
-
-$ ( document ) .ready ( function ( ) {
-
-	var wrapper = document.getElementById ( 'footer' ) ;
-
-	var footer = document.querySelector ( '.footer' ) ;
-
-	wrapper.classList.remove ( 'scroll-left' ) ;
-
-} ) ;
-
-// handle scroll event //
-
-document.addEventListener ( 'DOMContentLoaded', function ( ) {
-
-	var wrapper = document.getElementById ( 'footer' ) ;
-
-	var footer = document.querySelector ( '.footer' ) ;
-
-	if ( ! wrapper || ! footer ) {
-
-		return ;
+		return true ;
 
 	}
 
-	function footer_update ( ) {
+	function footer_loaded ( ) {
+
+		if ( all_slots_ready ( ) ) {
+
+			wrapper.classList.add ( 'footer-visible' ) ;
+
+			footer.classList.add ( 'footer-loaded' ) ;
+
+			footer_scroll ( ) ;
+
+			observer.disconnect ( ) ;
+
+		}
+
+	}
+
+	var observer = new MutationObserver ( function ( ) {
+
+		footer_loaded ( ) ;
+
+	} ) ;
+
+	observer.observe ( wrapper, { childList: true, subtree: true } ) ;
+
+	footer_loaded ( ) ;
+
+	// horizontal scroll state handling //
+
+	function footer_scroll ( ) {
 
 		var max_scroll = footer.scrollWidth - footer.clientWidth ;
+
+		if ( max_scroll <= 0 ) {
+
+			wrapper.classList.remove ( 'scroll-left' ) ;
+
+			wrapper.classList.remove ( 'scroll-right' ) ;
+
+			return ;
+
+		}
 
 		if ( footer.scrollLeft <= 0 ) {
 
@@ -156,26 +199,20 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		footer.scrollLeft += event.deltaY ;
 
-		footer_update ( ) ;
+		footer_scroll ( ) ;
 
 	}, { passive: false } ) ;
 
-	// handle drag, trackpad, touch momentum scroll //
-
 	footer.addEventListener ( 'scroll', function ( ) {
 
-		footer_update ( ) ;
+		footer_scroll ( ) ;
 
 	} ) ;
-
-	// handle layout changes affecting scroll width //
 
 	window.addEventListener ( 'resize', function ( ) {
 
-		footer_update ( ) ;
+		footer_scroll ( ) ;
 
 	} ) ;
-
-	footer_update ( ) ;
 
 } ) ;
