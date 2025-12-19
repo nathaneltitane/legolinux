@@ -2,13 +2,13 @@
 
 document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
-	console.log ( '[footer] domcontentloaded' ) ;
+	console.log ( 'footer [init] : domcontentloaded' ) ;
 
 	var wrapper = document.getElementById ( 'footer' ) ;
 
 	if ( ! wrapper ) {
 
-		console.log ( '[footer] abort: #footer wrapper missing' ) ;
+		console.log ( 'footer [init] : abort, #footer missing' ) ;
 
 		return ;
 
@@ -20,7 +20,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	function hide ( footer ) {
 
-		console.log ( '[footer] hide' ) ;
+		console.log ( 'footer [state] : hide' ) ;
 
 		wrapper.style.bottom = '-80px' ;
 
@@ -34,7 +34,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	function show ( footer ) {
 
-		console.log ( '[footer] show' ) ;
+		console.log ( 'footer [state] : show' ) ;
 
 		wrapper.style.bottom = '0px' ;
 
@@ -48,13 +48,13 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	function delay_show ( footer ) {
 
-		console.log ( '[footer] delay_show scheduled' ) ;
+		console.log ( 'footer [state] : delay_show scheduled' ) ;
 
 		clearTimeout ( timeout_reset ) ;
 
 		timeout_reset = setTimeout ( function ( ) {
 
-			console.log ( '[footer] delay_show execute' ) ;
+			console.log ( 'footer [state] : delay_show execute' ) ;
 
 			show ( footer ) ;
 
@@ -83,7 +83,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	function slots_load ( ) {
 
-		console.log ( '[footer] slots_load check start' ) ;
+		console.log ( 'footer [slot] : check start' ) ;
 
 		for ( var i = 0 ; i < slot_identifiers_list.length ; i ++ ) {
 
@@ -93,7 +93,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 			if ( ! slot_identifier ) {
 
-				console.log ( '[footer] slot missing:', id ) ;
+				console.log ( 'footer [slot] : missing - ', id ) ;
 
 				return false ;
 
@@ -101,17 +101,17 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 			if ( slot_identifier.innerHTML.trim ( ) === '' ) {
 
-				console.log ( '[footer] slot empty:', id ) ;
+				console.log ( 'footer [slot] : empty - ', id ) ;
 
 				return false ;
 
 			}
 
-			console.log ( '[footer] slot ok:', id ) ;
+			console.log ( 'footer [slot] : ready - ', id ) ;
 
 		}
 
-		console.log ( '[footer] all slots loaded' ) ;
+		console.log ( 'footer [slot] : ready - all' ) ;
 
 		return true ;
 
@@ -121,11 +121,9 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		var canvas = document.getElementById ( 'canvas' ) ;
 
-		console.log ( '[footer] canvas element:', canvas ) ;
-
 		if ( ! canvas ) {
 
-			console.log ( '[footer] no canvas, skipping canvas_load' ) ;
+			console.log ( 'footer [canvas] : not present - skipping' ) ;
 
 			callback ( ) ;
 
@@ -133,13 +131,13 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		}
 
-		console.log ( '[footer] waiting for canvas size' ) ;
+		console.log ( 'footer [canvas] : size pending' ) ;
 
 		function check ( ) {
 
 			if ( canvas.clientWidth > 0 && canvas.clientHeight > 0 ) {
 
-				console.log ( '[footer] canvas ready:', canvas.clientWidth, canvas.clientHeight ) ;
+				console.log ( 'footer [canvas] : ready - ', 'width : ', canvas.clientWidth, 'height : ', canvas.clientHeight ) ;
 
 				requestAnimationFrame ( function ( ) {
 
@@ -163,7 +161,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		var max_scroll = footer.scrollWidth - footer.clientWidth ;
 
-		console.log ( '[footer] footer_scroll:', footer.scrollLeft, '/', max_scroll ) ;
+		console.log ( 'footer [scroll] : update ', footer.scrollLeft,' / ',max_scroll ) ;
 
 		if ( max_scroll <= 0 ) {
 
@@ -198,7 +196,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	function bind_events ( footer ) {
 
-		console.log ( '[footer] bind_events' ) ;
+		console.log ( 'footer [event] : bind events' ) ;
 
 		var canvas = document.getElementById ( 'canvas' ) ;
 
@@ -206,7 +204,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 			var result = canvas && ( event.target === canvas || canvas.contains ( event.target ) ) ;
 
-			console.log ( '[footer] target check:', result ) ;
+			console.log ( 'footer [event] : target - ', result ) ;
 
 			return result ;
 
@@ -214,11 +212,11 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		document.addEventListener ( 'pointerdown', function ( event ) {
 
-			console.log ( '[footer] pointerdown' ) ;
+			console.log ( 'footer [event] : pointer down' ) ;
 
 			if ( ! canvas ) {
 
-				console.log ( '[footer] pointerdown ignored (no canvas)' ) ;
+				console.log ( 'footer [event] : ignored - no canvas' ) ;
 
 				return ;
 
@@ -226,7 +224,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 			if ( ! target ( event ) ) {
 
-				console.log ( '[footer] pointerdown ignored (not canvas)' ) ;
+				console.log ( 'footer [event] : ignored - not canvas' ) ;
 
 				return ;
 
@@ -234,7 +232,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 			if ( event.pointerType === 'mouse' && event.button !== 0 ) {
 
-				console.log ( '[footer] pointerdown ignored (not left mouse)' ) ;
+				console.log ( 'footer [event] : ignored - not left mouse' ) ;
 
 				return ;
 
@@ -246,7 +244,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		document.addEventListener ( 'pointerup', function ( ) {
 
-			console.log ( '[footer] pointerup' ) ;
+			console.log ( 'footer [event] : pointer up' ) ;
 
 			if ( ! canvas ) {
 
@@ -260,7 +258,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		document.addEventListener ( 'pointercancel', function ( ) {
 
-			console.log ( '[footer] pointercancel' ) ;
+			console.log ( 'footer [event] : pointer cancel' ) ;
 
 			if ( ! canvas ) {
 
@@ -274,7 +272,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		footer.addEventListener ( 'wheel', function ( event ) {
 
-			console.log ( '[footer] wheel:', event.deltaY ) ;
+			console.log ( 'footer [scroll] : wheel ', event.deltaY ) ;
 
 			if ( event.deltaY === 0 ) {
 
@@ -292,7 +290,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		footer.addEventListener ( 'scroll', function ( ) {
 
-			console.log ( '[footer] scroll event' ) ;
+			console.log ( 'footer [scroll] : scroll' ) ;
 
 			footer_scroll ( footer ) ;
 
@@ -300,7 +298,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		window.addEventListener ( 'resize', function ( ) {
 
-			console.log ( '[footer] resize' ) ;
+			console.log ( 'footer [scroll] : resize' ) ;
 
 			footer_scroll ( footer ) ;
 
@@ -320,13 +318,13 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		if ( ! footer ) {
 
-			console.log ( '[footer] waiting: .footer not present yet' ) ;
+			console.log ( 'footer [bootstrap] : waiting for footer' ) ;
 
 			return ;
 
 		}
 
-		console.log ( '[footer] found .footer' ) ;
+		console.log ( 'footer [bootstrap] : footer found' ) ;
 
 		initialized = true ;
 
@@ -336,11 +334,11 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		function footer_loaded ( ) {
 
-			console.log ( '[footer] footer_loaded check' ) ;
+			console.log ( 'footer [state] : footer_loaded check' ) ;
 
 			if ( ! slots_load ( ) ) {
 
-				console.log ( '[footer] footer_loaded blocked: slots not ready' ) ;
+				console.log ( 'footer [state] : blocked - slots not ready' ) ;
 
 				return ;
 
@@ -348,7 +346,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 			canvas_load ( function ( ) {
 
-				console.log ( '[footer] footer_loaded success' ) ;
+				console.log ( 'footer [state] : ready' ) ;
 
 				delay_show ( footer ) ;
 
@@ -366,7 +364,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		var content_observer = new MutationObserver ( function ( mutations ) {
 
-			console.log ( '[footer] content mutation observed:', mutations.length ) ;
+			console.log ( 'footer [bootstrap] : content mutation', mutations.length ) ;
 
 			footer_loaded ( ) ;
 
@@ -378,19 +376,19 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		setTimeout ( function ( ) {
 
-			console.log ( '[footer] failsafe reveal' ) ;
+			console.log ( 'footer [failsafe] : forced reveal' ) ;
 
 			show ( footer ) ;
 
 			footer_scroll ( footer ) ;
 
-		}, 3500 ) ;
+		}, 2500 ) ;
 
 	}
 
 	var bootstrap_observer = new MutationObserver ( function ( mutations ) {
 
-		console.log ( '[footer] bootstrap mutation observed:', mutations.length ) ;
+		console.log ( 'footer [bootstrap] : wrapper mutation', mutations.length ) ;
 
 		attempt_initialize ( ) ;
 
