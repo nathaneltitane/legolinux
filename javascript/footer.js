@@ -2,6 +2,8 @@
 
 document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
+	var canvas = document.getElementById ( 'landing' ) ;
+
 	var canvas = document.getElementById ( 'canvas' ) ;
 
 	var wrapper = document.getElementById ( 'footer' ) ;
@@ -13,7 +15,6 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 		return ;
 
 	}
-
 
 	var timeout_reset ;
 
@@ -46,6 +47,8 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 	// start hidden //
 
 	hide ( ) ;
+
+	// set canvas target //
 
 	function target ( event ) {
 
