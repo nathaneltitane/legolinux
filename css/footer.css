@@ -87,7 +87,7 @@
 
 .footer {
 	position: fixed;
-	bottom: 0;
+	bottom: 0px;
 	left: 0px;
 	right: 0px;
 	height: 80px;
@@ -117,8 +117,34 @@
 	width: 80px;
 }
 
-@keyframes footer-reveal {
-	0% {bottom: -80px;}
+#landing #footer {
+	bottom: 0px;
+	visibility: hidden;
 
-	100% {bottom: 0px;}
+	animation-name: footer-reveal;
+	animation-delay: 0.5s;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
+
+#landing .footer {
+	bottom: 0px;
+	visibility: hidden;
+
+	animation-name: footer-reveal;
+	animation-delay: 0.5s;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes footer-reveal {
+	0% {
+		bottom: -80px;
+		visibility: hidden;
+	}
+
+	100% {
+		bottom: 0px;
+		visibility: visible;
+	}
 }

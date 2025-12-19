@@ -2,7 +2,7 @@
 
 document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
-	var canvas = document.getElementById ( 'landing' ) ;
+	var landing = document.getElementById ( 'background' ) ;
 
 	var canvas = document.getElementById ( 'canvas' ) ;
 
@@ -32,7 +32,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	}
 
-	function timed_show ( ) {
+	function delay_show ( ) {
 
 		clearTimeout ( timeout_reset ) ;
 
@@ -44,9 +44,9 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	}
 
-	// start hidden //
+	// start hidden - canvas //
 
-	hide ( ) ;
+		hide ( ) ;
 
 	// set canvas target //
 
@@ -78,13 +78,13 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	document.addEventListener ( 'pointerup', function ( ) {
 
-		timed_show ( ) ;
+		delay_show ( ) ;
 
 	}, { passive: true } ) ;
 
 	document.addEventListener ( 'pointercancel', function ( ) {
 
-		timed_show ( ) ;
+		delay_show ( ) ;
 
 	}, { passive: true } ) ;
 
@@ -167,7 +167,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		canvas_load ( function ( ) {
 
-			timed_show ( ) ;
+			delay_show ( ) ;
 
 			footer_scroll ( ) ;
 
