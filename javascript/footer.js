@@ -4,8 +4,6 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	var canvas = document.getElementById ( 'canvas' ) ;
 
-	var landing = document.getElementById ( 'landing' ) ;
-
 	var wrapper = document.getElementById ( 'footer' ) ;
 
 	var footer = document.querySelector ( '.footer' ) ;
@@ -16,23 +14,24 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	}
 
-	// start hidden //
 
 	var timeout_reset ;
 
 	function hide ( ) {
 
 		wrapper.style.bottom = '-80px' ;
+		footer.style.bottom = '-80px' ;
 
 	}
 
 	function show ( ) {
 
 		wrapper.style.bottom = '0px' ;
+		footer.style.bottom = '0px' ;
 
 	}
 
-	function show_on_timeout ( ) {
+	function timed_show ( ) {
 
 		clearTimeout ( timeout_reset ) ;
 
@@ -40,13 +39,15 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 			show ( ) ;
 
-		}, 1000 ) ;
+		}, 1500 ) ;
 
 	}
 
+	// start hidden //
+
 	hide ( ) ;
 
-	function canvas_target ( event ) {
+	function target ( event ) {
 
 		return canvas && ( event.target === canvas || canvas.contains ( event.target ) ) ;
 
@@ -56,7 +57,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		// only hide on canvas interaction //
 
-		if ( ! canvas_target ( event ) ) {
+		if ( ! target ( event ) ) {
 
 			return ;
 
@@ -74,13 +75,13 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	document.addEventListener ( 'pointerup', function ( ) {
 
-		show_on_timeout ( ) ;
+		timed_show ( ) ;
 
 	}, { passive: true } ) ;
 
 	document.addEventListener ( 'pointercancel', function ( ) {
 
-		show_on_timeout ( ) ;
+		timed_show ( ) ;
 
 	}, { passive: true } ) ;
 
@@ -103,7 +104,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 		'browse'
 	] ;
 
-	function slots_ready ( ) {
+	function slots_load ( ) {
 
 		for ( var i = 0 ; i < slot_identifiers_list.length ; i ++ ) {
 
@@ -121,7 +122,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	}
 
-	function canvas_ready ( callback ) {
+	function canvas_load ( callback ) {
 
 		if ( ! canvas ) {
 
@@ -155,27 +156,15 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	function footer_loaded ( ) {
 
-		if ( ! slots_ready ( ) ) {
+		if ( ! slots_load ( ) ) {
 
 			return ;
 
 		}
 
-		if ( landing ) {
+		canvas_load ( function ( ) {
 
-			show_on_timeout ( ) ;
-
-			footer_scroll ( ) ;
-
-			observer.disconnect ( ) ;
-
-			return ;
-
-		}
-
-		canvas_ready ( function ( ) {
-
-			show_on_timeout ( ) ;
+			timed_show ( ) ;
 
 			footer_scroll ( ) ;
 

@@ -99,12 +99,9 @@
 	overflow-y: hidden;
 	white-space: nowrap;
 
-	-webkit-overflow-scrolling: touch;
-}
+	scrollbar-width: none;
 
-.footer.footer-loaded {
-	visibility: visible ;
-	opacity: 1 ;
+	-webkit-overflow-scrolling: touch;
 }
 
 .footer-button {
