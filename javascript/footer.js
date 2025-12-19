@@ -93,7 +93,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 			if ( ! slot_identifier ) {
 
-				console.log ( 'footer [slot] : missing - ', id ) ;
+				console.warn ( 'footer [slot] : missing - ', id ) ;
 
 				return false ;
 
@@ -101,7 +101,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 			if ( slot_identifier.innerHTML.trim ( ) === '' ) {
 
-				console.log ( 'footer [slot] : empty - ', id ) ;
+				console.warn ( 'footer [slot] : empty - ', id ) ;
 
 				return false ;
 
@@ -123,7 +123,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		if ( ! canvas ) {
 
-			console.log ( 'footer [canvas] : not present - skipping' ) ;
+			console.warn ( 'footer [canvas] : not present - skipping' ) ;
 
 			callback ( ) ;
 
@@ -216,7 +216,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 			if ( ! canvas ) {
 
-				console.log ( 'footer [event] : ignored - no canvas' ) ;
+				console.warn ( 'footer [event] : ignored - no canvas' ) ;
 
 				return ;
 
@@ -224,7 +224,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 			if ( ! target ( event ) ) {
 
-				console.log ( 'footer [event] : ignored - not canvas' ) ;
+				console.warn ( 'footer [event] : ignored - not canvas' ) ;
 
 				return ;
 
@@ -232,7 +232,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 			if ( event.pointerType === 'mouse' && event.button !== 0 ) {
 
-				console.log ( 'footer [event] : ignored - not left mouse' ) ;
+				console.warn ( 'footer [event] : ignored - not left mouse' ) ;
 
 				return ;
 
@@ -338,7 +338,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 			if ( ! slots_load ( ) ) {
 
-				console.log ( 'footer [state] : blocked - slots not ready' ) ;
+				console.warn ( 'footer [state] : blocked - slots not ready' ) ;
 
 				return ;
 
