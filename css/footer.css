@@ -6,12 +6,6 @@
 	bottom: -80px;
 	left: 0px;
 	right: 0px;
-
-	transition: bottom 250ms linear;
-}
-
-#footer.footer-visible {
-	bottom: 0px;
 }
 
 #footer::before {
@@ -106,10 +100,6 @@
 	white-space: nowrap;
 
 	-webkit-overflow-scrolling: touch;
-
-	visibility: hidden;
-	opacity: 0;
-	transition: opacity 150ms linear;
 }
 
 .footer.footer-loaded {

@@ -4,6 +4,8 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	var canvas = document.getElementById ( 'canvas' ) ;
 
+	var landing = document.getElementById ( 'landing' ) ;
+
 	var wrapper = document.getElementById ( 'footer' ) ;
 
 	var footer = document.querySelector ( '.footer' ) ;
@@ -14,31 +16,27 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	}
 
-	// initial hidden state until all slots are ready //
+	// start hidden //
 
-	wrapper.classList.remove ( 'footer-ready' ) ;
-
-	// footer hide / show behavior //
-
-	var resetTimeout ;
+	var timeout_reset ;
 
 	function hide ( ) {
 
-		wrapper.style.marginBottom = '-80px' ;
+		wrapper.style.bottom = '-80px' ;
 
 	}
 
 	function show ( ) {
 
-		wrapper.style.marginBottom = '0px' ;
+		wrapper.style.bottom = '0px' ;
 
 	}
 
-	function showWithTimeout ( ) {
+	function show_on_timeout ( ) {
 
-		clearTimeout ( resetTimeout ) ;
+		clearTimeout ( timeout_reset ) ;
 
-		resetTimeout = setTimeout ( function ( ) {
+		timeout_reset = setTimeout ( function ( ) {
 
 			show ( ) ;
 
@@ -46,7 +44,9 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	}
 
-	function isCanvasTarget ( event ) {
+	hide ( ) ;
+
+	function canvas_target ( event ) {
 
 		return canvas && ( event.target === canvas || canvas.contains ( event.target ) ) ;
 
@@ -56,7 +56,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		// only hide on canvas interaction //
 
-		if ( ! isCanvasTarget ( event ) ) {
+		if ( ! canvas_target ( event ) ) {
 
 			return ;
 
@@ -74,13 +74,13 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	document.addEventListener ( 'pointerup', function ( ) {
 
-		showWithTimeout ( ) ;
+		show_on_timeout ( ) ;
 
 	}, { passive: true } ) ;
 
 	document.addEventListener ( 'pointercancel', function ( ) {
 
-		showWithTimeout ( ) ;
+		show_on_timeout ( ) ;
 
 	}, { passive: true } ) ;
 
@@ -103,7 +103,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 		'browse'
 	] ;
 
-	function all_slots_ready ( ) {
+	function slots_ready ( ) {
 
 		for ( var i = 0 ; i < slot_identifiers_list.length ; i ++ ) {
 
@@ -121,9 +121,53 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	}
 
+	function canvas_ready ( callback ) {
+
+		if ( ! canvas ) {
+
+			callback ( ) ;
+
+			return ;
+
+		}
+
+		function check ( ) {
+
+			if ( canvas.clientWidth > 0 && canvas.clientHeight > 0 ) {
+
+				requestAnimationFrame ( function ( ) {
+
+					callback ( ) ;
+
+				} ) ;
+
+				return ;
+
+			}
+
+			requestAnimationFrame ( check ) ;
+
+		}
+
+		check ( ) ;
+
+	}
+
 	function footer_loaded ( ) {
 
-		if ( ! all_slots_ready ( ) ) {
+		if ( ! slots_ready ( ) ) {
+
+			return ;
+
+		}
+
+		if ( landing ) {
+
+			show_on_timeout ( ) ;
+
+			footer_scroll ( ) ;
+
+			observer.disconnect ( ) ;
 
 			return ;
 
@@ -131,9 +175,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		canvas_ready ( function ( ) {
 
-			wrapper.classList.add ( 'footer-visible' ) ;
-
-			footer.classList.add ( 'footer-loaded' ) ;
+			show_on_timeout ( ) ;
 
 			footer_scroll ( ) ;
 
