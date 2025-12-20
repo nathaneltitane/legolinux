@@ -1,91 +1,228 @@
 // selections //
 
-$ ( document ) .ready ( function ( ) {
+document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
-	var canvas = document.getElementById ( 'canvas' ) ;
+	console.log ( 'selections [init] : domcontentloaded' ) ;
 
-	var selections = document.getElementById ( 'selections' ) ;
+	var wrapper = document.getElementById ( 'selections' ) ;
 
-	var resetTimeout ;
+	if ( ! wrapper ) {
 
-	function hide ( ) {
+		console.log ( 'selections [init] : abort, #selections missing' ) ;
 
-		selections.style.marginTop = '-500px' ;
-
-	}
-
-	function show ( ) {
-
-		selections.style.marginTop = '0px' ;
+		return ;
 
 	}
 
-	function showWithTimeout ( ) {
+	var timeout_reset ;
 
-		clearTimeout ( resetTimeout ) ;
+	var initialized = false ;
 
-		resetTimeout = setTimeout ( function ( ) {
+	function hide ( selections ) {
 
-			show ( ) ;
+		console.log ( 'selections [state] : hide' ) ;
 
-		}, 1000 ) ;
+		wrapper.style.top = '-160px' ;
+
+		if ( selections ) {
+
+			selections.style.top = '-160px' ;
+
+		}
 
 	}
 
-	function isCanvasTarget ( event ) {
+	function show ( selections ) {
 
-		return canvas && ( event.target === canvas || canvas.contains ( event.target ) ) ;
+		console.log ( 'selections [state] : show' ) ;
+
+		wrapper.style.top = '0px' ;
+
+		if ( selections ) {
+
+			selections.style.top = '0px' ;
+
+		}
 
 	}
 
-	document.addEventListener ( 'pointerdown', function ( event ) {
+	function delay_show ( selections ) {
 
-		// only hide on mouse button press or touch press and only when interacting with canvas //
+		console.log ( 'selections [state] : delay_show scheduled' ) ;
 
-		if ( ! isCanvasTarget ( event ) ) {
+		clearTimeout ( timeout_reset ) ;
+
+		timeout_reset = setTimeout ( function ( ) {
+
+			console.log ( 'selections [state] : delay_show execute' ) ;
+
+			show ( selections ) ;
+
+		}, 1500 ) ;
+
+	}
+
+	function selections_scroll ( selections ) {
+
+		var scroll_maximum = selections.scrollWidth - selections.clientWidth ;
+
+		console.log ( 'selections [scroll] : update ', selections.scrollLeft,' / ',scroll_maximum ) ;
+
+		if ( scroll_maximum <= 0 ) {
+
+			wrapper.classList.remove ( 'scroll-left' ) ;
+			wrapper.classList.remove ( 'scroll-right' ) ;
 
 			return ;
 
 		}
 
-		if ( event.pointerType === 'mouse' ) {
+		if ( selections.scrollLeft <= 0 ) {
 
-			if ( event.button !== 0 ) {
+			wrapper.classList.add ( 'scroll-right' ) ;
 
-				return ;
+		} else {
 
-			}
-
-			hide ( ) ;
-
-			return ;
+			wrapper.classList.remove ( 'scroll-right' ) ;
 
 		}
 
-		if ( event.pointerType === 'touch' ) {
+		if ( selections.scrollLeft >= scroll_maximum - 1 ) {
 
-			hide ( ) ;
+			wrapper.classList.add ( 'scroll-left' ) ;
 
-			return ;
+		} else {
+
+			wrapper.classList.remove ( 'scroll-left' ) ;
 
 		}
 
-	}, { passive: true } ) ;
+	}
 
-	document.addEventListener ( 'pointerup', function ( event ) {
+	function bind_events ( selections ) {
 
-		// show after interaction ends //
+		console.log ( 'selections [event] : bind events' ) ;
 
-		showWithTimeout ( ) ;
+		var canvas = document.getElementById ( 'canvas' ) ;
 
-	}, { passive: true } ) ;
+		function target ( event ) {
 
-	document.addEventListener ( 'pointercancel', function ( event ) {
+			return canvas && ( event.target === canvas || canvas.contains ( event.target ) ) ;
 
-		// show if touch is cancelled //
+		}
 
-		showWithTimeout ( ) ;
+		// hide on canvas interaction (viewer pages)
 
-	}, { passive: true } ) ;
+		document.addEventListener ( 'pointerdown', function ( event ) {
+
+			if ( ! canvas ) return ;
+
+			if ( ! target ( event ) ) return ;
+
+			if ( event.pointerType === 'mouse' && event.button !== 0 ) return ;
+
+			hide ( selections ) ;
+
+		}, { passive: true } ) ;
+
+		document.addEventListener ( 'pointerup', function ( ) {
+
+			if ( ! canvas ) return ;
+
+			delay_show ( selections ) ;
+
+		}, { passive: true } ) ;
+
+		document.addEventListener ( 'pointercancel', function ( ) {
+
+			if ( ! canvas ) return ;
+
+			delay_show ( selections ) ;
+
+		}, { passive: true } ) ;
+
+		// horizontal scrolling
+
+		selections.addEventListener ( 'wheel', function ( event ) {
+
+			if ( event.deltaY === 0 ) return ;
+
+			event.preventDefault ( ) ;
+
+			selections.scrollLeft += event.deltaY ;
+
+			selections_scroll ( selections ) ;
+
+		}, { passive: false } ) ;
+
+		selections.addEventListener ( 'scroll', function ( ) {
+
+			selections_scroll ( selections ) ;
+
+		} ) ;
+
+		window.addEventListener ( 'resize', function ( ) {
+
+			selections_scroll ( selections ) ;
+
+		} ) ;
+
+	}
+
+	function initialize ( ) {
+
+		if ( initialized ) return ;
+
+		var selections = wrapper.querySelector ( '.selections' ) ;
+
+		if ( ! selections ) return ;
+
+		initialized = true ;
+
+		bind_events ( selections ) ;
+
+		var canvas = document.getElementById ( 'canvas' ) ;
+
+		if ( canvas ) {
+
+			hide ( selections ) ;
+
+			delay_show ( selections ) ;
+
+		} else {
+
+			show ( selections ) ;
+
+		}
+
+		selections_scroll ( selections ) ;
+
+		// failsafe reveal
+
+		setTimeout ( function ( ) {
+
+			show ( selections ) ;
+
+			selections_scroll ( selections ) ;
+
+		}, 2500 ) ;
+
+	}
+
+	// minimal bootstrap for ajax-loaded selections
+
+	function tick ( ) {
+
+		initialize ( ) ;
+
+		if ( ! initialized ) {
+
+			requestAnimationFrame ( tick ) ;
+
+		}
+
+	}
+
+	tick ( ) ;
 
 } ) ;

@@ -174,11 +174,11 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	function footer_scroll ( footer ) {
 
-		var max_scroll = footer.scrollWidth - footer.clientWidth ;
+		var scroll_maximum = footer.scrollWidth - footer.clientWidth ;
 
-		console.log ( 'footer [scroll] : update ', footer.scrollLeft,' / ',max_scroll ) ;
+		console.log ( 'footer [scroll] : update ', footer.scrollLeft,' / ',scroll_maximum ) ;
 
-		if ( max_scroll <= 0 ) {
+		if ( scroll_maximum <= 0 ) {
 
 			wrapper.classList.remove ( 'scroll-left' ) ;
 			wrapper.classList.remove ( 'scroll-right' ) ;
@@ -197,7 +197,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		}
 
-		if ( footer.scrollLeft >= max_scroll - 1 ) {
+		if ( footer.scrollLeft >= scroll_maximum - 1 ) {
 
 			wrapper.classList.add ( 'scroll-left' ) ;
 

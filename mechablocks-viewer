@@ -3239,30 +3239,30 @@ then
 
 		model_option_label=${model_option_label^^}
 
-cat << 3D-MODEL-OPTIONS ->> "${model_directory}/index.html"
-					<!-- selection - option -->
+		cat <<- 3D-MODEL-OPTIONS ->> "${model_directory}/index.html"
+							<!-- selection - option -->
 
-					<div class="flex flex-column flex-middle selections-button option">
+							<div class="flex flex-column flex-middle selections-button option">
 
-						<div class="flex-cell">
+								<div class="flex-cell">
 
-							<a class="text-center" href="/${model_mode_path_label}"/>
+									<a class="text-center" href="/${model_mode_path_label}"/>
 
-								<img src="/${model_mode_path_label}/renders/overlay/overlay.png" alt="${model_title} LEGO® MOC - ${model_mode_label} MODE"/>
+										<img src="/${model_mode_path_label}/renders/overlay/overlay.png" alt="${model_title} LEGO® MOC - ${model_mode_label} MODE"/>
 
-							</a>
+									</a>
 
-						</div>
+								</div>
 
-						<div class="flex-cell selections-label text-bold">
+								<div class="flex-cell selections-label text-bold">
 
-							${model_mode_label} OPTION
+									${model_mode_label} OPTION
 
-						</div>
+								</div>
 
-					</div>
+							</div>
 
-3D-MODEL-OPTIONS
+		3D-MODEL-OPTIONS
 
 	done
 
@@ -3312,7 +3312,7 @@ then
 
 		model_mode_label=${model_mode_label^^}
 
-		cat <<- 3D-MODEL-MODES >> "${model_directory}/index.html"
+		cat <<- 3D-MODEL-MODES ->> "${model_directory}/index.html"
 					<!-- selection - mode -->
 
 					<div class="flex flex-column flex-middle selections-button mode">
