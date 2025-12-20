@@ -375,6 +375,19 @@
 				this.renderer.setSize ( viewport_width, viewport_height );
 				this.renderer.clear ( );
 
+
+				// canvas only debug detection //
+
+				function is_canvas_target ( event ) {
+
+					var canvas = document.getElementById ( 'canvas' );
+
+					if ( ! canvas ) return false;
+
+					return event.target === canvas || canvas.contains ( event.target );
+
+				}
+
 				// debugging overlay - standard
 
 				var device_information_overlay = null;
@@ -477,15 +490,17 @@
 
 				}
 
-				// debugging overlay - mobile / touch
+				// debugging overlay - mobile / touch - double tap
 
 				var last_tap_time = 0;
 
-				if ( !window._device_overlay_double_tap_added ) {
+				if ( ! window._device_overlay_double_tap_added ) {
 
 					window._device_overlay_double_tap_added = true;
 
 					window.addEventListener ( 'touchend', function ( event ) {
+
+						if ( ! is_canvas_target ( event ) ) return;
 
 						var current_time = Date.now ( );
 
@@ -493,20 +508,43 @@
 
 						// double tap (100ms–350ms)
 
-						if ( tap_gap > 100 && tap_gap < 350) {
+						if ( tap_gap > 100 && tap_gap < 350 ) {
 
-							set_debug_overlay_enabled(!debug_overlay_enabled);
+							set_debug_overlay_enabled ( ! debug_overlay_enabled );
 
-							console.log ( 'debug overlay ( double-tap ): ' + ( debug_overlay_enabled ? 'on' : 'off' ) );
+							console.log (
+								'debug overlay ( canvas double-tap ): ' +
+								( debug_overlay_enabled ? 'on' : 'off' )
+							);
 
 							event.preventDefault ( );
-
 							event.stopPropagation ( );
 						}
 
 						last_tap_time = current_time;
 
-					}, { passive: false });
+					}, { passive: false } );
+
+				}
+
+				// debugging overlay - desktop / hardware - mouse double click
+
+				if ( ! window._device_overlay_double_click_added ) {
+
+					window._device_overlay_double_click_added = true;
+
+					window.addEventListener ( 'dblclick', function ( event ) {
+
+						if ( ! is_canvas_target ( event ) ) return;
+
+						set_debug_overlay_enabled ( ! debug_overlay_enabled );
+
+						console.log (
+							'debug overlay ( canvas double-click ): ' +
+							( debug_overlay_enabled ? 'on' : 'off' )
+						);
+
+					}, { passive: true } );
 
 				}
 
@@ -1624,7 +1662,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-red.dae',
+						'/minifigs/exports/minifig-fuschia.dae',
 
 						function ( collada ) {
 

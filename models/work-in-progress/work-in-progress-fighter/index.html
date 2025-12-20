@@ -375,6 +375,9 @@
 				this.renderer.setSize ( viewport_width, viewport_height );
 				this.renderer.clear ( );
 
+
+				// canvas only debug detection //
+
 				function is_canvas_target ( event ) {
 
 					var canvas = document.getElementById ( 'canvas' );
@@ -487,7 +490,7 @@
 
 				}
 
-				// debugging overlay - mobile / touch (canvas only)
+				// debugging overlay - mobile / touch - double tap
 
 				var last_tap_time = 0;
 
@@ -524,7 +527,7 @@
 
 				}
 
-				// debugging overlay - mouse double click (canvas only)
+				// debugging overlay - desktop / hardware - mouse double click
 
 				if ( ! window._device_overlay_double_click_added ) {
 
@@ -1659,7 +1662,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-black.dae',
+						'/minifigs/exports/minifig-purple.dae',
 
 						function ( collada ) {
 
