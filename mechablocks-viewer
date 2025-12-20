@@ -3240,21 +3240,27 @@ then
 		model_option_label=${model_option_label^^}
 
 cat << 3D-MODEL-OPTIONS ->> "${model_directory}/index.html"
-				<div class="flex-cell option">
+					<!-- selection - option -->
 
-					<a class="text-center option-image" href="/${model_option_path_label}"/>
+					<div class="flex flex-column flex-middle selections-button option">
 
-						<img src="/${model_option_path_label}/renders/overlay/overlay.png" alt="${model_title} LEGO® MOC - ${model_option_label} OPTION"/>
+						<div class="flex-cell">
 
-						<div class="flex-cell text-center text-bold option-label">
+							<a class="text-center" href="/${model_mode_path_label}"/>
 
-							// ${model_option_label} OPTION //
+								<img src="/${model_mode_path_label}/renders/overlay/overlay.png" alt="${model_title} LEGO® MOC - ${model_mode_label} MODE"/>
+
+							</a>
 
 						</div>
 
-					</a>
+						<div class="flex-cell selections-label text-bold">
 
-				</div>
+							${model_mode_label} OPTION
+
+						</div>
+
+					</div>
 
 3D-MODEL-OPTIONS
 
@@ -3307,7 +3313,6 @@ then
 		model_mode_label=${model_mode_label^^}
 
 		cat <<- 3D-MODEL-MODES >> "${model_directory}/index.html"
-
 					<!-- selection - mode -->
 
 					<div class="flex flex-column flex-middle selections-button mode">
@@ -3329,7 +3334,6 @@ then
 						</div>
 
 					</div>
-
 
 		3D-MODEL-MODES
 
