@@ -81,13 +81,28 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 		'browse'
 	] ;
 
+	var landing_slot_identifiers_list = [
+		'home',
+		'contact',
+		'shop',
+		'github',
+		'donations',
+		'browse'
+	] ;
+
 	function slots_load ( ) {
 
-		console.log ( 'footer [slot] : check start' ) ;
+		var is_landing = !! document.getElementById ( 'landing' ) ;
 
-		for ( var i = 0 ; i < slot_identifiers_list.length ; i ++ ) {
+		var list = is_landing
+			? landing_slot_identifiers_list
+			: slot_identifiers_list ;
 
-			var id = slot_identifiers_list [ i ] ;
+		console.log ( 'footer [slot] : check start', is_landing ? '- landing' : '- viewer' ) ;
+
+		for ( var i = 0 ; i < list.length ; i ++ ) {
+
+			var id = list [ i ] ;
 
 			var slot_identifier = document.getElementById ( id ) ;
 
