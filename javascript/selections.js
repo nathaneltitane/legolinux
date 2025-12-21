@@ -2,13 +2,13 @@
 
 document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
-	console.log ( 'selections [init] : domcontentloaded' ) ;
+	console.log ( 'selections [ init ] : domcontentloaded' ) ;
 
 	var wrapper = document.getElementById ( 'selections' ) ;
 
 	if ( ! wrapper ) {
 
-		console.log ( 'selections [init] : abort, #selections missing' ) ;
+		console.log ( 'selections [ init ] : abort, #selections missing' ) ;
 
 		return ;
 
@@ -20,7 +20,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	function hide ( selections ) {
 
-		console.log ( 'selections [state] : hide' ) ;
+		console.log ( 'selections [ state ] : hide' ) ;
 
 		wrapper.style.top = '-160px' ;
 
@@ -34,7 +34,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	function show ( selections ) {
 
-		console.log ( 'selections [state] : show' ) ;
+		console.log ( 'selections [ state ] : show' ) ;
 
 		wrapper.style.top = '0px' ;
 
@@ -48,13 +48,13 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	function delay_show ( selections ) {
 
-		console.log ( 'selections [state] : delay_show scheduled' ) ;
+		console.log ( 'selections [ state ] : delay_show scheduled' ) ;
 
 		clearTimeout ( timeout_reset ) ;
 
 		timeout_reset = setTimeout ( function ( ) {
 
-			console.log ( 'selections [state] : delay_show execute' ) ;
+			console.log ( 'selections [ state ] : delay_show execute' ) ;
 
 			show ( selections ) ;
 
@@ -66,7 +66,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		var scroll_maximum = selections.scrollWidth - selections.clientWidth ;
 
-		console.log ( 'selections [scroll] : update ', selections.scrollLeft,' / ',scroll_maximum ) ;
+		console.log ( 'selections [ scroll ] : update ', selections.scrollLeft,' / ',scroll_maximum ) ;
 
 		if ( scroll_maximum <= 0 ) {
 
@@ -101,7 +101,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	function bind_events ( selections ) {
 
-		console.log ( 'selections [event] : bind events' ) ;
+		console.log ( 'selections [ event ] : bind events' ) ;
 
 		var canvas = document.getElementById ( 'canvas' ) ;
 
