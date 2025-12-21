@@ -1654,7 +1654,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-purple.dae',
+						'/minifigs/exports/minifig-white.dae',
 
 						function ( collada ) {
 
@@ -2323,37 +2323,37 @@
 
 						var aspect = camera.aspect || ( window.innerWidth / window.innerHeight ) ;
 
-						var half_w = ( size.x / 2 ) * fit_offset ;
+						var half_width = ( size.x / 2 ) * fit_offset ;
 
-						var half_h = ( size.y / 2 ) * fit_offset ;
+						var half_height = ( size.y / 2 ) * fit_offset ;
 
-						var frustum_h = Math.max ( half_h, half_w / aspect ) ;
+						var frustum_height = Math.max ( half_height, half_width / aspect ) ;
 
-						var frustum_w = frustum_h * aspect ;
+						var frustum_width = frustum_height * aspect ;
 
-						camera.left = - frustum_w ;
-						camera.right = frustum_w ;
-						camera.top = frustum_h ;
-						camera.bottom = - frustum_h ;
+						camera.left = - frustum_width ;
+						camera.right = frustum_width ;
+						camera.top = frustum_height ;
+						camera.bottom = - frustum_height ;
 
-						var ortho_distance = max_size * 2 ;
+						var orthogonal_distance = max_size * 2 ;
 
-						var ortho_dir = new THREE.Vector3 ( ) ;
+						var orthogonal_direction = new THREE.Vector3 ( ) ;
 
-						ortho_dir.subVectors ( camera.position, center ) ;
+						orthogonal_direction.subVectors ( camera.position, center ) ;
 
-						if ( ortho_dir.lengthSq ( ) === 0 ) {
+						if ( orthogonal_direction.lengthSq ( ) === 0 ) {
 
-							ortho_dir.set ( 1, 1, 1 ) ;
+							orthogonal_direction.set ( 1, 1, 1 ) ;
 
 						}
 
-						ortho_dir.normalize ( ) ;
+						orthogonal_direction.normalize ( ) ;
 
-						camera.position.copy ( center ).add ( ortho_dir.multiplyScalar ( ortho_distance ) ) ;
+						camera.position.copy ( center ).add ( orthogonal_direction.multiplyScalar ( orthogonal_distance ) ) ;
 
-						camera.near = Math.max ( ortho_distance / 100, 0.0001 ) ;
-						camera.far = ortho_distance * 100 ;
+						camera.near = Math.max ( orthogonal_distance / 100, 0.0001 ) ;
+						camera.far = orthogonal_distance * 100 ;
 
 						camera.updateProjectionMatrix ( ) ;
 
