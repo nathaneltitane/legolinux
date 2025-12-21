@@ -424,34 +424,46 @@
 
 				console.log ( 'operating system [ system ] : ' + os );
 
-				function set_debug_overlay_enabled ( enabled ) {
+function set_debug_overlay_enabled ( enabled ) {
 
-					debug_overlay_enabled = enabled;
+	debug_overlay_enabled = enabled;
 
-					if ( enabled ) {
+	if ( enabled ) {
 
-						create_device_overlay_if_needed ( );
+		create_device_overlay_if_needed ( );
 
-						device_information_overlay.textContent =
-							'device             : [ ' + device_type + ' ]' + '\n' +
-							'operating system   : [ ' + os + ' ]' + '\n' +
-							'device pixel ratio : [ ' + pixel_ratio.toFixed ( 2 ) + ' ]';
+		device_information_overlay.innerHTML = '' ;
 
-						device_information_overlay.style.display = 'block';
+		function add_line ( label, value ) {
 
-					} else {
+			var line = document.createElement ( 'div' ) ;
 
-						if ( device_information_overlay ) {
+			line.textContent = label + ' : [ ' + value + ' ]' ;
 
-							device_information_overlay.remove ( );
+			device_information_overlay.appendChild ( line ) ;
 
-							device_information_overlay = null;
+		}
 
-						}
+		add_line ( 'device', device_type ) ;
+		add_line ( 'operating system', os ) ;
+		add_line ( 'device pixel ratio', pixel_ratio.toFixed ( 2 ) ) ;
 
-					}
+		device_information_overlay.style.display = 'block' ;
 
-				}
+	} else {
+
+		if ( device_information_overlay ) {
+
+			device_information_overlay.remove ( ) ;
+
+			device_information_overlay = null ;
+
+		}
+
+	}
+
+}
+
 
 				// enable overlay by default?
 
@@ -1655,7 +1667,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-fuschia.dae',
+						'/minifigs/exports/minifig-white.dae',
 
 						function ( collada ) {
 
