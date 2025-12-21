@@ -1660,7 +1660,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-fuschia.dae',
+						'/minifigs/exports/minifig-white.dae',
 
 						function ( collada ) {
 
@@ -2198,6 +2198,132 @@
 					}
 				}
 
+				// fit camera to bounding box //
+
+				function fit_camera_to_box ( camera, controls, box, fit_offset ) {
+
+					fit_offset = fit_offset || 1.25 ;
+
+					var size = box.getSize ( new THREE.Vector3 ( ) ) ;
+
+					var center = box.getCenter ( new THREE.Vector3 ( ) ) ;
+
+					var max_size = Math.max ( size.x, size.y, size.z ) ;
+
+					if ( max_size <= 0 ) {
+
+						return ;
+
+					}
+
+					// retarget controls to model center
+
+					if ( controls ) {
+
+						controls.target.copy ( center ) ;
+
+					}
+
+					// perspective
+
+					if ( camera.isPerspectiveCamera ) {
+
+						var fov = THREE.MathUtils.degToRad ( camera.fov ) ;
+
+						var fit_height_distance = ( max_size / ( 2 * Math.tan ( fov / 2 ) ) ) ;
+
+						var fit_width_distance = fit_height_distance / camera.aspect ;
+
+						var distance = fit_offset * Math.max ( fit_height_distance, fit_width_distance ) ;
+
+						var direction = new THREE.Vector3 ( ) ;
+
+						direction.subVectors ( camera.position, center ) ;
+
+						if ( direction.lengthSq ( ) === 0 ) {
+
+							direction.set ( 1, 1, 1 ) ;
+
+						}
+
+						direction.normalize ( ) ;
+
+						camera.position.copy ( center ).add ( direction.multiplyScalar ( distance ) ) ;
+
+						camera.near = Math.max ( distance / 100, 0.0001 ) ;
+
+						camera.far = distance * 100 ;
+
+						camera.updateProjectionMatrix ( ) ;
+
+						camera.lookAt ( center ) ;
+
+						if ( controls ) {
+
+							controls.minDistance = distance / 10 ;
+
+							controls.maxDistance = distance * 10 ;
+
+							controls.update ( ) ;
+
+						}
+
+						return ;
+
+					}
+
+					// orthographic
+
+					if ( camera.isOrthographicCamera ) {
+
+						var aspect = camera.aspect || ( window.innerWidth / window.innerHeight ) ;
+
+						var half_w = ( size.x / 2 ) * fit_offset ;
+
+						var half_h = ( size.y / 2 ) * fit_offset ;
+
+						var frustum_h = Math.max ( half_h, half_w / aspect ) ;
+
+						var frustum_w = frustum_h * aspect ;
+
+						camera.left = - frustum_w ;
+						camera.right = frustum_w ;
+						camera.top = frustum_h ;
+						camera.bottom = - frustum_h ;
+
+						var ortho_distance = max_size * 2 ;
+
+						var ortho_dir = new THREE.Vector3 ( ) ;
+
+						ortho_dir.subVectors ( camera.position, center ) ;
+
+						if ( ortho_dir.lengthSq ( ) === 0 ) {
+
+							ortho_dir.set ( 1, 1, 1 ) ;
+
+						}
+
+						ortho_dir.normalize ( ) ;
+
+						camera.position.copy ( center ).add ( ortho_dir.multiplyScalar ( ortho_distance ) ) ;
+
+						camera.near = Math.max ( ortho_distance / 100, 0.0001 ) ;
+						camera.far = ortho_distance * 100 ;
+
+						camera.updateProjectionMatrix ( ) ;
+
+						camera.lookAt ( center ) ;
+
+						if ( controls ) {
+
+							controls.update ( ) ;
+
+						}
+
+					}
+
+				}
+
 				// orbit controls
 
 				this.orbitControls = null;
@@ -2225,7 +2351,6 @@
 
 						self.orbitControls.screenSpacePanning = true;
 						self.orbitControls.enablePan = true;
-						self.orbitControls.target.set ( 0, 0, 0 );
 						self.orbitControls.minDistance = near;
 						self.orbitControls.maxDistance = far;
 
@@ -2893,6 +3018,14 @@
 						// orbit controls
 
 						self.get_orbitControls ( );
+
+						// fit camera + controls target to loaded model
+
+						self.colladaImport.updateMatrixWorld ( true ) ;
+
+						var fitBox = new THREE.Box3 ( ).setFromObject ( self.colladaImport ) ;
+
+						fit_camera_to_box ( self.camera, self.orbitControls, fitBox, 2.50 ) ;
 
 						// transform controls
 
