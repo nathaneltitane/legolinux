@@ -370,7 +370,7 @@
 				this.renderer.clear ( );
 
 
-				// canvas only debug detection //
+				// debug overlay - target //
 
 				function is_canvas_target ( event ) {
 
@@ -382,7 +382,7 @@
 
 				}
 
-				// debugging overlay - standard
+				// debug overlay - standard
 
 				var device_information_overlay = null;
 
@@ -433,8 +433,6 @@
 
 						refresh_debug_overlay ( ) ;
 
-
-
 					} else {
 
 						if ( device_information_overlay ) {
@@ -448,7 +446,6 @@
 					}
 
 				}
-
 
 				function refresh_debug_overlay ( ) {
 
@@ -468,25 +465,56 @@
 
 					device_information_overlay.innerHTML = '' ;
 
-					function add_line ( label, value ) {
+					function debug_overlay_line ( label, context, value ) {
 
 						var line = document.createElement ( 'div' ) ;
 
-						line.textContent = label + ' : [ ' + value + ' ]' ;
+						// shift arguments if only two are present
+
+						if ( arguments.length === 2 ) {
+
+							value = context ;
+							context = null ;
+
+						}
+
+						var text = label ;
+
+						if ( context !== null && context !== undefined && context !== '' ) {
+
+							text += ' [ ' + context + ' ]' ;
+
+						}
+
+						text += ' : ' + value ;
+
+						line.textContent = text ;
 
 						device_information_overlay.appendChild ( line ) ;
 
 					}
 
-					// device //
+					// debug overlay divider
 
-					add_line ( 'device', device_type ) ;
-					add_line ( 'operating system', os ) ;
-					add_line ( 'device pixel ratio', pixel_ratio.toFixed ( 2 ) ) ;
+					function device_information_divider ( ) {
+
+						var debug_overlay_divider = document.createElement ( 'hr' );
+
+						device_information_overlay.appendChild ( debug_overlay_divider );
+
+					}
+
+					// debug overlay - device //
+
+					debug_overlay_line ( 'device', 'type', device_type ) ;
+					debug_overlay_line ( 'device', 'operating system', os ) ;
+					debug_overlay_line ( 'device', 'pixel ratio', pixel_ratio.toFixed ( 2 ) ) ;
+
+					device_information_divider ( );
 
 					// model state //
 
-					add_line ( 'model loaded', self.colladaImport ? 'yes' : 'no' ) ;
+					debug_overlay_line ( 'model loaded', self.colladaImport ? 'yes' : 'no' ) ;
 
 					if ( self.colladaImport ) {
 
@@ -496,40 +524,43 @@
 						var size = box.getSize ( new THREE.Vector3 ( ) ) ;
 						var center = box.getCenter ( new THREE.Vector3 ( ) ) ;
 
-						add_line ( 'bbox x', size.x.toFixed ( 4 ) ) ;
-						add_line ( 'bbox y', size.y.toFixed ( 4 ) ) ;
-						add_line ( 'bbox z', size.z.toFixed ( 4 ) ) ;
+						debug_overlay_line ( 'model', 'bounding box x', size.x.toFixed ( 4 ) ) ;
+						debug_overlay_line ( 'model', 'bounding box y', size.y.toFixed ( 4 ) ) ;
+						debug_overlay_line ( 'model', 'bounding box z', size.z.toFixed ( 4 ) ) ;
 
-						add_line ( 'center x', center.x.toFixed ( 4 ) ) ;
-						add_line ( 'center y', center.y.toFixed ( 4 ) ) ;
-						add_line ( 'center z', center.z.toFixed ( 4 ) ) ;
+						debug_overlay_line ( 'model', 'center x', center.x.toFixed ( 4 ) ) ;
+						debug_overlay_line ( 'model', 'center y', center.y.toFixed ( 4 ) ) ;
+						debug_overlay_line ( 'model', 'center z', center.z.toFixed ( 4 ) ) ;
+
+						debug_overlay_line ( 'model', 'faces visible', model_faces_visible ? 'on' : 'off' ) ;
+						debug_overlay_line ( 'model', 'wireframe visible', wireframe_visible ? 'on' : 'off' ) ;
+						debug_overlay_line ( 'model', 'edge visible', model_edges_visible ? 'on' : 'off' ) ;
+						debug_overlay_line ( 'model', 'edge thickness', edge_thickness_state ) ;
 
 					}
 
-					// viewer toggles //
+					device_information_divider ( );
 
-					add_line ( 'faces visible', model_faces_visible ? 'on' : 'off' ) ;
-					add_line ( 'wireframe visible', wireframe_visible ? 'on' : 'off' ) ;
-					add_line ( 'edges visible', model_edges_visible ? 'on' : 'off' ) ;
-					add_line ( 'edge thickness', edge_thickness_state ) ;
-
-					// camera //
+					// debug overlay - camera //
 
 					if ( self.camera ) {
 
-						add_line ( 'camera type', self.camera.isPerspectiveCamera ? 'perspective' : ( self.camera.isOrthographicCamera ? 'orthographic' : 'other' ) ) ;
+						debug_overlay_line (
+							'camera', 'type',
+							self.camera.isPerspectiveCamera ? 'perspective' : ( self.camera.isOrthographicCamera ? 'orthographic' : 'other' )
+						) ;
 
 						if ( self.camera.fov !== undefined ) {
 
-							add_line ( 'camera fov', self.camera.fov ) ;
+							debug_overlay_line ( 'camera', 'field of view', self.camera.fov ) ;
 
 						}
 
-						add_line ( 'camera near', self.camera.near.toFixed ( 6 ) ) ;
-						add_line ( 'camera far', self.camera.far.toFixed ( 6 ) ) ;
+						debug_overlay_line ( 'camera', 'near', self.camera.near.toFixed ( 6 ) ) ;
+						debug_overlay_line ( 'camera',  'far', self.camera.far.toFixed ( 6 ) ) ;
 
-						add_line (
-							'camera pos',
+						debug_overlay_line (
+							'camera', 'position',
 							self.camera.position.x.toFixed ( 4 ) + ', ' +
 							self.camera.position.y.toFixed ( 4 ) + ', ' +
 							self.camera.position.z.toFixed ( 4 )
@@ -537,14 +568,18 @@
 
 					}
 
+					device_information_divider ( );
+
+					// debug overlay - orbit controls //
+
 					if ( self.orbitControls ) {
 
-						add_line ( 'orbit enabled', self.orbitControls.enabled ? 'yes' : 'no' ) ;
+						debug_overlay_line ( 'orbit', 'enabled', self.orbitControls.enabled ? 'yes' : 'no' ) ;
 
 						if ( self.orbitControls.target ) {
 
-							add_line (
-								'orbit target',
+							debug_overlay_line (
+								'orbit', 'target',
 								self.orbitControls.target.x.toFixed ( 4 ) + ', ' +
 								self.orbitControls.target.y.toFixed ( 4 ) + ', ' +
 								self.orbitControls.target.z.toFixed ( 4 )
@@ -556,8 +591,7 @@
 
 				}
 
-
-				// enable overlay by default?
+				// debug overlay - show as default (?) //
 
 				set_debug_overlay_enabled ( false );
 
@@ -569,31 +603,9 @@
 
 					window._device_overlay_listener_added = true;
 
-					window.addEventListener ( 'keydown', function ( event ) {
-
-						// ignore when typing in inputs / textareas
-
-						var tag = event.target.tagName.toLowerCase ( );
-
-						if ( tag === 'input' || tag === 'textarea' || event.target.isContentEditable ) {
-
-							return;
-
-						}
-
-						if ( event.key === '`' || event.key === '\~' ) {
-
-							set_debug_overlay_enabled ( ! debug_overlay_enabled );
-
-							console.log ( 'debug overlay [ status ] : ' + ( debug_overlay_enabled ? 'on' : 'off' ) );
-
-						}
-
-					});
-
 				}
 
-				// debugging overlay - mobile / touch - double tap
+				// debug overlay - mobile / touch - double tap
 
 				var last_tap_time = 0;
 
@@ -627,7 +639,7 @@
 
 				}
 
-				// debugging overlay - desktop / hardware - mouse double click
+				// debug overlay - desktop / hardware - mouse double click
 
 				if ( ! window._device_overlay_double_click_added ) {
 
@@ -661,18 +673,18 @@
 
 					overlay.id = 'webgl-context-lost';
 
-					overlay.style.position = 'fixed';
-					overlay.style.inset = '0';
-					overlay.style.zIndex = '9999';
-					overlay.style.display = 'flex';
-					overlay.style.flexDirection = 'column';
+					device_information_overlay.style.fontFamily = 'system-ui, -apple-system, monospace';
 					overlay.style.alignItems = 'center';
-					overlay.style.justifyContent = 'center';
 					overlay.style.background = '#cccccccc';
 					overlay.style.color = '#666666ff';
-					device_information_overlay.style.fontFamily = 'system-ui, -apple-system, monospace';
+					overlay.style.display = 'flex';
+					overlay.style.flexDirection = 'column';
+					overlay.style.inset = '0';
+					overlay.style.justifyContent = 'center';
 					overlay.style.padding = '20px 20px 20px 20px';
+					overlay.style.position = 'fixed';
 					overlay.style.textAlign = 'center';
+					overlay.style.zIndex = '9999';
 
 					var title = document.createElement ( 'div' );
 
@@ -688,11 +700,12 @@
 					var button = document.createElement ( 'button' );
 
 					button.textContent = 'reload viewer';
-					button.style.padding = '10px 10px 10px 10px';
-					button.style.borderRadius = '999px';
+
 					button.style.border = 'none';
+					button.style.borderRadius = '999px';
 					button.style.cursor = 'pointer';
 					button.style.fontWeight = 'bold';
+					button.style.padding = '10px 10px 10px 10px';
 
 					button.onclick = function ( ) {
 
@@ -725,7 +738,7 @@
 
 				geometry.center ( );
 
-				const referenceCube = new THREE.Mesh (
+				const reference_cube = new THREE.Mesh (
 
 					geometry,
 
@@ -733,9 +746,9 @@
 
 				);
 
-				referenceCube.position.set ( 0, 0, 0 );
+				reference_cube.position.set ( 0, 0, 0 );
 
-				self.scene.add ( referenceCube );
+				self.scene.add ( reference_cube );
 
 				// camera
 
@@ -1059,7 +1072,7 @@
 
 						];
 
-						const cornerSize = ( 0.008 * 2 );
+						const corner_size = ( 0.008 * 2 );
 
 						const corners = [
 
@@ -1105,19 +1118,19 @@
 
 							// x axis
 
-							positions.push ( x, y, z, x + direction_x * cornerSize, y, z );
+							positions.push ( x, y, z, x + direction_x * corner_size, y, z );
 
 							colors.push ( ...color_x.toArray ( ), ...color_x.toArray ( ) );
 
 							// y axis
 
-							positions.push ( x, y, z, x, y + direction_y * cornerSize, z );
+							positions.push ( x, y, z, x, y + direction_y * corner_size, z );
 
 							colors.push ( ...color_y.toArray ( ), ...color_y.toArray ( ) );
 
 							// z axis
 
-							positions.push ( x, y, z, x, y, z + direction_z * cornerSize );
+							positions.push ( x, y, z, x, y, z + direction_z * corner_size );
 
 							colors.push ( ...color_z.toArray ( ), ...color_z.toArray ( ) );
 						}
@@ -1723,7 +1736,7 @@
 
 				}
 
-				// minifig
+				// minifig helper
 
 				this.minifig_toggle_ = function ( ) {
 
@@ -1759,7 +1772,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-white.dae',
+						'/minifigs/exports/minifig-red.dae',
 
 						function ( collada ) {
 
@@ -1874,7 +1887,7 @@
 					} );
 				};
 
-				// plane
+				// plane helper
 
 				this.boundingBox = null;
 
@@ -2119,7 +2132,7 @@
 
 					}
 
-					// toggle faces vs wireframe
+					// toggle faces on wireframe trigger
 
 					self.colladaImport.traverse ( function ( node ) {
 
@@ -2394,7 +2407,17 @@
 
 				}
 
-				// fit camera to bounding box //
+				// debug overlay toggle
+
+				this.debug_toggle_ = function ( ) {
+
+					set_debug_overlay_enabled ( ! debug_overlay_enabled ) ;
+
+					refresh_debug_overlay ( ) ;
+
+				} ;
+
+				// fit camera to bounding box
 
 				function fit_camera_to_box ( camera, controls, box, fit_offset ) {
 
@@ -2686,6 +2709,14 @@
 				this.transformKeys = function ( event ) {
 
 					switch ( event.keyCode ) {
+
+						// ~ //
+
+						case 186:
+
+							self.debug_toggle_ ( ) ;
+
+							break;
 
 						// H //
 
