@@ -2093,6 +2093,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 					}
 
 					return self.boundingBox;
+
 				}
 
 				this.plane_color = grey;
@@ -2175,6 +2176,8 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				}
 
+				// plane toggle
+
 				this.plane_ = function ( ) {
 
 					self.boundingBox = self.get_boundingBox ( );
@@ -2195,6 +2198,10 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 						self.scene.add ( self.get_plane ( ) );
 						self.scene.add ( self.planeEdges );
 					}
+
+					// refresh debug overlay values
+
+					refresh_debug_overlay ( ) ;
 				}
 
 				// edges toggle - model
@@ -2240,6 +2247,11 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 						}
 
 					}
+
+					// refresh debug overlay values
+
+					refresh_debug_overlay ( ) ;
+
 				};
 
 				// wireframe toggle
@@ -2312,7 +2324,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					}
 
-					// toggle faces vs wireframe
+					// toggle faces on wireframe trigger
 
 					self.colladaImport.traverse ( function ( node ) {
 
@@ -2331,6 +2343,10 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 						}
 
 					} );
+
+					// refresh debug overlay values
+
+					refresh_debug_overlay ( ) ;
 
 				};
 
@@ -2384,6 +2400,11 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 						dimension_labels_visible = true;
 
 					}
+
+					// refresh debug overlay values
+
+					refresh_debug_overlay ( ) ;
+
 				};
 
 				// camera toggle
@@ -2420,6 +2441,10 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					console.log ( "camera = " + self.cameraType );
 
+					// refresh debug overlay values
+
+					refresh_debug_overlay ( ) ;
+
 				}
 
 				// camera position toggle
@@ -2439,6 +2464,10 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 					self.camera.updateProjectionMatrix ( );
 
 					console.log ( "camera position = " + self.camera_position_matrix_x, self.camera_position_matrix_y, self.camera_position_matrix_z );
+
+					// refresh debug overlay values
+
+					refresh_debug_overlay ( ) ;
 
 				}
 
@@ -2468,6 +2497,10 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 					self.orthographicCamera.zoom = ( orthographicRandomZoom );
 
 					self.resize ( );
+
+					// refresh debug overlay values
+
+					refresh_debug_overlay ( ) ;
 
 				}
 
@@ -2503,6 +2536,10 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					console.log ( "mode [ transform ] = " + transformStatus );
 
+					// refresh debug overlay values
+
+					refresh_debug_overlay ( ) ;
+
 				}
 
 				// controls space toggle
@@ -2512,6 +2549,10 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 					self.transform_controls.setSpace ( self.transform_controls.space === "world" ? "local" : "world" );
 
 					console.log ( "control [ transform ] = " + self.transform_controls.space );
+
+					// refresh debug overlay values
+
+					refresh_debug_overlay ( ) ;
 
 				}
 
@@ -2551,6 +2592,11 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						console.log ( "snap [ scale ] = " + scaleSnap );
 					}
+
+					// refresh debug overlay values
+
+					refresh_debug_overlay ( ) ;
+
 				}
 
 				// fit camera to bounding box //
@@ -2713,6 +2759,11 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 					}
 
 					return self.orbitControls;
+
+					// refresh debug overlay values
+
+					refresh_debug_overlay ( ) ;
+
 				}
 
 				// transform controls
@@ -2739,6 +2790,11 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 					}
 
 					return self.transform_controls;
+
+					// refresh debug overlay values
+
+					refresh_debug_overlay ( ) ;
+
 				}
 
 				// resize
@@ -2775,6 +2831,10 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 							self.renderer.setSize ( window.innerWidth, window.innerHeight );
 
 					}
+
+					// refresh debug overlay values
+
+					refresh_debug_overlay ( ) ;
 
 				}
 

@@ -1759,7 +1759,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-white.dae',
+						'/minifigs/exports/minifig-grey.dae',
 
 						function ( collada ) {
 
@@ -1888,6 +1888,7 @@
 					}
 
 					return self.boundingBox;
+
 				}
 
 				this.plane_color = grey;
@@ -1970,6 +1971,8 @@
 
 				}
 
+				// plane toggle
+
 				this.plane_ = function ( ) {
 
 					self.boundingBox = self.get_boundingBox ( );
@@ -1990,6 +1993,10 @@
 						self.scene.add ( self.get_plane ( ) );
 						self.scene.add ( self.planeEdges );
 					}
+
+					// refresh debug overlay values
+
+					refresh_debug_overlay ( ) ;
 				}
 
 				// edges toggle - model
@@ -2035,6 +2042,11 @@
 						}
 
 					}
+
+					// refresh debug overlay values
+
+					refresh_debug_overlay ( ) ;
+
 				};
 
 				// wireframe toggle
@@ -2127,6 +2139,10 @@
 
 					} );
 
+					// refresh debug overlay values
+
+					refresh_debug_overlay ( ) ;
+
 				};
 
 
@@ -2179,6 +2195,11 @@
 						dimension_labels_visible = true;
 
 					}
+
+					// refresh debug overlay values
+
+					refresh_debug_overlay ( ) ;
+
 				};
 
 				// camera toggle
@@ -2215,6 +2236,10 @@
 
 					console.log ( "camera = " + self.cameraType );
 
+					// refresh debug overlay values
+
+					refresh_debug_overlay ( ) ;
+
 				}
 
 				// camera position toggle
@@ -2234,6 +2259,10 @@
 					self.camera.updateProjectionMatrix ( );
 
 					console.log ( "camera position = " + self.camera_position_matrix_x, self.camera_position_matrix_y, self.camera_position_matrix_z );
+
+					// refresh debug overlay values
+
+					refresh_debug_overlay ( ) ;
 
 				}
 
@@ -2263,6 +2292,10 @@
 					self.orthographicCamera.zoom = ( orthographicRandomZoom );
 
 					self.resize ( );
+
+					// refresh debug overlay values
+
+					refresh_debug_overlay ( ) ;
 
 				}
 
@@ -2298,6 +2331,10 @@
 
 					console.log ( "mode [ transform ] = " + transformStatus );
 
+					// refresh debug overlay values
+
+					refresh_debug_overlay ( ) ;
+
 				}
 
 				// controls space toggle
@@ -2307,6 +2344,10 @@
 					self.transform_controls.setSpace ( self.transform_controls.space === "world" ? "local" : "world" );
 
 					console.log ( "control [ transform ] = " + self.transform_controls.space );
+
+					// refresh debug overlay values
+
+					refresh_debug_overlay ( ) ;
 
 				}
 
@@ -2346,6 +2387,11 @@
 
 						console.log ( "snap [ scale ] = " + scaleSnap );
 					}
+
+					// refresh debug overlay values
+
+					refresh_debug_overlay ( ) ;
+
 				}
 
 				// fit camera to bounding box //
@@ -2508,6 +2554,11 @@
 					}
 
 					return self.orbitControls;
+
+					// refresh debug overlay values
+
+					refresh_debug_overlay ( ) ;
+
 				}
 
 				// transform controls
@@ -2534,6 +2585,11 @@
 					}
 
 					return self.transform_controls;
+
+					// refresh debug overlay values
+
+					refresh_debug_overlay ( ) ;
+
 				}
 
 				// resize
@@ -2570,6 +2626,10 @@
 							self.renderer.setSize ( window.innerWidth, window.innerHeight );
 
 					}
+
+					// refresh debug overlay values
+
+					refresh_debug_overlay ( ) ;
 
 				}
 
@@ -2692,11 +2752,6 @@
 						case 69:
 
 							self.edges_toggle_ ( );
-
-						// refresh debug overlay after model load //
-
-						refresh_debug_overlay ( );
-
 
 							break;
 
