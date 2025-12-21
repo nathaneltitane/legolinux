@@ -349,12 +349,6 @@
 				var orange   = 0xffa500;
 				var yellow   = 0xffff00;
 
-				// edges
-
-				var line_thickness = 1;
-
-				console.log ( 'edges [ thickness ] : ' + line_thickness );
-
 				// canvas
 
 				this.canvas = document.querySelector ( '#canvas' );
@@ -1660,7 +1654,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-blue.dae',
+						'/minifigs/exports/minifig-white.dae',
 
 						function ( collada ) {
 
@@ -1946,21 +1940,71 @@
 
 				this.wireframe_toggle_ = function ( ) {
 
-					// edges on >>> turn edges off
+					wireframe_visible = ! wireframe_visible;
 
-					if ( model_edges_visible ) {
+					model_faces_visible = ! model_faces_visible;
 
-						self.edges_toggle_ ( );
+					// entering wireframe: hide edges but preserve state
 
-						console.warn ( 'Edges cannot be enabled while wireframe mode is active.' );
+					if ( wireframe_visible ) {
+
+						saved_edge_thickness_state = edge_thickness_state;
+
+						for ( var i = 0; i < model_edges.length; i++ ) {
+
+							model_edges[i].visible = false;
+
+						}
 
 					}
 
-					wireframe_visible = !wireframe_visible;
+					// exiting wireframe: restore edge state exactly
 
-					model_faces_visible = !model_faces_visible;
+					else {
 
-					self.colladaImport.traverse( function ( node ) {
+						if ( saved_edge_thickness_state !== null ) {
+
+							edge_thickness_state = saved_edge_thickness_state;
+
+							saved_edge_thickness_state = null;
+
+						}
+
+						// reapply edge state without toggling
+
+						if ( edge_thickness_state === 0 ) {
+
+							for ( var i = 0; i < model_edges.length; i++ ) {
+
+								model_edges[i].visible = false;
+
+							}
+
+						} else {
+
+							for ( var i = 0; i < model_edges.length; i++ ) {
+
+								model_edges[i].visible = true;
+
+								if ( edge_thickness_state === 1 ) {
+
+									model_edges[i].scale.set ( 1, 1, 1 );
+
+								} else if ( edge_thickness_state === 2 ) {
+
+									model_edges[i].scale.set ( 1.01, 1.01, 1.01 );
+
+								}
+
+							}
+
+						}
+
+					}
+
+					// toggle faces vs wireframe
+
+					self.colladaImport.traverse ( function ( node ) {
 
 						if ( node.isMesh ) {
 
@@ -1976,9 +2020,10 @@
 
 						}
 
-					});
+					} );
 
 				};
+
 
 				// dimensions toggle
 
@@ -2884,9 +2929,15 @@
 
 				var model_edges_visible = true;
 
+				console.log ( 'edges [ status ] : ' + model_edges_visible );
+
 				 // 0: none - 1: thin - 2: thick
 
-				var edge_thickness_state = 2;
+				var edge_thickness_state = 1;
+
+				console.log ( 'edges [ thickness ] : ' + edge_thickness_state );
+
+				var saved_edge_thickness_state = null;
 
 				var model = loader.load (
 
