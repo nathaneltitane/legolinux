@@ -424,46 +424,45 @@
 
 				console.log ( 'operating system [ system ] : ' + os );
 
-function set_debug_overlay_enabled ( enabled ) {
+				function set_debug_overlay_enabled ( enabled ) {
 
-	debug_overlay_enabled = enabled;
+					debug_overlay_enabled = enabled;
 
-	if ( enabled ) {
+					if ( enabled ) {
 
-		create_device_overlay_if_needed ( );
+						create_device_overlay_if_needed ( );
 
-		device_information_overlay.innerHTML = '' ;
+						device_information_overlay.innerHTML = '' ;
 
-		function add_line ( label, value ) {
+						function add_line ( label, value ) {
 
-			var line = document.createElement ( 'div' ) ;
+							var line = document.createElement ( 'div' ) ;
 
-			line.textContent = label + ' : [ ' + value + ' ]' ;
+							line.textContent = label + ' : [ ' + value + ' ]' ;
 
-			device_information_overlay.appendChild ( line ) ;
+							device_information_overlay.appendChild ( line ) ;
 
-		}
+						}
 
-		add_line ( 'device', device_type ) ;
-		add_line ( 'operating system', os ) ;
-		add_line ( 'device pixel ratio', pixel_ratio.toFixed ( 2 ) ) ;
+						add_line ( 'device', device_type ) ;
+						add_line ( 'operating system', os ) ;
+						add_line ( 'device pixel ratio', pixel_ratio.toFixed ( 2 ) ) ;
 
-		device_information_overlay.style.display = 'block' ;
+						device_information_overlay.style.display = 'block' ;
 
-	} else {
+					} else {
 
-		if ( device_information_overlay ) {
+						if ( device_information_overlay ) {
 
-			device_information_overlay.remove ( ) ;
+							device_information_overlay.remove ( ) ;
 
-			device_information_overlay = null ;
+							device_information_overlay = null ;
 
-		}
+						}
 
-	}
+					}
 
-}
-
+				}
 
 				// enable overlay by default?
 
@@ -1667,7 +1666,7 @@ function set_debug_overlay_enabled ( enabled ) {
 
 					loader.load (
 
-						'/minifigs/exports/minifig-white.dae',
+						'/minifigs/exports/minifig-purple.dae',
 
 						function ( collada ) {
 
