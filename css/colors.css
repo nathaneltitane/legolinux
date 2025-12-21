@@ -13,7 +13,7 @@
 	padding-top: 0px;
 	padding-right: 0px;
 	padding-bottom: 0px;
-	padding-left: calc(64px + 8px);
+	padding-left: 0px;
 }
 
 .colors {
@@ -26,7 +26,7 @@
 @keyframes colors-reveal {
 	0% {left: -100vw;}
 
-	100% {left: calc(-64px - 8px);}
+	100% {left: 0px;}
 }
 
 .colors-show {
@@ -39,7 +39,7 @@
 }
 
 @keyframes colors-conceal {
-	0% {left: calc(-64px - 8px);}
+	0% {left: 0px;}
 
 	100% {left: -100vw;}
 }
