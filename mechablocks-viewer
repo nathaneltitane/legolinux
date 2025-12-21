@@ -558,7 +558,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				var line_thickness = 1;
 
-				console.log ( 'line thickness : ' + line_thickness );
+				console.log ( 'edges [ thickness ] : ' + line_thickness );
 
 				// canvas
 
@@ -632,6 +632,8 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				const os = operating_system ( );
 
+				console.log ( 'operating system [ system ] : ' + os );
+
 				function set_debug_overlay_enabled ( enabled ) {
 
 					debug_overlay_enabled = enabled;
@@ -665,6 +667,8 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				set_debug_overlay_enabled ( false );
 
+				console.log ( 'debug overlay [ status ] : ' + ( debug_overlay_enabled ? 'on' : 'off' ) );
+
 				// global keyboard toggle for debug overlay ('~' key)
 
 				if ( ! window._device_overlay_listener_added ) {
@@ -687,7 +691,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 							set_debug_overlay_enabled ( ! debug_overlay_enabled );
 
-							console.log ( 'debug overlay : ' + ( debug_overlay_enabled ? 'on' : 'off' ) );
+							console.log ( 'debug overlay [ status ] : ' + ( debug_overlay_enabled ? 'on' : 'off' ) );
 
 						}
 
@@ -717,10 +721,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 							set_debug_overlay_enabled ( ! debug_overlay_enabled );
 
-							console.log (
-								'debug overlay ( canvas double-tap ): ' +
-								( debug_overlay_enabled ? 'on' : 'off' )
-							);
+							console.log ( 'debug overlay [ status ] : ' + ( debug_overlay_enabled ? 'on' : 'off' ) );
 
 							event.preventDefault ( );
 							event.stopPropagation ( );
@@ -744,10 +745,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						set_debug_overlay_enabled ( ! debug_overlay_enabled );
 
-						console.log (
-							'debug overlay ( canvas double-click ): ' +
-							( debug_overlay_enabled ? 'on' : 'off' )
-						);
+						console.log ( 'debug overlay [ status ] : ' + ( debug_overlay_enabled ? 'on' : 'off' ) );
 
 					}, { passive: true } );
 
@@ -759,7 +757,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					event.preventDefault ( );
 
-					console.warn ( 'webgl context lost - showing fallback overlay' );
+					console.warn ( 'webgl [ context ] : lost - showing fallback overlay' );
 
 					// avoid adding multiple overlays if context is lost more than once
 

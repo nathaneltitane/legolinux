@@ -172,29 +172,11 @@
 }
 
 @media (min-height: 920px) {
-
-	#selections {
-		margin: 0px 0px 0px 0px;
-	}
-
-	#selections:has(.mode:hover) {
-		margin: 0px 0px 0px 0px;
-	}
-
 }
 
 
 
 @media (max-height: 920px) {
-
-	#selections {
-		margin: 0px 62px 0px 62px;
-	}
-
-	#selections:has(.mode:hover) {
-		margin: 0px 0px 0px 0px;
-	}
-
 }
 
 /* // phone // */
