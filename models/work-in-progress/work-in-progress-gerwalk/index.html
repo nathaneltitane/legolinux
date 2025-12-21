@@ -400,21 +400,22 @@
 
 					device_information_overlay.id = 'device-information-overlay';
 
-					device_information_overlay.style.position = 'fixed';
-					device_information_overlay.style.left = '10px';
-					device_information_overlay.style.right = '50vw';
-					device_information_overlay.style.bottom = '90px';
-					device_information_overlay.style.top = '170px';
-					device_information_overlay.style.zIndex = '9998';
-					device_information_overlay.style.padding = '10px 10px 10px 10px';
-					device_information_overlay.style.borderRadius = '10px';
 					device_information_overlay.style.background = '#000000cc';
+					device_information_overlay.style.borderRadius = '10px';
+					device_information_overlay.style.bottom = '90px';
 					device_information_overlay.style.color = '#ddddddff';
+					device_information_overlay.style.display = 'block' ;
 					device_information_overlay.style.fontFamily = 'system-ui, -apple-system, monospace';
 					device_information_overlay.style.fontSize = '10px';
+					device_information_overlay.style.left = '10px';
 					device_information_overlay.style.lineHeight = '1';
+					device_information_overlay.style.padding = '10px 10px 10px 10px';
 					device_information_overlay.style.pointerEvents = 'none';
+					device_information_overlay.style.position = 'fixed';
+					device_information_overlay.style.right = '50vw';
+					device_information_overlay.style.top = '170px';
 					device_information_overlay.style.whiteSpace = 'pre';
+					device_information_overlay.style.zIndex = '9998';
 
 					document.body.appendChild ( device_information_overlay );
 
@@ -430,26 +431,9 @@
 
 					if ( enabled ) {
 
-						create_device_overlay_if_needed ( );
+						refresh_debug_overlay ( ) ;
 
-						device_information_overlay.innerHTML = '' ;
 
-						function add_line ( label, value ) {
-
-							var line = document.createElement ( 'div' ) ;
-
-							line.textContent = label + ' : [ ' + value + ' ]' ;
-
-							device_information_overlay.appendChild ( line ) ;
-
-						}
-
-						add_line ( 'device', device_type ) ;
-						add_line ( 'operating system', os ) ;
-						add_line ( 'device pixel ratio', pixel_ratio.toFixed ( 2 ) ) ;
-						add_line ( 'edge', saved_edge_thickness_state ) ;
-
-						device_information_overlay.style.display = 'block' ;
 
 					} else {
 
@@ -464,6 +448,114 @@
 					}
 
 				}
+
+
+				function refresh_debug_overlay ( ) {
+
+					if ( ! debug_overlay_enabled ) {
+
+						return ;
+
+					}
+
+					create_device_overlay_if_needed ( ) ;
+
+					if ( ! device_information_overlay ) {
+
+						return ;
+
+					}
+
+					device_information_overlay.innerHTML = '' ;
+
+					function add_line ( label, value ) {
+
+						var line = document.createElement ( 'div' ) ;
+
+						line.textContent = label + ' : [ ' + value + ' ]' ;
+
+						device_information_overlay.appendChild ( line ) ;
+
+					}
+
+					// device //
+
+					add_line ( 'device', device_type ) ;
+					add_line ( 'operating system', os ) ;
+					add_line ( 'device pixel ratio', pixel_ratio.toFixed ( 2 ) ) ;
+
+					// model state //
+
+					add_line ( 'model loaded', self.colladaImport ? 'yes' : 'no' ) ;
+
+					if ( self.colladaImport ) {
+
+						self.colladaImport.updateMatrixWorld ( true ) ;
+
+						var box = new THREE.Box3 ( ).setFromObject ( self.colladaImport ) ;
+						var size = box.getSize ( new THREE.Vector3 ( ) ) ;
+						var center = box.getCenter ( new THREE.Vector3 ( ) ) ;
+
+						add_line ( 'bbox x', size.x.toFixed ( 4 ) ) ;
+						add_line ( 'bbox y', size.y.toFixed ( 4 ) ) ;
+						add_line ( 'bbox z', size.z.toFixed ( 4 ) ) ;
+
+						add_line ( 'center x', center.x.toFixed ( 4 ) ) ;
+						add_line ( 'center y', center.y.toFixed ( 4 ) ) ;
+						add_line ( 'center z', center.z.toFixed ( 4 ) ) ;
+
+					}
+
+					// viewer toggles //
+
+					add_line ( 'faces visible', model_faces_visible ? 'on' : 'off' ) ;
+					add_line ( 'wireframe visible', wireframe_visible ? 'on' : 'off' ) ;
+					add_line ( 'edges visible', model_edges_visible ? 'on' : 'off' ) ;
+					add_line ( 'edge thickness', edge_thickness_state ) ;
+
+					// camera //
+
+					if ( self.camera ) {
+
+						add_line ( 'camera type', self.camera.isPerspectiveCamera ? 'perspective' : ( self.camera.isOrthographicCamera ? 'orthographic' : 'other' ) ) ;
+
+						if ( self.camera.fov !== undefined ) {
+
+							add_line ( 'camera fov', self.camera.fov ) ;
+
+						}
+
+						add_line ( 'camera near', self.camera.near.toFixed ( 6 ) ) ;
+						add_line ( 'camera far', self.camera.far.toFixed ( 6 ) ) ;
+
+						add_line (
+							'camera pos',
+							self.camera.position.x.toFixed ( 4 ) + ', ' +
+							self.camera.position.y.toFixed ( 4 ) + ', ' +
+							self.camera.position.z.toFixed ( 4 )
+						) ;
+
+					}
+
+					if ( self.orbitControls ) {
+
+						add_line ( 'orbit enabled', self.orbitControls.enabled ? 'yes' : 'no' ) ;
+
+						if ( self.orbitControls.target ) {
+
+							add_line (
+								'orbit target',
+								self.orbitControls.target.x.toFixed ( 4 ) + ', ' +
+								self.orbitControls.target.y.toFixed ( 4 ) + ', ' +
+								self.orbitControls.target.z.toFixed ( 4 )
+							) ;
+
+						}
+
+					}
+
+				}
+
 
 				// enable overlay by default?
 
@@ -1667,7 +1759,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-grey.dae',
+						'/minifigs/exports/minifig-yellow.dae',
 
 						function ( collada ) {
 
@@ -2601,6 +2693,11 @@
 
 							self.edges_toggle_ ( );
 
+						// refresh debug overlay after model load //
+
+						refresh_debug_overlay ( );
+
+
 							break;
 
 						// F //
@@ -3090,6 +3187,11 @@
 						var fitBox = new THREE.Box3 ( ).setFromObject ( self.colladaImport ) ;
 
 						fit_camera_to_box ( self.camera, self.orbitControls, fitBox, 2.50 ) ;
+
+						// refresh debug overlay after model load //
+
+						refresh_debug_overlay ( );
+
 
 						// transform controls
 
