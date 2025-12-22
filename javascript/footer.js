@@ -58,6 +58,12 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 			show ( footer ) ;
 
+			requestAnimationFrame ( function ( ) {
+
+				footer_scroll ( footer ) ;
+
+			} ) ;
+
 		}, 1500 ) ;
 
 	}

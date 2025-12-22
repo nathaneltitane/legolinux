@@ -58,6 +58,12 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 			show ( selections ) ;
 
+			requestAnimationFrame ( function ( ) {
+
+				selections_scroll ( selections ) ;
+
+			} ) ;
+
 		}, 1500 ) ;
 
 	}
