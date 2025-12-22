@@ -28,6 +28,8 @@
 	border-right: 10px solid #000000ff;
 
 	transform: translateY(-50%);
+
+	visibility: show;
 }
 
 #selections::after {
@@ -50,18 +52,24 @@
 	border-left: 10px solid #000000ff;
 
 	transform: translateY(-50%);
+
+	visibility: show;
 }
 
 #selections.scroll-right::before {
+	visibility: hidden;
 }
 
 #selections.scroll-left::after {
+	visibility: hidden;
 }
 
 #selections.scroll-none::before {
+	visibility: hidden;
 }
 
 #selections.scroll-none::after {
+	visibility: hidden;
 }
 
 .selections {
