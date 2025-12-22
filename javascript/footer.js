@@ -5,6 +5,8 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 	console.log ( 'footer [ init ] : domcontentloaded' ) ;
 
 	var wrapper = document.getElementById ( 'footer' ) ;
+	var footer = wrapper.querySelector ( '.footer' ) ;
+	var edge = 	wrapper.querySelector ( '.footer-edge' ) ;
 
 	if ( ! wrapper ) {
 
@@ -30,6 +32,12 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		}
 
+		if ( edge ) {
+
+			edge.style.bottom = '-80px' ;
+
+		}
+
 	}
 
 	function show ( footer ) {
@@ -41,6 +49,12 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 		if ( footer ) {
 
 			footer.style.bottom = '0px' ;
+
+		}
+
+		if ( edge ) {
+
+			edge.style.bottom = '0px' ;
 
 		}
 
@@ -338,8 +352,6 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 			return ;
 
 		}
-
-		var footer = wrapper.querySelector ( '.footer' ) ;
 
 		if ( ! footer ) {
 

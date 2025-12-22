@@ -4054,6 +4054,12 @@ cat << 3D-MODEL-PAGE-FOOTER ->> "${model_directory}/index.html"
 
 					<div class="flex flex-row flex-middle flex-around">
 
+						<!-- edge -->
+
+						<div id="edge">
+
+						</div>
+
 3D-MODEL-PAGE-FOOTER
 
 if [ -f "${model_paypal}" ]
@@ -4144,6 +4150,12 @@ cat << 3D-MODEL-PAGE-HELPERS ->> "${model_directory}/index.html"
 						<!-- browse -->
 
 						<div id="browse">
+
+						</div>
+
+						<!-- edge -->
+
+						<div id="edge">
 
 						</div>
 
