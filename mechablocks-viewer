@@ -4054,11 +4054,11 @@ cat << 3D-MODEL-PAGE-FOOTER ->> "${model_directory}/index.html"
 
 					<div class="flex flex-row flex-middle flex-around">
 
-						<!-- edge -->
+						<!-- footer edge -->
 
-						<div id="edge">
+						<div id="footer-edge">
 
-							<div class="footer-button edge">
+							<div class="footer-edge">
 
 							</div>
 
@@ -4157,11 +4157,11 @@ cat << 3D-MODEL-PAGE-HELPERS ->> "${model_directory}/index.html"
 
 						</div>
 
-						<!-- edge -->
+						<!-- footer edge -->
 
-						<div id="edge">
+						<div id="footer-edge">
 
-							<div class="footer-button edge">
+							<div class="footer-edge">
 
 							</div>
 

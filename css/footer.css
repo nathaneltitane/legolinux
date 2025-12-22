@@ -84,7 +84,7 @@
 	-webkit-overflow-scrolling: touch;
 }
 
-.footer-edge {
+#footer-edge {
 	position: fixed;
 	bottom: 0px;
 	left: 0px;
@@ -94,7 +94,7 @@
 	display: block;
 }
 
-.footer-edge::before {
+#footer-edge::before {
 	background-image: linear-gradient(
 		to right,
 		rgba(170, 170, 170, 1) 0%,
@@ -115,7 +115,7 @@
 	z-index: 9;
 }
 
-.footer-edge::after {
+#footer-edge::after {
 	background-image: linear-gradient(
 		to left,
 		rgba(170, 170, 170, 1) 0%,
@@ -134,6 +134,19 @@
 
 	position: absolute;
 	z-index: 9;
+}
+
+.footer-edge {
+	background: #00000000;
+	color: #666666ff;
+	border-radius: 0px;
+	border: none;
+	bottom: 10px;
+	left: 10px;
+	right: 10px;
+	margin: 0px 0px 0px 0px;
+	padding: 10px 0px 0px 0px;
+	width: 40px;
 }
 
 .footer-button {
