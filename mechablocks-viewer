@@ -617,7 +617,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 					device_information_overlay.style.padding = '10px 10px 10px 10px';
 					device_information_overlay.style.pointerEvents = 'none';
 					device_information_overlay.style.position = 'fixed';
-					device_information_overlay.style.right = '50vw';
+					device_information_overlay.style.right = '85vw';
 					device_information_overlay.style.top = '170px';
 					device_information_overlay.style.whiteSpace = 'pre';
 					device_information_overlay.style.zIndex = '9998';
