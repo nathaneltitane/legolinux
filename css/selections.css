@@ -17,9 +17,10 @@
 
 	border-radius: 20px 0px 0px 0px;
 
-	border-top: 10px solid #00000000;
-	border-bottom: 10px solid #00000000;
-	border-right: 10px solid #000000ff;
+	border-top: 20px solid #00000000;
+	border-bottom: 20px solid #00000000;
+	border-right: 20px solid #000000ff;
+	border-left: 20px solid #00000000;
 
 	content: '';
 	left: 10px;
@@ -44,9 +45,10 @@
 
 	border-radius: 0px 20px 0px 0px;
 
-	border-top: 10px solid #00000000;
-	border-bottom: 10px solid #00000000;
-	border-left: 10px solid #000000ff;
+	border-top: 20px solid #00000000;
+	border-bottom: 20px solid #00000000;
+	border-right: 20px solid #00000000;
+	border-left: 20px solid #000000ff;
 
 	content: '';
 	right: 10px;
