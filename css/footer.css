@@ -9,14 +9,6 @@
 }
 
 #footer::before {
-	background-image: linear-gradient(
-		to right,
-		rgba(170, 170, 170, 1) 0%,
-		rgba(170, 170, 170, 0) 100%
-	);
-
-	border-radius: 20px 0px 0px 0px;
-
 	border-top: 20px solid #00000000;
 	border-bottom: 20px solid #00000000;
 	border-right: 20px solid #000000ff;
@@ -37,14 +29,6 @@
 }
 
 #footer::after {
-	background-image: linear-gradient(
-		to left,
-		rgba(170, 170, 170, 1) 0%,
-		rgba(170, 170, 170, 0) 100%
-	);
-
-	border-radius: 0px 20px 0px 0px;
-
 	border-top: 20px solid #00000000;
 	border-bottom: 20px solid #00000000;
 	border-right: 20px solid #00000000;
@@ -63,6 +47,7 @@
 
 	opacity: 0;
 }
+
 
 #footer.scroll-right::before {
 	opacity: 1;
@@ -97,6 +82,58 @@
 	scrollbar-width: none;
 
 	-webkit-overflow-scrolling: touch;
+}
+
+.footer-edge {
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	height: 80px;
+
+	display: block;
+}
+
+.footer-edge::before {
+	background-image: linear-gradient(
+		to right,
+		rgba(170, 170, 170, 1) 0%,
+		rgba(170, 170, 170, 0) 100%
+	);
+
+	border: 5px solid yellow;
+
+	border-radius: 20px 0px 0px 0px;
+
+	content: '';
+	left: 0px;
+	bottom:0px;
+	width: 80px;
+	height: 80px;
+
+	position: absolute;
+	z-index: 9;
+}
+
+.footer-edge::after {
+	background-image: linear-gradient(
+		to left,
+		rgba(170, 170, 170, 1) 0%,
+		rgba(170, 170, 170, 0) 100%
+	);
+
+	border: 5px solid yellow;
+
+	border-radius: 0px 20px 0px 0px;
+
+	content: '';
+	right: 0 !important;
+	bottom:0px;
+	width: 80px;
+	height: 80px;
+
+	position: absolute;
+	z-index: 9;
 }
 
 .footer-button {

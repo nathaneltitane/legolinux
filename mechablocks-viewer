@@ -4040,17 +4040,19 @@ cat << 3D-MODEL-PAGE-COLORS ->> "${model_directory}/index.html"
 cat << 3D-MODEL-PAGE-FOOTER ->> "${model_directory}/index.html"
 		<div id="footer">
 
-			<div class="footer">
+			<div class="footer-edge">
 
-				<!-- modal loaders -->
+				<div class="footer">
 
-				<div id="contact-modal">
+					<!-- modal loaders -->
 
-				</div>
+					<div id="contact-modal">
 
-				<!-- footer -->
+					</div>
 
-				<div class="flex flex-row flex-middle flex-around">
+					<!-- footer -->
+
+					<div class="flex flex-row flex-middle flex-around">
 
 3D-MODEL-PAGE-FOOTER
 
@@ -4058,90 +4060,92 @@ if [ -f "${model_paypal}" ]
 then
 
 cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
-					<!-- paypal -->
+						<!-- paypal -->
 
-					<div id="paypal">
+						<div id="paypal">
 
-					</div>
+						</div>
 
 3D-MODEL-PAYPAL
 
 cat << 3D-MODEL-PAGE-HELPERS ->> "${model_directory}/index.html"
-					<!-- controls -->
+						<!-- controls -->
 
-					<div id="controls">
+						<div id="controls">
 
-					</div>
+						</div>
 
-					<!-- plane -->
+						<!-- plane -->
 
-					<div id="plane">
+						<div id="plane">
 
-					</div>
+						</div>
 
-					<!-- dimensions -->
+						<!-- dimensions -->
 
-					<div id="dimensions">
+						<div id="dimensions">
 
-					</div>
+						</div>
 
-					<!-- minifig -->
+						<!-- minifig -->
 
-					<div id="minifig">
+						<div id="minifig">
 
-					</div>
+						</div>
 
-					<!-- wireframe -->
+						<!-- wireframe -->
 
-					<div id="wireframe">
+						<div id="wireframe">
 
-					</div>
+						</div>
 
-					<!-- edges -->
+						<!-- edges -->
 
-					<div id="edges">
+						<div id="edges">
 
-					</div>
+						</div>
 
-					<!-- color -->
+						<!-- color -->
 
-					<div id="color">
+						<div id="color">
 
-					</div>
+						</div>
 
-					<!-- contact -->
+						<!-- contact -->
 
-					<div id="home">
+						<div id="home">
 
-					</div>
+						</div>
 
-					<!-- contact -->
+						<!-- contact -->
 
-					<div id="contact">
+						<div id="contact">
 
-					</div>
+						</div>
 
-					<!-- shop -->
+						<!-- shop -->
 
-					<div id="shop">
+						<div id="shop">
 
-					</div>
+						</div>
 
-					<!-- github -->
+						<!-- github -->
 
-					<div id="github">
+						<div id="github">
 
-					</div>
+						</div>
 
-					<!-- donations -->
+						<!-- donations -->
 
-					<div id="donations">
+						<div id="donations">
 
-					</div>
+						</div>
 
-					<!-- browse -->
+						<!-- browse -->
 
-					<div id="browse">
+						<div id="browse">
+
+						</div>
 
 					</div>
 
