@@ -720,6 +720,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 					// model state //
 
 					debug_overlay_line ( 'model', 'identifier', '${model_paypal_id}' ) ;
+					debug_overlay_line ( 'model', 'pieces', '${model_pieces_count}' ) ;
 					debug_overlay_line ( 'model', 'load', self.colladaImport ? 'yes' : 'no' ) ;
 
 					if ( self.colladaImport ) {
