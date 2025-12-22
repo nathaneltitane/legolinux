@@ -52,27 +52,16 @@
 	transform: translateY(-50%);
 }
 
-#footer::before {
-	content: '‹';
-}
-
-#footer::after {
-	content: '›';
-}
-
 #footer.scroll-right::before {
-	content: '';
 }
 
 #footer.scroll-left::after {
-	content: '';
 }
 
 #footer.scroll-none::before {
-	content: '';
 }
+
 #footer.scroll-none::after {
-	content: '';
 }
 
 .footer {
