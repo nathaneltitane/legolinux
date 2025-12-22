@@ -533,15 +533,15 @@
 						debug_overlay_line ( 'model', 'center x', center.x.toFixed ( 4 ) ) ;
 						debug_overlay_line ( 'model', 'center y', center.y.toFixed ( 4 ) ) ;
 						debug_overlay_line ( 'model', 'center z', center.z.toFixed ( 4 ) ) ;
-
-						device_information_divider ( );
-
-						debug_overlay_line ( 'faces', 'visibility', model_faces_visible ? 'on' : 'off' ) ;
-						debug_overlay_line ( 'wireframe', 'visibility', wireframe_visible ? 'on' : 'off' ) ;
-						debug_overlay_line ( 'edge', 'visibility', model_edges_visible ? 'on' : 'off' ) ;
-						debug_overlay_line ( 'edge', 'thickness', edge_thickness_state ) ;
-
 					}
+
+					device_information_divider ( );
+
+					debug_overlay_line ( 'faces', 'visibility', model_faces_visible ? 'on' : 'off' ) ;
+					debug_overlay_line ( 'wireframe', 'visibility', wireframe_visible ? 'on' : 'off' ) ;
+					debug_overlay_line ( 'edge', 'visibility', model_edges_visible ? 'on' : 'off' ) ;
+					debug_overlay_line ( 'edge', 'thickness', edge_thickness_state ) ;
+
 
 					device_information_divider ( );
 
@@ -1776,7 +1776,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-white.dae',
+						'/minifigs/exports/minifig-purple.dae',
 
 						function ( collada ) {
 
