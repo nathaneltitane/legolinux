@@ -17,15 +17,18 @@
 
 	border-radius: 20px 0px 0px 0px;
 
+	border-top: 10px solid #00000000;
+	border-bottom: 10px solid #00000000;
+	border-right: 10px solid #000000ff;
+
 	content: '';
-	position: absolute;
 	left: 10px;
 	top: 50%;
 	width: 0;
 	height: 0;
-	border-top: 10px solid transparent;
-	border-bottom: 10px solid transparent;
-	border-right: 10px solid #000000ff;
+
+	position: absolute;
+	z-index: 9;
 
 	transform: translateY(-50%);
 
@@ -41,15 +44,18 @@
 
 	border-radius: 0px 20px 0px 0px;
 
+	border-top: 10px solid #00000000;
+	border-bottom: 10px solid #00000000;
+	border-left: 10px solid #000000ff;
+
 	content: '';
-	position: absolute;
 	right: 10px;
 	top: 50%;
 	width: 0;
 	height: 0;
-	border-top: 10px solid transparent;
-	border-bottom: 10px solid transparent;
-	border-left: 10px solid #000000ff;
+
+	position: absolute;
+	z-index: 9;
 
 	transform: translateY(-50%);
 
