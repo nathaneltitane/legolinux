@@ -3747,9 +3747,9 @@ then
 
 fi
 
-	# unset IFS
+# unset IFS
 
-	IFS=''
+IFS=''
 
 cat << 3D-MODEL-PAGE-SAMPLES ->> "${model_directory}/index.html"
 		<!-- samples -->
