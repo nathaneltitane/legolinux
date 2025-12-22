@@ -4058,7 +4058,7 @@ cat << 3D-MODEL-PAGE-FOOTER ->> "${model_directory}/index.html"
 
 						<div id="edge">
 
-							<div class="footer-button edge">
+							<div class="edge">
 
 							</div>
 
@@ -4161,7 +4161,7 @@ cat << 3D-MODEL-PAGE-HELPERS ->> "${model_directory}/index.html"
 
 						<div id="edge">
 
-							<div class="footer-button edge">
+							<div class="edge">
 
 							</div>
 
