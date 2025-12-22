@@ -3582,7 +3582,7 @@ then
 	cat <<- 3D-MODEL-SELECTIONS ->> "${model_directory}/index.html"
 			<!-- selections -->
 
-			<div id="selections" class="scroll-none">
+			<div id="selections">
 
 				<div class="selections">
 
@@ -4038,7 +4038,7 @@ cat << 3D-MODEL-PAGE-COLORS ->> "${model_directory}/index.html"
 3D-MODEL-PAGE-COLORS
 
 cat << 3D-MODEL-PAGE-FOOTER ->> "${model_directory}/index.html"
-		<div id="footer" class="scroll-none">
+		<div id="footer">
 
 			<div class="footer">
 
