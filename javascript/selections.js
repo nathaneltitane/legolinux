@@ -77,7 +77,9 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		}
 
-		if ( selections.scrollLeft <= 0 ) {
+		// show left arrow if we can scroll left (not at far left)
+
+		if ( selections.scrollLeft > 0 ) {
 
 			wrapper.classList.add ( 'scroll-right' ) ;
 
@@ -87,7 +89,9 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		}
 
-		if ( selections.scrollLeft >= scroll_maximum - 1 ) {
+		// show right arrow if we can scroll right (not at far right)
+
+		if ( selections.scrollLeft < scroll_maximum - 1 ) {
 
 			wrapper.classList.add ( 'scroll-left' ) ;
 

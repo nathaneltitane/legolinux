@@ -32,7 +32,7 @@
 
 	transform: translateY(-50%);
 
-	visibility: show;
+	opacity: 0;
 }
 
 #selections::after {
@@ -59,23 +59,23 @@
 
 	transform: translateY(-50%);
 
-	visibility: show;
+	opacity: 0;
 }
 
 #selections.scroll-right::before {
-	visibility: hidden;
+	opacity: 1;
 }
 
 #selections.scroll-left::after {
-	visibility: hidden;
+	opacity: 1;
 }
 
 #selections.scroll-none::before {
-	visibility: hidden;
+	opacity: 0;
 }
 
 #selections.scroll-none::after {
-	visibility: hidden;
+	opacity: 0;
 }
 
 .selections {

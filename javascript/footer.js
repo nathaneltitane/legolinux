@@ -187,7 +187,9 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		}
 
-		if ( footer.scrollLeft <= 0 ) {
+		// show left arrow if we can scroll left (not at far left)
+
+		if ( footer.scrollLeft > 0 ) {
 
 			wrapper.classList.add ( 'scroll-right' ) ;
 
@@ -197,7 +199,9 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		}
 
-		if ( footer.scrollLeft >= scroll_maximum - 1 ) {
+		// show right arrow if we can scroll right (not at far right)
+
+		if ( footer.scrollLeft < scroll_maximum - 1 ) {
 
 			wrapper.classList.add ( 'scroll-left' ) ;
 
@@ -406,6 +410,12 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 		console.log ( 'footer [ bootstrap ] : wrapper mutation', mutations.length ) ;
 
 		attempt_initialize ( ) ;
+
+		requestAnimationFrame ( function ( ) {
+
+			footer_scroll ( footer ) ;
+
+		} ) ;
 
 	} ) ;
 
