@@ -3575,171 +3575,177 @@ keywords_list=(
 	super
 )
 
-cat << 3D-MODEL-SELECTIONS ->> "${model_directory}/index.html"
-		<!-- selections -->
-
-		<div id="selections">
-
-			<div class="selections">
-
-				<div class="flex flex-row flex-middle flex-around">
-
-3D-MODEL-SELECTIONS
-
-if [[ -f "${model_directory}"/options ]]
+if [[ -f "${model_directory}"/options ]] || \
+   [[ -f "${model_directory}"/modes   ]]
 then
-	# set IFS
 
-	IFS=$'\n'
+	cat <<- 3D-MODEL-SELECTIONS ->> "${model_directory}/index.html"
+			<!-- selections -->
 
-	model_options_list=($(cat "${model_directory}"/options ) )
+			<div id="selections">
 
-	for model_option in ${model_options_list[@]}
-	do
-		model_option_directory=${model_directory}
+				<div class="selections">
 
-		model_option_prefix=${model_option_directory%%-*}
+					<div class="flex flex-row flex-middle flex-around">
 
-		model_option_suffix=${model_option_directory##*-}
+	3D-MODEL-SELECTIONS
 
-		if [[ "${model_option_suffix}" =~ ${keywords_list[@]} ]]
-		then
-			flag=keyword
+	if [[ -f "${model_directory}"/options ]]
+	then
+		# set IFS
 
-			model_option_directory=${model_option_directory/-${model_mode_suffix}/}
+		IFS=$'\n'
 
-			model_option_prefix=${model_option_directory%*-}
+		model_options_list=($(cat "${model_directory}"/options ) )
+
+		for model_option in ${model_options_list[@]}
+		do
+			model_option_directory=${model_directory}
+
+			model_option_prefix=${model_option_directory%%-*}
 
 			model_option_suffix=${model_option_directory##*-}
-		fi
 
-		model_option_suffix_length=${#model_option_suffix}
+			if [[ "${model_option_suffix}" =~ ${keywords_list[@]} ]]
+			then
+				flag=keyword
 
-		model_option_base_label=${model_option_directory::-${model_option_suffix_length}}
+				model_option_directory=${model_option_directory/-${model_mode_suffix}/}
 
-		model_option_path_label="${model_option_base_label}${model_option}"
+				model_option_prefix=${model_option_directory%*-}
 
-		if [[ "${flag}" = "keyword" ]]
-		then
-			model_option_path_label="${model_option_path_label}-super"
+				model_option_suffix=${model_option_directory##*-}
+			fi
 
-			unset flag
-		fi
+			model_option_suffix_length=${#model_option_suffix}
 
-		model_option_label=${model_option/-/ }
+			model_option_base_label=${model_option_directory::-${model_option_suffix_length}}
 
-		model_option_label=${model_option_label^^}
+			model_option_path_label="${model_option_base_label}${model_option}"
 
-		cat <<- 3D-MODEL-OPTIONS ->> "${model_directory}/index.html"
-							<!-- selection - option -->
+			if [[ "${flag}" = "keyword" ]]
+			then
+				model_option_path_label="${model_option_path_label}-super"
 
-							<div class="flex flex-column flex-middle selections-button option">
+				unset flag
+			fi
 
-								<div class="flex-cell">
+			model_option_label=${model_option/-/ }
 
-									<a class="text-center" href="/${model_mode_path_label}"/>
+			model_option_label=${model_option_label^^}
 
-										<img src="/${model_mode_path_label}/renders/overlay/overlay.png" alt="${model_title} LEGO® MOC - ${model_mode_label} MODE"/>
+			cat <<- 3D-MODEL-OPTIONS ->> "${model_directory}/index.html"
+								<!-- selection - option -->
 
-									</a>
+								<div class="flex flex-column flex-middle selections-button option">
+
+									<div class="flex-cell">
+
+										<a class="text-center" href="/${model_mode_path_label}"/>
+
+											<img src="/${model_mode_path_label}/renders/overlay/overlay.png" alt="${model_title} LEGO® MOC - ${model_mode_label} MODE"/>
+
+										</a>
+
+									</div>
+
+									<div class="flex-cell selections-label text-bold">
+
+										${model_mode_label} OPTION
+
+									</div>
 
 								</div>
 
-								<div class="flex-cell selections-label text-bold">
+			3D-MODEL-OPTIONS
 
-									${model_mode_label} OPTION
+		done
 
-								</div>
+	fi
+
+	if [[ -f "${model_directory}"/modes ]]
+	then
+		modes_count=$(cat "${model_directory}"/modes | wc -l)
+
+		# set IFS
+
+		IFS=$'\n'
+
+		model_modes_list=($(cat "${model_directory}"/modes ) )
+
+		for model_mode in ${model_modes_list[@]}
+		do
+			model_mode_directory=${model_directory}
+
+			model_mode_prefix=${model_mode_directory%%-*}
+
+			model_mode_suffix=${model_mode_directory##*-}
+
+			if [[ "${model_mode_suffix}" =~ ${keywords_list[@]} ]]
+			then
+				flag=keyword
+
+				model_mode_directory=${model_mode_directory/-${model_mode_suffix}/}
+
+				model_mode_prefix=${model_mode_directory%*-}
+
+				model_mode_suffix=${model_mode_directory##*-}
+			fi
+
+			model_mode_suffix_length=${#model_mode_suffix}
+			model_mode_base_label=${model_mode_directory::-${model_mode_suffix_length}}
+			model_mode_path_label="${model_mode_base_label}${model_mode}"
+
+			if [[ "${flag}" = "keyword" ]]
+			then
+				model_mode_path_label="${model_mode_path_label}-super"
+
+				unset flag
+			fi
+
+			model_mode_label=${model_mode/-/ }
+
+			model_mode_label=${model_mode_label^^}
+
+			cat <<- 3D-MODEL-MODES ->> "${model_directory}/index.html"
+						<!-- selection - mode -->
+
+						<div class="flex flex-column flex-middle selections-button mode">
+
+							<div class="flex-cell">
+
+								<a class="text-center" href="/${model_mode_path_label}"/>
+
+									<img src="/${model_mode_path_label}/renders/overlay/overlay.png" alt="${model_title} LEGO® MOC - ${model_mode_label} MODE"/>
+
+								</a>
 
 							</div>
 
-		3D-MODEL-OPTIONS
+							<div class="flex-cell selections-label text-bold">
 
-	done
+								${model_mode_label} MODE
 
-fi
-
-if [[ -f "${model_directory}"/modes ]]
-then
-	modes_count=$(cat "${model_directory}"/modes | wc -l)
-
-	# set IFS
-
-	IFS=$'\n'
-
-	model_modes_list=($(cat "${model_directory}"/modes ) )
-
-	for model_mode in ${model_modes_list[@]}
-	do
-		model_mode_directory=${model_directory}
-
-		model_mode_prefix=${model_mode_directory%%-*}
-
-		model_mode_suffix=${model_mode_directory##*-}
-
-		if [[ "${model_mode_suffix}" =~ ${keywords_list[@]} ]]
-		then
-			flag=keyword
-
-			model_mode_directory=${model_mode_directory/-${model_mode_suffix}/}
-
-			model_mode_prefix=${model_mode_directory%*-}
-
-			model_mode_suffix=${model_mode_directory##*-}
-		fi
-
-		model_mode_suffix_length=${#model_mode_suffix}
-		model_mode_base_label=${model_mode_directory::-${model_mode_suffix_length}}
-		model_mode_path_label="${model_mode_base_label}${model_mode}"
-
-		if [[ "${flag}" = "keyword" ]]
-		then
-			model_mode_path_label="${model_mode_path_label}-super"
-
-			unset flag
-		fi
-
-		model_mode_label=${model_mode/-/ }
-
-		model_mode_label=${model_mode_label^^}
-
-		cat <<- 3D-MODEL-MODES ->> "${model_directory}/index.html"
-					<!-- selection - mode -->
-
-					<div class="flex flex-column flex-middle selections-button mode">
-
-						<div class="flex-cell">
-
-							<a class="text-center" href="/${model_mode_path_label}"/>
-
-								<img src="/${model_mode_path_label}/renders/overlay/overlay.png" alt="${model_title} LEGO® MOC - ${model_mode_label} MODE"/>
-
-							</a>
+							</div>
 
 						</div>
 
-						<div class="flex-cell selections-label text-bold">
+			3D-MODEL-MODES
 
-							${model_mode_label} MODE
+		done
 
-						</div>
+	fi
 
+	cat <<- 3D-MODEL-SELECTIONS ->> "${model_directory}/index.html"
 					</div>
 
-		3D-MODEL-MODES
-
-	done
-
-fi
-
-cat << 3D-MODEL-SELECTIONS ->> "${model_directory}/index.html"
 				</div>
 
 			</div>
 
-		</div>
+	3D-MODEL-SELECTIONS
 
-3D-MODEL-SELECTIONS
+fi
 
 	# unset IFS
 
