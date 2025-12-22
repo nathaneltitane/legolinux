@@ -719,7 +719,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					// model state //
 
-					debug_overlay_line ( 'model loaded', self.colladaImport ? 'yes' : 'no' ) ;
+					debug_overlay_line ( 'model', 'load', self.colladaImport ? 'yes' : 'no' ) ;
 
 					if ( self.colladaImport ) {
 
