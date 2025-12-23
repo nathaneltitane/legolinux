@@ -2,20 +2,6 @@
 
 $( function ( ) {
 
-	// index //
-
-	$.get ( '/modules/head.html', function ( data ) {
-
-		$( 'head' ).append ( data );
-
-	} );
-
-	$.get ( '/modules/drawer.html', function ( data ) {
-
-		$( '#drawer' ).append ( data );
-
-	} );
-
 	// prevent redundant footer load on viewer canvas //
 
 	if ( ! $( '.footer' ).length ) {
@@ -23,6 +9,24 @@ $( function ( ) {
 		$.get ( '/modules/footer.html', function ( data ) {
 
 			$( '#footer' ).append ( data );
+
+		} );
+
+	}
+
+	// index //
+
+	if ( $( '#landing' ).length ) {
+
+		$.get ( '/modules/head.html', function ( data ) {
+
+			$( 'head' ).append ( data );
+
+		} );
+
+		$.get ( '/modules/drawer.html', function ( data ) {
+
+			$( '#drawer' ).append ( data );
 
 		} );
 
