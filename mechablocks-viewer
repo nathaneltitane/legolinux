@@ -484,7 +484,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				const editor_scale = 0.0004;
 
-				const start_time = performance.now ( );
+				const start_time = performance.now ( ) ;
 
 				var self = this;
 
@@ -572,7 +572,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				this.renderer.setClearColor ( black, 0 );
 				this.renderer.setPixelRatio ( pixel_ratio );
 				this.renderer.setSize ( viewport_width, viewport_height );
-				this.renderer.clear ( );
+				this.renderer.clear ( ) ;
 
 
 				// debug overlay - target //
@@ -626,7 +626,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				}
 
-				const os = operating_system ( );
+				const os = operating_system ( ) ;
 
 				console.log ( 'operating system [ system ] : ' + os );
 
@@ -715,7 +715,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 					debug_overlay_line ( 'device', 'operating system', os ) ;
 					debug_overlay_line ( 'device', 'pixel ratio', pixel_ratio.toFixed ( 2 ) ) ;
 
-					device_information_divider ( );
+					device_information_divider ( ) ;
 
 					// model state //
 
@@ -740,19 +740,19 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 						debug_overlay_line ( 'model', 'center z', center.z.toFixed ( 4 ) ) ;
 					}
 
-					device_information_divider ( );
+					device_information_divider ( ) ;
 
 					debug_overlay_line ( 'faces', 'visibility', model_faces_visible ? 'on' : 'off' ) ;
 					debug_overlay_line ( 'wireframe', 'visibility', wireframe_visible ? 'on' : 'off' ) ;
 
-					device_information_divider ( );
+					device_information_divider ( ) ;
 
 
 					debug_overlay_line ( 'edge', 'visibility', model_edges_visible ? 'on' : 'off' ) ;
 					debug_overlay_line ( 'edge', 'thickness', edge_thickness_state ) ;
 
 
-					device_information_divider ( );
+					device_information_divider ( ) ;
 
 					// debug overlay - camera //
 
@@ -781,7 +781,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					}
 
-					device_information_divider ( );
+					device_information_divider ( ) ;
 
 					// debug overlay - orbit controls //
 
@@ -830,7 +830,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						if ( ! is_canvas_target ( event ) ) return;
 
-						var current_time = Date.now ( );
+						var current_time = Date.now ( ) ;
 
 						var tap_gap = current_time - last_tap_time;
 
@@ -842,8 +842,8 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 							console.log ( 'debug overlay [ status ] : ' + ( debug_overlay_enabled ? 'on' : 'off' ) );
 
-							event.preventDefault ( );
-							event.stopPropagation ( );
+							event.preventDefault ( ) ;
+							event.stopPropagation ( ) ;
 						}
 
 						last_tap_time = current_time;
@@ -874,7 +874,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				this.renderer.domElement.addEventListener ( 'webglcontextlost', function ( event ) {
 
-					event.preventDefault ( );
+					event.preventDefault ( ) ;
 
 					console.warn ( 'webgl [ context ] : lost - showing fallback overlay' );
 
@@ -922,7 +922,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					button.onclick = function ( ) {
 
-						location.reload ( );
+						location.reload ( ) ;
 
 					};
 
@@ -941,7 +941,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// scene
 
-				this.scene = new THREE.Scene ( );
+				this.scene = new THREE.Scene ( ) ;
 
 				// size reference cube (1 m³)
 
@@ -949,7 +949,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// ensures centering on cube origin
 
-				geometry.center ( );
+				geometry.center ( ) ;
 
 				const reference_cube = new THREE.Mesh (
 
@@ -1247,9 +1247,9 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					if ( ! self.bounding_box_helper ) {
 
-						const box = self.get_boundingBox ( );
+						const box = self.get_boundingBox ( ) ;
 
-						const geometry = new THREE.BufferGeometry ( );
+						const geometry = new THREE.BufferGeometry ( ) ;
 						const positions = [];
 						const colors = [];
 
@@ -1439,7 +1439,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					// get bounding box
 
-					const box = self.get_boundingBox ( );
+					const box = self.get_boundingBox ( ) ;
 
 					const center = box.getCenter (new THREE.Vector3 ( ) );
 
@@ -1484,7 +1484,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 						const height = canvas.height;
 
 						label_context.fillStyle = '#00000000';
-						label_context.beginPath ( );
+						label_context.beginPath ( ) ;
 						label_context.moveTo ( radius, 0);
 						label_context.lineTo ( width - radius, 0 );
 						label_context.quadraticCurveTo ( width, 0, width, radius );
@@ -1494,8 +1494,8 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 						label_context.quadraticCurveTo ( 0, height, 0, height - radius );
 						label_context.lineTo ( 0, radius );
 						label_context.quadraticCurveTo ( 0, 0, radius, 0 );
-						label_context.closePath ( );
-						label_context.fill ( );
+						label_context.closePath ( ) ;
+						label_context.fill ( ) ;
 
 						// per axis text color
 
@@ -1981,7 +1981,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 						return;
 					}
 
-					const loader = new ColladaLoader ( );
+					const loader = new ColladaLoader ( ) ;
 
 					loader.load (
 
@@ -2083,7 +2083,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						self.scene.add ( minifig );
 
-						const transform = self.get_transform_controls ( );
+						const transform = self.get_transform_controls ( ) ;
 
 						self.scene.add ( transform );
 
@@ -2135,7 +2135,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						const radius = 0.008;
 
-						const shape = new THREE.Shape ( );
+						const shape = new THREE.Shape ( ) ;
 
 						const w = planeWidth;
 						const h = planeLength;
@@ -2201,7 +2201,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				this.plane_ = function ( ) {
 
-					self.boundingBox = self.get_boundingBox ( );
+					self.boundingBox = self.get_boundingBox ( ) ;
 
 					if ( this.plane_visible ) {
 
@@ -2384,9 +2384,9 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						// both on >>> turn both off
 
-						self.bounding_box_helper_ ( );
+						self.bounding_box_helper_ ( ) ;
 
-						self.dimension_labels_ ( );
+						self.dimension_labels_ ( ) ;
 
 						bounding_box_helper_visible = false;
 
@@ -2396,7 +2396,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						// bounding box on >>> add dimensions
 
-						self.dimension_labels_ ( );
+						self.dimension_labels_ ( ) ;
 
 						dimension_labels_visible = true;
 
@@ -2404,7 +2404,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						// dimensions on >>> add bounding box
 
-						self.bounding_box_helper_ ( );
+						self.bounding_box_helper_ ( ) ;
 
 						bounding_box_helper_visible = true;
 
@@ -2412,9 +2412,9 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						// both off >>> turn both on
 
-						self.bounding_box_helper_ ( );
+						self.bounding_box_helper_ ( ) ;
 
-						self.dimension_labels_ ( );
+						self.dimension_labels_ ( ) ;
 
 						bounding_box_helper_visible = true;
 
@@ -2432,41 +2432,131 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				this.camera_toggle_ = function ( ) {
 
-					self.position = self.camera.position.clone ( );
+					// preserve orbit target + camera position
 
-					self.camera = self.camera.isPerspectiveCamera ? self.orthographicCamera : self.perspectiveCamera;
+					var saved_target = self.orbitControls && self.orbitControls.target
+						? self.orbitControls.target.clone ( )
+						: new THREE.Vector3 ( 0, 0, 0 ) ;
 
-					self.cameraType = self.camera.isPerspectiveCamera ? 'perspective' : 'orthographic';
+					var saved_position = self.camera
+						? self.camera.position.clone ( )
+						: new THREE.Vector3 ( self.camera_position_matrix_x, self.camera_position_matrix_y, self.camera_position_matrix_z ) ;
 
-					self.camera.position.copy ( self.position );
+					// switch camera
 
-					self.transform_controls.camera = self.camera;
+					self.camera = self.camera && self.camera.isPerspectiveCamera
+						? self.orthographicCamera
+						: self.perspectiveCamera ;
 
-					self.camera.zoom = 2;
+					self.cameraType = self.camera.isPerspectiveCamera ? 'perspective' : 'orthographic' ;
+
+					// apply preserved position
+
+					self.camera.position.copy ( saved_position ) ;
+
+					// per camera defaults
 
 					if ( self.camera.isOrthographicCamera ) {
 
-						self.orbitControls = new OrbitControls ( self.camera, self.renderer.domElement );
+						self.camera.zoom = 3000 ;
 
-						self.camera.zoom = 3000;
+					} else {
+
+						self.camera.zoom = 2 ;
 
 					}
 
-					self.camera.position.set ( self.camera_position_matrix_x, self.camera_position_matrix_y, self.camera_position_matrix_z );
+					// rebind transform controls to active camera
 
-					self.camera.lookAt ( 0, 0, 0 );
+					if ( self.transform_controls ) {
 
-					self.camera.updateProjectionMatrix ( );
+						self.transform_controls.camera = self.camera ;
 
-					self.resize ( );
+					}
 
-					console.log ( "camera = " + self.cameraType );
+					// rebuild orbit controls to avoid stale camera binding
+
+					if ( self.orbitControls ) {
+
+						self.orbitControls.dispose ( ) ;
+
+					}
+
+					self.orbitControls = new OrbitControls ( self.camera, self.renderer.domElement ) ;
+
+					self.orbitControls.target.copy ( saved_target ) ;
+
+					self.orbitControls.update ( ) ;
+
+					// projection + resize
+
+					self.camera.updateProjectionMatrix ( ) ;
+
+					self.resize ( ) ;
+
+					console.log ( "camera = " + self.cameraType ) ;
 
 					// refresh debug overlay values
 
 					refresh_debug_overlay ( ) ;
 
-				}
+				} ;
+
+				// camera position toggle
+
+				this.camera_position_toggle_ = function ( ) {
+
+					// preserve orbit target
+
+					var saved_target = self.orbitControls && self.orbitControls.target
+						? self.orbitControls.target.clone ( )
+						: new THREE.Vector3 ( 0, 0, 0 ) ;
+
+					// force orthographic
+
+					self.camera = self.orthographicCamera ;
+
+					self.cameraType = 'orthographic' ;
+
+					// position matrix
+
+					self.camera.position.set ( self.camera_position_matrix_x, self.camera_position_matrix_y, self.camera_position_matrix_z ) ;
+
+					self.camera.zoom = 3000 ;
+
+					// rebind transform controls to active camera
+
+					if ( self.transform_controls ) {
+
+						self.transform_controls.camera = self.camera ;
+
+					}
+
+					// rebuild orbit controls
+
+					if ( self.orbitControls ) {
+
+						self.orbitControls.dispose ( ) ;
+
+					}
+
+					self.orbitControls = new OrbitControls ( self.camera, self.renderer.domElement ) ;
+
+					self.orbitControls.target.copy ( saved_target ) ;
+
+					self.orbitControls.update ( ) ;
+
+					self.camera.updateProjectionMatrix ( ) ;
+
+					self.resize ( ) ;
+
+					console.log ( "camera position = " + self.camera_position_matrix_x, self.camera_position_matrix_y, self.camera_position_matrix_z ) ;
+
+					// refresh debug overlay values
+
+					refresh_debug_overlay ( ) ;
+
+				} ;
 
 				// camera position toggle
 
@@ -2482,7 +2572,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					self.camera.lookAt ( 0, 0, 0 );
 
-					self.camera.updateProjectionMatrix ( );
+					self.camera.updateProjectionMatrix ( ) ;
 
 					console.log ( "camera position = " + self.camera_position_matrix_x, self.camera_position_matrix_y, self.camera_position_matrix_z );
 
@@ -2491,6 +2581,42 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 					refresh_debug_overlay ( ) ;
 
 				}
+
+				// camera position toggle cycle
+
+				self.camera_position_cycle_index = 0 ;
+
+				self.camera_position_cycle_ = function ( ) {
+
+					var positions = [
+
+						{ x: 45, y: 30, z: 45 },	// reset
+						{ x: 0,  y: 0,  z: 1  },	// front
+						{ x: 0,  y: 0,  z: -1 },	// back
+						{ x: 1,  y: 0,  z: 0  },	// left
+						{ x: -1, y: 0,  z: 0  },	// right
+						{ x: 0,  y: 1,  z: 0  },	// top
+						{ x: 0,  y: -1, z: 0  }		// bottom
+
+					] ;
+
+					self.camera_position_cycle_index ++ ;
+
+					if ( self.camera_position_cycle_index >= positions.length ) {
+
+						self.camera_position_cycle_index = 0 ;
+
+					}
+
+					var p = positions [ self.camera_position_cycle_index ] ;
+
+					self.camera_position_matrix_x = p.x ;
+					self.camera_position_matrix_y = p.y ;
+					self.camera_position_matrix_z = p.z ;
+
+					self.camera_position_toggle_ ( ) ;
+
+				} ;
 
 				// view toggle
 
@@ -2517,7 +2643,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					self.orthographicCamera.zoom = ( orthographicRandomZoom );
 
-					self.resize ( );
+					self.resize ( ) ;
 
 					// refresh debug overlay values
 
@@ -2589,7 +2715,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					const scaleSnap = ( snapFactor / 2 );
 
-					var snapMode = self.transform_controls.getMode ( );
+					var snapMode = self.transform_controls.getMode ( ) ;
 
 					if ( snapMode == "translate" ) {
 
@@ -2786,7 +2912,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 						self.orbitControls.minDistance = near;
 						self.orbitControls.maxDistance = far;
 
-						self.orbitControls.update ( );
+						self.orbitControls.update ( ) ;
 					}
 
 					return self.orbitControls;
@@ -2846,7 +2972,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 						self.camera.top    =   ( viewPortHeightOrthographic / 2 );
 						self.camera.bottom = - ( viewPortHeightOrthographic / 2 );
 
-						self.camera.updateProjectionMatrix ( );
+						self.camera.updateProjectionMatrix ( ) ;
 
 						// update renderer size
 
@@ -2857,7 +2983,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 					else {
 							self.camera.aspect = window.innerWidth / window.innerHeight;
 
-							self.camera.updateProjectionMatrix ( );
+							self.camera.updateProjectionMatrix ( ) ;
 
 							self.renderer.setSize ( window.innerWidth, window.innerHeight );
 
@@ -2875,7 +3001,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						self.camera.aspect = canvas.clientWidth / canvas.clientHeight;
 
-						self.camera.updateProjectionMatrix ( );
+						self.camera.updateProjectionMatrix ( ) ;
 
 					}
 
@@ -2935,7 +3061,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						case 72:
 
-							self.hemisphere_light_helper_ ( );
+							self.hemisphere_light_helper_ ( ) ;
 
 							break;
 
@@ -2943,7 +3069,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						case 73:
 
-							self.spot_light_helper_ ( );
+							self.spot_light_helper_ ( ) ;
 
 							break;
 
@@ -2951,7 +3077,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						case 74:
 
-							self.point_light_helper_ ( );
+							self.point_light_helper_ ( ) ;
 
 							break;
 
@@ -2959,11 +3085,11 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						case 75:
 
-							self.directional_light_0_helper_ ( );
+							self.directional_light_0_helper_ ( ) ;
 
-							self.directional_light_1_helper_ ( );
+							self.directional_light_1_helper_ ( ) ;
 
-							self.directional_light_2_helper_ ( );
+							self.directional_light_2_helper_ ( ) ;
 
 							break;
 
@@ -2971,7 +3097,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						case 65:
 
-							self.axesHelper_ ( );
+							self.axesHelper_ ( ) ;
 
 							break;
 
@@ -2979,7 +3105,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						case 66:
 
-							self.bounding_box_helper_ ( );
+							self.bounding_box_helper_ ( ) ;
 
 							break;
 
@@ -2987,7 +3113,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						case 68:
 
-							self.dimensions_toggle_ ( );
+							self.dimensions_toggle_ ( ) ;
 
 							break;
 
@@ -2995,7 +3121,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						case 69:
 
-							self.edges_toggle_ ( );
+							self.edges_toggle_ ( ) ;
 
 							break;
 
@@ -3003,7 +3129,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						case 70:
 
-							self.minifig_toggle_ ( );
+							self.minifig_toggle_ ( ) ;
 
 							break;
 
@@ -3011,7 +3137,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						case 78:
 
-							self.dimension_labels_ ( );
+							self.dimension_labels_ ( ) ;
 
 						break;
 
@@ -3019,7 +3145,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						case 79:
 
-							self.orthogonal_grid_helper_ ( );
+							self.orthogonal_grid_helper_ ( ) ;
 
 							break;
 
@@ -3027,7 +3153,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						case 80:
 
-							self.polar_grid_helper_ ( );
+							self.polar_grid_helper_ ( ) ;
 
 							break;
 
@@ -3035,7 +3161,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						case 76:
 
-							self.plane_ ( );
+							self.plane_ ( ) ;
 
 							break;
 
@@ -3043,7 +3169,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						case 87:
 
-							self.wireframe_toggle_ ( );
+							self.wireframe_toggle_ ( ) ;
 
 							break;
 
@@ -3051,7 +3177,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						case 77:
 
-							self.camera_helper_ ( );
+							self.camera_helper_ ( ) ;
 
 							break;
 
@@ -3059,7 +3185,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						case 67:
 
-							self.camera_toggle_ ( );
+							self.camera_toggle_ ( ) ;
 
 							break;
 
@@ -3067,7 +3193,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						case 86:
 
-							self.view_toggle_ ( );
+							self.view_toggle_ ( ) ;
 
 							break;
 
@@ -3082,7 +3208,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 							self.camera_position_matrix_y = 30;
 							self.camera_position_matrix_z = 45;
 
-							self.camera_position_toggle_ ( );
+							self.camera_position_toggle_ ( ) ;
 
 							break;
 
@@ -3097,7 +3223,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 							self.camera_position_matrix_y = 0;
 							self.camera_position_matrix_z = 1;
 
-							self.camera_position_toggle_ ( );
+							self.camera_position_toggle_ ( ) ;
 
 							break;
 
@@ -3112,7 +3238,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 							self.camera_position_matrix_y = 0;
 							self.camera_position_matrix_z = -1;
 
-							self.camera_position_toggle_ ( );
+							self.camera_position_toggle_ ( ) ;
 
 							break;
 
@@ -3127,7 +3253,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 							self.camera_position_matrix_y = 0;
 							self.camera_position_matrix_z = 0;
 
-							self.camera_position_toggle_ ( );
+							self.camera_position_toggle_ ( ) ;
 
 							break;
 
@@ -3142,7 +3268,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 							self.camera_position_matrix_y = 0;
 							self.camera_position_matrix_z = 0;
 
-							self.camera_position_toggle_ ( );
+							self.camera_position_toggle_ ( ) ;
 
 							break;
 
@@ -3157,7 +3283,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 							self.camera_position_matrix_y = 1;
 							self.camera_position_matrix_z = 0;
 
-							self.camera_position_toggle_ ( );
+							self.camera_position_toggle_ ( ) ;
 
 							break;
 
@@ -3172,7 +3298,17 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 							self.camera_position_matrix_y = -1;
 							self.camera_position_matrix_z = 0;
 
-							self.camera_position_toggle_ ( );
+							self.camera_position_toggle_ ( ) ;
+
+							break;
+
+						// G //
+
+						case 71:
+
+							// camera position cycle toggle
+
+							self.camera_position_cycle_ ( ) ;
 
 							break;
 
@@ -3180,7 +3316,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						case 32:
 
-							self.transform_toggle_ ( );
+							self.transform_toggle_ ( ) ;
 
 							break;
 
@@ -3212,7 +3348,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						case 16:
 
-							self.snap_toggle_ ( );
+							self.snap_toggle_ ( ) ;
 
 							break;
 
@@ -3220,7 +3356,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						case 17:
 
-							self.controlsSpace_ ( );
+							self.controlsSpace_ ( ) ;
 
 							break;
 
@@ -3330,7 +3466,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// loader
 
-				var loader = new ColladaLoader ( );
+				var loader = new ColladaLoader ( ) ;
 
 				// global vars for edges
 
@@ -3374,7 +3510,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 								var edges = new THREE.LineSegments ( edgesGeometry, edgesMaterial );
 
-								edges.geometry.computeBoundingBox ( );
+								edges.geometry.computeBoundingBox ( ) ;
 
 								// wireframe
 
@@ -3477,7 +3613,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						// orbit controls
 
-						self.get_orbitControls ( );
+						self.get_orbitControls ( ) ;
 
 						// fit camera + controls target to loaded model
 
@@ -3489,7 +3625,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						// refresh debug overlay after model load //
 
-						refresh_debug_overlay ( );
+						refresh_debug_overlay ( ) ;
 
 
 						// transform controls
@@ -3518,7 +3654,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				document.getElementById ( 'plane' ).addEventListener ( 'click', function ( ) {
 
-					self.plane_ ( );
+					self.plane_ ( ) ;
 
 				} );
 
@@ -3527,7 +3663,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				document.getElementById ( 'minifig' ).addEventListener ( 'click', function ( ) {
 
-					self.minifig_toggle_ ( );
+					self.minifig_toggle_ ( ) ;
 
 				} );
 
@@ -3535,7 +3671,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				document.getElementById ( 'wireframe' ).addEventListener ( 'click', function ( ) {
 
-					self.wireframe_toggle_ ( );
+					self.wireframe_toggle_ ( ) ;
 
 				} );
 
@@ -3543,7 +3679,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				document.getElementById ( 'edges' ).addEventListener ( 'click', function ( ) {
 
-					self.edges_toggle_ ( );
+					self.edges_toggle_ ( ) ;
 
 				} );
 
@@ -3551,11 +3687,11 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				document.getElementById ( 'dimensions' ).addEventListener ( 'click', function ( ) {
 
-					self.dimensions_toggle_ ( );
+					self.dimensions_toggle_ ( ) ;
 
 				} );
 
-				const endTime = performance.now ( );
+				const endTime = performance.now ( ) ;
 
 				const loadTime = ( ( endTime - start_time ) / 1000).toFixed ( 2 );
 
@@ -3563,7 +3699,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 			}
 
-			new initialize ( );
+			new initialize ( ) ;
 
 		</script>
 

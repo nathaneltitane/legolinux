@@ -1780,7 +1780,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-yellow.dae',
+						'/minifigs/exports/minifig-fuschia.dae',
 
 						function ( collada ) {
 
@@ -2223,45 +2223,136 @@
 
 				};
 
-				// camera toggle
+// camera toggle
 
-				this.camera_toggle_ = function ( ) {
+this.camera_toggle_ = function ( ) {
 
-					self.position = self.camera.position.clone ( );
+	// preserve orbit target + camera position
 
-					self.camera = self.camera.isPerspectiveCamera ? self.orthographicCamera : self.perspectiveCamera;
+	var saved_target = self.orbitControls && self.orbitControls.target
+		? self.orbitControls.target.clone ( )
+		: new THREE.Vector3 ( 0, 0, 0 ) ;
 
-					self.cameraType = self.camera.isPerspectiveCamera ? 'perspective' : 'orthographic';
+	var saved_position = self.camera
+		? self.camera.position.clone ( )
+		: new THREE.Vector3 ( self.camera_position_matrix_x, self.camera_position_matrix_y, self.camera_position_matrix_z ) ;
 
-					self.camera.position.copy ( self.position );
+	// switch camera
 
-					self.transform_controls.camera = self.camera;
+	self.camera = self.camera && self.camera.isPerspectiveCamera
+		? self.orthographicCamera
+		: self.perspectiveCamera ;
 
-					self.camera.zoom = 2;
+	self.cameraType = self.camera.isPerspectiveCamera ? 'perspective' : 'orthographic' ;
 
-					if ( self.camera.isOrthographicCamera ) {
+	// apply preserved position
 
-						self.orbitControls = new OrbitControls ( self.camera, self.renderer.domElement );
+	self.camera.position.copy ( saved_position ) ;
 
-						self.camera.zoom = 3000;
+	// per camera defaults
 
-					}
+	if ( self.camera.isOrthographicCamera ) {
 
-					self.camera.position.set ( self.camera_position_matrix_x, self.camera_position_matrix_y, self.camera_position_matrix_z );
+		self.camera.zoom = 3000 ;
 
-					self.camera.lookAt ( 0, 0, 0 );
+	} else {
 
-					self.camera.updateProjectionMatrix ( );
+		self.camera.zoom = 2 ;
 
-					self.resize ( );
+	}
 
-					console.log ( "camera = " + self.cameraType );
+	// rebind transform controls to active camera
 
-					// refresh debug overlay values
+	if ( self.transform_controls ) {
 
-					refresh_debug_overlay ( ) ;
+		self.transform_controls.camera = self.camera ;
 
-				}
+	}
+
+	// rebuild orbit controls to avoid stale camera binding
+
+	if ( self.orbitControls ) {
+
+		self.orbitControls.dispose ( ) ;
+
+	}
+
+	self.orbitControls = new OrbitControls ( self.camera, self.renderer.domElement ) ;
+
+	self.orbitControls.target.copy ( saved_target ) ;
+
+	self.orbitControls.update ( ) ;
+
+	// projection + resize
+
+	self.camera.updateProjectionMatrix ( ) ;
+
+	self.resize ( ) ;
+
+	console.log ( "camera = " + self.cameraType ) ;
+
+	// refresh debug overlay values
+
+	refresh_debug_overlay ( ) ;
+
+} ;
+
+// camera position toggle
+
+this.camera_position_toggle_ = function ( ) {
+
+	// preserve orbit target
+
+	var saved_target = self.orbitControls && self.orbitControls.target
+		? self.orbitControls.target.clone ( )
+		: new THREE.Vector3 ( 0, 0, 0 ) ;
+
+	// force orthographic
+
+	self.camera = self.orthographicCamera ;
+
+	self.cameraType = 'orthographic' ;
+
+	// position matrix
+
+	self.camera.position.set ( self.camera_position_matrix_x, self.camera_position_matrix_y, self.camera_position_matrix_z ) ;
+
+	self.camera.zoom = 3000 ;
+
+	// rebind transform controls to active camera
+
+	if ( self.transform_controls ) {
+
+		self.transform_controls.camera = self.camera ;
+
+	}
+
+	// rebuild orbit controls (clean)
+
+	if ( self.orbitControls ) {
+
+		self.orbitControls.dispose ( ) ;
+
+	}
+
+	self.orbitControls = new OrbitControls ( self.camera, self.renderer.domElement ) ;
+
+	self.orbitControls.target.copy ( saved_target ) ;
+
+	self.orbitControls.update ( ) ;
+
+	self.camera.updateProjectionMatrix ( ) ;
+
+	self.resize ( ) ;
+
+	console.log ( "camera position = " + self.camera_position_matrix_x, self.camera_position_matrix_y, self.camera_position_matrix_z ) ;
+
+	// refresh debug overlay values
+
+	refresh_debug_overlay ( ) ;
+
+} ;
+
 
 				// camera position toggle
 
