@@ -223,8 +223,8 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		// middle
 
-		if ( arrow_left ) arrow_left.classList.add ( 'footer-right' ) ;
-		if ( arrow_right ) arrow_right.classList.add ( 'footer-left' ) ;
+		// if ( arrow_left ) arrow_left.classList.add ( 'footer-right' ) ;
+		// if ( arrow_right ) arrow_right.classList.add ( 'footer-left' ) ;
 
 		// end
 

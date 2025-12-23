@@ -5,6 +5,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 	console.log ( 'selections [ init ] : domcontentloaded' ) ;
 
 	var wrapper = document.getElementById ( 'selections' ) ;
+	var selections	= wrapper.querySelector		( '.selections' ) ;
 
 	if ( ! wrapper ) {
 
@@ -70,40 +71,59 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	function selections_scroll ( selections ) {
 
-		var scroll_maximum = selections.scrollWidth - selections.clientWidth ;
+		var arrow_left	= document.querySelector ( '#selections-start .selections-start' ) ;
+		var arrow_right	= document.querySelector ( '#selections-end .selections-end' ) ;
 
-		console.log ( 'selections [ scroll ] : update ', selections.scrollLeft,' / ',scroll_maximum ) ;
+		// if not laid out yet, do not show arrows //
 
-		if ( scroll_maximum <= 0 ) {
+		if ( ! selections || selections.clientWidth <= 0 ) {
 
-			wrapper.classList.remove ( 'scroll-left' ) ;
-			wrapper.classList.remove ( 'scroll-right' ) ;
+			if ( arrow_left ) arrow_left.classList.remove ( 'selections-right' ) ;
+			if ( arrow_right ) arrow_right.classList.remove ( 'selections-left' ) ;
 
 			return ;
 
 		}
 
-		// show left arrow if we can scroll left (not at far left)
+		// robust overflow check (flex / subpixel / rounding) //
 
-		if ( selections.scrollLeft > 0 ) {
+		var can_scroll = selections.scrollWidth > ( selections.clientWidth + 1 ) ;
 
-			wrapper.classList.add ( 'scroll-right' ) ;
+		if ( ! can_scroll ) {
 
-		} else {
+			if ( arrow_left ) arrow_left.classList.remove ( 'selections-right' ) ;
+			if ( arrow_right ) arrow_right.classList.remove ( 'selections-left' ) ;
 
-			wrapper.classList.remove ( 'scroll-right' ) ;
+			return ;
 
 		}
 
-		// show right arrow if we can scroll right (not at far right)
+		var scroll_maximum = selections.scrollWidth - selections.clientWidth ;
 
-		if ( selections.scrollLeft < scroll_maximum - 1 ) {
+		// start
 
-			wrapper.classList.add ( 'scroll-left' ) ;
+		if ( selections.scrollLeft <= 0 ) {
 
-		} else {
+			if ( arrow_left ) arrow_left.classList.add ( 'selections-right' ) ;
+			if ( arrow_right ) arrow_right.classList.remove ( 'selections-left' ) ;
 
-			wrapper.classList.remove ( 'scroll-left' ) ;
+			return ;
+
+		}
+
+		// middle
+
+		// if ( arrow_left ) arrow_left.classList.add ( 'selections-right' ) ;
+		// if ( arrow_right ) arrow_right.classList.add ( 'selections-left' ) ;
+
+		// end
+
+		if ( selections.scrollLeft >= scroll_maximum - 1 ) {
+
+			if ( arrow_left ) arrow_left.classList.remove ( 'selections-right' ) ;
+			if ( arrow_right ) arrow_right.classList.add ( 'selections-left' ) ;
+
+			return ;
 
 		}
 
