@@ -407,7 +407,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		var observer = new MutationObserver ( function ( mutations ) {
 
-			console.log ( 'footer [ bootstrap ] : content mutation', mutations.length ) ;
+			console.log ( 'footer [ bootstrap ] : bootstrap load detected ', '[ ', mutations.length, ' ]', footer_id ) ;
 
 			footer_load_check ( ) ;
 
@@ -431,7 +431,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	var bootstrap_observer = new MutationObserver ( function ( mutations ) {
 
-		console.log ( 'footer [ bootstrap ] : footer_id mutation', mutations.length ) ;
+		console.log ( 'footer [ bootstrap ] : bootstrap load detected ', '[ ', mutations.length, ' ]', footer_id ) ;
 
 		initialize ( ) ;
 
