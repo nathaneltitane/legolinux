@@ -4,10 +4,10 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	console.log ( 'footer [ init ] : domcontentloaded' ) ;
 
-	var wrapper	= document.getElementById	( 'footer' ) ;
-	var footer	= wrapper.querySelector		( '.footer' ) ;
+	var footer_parent	= document.getElementById	( 'footer' ) ;
+	var footer	= footer_parent.querySelector		( '.footer' ) ;
 
-	if ( ! wrapper ) {
+	if ( ! footer_parent ) {
 
 		console.log ( 'footer [ init ] : abort, #footer missing' ) ;
 
@@ -23,8 +23,6 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		console.log ( 'footer [ state ] : hide' ) ;
 
-		wrapper.style.bottom = '-80px' ;
-
 		if ( footer ) {
 
 			footer.style.bottom = '-80px' ;
@@ -36,8 +34,6 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 	function show ( footer ) {
 
 		console.log ( 'footer [ state ] : show' ) ;
-
-		wrapper.style.bottom = '0px' ;
 
 		if ( footer ) {
 
@@ -413,7 +409,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		} ) ;
 
-		content_observer.observe ( wrapper, { childList: true, subtree: true } ) ;
+		content_observer.observe ( footer_parent, { childList: true, subtree: true } ) ;
 
 		footer_loaded ( ) ;
 
@@ -431,7 +427,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	var bootstrap_observer = new MutationObserver ( function ( mutations ) {
 
-		console.log ( 'footer [ bootstrap ] : wrapper mutation', mutations.length ) ;
+		console.log ( 'footer [ bootstrap ] : footer_parent mutation', mutations.length ) ;
 
 		attempt_initialize ( ) ;
 
@@ -443,7 +439,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	} ) ;
 
-	bootstrap_observer.observe ( wrapper, { childList: true, subtree: true } ) ;
+	bootstrap_observer.observe ( footer_parent, { childList: true, subtree: true } ) ;
 
 	attempt_initialize ( ) ;
 
