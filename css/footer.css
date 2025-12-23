@@ -8,6 +8,47 @@
 	right: 0px;
 }
 
+#footer::before {
+	border-top: 15px solid #00000000;
+	border-bottom: 15px solid #00000000;
+	border-right: 15px solid #000000ff;
+	border-left: 15px solid #00000000;
+
+	content: '';
+	left: 10px;
+	top: 50%;
+	width: 0;
+	height: 0;
+
+	position: absolute;
+	z-index: 9;
+
+	transform: translateY(-50%);
+
+	opacity: 0;
+}
+
+#footer::after {
+	border-top: 15px solid #00000000;
+	border-bottom: 15px solid #00000000;
+	border-right: 15px solid #00000000;
+	border-left: 15px solid #000000ff;
+
+	content: '';
+	right: 10px;
+	top: 50%;
+	width: 0;
+	height: 0;
+
+	position: absolute;
+	z-index: 9;
+
+	transform: translateY(-50%);
+
+	opacity: 0;
+}
+
+
 .footer {
 	position: relative;
 	bottom: 0px;
@@ -27,6 +68,56 @@
 	-webkit-overflow-scrolling: touch;
 }
 
+.footer-edge::before {
+	background-image: linear-gradient(
+		to right,
+		rgba(170, 170, 170, 1) 0%,
+		rgba(170, 170, 170, 0) 100%
+	);
+
+	border-radius: 20px 0px 0px 0px;
+
+	content: '';
+
+	left: 0px;
+	bottom: 0px;
+
+	height: 80px;
+	width: 80px;
+
+	position: absolute;
+	z-index: 9;
+}
+
+.footer-edge::after {
+	background-image: linear-gradient(
+		to left,
+		rgba(170, 170, 170, 1) 0%,
+		rgba(170, 170, 170, 0) 100%
+	);
+
+	border-radius: 0px 20px 0px 0px;
+
+	content: '';
+
+	right: 0px;
+	bottom: 0px;
+
+	height: 80px;
+	width: 80px;
+
+	position: absolute;
+	z-index: 9;
+}
+
+.edge {
+	margin: 0px 0px 0px 0px;
+	padding: 00px 0px 0px 0px;
+
+	height: 80px;
+	width: 40px;
+}
+
 .footer-button {
 	background: #00000000;
 	color: #666666ff;
@@ -38,42 +129,4 @@
 	margin: 0px 0px 0px 0px;
 	padding: 10px 0px 0px 0px;
 	width: 80px;
-}
-
-.footer-start {
-	border-top: 15px solid #00000000;
-	border-bottom: 15px solid #00000000;
-	border-right: 15px solid #000000ff;
-	border-left: 15px solid #00000000;
-
-	background: #00000000;
-	color: #666666ff;
-	border-radius: 0px;
-	border: none;
-	bottom: 10px;
-	left: 10px;
-	right: 10px;
-	margin: 0px 0px 0px 0px;
-	padding: 10px 0px 0px 0px;
-	width: 80px;
-	height: 80px;
-}
-
-.footer-end {
-	border-top: 15px solid #00000000;
-	border-bottom: 15px solid #00000000;
-	border-right: 15px solid #00000000;
-	border-left: 15px solid #000000ff;
-
-	background: #00000000;
-	color: #666666ff;
-	border-radius: 0px;
-	border: none;
-	bottom: 10px;
-	left: 10px;
-	right: 10px;
-	margin: 0px 0px 0px 0px;
-	padding: 10px 0px 0px 0px;
-	width: 80px;
-	height: 80px;
 }
