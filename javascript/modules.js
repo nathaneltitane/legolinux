@@ -114,6 +114,12 @@ $( function ( ) {
 
 		} );
 
+		$.get ( '/modules/camera.html', function ( data ) {
+
+			$( '#camera' ).append ( data );
+
+		} );
+
 		$.get ( '/modules/minifig.html', function ( data ) {
 
 			$( '#minifig' ).append ( data );

@@ -84,6 +84,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 		'minifig',
 		'wireframe',
 		'edges',
+		'camera',
 		'color',
 		'home',
 		'contact',
