@@ -4,9 +4,11 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	console.log ( 'footer [ init ] : domcontentloaded' ) ;
 
-	var wrapper	= document.getElementById	( 'footer' ) ;
-	var footer	= wrapper.querySelector		( '.footer' ) ;
-	var edge	= wrapper.querySelector		( '.footer-edge' ) ;
+	var wrapper	= document.getElementById ( 'footer' ) ;
+	var footer	= wrapper.querySelector ( '.footer' ) ;
+	var edge	= document.getElementById ( '.footer-edge' ) ;
+	var start = wrapper.querySelector ( '.footer-start' ) ;
+	var end = wrapper.querySelector ( '.footer-end' ) ;
 
 	if ( ! wrapper ) {
 
@@ -200,8 +202,8 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		if ( scroll_maximum <= 0 ) {
 
-			wrapper.classList.remove ( 'scroll-left' ) ;
-			wrapper.classList.remove ( 'scroll-right' ) ;
+			wrapper.classList.remove ( 'footer-left' ) ;
+			wrapper.classList.remove ( 'footer-right' ) ;
 
 			return ;
 
@@ -211,11 +213,11 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		if ( footer.scrollLeft > 0 ) {
 
-			wrapper.classList.add ( 'scroll-right' ) ;
+			start.classList.add ( 'footer-right' ) ;
 
 		} else {
 
-			wrapper.classList.remove ( 'scroll-right' ) ;
+			wrapper.classList.remove ( 'footer-right' ) ;
 
 		}
 
@@ -223,11 +225,11 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		if ( footer.scrollLeft < scroll_maximum - 1 ) {
 
-			wrapper.classList.add ( 'scroll-left' ) ;
+			wrapper.classList.add ( 'footer-left' ) ;
 
 		} else {
 
-			wrapper.classList.remove ( 'scroll-left' ) ;
+			wrapper.classList.remove ( 'footer-left' ) ;
 
 		}
 

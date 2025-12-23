@@ -4054,7 +4054,7 @@ cat << 3D-MODEL-PAGE-FOOTER ->> "${model_directory}/index.html"
 
 					<!-- start -->
 
-					<div id="footer-edge">
+					<div id="footer-start">
 
 						<div class="footer-start">
 
@@ -4156,7 +4156,7 @@ cat << 3D-MODEL-PAGE-HELPERS ->> "${model_directory}/index.html"
 
 					<!-- end -->
 
-					<div id="footer-edge">
+					<div id="footer-end">
 
 						<div class="footer-end">
 
