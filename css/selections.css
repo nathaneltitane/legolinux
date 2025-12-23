@@ -8,6 +8,45 @@
 	right: 0px;
 }
 
+#selections::before {
+
+	content: '';
+
+	position: absolute;
+	left: 50%;
+	top: 100%;
+
+	transform: translateX(-50%);
+
+	width: 120px;
+	height: 40px;
+
+	border-radius: 0px 0px 20px 20px;
+
+	background: #aaaaaaff;
+
+	cursor: pointer;
+	user-select: none;
+}
+
+#selections::after {
+	content: '';
+
+	position: absolute;
+	left: 50%;
+	top: calc(100% + 10px);
+
+	transform: translateX(-50%);
+
+	width: 0px;
+	height: 0px;
+
+	border-left: 10px solid #00000000;
+	border-right: 10px solid #00000000;
+	border-top: 10px solid #000000ff;
+	border-bottom: 10px solid #00000000;
+}
+
 .selections {
 	position: relative;
 	top: 0px;
