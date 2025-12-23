@@ -4,10 +4,10 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	console.log ( 'footer [ init ] : domcontentloaded' ) ;
 
-	var footer_parent	= document.getElementById	( 'footer' ) ;
-	var footer	= footer_parent.querySelector		( '.footer' ) ;
+	var footer_id	= document.getElementById	( 'footer' ) ;
+	var footer	= footer_id.querySelector		( '.footer' ) ;
 
-	if ( ! footer_parent ) {
+	if ( ! footer_id ) {
 
 		console.log ( 'footer [ init ] : abort, #footer missing' ) ;
 
@@ -23,6 +23,8 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		console.log ( 'footer [ state ] : hide' ) ;
 
+		footer_id.style.bottom = '-80px' ;
+
 		if ( footer ) {
 
 			footer.style.bottom = '-80px' ;
@@ -34,6 +36,8 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 	function show ( footer ) {
 
 		console.log ( 'footer [ state ] : show' ) ;
+
+		footer_id.style.bottom = '0px' ;
 
 		if ( footer ) {
 
@@ -57,7 +61,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 			requestAnimationFrame ( function ( ) {
 
-				footer_scroll ( footer ) ;
+				scroll ( footer ) ;
 
 			} ) ;
 
@@ -93,15 +97,15 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 		'browse'
 	] ;
 
-	function slots_load ( ) {
+	function slots ( ) {
 
-		var is_landing = !! document.getElementById ( 'landing' ) ;
+		var landing = !! document.getElementById ( 'landing' ) ;
 
-		var list = is_landing
+		var list = landing
 			? landing_slot_identifiers_list
 			: slot_identifiers_list ;
 
-		console.log ( 'footer [ slot ] : check start', is_landing ? '- landing' : '- viewer' ) ;
+		console.log ( 'footer [ slot ] : check start', landing ? '- landing' : '- viewer' ) ;
 
 		for ( var i = 0 ; i < list.length ; i ++ ) {
 
@@ -135,7 +139,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	}
 
-	function canvas_load ( callback ) {
+	function canvas ( callback ) {
 
 		var canvas = document.getElementById ( 'canvas' ) ;
 
@@ -175,7 +179,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	}
 
-	function footer_scroll ( footer ) {
+	function scroll ( footer ) {
 
 		var arrow_left	= document.querySelector ( '#footer-start .footer-start' ) ;
 		var arrow_right	= document.querySelector ( '#footer-end .footer-end' ) ;
@@ -219,7 +223,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		// middle
 
-		// if ( arrow_left ) arrow_left.classList.add ( 'footer-right' ) ;
+		//if ( arrow_left ) arrow_left.classList.add ( 'footer-right' ) ;
 		// if ( arrow_right ) arrow_right.classList.add ( 'footer-left' ) ;
 
 		// end
@@ -235,7 +239,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	}
 
-	function bind_events ( footer ) {
+	function bind ( footer ) {
 
 		console.log ( 'footer [ event ] : bind events' ) ;
 
@@ -325,7 +329,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 			footer.scrollLeft += event.deltaY ;
 
-			footer_scroll ( footer ) ;
+			scroll ( footer ) ;
 
 		}, { passive: false } ) ;
 
@@ -333,7 +337,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 			console.log ( 'footer [ scroll ] : scroll' ) ;
 
-			footer_scroll ( footer ) ;
+			scroll ( footer ) ;
 
 		} ) ;
 
@@ -341,13 +345,13 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 			console.log ( 'footer [ scroll ] : resize' ) ;
 
-			footer_scroll ( footer ) ;
+			scroll ( footer ) ;
 
 		} ) ;
 
 	}
 
-	function attempt_initialize ( ) {
+	function initialize ( ) {
 
 		if ( initialized ) {
 
@@ -369,13 +373,13 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		hide ( footer ) ;
 
-		bind_events ( footer ) ;
+		bind ( footer ) ;
 
-		function footer_loaded ( ) {
+		function footer_load_check ( ) {
 
-			console.log ( 'footer [ state ] : footer_loaded check' ) ;
+			console.log ( 'footer [ state ] : footer_load_check check' ) ;
 
-			if ( ! slots_load ( ) ) {
+			if ( ! slots ( ) ) {
 
 				console.warn ( 'footer [ state ] : blocked - slots not ready' ) ;
 
@@ -383,17 +387,17 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 			}
 
-			canvas_load ( function ( ) {
+			canvas ( function ( ) {
 
 				console.log ( 'footer [ state ] : ready' ) ;
 
 				delay_show ( footer ) ;
 
-				footer_scroll ( footer ) ;
+				scroll ( footer ) ;
 
-				if ( content_observer ) {
+				if ( observer ) {
 
-					content_observer.disconnect ( ) ;
+					observer.disconnect ( ) ;
 
 				}
 
@@ -401,17 +405,17 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		}
 
-		var content_observer = new MutationObserver ( function ( mutations ) {
+		var observer = new MutationObserver ( function ( mutations ) {
 
 			console.log ( 'footer [ bootstrap ] : content mutation', mutations.length ) ;
 
-			footer_loaded ( ) ;
+			footer_load_check ( ) ;
 
 		} ) ;
 
-		content_observer.observe ( footer_parent, { childList: true, subtree: true } ) ;
+		observer.observe ( footer_id, { childList: true, subtree: true } ) ;
 
-		footer_loaded ( ) ;
+		footer_load_check ( ) ;
 
 		setTimeout ( function ( ) {
 
@@ -419,7 +423,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 			show ( footer ) ;
 
-			footer_scroll ( footer ) ;
+			scroll ( footer ) ;
 
 		}, 2500 ) ;
 
@@ -427,20 +431,20 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	var bootstrap_observer = new MutationObserver ( function ( mutations ) {
 
-		console.log ( 'footer [ bootstrap ] : footer_parent mutation', mutations.length ) ;
+		console.log ( 'footer [ bootstrap ] : footer_id mutation', mutations.length ) ;
 
-		attempt_initialize ( ) ;
+		initialize ( ) ;
 
 		requestAnimationFrame ( function ( ) {
 
-			footer_scroll ( footer ) ;
+			scroll ( footer ) ;
 
 		} ) ;
 
 	} ) ;
 
-	bootstrap_observer.observe ( footer_parent, { childList: true, subtree: true } ) ;
+	bootstrap_observer.observe ( footer_id, { childList: true, subtree: true } ) ;
 
-	attempt_initialize ( ) ;
+	initialize ( ) ;
 
 } ) ;
