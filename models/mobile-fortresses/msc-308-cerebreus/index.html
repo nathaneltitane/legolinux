@@ -279,7 +279,7 @@
 
 				const editor_scale = 0.0004;
 
-				const start_time = performance.now ( );
+				const start_time = performance.now ( ) ;
 
 				var self = this;
 
@@ -367,7 +367,7 @@
 				this.renderer.setClearColor ( black, 0 );
 				this.renderer.setPixelRatio ( pixel_ratio );
 				this.renderer.setSize ( viewport_width, viewport_height );
-				this.renderer.clear ( );
+				this.renderer.clear ( ) ;
 
 
 				// debug overlay - target //
@@ -421,7 +421,7 @@
 
 				}
 
-				const os = operating_system ( );
+				const os = operating_system ( ) ;
 
 				console.log ( 'operating system [ system ] : ' + os );
 
@@ -510,7 +510,7 @@
 					debug_overlay_line ( 'device', 'operating system', os ) ;
 					debug_overlay_line ( 'device', 'pixel ratio', pixel_ratio.toFixed ( 2 ) ) ;
 
-					device_information_divider ( );
+					device_information_divider ( ) ;
 
 					// model state //
 
@@ -535,19 +535,19 @@
 						debug_overlay_line ( 'model', 'center z', center.z.toFixed ( 4 ) ) ;
 					}
 
-					device_information_divider ( );
+					device_information_divider ( ) ;
 
 					debug_overlay_line ( 'faces', 'visibility', model_faces_visible ? 'on' : 'off' ) ;
 					debug_overlay_line ( 'wireframe', 'visibility', wireframe_visible ? 'on' : 'off' ) ;
 
-					device_information_divider ( );
+					device_information_divider ( ) ;
 
 
 					debug_overlay_line ( 'edge', 'visibility', model_edges_visible ? 'on' : 'off' ) ;
 					debug_overlay_line ( 'edge', 'thickness', edge_thickness_state ) ;
 
 
-					device_information_divider ( );
+					device_information_divider ( ) ;
 
 					// debug overlay - camera //
 
@@ -576,7 +576,7 @@
 
 					}
 
-					device_information_divider ( );
+					device_information_divider ( ) ;
 
 					// debug overlay - orbit controls //
 
@@ -625,7 +625,7 @@
 
 						if ( ! is_canvas_target ( event ) ) return;
 
-						var current_time = Date.now ( );
+						var current_time = Date.now ( ) ;
 
 						var tap_gap = current_time - last_tap_time;
 
@@ -637,8 +637,8 @@
 
 							console.log ( 'debug overlay [ status ] : ' + ( debug_overlay_enabled ? 'on' : 'off' ) );
 
-							event.preventDefault ( );
-							event.stopPropagation ( );
+							event.preventDefault ( ) ;
+							event.stopPropagation ( ) ;
 						}
 
 						last_tap_time = current_time;
@@ -669,7 +669,7 @@
 
 				this.renderer.domElement.addEventListener ( 'webglcontextlost', function ( event ) {
 
-					event.preventDefault ( );
+					event.preventDefault ( ) ;
 
 					console.warn ( 'webgl [ context ] : lost - showing fallback overlay' );
 
@@ -717,7 +717,7 @@
 
 					button.onclick = function ( ) {
 
-						location.reload ( );
+						location.reload ( ) ;
 
 					};
 
@@ -736,7 +736,7 @@
 
 				// scene
 
-				this.scene = new THREE.Scene ( );
+				this.scene = new THREE.Scene ( ) ;
 
 				// size reference cube (1 m³)
 
@@ -744,7 +744,7 @@
 
 				// ensures centering on cube origin
 
-				geometry.center ( );
+				geometry.center ( ) ;
 
 				const reference_cube = new THREE.Mesh (
 
@@ -1042,9 +1042,9 @@
 
 					if ( ! self.bounding_box_helper ) {
 
-						const box = self.get_boundingBox ( );
+						const box = self.get_boundingBox ( ) ;
 
-						const geometry = new THREE.BufferGeometry ( );
+						const geometry = new THREE.BufferGeometry ( ) ;
 						const positions = [];
 						const colors = [];
 
@@ -1234,7 +1234,7 @@
 
 					// get bounding box
 
-					const box = self.get_boundingBox ( );
+					const box = self.get_boundingBox ( ) ;
 
 					const center = box.getCenter (new THREE.Vector3 ( ) );
 
@@ -1279,7 +1279,7 @@
 						const height = canvas.height;
 
 						label_context.fillStyle = '#00000000';
-						label_context.beginPath ( );
+						label_context.beginPath ( ) ;
 						label_context.moveTo ( radius, 0);
 						label_context.lineTo ( width - radius, 0 );
 						label_context.quadraticCurveTo ( width, 0, width, radius );
@@ -1289,8 +1289,8 @@
 						label_context.quadraticCurveTo ( 0, height, 0, height - radius );
 						label_context.lineTo ( 0, radius );
 						label_context.quadraticCurveTo ( 0, 0, radius, 0 );
-						label_context.closePath ( );
-						label_context.fill ( );
+						label_context.closePath ( ) ;
+						label_context.fill ( ) ;
 
 						// per axis text color
 
@@ -1776,11 +1776,11 @@
 						return;
 					}
 
-					const loader = new ColladaLoader ( );
+					const loader = new ColladaLoader ( ) ;
 
 					loader.load (
 
-						'/minifigs/exports/minifig-red.dae',
+						'/minifigs/exports/minifig-white.dae',
 
 						function ( collada ) {
 
@@ -1878,7 +1878,7 @@
 
 						self.scene.add ( minifig );
 
-						const transform = self.get_transform_controls ( );
+						const transform = self.get_transform_controls ( ) ;
 
 						self.scene.add ( transform );
 
@@ -1930,7 +1930,7 @@
 
 						const radius = 0.008;
 
-						const shape = new THREE.Shape ( );
+						const shape = new THREE.Shape ( ) ;
 
 						const w = planeWidth;
 						const h = planeLength;
@@ -1996,7 +1996,7 @@
 
 				this.plane_ = function ( ) {
 
-					self.boundingBox = self.get_boundingBox ( );
+					self.boundingBox = self.get_boundingBox ( ) ;
 
 					if ( this.plane_visible ) {
 
@@ -2179,9 +2179,9 @@
 
 						// both on >>> turn both off
 
-						self.bounding_box_helper_ ( );
+						self.bounding_box_helper_ ( ) ;
 
-						self.dimension_labels_ ( );
+						self.dimension_labels_ ( ) ;
 
 						bounding_box_helper_visible = false;
 
@@ -2191,7 +2191,7 @@
 
 						// bounding box on >>> add dimensions
 
-						self.dimension_labels_ ( );
+						self.dimension_labels_ ( ) ;
 
 						dimension_labels_visible = true;
 
@@ -2199,7 +2199,7 @@
 
 						// dimensions on >>> add bounding box
 
-						self.bounding_box_helper_ ( );
+						self.bounding_box_helper_ ( ) ;
 
 						bounding_box_helper_visible = true;
 
@@ -2207,9 +2207,9 @@
 
 						// both off >>> turn both on
 
-						self.bounding_box_helper_ ( );
+						self.bounding_box_helper_ ( ) ;
 
-						self.dimension_labels_ ( );
+						self.dimension_labels_ ( ) ;
 
 						bounding_box_helper_visible = true;
 
@@ -2223,136 +2223,135 @@
 
 				};
 
-// camera toggle
+				// camera toggle
 
-this.camera_toggle_ = function ( ) {
+				this.camera_toggle_ = function ( ) {
 
-	// preserve orbit target + camera position
+					// preserve orbit target + camera position
 
-	var saved_target = self.orbitControls && self.orbitControls.target
-		? self.orbitControls.target.clone ( )
-		: new THREE.Vector3 ( 0, 0, 0 ) ;
+					var saved_target = self.orbitControls && self.orbitControls.target
+						? self.orbitControls.target.clone ( )
+						: new THREE.Vector3 ( 0, 0, 0 ) ;
 
-	var saved_position = self.camera
-		? self.camera.position.clone ( )
-		: new THREE.Vector3 ( self.camera_position_matrix_x, self.camera_position_matrix_y, self.camera_position_matrix_z ) ;
+					var saved_position = self.camera
+						? self.camera.position.clone ( )
+						: new THREE.Vector3 ( self.camera_position_matrix_x, self.camera_position_matrix_y, self.camera_position_matrix_z ) ;
 
-	// switch camera
+					// switch camera
 
-	self.camera = self.camera && self.camera.isPerspectiveCamera
-		? self.orthographicCamera
-		: self.perspectiveCamera ;
+					self.camera = self.camera && self.camera.isPerspectiveCamera
+						? self.orthographicCamera
+						: self.perspectiveCamera ;
 
-	self.cameraType = self.camera.isPerspectiveCamera ? 'perspective' : 'orthographic' ;
+					self.cameraType = self.camera.isPerspectiveCamera ? 'perspective' : 'orthographic' ;
 
-	// apply preserved position
+					// apply preserved position
 
-	self.camera.position.copy ( saved_position ) ;
+					self.camera.position.copy ( saved_position ) ;
 
-	// per camera defaults
+					// per camera defaults
 
-	if ( self.camera.isOrthographicCamera ) {
+					if ( self.camera.isOrthographicCamera ) {
 
-		self.camera.zoom = 3000 ;
+						self.camera.zoom = 3000 ;
 
-	} else {
+					} else {
 
-		self.camera.zoom = 2 ;
+						self.camera.zoom = 2 ;
 
-	}
+					}
 
-	// rebind transform controls to active camera
+					// rebind transform controls to active camera
 
-	if ( self.transform_controls ) {
+					if ( self.transform_controls ) {
 
-		self.transform_controls.camera = self.camera ;
+						self.transform_controls.camera = self.camera ;
 
-	}
+					}
 
-	// rebuild orbit controls to avoid stale camera binding
+					// rebuild orbit controls to avoid stale camera binding
 
-	if ( self.orbitControls ) {
+					if ( self.orbitControls ) {
 
-		self.orbitControls.dispose ( ) ;
+						self.orbitControls.dispose ( ) ;
 
-	}
+					}
 
-	self.orbitControls = new OrbitControls ( self.camera, self.renderer.domElement ) ;
+					self.orbitControls = new OrbitControls ( self.camera, self.renderer.domElement ) ;
 
-	self.orbitControls.target.copy ( saved_target ) ;
+					self.orbitControls.target.copy ( saved_target ) ;
 
-	self.orbitControls.update ( ) ;
+					self.orbitControls.update ( ) ;
 
-	// projection + resize
+					// projection + resize
 
-	self.camera.updateProjectionMatrix ( ) ;
+					self.camera.updateProjectionMatrix ( ) ;
 
-	self.resize ( ) ;
+					self.resize ( ) ;
 
-	console.log ( "camera = " + self.cameraType ) ;
+					console.log ( "camera = " + self.cameraType ) ;
 
-	// refresh debug overlay values
+					// refresh debug overlay values
 
-	refresh_debug_overlay ( ) ;
+					refresh_debug_overlay ( ) ;
 
-} ;
+				} ;
 
-// camera position toggle
+				// camera position toggle
 
-this.camera_position_toggle_ = function ( ) {
+				this.camera_position_toggle_ = function ( ) {
 
-	// preserve orbit target
+					// preserve orbit target
 
-	var saved_target = self.orbitControls && self.orbitControls.target
-		? self.orbitControls.target.clone ( )
-		: new THREE.Vector3 ( 0, 0, 0 ) ;
+					var saved_target = self.orbitControls && self.orbitControls.target
+						? self.orbitControls.target.clone ( )
+						: new THREE.Vector3 ( 0, 0, 0 ) ;
 
-	// force orthographic
+					// force orthographic
 
-	self.camera = self.orthographicCamera ;
+					self.camera = self.orthographicCamera ;
 
-	self.cameraType = 'orthographic' ;
+					self.cameraType = 'orthographic' ;
 
-	// position matrix
+					// position matrix
 
-	self.camera.position.set ( self.camera_position_matrix_x, self.camera_position_matrix_y, self.camera_position_matrix_z ) ;
+					self.camera.position.set ( self.camera_position_matrix_x, self.camera_position_matrix_y, self.camera_position_matrix_z ) ;
 
-	self.camera.zoom = 3000 ;
+					self.camera.zoom = 3000 ;
 
-	// rebind transform controls to active camera
+					// rebind transform controls to active camera
 
-	if ( self.transform_controls ) {
+					if ( self.transform_controls ) {
 
-		self.transform_controls.camera = self.camera ;
+						self.transform_controls.camera = self.camera ;
 
-	}
+					}
 
-	// rebuild orbit controls (clean)
+					// rebuild orbit controls
 
-	if ( self.orbitControls ) {
+					if ( self.orbitControls ) {
 
-		self.orbitControls.dispose ( ) ;
+						self.orbitControls.dispose ( ) ;
 
-	}
+					}
 
-	self.orbitControls = new OrbitControls ( self.camera, self.renderer.domElement ) ;
+					self.orbitControls = new OrbitControls ( self.camera, self.renderer.domElement ) ;
 
-	self.orbitControls.target.copy ( saved_target ) ;
+					self.orbitControls.target.copy ( saved_target ) ;
 
-	self.orbitControls.update ( ) ;
+					self.orbitControls.update ( ) ;
 
-	self.camera.updateProjectionMatrix ( ) ;
+					self.camera.updateProjectionMatrix ( ) ;
 
-	self.resize ( ) ;
+					self.resize ( ) ;
 
-	console.log ( "camera position = " + self.camera_position_matrix_x, self.camera_position_matrix_y, self.camera_position_matrix_z ) ;
+					console.log ( "camera position = " + self.camera_position_matrix_x, self.camera_position_matrix_y, self.camera_position_matrix_z ) ;
 
-	// refresh debug overlay values
+					// refresh debug overlay values
 
-	refresh_debug_overlay ( ) ;
+					refresh_debug_overlay ( ) ;
 
-} ;
-
+				} ;
 
 				// camera position toggle
 
@@ -2368,7 +2367,7 @@ this.camera_position_toggle_ = function ( ) {
 
 					self.camera.lookAt ( 0, 0, 0 );
 
-					self.camera.updateProjectionMatrix ( );
+					self.camera.updateProjectionMatrix ( ) ;
 
 					console.log ( "camera position = " + self.camera_position_matrix_x, self.camera_position_matrix_y, self.camera_position_matrix_z );
 
@@ -2377,6 +2376,42 @@ this.camera_position_toggle_ = function ( ) {
 					refresh_debug_overlay ( ) ;
 
 				}
+
+				// camera position toggle cycle
+
+				self.camera_position_cycle_index = 0 ;
+
+				self.camera_position_cycle_ = function ( ) {
+
+					var positions = [
+
+						{ x: 45, y: 30, z: 45 },	// reset
+						{ x: 0,  y: 0,  z: 1  },	// front
+						{ x: 0,  y: 0,  z: -1 },	// back
+						{ x: 1,  y: 0,  z: 0  },	// left
+						{ x: -1, y: 0,  z: 0  },	// right
+						{ x: 0,  y: 1,  z: 0  },	// top
+						{ x: 0,  y: -1, z: 0  }		// bottom
+
+					] ;
+
+					self.camera_position_cycle_index ++ ;
+
+					if ( self.camera_position_cycle_index >= positions.length ) {
+
+						self.camera_position_cycle_index = 0 ;
+
+					}
+
+					var p = positions [ self.camera_position_cycle_index ] ;
+
+					self.camera_position_matrix_x = p.x ;
+					self.camera_position_matrix_y = p.y ;
+					self.camera_position_matrix_z = p.z ;
+
+					self.camera_position_toggle_ ( ) ;
+
+				} ;
 
 				// view toggle
 
@@ -2403,7 +2438,7 @@ this.camera_position_toggle_ = function ( ) {
 
 					self.orthographicCamera.zoom = ( orthographicRandomZoom );
 
-					self.resize ( );
+					self.resize ( ) ;
 
 					// refresh debug overlay values
 
@@ -2475,7 +2510,7 @@ this.camera_position_toggle_ = function ( ) {
 
 					const scaleSnap = ( snapFactor / 2 );
 
-					var snapMode = self.transform_controls.getMode ( );
+					var snapMode = self.transform_controls.getMode ( ) ;
 
 					if ( snapMode == "translate" ) {
 
@@ -2672,7 +2707,7 @@ this.camera_position_toggle_ = function ( ) {
 						self.orbitControls.minDistance = near;
 						self.orbitControls.maxDistance = far;
 
-						self.orbitControls.update ( );
+						self.orbitControls.update ( ) ;
 					}
 
 					return self.orbitControls;
@@ -2732,7 +2767,7 @@ this.camera_position_toggle_ = function ( ) {
 						self.camera.top    =   ( viewPortHeightOrthographic / 2 );
 						self.camera.bottom = - ( viewPortHeightOrthographic / 2 );
 
-						self.camera.updateProjectionMatrix ( );
+						self.camera.updateProjectionMatrix ( ) ;
 
 						// update renderer size
 
@@ -2743,7 +2778,7 @@ this.camera_position_toggle_ = function ( ) {
 					else {
 							self.camera.aspect = window.innerWidth / window.innerHeight;
 
-							self.camera.updateProjectionMatrix ( );
+							self.camera.updateProjectionMatrix ( ) ;
 
 							self.renderer.setSize ( window.innerWidth, window.innerHeight );
 
@@ -2761,7 +2796,7 @@ this.camera_position_toggle_ = function ( ) {
 
 						self.camera.aspect = canvas.clientWidth / canvas.clientHeight;
 
-						self.camera.updateProjectionMatrix ( );
+						self.camera.updateProjectionMatrix ( ) ;
 
 					}
 
@@ -2821,7 +2856,7 @@ this.camera_position_toggle_ = function ( ) {
 
 						case 72:
 
-							self.hemisphere_light_helper_ ( );
+							self.hemisphere_light_helper_ ( ) ;
 
 							break;
 
@@ -2829,7 +2864,7 @@ this.camera_position_toggle_ = function ( ) {
 
 						case 73:
 
-							self.spot_light_helper_ ( );
+							self.spot_light_helper_ ( ) ;
 
 							break;
 
@@ -2837,7 +2872,7 @@ this.camera_position_toggle_ = function ( ) {
 
 						case 74:
 
-							self.point_light_helper_ ( );
+							self.point_light_helper_ ( ) ;
 
 							break;
 
@@ -2845,11 +2880,11 @@ this.camera_position_toggle_ = function ( ) {
 
 						case 75:
 
-							self.directional_light_0_helper_ ( );
+							self.directional_light_0_helper_ ( ) ;
 
-							self.directional_light_1_helper_ ( );
+							self.directional_light_1_helper_ ( ) ;
 
-							self.directional_light_2_helper_ ( );
+							self.directional_light_2_helper_ ( ) ;
 
 							break;
 
@@ -2857,7 +2892,7 @@ this.camera_position_toggle_ = function ( ) {
 
 						case 65:
 
-							self.axesHelper_ ( );
+							self.axesHelper_ ( ) ;
 
 							break;
 
@@ -2865,7 +2900,7 @@ this.camera_position_toggle_ = function ( ) {
 
 						case 66:
 
-							self.bounding_box_helper_ ( );
+							self.bounding_box_helper_ ( ) ;
 
 							break;
 
@@ -2873,7 +2908,7 @@ this.camera_position_toggle_ = function ( ) {
 
 						case 68:
 
-							self.dimensions_toggle_ ( );
+							self.dimensions_toggle_ ( ) ;
 
 							break;
 
@@ -2881,7 +2916,7 @@ this.camera_position_toggle_ = function ( ) {
 
 						case 69:
 
-							self.edges_toggle_ ( );
+							self.edges_toggle_ ( ) ;
 
 							break;
 
@@ -2889,7 +2924,7 @@ this.camera_position_toggle_ = function ( ) {
 
 						case 70:
 
-							self.minifig_toggle_ ( );
+							self.minifig_toggle_ ( ) ;
 
 							break;
 
@@ -2897,7 +2932,7 @@ this.camera_position_toggle_ = function ( ) {
 
 						case 78:
 
-							self.dimension_labels_ ( );
+							self.dimension_labels_ ( ) ;
 
 						break;
 
@@ -2905,7 +2940,7 @@ this.camera_position_toggle_ = function ( ) {
 
 						case 79:
 
-							self.orthogonal_grid_helper_ ( );
+							self.orthogonal_grid_helper_ ( ) ;
 
 							break;
 
@@ -2913,7 +2948,7 @@ this.camera_position_toggle_ = function ( ) {
 
 						case 80:
 
-							self.polar_grid_helper_ ( );
+							self.polar_grid_helper_ ( ) ;
 
 							break;
 
@@ -2921,7 +2956,7 @@ this.camera_position_toggle_ = function ( ) {
 
 						case 76:
 
-							self.plane_ ( );
+							self.plane_ ( ) ;
 
 							break;
 
@@ -2929,7 +2964,7 @@ this.camera_position_toggle_ = function ( ) {
 
 						case 87:
 
-							self.wireframe_toggle_ ( );
+							self.wireframe_toggle_ ( ) ;
 
 							break;
 
@@ -2937,7 +2972,7 @@ this.camera_position_toggle_ = function ( ) {
 
 						case 77:
 
-							self.camera_helper_ ( );
+							self.camera_helper_ ( ) ;
 
 							break;
 
@@ -2945,7 +2980,7 @@ this.camera_position_toggle_ = function ( ) {
 
 						case 67:
 
-							self.camera_toggle_ ( );
+							self.camera_toggle_ ( ) ;
 
 							break;
 
@@ -2953,7 +2988,7 @@ this.camera_position_toggle_ = function ( ) {
 
 						case 86:
 
-							self.view_toggle_ ( );
+							self.view_toggle_ ( ) ;
 
 							break;
 
@@ -2968,7 +3003,7 @@ this.camera_position_toggle_ = function ( ) {
 							self.camera_position_matrix_y = 30;
 							self.camera_position_matrix_z = 45;
 
-							self.camera_position_toggle_ ( );
+							self.camera_position_toggle_ ( ) ;
 
 							break;
 
@@ -2983,7 +3018,7 @@ this.camera_position_toggle_ = function ( ) {
 							self.camera_position_matrix_y = 0;
 							self.camera_position_matrix_z = 1;
 
-							self.camera_position_toggle_ ( );
+							self.camera_position_toggle_ ( ) ;
 
 							break;
 
@@ -2998,7 +3033,7 @@ this.camera_position_toggle_ = function ( ) {
 							self.camera_position_matrix_y = 0;
 							self.camera_position_matrix_z = -1;
 
-							self.camera_position_toggle_ ( );
+							self.camera_position_toggle_ ( ) ;
 
 							break;
 
@@ -3013,7 +3048,7 @@ this.camera_position_toggle_ = function ( ) {
 							self.camera_position_matrix_y = 0;
 							self.camera_position_matrix_z = 0;
 
-							self.camera_position_toggle_ ( );
+							self.camera_position_toggle_ ( ) ;
 
 							break;
 
@@ -3028,7 +3063,7 @@ this.camera_position_toggle_ = function ( ) {
 							self.camera_position_matrix_y = 0;
 							self.camera_position_matrix_z = 0;
 
-							self.camera_position_toggle_ ( );
+							self.camera_position_toggle_ ( ) ;
 
 							break;
 
@@ -3043,7 +3078,7 @@ this.camera_position_toggle_ = function ( ) {
 							self.camera_position_matrix_y = 1;
 							self.camera_position_matrix_z = 0;
 
-							self.camera_position_toggle_ ( );
+							self.camera_position_toggle_ ( ) ;
 
 							break;
 
@@ -3058,7 +3093,15 @@ this.camera_position_toggle_ = function ( ) {
 							self.camera_position_matrix_y = -1;
 							self.camera_position_matrix_z = 0;
 
-							self.camera_position_toggle_ ( );
+							self.camera_position_toggle_ ( ) ;
+
+							break;
+
+						// G //
+
+						case 71:
+
+							self.camera_position_cycle_ ( ) ;
 
 							break;
 
@@ -3066,7 +3109,7 @@ this.camera_position_toggle_ = function ( ) {
 
 						case 32:
 
-							self.transform_toggle_ ( );
+							self.transform_toggle_ ( ) ;
 
 							break;
 
@@ -3098,7 +3141,7 @@ this.camera_position_toggle_ = function ( ) {
 
 						case 16:
 
-							self.snap_toggle_ ( );
+							self.snap_toggle_ ( ) ;
 
 							break;
 
@@ -3106,7 +3149,7 @@ this.camera_position_toggle_ = function ( ) {
 
 						case 17:
 
-							self.controlsSpace_ ( );
+							self.controlsSpace_ ( ) ;
 
 							break;
 
@@ -3216,7 +3259,7 @@ this.camera_position_toggle_ = function ( ) {
 
 				// loader
 
-				var loader = new ColladaLoader ( );
+				var loader = new ColladaLoader ( ) ;
 
 				// global vars for edges
 
@@ -3260,7 +3303,7 @@ this.camera_position_toggle_ = function ( ) {
 
 								var edges = new THREE.LineSegments ( edgesGeometry, edgesMaterial );
 
-								edges.geometry.computeBoundingBox ( );
+								edges.geometry.computeBoundingBox ( ) ;
 
 								// wireframe
 
@@ -3363,7 +3406,7 @@ this.camera_position_toggle_ = function ( ) {
 
 						// orbit controls
 
-						self.get_orbitControls ( );
+						self.get_orbitControls ( ) ;
 
 						// fit camera + controls target to loaded model
 
@@ -3375,7 +3418,7 @@ this.camera_position_toggle_ = function ( ) {
 
 						// refresh debug overlay after model load //
 
-						refresh_debug_overlay ( );
+						refresh_debug_overlay ( ) ;
 
 
 						// transform controls
@@ -3404,7 +3447,7 @@ this.camera_position_toggle_ = function ( ) {
 
 				document.getElementById ( 'plane' ).addEventListener ( 'click', function ( ) {
 
-					self.plane_ ( );
+					self.plane_ ( ) ;
 
 				} );
 
@@ -3413,7 +3456,7 @@ this.camera_position_toggle_ = function ( ) {
 
 				document.getElementById ( 'minifig' ).addEventListener ( 'click', function ( ) {
 
-					self.minifig_toggle_ ( );
+					self.minifig_toggle_ ( ) ;
 
 				} );
 
@@ -3421,7 +3464,7 @@ this.camera_position_toggle_ = function ( ) {
 
 				document.getElementById ( 'wireframe' ).addEventListener ( 'click', function ( ) {
 
-					self.wireframe_toggle_ ( );
+					self.wireframe_toggle_ ( ) ;
 
 				} );
 
@@ -3429,7 +3472,7 @@ this.camera_position_toggle_ = function ( ) {
 
 				document.getElementById ( 'edges' ).addEventListener ( 'click', function ( ) {
 
-					self.edges_toggle_ ( );
+					self.edges_toggle_ ( ) ;
 
 				} );
 
@@ -3437,11 +3480,11 @@ this.camera_position_toggle_ = function ( ) {
 
 				document.getElementById ( 'dimensions' ).addEventListener ( 'click', function ( ) {
 
-					self.dimensions_toggle_ ( );
+					self.dimensions_toggle_ ( ) ;
 
 				} );
 
-				const endTime = performance.now ( );
+				const endTime = performance.now ( ) ;
 
 				const loadTime = ( ( endTime - start_time ) / 1000).toFixed ( 2 );
 
@@ -3449,7 +3492,7 @@ this.camera_position_toggle_ = function ( ) {
 
 			}
 
-			new initialize ( );
+			new initialize ( ) ;
 
 		</script>
 

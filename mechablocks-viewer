@@ -3306,8 +3306,6 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						case 71:
 
-							// camera position cycle toggle
-
 							self.camera_position_cycle_ ( ) ;
 
 							break;
