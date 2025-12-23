@@ -239,48 +239,6 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	}
 
-
-		function selections_scroll ( selections ) {
-
-		var scroll_maximum = selections.scrollWidth - selections.clientWidth ;
-
-		console.log ( 'selections [ scroll ] : update ', selections.scrollLeft,' / ',scroll_maximum ) ;
-
-		if ( scroll_maximum <= 0 ) {
-
-			wrapper.classList.remove ( 'scroll-left' ) ;
-			wrapper.classList.remove ( 'scroll-right' ) ;
-
-			return ;
-
-		}
-
-		// show left arrow if we can scroll left (not at far left)
-
-		if ( selections.scrollLeft > 0 ) {
-
-			wrapper.classList.add ( 'scroll-right' ) ;
-
-		} else {
-
-			wrapper.classList.remove ( 'scroll-right' ) ;
-
-		}
-
-		// show right arrow if we can scroll right (not at far right)
-
-		if ( selections.scrollLeft < scroll_maximum - 1 ) {
-
-			wrapper.classList.add ( 'scroll-left' ) ;
-
-		} else {
-
-			wrapper.classList.remove ( 'scroll-left' ) ;
-
-		}
-
-	}
-
 	function bind_events ( footer ) {
 
 		console.log ( 'footer [ event ] : bind events' ) ;
