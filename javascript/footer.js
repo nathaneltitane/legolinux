@@ -5,13 +5,18 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 	console.log ( 'footer [ init ] : domcontentloaded' ) ;
 
 	var footer_id	= document.getElementById	( 'footer' ) ;
-	var footer	= footer_id.querySelector		( '.footer' ) ;
 
 	if ( ! footer_id ) {
 
 		console.log ( 'footer [ init ] : abort, #footer missing' ) ;
 
 		return ;
+
+	}
+
+	function get_footer ( ) {
+
+		return footer_id.querySelector ( '.footer' ) ;
 
 	}
 
@@ -184,7 +189,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 		var arrow_left	= document.querySelector ( '#footer-start .footer-start' ) ;
 		var arrow_right	= document.querySelector ( '#footer-end .footer-end' ) ;
 
-		// if not laid out yet, do not show arrows //
+		//  do not show arrows if not laid out and loaded
 
 		if ( ! footer || footer.clientWidth <= 0 ) {
 
@@ -195,7 +200,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		}
 
-		// robust overflow check (flex / subpixel / rounding) //
+		// robust overflow check - flex / subpixel / rounding
 
 		var can_scroll = footer.scrollWidth > ( footer.clientWidth + 1 ) ;
 
@@ -223,7 +228,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		// middle
 
-		//if ( arrow_left ) arrow_left.classList.add ( 'footer-right' ) ;
+		// if ( arrow_left ) arrow_left.classList.add ( 'footer-right' ) ;
 		// if ( arrow_right ) arrow_right.classList.add ( 'footer-left' ) ;
 
 		// end
@@ -359,9 +364,11 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		}
 
+		var footer = get_footer ( ) ;
+
 		if ( ! footer ) {
 
-			console.log ( 'footer [ bootstrap ] : waiting for footer' ) ;
+			console.log ( 'footer [ bootstrap ] : waiting for .footer' ) ;
 
 			return ;
 
@@ -437,7 +444,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		requestAnimationFrame ( function ( ) {
 
-			scroll ( footer ) ;
+			scroll ( get_footer ( ) ) ;
 
 		} ) ;
 
