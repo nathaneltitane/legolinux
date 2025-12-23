@@ -3728,6 +3728,16 @@ then
 
 				<div class="selections">
 
+					<!-- tab -->
+
+					<div id="selections-tab">
+
+						<div class="selections-tab">
+
+						</div>
+
+					</div>
+
 					<div class="flex flex-row flex-middle flex-around">
 
 						<!-- start -->

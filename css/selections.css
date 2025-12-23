@@ -47,6 +47,21 @@
 	border-bottom: 10px solid #00000000;
 }
 
+.selections-tab {
+	position: absolute;
+	left: 50%;
+	top: 100%;
+
+	transform: translateX(-50%);
+
+	width: 120px;
+	height: 40px;
+
+	border-radius: 0px 0px 20px 20px;
+
+	background: #00000000;
+}
+
 .selections {
 	position: relative;
 	top: 0px;

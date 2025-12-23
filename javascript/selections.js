@@ -4,10 +4,10 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	console.log ( 'selections [ init ] : domcontentloaded' ) ;
 
-	var wrapper = document.getElementById ( 'selections' ) ;
-	var selections	= wrapper.querySelector		( '.selections' ) ;
+	var selections_parent = document.getElementById ( 'selections' ) ;
+	var selections	= selections_parent.querySelector		( '.selections' ) ;
 
-	if ( ! wrapper ) {
+	if ( ! selections_parent ) {
 
 		console.log ( 'selections [ init ] : abort, #selections missing' ) ;
 
@@ -23,7 +23,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		console.log ( 'selections [ state ] : hide' ) ;
 
-		wrapper.style.top = '-160px' ;
+		selections_parent.style.top = '-160px' ;
 
 		if ( selections ) {
 
@@ -37,7 +37,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		console.log ( 'selections [ state ] : show' ) ;
 
-		wrapper.style.top = '0px' ;
+		selections_parent.style.top = '0px' ;
 
 		if ( selections ) {
 
@@ -61,7 +61,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 			requestAnimationFrame ( function ( ) {
 
-				selections_scroll ( selections ) ;
+				scroll ( selections ) ;
 
 			} ) ;
 
@@ -69,7 +69,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	}
 
-	function selections_scroll ( selections ) {
+	function scroll ( selections ) {
 
 		var arrow_left	= document.querySelector ( '#selections-start .selections-start' ) ;
 		var arrow_right	= document.querySelector ( '#selections-end .selections-end' ) ;
@@ -129,7 +129,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	}
 
-	function bind_events ( selections ) {
+	function bind ( selections ) {
 
 		console.log ( 'selections [ event ] : bind events' ) ;
 
@@ -181,19 +181,19 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 			selections.scrollLeft += event.deltaY ;
 
-			selections_scroll ( selections ) ;
+			scroll ( selections ) ;
 
 		}, { passive: false } ) ;
 
 		selections.addEventListener ( 'scroll', function ( ) {
 
-			selections_scroll ( selections ) ;
+			scroll ( selections ) ;
 
 		} ) ;
 
 		window.addEventListener ( 'resize', function ( ) {
 
-			selections_scroll ( selections ) ;
+			scroll ( selections ) ;
 
 		} ) ;
 
@@ -203,13 +203,13 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		if ( initialized ) return ;
 
-		var selections = wrapper.querySelector ( '.selections' ) ;
+		var selections = selections_parent.querySelector ( '.selections' ) ;
 
 		if ( ! selections ) return ;
 
 		initialized = true ;
 
-		bind_events ( selections ) ;
+		bind ( selections ) ;
 
 		var canvas = document.getElementById ( 'canvas' ) ;
 
@@ -225,7 +225,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		}
 
-		selections_scroll ( selections ) ;
+		scroll ( selections ) ;
 
 		// failsafe reveal
 
@@ -233,7 +233,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 			show ( selections ) ;
 
-			selections_scroll ( selections ) ;
+			scroll ( selections ) ;
 
 		}, 2500 ) ;
 
