@@ -2588,7 +2588,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				self.camera_position_cycle_ = function ( ) {
 
-					var positions = [
+					var positions_list = [
 
 						{ x: 45, y: 30, z: 45 },	// reset
 						{ x: 0,  y: 0,  z: 1  },	// front
@@ -2608,11 +2608,11 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					}
 
-					var p = positions [ self.camera_position_cycle_index ] ;
+					var position = positions_list [ self.camera_position_cycle_index ] ;
 
-					self.camera_position_matrix_x = p.x ;
-					self.camera_position_matrix_y = p.y ;
-					self.camera_position_matrix_z = p.z ;
+					self.camera_position_matrix_x = position.x ;
+					self.camera_position_matrix_y = position.y ;
+					self.camera_position_matrix_z = position.z ;
 
 					self.camera_position_toggle_ ( ) ;
 
