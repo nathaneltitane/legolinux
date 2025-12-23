@@ -2602,7 +2602,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					self.camera_position_cycle_index ++ ;
 
-					if ( self.camera_position_cycle_index >= positions.length ) {
+					if ( self.camera_position_cycle_index >= positions_list.length ) {
 
 						self.camera_position_cycle_index = 0 ;
 
