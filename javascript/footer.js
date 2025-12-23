@@ -4,9 +4,9 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	console.log ( 'footer [ init ] : domcontentloaded' ) ;
 
-	var wrapper = document.getElementById ( 'footer' ) ;
-	var footer = wrapper.querySelector ( '.footer' ) ;
-	var edge = 	wrapper.querySelector ( '.footer-edge' ) ;
+	var wrapper	= document.getElementById	( 'footer' ) ;
+	var footer	= wrapper.querySelector		( '.footer' ) ;
+	var edge	= wrapper.querySelector		( '.footer-edge' ) ;
 
 	if ( ! wrapper ) {
 

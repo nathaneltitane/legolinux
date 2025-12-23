@@ -66,7 +66,7 @@
 }
 
 .footer {
-	position: fixed;
+	position: relative;
 	bottom: 0px;
 	left: 0px;
 	right: 0px;
@@ -85,7 +85,7 @@
 }
 
 .footer-edge {
-	position: fixed;
+	position: relative;
 	bottom: 0px;
 	left: 0px;
 	right: 0px;
@@ -109,7 +109,7 @@
 	bottom: 0px;
 
 	height: 80px;
-	width: 120px;
+	width: 80px;
 
 	position: absolute;
 	z-index: 9;
@@ -130,7 +130,7 @@
 	bottom: 0px;
 
 	height: 80px;
-	width: 120px;
+	width: 80px;
 
 	position: absolute;
 	z-index: 9;
