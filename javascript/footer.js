@@ -4,11 +4,8 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	console.log ( 'footer [ init ] : domcontentloaded' ) ;
 
-	var wrapper	= document.getElementById ( 'footer' ) ;
-	var footer	= wrapper.querySelector ( '.footer' ) ;
-	var edge	= document.getElementById ( '.footer-edge' ) ;
-	var start = wrapper.querySelector ( '.footer-start' ) ;
-	var end = wrapper.querySelector ( '.footer-end' ) ;
+	var wrapper	= document.getElementById	( 'footer' ) ;
+	var footer	= wrapper.querySelector		( '.footer' ) ;
 
 	if ( ! wrapper ) {
 
@@ -34,12 +31,6 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		}
 
-		if ( edge ) {
-
-			edge.style.bottom = '-80px' ;
-
-		}
-
 	}
 
 	function show ( footer ) {
@@ -51,12 +42,6 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 		if ( footer ) {
 
 			footer.style.bottom = '0px' ;
-
-		}
-
-		if ( edge ) {
-
-			edge.style.bottom = '0px' ;
 
 		}
 
@@ -196,14 +181,75 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	function footer_scroll ( footer ) {
 
+		var arrow_left	= document.querySelector ( '#footer-start .footer-start' ) ;
+		var arrow_right	= document.querySelector ( '#footer-end .footer-end' ) ;
+
+		// if not laid out yet, do not show arrows //
+
+		if ( ! footer || footer.clientWidth <= 0 ) {
+
+			if ( arrow_left ) arrow_left.classList.remove ( 'footer-right' ) ;
+			if ( arrow_right ) arrow_right.classList.remove ( 'footer-left' ) ;
+
+			return ;
+
+		}
+
+		// robust overflow check (flex / subpixel / rounding) //
+
+		var can_scroll = footer.scrollWidth > ( footer.clientWidth + 1 ) ;
+
+		if ( ! can_scroll ) {
+
+			if ( arrow_left ) arrow_left.classList.remove ( 'footer-right' ) ;
+			if ( arrow_right ) arrow_right.classList.remove ( 'footer-left' ) ;
+
+			return ;
+
+		}
+
 		var scroll_maximum = footer.scrollWidth - footer.clientWidth ;
 
-		console.log ( 'footer [ scroll ] : update ', footer.scrollLeft,' / ',scroll_maximum ) ;
+		// start
+
+		if ( footer.scrollLeft <= 0 ) {
+
+			if ( arrow_left ) arrow_left.classList.add ( 'footer-right' ) ;
+			if ( arrow_right ) arrow_right.classList.remove ( 'footer-left' ) ;
+
+			return ;
+
+		}
+
+		// middle
+
+		if ( arrow_left ) arrow_left.classList.add ( 'footer-right' ) ;
+		if ( arrow_right ) arrow_right.classList.add ( 'footer-left' ) ;
+
+		// end
+
+		if ( footer.scrollLeft >= scroll_maximum - 1 ) {
+
+			if ( arrow_left ) arrow_left.classList.remove ( 'footer-right' ) ;
+			if ( arrow_right ) arrow_right.classList.add ( 'footer-left' ) ;
+
+			return ;
+
+		}
+
+	}
+
+
+		function selections_scroll ( selections ) {
+
+		var scroll_maximum = selections.scrollWidth - selections.clientWidth ;
+
+		console.log ( 'selections [ scroll ] : update ', selections.scrollLeft,' / ',scroll_maximum ) ;
 
 		if ( scroll_maximum <= 0 ) {
 
-			wrapper.classList.remove ( 'footer-left' ) ;
-			wrapper.classList.remove ( 'footer-right' ) ;
+			wrapper.classList.remove ( 'scroll-left' ) ;
+			wrapper.classList.remove ( 'scroll-right' ) ;
 
 			return ;
 
@@ -211,25 +257,25 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		// show left arrow if we can scroll left (not at far left)
 
-		if ( footer.scrollLeft > 0 ) {
+		if ( selections.scrollLeft > 0 ) {
 
-			start.classList.add ( 'footer-right' ) ;
+			wrapper.classList.add ( 'scroll-right' ) ;
 
 		} else {
 
-			wrapper.classList.remove ( 'footer-right' ) ;
+			wrapper.classList.remove ( 'scroll-right' ) ;
 
 		}
 
 		// show right arrow if we can scroll right (not at far right)
 
-		if ( footer.scrollLeft < scroll_maximum - 1 ) {
+		if ( selections.scrollLeft < scroll_maximum - 1 ) {
 
-			wrapper.classList.add ( 'footer-left' ) ;
+			wrapper.classList.add ( 'scroll-left' ) ;
 
 		} else {
 
-			wrapper.classList.remove ( 'footer-left' ) ;
+			wrapper.classList.remove ( 'scroll-left' ) ;
 
 		}
 
