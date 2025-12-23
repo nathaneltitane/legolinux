@@ -1780,7 +1780,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-white.dae',
+						'/minifigs/exports/minifig-yellow.dae',
 
 						function ( collada ) {
 
@@ -3451,6 +3451,14 @@
 
 				} );
 
+
+				// camera toggle
+
+				document.getElementById ( 'camera' ).addEventListener ( 'click', function ( ) {
+
+					self.camera_position_cycle_ ( ) ;
+
+				} );
 
 				// minifig toggle
 
