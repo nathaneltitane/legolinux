@@ -2099,7 +2099,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						function ( error ) {
 
-							console.error ( 'minifig : failed to load /minifigs/exports/minifig-black.dae', error );
+							console.error ( 'minifig : failed to load /minifigs/exports/minifig-${color_minifig}.dae', error );
 
 						}
 
