@@ -1800,7 +1800,7 @@
 
 							const model_box = new THREE.Box3 ( ).setFromObject ( self.colladaImport );
 
-							const minifigBox = new THREE.Box3 ( ).setFromObject ( minifig );
+							const minifig_box = new THREE.Box3 ( ).setFromObject ( minifig );
 
 							// scale - minifig
 
@@ -1808,27 +1808,27 @@
 
 							// compute minifig position
 
-							const minifigPositionBox = new THREE.Box3 ( ).setFromObject ( minifig );
+							const minifig_positionBox = new THREE.Box3 ( ).setFromObject ( minifig );
 
-							const position_offset_y = model_box.min.y - minifigPositionBox.min.y;
+							const position_offset_y = model_box.min.y - minifig_positionBox.min.y;
 
-							const modelDepth = model_box.max.z - model_box.min.z;
+							const model_depth = model_box.max.z - model_box.min.z;
 
-							const minifigDepth = minifigBox.max.z - minifigBox.min.z;
+							const minifig_depth = minifig_box.max.z - minifig_box.min.z;
 
-							const minifigCenter = minifigBox.getCenter ( new THREE.Vector3 ( ) );
+							const minifig_center = minifig_box.getCenter ( new THREE.Vector3 ( ) );
 
-							const minifigPosition_x = minifigCenter.x;
+							const minifig_position_x = minifig_center.x;
 
-							const minifigPosition_y = position_offset_y;
+							const minifig_position_y = position_offset_y;
 
-							const minifigPosition_z = ( modelDepth - ( modelDepth / 2 ) + minifigDepth );
+							const minifig_position_z = ( model_depth - ( model_depth / 2 ) + minifig_depth );
 
 							// set minifig position
 
-							minifig.position.set ( minifigPosition_x, minifigPosition_y, minifigPosition_z );
+							minifig.position.set ( minifig_position_x, minifig_position_y, minifig_position_z );
 
-							// edges - minifig //
+							// edges - minifig
 
 							minifig.traverse ( function ( node ) {
 
@@ -1912,7 +1912,8 @@
 
 					const self = this;
 
-					// guard: baseplate depends on main model being present
+					// baseplate depends on main model being present
+
 					if ( ! self.colladaImport ) {
 
 						console.warn ( 'baseplate : main model not loaded yet (colladaImport is missing)' );
@@ -1968,7 +1969,7 @@
 
 							baseplate.scale.setScalar ( editor_scale );
 
-							// compute baseplate position //
+							// compute baseplate position
 
 							const baseplate_position_box = new THREE.Box3 ( ).setFromObject ( baseplate ) ;
 
