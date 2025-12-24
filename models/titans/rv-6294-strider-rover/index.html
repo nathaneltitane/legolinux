@@ -1757,6 +1757,54 @@
 
 				}
 
+				// grid toggle
+
+				this.grid_toggle_ = function ( ) {
+
+					// no grid - orthogonal on
+
+					self.orthogonal_grid_helper_visible = true ;
+
+					self.scene.add ( self.get_orthogonal_grid_helper ( ) ) ;
+
+					console.log ( "helper [ grid cycle ] : orthogonal" ) ;
+
+					// orthogonal on - switch to polar
+
+					if ( self.orthogonal_grid_helper_visible ) {
+
+						self.orthogonal_grid_helper_visible = false ;
+
+						self.scene.remove ( self.get_orthogonal_grid_helper ( ) ) ;
+
+						self.polar_grid_helper_visible = true ;
+
+						self.scene.add ( self.get_polar_grid_helper ( ) ) ;
+
+						console.log ( "helper [ grid cycle ] : polar" ) ;
+
+						return ;
+
+					}
+
+					// polar on - no grid
+
+					if ( self.polar_grid_helper_visible ) {
+
+						self.polar_grid_helper_visible = false ;
+
+						self.scene.remove ( self.get_polar_grid_helper ( ) ) ;
+
+						console.log ( "helper [ grid cycle ] : off" ) ;
+
+						return ;
+
+					}
+
+				} ;
+
+				window.grid_toggle_ = this.grid_toggle_.bind ( this ) ;
+
 				// minifig helper
 
 				this.minifig_toggle_ = function ( ) {
@@ -3495,6 +3543,14 @@
 
 				} );
 
+				// grid toggle
+
+				document.getElementById ( 'grid' ).addEventListener ( 'click', function ( ) {
+
+					self.grid_toggle_ ( ) ;
+
+				} );
+
 				// camera toggle
 
 				document.getElementById ( 'camera' ).addEventListener ( 'click', function ( ) {
@@ -3928,6 +3984,12 @@ TITAN MODE
 					<!-- baseplate -->
 
 					<div id="baseplate">
+
+					</div>
+
+					<!-- grid -->
+
+					<div id="grid">
 
 					</div>
 
