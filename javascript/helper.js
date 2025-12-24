@@ -81,7 +81,7 @@ $( document ).ready ( function ( ) {
 
     } );
 
-    $( '#canvas, #footer' ).click ( function ( event ) {
+    $( '.helper' ).click ( function ( event ) {
 
         if ( helper.hasClass ( 'helper-show' ) ) {
 
