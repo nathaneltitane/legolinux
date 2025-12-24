@@ -3625,7 +3625,6 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						refresh_debug_overlay ( ) ;
 
-
 						// transform controls
 
 						self.scene.add ( self.get_transform_controls ( ) );
@@ -3655,7 +3654,6 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 					self.plane_ ( ) ;
 
 				} );
-
 
 				// camera toggle
 
