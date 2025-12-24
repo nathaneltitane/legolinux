@@ -2167,7 +2167,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 							const model_box = new THREE.Box3 ( ).setFromObject ( self.colladaImport );
 
-							const baseplateBox = new THREE.Box3 ( ).setFromObject ( baseplate );
+							const baseplate_box = new THREE.Box3 ( ).setFromObject ( baseplate );
 
 							// scale - baseplate
 
