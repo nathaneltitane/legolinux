@@ -1196,6 +1196,8 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				this.scene.add ( this.spotLight );
 
+				// helpers
+
 				// axes helper
 
 				this.axesHelper = null;
@@ -1824,40 +1826,66 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// polar grid helper
 
-this.get_polar_grid_helper = function ( ) {
+				this.polar_grid_helper_color_min = orange;
 
-	if ( ! self.polar_grid_helper ) {
+				this.polar_grid_helper_color_max = charcoal;
 
-		const ring_spacing = 0.008 ;
-		const rings = 96 / 2 ;
-		const radius = ring_spacing * rings ;
+				this.polar_grid_helper = null;
 
-		self.polar_grid_helper = new THREE.PolarGridHelper (
+				this.polar_grid_helper_visible = false;
 
-			radius,
-			rings,
-			rings,
-			rings,
-			this.polar_grid_helper_color_min,
-			this.polar_grid_helper_color_max
+				this.get_polar_grid_helper = function ( ) {
 
-		) ;
+					if ( ! self.polar_grid_helper ) {
 
-		const box = self.get_boundingBox ( ) ;
-		const center = box.getCenter ( new THREE.Vector3 ( ) ) ;
+					const ringSpacing = 0.008;
+					const rings = 96 / 2;
+					const radius = ringSpacing * rings;
 
-		self.polar_grid_helper.position.x = center.x ;
-		self.polar_grid_helper.position.y = box.min.y ;
-		self.polar_grid_helper.position.z = center.z ;
+					self.polar_grid_helper = new THREE.PolarGridHelper (
 
-		console.log ( "helper [ grid / polar ]" ) ;
+						radius,
+						rings,
+						rings,
+						rings,
+						this.polar_grid_helper_color_min,
+						this.polar_grid_helper_color_max
 
-	}
+					);
 
-	return self.polar_grid_helper ;
+						self.polar_grid_helper.position.y = self.get_boundingBox ( ).min.y;
 
-}
+						self.polar_grid_helper.position.x = 0;
 
+						// self.polar_grid_helper.position.y = 0;
+
+						console.log ( "helper [ grid / polar ]" );
+
+					}
+
+					return self.polar_grid_helper;
+
+				}
+
+				this.polar_grid_helper_ = function ( ) {
+
+					if ( this.polar_grid_helper_visible ) {
+
+						this.polar_grid_helper_visible = false;
+
+						self.scene.remove ( self.get_polar_grid_helper ( ) );
+
+					}
+
+					else {
+
+						this.polar_grid_helper_visible = true;
+
+						self.scene.add ( self.get_polar_grid_helper ( ) );
+
+					}
+
+				}
 
 				// orthogonal grid helper
 
@@ -1977,7 +2005,7 @@ this.get_polar_grid_helper = function ( ) {
 
 							const model_box = new THREE.Box3 ( ).setFromObject ( self.colladaImport );
 
-							const minifig_box = new THREE.Box3 ( ).setFromObject ( minifig );
+							const minifigBox = new THREE.Box3 ( ).setFromObject ( minifig );
 
 							// scale - minifig
 
@@ -1985,25 +2013,25 @@ this.get_polar_grid_helper = function ( ) {
 
 							// compute minifig position
 
-							const minifig_position_box = new THREE.Box3 ( ).setFromObject ( minifig );
+							const minifigPositionBox = new THREE.Box3 ( ).setFromObject ( minifig );
 
-							const position_offset_y = model_box.min.y - minifig_position_box.min.y;
+							const position_offset_y = model_box.min.y - minifigPositionBox.min.y;
 
-							const model_depth = model_box.max.z - model_box.min.z;
+							const modelDepth = model_box.max.z - model_box.min.z;
 
-							const minifig_depth = minifig_box.max.z - minifig_box.min.z;
+							const minifigDepth = minifigBox.max.z - minifigBox.min.z;
 
-							const minifig_center = minifig_box.getCenter ( new THREE.Vector3 ( ) );
+							const minifigCenter = minifigBox.getCenter ( new THREE.Vector3 ( ) );
 
-							const minifig_position_x = minifig_center.x;
+							const minifigPosition_x = minifigCenter.x;
 
-							const minifig_position_y = position_offset_y;
+							const minifigPosition_y = position_offset_y;
 
-							const minifig_position_z = ( model_depth - ( model_depth / 2 ) + minifig_depth );
+							const minifigPosition_z = ( modelDepth - ( modelDepth / 2 ) + minifigDepth );
 
 							// set minifig position
 
-							minifig.position.set ( minifig_position_x, minifig_position_y, minifig_position_z );
+							minifig.position.set ( minifigPosition_x, minifigPosition_y, minifigPosition_z );
 
 							// edges - minifig //
 
@@ -2162,7 +2190,7 @@ this.get_polar_grid_helper = function ( ) {
 							const model_center = model_box.getCenter ( new THREE.Vector3 ( ) ) ;
 
 							const baseplate_position_x = model_center.x ;
-							const baseplate_position_y = position_offset_y ;1
+							const baseplate_position_y = position_offset_y ;
 							const baseplate_position_z = 0 ;
 
 							// set baseplate position //
@@ -2252,6 +2280,131 @@ this.get_polar_grid_helper = function ( ) {
 				// generate globally bound entry point so helper buttons can call it safely
 
 				window.baseplate_toggle_ = this.baseplate_toggle_.bind ( this );
+
+				// plane helper
+
+				this.boundingBox = null;
+
+				this.get_boundingBox = function ( ) {
+
+					if ( ! self.boundingBox ) {
+
+						self.boundingBox = new THREE.Box3 ( ).setFromObject ( self.colladaImport )
+
+						console.log ( "helper [ bounding box / plane ]" );
+					}
+
+					return self.boundingBox;
+
+				}
+
+				this.plane_color = grey;
+
+				this.plane = null;
+
+				this.plane_visible = false;
+
+				this.get_plane = function ( ) {
+
+					if ( !self.plane ) {
+
+						const planeRatio = 128 * 0.008;
+
+						const planeWidth = planeRatio;
+
+						const planeLength = planeRatio;
+
+						const radius = 0.008;
+
+						const shape = new THREE.Shape ( ) ;
+
+						const w = planeWidth;
+						const h = planeLength;
+						const r = radius;
+
+						// start from top-left corner and draw clockwise
+
+						shape.moveTo(-w/2 + r, h/2);
+						shape.lineTo(w/2 - r, h/2);
+						shape.quadraticCurveTo(w/2, h/2, w/2, h/2 - r);
+						shape.lineTo(w/2, -h/2 + r);
+						shape.quadraticCurveTo(w/2, -h/2, w/2 - r, -h/2);
+						shape.lineTo(-w/2 + r, -h/2);
+						shape.quadraticCurveTo(-w/2, -h/2, -w/2, -h/2 + r);
+						shape.lineTo(-w/2, h/2 - r);
+						shape.quadraticCurveTo(-w/2, h/2, -w/2 + r, h/2);
+
+						const geometry = new THREE.ShapeGeometry ( shape );
+
+						const material = new THREE.MeshStandardMaterial ( {
+
+							color: this.plane_color,
+
+							side: THREE.DoubleSide
+
+						} );
+
+						self.plane = new THREE.Mesh(geometry, material);
+
+						self.plane.rotation.x = -0.5 * Math.PI;
+
+						self.plane.position.y = self.boundingBox.min.y;
+
+						self.plane.receiveShadow = true;
+
+						// edges - plane
+
+						const edgesGeometry = new THREE.EdgesGeometry ( geometry );
+
+						const edgesMaterial = new THREE.LineBasicMaterial ( {
+
+							color: black,
+
+							linewidth: line_thickness
+
+						} );
+
+						self.planeEdges = new THREE.LineSegments ( edgesGeometry, edgesMaterial );
+
+						self.planeEdges.rotation.copy (self.plane.rotation );
+
+						self.planeEdges.position.copy (self.plane.position );
+
+						console.log ( "helper [ plane ]" );
+
+					}
+
+					return self.plane;
+
+				}
+
+				// plane toggle
+
+				this.plane_ = function ( ) {
+
+					self.boundingBox = self.get_boundingBox ( ) ;
+
+					if ( this.plane_visible ) {
+
+						this.plane_visible = false;
+
+						self.scene.remove ( self.get_plane ( ) );
+						self.scene.remove ( self.planeEdges );
+
+					}
+
+					else {
+
+						this.plane_visible = true;
+
+						self.scene.add ( self.get_plane ( ) );
+						self.scene.add ( self.planeEdges );
+					}
+
+					// refresh debug overlay values
+
+					refresh_debug_overlay ( ) ;
+				}
 
 				// edges toggle - model
 
@@ -3675,9 +3828,9 @@ this.get_polar_grid_helper = function ( ) {
 
 				window.addEventListener ( 'keydown', self.transformKeys );
 
-				// baseplate toggle
+				// plane toggle
 
-				document.getElementById ( 'baseplate' ).addEventListener ( 'click', function ( ) {
+				document.getElementById ( 'plane' ).addEventListener ( 'click', function ( ) {
 
 					self.baseplate_toggle_ ( ) ;
 
@@ -4281,9 +4434,9 @@ cat << 3D-MODEL-PAGE-HELPERS ->> "${model_directory}/index.html"
 
 					</div>
 
-					<!-- baseplate -->
+					<!-- plane -->
 
-					<div id="baseplate">
+					<div id="plane">
 
 					</div>
 

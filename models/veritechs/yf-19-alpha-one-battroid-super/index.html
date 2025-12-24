@@ -1633,9 +1633,9 @@
 
 					if ( ! self.polar_grid_helper ) {
 
-					const ring_spacing = 0.008;
+					const ringSpacing = 0.008;
 					const rings = 96 / 2;
-					const radius = ring_spacing * rings;
+					const radius = ringSpacing * rings;
 
 					self.polar_grid_helper = new THREE.PolarGridHelper (
 
@@ -1788,7 +1788,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-green.dae',
+						'/minifigs/exports/minifig-white.dae',
 
 						function ( collada ) {
 
@@ -1894,7 +1894,7 @@
 
 						function ( error ) {
 
-							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-green.dae', error );
+							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-white.dae', error );
 
 						}
 
@@ -2075,6 +2075,131 @@
 				// generate globally bound entry point so helper buttons can call it safely
 
 				window.baseplate_toggle_ = this.baseplate_toggle_.bind ( this );
+
+				// plane helper
+
+				this.boundingBox = null;
+
+				this.get_boundingBox = function ( ) {
+
+					if ( ! self.boundingBox ) {
+
+						self.boundingBox = new THREE.Box3 ( ).setFromObject ( self.colladaImport )
+
+						console.log ( "helper [ bounding box / plane ]" );
+					}
+
+					return self.boundingBox;
+
+				}
+
+				this.plane_color = grey;
+
+				this.plane = null;
+
+				this.plane_visible = false;
+
+				this.get_plane = function ( ) {
+
+					if ( !self.plane ) {
+
+						const planeRatio = 128 * 0.008;
+
+						const planeWidth = planeRatio;
+
+						const planeLength = planeRatio;
+
+						const radius = 0.008;
+
+						const shape = new THREE.Shape ( ) ;
+
+						const w = planeWidth;
+						const h = planeLength;
+						const r = radius;
+
+						// start from top-left corner and draw clockwise
+
+						shape.moveTo(-w/2 + r, h/2);
+						shape.lineTo(w/2 - r, h/2);
+						shape.quadraticCurveTo(w/2, h/2, w/2, h/2 - r);
+						shape.lineTo(w/2, -h/2 + r);
+						shape.quadraticCurveTo(w/2, -h/2, w/2 - r, -h/2);
+						shape.lineTo(-w/2 + r, -h/2);
+						shape.quadraticCurveTo(-w/2, -h/2, -w/2, -h/2 + r);
+						shape.lineTo(-w/2, h/2 - r);
+						shape.quadraticCurveTo(-w/2, h/2, -w/2 + r, h/2);
+
+						const geometry = new THREE.ShapeGeometry ( shape );
+
+						const material = new THREE.MeshStandardMaterial ( {
+
+							color: this.plane_color,
+
+							side: THREE.DoubleSide
+
+						} );
+
+						self.plane = new THREE.Mesh(geometry, material);
+
+						self.plane.rotation.x = -0.5 * Math.PI;
+
+						self.plane.position.y = self.boundingBox.min.y;
+
+						self.plane.receiveShadow = true;
+
+						// edges - plane
+
+						const edgesGeometry = new THREE.EdgesGeometry ( geometry );
+
+						const edgesMaterial = new THREE.LineBasicMaterial ( {
+
+							color: black,
+
+							linewidth: line_thickness
+
+						} );
+
+						self.planeEdges = new THREE.LineSegments ( edgesGeometry, edgesMaterial );
+
+						self.planeEdges.rotation.copy (self.plane.rotation );
+
+						self.planeEdges.position.copy (self.plane.position );
+
+						console.log ( "helper [ plane ]" );
+
+					}
+
+					return self.plane;
+
+				}
+
+				// plane toggle
+
+				this.plane_ = function ( ) {
+
+					self.boundingBox = self.get_boundingBox ( ) ;
+
+					if ( this.plane_visible ) {
+
+						this.plane_visible = false;
+
+						self.scene.remove ( self.get_plane ( ) );
+						self.scene.remove ( self.planeEdges );
+
+					}
+
+					else {
+
+						this.plane_visible = true;
+
+						self.scene.add ( self.get_plane ( ) );
+						self.scene.add ( self.planeEdges );
+					}
+
+					// refresh debug overlay values
+
+					refresh_debug_overlay ( ) ;
+				}
 
 				// edges toggle - model
 
@@ -3498,9 +3623,9 @@
 
 				window.addEventListener ( 'keydown', self.transformKeys );
 
-				// baseplate toggle
+				// plane toggle
 
-				document.getElementById ( 'baseplate' ).addEventListener ( 'click', function ( ) {
+				document.getElementById ( 'plane' ).addEventListener ( 'click', function ( ) {
 
 					self.baseplate_toggle_ ( ) ;
 
@@ -3982,9 +4107,9 @@ BATTROID MODE
 
 					</div>
 
-					<!-- baseplate -->
+					<!-- plane -->
 
-					<div id="baseplate">
+					<div id="plane">
 
 					</div>
 
