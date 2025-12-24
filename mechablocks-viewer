@@ -2627,8 +2627,6 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				} ;
 
-
-
 				// camera position toggle cycle
 
 				self.camera_position_cycle_index = 0 ;
