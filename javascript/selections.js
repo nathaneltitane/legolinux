@@ -185,6 +185,8 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		hide ( ) ;
 
+		delay_show ( ) ;
+
 	}, { passive: true } ) ;
 
 
