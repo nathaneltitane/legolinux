@@ -92,6 +92,8 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		}
 
+		// robust overflow check - flex / subpixel / rounding
+
 		var can_scroll = selections.scrollWidth > ( selections.clientWidth + 1 ) ;
 
 		if ( ! can_scroll ) {
@@ -134,7 +136,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	}
 
-	// tab click (works even when pseudo-element is clicked) //
+	// tab click
 
 	selections_parent.addEventListener ( 'click', function ( event ) {
 
@@ -151,7 +153,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	}, { passive: true } ) ;
 
-	// hide on canvas interaction for viewer pages - no auto-show //
+	// hide on canvas interaction for viewer pages - no auto-show
 
 	var canvas = document.getElementById ( 'canvas' ) ;
 
@@ -223,5 +225,3 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 	delay_show ( ) ;
 
 } ) ;
-
-
