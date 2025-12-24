@@ -90,10 +90,10 @@
 }
 
 .selections-start {
-	border-top: 15px solid #00000000;
-	border-bottom: 15px solid #00000000;
-	border-right: 15px solid #00000000;
-	border-left: 15px solid #000000ff;
+	border-top: 10px solid #00000000;
+	border-bottom: 10px solid #00000000;
+	border-right: 10px solid #00000000;
+	border-left: 10px solid #000000ff;
 
 	width: 40px;
 	transform: translateX(50%);
@@ -102,10 +102,10 @@
 }
 
 .selections-end {
-	border-top: 15px solid #00000000;
-	border-bottom: 15px solid #00000000;
-	border-right: 15px solid #000000ff;
-	border-left: 15px solid #00000000;
+	border-top: 10px solid #00000000;
+	border-bottom: 10px solid #00000000;
+	border-right: 10px solid #000000ff;
+	border-left: 10px solid #00000000;
 
 	width: 40px;
 	transform: translateX(-50%);
@@ -114,7 +114,7 @@
 }
 
 #selections.selections-tab-hide {
-	top: -200px;
+	top: -160px;
 }
 
 #selections.selections-tab-show {

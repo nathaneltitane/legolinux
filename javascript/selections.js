@@ -51,6 +51,23 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	}
 
+	function tab_hide ( ) {
+
+		// purge conflicting states
+
+		selections_parent.classList.remove ( 'selections-show' ) ;
+		selections.classList.remove ( 'selections-show' ) ;
+
+		selections_parent.classList.remove ( 'selections-tab-show' ) ;
+		selections.classList.remove ( 'selections-tab-show' ) ;
+
+		// hide tab
+
+		selections_parent.classList.add ( 'selections-tab-hide' ) ;
+		selections.classList.add ( 'selections-tab-hide' ) ;
+
+	}
+
 	function tab_show ( ) {
 
 		setTimeout ( function ( ) {
@@ -66,7 +83,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 			selections_parent.classList.remove ( 'selections-tab-hide' ) ;
 			selections.classList.remove ( 'selections-tab-hide' ) ;
 
-			// show tab only
+			// show tab
 
 			selections_parent.classList.add ( 'selections-tab-show' ) ;
 			selections.classList.add ( 'selections-tab-show' ) ;
@@ -79,7 +96,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		if ( open ( ) ) {
 
-			hide ( ) ;
+			tab_hide ( ) ;
 
 		} else {
 
