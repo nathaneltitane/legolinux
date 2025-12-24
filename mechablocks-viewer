@@ -2008,6 +2008,8 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				} ;
 
+				// generate globally bound entry point so helper buttons can call it safely
+
 				window.grid_toggle_ = this.grid_toggle_.bind ( this ) ;
 
 				// minifig helper
