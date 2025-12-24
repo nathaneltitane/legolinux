@@ -409,7 +409,7 @@
 
 					if ( enabled ) {
 
-						refresh_debug_overlay ( ) ;
+						console_overlay_refresh ( ) ;
 
 					} else {
 
@@ -425,7 +425,7 @@
 
 				}
 
-				function refresh_debug_overlay ( ) {
+				function console_overlay_refresh ( ) {
 
 					if ( ! debug_overlay_enabled ) {
 
@@ -1829,7 +1829,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-green.dae',
+						'/minifigs/exports/minifig-blue.dae',
 
 						function ( collada ) {
 
@@ -1935,7 +1935,7 @@
 
 						function ( error ) {
 
-							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-green.dae', error );
+							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-blue.dae', error );
 
 						}
 
@@ -2164,7 +2164,7 @@
 
 					// refresh console values
 
-					refresh_debug_overlay ( ) ;
+					console_overlay_refresh ( ) ;
 
 				};
 
@@ -2260,7 +2260,7 @@
 
 					// refresh console values
 
-					refresh_debug_overlay ( ) ;
+					console_overlay_refresh ( ) ;
 
 				};
 
@@ -2316,7 +2316,7 @@
 
 					// refresh console values
 
-					refresh_debug_overlay ( ) ;
+					console_overlay_refresh ( ) ;
 
 				};
 
@@ -2390,7 +2390,7 @@
 
 					// refresh console values
 
-					refresh_debug_overlay ( ) ;
+					console_overlay_refresh ( ) ;
 
 				} ;
 
@@ -2446,7 +2446,7 @@
 
 					// refresh console values
 
-					refresh_debug_overlay ( ) ;
+					console_overlay_refresh ( ) ;
 
 				} ;
 
@@ -2515,7 +2515,7 @@
 
 					// refresh console values
 
-					refresh_debug_overlay ( ) ;
+					console_overlay_refresh ( ) ;
 
 				}
 
@@ -2553,7 +2553,7 @@
 
 					// refresh console values
 
-					refresh_debug_overlay ( ) ;
+					console_overlay_refresh ( ) ;
 
 				}
 
@@ -2567,7 +2567,7 @@
 
 					// refresh console values
 
-					refresh_debug_overlay ( ) ;
+					console_overlay_refresh ( ) ;
 
 				}
 
@@ -2610,7 +2610,7 @@
 
 					// refresh console values
 
-					refresh_debug_overlay ( ) ;
+					console_overlay_refresh ( ) ;
 
 				}
 
@@ -2620,7 +2620,7 @@
 
 					set_debug_overlay_enabled ( ! debug_overlay_enabled ) ;
 
-					refresh_debug_overlay ( ) ;
+					console_overlay_refresh ( ) ;
 
 				} ;
 
@@ -2787,7 +2787,7 @@
 
 					// refresh console values
 
-					refresh_debug_overlay ( ) ;
+					console_overlay_refresh ( ) ;
 
 				}
 
@@ -2818,7 +2818,7 @@
 
 					// refresh console values
 
-					refresh_debug_overlay ( ) ;
+					console_overlay_refresh ( ) ;
 
 				}
 
@@ -2859,7 +2859,7 @@
 
 					// refresh console values
 
-					refresh_debug_overlay ( ) ;
+					console_overlay_refresh ( ) ;
 
 				}
 
@@ -3491,7 +3491,7 @@
 
 						// refresh console after model load //
 
-						refresh_debug_overlay ( ) ;
+						console_overlay_refresh ( ) ;
 
 						// transform controls
 
