@@ -575,7 +575,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				this.renderer.clear ( ) ;
 
 
-				// debug overlay - target //
+				// console - target //
 
 				function is_canvas_target ( event ) {
 
@@ -587,21 +587,21 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				}
 
-				// debug overlay - standard
+				// console - standard
 
-				var device_information_overlay = null;
+				var console = null;
 
 				var debug_overlay_enabled = true;
 
 				function create_device_overlay_if_needed ( ) {
 
-					if ( device_information_overlay ) return;
+					if ( console ) return;
 
-					device_information_overlay = document.createElement ( 'div' );
+					console = document.createElement ( 'div' );
 
-					device_information_overlay.id = 'device-information-overlay';
+					console.id = 'console';
 
-					document.body.appendChild ( device_information_overlay );
+					document.body.appendChild ( console );
 				}
 
 				const os = operating_system ( ) ;
@@ -618,11 +618,11 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					} else {
 
-						if ( device_information_overlay ) {
+						if ( console ) {
 
-							device_information_overlay.remove ( ) ;
+							console.remove ( ) ;
 
-							device_information_overlay = null ;
+							console = null ;
 
 						}
 
@@ -640,13 +640,13 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					create_device_overlay_if_needed ( ) ;
 
-					if ( ! device_information_overlay ) {
+					if ( ! console ) {
 
 						return ;
 
 					}
 
-					device_information_overlay.innerHTML = '' ;
+					console.innerHTML = '' ;
 
 					function debug_overlay_line ( label, context, value ) {
 
@@ -673,21 +673,21 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						line.textContent = text ;
 
-						device_information_overlay.appendChild ( line ) ;
+						console.appendChild ( line ) ;
 
 					}
 
-					// debug overlay divider
+					// console divider
 
 					function device_information_divider ( ) {
 
 						var debug_overlay_divider = document.createElement ( 'hr' );
 
-						device_information_overlay.appendChild ( debug_overlay_divider );
+						console.appendChild ( debug_overlay_divider );
 
 					}
 
-					// debug overlay - device //
+					// console - device //
 
 					debug_overlay_line ( 'device', 'type', device_type ) ;
 					debug_overlay_line ( 'device', 'operating system', os ) ;
@@ -732,7 +732,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					device_information_divider ( ) ;
 
-					// debug overlay - camera //
+					// console - camera //
 
 					if ( self.camera ) {
 
@@ -761,7 +761,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					device_information_divider ( ) ;
 
-					// debug overlay - orbit controls //
+					// console - orbit controls //
 
 					if ( self.orbitControls ) {
 
@@ -782,13 +782,13 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				}
 
-				// debug overlay - show as default (?) //
+				// console - show as default (?) //
 
 				set_debug_overlay_enabled ( false );
 
-				console.log ( 'debug overlay [ status ] : ' + ( debug_overlay_enabled ? 'on' : 'off' ) );
+				console.log ( 'console [ status ] : ' + ( debug_overlay_enabled ? 'on' : 'off' ) );
 
-				// global keyboard toggle for debug overlay ('~' key)
+				// global keyboard toggle for console ('~' key)
 
 				if ( ! window._device_overlay_listener_added ) {
 
@@ -796,7 +796,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				}
 
-				// debug overlay - mobile / touch - double tap
+				// console - mobile / touch - double tap
 
 				var last_tap_time = 0;
 
@@ -818,7 +818,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 							set_debug_overlay_enabled ( ! debug_overlay_enabled );
 
-							console.log ( 'debug overlay [ status ] : ' + ( debug_overlay_enabled ? 'on' : 'off' ) );
+							console.log ( 'console [ status ] : ' + ( debug_overlay_enabled ? 'on' : 'off' ) );
 
 							event.preventDefault ( ) ;
 							event.stopPropagation ( ) ;
@@ -830,7 +830,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				}
 
-				// debug overlay - desktop / hardware - mouse double click
+				// console - desktop / hardware - mouse double click
 
 				if ( ! window._device_overlay_double_click_added ) {
 
@@ -842,7 +842,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						set_debug_overlay_enabled ( ! debug_overlay_enabled );
 
-						console.log ( 'debug overlay [ status ] : ' + ( debug_overlay_enabled ? 'on' : 'off' ) );
+						console.log ( 'console [ status ] : ' + ( debug_overlay_enabled ? 'on' : 'off' ) );
 
 					}, { passive: true } );
 
@@ -864,7 +864,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					overlay.id = 'webgl-context-lost';
 
-					device_information_overlay.style.fontFamily = 'system-ui, -apple-system, monospace';
+					console.style.fontFamily = 'system-ui, -apple-system, monospace';
 					overlay.style.alignItems = 'center';
 					overlay.style.background = '#cccccccc';
 					overlay.style.color = '#666666ff';
@@ -2367,7 +2367,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					}
 
-					// refresh debug overlay values
+					// refresh console values
 
 					refresh_debug_overlay ( ) ;
 
@@ -2463,7 +2463,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					} );
 
-					// refresh debug overlay values
+					// refresh console values
 
 					refresh_debug_overlay ( ) ;
 
@@ -2519,7 +2519,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					}
 
-					// refresh debug overlay values
+					// refresh console values
 
 					refresh_debug_overlay ( ) ;
 
@@ -2593,7 +2593,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					console.log ( "camera = " + self.cameraType ) ;
 
-					// refresh debug overlay values
+					// refresh console values
 
 					refresh_debug_overlay ( ) ;
 
@@ -2649,7 +2649,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					console.log ( "camera position = " + self.camera_position_matrix_x, self.camera_position_matrix_y, self.camera_position_matrix_z ) ;
 
-					// refresh debug overlay values
+					// refresh console values
 
 					refresh_debug_overlay ( ) ;
 
@@ -2718,7 +2718,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					self.resize ( ) ;
 
-					// refresh debug overlay values
+					// refresh console values
 
 					refresh_debug_overlay ( ) ;
 
@@ -2756,7 +2756,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					console.log ( "mode [ transform ] = " + transformStatus );
 
-					// refresh debug overlay values
+					// refresh console values
 
 					refresh_debug_overlay ( ) ;
 
@@ -2770,7 +2770,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					console.log ( "control [ transform ] = " + self.transform_controls.space );
 
-					// refresh debug overlay values
+					// refresh console values
 
 					refresh_debug_overlay ( ) ;
 
@@ -2813,13 +2813,13 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 						console.log ( "snap [ scale ] = " + scaleSnap );
 					}
 
-					// refresh debug overlay values
+					// refresh console values
 
 					refresh_debug_overlay ( ) ;
 
 				}
 
-				// debug overlay toggle
+				// console toggle
 
 				this.debug_toggle_ = function ( ) {
 
@@ -2990,7 +2990,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					return self.orbitControls;
 
-					// refresh debug overlay values
+					// refresh console values
 
 					refresh_debug_overlay ( ) ;
 
@@ -3021,7 +3021,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					return self.transform_controls;
 
-					// refresh debug overlay values
+					// refresh console values
 
 					refresh_debug_overlay ( ) ;
 
@@ -3062,7 +3062,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					}
 
-					// refresh debug overlay values
+					// refresh console values
 
 					refresh_debug_overlay ( ) ;
 
@@ -3694,7 +3694,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						fit_camera_to_box ( self.camera, self.orbitControls, fitBox, 2.50 ) ;
 
-						// refresh debug overlay after model load //
+						// refresh console after model load //
 
 						refresh_debug_overlay ( ) ;
 

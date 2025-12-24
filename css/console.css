@@ -1,7 +1,4 @@
-/* debug overlay */
-
-#device-information-overlay {
-
+#console {
 	position: fixed;
 
 	top: 170px;
