@@ -93,7 +93,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	function open ( ) {
 
-		return selections_parent.style.top === '0px' ;
+		return selections_parent.classList.contains ( 'selections-show' ) ;
 
 	}
 
