@@ -1801,7 +1801,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-green.dae',
+						'/minifigs/exports/minifig-white.dae',
 
 						function ( collada ) {
 
@@ -1907,7 +1907,7 @@
 
 						function ( error ) {
 
-							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-green.dae', error );
+							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-white.dae', error );
 
 						}
 
@@ -2236,7 +2236,6 @@
 
 				};
 
-
 				// dimensions toggle
 
 				var bounding_box_helper_visible = false;
@@ -2423,29 +2422,7 @@
 
 				} ;
 
-				// camera position toggle
 
-				this.camera_position_toggle_ = function ( ) {
-
-					self.camera = self.orthographicCamera
-
-					self.orbitControls = new OrbitControls ( self.camera, self.renderer.domElement );
-
-					self.camera.position.set ( self.camera_position_matrix_x, self.camera_position_matrix_y, self.camera_position_matrix_z );
-
-					self.camera.zoom = 3000;
-
-					self.camera.lookAt ( 0, 0, 0 );
-
-					self.camera.updateProjectionMatrix ( ) ;
-
-					console.log ( "camera position = " + self.camera_position_matrix_x, self.camera_position_matrix_y, self.camera_position_matrix_z );
-
-					// refresh debug overlay values
-
-					refresh_debug_overlay ( ) ;
-
-				}
 
 				// camera position toggle cycle
 
