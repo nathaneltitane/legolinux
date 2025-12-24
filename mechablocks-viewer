@@ -1824,66 +1824,40 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// polar grid helper
 
-				this.polar_grid_helper_color_min = orange;
+this.get_polar_grid_helper = function ( ) {
 
-				this.polar_grid_helper_color_max = charcoal;
+	if ( ! self.polar_grid_helper ) {
 
-				this.polar_grid_helper = null;
+		const ring_spacing = 0.008 ;
+		const rings = 96 / 2 ;
+		const radius = ring_spacing * rings ;
 
-				this.polar_grid_helper_visible = false;
+		self.polar_grid_helper = new THREE.PolarGridHelper (
 
-				this.get_polar_grid_helper = function ( ) {
+			radius,
+			rings,
+			rings,
+			rings,
+			this.polar_grid_helper_color_min,
+			this.polar_grid_helper_color_max
 
-					if ( ! self.polar_grid_helper ) {
+		) ;
 
-					const ring_spacing = 0.008;
-					const rings = 96 / 2;
-					const radius = ring_spacing * rings;
+		const box = self.get_boundingBox ( ) ;
+		const center = box.getCenter ( new THREE.Vector3 ( ) ) ;
 
-					self.polar_grid_helper = new THREE.PolarGridHelper (
+		self.polar_grid_helper.position.x = center.x ;
+		self.polar_grid_helper.position.y = box.min.y ;
+		self.polar_grid_helper.position.z = center.z ;
 
-						radius,
-						rings,
-						rings,
-						rings,
-						this.polar_grid_helper_color_min,
-						this.polar_grid_helper_color_max
+		console.log ( "helper [ grid / polar ]" ) ;
 
-					);
+	}
 
-						self.polar_grid_helper.position.y = self.get_boundingBox ( ).min.y;
+	return self.polar_grid_helper ;
 
-						self.polar_grid_helper.position.x = 0;
+}
 
-						// self.polar_grid_helper.position.y = 0;
-
-						console.log ( "helper [ grid / polar ]" );
-
-					}
-
-					return self.polar_grid_helper;
-
-				}
-
-				this.polar_grid_helper_ = function ( ) {
-
-					if ( this.polar_grid_helper_visible ) {
-
-						this.polar_grid_helper_visible = false;
-
-						self.scene.remove ( self.get_polar_grid_helper ( ) );
-
-					}
-
-					else {
-
-						this.polar_grid_helper_visible = true;
-
-						self.scene.add ( self.get_polar_grid_helper ( ) );
-
-					}
-
-				}
 
 				// orthogonal grid helper
 
