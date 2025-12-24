@@ -1870,11 +1870,9 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					);
 
-						self.polar_grid_helper.position.y = self.get_boundingBox ( ).min.y;
-
 						self.polar_grid_helper.position.x = 0;
 
-						// self.polar_grid_helper.position.y = 0;
+						self.polar_grid_helper.position.y = self.get_boundingBox ( ).min.y;
 
 						console.log ( "helper [ grid / polar ]" );
 
@@ -1933,11 +1931,9 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						);
 
-						self.orthogonal_grid_helper.position.y = self.get_boundingBox ( ).min.y;
-
 						self.orthogonal_grid_helper.position.x = 0;
 
-						// self.orthogonal_grid_helper.position.y = 0;
+						self.orthogonal_grid_helper.position.y = self.get_boundingBox ( ).min.y;
 
 						console.log ( "helper [ grid / orthogonal ]" );
 					}
