@@ -1790,7 +1790,7 @@ ZGEUG3DCATJD4' ) ;
 
 					loader.load (
 
-						'/minifigs/exports/minifig-white.dae',
+						'/minifigs/exports/minifig-purple.dae',
 
 						function ( collada ) {
 
@@ -1804,7 +1804,7 @@ ZGEUG3DCATJD4' ) ;
 
 							const minifigBox = new THREE.Box3 ( ).setFromObject ( minifig );
 
-							// set minifig scale
+							// scale - minifig
 
 							minifig.scale.setScalar ( editor_scale );
 
@@ -1886,7 +1886,7 @@ ZGEUG3DCATJD4' ) ;
 
 							self.minifigTransform = transform;
 
-							console.log ( 'minifig' );
+							console.log ( 'minifig [ status ] : load ok );
 
 							console.log ( 'scale [ minifig ] : ', minifig.scale );
 
@@ -1896,7 +1896,7 @@ ZGEUG3DCATJD4' ) ;
 
 						function ( error ) {
 
-							console.error ( 'minifig : failed to load /minifigs/exports/minifig-white.dae', error );
+							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-purple.dae', error );
 
 						}
 

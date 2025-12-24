@@ -2007,7 +2007,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 							const minifigBox = new THREE.Box3 ( ).setFromObject ( minifig );
 
-							// set minifig scale
+							// scale - minifig
 
 							minifig.scale.setScalar ( editor_scale );
 
@@ -2089,7 +2089,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 							self.minifigTransform = transform;
 
-							console.log ( 'minifig' );
+							console.log ( 'minifig [ status ] : load ok );
 
 							console.log ( 'scale [ minifig ] : ', minifig.scale );
 
@@ -2099,7 +2099,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						function ( error ) {
 
-							console.error ( 'minifig : failed to load /minifigs/exports/minifig-${color_minifig}.dae', error );
+							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-${color_minifig}.dae', error );
 
 						}
 
