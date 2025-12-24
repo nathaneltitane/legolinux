@@ -129,10 +129,10 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	selections_parent.addEventListener ( 'click', function ( event ) {
 
-		var clicked_tab = event.target.closest ( '.selections-tab' ) ;
-		var clicked_pseudo = event.target === selections_parent ;
+		var tab_click = event.target.closest ( '.selections-tab' ) ;
+		var tab_pseudo_click = event.target === selections_parent ;
 
-		if ( ! clicked_tab && ! clicked_pseudo ) {
+		if ( ! tab_click && ! tab_pseudo_click ) {
 
 			return ;
 
