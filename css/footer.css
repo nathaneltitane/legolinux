@@ -62,18 +62,18 @@
 	opacity: 0;
 }
 
-.footer-left {
-	opacity: 1;
-}
-
-.footer-right {
-	opacity: 1;
-}
-
 #footer.footer-hide {
 	bottom: -80px;
 }
 
 #footer.footer-show {
 	bottom: 0px;
+}
+
+.footer-left {
+	opacity: 1;
+}
+
+.footer-right {
+	opacity: 1;
 }
