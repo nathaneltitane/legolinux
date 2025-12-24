@@ -116,6 +116,11 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		}
 
+		// middle
+
+		// if ( arrow_left ) arrow_left.classList.add ( 'selections-right' ) ;
+		// if ( arrow_right ) arrow_right.classList.add ( 'selections-left' ) ;
+
 		// end
 
 		if ( selections.scrollLeft >= scroll_maximum - 1 ) {
@@ -126,11 +131,6 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 			return ;
 
 		}
-
-		// middle
-
-		// if ( arrow_left ) arrow_left.classList.add ( 'selections-right' ) ;
-		// if ( arrow_right ) arrow_right.classList.add ( 'selections-left' ) ;
 
 	}
 
