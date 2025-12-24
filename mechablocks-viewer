@@ -3692,9 +3692,9 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				window.addEventListener ( 'keydown', self.transformKeys );
 
-				// plane toggle
+				// baseplate toggle
 
-				document.getElementById ( 'plane' ).addEventListener ( 'click', function ( ) {
+				document.getElementById ( 'baseplate' ).addEventListener ( 'click', function ( ) {
 
 					self.baseplate_toggle_ ( ) ;
 
