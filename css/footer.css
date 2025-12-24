@@ -69,3 +69,11 @@
 .footer-right {
 	opacity: 1;
 }
+
+#footer.footer-hide {
+	bottom: -80px;
+}
+
+#footer.footer-show {
+	bottom: 0px;
+}

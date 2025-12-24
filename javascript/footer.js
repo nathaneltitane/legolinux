@@ -14,7 +14,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	}
 
-	function get_footer ( ) {
+	function footer_get ( ) {
 
 		return footer_id.querySelector ( '.footer' ) ;
 
@@ -28,13 +28,8 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		console.log ( 'footer [ state ] : hide' ) ;
 
-		footer_id.style.bottom = '-80px' ;
-
-		if ( footer ) {
-
-			footer.style.bottom = '-80px' ;
-
-		}
+		footer_id.classList.remove ( 'footer-show' ) ;
+		footer_id.classList.add ( 'footer-hide' ) ;
 
 	}
 
@@ -42,13 +37,8 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		console.log ( 'footer [ state ] : show' ) ;
 
-		footer_id.style.bottom = '0px' ;
-
-		if ( footer ) {
-
-			footer.style.bottom = '0px' ;
-
-		}
+		footer_id.classList.remove ( 'footer-hide' ) ;
+		footer_id.classList.add ( 'footer-show' ) ;
 
 	}
 
@@ -74,7 +64,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	}
 
-	// footer slot readiness gate //
+	// footer slot readiness check
 
 	var slot_identifiers_list = [
 		'paypal',
@@ -365,7 +355,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		}
 
-		var footer = get_footer ( ) ;
+		var footer = footer_get ( ) ;
 
 		if ( ! footer ) {
 
@@ -445,7 +435,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		requestAnimationFrame ( function ( ) {
 
-			scroll ( get_footer ( ) ) ;
+			scroll ( footer_get ( ) ) ;
 
 		} ) ;
 
