@@ -24,11 +24,7 @@ $( function ( ) {
 
 		} );
 
-		$.get ( '/modules/drawer.html', function ( data ) {
 
-			$( '#drawer' ).append ( data );
-
-		} );
 
 	}
 
@@ -43,6 +39,12 @@ $( function ( ) {
 		} );
 
 	}
+
+	$.get ( '/modules/drawer.html', function ( data ) {
+
+		$( '#drawer' ).append ( data );
+
+	} );
 
 	$.get ( '/modules/contact-modal.html', function ( data ) {
 
