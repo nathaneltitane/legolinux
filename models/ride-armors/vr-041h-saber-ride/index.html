@@ -386,7 +386,7 @@
 
 				var console = null;
 
-				var debug_overlay_enabled = true;
+				var consoleenabled = true;
 
 				function create_device_overlay_if_needed ( ) {
 
@@ -403,9 +403,9 @@
 
 				console.log ( 'operating system [ system ] : ' + os );
 
-				function set_debug_overlay_enabled ( enabled ) {
+				function set_consoleenabled ( enabled ) {
 
-					debug_overlay_enabled = enabled;
+					consoleenabled = enabled;
 
 					if ( enabled ) {
 
@@ -427,7 +427,7 @@
 
 				function refresh_debug_overlay ( ) {
 
-					if ( ! debug_overlay_enabled ) {
+					if ( ! consoleenabled ) {
 
 						return ;
 
@@ -443,7 +443,7 @@
 
 					console.innerHTML = '' ;
 
-					function debug_overlay_line ( label, context, value ) {
+					function consoleline ( label, context, value ) {
 
 						var line = document.createElement ( 'div' ) ;
 
@@ -476,25 +476,25 @@
 
 					function device_information_divider ( ) {
 
-						var debug_overlay_divider = document.createElement ( 'hr' );
+						var consoledivider = document.createElement ( 'hr' );
 
-						console.appendChild ( debug_overlay_divider );
+						console.appendChild ( consoledivider );
 
 					}
 
 					// console - device //
 
-					debug_overlay_line ( 'device', 'type', device_type ) ;
-					debug_overlay_line ( 'device', 'operating system', os ) ;
-					debug_overlay_line ( 'device', 'pixel ratio', pixel_ratio.toFixed ( 2 ) ) ;
+					consoleline ( 'device', 'type', device_type ) ;
+					consoleline ( 'device', 'operating system', os ) ;
+					consoleline ( 'device', 'pixel ratio', pixel_ratio.toFixed ( 2 ) ) ;
 
 					device_information_divider ( ) ;
 
 					// model state //
 
-					debug_overlay_line ( 'model', 'identifier', 'FAJLPS5NCMPWL' ) ;
-					debug_overlay_line ( 'model', 'pieces', '1244' ) ;
-					debug_overlay_line ( 'model', 'load', self.colladaImport ? 'yes' : 'no' ) ;
+					consoleline ( 'model', 'identifier', 'FAJLPS5NCMPWL' ) ;
+					consoleline ( 'model', 'pieces', '1244' ) ;
+					consoleline ( 'model', 'load', self.colladaImport ? 'yes' : 'no' ) ;
 
 					if ( self.colladaImport ) {
 
@@ -504,25 +504,25 @@
 						var size = box.getSize ( new THREE.Vector3 ( ) ) ;
 						var center = box.getCenter ( new THREE.Vector3 ( ) ) ;
 
-						debug_overlay_line ( 'model', 'bounding box x', size.x.toFixed ( 4 ) ) ;
-						debug_overlay_line ( 'model', 'bounding box y', size.y.toFixed ( 4 ) ) ;
-						debug_overlay_line ( 'model', 'bounding box z', size.z.toFixed ( 4 ) ) ;
+						consoleline ( 'model', 'bounding box x', size.x.toFixed ( 4 ) ) ;
+						consoleline ( 'model', 'bounding box y', size.y.toFixed ( 4 ) ) ;
+						consoleline ( 'model', 'bounding box z', size.z.toFixed ( 4 ) ) ;
 
-						debug_overlay_line ( 'model', 'center x', center.x.toFixed ( 4 ) ) ;
-						debug_overlay_line ( 'model', 'center y', center.y.toFixed ( 4 ) ) ;
-						debug_overlay_line ( 'model', 'center z', center.z.toFixed ( 4 ) ) ;
+						consoleline ( 'model', 'center x', center.x.toFixed ( 4 ) ) ;
+						consoleline ( 'model', 'center y', center.y.toFixed ( 4 ) ) ;
+						consoleline ( 'model', 'center z', center.z.toFixed ( 4 ) ) ;
 					}
 
 					device_information_divider ( ) ;
 
-					debug_overlay_line ( 'faces', 'visibility', model_faces_visible ? 'on' : 'off' ) ;
-					debug_overlay_line ( 'wireframe', 'visibility', wireframe_visible ? 'on' : 'off' ) ;
+					consoleline ( 'faces', 'visibility', model_faces_visible ? 'on' : 'off' ) ;
+					consoleline ( 'wireframe', 'visibility', wireframe_visible ? 'on' : 'off' ) ;
 
 					device_information_divider ( ) ;
 
 
-					debug_overlay_line ( 'edge', 'visibility', model_edges_visible ? 'on' : 'off' ) ;
-					debug_overlay_line ( 'edge', 'thickness', edge_thickness_state ) ;
+					consoleline ( 'edge', 'visibility', model_edges_visible ? 'on' : 'off' ) ;
+					consoleline ( 'edge', 'thickness', edge_thickness_state ) ;
 
 
 					device_information_divider ( ) ;
@@ -531,21 +531,21 @@
 
 					if ( self.camera ) {
 
-						debug_overlay_line (
+						consoleline (
 							'camera', 'type',
 							self.camera.isPerspectiveCamera ? 'perspective' : ( self.camera.isOrthographicCamera ? 'orthographic' : 'other' )
 						) ;
 
 						if ( self.camera.fov !== undefined ) {
 
-							debug_overlay_line ( 'camera', 'field of view', self.camera.fov ) ;
+							consoleline ( 'camera', 'field of view', self.camera.fov ) ;
 
 						}
 
-						debug_overlay_line ( 'camera', 'near', self.camera.near.toFixed ( 6 ) ) ;
-						debug_overlay_line ( 'camera',  'far', self.camera.far.toFixed ( 6 ) ) ;
+						consoleline ( 'camera', 'near', self.camera.near.toFixed ( 6 ) ) ;
+						consoleline ( 'camera',  'far', self.camera.far.toFixed ( 6 ) ) ;
 
-						debug_overlay_line (
+						consoleline (
 							'camera', 'position',
 							self.camera.position.x.toFixed ( 4 ) + ', ' +
 							self.camera.position.y.toFixed ( 4 ) + ', ' +
@@ -560,11 +560,11 @@
 
 					if ( self.orbitControls ) {
 
-						debug_overlay_line ( 'orbit', 'enabled', self.orbitControls.enabled ? 'yes' : 'no' ) ;
+						consoleline ( 'orbit', 'enabled', self.orbitControls.enabled ? 'yes' : 'no' ) ;
 
 						if ( self.orbitControls.target ) {
 
-							debug_overlay_line (
+							consoleline (
 								'orbit', 'target',
 								self.orbitControls.target.x.toFixed ( 4 ) + ', ' +
 								self.orbitControls.target.y.toFixed ( 4 ) + ', ' +
@@ -579,9 +579,9 @@
 
 				// console - show as default (?) //
 
-				set_debug_overlay_enabled ( false );
+				set_consoleenabled ( false );
 
-				console.log ( 'console [ status ] : ' + ( debug_overlay_enabled ? 'on' : 'off' ) );
+				console.log ( 'console [ status ] : ' + ( consoleenabled ? 'on' : 'off' ) );
 
 				// global keyboard toggle for console ('~' key)
 
@@ -611,9 +611,9 @@
 
 						if ( tap_gap > 100 && tap_gap < 350 ) {
 
-							set_debug_overlay_enabled ( ! debug_overlay_enabled );
+							set_consoleenabled ( ! consoleenabled );
 
-							console.log ( 'console [ status ] : ' + ( debug_overlay_enabled ? 'on' : 'off' ) );
+							console.log ( 'console [ status ] : ' + ( consoleenabled ? 'on' : 'off' ) );
 
 							event.preventDefault ( ) ;
 							event.stopPropagation ( ) ;
@@ -635,9 +635,9 @@
 
 						if ( ! is_canvas_target ( event ) ) return;
 
-						set_debug_overlay_enabled ( ! debug_overlay_enabled );
+						set_consoleenabled ( ! consoleenabled );
 
-						console.log ( 'console [ status ] : ' + ( debug_overlay_enabled ? 'on' : 'off' ) );
+						console.log ( 'console [ status ] : ' + ( consoleenabled ? 'on' : 'off' ) );
 
 					}, { passive: true } );
 
@@ -1829,7 +1829,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-fuschia.dae',
+						'/minifigs/exports/minifig-white.dae',
 
 						function ( collada ) {
 
@@ -1935,7 +1935,7 @@
 
 						function ( error ) {
 
-							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-fuschia.dae', error );
+							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-white.dae', error );
 
 						}
 
@@ -2618,7 +2618,7 @@
 
 				this.debug_toggle_ = function ( ) {
 
-					set_debug_overlay_enabled ( ! debug_overlay_enabled ) ;
+					set_consoleenabled ( ! consoleenabled ) ;
 
 					refresh_debug_overlay ( ) ;
 
