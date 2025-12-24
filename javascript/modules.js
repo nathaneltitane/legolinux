@@ -138,9 +138,9 @@ $( function ( ) {
 
 		} ) ;
 
-		$.get ( '/modules/plane.html', function ( data ) {
+		$.get ( '/modules/baseplate.html', function ( data ) {
 
-			$( '#plane' ).append ( data ) ;
+			$( '#baseplate' ).append ( data ) ;
 
 		} ) ;
 

@@ -1633,9 +1633,9 @@
 
 					if ( ! self.polar_grid_helper ) {
 
-					const ringSpacing = 0.008;
-					const rings = 128 / 2;
-					const radius = ringSpacing * rings;
+					const ring_spacing = 0.008;
+					const rings = 96 / 2;
+					const radius = ring_spacing * rings;
 
 					self.polar_grid_helper = new THREE.PolarGridHelper (
 
@@ -1698,14 +1698,14 @@
 
 						// 20 ldu = 0.008 m
 
-						const gridSpacing = 0.008;
-						const gridDivisions = 128;
-						const gridSize = gridDivisions * gridSpacing;
+						const grid_spacing = 0.008;
+						const grid_divisions = 96;
+						const grid_size = grid_divisions * grid_spacing;
 
 						self.orthogonal_grid_helper = new THREE.GridHelper (
 
-							gridSize,
-							gridDivisions,
+							grid_size,
+							grid_divisions,
 							this.orthogonal_grid_helper_color_min,
 							this.orthogonal_grid_helper_color_max
 
@@ -1788,7 +1788,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-blue.dae',
+						'/minifigs/exports/minifig-white.dae',
 
 						function ( collada ) {
 
@@ -1798,7 +1798,7 @@
 
 							// define all model bounding boxes
 
-							const modelBox = new THREE.Box3 ( ).setFromObject ( self.colladaImport );
+							const model_box = new THREE.Box3 ( ).setFromObject ( self.colladaImport );
 
 							const minifigBox = new THREE.Box3 ( ).setFromObject ( minifig );
 
@@ -1810,9 +1810,9 @@
 
 							const minifigPositionBox = new THREE.Box3 ( ).setFromObject ( minifig );
 
-							const yOffset = modelBox.min.y - minifigPositionBox.min.y;
+							const position_offset_y = model_box.min.y - minifigPositionBox.min.y;
 
-							const modelDepth = modelBox.max.z - modelBox.min.z;
+							const modelDepth = model_box.max.z - model_box.min.z;
 
 							const minifigDepth = minifigBox.max.z - minifigBox.min.z;
 
@@ -1820,7 +1820,7 @@
 
 							const minifigPosition_x = minifigCenter.x;
 
-							const minifigPosition_y = yOffset;
+							const minifigPosition_y = position_offset_y;
 
 							const minifigPosition_z = ( modelDepth - ( modelDepth / 2 ) + minifigDepth );
 
@@ -1884,7 +1884,7 @@
 
 							self.minifigTransform = transform;
 
-							console.log ( 'minifig [ status ] : load ok );
+							console.log ( 'minifig [ status ] : load ok' );
 
 							console.log ( 'scale [ minifig ] : ', minifig.scale );
 
@@ -1894,7 +1894,7 @@
 
 						function ( error ) {
 
-							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-blue.dae', error );
+							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-white.dae', error );
 
 						}
 
@@ -1950,7 +1950,7 @@
 
 					loader.load (
 
-						'/baseplates/exports/baseplate.dae',
+						'/baseplate/exports/baseplate.dae',
 
 						function ( collada ) {
 
@@ -1960,7 +1960,7 @@
 
 							// define all model bounding boxes
 
-							const modelBox = new THREE.Box3 ( ).setFromObject ( self.colladaImport );
+							const model_box = new THREE.Box3 ( ).setFromObject ( self.colladaImport );
 
 							const baseplateBox = new THREE.Box3 ( ).setFromObject ( baseplate );
 
@@ -1968,57 +1968,65 @@
 
 							baseplate.scale.setScalar ( editor_scale );
 
-							// compute baseplate position
+							// compute baseplate position //
 
-							const baseplatePositionBox = new THREE.Box3 ( ).setFromObject ( baseplate );
+							const baseplate_position_box = new THREE.Box3 ( ).setFromObject ( baseplate ) ;
 
-							const yOffset = modelBox.min.y - baseplatePositionBox.min.y;
+							// vertical offset: sit directly under model
 
-							const modelDepth = modelBox.max.z - modelBox.min.z;
+							// 1 ldu  = 0.0004 m
 
-							const baseplateDepth = baseplateBox.max.z - baseplateBox.min.z;
+							// 4 ldu = stud height = 0.0016 m
 
-							const baseplateCenter = baseplateBox.getCenter ( new THREE.Vector3 ( ) );
+							const position_offset_y = model_box.min.y - baseplate_position_box.min.y - 0.0016 ;
 
-							const baseplatePosition_x = baseplateCenter.x;
+							// center under model (not under itself)
 
-							const baseplatePosition_y = yOffset;
+							const model_center = model_box.getCenter ( new THREE.Vector3 ( ) ) ;
 
-							const baseplatePosition_z = ( modelDepth - ( modelDepth / 2 ) + baseplateDepth );
+							const baseplate_position_x = model_center.x ;
+							const baseplate_position_y = position_offset_y ;
+							const baseplate_position_z = 0 ;
 
-							// set baseplate position
+							// set baseplate position //
 
-							baseplate.position.set ( baseplatePosition_x, baseplatePosition_y, baseplatePosition_z );
+							baseplate.position.set (
 
-							// edges - baseplate //
+								baseplate_position_x,
+								baseplate_position_y,
+								baseplate_position_z
 
-							baseplate.traverse ( function ( node ) {
+							) ;
 
-								if ( node.isMesh ) {
-
-									const edgesGeometry = new THREE.EdgesGeometry ( node.geometry, 45 ) ;
-
-									const edgesMaterial = new THREE.LineBasicMaterial ( {
-
-										color: black,
-
-										linewidth: 1
-
-									} ) ;
-
-									const edges = new THREE.LineSegments ( edgesGeometry, edgesMaterial ) ;
-
-									edges.position.copy ( node.position ) ;
-
-									edges.rotation.copy ( node.rotation ) ;
-
-									edges.scale.copy ( node.scale ) ;
-
-									baseplate.add ( edges ) ;
-
-								}
-
-							} ) ;
+//							// edges - baseplate
+//
+//							baseplate.traverse ( function ( node ) {
+//
+//								if ( node.isMesh ) {
+//
+//									const edgesGeometry = new THREE.EdgesGeometry ( node.geometry, 45 ) ;
+//
+//									const edgesMaterial = new THREE.LineBasicMaterial ( {
+//
+//										color: black,
+//
+//										linewidth: 1
+//
+//									} ) ;
+//
+//									const edges = new THREE.LineSegments ( edgesGeometry, edgesMaterial ) ;
+//
+//									edges.position.copy ( node.position ) ;
+//
+//									edges.rotation.copy ( node.rotation ) ;
+//
+//									edges.scale.copy ( node.scale ) ;
+//
+//									baseplate.add ( edges ) ;
+//
+//								}
+//
+//							} ) ;
 
 							// shadows - baseplate
 
@@ -2046,7 +2054,7 @@
 
 							self.baseplateTransform = transform;
 
-							console.log ( 'baseplate [ status ] : load ok );
+							console.log ( 'baseplate [ status ] : load ok' );
 
 							console.log ( 'scale [ baseplate ] : ', baseplate.scale );
 
@@ -2056,7 +2064,7 @@
 
 						function ( error ) {
 
-							console.error ( 'baseplate [ status ] : load failed - /baseplates/exports/baseplate.dae', error );
+							console.error ( 'baseplate [ status ] : load failed - /baseplate/exports/baseplate.dae', error );
 
 						}
 
@@ -2067,131 +2075,6 @@
 				// generate globally bound entry point so helper buttons can call it safely
 
 				window.baseplate_toggle_ = this.baseplate_toggle_.bind ( this );
-
-				// plane helper
-
-				this.boundingBox = null;
-
-				this.get_boundingBox = function ( ) {
-
-					if ( ! self.boundingBox ) {
-
-						self.boundingBox = new THREE.Box3 ( ).setFromObject ( self.colladaImport )
-
-						console.log ( "helper [ bounding box / plane ]" );
-					}
-
-					return self.boundingBox;
-
-				}
-
-				this.plane_color = grey;
-
-				this.plane = null;
-
-				this.plane_visible = false;
-
-				this.get_plane = function ( ) {
-
-					if ( !self.plane ) {
-
-						const planeRatio = 128 * 0.008;
-
-						const planeWidth = planeRatio;
-
-						const planeLength = planeRatio;
-
-						const radius = 0.008;
-
-						const shape = new THREE.Shape ( ) ;
-
-						const w = planeWidth;
-						const h = planeLength;
-						const r = radius;
-
-						// start from top-left corner and draw clockwise
-
-						shape.moveTo(-w/2 + r, h/2);
-						shape.lineTo(w/2 - r, h/2);
-						shape.quadraticCurveTo(w/2, h/2, w/2, h/2 - r);
-						shape.lineTo(w/2, -h/2 + r);
-						shape.quadraticCurveTo(w/2, -h/2, w/2 - r, -h/2);
-						shape.lineTo(-w/2 + r, -h/2);
-						shape.quadraticCurveTo(-w/2, -h/2, -w/2, -h/2 + r);
-						shape.lineTo(-w/2, h/2 - r);
-						shape.quadraticCurveTo(-w/2, h/2, -w/2 + r, h/2);
-
-						const geometry = new THREE.ShapeGeometry ( shape );
-
-						const material = new THREE.MeshStandardMaterial ( {
-
-							color: this.plane_color,
-
-							side: THREE.DoubleSide
-
-						} );
-
-						self.plane = new THREE.Mesh(geometry, material);
-
-						self.plane.rotation.x = -0.5 * Math.PI;
-
-						self.plane.position.y = self.boundingBox.min.y;
-
-						self.plane.receiveShadow = true;
-
-						// edges - plane
-
-						const edgesGeometry = new THREE.EdgesGeometry ( geometry );
-
-						const edgesMaterial = new THREE.LineBasicMaterial ( {
-
-							color: black,
-
-							linewidth: line_thickness
-
-						} );
-
-						self.planeEdges = new THREE.LineSegments ( edgesGeometry, edgesMaterial );
-
-						self.planeEdges.rotation.copy (self.plane.rotation );
-
-						self.planeEdges.position.copy (self.plane.position );
-
-						console.log ( "helper [ plane ]" );
-
-					}
-
-					return self.plane;
-
-				}
-
-				// plane toggle
-
-				this.plane_ = function ( ) {
-
-					self.boundingBox = self.get_boundingBox ( ) ;
-
-					if ( this.plane_visible ) {
-
-						this.plane_visible = false;
-
-						self.scene.remove ( self.get_plane ( ) );
-						self.scene.remove ( self.planeEdges );
-
-					}
-
-					else {
-
-						this.plane_visible = true;
-
-						self.scene.add ( self.get_plane ( ) );
-						self.scene.add ( self.planeEdges );
-					}
-
-					// refresh debug overlay values
-
-					refresh_debug_overlay ( ) ;
-				}
 
 				// edges toggle - model
 
@@ -3533,9 +3416,9 @@
 
 						self.scene.add ( self.colladaImport );
 
-						const modelBox = new THREE.Box3 ( ).setFromObject ( self.colladaImport )
+						const model_box = new THREE.Box3 ( ).setFromObject ( self.colladaImport )
 
-						const size = modelBox.getSize ( new THREE.Vector3 ( ) );
+						const size = model_box.getSize ( new THREE.Vector3 ( ) );
 
 						// unit conversions
 
@@ -3615,9 +3498,9 @@
 
 				window.addEventListener ( 'keydown', self.transformKeys );
 
-				// plane toggle
+				// baseplate toggle
 
-				document.getElementById ( 'plane' ).addEventListener ( 'click', function ( ) {
+				document.getElementById ( 'baseplate' ).addEventListener ( 'click', function ( ) {
 
 					self.baseplate_toggle_ ( ) ;
 
@@ -3986,9 +3869,9 @@
 
 					</div>
 
-					<!-- plane -->
+					<!-- baseplate -->
 
-					<div id="plane">
+					<div id="baseplate">
 
 					</div>
 
