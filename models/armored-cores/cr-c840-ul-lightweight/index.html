@@ -1788,7 +1788,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-orange.dae',
+						'/minifigs/exports/minifig-red.dae',
 
 						function ( collada ) {
 
@@ -1894,7 +1894,7 @@
 
 						function ( error ) {
 
-							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-orange.dae', error );
+							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-red.dae', error );
 
 						}
 
@@ -1905,6 +1905,168 @@
 				// generate globally bound entry point so helper buttons can call it safely
 
 				window.minifig_toggle_ = this.minifig_toggle_.bind ( this );
+
+				// baseplate helper
+
+				this.baseplate_toggle_ = function ( ) {
+
+					const self = this;
+
+					// guard: baseplate depends on main model being present
+					if ( ! self.colladaImport ) {
+
+						console.warn ( 'baseplate : main model not loaded yet (colladaImport is missing)' );
+
+						return;
+					}
+
+					if ( this.baseplate_visible ) {
+
+						this.baseplate_visible = false;
+
+						if ( self.baseplate ) {
+
+							self.baseplate.visible = false;
+
+							if ( self.baseplateTransform ) self.baseplateTransform.visible = false;
+
+						}
+
+						return;
+					}
+
+					this.baseplate_visible = true;
+
+					if ( self.baseplate ) {
+
+						self.baseplate.visible = true;
+
+						if ( self.baseplateTransform ) self.baseplateTransform.visible = true;
+
+						return;
+					}
+
+					const loader = new ColladaLoader ( ) ;
+
+					loader.load (
+
+						'/baseplates/exports/baseplate-.dae',
+
+						function ( collada ) {
+
+							const baseplate = collada.scene;
+
+							baseplate.name = 'baseplate';
+
+							// define all model bounding boxes
+
+							const modelBox = new THREE.Box3 ( ).setFromObject ( self.colladaImport );
+
+							const baseplateBox = new THREE.Box3 ( ).setFromObject ( baseplate );
+
+							// scale - baseplate
+
+							baseplate.scale.setScalar ( editor_scale );
+
+							// compute baseplate position
+
+							const baseplatePositionBox = new THREE.Box3 ( ).setFromObject ( baseplate );
+
+							const yOffset = modelBox.min.y - baseplatePositionBox.min.y;
+
+							const modelDepth = modelBox.max.z - modelBox.min.z;
+
+							const baseplateDepth = baseplateBox.max.z - baseplateBox.min.z;
+
+							const baseplateCenter = baseplateBox.getCenter ( new THREE.Vector3 ( ) );
+
+							const baseplatePosition_x = baseplateCenter.x;
+
+							const baseplatePosition_y = yOffset;
+
+							const baseplatePosition_z = ( modelDepth - ( modelDepth / 2 ) + baseplateDepth );
+
+							// set baseplate position
+
+							baseplate.position.set ( baseplatePosition_x, baseplatePosition_y, baseplatePosition_z );
+
+							// edges - baseplate //
+
+							baseplate.traverse ( function ( node ) {
+
+								if ( node.isMesh ) {
+
+									const edgesGeometry = new THREE.EdgesGeometry ( node.geometry, 45 ) ;
+
+									const edgesMaterial = new THREE.LineBasicMaterial ( {
+
+										color: black,
+
+										linewidth: 1
+
+									} ) ;
+
+									const edges = new THREE.LineSegments ( edgesGeometry, edgesMaterial ) ;
+
+									edges.position.copy ( node.position ) ;
+
+									edges.rotation.copy ( node.rotation ) ;
+
+									edges.scale.copy ( node.scale ) ;
+
+									baseplate.add ( edges ) ;
+
+								}
+
+							} ) ;
+
+							// shadows - baseplate
+
+							baseplate.traverse ( function ( node ) {
+
+								if ( node.isMesh ) {
+
+									node.castShadow = true;
+
+									node.receiveShadow = true;
+
+								}
+
+							} );
+
+							self.scene.add ( baseplate );
+
+							const transform = self.get_transform_controls ( ) ;
+
+							self.scene.add ( transform );
+
+							transform.attach ( baseplate );
+
+							self.baseplate = baseplate;
+
+							self.baseplateTransform = transform;
+
+							console.log ( 'baseplate [ status ] : load ok );
+
+							console.log ( 'scale [ baseplate ] : ', baseplate.scale );
+
+						},
+
+						undefined,
+
+						function ( error ) {
+
+							console.error ( 'baseplate [ status ] : load failed - /baseplates/exports/baseplate.dae', error );
+
+						}
+
+					);
+
+				};
+
+				// generate globally bound entry point so helper buttons can call it safely
+
+				window.baseplate_toggle_ = this.baseplate_toggle_.bind ( this );
 
 				// plane helper
 
@@ -2967,7 +3129,7 @@
 
 						case 76:
 
-							self.plane_ ( ) ;
+							self.baseplate_toggle_ ( ) ;
 
 							break;
 
@@ -3457,7 +3619,7 @@
 
 				document.getElementById ( 'plane' ).addEventListener ( 'click', function ( ) {
 
-					self.plane_ ( ) ;
+					self.baseplate_toggle_ ( ) ;
 
 				} );
 
