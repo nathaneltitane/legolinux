@@ -371,7 +371,7 @@ ZGEUG3DCATJD4"
 				this.renderer.clear ( ) ;
 
 
-				// debug overlay - target //
+				// console - target //
 
 				function is_canvas_target ( event ) {
 
@@ -383,21 +383,21 @@ ZGEUG3DCATJD4"
 
 				}
 
-				// debug overlay - standard
+				// console - standard
 
-				var device_information_overlay = null;
+				var console = null;
 
 				var debug_overlay_enabled = true;
 
 				function create_device_overlay_if_needed ( ) {
 
-					if ( device_information_overlay ) return;
+					if ( console ) return;
 
-					device_information_overlay = document.createElement ( 'div' );
+					console = document.createElement ( 'div' );
 
-					device_information_overlay.id = 'console';
+					console.id = 'console';
 
-					document.body.appendChild ( device_information_overlay );
+					document.body.appendChild ( console );
 				}
 
 				const os = operating_system ( ) ;
@@ -414,11 +414,11 @@ ZGEUG3DCATJD4"
 
 					} else {
 
-						if ( device_information_overlay ) {
+						if ( console ) {
 
-							device_information_overlay.remove ( ) ;
+							console.remove ( ) ;
 
-							device_information_overlay = null ;
+							console = null ;
 
 						}
 
@@ -436,13 +436,13 @@ ZGEUG3DCATJD4"
 
 					create_device_overlay_if_needed ( ) ;
 
-					if ( ! device_information_overlay ) {
+					if ( ! console ) {
 
 						return ;
 
 					}
 
-					device_information_overlay.innerHTML = '' ;
+					console.innerHTML = '' ;
 
 					function debug_overlay_line ( label, context, value ) {
 
@@ -469,21 +469,21 @@ ZGEUG3DCATJD4"
 
 						line.textContent = text ;
 
-						device_information_overlay.appendChild ( line ) ;
+						console.appendChild ( line ) ;
 
 					}
 
-					// debug overlay divider
+					// console divider
 
 					function device_information_divider ( ) {
 
 						var debug_overlay_divider = document.createElement ( 'hr' );
 
-						device_information_overlay.appendChild ( debug_overlay_divider );
+						console.appendChild ( debug_overlay_divider );
 
 					}
 
-					// debug overlay - device //
+					// console - device //
 
 					debug_overlay_line ( 'device', 'type', device_type ) ;
 					debug_overlay_line ( 'device', 'operating system', os ) ;
@@ -529,7 +529,7 @@ ZGEUG3DCATJD4' ) ;
 
 					device_information_divider ( ) ;
 
-					// debug overlay - camera //
+					// console - camera //
 
 					if ( self.camera ) {
 
@@ -558,7 +558,7 @@ ZGEUG3DCATJD4' ) ;
 
 					device_information_divider ( ) ;
 
-					// debug overlay - orbit controls //
+					// console - orbit controls //
 
 					if ( self.orbitControls ) {
 
@@ -579,13 +579,13 @@ ZGEUG3DCATJD4' ) ;
 
 				}
 
-				// debug overlay - show as default (?) //
+				// console - show as default (?) //
 
 				set_debug_overlay_enabled ( false );
 
-				console.log ( 'debug overlay [ status ] : ' + ( debug_overlay_enabled ? 'on' : 'off' ) );
+				console.log ( 'console [ status ] : ' + ( debug_overlay_enabled ? 'on' : 'off' ) );
 
-				// global keyboard toggle for debug overlay ('~' key)
+				// global keyboard toggle for console ('~' key)
 
 				if ( ! window._device_overlay_listener_added ) {
 
@@ -593,7 +593,7 @@ ZGEUG3DCATJD4' ) ;
 
 				}
 
-				// debug overlay - mobile / touch - double tap
+				// console - mobile / touch - double tap
 
 				var last_tap_time = 0;
 
@@ -615,7 +615,7 @@ ZGEUG3DCATJD4' ) ;
 
 							set_debug_overlay_enabled ( ! debug_overlay_enabled );
 
-							console.log ( 'debug overlay [ status ] : ' + ( debug_overlay_enabled ? 'on' : 'off' ) );
+							console.log ( 'console [ status ] : ' + ( debug_overlay_enabled ? 'on' : 'off' ) );
 
 							event.preventDefault ( ) ;
 							event.stopPropagation ( ) ;
@@ -627,7 +627,7 @@ ZGEUG3DCATJD4' ) ;
 
 				}
 
-				// debug overlay - desktop / hardware - mouse double click
+				// console - desktop / hardware - mouse double click
 
 				if ( ! window._device_overlay_double_click_added ) {
 
@@ -639,7 +639,7 @@ ZGEUG3DCATJD4' ) ;
 
 						set_debug_overlay_enabled ( ! debug_overlay_enabled );
 
-						console.log ( 'debug overlay [ status ] : ' + ( debug_overlay_enabled ? 'on' : 'off' ) );
+						console.log ( 'console [ status ] : ' + ( debug_overlay_enabled ? 'on' : 'off' ) );
 
 					}, { passive: true } );
 
@@ -661,7 +661,7 @@ ZGEUG3DCATJD4' ) ;
 
 					overlay.id = 'webgl-context-lost';
 
-					device_information_overlay.style.fontFamily = 'system-ui, -apple-system, monospace';
+					console.style.fontFamily = 'system-ui, -apple-system, monospace';
 					overlay.style.alignItems = 'center';
 					overlay.style.background = '#cccccccc';
 					overlay.style.color = '#666666ff';
@@ -2164,7 +2164,7 @@ ZGEUG3DCATJD4' ) ;
 
 					}
 
-					// refresh debug overlay values
+					// refresh console values
 
 					refresh_debug_overlay ( ) ;
 
@@ -2260,7 +2260,7 @@ ZGEUG3DCATJD4' ) ;
 
 					} );
 
-					// refresh debug overlay values
+					// refresh console values
 
 					refresh_debug_overlay ( ) ;
 
@@ -2316,7 +2316,7 @@ ZGEUG3DCATJD4' ) ;
 
 					}
 
-					// refresh debug overlay values
+					// refresh console values
 
 					refresh_debug_overlay ( ) ;
 
@@ -2390,7 +2390,7 @@ ZGEUG3DCATJD4' ) ;
 
 					console.log ( "camera = " + self.cameraType ) ;
 
-					// refresh debug overlay values
+					// refresh console values
 
 					refresh_debug_overlay ( ) ;
 
@@ -2446,7 +2446,7 @@ ZGEUG3DCATJD4' ) ;
 
 					console.log ( "camera position = " + self.camera_position_matrix_x, self.camera_position_matrix_y, self.camera_position_matrix_z ) ;
 
-					// refresh debug overlay values
+					// refresh console values
 
 					refresh_debug_overlay ( ) ;
 
@@ -2515,7 +2515,7 @@ ZGEUG3DCATJD4' ) ;
 
 					self.resize ( ) ;
 
-					// refresh debug overlay values
+					// refresh console values
 
 					refresh_debug_overlay ( ) ;
 
@@ -2553,7 +2553,7 @@ ZGEUG3DCATJD4' ) ;
 
 					console.log ( "mode [ transform ] = " + transformStatus );
 
-					// refresh debug overlay values
+					// refresh console values
 
 					refresh_debug_overlay ( ) ;
 
@@ -2567,7 +2567,7 @@ ZGEUG3DCATJD4' ) ;
 
 					console.log ( "control [ transform ] = " + self.transform_controls.space );
 
-					// refresh debug overlay values
+					// refresh console values
 
 					refresh_debug_overlay ( ) ;
 
@@ -2610,13 +2610,13 @@ ZGEUG3DCATJD4' ) ;
 						console.log ( "snap [ scale ] = " + scaleSnap );
 					}
 
-					// refresh debug overlay values
+					// refresh console values
 
 					refresh_debug_overlay ( ) ;
 
 				}
 
-				// debug overlay toggle
+				// console toggle
 
 				this.debug_toggle_ = function ( ) {
 
@@ -2787,7 +2787,7 @@ ZGEUG3DCATJD4' ) ;
 
 					return self.orbitControls;
 
-					// refresh debug overlay values
+					// refresh console values
 
 					refresh_debug_overlay ( ) ;
 
@@ -2818,7 +2818,7 @@ ZGEUG3DCATJD4' ) ;
 
 					return self.transform_controls;
 
-					// refresh debug overlay values
+					// refresh console values
 
 					refresh_debug_overlay ( ) ;
 
@@ -2859,7 +2859,7 @@ ZGEUG3DCATJD4' ) ;
 
 					}
 
-					// refresh debug overlay values
+					// refresh console values
 
 					refresh_debug_overlay ( ) ;
 
@@ -3491,7 +3491,7 @@ ZGEUG3DCATJD4' ) ;
 
 						fit_camera_to_box ( self.camera, self.orbitControls, fitBox, 2.50 ) ;
 
-						// refresh debug overlay after model load //
+						// refresh console after model load //
 
 						refresh_debug_overlay ( ) ;
 
