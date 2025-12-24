@@ -113,20 +113,28 @@
 	opacity: 0;
 }
 
+#selections.selections-tab-hide {
+	top: -200px;
+}
+
+#selections.selections-tab-show {
+	top: -160px;
+}
+
+#selections.selections-hide {
+	top: -200px;
+}
+
+#selections.selections-show {
+	top: 0px;
+}
+
 .selections-left {
 	opacity: 1;
 }
 
 .selections-right {
 	opacity: 1;
-}
-
-.selections-hide {
-	top: -160px;
-}
-
-.selections-show {
-	top: 0px;
 }
 
 .selections-label {

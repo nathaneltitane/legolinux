@@ -27,32 +27,55 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	function hide ( ) {
 
-		selections_parent.style.top = '-200px' ;
+		selections_parent.classList.remove ( 'selections-show' ) ;
+		selections.classList.remove ( 'selections-show' ) ;
 
-		selections.style.top = '-200px' ;
+		selections_parent.classList.remove ( 'selections-tab-show' ) ;
+		selections.classList.remove ( 'selections-tab-show' ) ;
+
+		selections_parent.classList.add ( 'selections-hide' ) ;
+		selections.classList.add ( 'selections-hide' ) ;
 
 	}
 
 
 	function show ( ) {
 
-		selections_parent.style.top = '0px' ;
+		selections_parent.classList.remove ( 'selections-hide' ) ;
+		selections.classList.remove ( 'selections-hide' ) ;
 
-		selections.style.top = '0px' ;
+		selections_parent.classList.remove ( 'selections-tab-show' ) ;
+		selections.classList.remove ( 'selections-tab-show' ) ;
+
+		selections_parent.classList.add ( 'selections-show' ) ;
+		selections.classList.add ( 'selections-show' ) ;
 
 	}
 
-	function delay_show ( ) {
+	function tab_show ( ) {
 
 		setTimeout ( function ( ) {
 
-			selections_parent.style.top = '-160px' ;
+			// ensure we are not in any conflicting state
 
-			selections.style.top = '-160px' ;
+			selections_parent.classList.remove ( 'selections-show' ) ;
+			selections.classList.remove ( 'selections-show' ) ;
+
+			selections_parent.classList.remove ( 'selections-hide' ) ;
+			selections.classList.remove ( 'selections-hide' ) ;
+
+			selections_parent.classList.remove ( 'selections-tab-hide' ) ;
+			selections.classList.remove ( 'selections-tab-hide' ) ;
+
+			// show tab only
+
+			selections_parent.classList.add ( 'selections-tab-show' ) ;
+			selections.classList.add ( 'selections-tab-show' ) ;
 
 		}, 1500 ) ;
 
 	}
+
 
 	function toggle ( ) {
 
@@ -185,7 +208,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		hide ( ) ;
 
-		delay_show ( ) ;
+		tab_show ( ) ;
 
 	}, { passive: true } ) ;
 
@@ -224,6 +247,6 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	scroll ( ) ;
 
-	delay_show ( ) ;
+	tab_show ( ) ;
 
 } ) ;
