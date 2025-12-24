@@ -4298,9 +4298,9 @@ cat << 3D-MODEL-PAGE-HELPERS ->> "${model_directory}/index.html"
 
 					</div>
 
-					<!-- plane -->
+					<!-- baseplate -->
 
-					<div id="plane">
+					<div id="baseplate">
 
 					</div>
 
