@@ -5,7 +5,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 	console.log ( 'selections [ init ] : domcontentloaded' ) ;
 
 	var selections_parent = document.getElementById ( 'selections' ) ;
-	var selections	= selections_parent.querySelector		( '.selections' ) ;
+	var selections = null ;
 
 	if ( ! selections_parent ) {
 
@@ -15,68 +15,62 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	}
 
-	var timeout_reset ;
+	selections = selections_parent.querySelector ( '.selections' ) ;
 
-	var initialized = false ;
+	if ( ! selections ) {
 
-	function hide ( selections ) {
+		console.warn ( 'selections [ init ] : abort, .selections missing' ) ;
 
-		console.log ( 'selections [ state ] : hide' ) ;
+		return ;
+
+	}
+
+	function hide ( ) {
 
 		selections_parent.style.top = '-160px' ;
 
-		if ( selections ) {
-
-			selections.style.top = '-160px' ;
-
-		}
+		selections.style.top = '-160px' ;
 
 	}
 
-	function show ( selections ) {
-
-		console.log ( 'selections [ state ] : show' ) ;
+	function show ( ) {
 
 		selections_parent.style.top = '0px' ;
 
-		if ( selections ) {
+		selections.style.top = '0px' ;
 
-			selections.style.top = '0px' ;
+	}
+
+	function is_open ( ) {
+
+		return selections_parent.style.top === '0px' ;
+
+	}
+
+	function toggle ( ) {
+
+		if ( is_open ( ) ) {
+
+			hide ( ) ;
+
+		} else {
+
+			show ( ) ;
 
 		}
 
-	}
-
-	function delay_show ( selections ) {
-
-		console.log ( 'selections [ state ] : delay_show scheduled' ) ;
-
-		clearTimeout ( timeout_reset ) ;
-
-		timeout_reset = setTimeout ( function ( ) {
-
-			console.log ( 'selections [ state ] : delay_show execute' ) ;
-
-			show ( selections ) ;
-
-			requestAnimationFrame ( function ( ) {
-
-				scroll ( selections ) ;
-
-			} ) ;
-
-		}, 1500 ) ;
+		scroll ( ) ;
 
 	}
 
-	function scroll ( selections ) {
+	function scroll ( ) {
 
 		var arrow_left	= document.querySelector ( '#selections-start .selections-start' ) ;
 		var arrow_right	= document.querySelector ( '#selections-end .selections-end' ) ;
 
-		// if not laid out yet, do not show arrows //
+		// do not show arrows if load incomplete
 
-		if ( ! selections || selections.clientWidth <= 0 ) {
+		if ( selections.clientWidth <= 0 ) {
 
 			if ( arrow_left ) arrow_left.classList.remove ( 'selections-right' ) ;
 			if ( arrow_right ) arrow_right.classList.remove ( 'selections-left' ) ;
@@ -84,8 +78,6 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 			return ;
 
 		}
-
-		// robust overflow check (flex / subpixel / rounding) //
 
 		var can_scroll = selections.scrollWidth > ( selections.clientWidth + 1 ) ;
 
@@ -111,11 +103,6 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		}
 
-		// middle
-
-		// if ( arrow_left ) arrow_left.classList.add ( 'selections-right' ) ;
-		// if ( arrow_right ) arrow_right.classList.add ( 'selections-left' ) ;
-
 		// end
 
 		if ( selections.scrollLeft >= scroll_maximum - 1 ) {
@@ -127,132 +114,98 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		}
 
+		// middle
+
+		// if ( arrow_left ) arrow_left.classList.add ( 'selections-right' ) ;
+		// if ( arrow_right ) arrow_right.classList.add ( 'selections-left' ) ;
+
 	}
 
-	function bind ( selections ) {
+	// force hidden on load
 
-		console.log ( 'selections [ event ] : bind events' ) ;
+	hide ( ) ;
 
-		var canvas = document.getElementById ( 'canvas' ) ;
+	// tab click (works even when pseudo-element is clicked) //
 
-		function target ( event ) {
+	selections_parent.addEventListener ( 'click', function ( event ) {
 
-			return canvas && ( event.target === canvas || canvas.contains ( event.target ) ) ;
+		var clicked_tab = event.target.closest ( '.selections-tab' ) ;
+		var clicked_pseudo = event.target === selections_parent ;
+
+		if ( ! clicked_tab && ! clicked_pseudo ) {
+
+			return ;
 
 		}
 
-		// hide on canvas interaction (viewer pages)
+		toggle ( ) ;
 
-		document.addEventListener ( 'pointerdown', function ( event ) {
+	}, { passive: true } ) ;
 
-			if ( ! canvas ) return ;
+	// hide on canvas interaction for viewer pages - no auto-show //
 
-			if ( ! target ( event ) ) return ;
+	var canvas = document.getElementById ( 'canvas' ) ;
 
-			if ( event.pointerType === 'mouse' && event.button !== 0 ) return ;
+	function target ( event ) {
 
-			hide ( selections ) ;
-
-		}, { passive: true } ) ;
-
-		document.addEventListener ( 'pointerup', function ( ) {
-
-			if ( ! canvas ) return ;
-
-			delay_show ( selections ) ;
-
-		}, { passive: true } ) ;
-
-		document.addEventListener ( 'pointercancel', function ( ) {
-
-			if ( ! canvas ) return ;
-
-			delay_show ( selections ) ;
-
-		}, { passive: true } ) ;
-
-		// horizontal scrolling
-
-		selections.addEventListener ( 'wheel', function ( event ) {
-
-			if ( event.deltaY === 0 ) return ;
-
-			event.preventDefault ( ) ;
-
-			selections.scrollLeft += event.deltaY ;
-
-			scroll ( selections ) ;
-
-		}, { passive: false } ) ;
-
-		selections.addEventListener ( 'scroll', function ( ) {
-
-			scroll ( selections ) ;
-
-		} ) ;
-
-		window.addEventListener ( 'resize', function ( ) {
-
-			scroll ( selections ) ;
-
-		} ) ;
+		return canvas && ( event.target === canvas || canvas.contains ( event.target ) ) ;
 
 	}
 
-	function initialize ( ) {
+	document.addEventListener ( 'pointerdown', function ( event ) {
 
-		if ( initialized ) return ;
+		if ( ! canvas ) {
 
-		var selections = selections_parent.querySelector ( '.selections' ) ;
-
-		if ( ! selections ) return ;
-
-		initialized = true ;
-
-		bind ( selections ) ;
-
-		var canvas = document.getElementById ( 'canvas' ) ;
-
-		if ( canvas ) {
-
-			hide ( selections ) ;
-
-			delay_show ( selections ) ;
-
-		} else {
-
-			show ( selections ) ;
+			return ;
 
 		}
 
-		scroll ( selections ) ;
+		if ( ! target ( event ) ) {
 
-		// failsafe reveal
-
-		setTimeout ( function ( ) {
-
-			show ( selections ) ;
-
-			scroll ( selections ) ;
-
-		}, 2500 ) ;
-
-	}
-
-	// minimal bootstrap for ajax-loaded selections
-
-	function tick ( ) {
-
-		initialize ( ) ;
-
-		if ( ! initialized ) {
-
-			requestAnimationFrame ( tick ) ;
+			return ;
 
 		}
 
-	}
+		if ( event.pointerType === 'mouse' && event.button !== 0 ) {
 
-	tick ( ) ;
+			return ;
+
+		}
+
+		hide ( ) ;
+
+	}, { passive: true } ) ;
+
+	// horizontal scrolling
+
+	selections.addEventListener ( 'wheel', function ( event ) {
+
+		if ( event.deltaY === 0 ) {
+
+			return ;
+
+		}
+
+		event.preventDefault ( ) ;
+
+		selections.scrollLeft += event.deltaY ;
+
+		scroll ( ) ;
+
+	}, { passive: false } ) ;
+
+	selections.addEventListener ( 'scroll', function ( ) {
+
+		scroll ( ) ;
+
+	} ) ;
+
+	window.addEventListener ( 'resize', function ( ) {
+
+		scroll ( ) ;
+
+	} ) ;
+
+	scroll ( ) ;
 
 } ) ;

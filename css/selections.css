@@ -24,9 +24,6 @@
 	border-radius: 0px 0px 20px 20px;
 
 	background: #aaaaaaff;
-
-	cursor: pointer;
-	user-select: none;
 }
 
 #selections::after {
@@ -122,6 +119,14 @@
 
 .selections-right {
 	opacity: 1;
+}
+
+.selections-hide {
+	top: -160px;
+}
+
+.selections-show {
+	top: 0px;
 }
 
 .selections-label {
