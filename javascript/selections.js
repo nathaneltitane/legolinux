@@ -38,7 +38,6 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	}
 
-
 	function show ( ) {
 
 		selections_parent.classList.remove ( 'selections-hide' ) ;
@@ -56,7 +55,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		setTimeout ( function ( ) {
 
-			// ensure we are not in any conflicting state
+			// purge conflicting states
 
 			selections_parent.classList.remove ( 'selections-show' ) ;
 			selections.classList.remove ( 'selections-show' ) ;
@@ -75,7 +74,6 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 		}, 1500 ) ;
 
 	}
-
 
 	function toggle ( ) {
 
