@@ -600,7 +600,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 					device_information_overlay = document.createElement ( 'div' );
 					device_information_overlay.id = 'device-information-overlay';
 
-					document.body.appendChild ( device_information_overlay );
+					document.body.appendChild ( device-information-overlay );
 				}
 
 				const os = operating_system ( ) ;
