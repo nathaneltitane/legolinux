@@ -370,7 +370,7 @@
 				this.renderer.clear ( ) ;
 
 
-				// console - target //
+				// debug overlay - target //
 
 				function is_canvas_target ( event ) {
 
@@ -382,30 +382,30 @@
 
 				}
 
-				// console - standard
+				// debug overlay - standard
 
-				var console = null;
+				var device_information_overlay = null;
 
-				var consoleenabled = true;
+				var debug_overlay_enabled = true;
 
 				function create_device_overlay_if_needed ( ) {
 
-					if ( console ) return;
+					if ( device_information_overlay ) return;
 
-					console = document.createElement ( 'div' );
+					device_information_overlay = document.createElement ( 'div' );
 
-					console.id = 'console';
+					device_information_overlay.id = 'console';
 
-					document.body.appendChild ( console );
+					document.body.appendChild ( device_information_overlay );
 				}
 
 				const os = operating_system ( ) ;
 
 				console.log ( 'operating system [ system ] : ' + os );
 
-				function set_consoleenabled ( enabled ) {
+				function set_debug_overlay_enabled ( enabled ) {
 
-					consoleenabled = enabled;
+					debug_overlay_enabled = enabled;
 
 					if ( enabled ) {
 
@@ -413,11 +413,11 @@
 
 					} else {
 
-						if ( console ) {
+						if ( device_information_overlay ) {
 
-							console.remove ( ) ;
+							device_information_overlay.remove ( ) ;
 
-							console = null ;
+							device_information_overlay = null ;
 
 						}
 
@@ -427,7 +427,7 @@
 
 				function refresh_debug_overlay ( ) {
 
-					if ( ! consoleenabled ) {
+					if ( ! debug_overlay_enabled ) {
 
 						return ;
 
@@ -435,15 +435,15 @@
 
 					create_device_overlay_if_needed ( ) ;
 
-					if ( ! console ) {
+					if ( ! device_information_overlay ) {
 
 						return ;
 
 					}
 
-					console.innerHTML = '' ;
+					device_information_overlay.innerHTML = '' ;
 
-					function consoleline ( label, context, value ) {
+					function debug_overlay_line ( label, context, value ) {
 
 						var line = document.createElement ( 'div' ) ;
 
@@ -468,33 +468,33 @@
 
 						line.textContent = text ;
 
-						console.appendChild ( line ) ;
+						device_information_overlay.appendChild ( line ) ;
 
 					}
 
-					// console divider
+					// debug overlay divider
 
 					function device_information_divider ( ) {
 
-						var consoledivider = document.createElement ( 'hr' );
+						var debug_overlay_divider = document.createElement ( 'hr' );
 
-						console.appendChild ( consoledivider );
+						device_information_overlay.appendChild ( debug_overlay_divider );
 
 					}
 
-					// console - device //
+					// debug overlay - device //
 
-					consoleline ( 'device', 'type', device_type ) ;
-					consoleline ( 'device', 'operating system', os ) ;
-					consoleline ( 'device', 'pixel ratio', pixel_ratio.toFixed ( 2 ) ) ;
+					debug_overlay_line ( 'device', 'type', device_type ) ;
+					debug_overlay_line ( 'device', 'operating system', os ) ;
+					debug_overlay_line ( 'device', 'pixel ratio', pixel_ratio.toFixed ( 2 ) ) ;
 
 					device_information_divider ( ) ;
 
 					// model state //
 
-					consoleline ( 'model', 'identifier', '4AX75UD64VMXA' ) ;
-					consoleline ( 'model', 'pieces', '1222' ) ;
-					consoleline ( 'model', 'load', self.colladaImport ? 'yes' : 'no' ) ;
+					debug_overlay_line ( 'model', 'identifier', '4AX75UD64VMXA' ) ;
+					debug_overlay_line ( 'model', 'pieces', '1222' ) ;
+					debug_overlay_line ( 'model', 'load', self.colladaImport ? 'yes' : 'no' ) ;
 
 					if ( self.colladaImport ) {
 
@@ -504,48 +504,48 @@
 						var size = box.getSize ( new THREE.Vector3 ( ) ) ;
 						var center = box.getCenter ( new THREE.Vector3 ( ) ) ;
 
-						consoleline ( 'model', 'bounding box x', size.x.toFixed ( 4 ) ) ;
-						consoleline ( 'model', 'bounding box y', size.y.toFixed ( 4 ) ) ;
-						consoleline ( 'model', 'bounding box z', size.z.toFixed ( 4 ) ) ;
+						debug_overlay_line ( 'model', 'bounding box x', size.x.toFixed ( 4 ) ) ;
+						debug_overlay_line ( 'model', 'bounding box y', size.y.toFixed ( 4 ) ) ;
+						debug_overlay_line ( 'model', 'bounding box z', size.z.toFixed ( 4 ) ) ;
 
-						consoleline ( 'model', 'center x', center.x.toFixed ( 4 ) ) ;
-						consoleline ( 'model', 'center y', center.y.toFixed ( 4 ) ) ;
-						consoleline ( 'model', 'center z', center.z.toFixed ( 4 ) ) ;
+						debug_overlay_line ( 'model', 'center x', center.x.toFixed ( 4 ) ) ;
+						debug_overlay_line ( 'model', 'center y', center.y.toFixed ( 4 ) ) ;
+						debug_overlay_line ( 'model', 'center z', center.z.toFixed ( 4 ) ) ;
 					}
 
 					device_information_divider ( ) ;
 
-					consoleline ( 'faces', 'visibility', model_faces_visible ? 'on' : 'off' ) ;
-					consoleline ( 'wireframe', 'visibility', wireframe_visible ? 'on' : 'off' ) ;
+					debug_overlay_line ( 'faces', 'visibility', model_faces_visible ? 'on' : 'off' ) ;
+					debug_overlay_line ( 'wireframe', 'visibility', wireframe_visible ? 'on' : 'off' ) ;
 
 					device_information_divider ( ) ;
 
 
-					consoleline ( 'edge', 'visibility', model_edges_visible ? 'on' : 'off' ) ;
-					consoleline ( 'edge', 'thickness', edge_thickness_state ) ;
+					debug_overlay_line ( 'edge', 'visibility', model_edges_visible ? 'on' : 'off' ) ;
+					debug_overlay_line ( 'edge', 'thickness', edge_thickness_state ) ;
 
 
 					device_information_divider ( ) ;
 
-					// console - camera //
+					// debug overlay - camera //
 
 					if ( self.camera ) {
 
-						consoleline (
+						debug_overlay_line (
 							'camera', 'type',
 							self.camera.isPerspectiveCamera ? 'perspective' : ( self.camera.isOrthographicCamera ? 'orthographic' : 'other' )
 						) ;
 
 						if ( self.camera.fov !== undefined ) {
 
-							consoleline ( 'camera', 'field of view', self.camera.fov ) ;
+							debug_overlay_line ( 'camera', 'field of view', self.camera.fov ) ;
 
 						}
 
-						consoleline ( 'camera', 'near', self.camera.near.toFixed ( 6 ) ) ;
-						consoleline ( 'camera',  'far', self.camera.far.toFixed ( 6 ) ) ;
+						debug_overlay_line ( 'camera', 'near', self.camera.near.toFixed ( 6 ) ) ;
+						debug_overlay_line ( 'camera',  'far', self.camera.far.toFixed ( 6 ) ) ;
 
-						consoleline (
+						debug_overlay_line (
 							'camera', 'position',
 							self.camera.position.x.toFixed ( 4 ) + ', ' +
 							self.camera.position.y.toFixed ( 4 ) + ', ' +
@@ -556,15 +556,15 @@
 
 					device_information_divider ( ) ;
 
-					// console - orbit controls //
+					// debug overlay - orbit controls //
 
 					if ( self.orbitControls ) {
 
-						consoleline ( 'orbit', 'enabled', self.orbitControls.enabled ? 'yes' : 'no' ) ;
+						debug_overlay_line ( 'orbit', 'enabled', self.orbitControls.enabled ? 'yes' : 'no' ) ;
 
 						if ( self.orbitControls.target ) {
 
-							consoleline (
+							debug_overlay_line (
 								'orbit', 'target',
 								self.orbitControls.target.x.toFixed ( 4 ) + ', ' +
 								self.orbitControls.target.y.toFixed ( 4 ) + ', ' +
@@ -577,13 +577,13 @@
 
 				}
 
-				// console - show as default (?) //
+				// debug overlay - show as default (?) //
 
-				set_consoleenabled ( false );
+				set_debug_overlay_enabled ( false );
 
-				console.log ( 'console [ status ] : ' + ( consoleenabled ? 'on' : 'off' ) );
+				console.log ( 'debug overlay [ status ] : ' + ( debug_overlay_enabled ? 'on' : 'off' ) );
 
-				// global keyboard toggle for console ('~' key)
+				// global keyboard toggle for debug overlay ('~' key)
 
 				if ( ! window._device_overlay_listener_added ) {
 
@@ -591,7 +591,7 @@
 
 				}
 
-				// console - mobile / touch - double tap
+				// debug overlay - mobile / touch - double tap
 
 				var last_tap_time = 0;
 
@@ -611,9 +611,9 @@
 
 						if ( tap_gap > 100 && tap_gap < 350 ) {
 
-							set_consoleenabled ( ! consoleenabled );
+							set_debug_overlay_enabled ( ! debug_overlay_enabled );
 
-							console.log ( 'console [ status ] : ' + ( consoleenabled ? 'on' : 'off' ) );
+							console.log ( 'debug overlay [ status ] : ' + ( debug_overlay_enabled ? 'on' : 'off' ) );
 
 							event.preventDefault ( ) ;
 							event.stopPropagation ( ) ;
@@ -625,7 +625,7 @@
 
 				}
 
-				// console - desktop / hardware - mouse double click
+				// debug overlay - desktop / hardware - mouse double click
 
 				if ( ! window._device_overlay_double_click_added ) {
 
@@ -635,9 +635,9 @@
 
 						if ( ! is_canvas_target ( event ) ) return;
 
-						set_consoleenabled ( ! consoleenabled );
+						set_debug_overlay_enabled ( ! debug_overlay_enabled );
 
-						console.log ( 'console [ status ] : ' + ( consoleenabled ? 'on' : 'off' ) );
+						console.log ( 'debug overlay [ status ] : ' + ( debug_overlay_enabled ? 'on' : 'off' ) );
 
 					}, { passive: true } );
 
@@ -659,7 +659,7 @@
 
 					overlay.id = 'webgl-context-lost';
 
-					console.style.fontFamily = 'system-ui, -apple-system, monospace';
+					device_information_overlay.style.fontFamily = 'system-ui, -apple-system, monospace';
 					overlay.style.alignItems = 'center';
 					overlay.style.background = '#cccccccc';
 					overlay.style.color = '#666666ff';
@@ -1829,7 +1829,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-white.dae',
+						'/minifigs/exports/minifig-orange.dae',
 
 						function ( collada ) {
 
@@ -1935,7 +1935,7 @@
 
 						function ( error ) {
 
-							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-white.dae', error );
+							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-orange.dae', error );
 
 						}
 
@@ -2162,7 +2162,7 @@
 
 					}
 
-					// refresh console values
+					// refresh debug overlay values
 
 					refresh_debug_overlay ( ) ;
 
@@ -2258,7 +2258,7 @@
 
 					} );
 
-					// refresh console values
+					// refresh debug overlay values
 
 					refresh_debug_overlay ( ) ;
 
@@ -2314,7 +2314,7 @@
 
 					}
 
-					// refresh console values
+					// refresh debug overlay values
 
 					refresh_debug_overlay ( ) ;
 
@@ -2388,7 +2388,7 @@
 
 					console.log ( "camera = " + self.cameraType ) ;
 
-					// refresh console values
+					// refresh debug overlay values
 
 					refresh_debug_overlay ( ) ;
 
@@ -2444,7 +2444,7 @@
 
 					console.log ( "camera position = " + self.camera_position_matrix_x, self.camera_position_matrix_y, self.camera_position_matrix_z ) ;
 
-					// refresh console values
+					// refresh debug overlay values
 
 					refresh_debug_overlay ( ) ;
 
@@ -2513,7 +2513,7 @@
 
 					self.resize ( ) ;
 
-					// refresh console values
+					// refresh debug overlay values
 
 					refresh_debug_overlay ( ) ;
 
@@ -2551,7 +2551,7 @@
 
 					console.log ( "mode [ transform ] = " + transformStatus );
 
-					// refresh console values
+					// refresh debug overlay values
 
 					refresh_debug_overlay ( ) ;
 
@@ -2565,7 +2565,7 @@
 
 					console.log ( "control [ transform ] = " + self.transform_controls.space );
 
-					// refresh console values
+					// refresh debug overlay values
 
 					refresh_debug_overlay ( ) ;
 
@@ -2608,17 +2608,17 @@
 						console.log ( "snap [ scale ] = " + scaleSnap );
 					}
 
-					// refresh console values
+					// refresh debug overlay values
 
 					refresh_debug_overlay ( ) ;
 
 				}
 
-				// console toggle
+				// debug overlay toggle
 
 				this.debug_toggle_ = function ( ) {
 
-					set_consoleenabled ( ! consoleenabled ) ;
+					set_debug_overlay_enabled ( ! debug_overlay_enabled ) ;
 
 					refresh_debug_overlay ( ) ;
 
@@ -2785,7 +2785,7 @@
 
 					return self.orbitControls;
 
-					// refresh console values
+					// refresh debug overlay values
 
 					refresh_debug_overlay ( ) ;
 
@@ -2816,7 +2816,7 @@
 
 					return self.transform_controls;
 
-					// refresh console values
+					// refresh debug overlay values
 
 					refresh_debug_overlay ( ) ;
 
@@ -2857,7 +2857,7 @@
 
 					}
 
-					// refresh console values
+					// refresh debug overlay values
 
 					refresh_debug_overlay ( ) ;
 
@@ -3489,7 +3489,7 @@
 
 						fit_camera_to_box ( self.camera, self.orbitControls, fitBox, 2.50 ) ;
 
-						// refresh console after model load //
+						// refresh debug overlay after model load //
 
 						refresh_debug_overlay ( ) ;
 
