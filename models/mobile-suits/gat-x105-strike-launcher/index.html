@@ -390,35 +390,12 @@
 
 				function create_device_overlay_if_needed ( ) {
 
-					if ( device_information_overlay ) {
-
-						return;
-
-					}
+					if ( device_information_overlay ) return;
 
 					device_information_overlay = document.createElement ( 'div' );
-
 					device_information_overlay.id = 'device-information-overlay';
 
-					device_information_overlay.style.background = '#333333cc';
-					device_information_overlay.style.borderRadius = '10px';
-					device_information_overlay.style.bottom = '90px';
-					device_information_overlay.style.color = '#ddddddff';
-					device_information_overlay.style.display = 'block' ;
-					device_information_overlay.style.fontFamily = 'system-ui, -apple-system, monospace';
-					device_information_overlay.style.fontSize = '10px';
-					device_information_overlay.style.left = '10px';
-					device_information_overlay.style.lineHeight = '1';
-					device_information_overlay.style.padding = '10px 10px 10px 10px';
-					device_information_overlay.style.pointerEvents = 'none';
-					device_information_overlay.style.position = 'fixed';
-					device_information_overlay.style.right = '10px';
-					device_information_overlay.style.top = '170px';
-					device_information_overlay.style.whiteSpace = 'pre';
-					device_information_overlay.style.zIndex = '9998';
-
 					document.body.appendChild ( device_information_overlay );
-
 				}
 
 				const os = operating_system ( ) ;
@@ -1851,7 +1828,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-white.dae',
+						'/minifigs/exports/minifig-black.dae',
 
 						function ( collada ) {
 
@@ -1957,7 +1934,7 @@
 
 						function ( error ) {
 
-							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-white.dae', error );
+							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-black.dae', error );
 
 						}
 

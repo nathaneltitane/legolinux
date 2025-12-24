@@ -1,0 +1,27 @@
+#device-information-overlay {
+	position: fixed;
+	top: 170px;
+	right: 10px;
+	left: 10px;
+
+	z-index: 9998;
+	pointer-events: none;
+
+	padding: 10px;
+	border-radius: 10px;
+
+	background: rgba(51, 51, 51, 0.8);
+	color: rgba(221, 221, 221, 1);
+
+	font-family: system-ui, -apple-system, monospace;
+	font-size: 10px;
+	line-height: 1;
+
+	white-space: pre;
+}
+
+#device-information-overlay hr {
+	border: none;
+	border-top: 1px solid rgba(255, 255, 255, 0.15);
+	margin: 6px 0;
+}
