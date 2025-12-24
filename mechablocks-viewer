@@ -652,7 +652,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						var line = document.createElement ( 'div' ) ;
 
-						// shift arguments if only two are present
+						// 2 arguments passed - shift arguments
 
 						if ( arguments.length === 2 ) {
 
