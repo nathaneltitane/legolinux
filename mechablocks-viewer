@@ -1993,7 +1993,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					loader.load (
 
-						'/minifigs/exports/minifig-black.dae',
+						'/minifigs/exports/minifig-${color_minifig}.dae',
 
 						function ( collada ) {
 
