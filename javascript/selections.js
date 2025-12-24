@@ -27,11 +27,12 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	function hide ( ) {
 
-		selections_parent.style.top = '-160px' ;
+		selections_parent.style.top = '-200px' ;
 
-		selections.style.top = '-160px' ;
+		selections.style.top = '-200px' ;
 
 	}
+
 
 	function show ( ) {
 
@@ -41,15 +42,21 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	}
 
-	function is_open ( ) {
+	function delay_show ( ) {
 
-		return selections_parent.style.top === '0px' ;
+		setTimeout ( function ( ) {
+
+			selections_parent.style.top = '-160px' ;
+
+			selections.style.top = '-160px' ;
+
+		}, 1500 ) ;
 
 	}
 
 	function toggle ( ) {
 
-		if ( is_open ( ) ) {
+		if ( open ( ) ) {
 
 			hide ( ) ;
 
@@ -60,6 +67,12 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 		}
 
 		scroll ( ) ;
+
+	}
+
+	function open ( ) {
+
+		return selections_parent.style.top === '0px' ;
 
 	}
 
@@ -121,10 +134,6 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	}
 
-	// force hidden on load
-
-	hide ( ) ;
-
 	// tab click (works even when pseudo-element is clicked) //
 
 	selections_parent.addEventListener ( 'click', function ( event ) {
@@ -176,6 +185,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	}, { passive: true } ) ;
 
+
 	// horizontal scrolling
 
 	selections.addEventListener ( 'wheel', function ( event ) {
@@ -206,6 +216,12 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	} ) ;
 
+	hide ( ) ;
+
 	scroll ( ) ;
 
+	delay_show ( ) ;
+
 } ) ;
+
+
