@@ -384,19 +384,19 @@
 
 				// console - standard
 
-				var console = null;
+				var console_overlay = null;
 
 				var debug_overlay_enabled = true;
 
 				function create_device_overlay_if_needed ( ) {
 
-					if ( console ) return;
+					if ( console_overlay ) return;
 
-					console = document.createElement ( 'div' );
+					console_overlay = document.createElement ( 'div' );
 
-					console.id = 'console';
+					console_overlay.id = 'console';
 
-					document.body.appendChild ( console );
+					document.body.appendChild ( console_overlay );
 				}
 
 				const os = operating_system ( ) ;
@@ -413,11 +413,11 @@
 
 					} else {
 
-						if ( console ) {
+						if ( console_overlay ) {
 
-							console.remove ( ) ;
+							console_overlay.remove ( ) ;
 
-							console = null ;
+							console_overlay = null ;
 
 						}
 
@@ -435,13 +435,13 @@
 
 					create_device_overlay_if_needed ( ) ;
 
-					if ( ! console ) {
+					if ( ! console_overlay ) {
 
 						return ;
 
 					}
 
-					console.innerHTML = '' ;
+					console_overlay.innerHTML = '' ;
 
 					function debug_overlay_line ( label, context, value ) {
 
@@ -468,7 +468,7 @@
 
 						line.textContent = text ;
 
-						console.appendChild ( line ) ;
+						console_overlay.appendChild ( line ) ;
 
 					}
 
@@ -478,7 +478,7 @@
 
 						var debug_overlay_divider = document.createElement ( 'hr' );
 
-						console.appendChild ( debug_overlay_divider );
+						console_overlay.appendChild ( debug_overlay_divider );
 
 					}
 
@@ -659,7 +659,7 @@
 
 					overlay.id = 'webgl-context-lost';
 
-					console.style.fontFamily = 'system-ui, -apple-system, monospace';
+					console_overlay.style.fontFamily = 'system-ui, -apple-system, monospace';
 					overlay.style.alignItems = 'center';
 					overlay.style.background = '#cccccccc';
 					overlay.style.color = '#666666ff';
@@ -1829,7 +1829,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-orange.dae',
+						'/minifigs/exports/minifig-fuschia.dae',
 
 						function ( collada ) {
 
@@ -1935,7 +1935,7 @@
 
 						function ( error ) {
 
-							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-orange.dae', error );
+							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-fuschia.dae', error );
 
 						}
 
