@@ -1761,47 +1761,49 @@
 
 				this.grid_toggle_ = function ( ) {
 
-					// no grid - orthogonal on
+					// if orthogonal is on → switch to polar //
 
-					self.orthogonal_grid_helper_visible = true ;
+	if ( self.orthogonal_grid_helper_visible ) {
 
-					self.scene.add ( self.get_orthogonal_grid_helper ( ) ) ;
+		self.orthogonal_grid_helper_visible = false ;
 
-					console.log ( "helper [ grid cycle ] : orthogonal" ) ;
+		self.scene.remove ( self.get_orthogonal_grid_helper ( ) ) ;
 
-					// orthogonal on - switch to polar
+		self.polar_grid_helper_visible = true ;
 
-					if ( self.orthogonal_grid_helper_visible ) {
+		self.scene.add ( self.get_polar_grid_helper ( ) ) ;
 
-						self.orthogonal_grid_helper_visible = false ;
+		console.log ( "helper [ grid cycle ] : polar" ) ;
 
-						self.scene.remove ( self.get_orthogonal_grid_helper ( ) ) ;
+		return ;
 
-						self.polar_grid_helper_visible = true ;
+	}
 
-						self.scene.add ( self.get_polar_grid_helper ( ) ) ;
+	// if polar is on → switch everything off //
 
-						console.log ( "helper [ grid cycle ] : polar" ) ;
+	if ( self.polar_grid_helper_visible ) {
 
-						return ;
+		self.polar_grid_helper_visible = false ;
 
-					}
+		self.scene.remove ( self.get_polar_grid_helper ( ) ) ;
 
-					// polar on - no grid
+		console.log ( "helper [ grid cycle ] : off" ) ;
 
-					if ( self.polar_grid_helper_visible ) {
+		return ;
 
-						self.polar_grid_helper_visible = false ;
+	}
 
-						self.scene.remove ( self.get_polar_grid_helper ( ) ) ;
+	// if nothing is on → turn orthogonal on //
 
-						console.log ( "helper [ grid cycle ] : off" ) ;
+	self.orthogonal_grid_helper_visible = true ;
 
-						return ;
+	self.scene.add ( self.get_orthogonal_grid_helper ( ) ) ;
 
-					}
+	console.log ( "helper [ grid cycle ] : orthogonal" ) ;
 
 				} ;
+
+				// generate globally bound entry point so helper buttons can call it safely
 
 				window.grid_toggle_ = this.grid_toggle_.bind ( this ) ;
 
@@ -1849,7 +1851,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-purple.dae',
+						'/minifigs/exports/minifig-red.dae',
 
 						function ( collada ) {
 
@@ -1955,7 +1957,7 @@
 
 						function ( error ) {
 
-							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-purple.dae', error );
+							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-red.dae', error );
 
 						}
 
