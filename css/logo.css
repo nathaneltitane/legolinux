@@ -66,6 +66,10 @@
 	background-image: url(/logo/logo-baseplate.svg);
 }
 
+.logo-grid {
+	background-image: url(/logo/logo-grid.svg);
+}
+
 .logo-wireframe {
 	background-image: url(/logo/logo-wireframe.svg);
 }
