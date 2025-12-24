@@ -5,8 +5,17 @@
 	right: 10px;
 	left: 10px;
 
+	/* limit height: viewport minus top offset minus bottom clearance */
+	max-height: calc(100vh - 170px - 90px);
+
 	z-index: 9998;
-	pointer-events: none;
+
+	/* required for scrolling */
+	overflow-y: auto;
+	overflow-x: hidden;
+
+	/* allow scroll interaction */
+	pointer-events: auto;
 
 	padding: 10px 10px 10px 10px;
 	border-radius: 10px;
@@ -15,7 +24,6 @@
 	color: #ddddddff;
 
 	font-family: system-ui, -apple-system, monospace;
-
 	font-size: 10px;
 	line-height: 1;
 
