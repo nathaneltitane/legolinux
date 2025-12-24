@@ -2155,7 +2155,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					loader.load (
 
-						'/baseplates/exports/baseplate-${color_baseplate}.dae',
+						'/baseplates/exports/baseplate.dae',
 
 						function ( collada ) {
 
