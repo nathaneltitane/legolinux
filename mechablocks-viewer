@@ -1196,8 +1196,6 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				this.scene.add ( this.spotLight );
 
-				// helpers
-
 				// axes helper
 
 				this.axesHelper = null;
