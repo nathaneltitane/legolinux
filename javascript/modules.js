@@ -144,6 +144,12 @@ $( function ( ) {
 
 		} ) ;
 
+		$.get ( '/modules/grid.html', function ( data ) {
+
+			$( '#grid' ).append ( data ) ;
+
+		} ) ;
+
 		$.get ( '/modules/helper.html', function ( data ) {
 
 			$( '#helper' ).append ( data ) ;
