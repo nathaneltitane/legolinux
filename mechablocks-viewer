@@ -2282,23 +2282,6 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				window.baseplate_toggle_ = this.baseplate_toggle_.bind ( this );
 
-				// plane helper
-
-				this.boundingBox = null;
-
-				this.get_boundingBox = function ( ) {
-
-					if ( ! self.boundingBox ) {
-
-						self.boundingBox = new THREE.Box3 ( ).setFromObject ( self.colladaImport )
-
-						console.log ( "helper [ bounding box / plane ]" );
-					}
-
-					return self.boundingBox;
-
-				}
-
 				this.plane_color = grey;
 
 				this.plane = null;

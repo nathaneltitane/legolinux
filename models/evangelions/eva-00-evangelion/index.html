@@ -1788,7 +1788,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-purple.dae',
+						'/minifigs/exports/minifig-white.dae',
 
 						function ( collada ) {
 
@@ -1894,7 +1894,7 @@
 
 						function ( error ) {
 
-							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-purple.dae', error );
+							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-white.dae', error );
 
 						}
 
@@ -2076,23 +2076,6 @@
 				// generate globally bound entry point so helper buttons can call it safely
 
 				window.baseplate_toggle_ = this.baseplate_toggle_.bind ( this );
-
-				// plane helper
-
-				this.boundingBox = null;
-
-				this.get_boundingBox = function ( ) {
-
-					if ( ! self.boundingBox ) {
-
-						self.boundingBox = new THREE.Box3 ( ).setFromObject ( self.colladaImport )
-
-						console.log ( "helper [ bounding box / plane ]" );
-					}
-
-					return self.boundingBox;
-
-				}
 
 				this.plane_color = grey;
 
