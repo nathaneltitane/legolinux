@@ -387,7 +387,7 @@ ZGEUG3DCATJD4"
 
 				var console_overlay = null;
 
-				var debug_overlay_enabled = true;
+				var console_overlay_enabled = true;
 
 				function create_device_overlay_if_needed ( ) {
 
@@ -404,9 +404,9 @@ ZGEUG3DCATJD4"
 
 				console.log ( 'operating system [ system ] : ' + os );
 
-				function set_debug_overlay_enabled ( enabled ) {
+				function set_console_overlay_enabled ( enabled ) {
 
-					debug_overlay_enabled = enabled;
+					console_overlay_enabled = enabled;
 
 					if ( enabled ) {
 
@@ -428,7 +428,7 @@ ZGEUG3DCATJD4"
 
 				function console_overlay_refresh ( ) {
 
-					if ( ! debug_overlay_enabled ) {
+					if ( ! console_overlay_enabled ) {
 
 						return ;
 
@@ -448,7 +448,7 @@ ZGEUG3DCATJD4"
 
 						var line = document.createElement ( 'div' ) ;
 
-						// shift arguments if only two are present
+						// 2 arguments passed - shift arguments
 
 						if ( arguments.length === 2 ) {
 
@@ -483,7 +483,7 @@ ZGEUG3DCATJD4"
 
 					}
 
-					// console - device //
+					// console - device
 
 					debug_overlay_line ( 'device', 'type', device_type ) ;
 					debug_overlay_line ( 'device', 'operating system', os ) ;
@@ -529,7 +529,7 @@ ZGEUG3DCATJD4' ) ;
 
 					device_information_divider ( ) ;
 
-					// console - camera //
+					// console - camera
 
 					if ( self.camera ) {
 
@@ -558,7 +558,7 @@ ZGEUG3DCATJD4' ) ;
 
 					device_information_divider ( ) ;
 
-					// console - orbit controls //
+					// console - orbit controls
 
 					if ( self.orbitControls ) {
 
@@ -579,11 +579,11 @@ ZGEUG3DCATJD4' ) ;
 
 				}
 
-				// console - show as default (?) //
+				// console - show as default (?)
 
-				set_debug_overlay_enabled ( false );
+				set_console_overlay_enabled ( false );
 
-				console.log ( 'console [ status ] : ' + ( debug_overlay_enabled ? 'on' : 'off' ) );
+				console.log ( 'console [ status ] : ' + ( console_overlay_enabled ? 'on' : 'off' ) );
 
 				// global keyboard toggle for console ('~' key)
 
@@ -613,9 +613,9 @@ ZGEUG3DCATJD4' ) ;
 
 						if ( tap_gap > 100 && tap_gap < 350 ) {
 
-							set_debug_overlay_enabled ( ! debug_overlay_enabled );
+							set_console_overlay_enabled ( ! console_overlay_enabled );
 
-							console.log ( 'console [ status ] : ' + ( debug_overlay_enabled ? 'on' : 'off' ) );
+							console.log ( 'console [ status ] : ' + ( console_overlay_enabled ? 'on' : 'off' ) );
 
 							event.preventDefault ( ) ;
 							event.stopPropagation ( ) ;
@@ -637,77 +637,69 @@ ZGEUG3DCATJD4' ) ;
 
 						if ( ! is_canvas_target ( event ) ) return;
 
-						set_debug_overlay_enabled ( ! debug_overlay_enabled );
+						set_console_overlay_enabled ( ! console_overlay_enabled );
 
-						console.log ( 'console [ status ] : ' + ( debug_overlay_enabled ? 'on' : 'off' ) );
+						console.log ( 'console [ status ] : ' + ( console_overlay_enabled ? 'on' : 'off' ) );
 
 					}, { passive: true } );
 
 				}
 
-				// webgl context loss handling (ios / mobile safety)
+				// webgl context loss handling - ios / mobile safety
 
 				this.renderer.domElement.addEventListener ( 'webglcontextlost', function ( event ) {
 
 					event.preventDefault ( ) ;
 
-					console.warn ( 'webgl [ context ] : lost - showing fallback overlay' );
+					console.warn ( 'webgl [ context ] : lost' ) ;
 
-					// avoid adding multiple overlays if context is lost more than once
+					// ensure console overlay exists and is visible
 
-					if ( document.getElementById ( 'webgl-context-lost' ) ) return;
+					set_console_overlay_enabled ( true ) ;
 
-					var overlay = document.createElement ( 'div' );
+					if ( ! console_overlay ) {
 
-					overlay.id = 'webgl-context-lost';
+						return ;
 
-					console_overlay.style.fontFamily = 'system-ui, -apple-system, monospace';
-					overlay.style.alignItems = 'center';
-					overlay.style.background = '#cccccccc';
-					overlay.style.color = '#666666ff';
-					overlay.style.display = 'flex';
-					overlay.style.flexDirection = 'column';
-					overlay.style.inset = '0';
-					overlay.style.justifyContent = 'center';
-					overlay.style.padding = '20px 20px 20px 20px';
-					overlay.style.position = 'fixed';
-					overlay.style.textAlign = 'center';
-					overlay.style.zIndex = '9999';
+					}
 
-					var title = document.createElement ( 'div' );
+					// replace overlay content with context-loss message
 
-					title.textContent = 'Your device ran out of graphics resources:';
-					title.style.fontSize = '20px';
-					title.style.marginBottom = '20px';
+					console_overlay.innerHTML = '' ;
 
-					var message = document.createElement ( 'div' );
+					const title = document.createElement ( 'div' ) ;
 
-					message.textContent = 'Reload this page to restart the 3D viewer.';
-					message.style.marginBottom = '20px';
+					title.textContent = 'webgl context lost' ;
 
-					var button = document.createElement ( 'button' );
+					title.style.fontWeight = 'bold' ;
+					title.style.marginBottom = '10px' ;
 
-					button.textContent = 'reload viewer';
+					const message = document.createElement ( 'div' ) ;
 
-					button.style.border = 'none';
-					button.style.borderRadius = '999px';
-					button.style.cursor = 'pointer';
-					button.style.fontWeight = 'bold';
-					button.style.padding = '10px 10px 10px 10px';
+					message.textContent = 'your device ran out of graphics resources.' ;
+					message.style.marginBottom = '10px' ;
+
+					const hint = document.createElement ( 'div' ) ;
+
+					hint.textContent = 'reload the page to restart the 3d viewer.' ;
+					hint.style.marginBottom = '15px' ;
+
+					const button = document.createElement ( 'button' ) ;
+
+					button.textContent = 'reload viewer' ;
 
 					button.onclick = function ( ) {
 
 						location.reload ( ) ;
 
-					};
+					} ;
 
-					overlay.appendChild ( title );
-					overlay.appendChild ( message );
-					overlay.appendChild ( button );
+					console_overlay.appendChild ( title ) ;
+					console_overlay.appendChild ( message ) ;
+					console_overlay.appendChild ( hint ) ;
+					console_overlay.appendChild ( button ) ;
 
-					document.body.appendChild ( overlay );
-
-				} );
+				} ) ;
 
 				// renderer shadowmap integration
 
@@ -2620,7 +2612,7 @@ ZGEUG3DCATJD4' ) ;
 
 				this.debug_toggle_ = function ( ) {
 
-					set_debug_overlay_enabled ( ! debug_overlay_enabled ) ;
+					set_console_overlay_enabled ( ! console_overlay_enabled ) ;
 
 					console_overlay_refresh ( ) ;
 
