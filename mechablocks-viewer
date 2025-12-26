@@ -211,19 +211,25 @@ cat << 3D-MODEL-PAGE-HEADER -> "${model_directory}/index.html"
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-4XY1M84019"></script>
 
 		<script>
+
 			window.dataLayer = window.dataLayer || [];
 
-			function gtag ( ){dataLayer.push(arguments);}
+			function gtag ( ) { dataLayer.push ( arguments ) ; }
 
-			gtag('js', new Date (  ) ) ;
+			gtag ( 'js', new Date ( ) );
 
-			gtag('config', 'G-4XY1M84019');
+			gtag ( 'config', 'G-4XY1M84019' );
 
 		</script>
 
 		<!-- viewport -->
 
 		<meta name="viewport"				content="width=device-width, initial-scale=1.0">
+
+		<!-- favicon -->
+
+		<link rel="icon"				href="https://mechablocks.com/logo/logo-red.svg" type="image/svg+xml">
+		<link rel="apple-touch-icon"	href="https://mechablocks.com/logo/logo-red.svg">
 
 		<!-- title -->
 
