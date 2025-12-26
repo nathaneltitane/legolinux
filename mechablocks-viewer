@@ -187,9 +187,9 @@ do
 
 			status_font_indicator="status-font-progress"
 
-			status_message="NOT YET AVAILABLE FOR PURCHASE"
+			status_message="NOT AVAILABLE FOR PURCHASE"
 
-			status_button_message="NOT YET AVAILABLE FOR PURCHASE"
+			status_button_message="INSTRUCTIONS NOT AVAILABLE"
 
 			status_button_color="status-button-progress"
 
