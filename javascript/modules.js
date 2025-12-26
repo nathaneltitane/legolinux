@@ -14,29 +14,7 @@ $( function ( ) {
 
 	}
 
-	// index //
-
-	if ( $( '#landing' ).length ) {
-
-		$.get ( '/modules/head.html', function ( data ) {
-
-			$( 'head' ).append ( data ) ;
-
-		} ) ;
-
-	}
-
 	// standard //
-
-	if ( ! $( '#landing' ).length ) {
-
-		$.get ( '/modules/home.html', function ( data ) {
-
-			$( '#home' ).append ( data ) ;
-
-		} ) ;
-
-	}
 
 	$.get ( '/modules/drawer.html', function ( data ) {
 
