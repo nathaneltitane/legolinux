@@ -134,6 +134,8 @@ do
 
 		model_paypal_id=$(cat "${model_paypal}")
 
+		model_paypal_url_base='https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id'
+
 		model_pieces="${model_directory}"/pieces
 
 		model_pieces_count=$(cat "${model_pieces}")
@@ -176,7 +178,8 @@ do
 			color="green"
 		fi
 
-		if [[ "${model_paypal_id}" = "" ]]
+		if [[ "${model_paypal_id}" = "" ]] || \
+		   [[ -f "${model_directory}"/work-in-progress ]]
 		then
 			model_paypal_id="N/A"
 
@@ -187,6 +190,10 @@ do
 			status_button_message="NOT YET AVAILABLE FOR PURCHASE"
 
 			status_button_color="status-button-progress"
+
+			marker_html="div"
+
+			model_paypal_url=""
 		else
 			model_paypal_id="${model_paypal_id}"
 
@@ -197,6 +204,10 @@ do
 			status_button_message="PURCHASE INSTRUCTIONS"
 
 			status_button_color="status-button-available"
+
+			marker_html="a"
+
+			model_paypal_url="${model_paypal_url_base}=${model_paypal_id}"
 		fi
 
 cat << 3D-MODEL-PAGE-HEADER -> "${model_directory}/index.html"
@@ -4180,13 +4191,15 @@ cat << 3D-MODEL-PAGE-SAMPLES ->> "${model_directory}/index.html"
 
 							</div>
 
+							<!-- button -->
+
 							<div class="grid-span-4 text-center">
 
-								<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=${model_paypal_id}" class="button purchase ${status_button_color}">
+								<${marker_html} href=${model_paypal_url} class="button purchase ${status_button_color}">
 
 									${status_button_message}
 
-								</a>
+								</${marker_html}>
 
 							</div>
 
