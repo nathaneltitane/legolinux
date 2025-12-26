@@ -79,6 +79,12 @@ $( document ).ready ( function ( ) {
 
     } );
 
+    $( '#samples' ).click ( function ( event ) {
+
+        toggle ( ) ;
+
+    } );
+
     $( '#canvas' ).click ( function ( event ) {
 
         if ( samples.hasClass ( 'samples-show' ) ) {
