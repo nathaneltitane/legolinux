@@ -233,7 +233,7 @@
 			"@type": "3DModel",
 			"name": "VF-5000 STAR MIRAGE // BATTROID – LEGO® MOC (Collada / DAE)",
 			"encodingFormat": "model/vnd.collada+xml",
-			"contentUrl": "https://mechablocks.com/models/veritechs/vf-5000-star-mirage-battroid/exports/vf-5000-star-mirage-battroid.dae",
+			"contentUrl": "https://mechablocks.com/models/veritechs/vf-5000-star-mirage-battroid/exports/vf-5000-star-mirage-fighter.dae",
 			"isBasedOn": "VERITECHS",
 			"creator": {
 				"@type": "Person",
@@ -519,7 +519,7 @@
 					// model state //
 
 					console_overlay_line ( 'model', 'identifier', 'N/A' ) ;
-					console_overlay_line ( 'model', 'pieces', '885' ) ;
+					console_overlay_line ( 'model', 'pieces', '896' ) ;
 					console_overlay_line ( 'model', 'load', self.colladaImport ? 'yes' : 'no' ) ;
 
 					if ( self.colladaImport ) {
@@ -1847,7 +1847,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-white.dae',
+						'/minifigs/exports/minifig-grey.dae',
 
 						function ( collada ) {
 
@@ -1953,7 +1953,7 @@
 
 						function ( error ) {
 
-							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-white.dae', error );
+							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-grey.dae', error );
 
 						}
 
@@ -3370,7 +3370,7 @@
 
 				var model = loader.load (
 
-					'/models/veritechs/vf-5000-star-mirage-battroid/exports/vf-5000-star-mirage-battroid.dae',
+					'/models/veritechs/vf-5000-star-mirage-battroid/exports/vf-5000-star-mirage-fighter.dae',
 
 						function ( collada ) {
 
@@ -3799,7 +3799,7 @@ GERWALK MODE
 
 							<div class="grid-span-3 text-right">
 
-								885
+								896
 
 							</div>
 
