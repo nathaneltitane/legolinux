@@ -610,7 +610,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				this.renderer.clear ( ) ;
 
 
-				// console - target //
+				// console - target
 
 				function is_canvas_target ( event ) {
 
@@ -823,13 +823,27 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				console.log ( 'console [ status ] : ' + ( console_overlay_enabled ? 'on' : 'off' ) );
 
-				// global keyboard toggle for console ('~' key)
+				// keyboard toggle listener
 
 				if ( ! window._device_overlay_listener_added ) {
 
 					window._device_overlay_listener_added = true;
 
 				}
+
+				// console toggle
+
+				this.console_toggle_ = function ( ) {
+
+					set_console_overlay_enabled ( ! console_overlay_enabled ) ;
+
+					console_overlay_refresh ( ) ;
+
+				} ;
+
+				// generate globally bound entry point so helper buttons can call it safely
+
+				window.console_toggle_ = this.console_toggle_.bind ( this ) ;
 
 //				// console - mobile / touch - double tap
 //
@@ -2848,7 +2862,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// console toggle
 
-				this.debug_toggle_ = function ( ) {
+				this.console_toggle_ = function ( ) {
 
 					set_console_overlay_enabled ( ! console_overlay_enabled ) ;
 
@@ -3153,7 +3167,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						case 186:
 
-							self.debug_toggle_ ( ) ;
+							self.console_toggle_ ( ) ;
 
 							break;
 
@@ -3800,6 +3814,14 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				document.getElementById ( 'dimensions' ).addEventListener ( 'click', function ( ) {
 
 					self.dimensions_toggle_ ( ) ;
+
+				} );
+
+				// console toggle
+
+				document.getElementById ( 'console' ).addEventListener ( 'click', function ( ) {
+
+					window.console_toggle_ ( ) ;
 
 				} );
 
