@@ -274,6 +274,7 @@ cat << 3D-MODEL-PAGE-HEADER -> "${model_directory}/index.html"
 		<!-- social media -->
 
 		<meta property="og:type"			content="website">
+		<meta property="og:site_name"		content="Mecha // Blocks">
 		<meta property="og:url"				content="https://mechablocks.com/${model_directory}">
 		<meta property="og:title"			content="${model_title_string}">
 		<meta property="og:description"		content="Preview this model in 3D!">
@@ -382,7 +383,7 @@ cat << 3D-MODEL-PAGE-HEADER -> "${model_directory}/index.html"
 		}
 		</script>
 
-		<!-- webpage information + primary image -->
+		<!-- page information + primary image -->
 
 		<script type="application/ld+json">
 
@@ -435,7 +436,7 @@ cat << 3D-MODEL-PAGE-HEADER -> "${model_directory}/index.html"
 
 		</script>
 
-		<!-- 3d model metadata -->
+		<!-- model metadata -->
 
 		<script type="application/ld+json">
 
