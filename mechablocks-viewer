@@ -3733,9 +3733,9 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						self.colladaImport.updateMatrixWorld ( true ) ;
 
-						var fitBox = new THREE.Box3 ( ).setFromObject ( self.colladaImport ) ;
+						var scene_box = new THREE.Box3 ( ).setFromObject ( self.colladaImport ) ;
 
-						fit_camera_to_box ( self.camera, self.orbitControls, fitBox, 2.50 ) ;
+						fit_camera_to_box ( self.camera, self.orbitControls, scene_box, 2.50 ) ;
 
 						// refresh console after model load //
 
