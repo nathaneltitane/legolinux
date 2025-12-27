@@ -617,57 +617,57 @@
 
 				}
 
-				// console - mobile / touch - double tap
-
-				var last_tap_time = 0;
-
-				if ( ! window._device_overlay_double_tap_added ) {
-
-					window._device_overlay_double_tap_added = true;
-
-					window.addEventListener ( 'touchend', function ( event ) {
-
-						if ( ! is_canvas_target ( event ) ) return;
-
-						var current_time = Date.now ( ) ;
-
-						var tap_gap = current_time - last_tap_time;
-
-						// double tap (100ms–350ms)
-
-						if ( tap_gap > 100 && tap_gap < 350 ) {
-
-							set_console_overlay_enabled ( ! console_overlay_enabled );
-
-							console.log ( 'console [ status ] : ' + ( console_overlay_enabled ? 'on' : 'off' ) );
-
-							event.preventDefault ( ) ;
-							event.stopPropagation ( ) ;
-						}
-
-						last_tap_time = current_time;
-
-					}, { passive: false } );
-
-				}
-
-				// console - desktop / hardware - mouse double click
-
-				if ( ! window._device_overlay_double_click_added ) {
-
-					window._device_overlay_double_click_added = true;
-
-					window.addEventListener ( 'dblclick', function ( event ) {
-
-						if ( ! is_canvas_target ( event ) ) return;
-
-						set_console_overlay_enabled ( ! console_overlay_enabled );
-
-						console.log ( 'console [ status ] : ' + ( console_overlay_enabled ? 'on' : 'off' ) );
-
-					}, { passive: true } );
-
-				}
+//				// console - mobile / touch - double tap
+//
+//				var last_tap_time = 0;
+//
+//				if ( ! window._device_overlay_double_tap_added ) {
+//
+//					window._device_overlay_double_tap_added = true;
+//
+//					window.addEventListener ( 'touchend', function ( event ) {
+//
+//						if ( ! is_canvas_target ( event ) ) return;
+//
+//						var current_time = Date.now ( ) ;
+//
+//						var tap_gap = current_time - last_tap_time;
+//
+//						// double tap (100ms–350ms)
+//
+//						if ( tap_gap > 100 && tap_gap < 350 ) {
+//
+//							set_console_overlay_enabled ( ! console_overlay_enabled );
+//
+//							console.log ( 'console [ status ] : ' + ( console_overlay_enabled ? 'on' : 'off' ) );
+//
+//							event.preventDefault ( ) ;
+//							event.stopPropagation ( ) ;
+//						}
+//
+//						last_tap_time = current_time;
+//
+//					}, { passive: false } );
+//
+//				}
+//
+//				// console - desktop / hardware - mouse double click
+//
+//				if ( ! window._device_overlay_double_click_added ) {
+//
+//					window._device_overlay_double_click_added = true;
+//
+//					window.addEventListener ( 'dblclick', function ( event ) {
+//
+//						if ( ! is_canvas_target ( event ) ) return;
+//
+//						set_console_overlay_enabled ( ! console_overlay_enabled );
+//
+//						console.log ( 'console [ status ] : ' + ( console_overlay_enabled ? 'on' : 'off' ) );
+//
+//					}, { passive: true } );
+//
+//				}
 
 				// webgl context loss handling - ios / mobile safety
 
@@ -3998,6 +3998,8 @@ GERWALK MODE
 
 					</div>
 
+	<!-- viewer -->
+
 					<!-- controls -->
 
 					<div id="controls">
@@ -4051,6 +4053,14 @@ GERWALK MODE
 					<div id="color">
 
 					</div>
+
+					<!-- console -->
+
+					<div id="console">
+
+					</div>
+
+	<!-- standard -->
 
 					<!-- home -->
 
