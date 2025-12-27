@@ -27,11 +27,18 @@
 }
 
 #selections::after {
-	content: '';
+	content: 'Modes';
+
+	font-weight: bold;
+
+	display: flex;
+	align-items: normal;
+	justify-content: center;
+
 
 	position: absolute;
 	left: 50%;
-	top: calc(100% + 10px);
+	top: calc(100% + 5px);
 
 	transform: translateX(-50%);
 
@@ -83,7 +90,7 @@
 	color: #666666ff;
 
 	margin: 0px 0px 0px 0px;
-	padding: 0px 0px 10px 0px;
+	padding: 10px 10px 10px 10px;
 
 	width: 80px;
 	height: auto;
