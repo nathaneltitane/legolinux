@@ -26,7 +26,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.8730469"
-     inkscape:cx="512.80083"
+     inkscape:cx="513.33472"
      inkscape:cy="511.99999"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -84,7 +84,7 @@
      id="layer1"
      transform="translate(0,-161.53331)">
     <g
-       id="g1">
+       id="g3">
       <path
          sodipodi:type="star"
          style="fill:#000000;fill-opacity:1;stroke-width:0.264583"
@@ -131,13 +131,13 @@
          d="m 135.46667,198.67738 -85.150087,49.16129 85.150087,49.16129 85.15009,-49.16129 z"
          id="path1" />
       <path
+         id="path3876"
          style="fill:#a02c2c;fill-opacity:1;stroke-width:0.512097"
-         d="m 135.46667,229.40319 a 36.870965,18.435482 0 0 0 -16.87419,2.04838 H 98.595704 v 16.3871 a 36.870965,18.435482 0 0 0 36.870966,18.43548 z"
-         id="path3876" />
+         d="M 135.46666 249.88709 A 36.870964 18.435482 0 0 1 98.595531 231.46392 L 98.595531 247.83864 A 36.870965 18.435482 0 0 0 135.46666 266.2742 L 135.46666 249.88709 z " />
       <path
+         id="ellipse3866"
          style="fill:#216778;fill-opacity:1;stroke-width:0.512097"
-         d="m 135.46667,229.40319 v 36.87096 a 36.870965,18.435482 0 0 0 36.87097,-18.43548 v -16.3871 h -20.05579 a 36.870965,18.435482 0 0 0 -16.81518,-2.04838 z"
-         id="ellipse3866" />
+         d="M 135.46666 249.88709 L 135.46666 266.2742 A 36.870965 18.435482 0 0 0 172.3378 247.83864 L 172.3378 231.45152 A 36.870964 18.435482 0 0 1 135.46666 249.88709 z " />
       <ellipse
          style="fill:#ffccaa;fill-opacity:1;stroke-width:0.512096"
          id="ellipse3868"
