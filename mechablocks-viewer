@@ -257,7 +257,7 @@ cat << 3D-MODEL-PAGE-HEADER -> "${model_directory}/index.html"
 
 		<meta property="og:type"			content="website">
 		<meta property="og:url"				content="https://mechablocks.com/${model_directory}">
-		<meta name="og:title"				content="INTERACTIVE MODEL PREVIEW - ${model_title_string}">
+		<meta property="og:title"				content="INTERACTIVE MODEL PREVIEW - ${model_title_string}">
 		<meta property="og:description"		content="Preview this model in 3D!">
 		<meta property="og:image"			content="https://mechablocks.com/${overlay_directory}/overlay.png">
 
