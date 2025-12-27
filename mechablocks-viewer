@@ -231,6 +231,23 @@ cat << 3D-MODEL-PAGE-HEADER -> "${model_directory}/index.html"
 
 		</script>
 
+		<!-- title -->
+
+		<title>MECHA // BLOCKS - ${model_title_string}</title>
+
+		<!-- domain -->
+
+		<link rel="canonical" href="https://mechablocks.com/${model_directory}/">
+
+		<!-- favicon -->
+
+		<link rel="icon"				href="https://mechablocks.com/logo/logo-red.svg" type="image/svg+xml">
+		<link rel="apple-touch-icon"	href="https://mechablocks.com/logo/logo-red.svg">
+
+		<!-- css -->
+
+		<link rel="stylesheet" href="/css/css.css" type="text/css" />
+
 		<!-- charset -->
 
 		<meta charset="UTF-8">
@@ -243,12 +260,7 @@ cat << 3D-MODEL-PAGE-HEADER -> "${model_directory}/index.html"
 
 		<meta name="theme-color"			content="#bbbbbbff">
 
-		<!-- favicon -->
-
-		<link rel="icon"				href="https://mechablocks.com/logo/logo-red.svg" type="image/svg+xml">
-		<link rel="apple-touch-icon"	href="https://mechablocks.com/logo/logo-red.svg">
-
-		<title>MECHA // BLOCKS - ${model_title_string}</title>
+		<!-- page -->
 
 		<meta name="title"					content="MECHA // BLOCKS - ${model_title_string}">
 		<meta name="description"			content="Preview this model in 3D!">
@@ -267,10 +279,6 @@ cat << 3D-MODEL-PAGE-HEADER -> "${model_directory}/index.html"
 		<meta name="twitter:title"			content="INTERACTIVE MODEL PREVIEW - ${model_title_string}">
 		<meta name="twitter:description"	content="Preview this model in 3D!">
 		<meta name="twitter:image"			content="https://mechablocks.com/${overlay_directory}/overlay.png">
-
-		<!-- css -->
-
-		<link rel="stylesheet" href="/css/css.css" type="text/css" />
 
 		<!-- libraries -->
 
