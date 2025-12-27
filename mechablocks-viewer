@@ -381,6 +381,7 @@ cat << 3D-MODEL-PAGE-HEADER -> "${model_directory}/index.html"
 				"url": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=${model_paypal_id}"
 			}
 		}
+
 		</script>
 
 		<!-- page information + primary image -->
