@@ -372,7 +372,7 @@ cat << 3D-MODEL-PAGE-HEADER -> "${model_directory}/index.html"
 				"https://mechablocks.com/${instructions_samples_directory}/sample-05.png"
 				"https://mechablocks.com/${instructions_samples_directory}/sample-06.png"
 			],
-			"url": "https://mechablocks.com/models/armored-cores/cr-c75u2-close-combat",
+			"url": "https://mechablocks.com/${model_directory}",
 			"offers": {
 				"@type": "Offer",
 				"price": "${model_instructions_price}",
