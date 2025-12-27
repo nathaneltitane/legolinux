@@ -3628,7 +3628,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 								// wireframe
 
-								var wireframeMaterial = new THREE.MeshBasicMaterial ( {
+								var wireframe_material = new THREE.MeshBasicMaterial ( {
 
 									color: node.material.color,
 									wireframe: true,
@@ -3639,13 +3639,13 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 									}
 								);
 
-								var wireframeMesh = new THREE.Mesh( node.geometry, wireframeMaterial );
+								var wireframe_mesh = new THREE.Mesh( node.geometry, wireframe_material );
 
 								// initial visibility
 
 								edges.visible = true;
 
-								wireframeMesh.visible = false;
+								wireframe_mesh.visible = false;
 
 								// compute positioning
 
@@ -3655,15 +3655,15 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 								edges.scale.copy ( node.scale );
 
-								wireframeMesh.position.copy ( node.position );
+								wireframe_mesh.position.copy ( node.position );
 
-								wireframeMesh.rotation.copy ( node.rotation );
+								wireframe_mesh.rotation.copy ( node.rotation );
 
-								wireframeMesh.scale.copy ( node.scale );
+								wireframe_mesh.scale.copy ( node.scale );
 
 								self.colladaImport.add ( edges );
 
-								self.colladaImport.add ( wireframeMesh );
+								self.colladaImport.add ( wireframe_mesh );
 
 								model_edges.push ( edges );
 
