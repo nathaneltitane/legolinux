@@ -55,6 +55,7 @@ frobulator.script "Setting up ${script#*-}"
 
 models_directory="${PWD}"/models
 minifigs_directory="${PWD}"/minifigs
+baseplate_directory="${PWD}"/baseplate
 
 # defaults /////////////////////////////////////////////////////////////////////
 
