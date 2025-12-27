@@ -128,6 +128,12 @@ $( function ( ) {
 
 		} ) ;
 
+		$.get ( '/modules/console.html', function ( data ) {
+
+			$( '#console' ).append ( data ) ;
+
+		} ) ;
+
 		$.get ( '/modules/helper.html', function ( data ) {
 
 			$( '#helper' ).append ( data ) ;

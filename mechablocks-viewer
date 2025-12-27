@@ -4411,6 +4411,12 @@ cat << 3D-MODEL-PAGE-HELPERS ->> "${model_directory}/index.html"
 
 					</div>
 
+					<!-- console -->
+
+					<div id="console">
+
+					</div>
+
 					<!-- home -->
 
 					<div id="home">
