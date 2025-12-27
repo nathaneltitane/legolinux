@@ -257,13 +257,13 @@ cat << 3D-MODEL-PAGE-HEADER -> "${model_directory}/index.html"
 
 		<meta property="og:type"			content="website">
 		<meta property="og:url"				content="https://mechablocks.com/${model_directory}">
-		<meta property="og:title"				content="INTERACTIVE MODEL PREVIEW - ${model_title_string}">
+		<meta property="og:title"			content="INTERACTIVE MODEL PREVIEW - ${model_title_string}">
 		<meta property="og:description"		content="Preview this model in 3D!">
 		<meta property="og:image"			content="https://mechablocks.com/${overlay_directory}/overlay.png">
 
 		<meta name="twitter:card"			content="summary_large_image">
 		<meta property="twitter:domain"		content="mechablocks.com">
-		<meta property="twitter:url"		content="https://mechablocks.com">
+		<meta property="twitter:url"		content="https://mechablocks.com/${model_directory}">
 		<meta name="twitter:title"			content="INTERACTIVE MODEL PREVIEW - ${model_title_string}">
 		<meta name="twitter:description"	content="Preview this model in 3D!">
 		<meta name="twitter:image"			content="https://mechablocks.com/${overlay_directory}/overlay.png">
