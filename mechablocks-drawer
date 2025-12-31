@@ -187,6 +187,8 @@ do
 
 	models_list=( $(find "${models_directory}" -type f -iname "work-in-progress*.${extension}" ! -iname "*instructions*" | sort) )
 
+	models_list=()
+
 	models_list+=( $(find "${models_directory}" -type f -iname "*.${extension}" ! -iname "work-in-progress*" ! -iname "*instructions*"  | sort) )
 
 	# set IFS
