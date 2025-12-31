@@ -187,13 +187,24 @@ do
 
 	models_list=( $(find "${models_directory}" -type f -iname "work-in-progress*.${extension}" ! -iname "*instructions*" | sort) )
 
+	echo ${models_list[@]}
+
+	echo
+	echo
+	echo
+
 	models_list=()
 
 	models_list+=( $(find "${models_directory}" -type f -iname "*.${extension}" ! -iname "work-in-progress*" ! -iname "*instructions*"  | sort) )
 
+	echo ${models_list[@]}
+
+
 	# set IFS
 
 	IFS=$'\n'
+
+	exit
 
 	for model_path in ${models_list[@]}
 	do
