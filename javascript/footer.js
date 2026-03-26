@@ -279,7 +279,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 			}
 
-			hide ( footer ) ;
+//			hide ( footer ) ;
 
 		}, { passive: true } ) ;
 
