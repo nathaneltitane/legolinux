@@ -25,7 +25,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	}
 
-	function hide ( ) {
+	function footer_hide ( ) {
 
 		selections_parent.classList.remove ( 'selections-show' ) ;
 		selections.classList.remove ( 'selections-show' ) ;
@@ -221,7 +221,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		}
 
-		// hide ( ) ;
+		// footer_hide ( ) ;
 
 		tab_show ( ) ;
 
