@@ -1353,7 +1353,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 						//	positions.push ( ...start, ...end );
 
 						//	colors.push ( ...color.toArray ( ), ...color.toArray ( ) );
-						//}
+						// }
 
 						// generate corners
 

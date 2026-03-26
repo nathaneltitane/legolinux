@@ -19,7 +19,7 @@
 0 !LPUB PAGE DOCUMENT_AUTHOR_FRONT PLACEMENT TOP_LEFT PAGE INSIDE OFFSET 0.0000 0.0000
 
 0 !LPUB PAGE MODEL_PARTS COLOR "#666666"
-0 !LPUB PAGE MODEL_PARTS CONTENT GLOBAL "887 PIECES"
+0 !LPUB PAGE MODEL_PARTS CONTENT GLOBAL "888 PIECES"
 0 !LPUB PAGE MODEL_PARTS DISPLAY GLOBAL TRUE
 0 !LPUB PAGE MODEL_PARTS FONT "Noto Sans,72,-1,0,75,0,0,0,0,0,Bold"
 0 !LPUB PAGE MODEL_PARTS MARGINS 0.2500 0.1000
@@ -389,27 +389,28 @@
 0 
 0 Name: 02-nose.ldr
 0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
-1 15 0 -24 -10 0 0 1 0 1 0 -1 0 0 4871.dat
 1 71 10 -16 10 0 0 -1 0 1 0 1 0 0 18677.dat
 1 71 -10 -16 10 0 0 -1 0 1 0 1 0 0 18677.dat
 1 0 0 -6 20 1 0 0 0 1 0 0 0 1 2780.dat
 1 0 -30 -6 20 0 1 0 1 0 0 0 0 -1 87994.dat
 0 STEP
 1 71 0 -16 -50 0 0 -1 0 1 0 1 0 0 3020.dat
+1 15 0 -24 -10 0 0 1 0 1 0 -1 0 0 4871.dat
 1 15 0 -24 -50 1 0 0 0 1 0 0 0 1 43713.dat
 0 STEP
 1 72 0 -24 20 1 0 0 0 1 0 0 0 1 99563.dat
+1 72 0 -24 -10 -1 0 0 0 1 0 0 0 -1 33909.dat
+0 STEP
+1 0 0 -40 -20 -1 0 0 0 1 0 0 0 -1 99206.dat
 0 STEP
 1 72 0 -40 -60 1 0 0 0 1 0 0 0 1 3004.dat
-1 72 0 -40 -20 -1 0 0 0 1 0 0 0 -1 3039.dat
+1 72 0 -48 -50 0 0 -1 0 1 0 1 0 0 3020.dat
 0 STEP
 1 15 -30 -32 -40 0 0 -1 0 1 0 1 0 0 3623.dat
-1 15 -30 -32 0 0 0 -1 0 1 0 1 0 0 3070b.dat
 1 15 30 -32 -40 0 0 -1 0 1 0 1 0 0 3623.dat
+1 15 -30 -32 0 0 0 -1 0 1 0 1 0 0 3070b.dat
 1 15 30 -32 0 0 0 -1 0 1 0 1 0 0 3070b.dat
 1 15 0 -32 -130 1 0 0 0 1 0 0 0 1 43719.dat
-0 STEP
-1 72 0 -48 -50 0 0 -1 0 1 0 1 0 0 3020.dat
 0 STEP
 1 15 -10 -56 -60 0 0 1 0 1 0 -1 0 0 28192.dat
 1 15 -10 -56 -40 0 0 1 0 1 0 -1 0 0 28192.dat
@@ -791,7 +792,7 @@
 1 71 50 -24 -30 0 0 -1 0 1 0 1 0 0 28192.dat
 1 71 50 -24 -50 0 0 -1 0 1 0 1 0 0 28192.dat
 0 STEP
-1 7 0 44 4 -1 0 0 0 0 1 0 1 0 22-gun-pod.ldr
+1 7 0 44 14 -1 0 0 0 0 1 0 1 0 22-gun-pod.ldr
 0 NOFILE
 0 FILE 08-heel.ldr
 0 
@@ -1529,7 +1530,7 @@
 1 0 0 1.3205 83.4641 -1 0 0 0 0.5 -0.866025 0 -0.866025 -0.5 18-01-hand.ldr
 0 STEP
 0 !LEOCAD PIECE PIVOT  0 -4 -70 1 0 0 0 1 0 0 0 1
-1 0 -76.6691 -88.3259 30 0 0.707107 -0.707107 0 -0.707107 -0.707107 -1 0 0 21-02-tail.ldr
+1 0 -76.6691 -88.3259 30 0 0.707107 -0.707107 0 -0.707107 -0.707107 -1 0 0 21-01-tail.ldr
 0 NOFILE
 0 FILE 17-02-forearm.ldr
 0 
@@ -1567,7 +1568,7 @@
 1 15 0 -40 -80 1 0 0 0 1 0 0 0 1 66956.dat
 0 STEP
 0 !LEOCAD PIECE PIVOT  0 -4 -70 1 0 0 0 1 0 0 0 1
-1 0 76.6691 -88.3259 30 0 -0.707107 0.707107 0 -0.707107 -0.707107 1 0 0 21-01-tail.ldr
+1 0 76.6691 -88.3259 30 0 -0.707107 0.707107 0 -0.707107 -0.707107 1 0 0 21-02-tail.ldr
 0 NOFILE
 0 FILE 18-01-hand.ldr
 0 
@@ -1809,8 +1810,8 @@
 0 
 0 Name: 21-01-tail.ldr
 0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
-1 0 -40 0 -20 -1 0 0 0 1 0 0 0 -1 30503.dat
-1 0 20 0 -20 -1 0 0 0 1 0 0 0 -1 41769.dat
+1 0 40 0 -20 0 0 -1 0 1 0 1 0 0 30503.dat
+1 0 -20 0 -20 -1 0 0 0 1 0 0 0 -1 41770.dat
 0 STEP
 1 71 0 -8 -50 1 0 0 0 1 0 0 0 1 14704.dat
 1 0 0 -8 -20 1 0 0 0 1 0 0 0 1 3068b.dat
@@ -1823,8 +1824,8 @@
 0 
 0 Name: 21-02-tail.ldr
 0 Author: Nathanel Titane // nathanel.titane@gmail.com // All Rights Reserved
-1 0 40 0 -20 0 0 -1 0 1 0 1 0 0 30503.dat
-1 0 -20 0 -20 -1 0 0 0 1 0 0 0 -1 41770.dat
+1 0 -40 0 -20 -1 0 0 0 1 0 0 0 -1 30503.dat
+1 0 20 0 -20 -1 0 0 0 1 0 0 0 -1 41769.dat
 0 STEP
 1 71 0 -8 -50 1 0 0 0 1 0 0 0 1 14704.dat
 1 0 0 -8 -20 1 0 0 0 1 0 0 0 1 3068b.dat
