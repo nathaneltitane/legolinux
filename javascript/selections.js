@@ -38,7 +38,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	}
 
-	function selectionsshow ( ) {
+	function selections_show ( ) {
 
 		selections_parent.classList.remove ( 'selections-hide' ) ;
 		selections.classList.remove ( 'selections-hide' ) ;
@@ -88,7 +88,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 			selections_parent.classList.add ( 'selections-tab-show' ) ;
 			selections.classList.add ( 'selections-tab-show' ) ;
 
-		}, 1500 ) ;
+		}, 250 ) ;
 
 	}
 
@@ -108,7 +108,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 	}
 
-	function selections_open ( ) {
+	function open ( ) {
 
 		return selections_parent.classList.contains ( 'selections-show' ) ;
 
@@ -221,7 +221,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		}
 
-		// footer_hide ( ) ;
+		// selections_hide ( ) ;
 
 		tab_show ( ) ;
 
