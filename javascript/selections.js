@@ -88,7 +88,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 			selections_parent.classList.add ( 'selections-tab-show' ) ;
 			selections.classList.add ( 'selections-tab-show' ) ;
 
-		}, 1500 ) ;
+		}, 0 ) ;
 
 	}
 
