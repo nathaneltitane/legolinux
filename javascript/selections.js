@@ -221,7 +221,7 @@ document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
 		}
 
-		hide ( ) ;
+		// hide ( ) ;
 
 		tab_show ( ) ;
 
