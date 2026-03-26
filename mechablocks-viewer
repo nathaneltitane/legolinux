@@ -3935,7 +3935,7 @@ then
 
 									<a class="text-center" href="/${model_mode_path_label}"/>
 
-										<img src="/${model_mode_path_label}/renders/overlay/overlay.png" alt="${model_title} LEGO® MOC - ${model_mode_label} MODE"/>
+										<img src="/${model_mode_path_label}/renders/overlay/overlay.png" alt="${model_title} LEGO® MOC - ${model_mode_label}"/>
 
 									</a>
 
