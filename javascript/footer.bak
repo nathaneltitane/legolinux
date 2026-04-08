@@ -1,27 +1,28 @@
-// footer
+// footer //
 
-function footer_init ( ) {
+document.addEventListener ( 'DOMContentLoaded', function ( ) {
 
-	console.log ( 'footer [ init ] : start' ) ;
+	console.log ( 'footer [ init ] : domcontentloaded' ) ;
 
-	var footer_id = document.getElementById ( 'footer' ) ;
+	var footer_id	= document.getElementById	( 'footer' ) ;
 
 	if ( ! footer_id ) {
 
-		console.warn ( 'footer [ init ] : abort - #footer missing' ) ;
+		console.log ( 'footer [ init ] : abort, #footer missing' ) ;
 
 		return ;
-	}
 
-	var timeout_reset ;
-	var initialized = false ;
-	var bootstrap_observer = null ;
-	var footer_observer = null ;
+	}
 
 	function footer_get ( ) {
 
 		return footer_id.querySelector ( '.footer' ) ;
+
 	}
+
+	var timeout_reset ;
+
+	var initialized = false ;
 
 	function hide ( footer ) {
 
@@ -29,6 +30,7 @@ function footer_init ( ) {
 
 		footer_id.classList.remove ( 'footer-show' ) ;
 		footer_id.classList.add ( 'footer-hide' ) ;
+
 	}
 
 	function show ( footer ) {
@@ -37,6 +39,7 @@ function footer_init ( ) {
 
 		footer_id.classList.remove ( 'footer-hide' ) ;
 		footer_id.classList.add ( 'footer-show' ) ;
+
 	}
 
 	function delay_show ( footer ) {
@@ -54,26 +57,56 @@ function footer_init ( ) {
 			requestAnimationFrame ( function ( ) {
 
 				scroll ( footer ) ;
+
 			} ) ;
 
 		}, 1500 ) ;
+
 	}
 
 	// footer slot readiness check
 
-	var slot_identifiers_list = [ 'paypal', 'controls', 'plane', 'dimensions', 'minifig', 'wireframe', 'edges', 'camera', 'color', 'home', 'contact', 'shop', 'github', 'donations', 'browse' ] ;
-	var landing_slot_identifiers_list = [ 'home', 'contact', 'shop', 'github', 'donations', 'browse' ] ;
+	var slot_identifiers_list = [
+		'paypal',
+		'controls',
+		'plane',
+		'dimensions',
+		'minifig',
+		'wireframe',
+		'edges',
+		'camera',
+		'color',
+		'home',
+		'contact',
+		'shop',
+		'github',
+		'donations',
+		'browse'
+	] ;
+
+	var landing_slot_identifiers_list = [
+		'home',
+		'contact',
+		'shop',
+		'github',
+		'donations',
+		'browse'
+	] ;
 
 	function slots ( ) {
 
 		var landing = !! document.getElementById ( 'landing' ) ;
-		var list = landing ? landing_slot_identifiers_list : slot_identifiers_list ;
+
+		var list = landing
+			? landing_slot_identifiers_list
+			: slot_identifiers_list ;
 
 		console.log ( 'footer [ slot ] : check start', landing ? '- landing' : '- viewer' ) ;
 
 		for ( var i = 0 ; i < list.length ; i ++ ) {
 
 			var id = list [ i ] ;
+
 			var slot_identifier = document.getElementById ( id ) ;
 
 			if ( ! slot_identifier ) {
@@ -81,14 +114,25 @@ function footer_init ( ) {
 				console.warn ( 'footer [ slot ] : missing - ', id ) ;
 
 				return false ;
+
+			}
+
+			if ( slot_identifier.innerHTML.trim ( ) === '' ) {
+
+				console.warn ( 'footer [ slot ] : empty - ', id ) ;
+
+				return false ;
+
 			}
 
 			console.log ( 'footer [ slot ] : ready - ', id ) ;
+
 		}
 
 		console.log ( 'footer [ slot ] : ready - all' ) ;
 
 		return true ;
+
 	}
 
 	function canvas ( callback ) {
@@ -97,11 +141,12 @@ function footer_init ( ) {
 
 		if ( ! canvas ) {
 
-			console.log ( 'footer [ canvas ] : missing - skip' ) ;
+			console.warn ( 'footer [ canvas ] : not present - skipping' ) ;
 
 			callback ( ) ;
 
 			return ;
+
 		}
 
 		console.log ( 'footer [ canvas ] : size pending' ) ;
@@ -115,23 +160,27 @@ function footer_init ( ) {
 				requestAnimationFrame ( function ( ) {
 
 					callback ( ) ;
+
 				} ) ;
 
 				return ;
+
 			}
 
 			requestAnimationFrame ( check ) ;
+
 		}
 
 		check ( ) ;
+
 	}
 
 	function scroll ( footer ) {
 
-		var arrow_left = document.querySelector ( '#footer-start .footer-start' ) ;
-		var arrow_right = document.querySelector ( '#footer-end .footer-end' ) ;
+		var arrow_left	= document.querySelector ( '#footer-start .footer-start' ) ;
+		var arrow_right	= document.querySelector ( '#footer-end .footer-end' ) ;
 
-		// do not show arrows if not laid out and loaded
+		//  do not show arrows if not laid out and loaded
 
 		if ( ! footer || footer.clientWidth <= 0 ) {
 
@@ -139,6 +188,7 @@ function footer_init ( ) {
 			if ( arrow_right ) arrow_right.classList.remove ( 'footer-left' ) ;
 
 			return ;
+
 		}
 
 		// robust overflow check - flex / subpixel / rounding
@@ -151,6 +201,7 @@ function footer_init ( ) {
 			if ( arrow_right ) arrow_right.classList.remove ( 'footer-left' ) ;
 
 			return ;
+
 		}
 
 		var scroll_maximum = footer.scrollWidth - footer.clientWidth ;
@@ -163,7 +214,13 @@ function footer_init ( ) {
 			if ( arrow_right ) arrow_right.classList.remove ( 'footer-left' ) ;
 
 			return ;
+
 		}
+
+		// middle
+
+		// if ( arrow_left ) arrow_left.classList.add ( 'footer-right' ) ;
+		// if ( arrow_right ) arrow_right.classList.add ( 'footer-left' ) ;
 
 		// end
 
@@ -173,12 +230,9 @@ function footer_init ( ) {
 			if ( arrow_right ) arrow_right.classList.add ( 'footer-left' ) ;
 
 			return ;
+
 		}
 
-		// middle
-
-		if ( arrow_left ) arrow_left.classList.add ( 'footer-right' ) ;
-		if ( arrow_right ) arrow_right.classList.add ( 'footer-left' ) ;
 	}
 
 	function bind ( footer ) {
@@ -194,6 +248,7 @@ function footer_init ( ) {
 			console.log ( 'footer [ event ] : target - ', result ) ;
 
 			return result ;
+
 		}
 
 		document.addEventListener ( 'pointerdown', function ( event ) {
@@ -205,6 +260,7 @@ function footer_init ( ) {
 				console.warn ( 'footer [ event ] : ignored - no canvas' ) ;
 
 				return ;
+
 			}
 
 			if ( ! target ( event ) ) {
@@ -212,6 +268,7 @@ function footer_init ( ) {
 				console.warn ( 'footer [ event ] : ignored - not canvas' ) ;
 
 				return ;
+
 			}
 
 			if ( event.pointerType === 'mouse' && event.button !== 0 ) {
@@ -219,6 +276,7 @@ function footer_init ( ) {
 				console.warn ( 'footer [ event ] : ignored - not left mouse' ) ;
 
 				return ;
+
 			}
 
 			// hide ( footer ) ;
@@ -232,6 +290,7 @@ function footer_init ( ) {
 			if ( ! canvas ) {
 
 				return ;
+
 			}
 
 			delay_show ( footer ) ;
@@ -245,6 +304,7 @@ function footer_init ( ) {
 			if ( ! canvas ) {
 
 				return ;
+
 			}
 
 			delay_show ( footer ) ;
@@ -258,6 +318,7 @@ function footer_init ( ) {
 			if ( event.deltaY === 0 ) {
 
 				return ;
+
 			}
 
 			event.preventDefault ( ) ;
@@ -283,32 +344,7 @@ function footer_init ( ) {
 			scroll ( footer ) ;
 
 		} ) ;
-	}
 
-	function footer_load_check ( footer ) {
-
-		console.log ( 'footer [ state ] : footer_load_check check' ) ;
-
-		if ( ! slots ( ) ) {
-
-			console.warn ( 'footer [ state ] : blocked - slots not ready' ) ;
-
-			return ;
-		}
-
-		canvas ( function ( ) {
-
-			console.log ( 'footer [ state ] : ready' ) ;
-
-			delay_show ( footer ) ;
-			scroll ( footer ) ;
-
-			if ( footer_observer ) {
-
-				footer_observer.disconnect ( ) ;
-				footer_observer = null ;
-			}
-		} ) ;
 	}
 
 	function initialize ( ) {
@@ -316,6 +352,7 @@ function footer_init ( ) {
 		if ( initialized ) {
 
 			return ;
+
 		}
 
 		var footer = footer_get ( ) ;
@@ -325,6 +362,7 @@ function footer_init ( ) {
 			console.log ( 'footer [ bootstrap ] : waiting for .footer' ) ;
 
 			return ;
+
 		}
 
 		console.log ( 'footer [ bootstrap ] : footer found' ) ;
@@ -332,36 +370,64 @@ function footer_init ( ) {
 		initialized = true ;
 
 		hide ( footer ) ;
+
 		bind ( footer ) ;
 
-		footer_observer = new MutationObserver ( function ( mutations ) {
+		function footer_load_check ( ) {
 
-			console.log ( 'footer [ bootstrap ] : footer load detected ', '[ ', mutations.length, ' ]', footer_id ) ;
+			console.log ( 'footer [ state ] : footer_load_check check' ) ;
 
-			footer_load_check ( footer ) ;
+			if ( ! slots ( ) ) {
+
+				console.warn ( 'footer [ state ] : blocked - slots not ready' ) ;
+
+				return ;
+
+			}
+
+			canvas ( function ( ) {
+
+				console.log ( 'footer [ state ] : ready' ) ;
+
+				delay_show ( footer ) ;
+
+				scroll ( footer ) ;
+
+				if ( observer ) {
+
+					observer.disconnect ( ) ;
+
+				}
+
+			} ) ;
+
+		}
+
+		var observer = new MutationObserver ( function ( mutations ) {
+
+			console.log ( 'footer [ bootstrap ] : bootstrap load detected ', '[ ', mutations.length, ' ]', footer_id ) ;
+
+			footer_load_check ( ) ;
+
 		} ) ;
 
-		footer_observer.observe ( footer_id, { childList: true, subtree: true, characterData: true } ) ;
+		observer.observe ( footer_id, { childList: true, subtree: true } ) ;
 
-		footer_load_check ( footer ) ;
+		footer_load_check ( ) ;
 
 		setTimeout ( function ( ) {
 
 			console.log ( 'footer [ failsafe ] : forced reveal' ) ;
 
 			show ( footer ) ;
+
 			scroll ( footer ) ;
 
 		}, 2500 ) ;
 
-		if ( bootstrap_observer ) {
-
-			bootstrap_observer.disconnect ( ) ;
-			bootstrap_observer = null ;
-		}
 	}
 
-	bootstrap_observer = new MutationObserver ( function ( mutations ) {
+	var bootstrap_observer = new MutationObserver ( function ( mutations ) {
 
 		console.log ( 'footer [ bootstrap ] : bootstrap load detected ', '[ ', mutations.length, ' ]', footer_id ) ;
 
@@ -370,19 +436,13 @@ function footer_init ( ) {
 		requestAnimationFrame ( function ( ) {
 
 			scroll ( footer_get ( ) ) ;
+
 		} ) ;
+
 	} ) ;
 
 	bootstrap_observer.observe ( footer_id, { childList: true, subtree: true } ) ;
 
 	initialize ( ) ;
-}
 
-if ( document.readyState === 'loading' ) {
-
-	document.addEventListener ( 'DOMContentLoaded', footer_init ) ;
-}
-else {
-
-	footer_init ( ) ;
-}
+} ) ;
