@@ -1409,7 +1409,7 @@
 					}
 				}
 
-// parts count label helper
+				// parts count label helper
 
 				this.parts_count_label = null;
 
@@ -1532,16 +1532,22 @@
 
 					// pointer path
 
-					const parts_anchor = center.clone ( ).add (
-						new THREE.Vector3 ( 0, size.y * 0.35, 0 )
+					const parts_anchor = new THREE.Vector3 (
+						center.x,
+						box.max.y,
+						center.z
 					);
 
-					const parts_elbow = center.clone ( ).add (
-						new THREE.Vector3 ( size.x * 0.18, size.y * 1.10, 0 )
+					const parts_elbow = new THREE.Vector3 (
+						center.x + size.x * 0.18,
+						box.max.y + size.y * 0.22,
+						center.z
 					);
 
-					const parts_end = center.clone ( ).add (
-						new THREE.Vector3 ( size.x * 1.40, size.y * 1.08, 0 )
+					const parts_end = new THREE.Vector3 (
+						center.x + size.x * 1.40,
+						box.max.y + size.y * 0.22,
+						center.z
 					);
 
 					group.add (
@@ -2039,7 +2045,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-blue.dae',
+						'/minifigs/exports/minifig-white.dae',
 
 						function ( collada ) {
 
@@ -2145,7 +2151,7 @@
 
 						function ( error ) {
 
-							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-blue.dae', error );
+							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-white.dae', error );
 
 						}
 
