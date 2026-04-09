@@ -1563,11 +1563,11 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						// set label scale factor
 
-						const labelScale = ( 0.008 * 32 );
+						const label_scale = ( 0.008 * 32 );
 
 						// set sprite scale
 
-						sprite.scale.set ( labelScale, labelScale, labelScale );
+						sprite.scale.set ( label_scale, label_scale, label_scale );
 
 						return sprite;
 
@@ -1708,11 +1708,11 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						// set label scale factor
 
-						const labelScale = ( 0.008 * 32 );
+						const label_scale = ( 0.008 * 32 );
 
 						// set sprite scale
 
-						sprite.scale.set ( labelScale, labelScale, labelScale );
+						sprite.scale.set ( label_scale, label_scale, label_scale );
 
 						return sprite;
 
