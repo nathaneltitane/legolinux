@@ -1409,37 +1409,9 @@
 					}
 				}
 
-				// parts count label helper
+// parts count label helper
 
 				this.parts_count_label = null;
-
-				this.parts_count_value = null;
-
-				this.get_parts_count = function ( ) {
-
-					if ( self.parts_count_value !== null ) return self.parts_count_value;
-
-					try {
-
-						const text = document.documentElement.innerHTML;
-						const match = text.match ( /MODEL PIECES COUNT[\s\S]*?([0-9][0-9,]*)/i );
-
-						if ( match && match [ 1 ] ) {
-
-							self.parts_count_value = match [ 1 ] .replace ( /,/g, '' );
-
-							return self.parts_count_value;
-						}
-					}
-					catch ( error ) {
-
-						console.warn ( 'parts count parse failed', error );
-					}
-
-					self.parts_count_value = 'n/a';
-
-					return self.parts_count_value;
-				};
 
 				this.parts_count_label_ = function ( ) {
 
@@ -1463,7 +1435,7 @@
 					const center = box.getCenter ( new THREE.Vector3 ( ) );
 					const size = box.getSize ( new THREE.Vector3 ( ) );
 
-					const parts_count = self.get_parts_count ( );
+					const parts_count = '932';
 
 					function generate_label ( message, color ) {
 
@@ -2544,23 +2516,17 @@
 
 					if ( parts_count_label_visible ) {
 
-						// on >>> turn off
-
 						self.parts_count_label_ ( ) ;
 
 						parts_count_label_visible = false;
 
 					} else {
 
-						// off >>> turn on
-
 						self.parts_count_label_ ( ) ;
 
 						parts_count_label_visible = true;
 
 					}
-
-					// refresh console values
 
 					console_overlay_refresh ( ) ;
 
