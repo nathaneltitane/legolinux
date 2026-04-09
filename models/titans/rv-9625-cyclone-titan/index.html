@@ -1250,7 +1250,7 @@
 
 				}
 
-				// dimension label helper
+				// dimensions label helper
 
 				this.dimension_labels = null;
 
@@ -1409,11 +1409,9 @@
 					}
 				}
 
-				// parts count label helper
+// parts count label helper
 
 				this.parts_count_label = null;
-
-				this.parts_count_label_visible = false;
 
 				this.parts_count_value = null;
 
@@ -1443,19 +1441,29 @@
 					return self.parts_count_value;
 				};
 
-				this.get_parts_count_label = function ( ) {
+				this.parts_count_label_ = function ( ) {
 
-					if ( self.parts_count_label ) return self.parts_count_label;
+					// remove if exists
 
-					// get bounding box
+					if ( self.parts_count_label ) {
+
+						if ( self.parts_count_label.parent ) {
+
+							self.parts_count_label.parent.remove ( self.parts_count_label );
+						}
+
+						self.parts_count_label = null;
+
+						return;
+					}
+
+					// build label
 
 					const box = self.get_boundingBox ( ) ;
 					const center = box.getCenter ( new THREE.Vector3 ( ) );
 					const size = box.getSize ( new THREE.Vector3 ( ) );
 
 					const parts_count = self.get_parts_count ( );
-
-					// label maker
 
 					function generate_label ( message, color ) {
 
@@ -1504,8 +1512,6 @@
 						return sprite;
 					}
 
-					// line maker
-
 					function generate_line ( points, color ) {
 
 						const geometry = new THREE.BufferGeometry ( ).setFromPoints ( points );
@@ -1522,7 +1528,7 @@
 						return new THREE.Line ( geometry, material );
 					}
 
-					const label_group = new THREE.Group ( );
+					const group = new THREE.Group ( );
 
 					// pointer path
 
@@ -1538,7 +1544,7 @@
 						new THREE.Vector3 ( size.x * 1.40, size.y * 1.08, 0 )
 					);
 
-					label_group.add (
+					group.add (
 						generate_line (
 							[
 								parts_anchor,
@@ -1549,22 +1555,22 @@
 						)
 					);
 
-					const parts_label = generate_label (
+					const label = generate_label (
 						'Parts : ' + parts_count,
 						'#5a5a5a'
 					);
 
-					parts_label.position.copy (
+					label.position.copy (
 						parts_end.clone ( ).add (
 							new THREE.Vector3 ( size.x * 0.10, 0, 0 )
 						)
 					);
 
-					label_group.add ( parts_label );
+					group.add ( label );
 
-					label_group.renderOrder = 999;
+					group.renderOrder = 999;
 
-					label_group.traverse ( function ( object ) {
+					group.traverse ( function ( object ) {
 
 						object.renderOrder = 999;
 
@@ -1575,27 +1581,9 @@
 						}
 					} );
 
-					self.parts_count_label = label_group;
+					self.parts_count_label = group;
 
-					return label_group;
-				};
-
-				this.toggle_parts_count_label = function ( force_state = null ) {
-
-					const visible = force_state === null ? ! self.parts_count_label_visible : !! force_state;
-
-					const label = self.get_parts_count_label ( );
-
-					if ( visible ) {
-
-						if ( ! label.parent ) self.scene.add ( label );
-					}
-					else {
-
-						if ( label.parent ) label.parent.remove ( label );
-					}
-
-					self.parts_count_label_visible = visible;
+					self.scene.add ( self.parts_count_label );
 				};
 
 				// hemisphere light helper
@@ -2051,7 +2039,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-fuschia.dae',
+						'/minifigs/exports/minifig-white.dae',
 
 						function ( collada ) {
 
@@ -2157,7 +2145,7 @@
 
 						function ( error ) {
 
-							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-fuschia.dae', error );
+							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-white.dae', error );
 
 						}
 
@@ -2533,6 +2521,36 @@
 						bounding_box_helper_visible = true;
 
 						dimension_labels_visible = true;
+
+					}
+
+					// refresh console values
+
+					console_overlay_refresh ( ) ;
+
+				};
+
+				// parts count toggle
+
+				var parts_count_label_visible = false;
+
+				this.parts_count_toggle_ = function ( ) {
+
+					if ( parts_count_label_visible ) {
+
+						// on >>> turn off
+
+						self.parts_count_label_ ( ) ;
+
+						parts_count_label_visible = false;
+
+					} else {
+
+						// off >>> turn on
+
+						self.parts_count_label_ ( ) ;
+
+						parts_count_label_visible = true;
 
 					}
 
@@ -3204,7 +3222,7 @@
 						case 68:
 
 							self.dimensions_toggle_ ( ) ;
-							self.toggle_parts_count_label ( );
+							self.parts_count_toggle_ ( );
 
 							break;
 
