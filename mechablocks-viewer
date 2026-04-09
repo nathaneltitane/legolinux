@@ -1634,138 +1634,106 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					if ( self.parts_count_label ) return self.parts_count_label;
 
-					// build label
+					// get bounding box
 
 					const box = self.get_boundingBox ( ) ;
+
 					const center = box.getCenter ( new THREE.Vector3 ( ) );
+
 					const size = box.getSize ( new THREE.Vector3 ( ) );
 
+					// get parts count
+
 					const parts_count = '${model_pieces_count}';
+
+					// label maker
 
 					function generate_label ( message, color ) {
 
 						const canvas = document.createElement ( 'canvas' );
-						const context = canvas.getContext ( '2d' );
-						const scale = window.devicePixelRatio || 1;
-						const font_size = 42;
-						const padding = 24;
 
-						context.font = font_size + 'px monospace';
+						// set label canvas ratio - 1:1
 
-						const metrics = context.measureText ( message );
-						const text_width = Math.ceil ( metrics.width );
-						const text_height = font_size;
+						canvas.width = 1024;
 
-						canvas.width = ( text_width + padding * 2 ) * scale;
-						canvas.height = ( text_height + padding * 2 ) * scale;
+						canvas.height = 1024;
 
-						context.scale ( scale, scale );
-						context.font = font_size + 'px monospace';
-						context.textBaseline = 'middle';
-						context.textAlign = 'left';
-						context.fillStyle = color;
-						context.fillText ( message, padding, ( text_height + padding * 2 ) / 2 );
+						const label_context = canvas.getContext ( '2d' );
 
-						const texture = new THREE.CanvasTexture ( canvas );
-						texture.needsUpdate = true;
+						// label background
 
-						const material = new THREE.SpriteMaterial ( {
+						const radius = 0.008;
+						const width = canvas.width;
+						const height = canvas.height;
 
-							map: texture,
-							transparent: true,
-							depthTest: false,
-							depthWrite: false
+						label_context.fillStyle = '#00000000';
+						label_context.beginPath ( ) ;
+						label_context.moveTo ( radius, 0 );
+						label_context.lineTo ( width - radius, 0 );
+						label_context.quadraticCurveTo ( width, 0, width, radius );
+						label_context.lineTo ( width, height - radius );
+						label_context.quadraticCurveTo ( width, height, width - radius, height );
+						label_context.lineTo ( radius, height );
+						label_context.quadraticCurveTo ( 0, height, 0, height - radius );
+						label_context.lineTo ( 0, radius );
+						label_context.quadraticCurveTo ( 0, 0, radius, 0 );
+						label_context.closePath ( ) ;
+						label_context.fill ( ) ;
 
-						} );
+						// text color
 
-						const sprite = new THREE.Sprite ( material );
+						label_context.fillStyle = color;
 
-						const aspect = canvas.width / canvas.height;
-						const height = Math.max ( size.y * 0.10, 0.22 );
-						const width = height * aspect;
+						// text font
 
-						sprite.scale.set ( width, height, 1 );
+						label_context.font = 'bold 20px monospace';
+
+						// text font alignment
+
+						label_context.textAlign = 'center';
+
+						label_context.textBaseline = 'middle';
+
+						// center text in label
+
+						label_context.fillText ( message, canvas.width / 2, canvas.height / 2 );
+
+						// load label sprite
+
+						const sprite_texture = new THREE.CanvasTexture ( canvas );
+
+						const sprite_material = new THREE.SpriteMaterial ( { map: sprite_texture, transparent: true } );
+
+						const sprite = new THREE.Sprite ( sprite_material );
+
+						// set label scale factor
+
+						const labelScale = ( 0.008 * 32 );
+
+						// set sprite scale
+
+						sprite.scale.set ( labelScale, labelScale, labelScale );
 
 						return sprite;
+
 					}
 
-					function generate_line ( points, color ) {
+					const labels = [];
 
-						const geometry = new THREE.BufferGeometry ( ).setFromPoints ( points );
+					labels.push ( generate_label ( `Parts : ${parts_count}`, '#808080ff' ) );
 
-						const material = new THREE.LineBasicMaterial ( {
+					// label position relative to model bounding box
+					// centered on the top surface
 
-							color: color,
-							depthTest: false,
-							depthWrite: false,
-							toneMapped: false
+					const labelOffset = ( 0.008 * 2 );
 
-						} );
+					labels[0].position.set ( center.x, box.max.y + labelOffset, center.z );
 
-						return new THREE.Line ( geometry, material );
-					}
-
-					const group = new THREE.Group ( );
-
-					const parts_anchor = new THREE.Vector3 (
-						center.x,
-						box.max.y,
-						center.z
-					);
-
-					const parts_elbow = new THREE.Vector3 (
-						center.x + size.x * 0.18,
-						box.max.y + size.y * 0.22,
-						center.z
-					);
-
-					const parts_end = new THREE.Vector3 (
-						center.x + size.x * 1.40,
-						box.max.y + size.y * 0.22,
-						center.z
-					);
-
-					group.add (
-						generate_line (
-							[
-								parts_anchor,
-								parts_elbow,
-								parts_end
-							],
-							0x5a5a5a
-						)
-					);
-
-					const label = generate_label (
-						'Parts : ' + parts_count,
-						'#5a5a5a'
-					);
-
-					label.position.copy (
-						parts_end.clone ( ).add (
-							new THREE.Vector3 ( size.x * 0.10, 0, 0 )
-						)
-					);
-
-					group.add ( label );
-
-					group.renderOrder = 999;
-
-					group.traverse ( function ( object ) {
-
-						object.renderOrder = 999;
-
-						if ( object.material ) {
-
-							object.material.depthTest = false;
-							object.material.depthWrite = false;
-						}
-					} );
-
-					self.parts_count_label = [ group ];
+					self.parts_count_label = labels;
 
 					return self.parts_count_label;
-				};
+
+				}
 
 				this.parts_count_label_ = function ( ) {
 
@@ -1794,7 +1762,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						console.log ( "helper [ parts count ]" );
 					}
-				};
+				}
 
 				// hemisphere light helper
 
@@ -2746,19 +2714,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				this.parts_count_toggle_ = function ( ) {
 
-					if ( parts_count_label_visible ) {
-
-						self.parts_count_label_ ( ) ;
-
-						parts_count_label_visible = false;
-
-					} else {
-
-						self.parts_count_label_ ( ) ;
-
-						parts_count_label_visible = true;
-
-					}
+					self.parts_count_label_ ( ) ;
 
 					// refresh console values
 
@@ -3428,7 +3384,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 						case 68:
 
 							self.dimensions_toggle_ ( ) ;
-							self.parts_count_toggle_ ( );
+							self.parts_count_toggle_ ( ) ;
 
 							break;
 
