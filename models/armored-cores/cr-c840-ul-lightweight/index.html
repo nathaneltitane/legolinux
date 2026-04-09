@@ -1409,25 +1409,15 @@
 					}
 				}
 
-// parts count label helper
+				// parts count label helper
 
 				this.parts_count_label = null;
 
-				this.parts_count_label_ = function ( ) {
+				this.parts_count_label_visible = false;
 
-					// remove if exists
+				this.get_parts_count_label = function ( ) {
 
-					if ( self.parts_count_label ) {
-
-						if ( self.parts_count_label.parent ) {
-
-							self.parts_count_label.parent.remove ( self.parts_count_label );
-						}
-
-						self.parts_count_label = null;
-
-						return;
-					}
+					if ( self.parts_count_label ) return self.parts_count_label;
 
 					// build label
 
@@ -1502,8 +1492,6 @@
 
 					const group = new THREE.Group ( );
 
-					// pointer path
-
 					const parts_anchor = new THREE.Vector3 (
 						center.x,
 						box.max.y,
@@ -1559,9 +1547,38 @@
 						}
 					} );
 
-					self.parts_count_label = group;
+					self.parts_count_label = [ group ];
 
-					self.scene.add ( self.parts_count_label );
+					return self.parts_count_label;
+				};
+
+				this.parts_count_label_ = function ( ) {
+
+					if ( this.parts_count_label_visible ) {
+
+						this.parts_count_label_visible = false;
+
+						if ( self.parts_count_label ) {
+
+							self.parts_count_label.forEach ( label => self.scene.remove ( label ) );
+
+							self.parts_count_label = null;
+
+							parts_count_label_visible = false;
+
+						}
+					}
+
+					else {
+
+						this.parts_count_label_visible = true;
+
+						self.get_parts_count_label ( ).forEach ( label => self.scene.add ( label ) );
+
+						parts_count_label_visible = true;
+
+						console.log ( "helper [ parts count ]" );
+					}
 				};
 
 				// hemisphere light helper
@@ -2017,7 +2034,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-purple.dae',
+						'/minifigs/exports/minifig-blue.dae',
 
 						function ( collada ) {
 
@@ -2123,7 +2140,7 @@
 
 						function ( error ) {
 
-							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-purple.dae', error );
+							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-blue.dae', error );
 
 						}
 
@@ -2527,6 +2544,8 @@
 						parts_count_label_visible = true;
 
 					}
+
+					// refresh console values
 
 					console_overlay_refresh ( ) ;
 
