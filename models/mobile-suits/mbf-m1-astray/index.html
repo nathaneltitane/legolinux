@@ -1366,13 +1366,13 @@
 
 					// label positions relative to model bounding box
 
-					const labelOffset = ( 0.008 * 2 );
+					const label_offset = ( 0.008 * 2 );
 
 					const labelMargin = ( 0.008 * 8 );
 
-					labels[0].position.set ( center.x, box.min.y + labelOffset, box.max.z + labelMargin );
-					labels[1].position.set ( box.max.x + labelMargin, box.max.y + labelOffset, box.max.z );
-					labels[2].position.set ( box.max.x + labelMargin, box.min.y + labelOffset, center.z );
+					labels[0].position.set ( center.x, box.min.y + label_offset, box.max.z + labelMargin );
+					labels[1].position.set ( box.max.x + labelMargin, box.max.y + label_offset, box.max.z );
+					labels[2].position.set ( box.max.x + labelMargin, box.min.y + label_offset, center.z );
 
 					self.dimension_labels = labels;
 
@@ -1510,9 +1510,9 @@
 					// label position relative to model bounding box
 					// centered on the top surface
 
-					const labelOffset = ( 0.008 * 2 );
+					const label_offset = ( 0.008 * 2 );
 
-					labels[0].position.set ( center.x, box.max.y + labelOffset, center.z );
+					labels[0].position.set ( center.x, box.max.y + label_offset, center.z );
 
 					self.pieces_count_label = labels;
 
