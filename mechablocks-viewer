@@ -1626,13 +1626,13 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// parts count label helper
 
-				this.parts_count_label = null;
+				this.pieces_count_label = null;
 
-				this.parts_count_label_visible = false;
+				this.pieces_count_label_visible = false;
 
-				this.get_parts_count_label = function ( ) {
+				this.get_pieces_count_label = function ( ) {
 
-					if ( self.parts_count_label ) return self.parts_count_label;
+					if ( self.pieces_count_label ) return self.pieces_count_label;
 
 					// get bounding box
 
@@ -1644,7 +1644,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					// get parts count
 
-					const parts_count = '${model_pieces_count}';
+					const pieces_count = '${model_pieces_count}';
 
 					// label maker
 
@@ -1720,7 +1720,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					const labels = [];
 
-					labels.push ( generate_label ( `Parts : ${parts_count}`, '#808080ff' ) );
+					labels.push ( generate_label ( \`Pieces count : \${pieces_count}\`, '#808080ff' ) );
 
 					// label position relative to model bounding box
 					// centered on the top surface
@@ -1729,38 +1729,38 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					labels[0].position.set ( center.x, box.max.y + labelOffset, center.z );
 
-					self.parts_count_label = labels;
+					self.pieces_count_label = labels;
 
-					return self.parts_count_label;
+					return self.pieces_count_label;
 
 				}
 
-				this.parts_count_label_ = function ( ) {
+				this.pieces_count_label_ = function ( ) {
 
-					if ( this.parts_count_label_visible ) {
+					if ( this.pieces_count_label_visible ) {
 
-						this.parts_count_label_visible = false;
+						this.pieces_count_label_visible = false;
 
-						if ( self.parts_count_label ) {
+						if ( self.pieces_count_label ) {
 
-							self.parts_count_label.forEach ( label => self.scene.remove ( label ) );
+							self.pieces_count_label.forEach ( label => self.scene.remove ( label ) );
 
-							self.parts_count_label = null;
+							self.pieces_count_label = null;
 
-							parts_count_label_visible = false;
+							pieces_count_label_visible = false;
 
 						}
 					}
 
 					else {
 
-						this.parts_count_label_visible = true;
+						this.pieces_count_label_visible = true;
 
-						self.get_parts_count_label ( ).forEach ( label => self.scene.add ( label ) );
+						self.get_pieces_count_label ( ).forEach ( label => self.scene.add ( label ) );
 
-						parts_count_label_visible = true;
+						pieces_count_label_visible = true;
 
-						console.log ( "helper [ parts count ]" );
+						console.log ( "helper [ pieces count ]" );
 					}
 				}
 
@@ -2710,11 +2710,11 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				// parts count toggle
 
-				var parts_count_label_visible = false;
+				var pieces_count_label_visible = false;
 
-				this.parts_count_toggle_ = function ( ) {
+				this.pieces_count_toggle_ = function ( ) {
 
-					self.parts_count_label_ ( ) ;
+					self.pieces_count_label_ ( ) ;
 
 					// refresh console values
 
@@ -3384,7 +3384,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 						case 68:
 
 							self.dimensions_toggle_ ( ) ;
-							self.parts_count_toggle_ ( ) ;
+							self.pieces_count_toggle_ ( ) ;
 
 							break;
 
@@ -3971,6 +3971,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				document.getElementById ( 'dimensions' ).addEventListener ( 'click', function ( ) {
 
 					self.dimensions_toggle_ ( ) ;
+					self.pieces_count_toggle_ ( ) ;
 
 				} );
 
