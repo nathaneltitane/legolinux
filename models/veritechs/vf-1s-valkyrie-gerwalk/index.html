@@ -2002,7 +2002,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-red.dae',
+						'/minifigs/exports/minifig-black.dae',
 
 						function ( collada ) {
 
@@ -2108,7 +2108,7 @@
 
 						function ( error ) {
 
-							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-red.dae', error );
+							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-black.dae', error );
 
 						}
 
@@ -2161,129 +2161,159 @@
 						return;
 					}
 
-					const loader = new ColladaLoader ( ) ;
+					const model_box = new THREE.Box3 ( ).setFromObject ( self.colladaImport );
 
-					loader.load (
+					const model_size = model_box.getSize ( new THREE.Vector3 ( ) );
 
-						'/baseplate/exports/baseplate.dae',
+					const model_footprint_x = model_size.x;
+					const model_footprint_z = model_size.z;
 
-						function ( collada ) {
+					const baseplates = [
 
-							const baseplate = collada.scene;
-
-							baseplate.name = 'baseplate';
-
-							// define all model bounding boxes
-
-							const model_box = new THREE.Box3 ( ).setFromObject ( self.colladaImport );
-
-							const baseplate_box = new THREE.Box3 ( ).setFromObject ( baseplate );
-
-							// scale - baseplate
-
-							baseplate.scale.setScalar ( editor_scale );
-
-							// compute baseplate position
-
-							const baseplate_position_box = new THREE.Box3 ( ).setFromObject ( baseplate ) ;
-
-							// vertical offset: sit directly under model
-
-							// 1 ldu  = 0.0004 m
-
-							// 4 ldu = stud height = 0.0016 m
-
-							const position_offset_y = model_box.min.y - baseplate_position_box.min.y - 0.0016 ;
-
-							// center under model (not under itself)
-
-							const model_center = model_box.getCenter ( new THREE.Vector3 ( ) ) ;
-
-							const baseplate_position_x = model_center.x ;
-							const baseplate_position_y = position_offset_y ;
-							const baseplate_position_z = 0 ;
-
-							// set baseplate position //
-
-							baseplate.position.set (
-
-								baseplate_position_x,
-								baseplate_position_y,
-								baseplate_position_z
-
-							) ;
-
-//							// edges - baseplate
-//
-//							baseplate.traverse ( function ( node ) {
-//
-//								if ( node.isMesh ) {
-//
-//									const edgesGeometry = new THREE.EdgesGeometry ( node.geometry, 45 ) ;
-//
-//									const edgesMaterial = new THREE.LineBasicMaterial ( {
-//
-//										color: black,
-//
-//										linewidth: 1
-//
-//									} ) ;
-//
-//									const edges = new THREE.LineSegments ( edgesGeometry, edgesMaterial ) ;
-//
-//									edges.position.copy ( node.position ) ;
-//
-//									edges.rotation.copy ( node.rotation ) ;
-//
-//									edges.scale.copy ( node.scale ) ;
-//
-//									baseplate.add ( edges ) ;
-//
-//								}
-//
-//							} ) ;
-
-							// shadows - baseplate
-
-							baseplate.traverse ( function ( node ) {
-
-								if ( node.isMesh ) {
-
-									node.castShadow = true;
-
-									node.receiveShadow = true;
-
-								}
-
-							} );
-
-							self.scene.add ( baseplate );
-
-							const transform = self.get_transform_controls ( ) ;
-
-							self.scene.add ( transform );
-
-							transform.attach ( baseplate );
-
-							self.baseplate = baseplate;
-
-							self.baseplateTransform = transform;
-
-							console.log ( 'baseplate [ status ] : load ok' );
-
-							console.log ( 'scale [ baseplate ] : ', baseplate.scale );
-
+						{
+							name: 'small',
+							path: '/baseplate/exports/baseplate-small.dae'
 						},
 
-						undefined,
+						{
+							name: 'medium',
+							path: '/baseplate/exports/baseplate-medium.dae'
+						},
 
-						function ( error ) {
+						{
+							name: 'large',
+							path: '/baseplate/exports/baseplate-large.dae'
+						}
 
-							console.error ( 'baseplate [ status ] : load failed - /baseplate/exports/baseplate.dae', error );
+					];
+
+					const loader = new ColladaLoader ( ) ;
+
+					function load_baseplate_candidate ( index ) {
+
+						if ( index >= baseplates.length ) {
+
+							console.warn ( 'baseplate [ status ] : no baseplate large enough for model' );
+
+							return;
 
 						}
 
-					);
+						const baseplate_candidate = baseplates[index];
+
+						loader.load (
+
+							baseplate_candidate.path,
+
+							function ( collada ) {
+
+								const baseplate = collada.scene;
+
+								baseplate.name = 'baseplate';
+
+								// scale - baseplate
+
+								baseplate.scale.setScalar ( editor_scale );
+
+								baseplate.updateMatrixWorld ( true );
+
+								// measure selected baseplate
+
+								const baseplate_box = new THREE.Box3 ( ).setFromObject ( baseplate );
+
+								const baseplate_size = baseplate_box.getSize ( new THREE.Vector3 ( ) );
+
+								const baseplate_footprint_x = baseplate_size.x;
+								const baseplate_footprint_z = baseplate_size.z;
+
+								if (
+									model_footprint_x > baseplate_footprint_x ||
+									model_footprint_z > baseplate_footprint_z
+								) {
+
+									console.log ( 'baseplate [ skip ] : ' + baseplate_candidate.name );
+
+									load_baseplate_candidate ( index + 1 );
+
+									return;
+
+								}
+
+								// compute baseplate position
+
+								const baseplate_position_box = new THREE.Box3 ( ).setFromObject ( baseplate ) ;
+
+								// vertical offset: sit directly under model
+
+								// 1 ldu  = 0.0004 m
+
+								// 4 ldu = stud height = 0.0016 m
+
+								const position_offset_y = model_box.min.y - baseplate_position_box.min.y - 0.0016 ;
+
+								// lock baseplate to world origin
+
+								const baseplate_position_x = 0 ;
+								const baseplate_position_y = position_offset_y ;
+								const baseplate_position_z = 0 ;
+
+								// set baseplate position
+
+								baseplate.position.set (
+
+									baseplate_position_x,
+									baseplate_position_y,
+									baseplate_position_z
+
+								) ;
+
+								// shadows - baseplate
+
+								baseplate.traverse ( function ( node ) {
+
+									if ( node.isMesh ) {
+
+										node.castShadow = true;
+
+										node.receiveShadow = true;
+
+									}
+
+								} );
+
+								self.scene.add ( baseplate );
+
+								const transform = self.get_transform_controls ( ) ;
+
+								self.scene.add ( transform );
+
+								transform.attach ( baseplate );
+
+								self.baseplate = baseplate;
+
+								self.baseplateTransform = transform;
+
+								console.log ( 'baseplate [ status ] : load ok - ' + baseplate_candidate.name );
+
+								console.log ( 'scale [ baseplate ] : ', baseplate.scale );
+
+							},
+
+							undefined,
+
+							function ( error ) {
+
+								console.error ( 'baseplate [ status ] : load failed - ' + baseplate_candidate.path, error );
+
+								load_baseplate_candidate ( index + 1 );
+
+							}
+
+						);
+
+					}
+
+					load_baseplate_candidate ( 0 );
 
 				};
 
