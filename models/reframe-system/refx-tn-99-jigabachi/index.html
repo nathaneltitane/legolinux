@@ -2026,7 +2026,7 @@ ZGEUG3DCATJD4' ) ;
 
 							const minifig_positionBox = new THREE.Box3 ( ).setFromObject ( minifig );
 
-							const position_offset_y = model_box.min.y - minifig_positionBox.min.y;
+							const position_offset_y = model_box.min.y - minifig_positionBox.min.y + 0.0002;
 
 							const model_depth = model_box.max.z - model_box.min.z;
 
