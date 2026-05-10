@@ -2290,7 +2290,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 								minifig_position_x,
 								minifig_position_y,
-								minifig_position_z + ( 0.0044 ) // compensate for minifig pose by 0.0044 world units / 0.55 studs / 11 ldu
+								minifig_position_z
 
 							);
 
