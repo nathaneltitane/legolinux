@@ -17,13 +17,14 @@
 	var flat = "/images/flat/flat-" + number + ".png";
 	var overlay = "/images/overlay/overlay-" + number + ".png";
 
-	var flat_image = new Image ( );
-	var overlay_image = new Image ( );
+	var image_flat = new Image ( );
+	var image_overlay = new Image ( );
 
-	flat_image.src = flat;
-	overlay_image.src = overlay;
+	image_flat.src = flat;
 
-	flat_image.onload = function ( ) {
+	image_overlay.src = overlay;
+
+	image_flat.onload = function ( ) {
 
 		$( '#background' ).css (
 
@@ -34,7 +35,7 @@
 
 	};
 
-	overlay_image.onload = function ( ) {
+	image_overlay.onload = function ( ) {
 
 		$( '#background-overlay' ).css (
 
