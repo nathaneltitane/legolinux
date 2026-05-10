@@ -1,6 +1,6 @@
 // background //
 
-$( document ).ready ( function ( ) {
+( function ( ) {
 
 	var count = 190;
 
@@ -14,20 +14,35 @@ $( document ).ready ( function ( ) {
 
 	var number = pad ( Math.floor ( Math.random ( ) * count ), 3 );
 
-	// randomize images
+	var flat = "/images/flat/flat-" + number + ".png";
+	var overlay = "/images/overlay/overlay-" + number + ".png";
 
-	$( '#background' ).css (
+	var flat_image = new Image ( );
+	var overlay_image = new Image ( );
 
-		'background-image',
+	flat_image.src = flat;
+	overlay_image.src = overlay;
 
-		'url("/images/flat/flat-' + number + '.png ")'
-	);
+	flat_image.onload = function ( ) {
 
-	$ ( '#background-overlay' ).css (
+		$( '#background' ).css (
 
-		'background-image',
+			'background-image',
 
-		'url("/images/overlay/overlay-' + number + '.png ")'
-	);
+			'url("' + flat + '")'
+		);
 
-});
+	};
+
+	overlay_image.onload = function ( ) {
+
+		$( '#background-overlay' ).css (
+
+			'background-image',
+
+			'url("' + overlay + '")'
+		);
+
+	};
+
+} ) ( );
