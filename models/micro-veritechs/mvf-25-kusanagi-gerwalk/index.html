@@ -1965,6 +1965,7 @@
 					const self = this;
 
 					// guard: minifig depends on main model being present
+
 					if ( ! self.colladaImport ) {
 
 						console.warn ( 'minifig : main model not loaded yet (colladaImport is missing)' );
@@ -2002,7 +2003,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-white.dae',
+						'/minifigs/exports/minifig-black.dae',
 
 						function ( collada ) {
 
@@ -2010,15 +2011,15 @@
 
 							minifig.name = 'minifig';
 
-							// define all model bounding boxes
-
-							const model_box = new THREE.Box3 ( ).setFromObject ( self.colladaImport );
-
-							const minifig_box = new THREE.Box3 ( ).setFromObject ( minifig );
-
 							// scale - minifig
 
 							minifig.scale.setScalar ( editor_scale );
+
+							minifig.updateMatrixWorld ( true );
+
+							// define all model bounding boxes
+
+							const model_box = new THREE.Box3 ( ).setFromObject ( self.colladaImport );
 
 							// compute minifig position
 
@@ -2026,21 +2027,57 @@
 
 							const position_offset_y = model_box.min.y - minifig_positionBox.min.y + 0.0002;
 
-							const model_depth = model_box.max.z - model_box.min.z;
+							const minifig_positionBox_size = minifig_positionBox.getSize ( new THREE.Vector3 ( ) );
 
-							const minifig_depth = minifig_box.max.z - minifig_box.min.z;
+							const half_minifig_depth = minifig_positionBox_size.z / 2;
 
-							const minifig_center = minifig_box.getCenter ( new THREE.Vector3 ( ) );
+							const model_center = model_box.getCenter ( new THREE.Vector3 ( ) );
 
-							const minifig_position_x = minifig_center.x;
+							const ldu = 0.0004;
+
+							const stud = ldu * 20;
+
+							function snap_to_stud ( value ) {
+
+								return Math.round ( value / stud ) * stud;
+
+							}
+
+							function snap_forward_to_ldu ( value ) {
+
+								return Math.ceil ( value / ldu ) * ldu;
+
+							}
+
+							const baseplate_size_z = 0.768;
+
+							const baseplate_max_z = baseplate_size_z / 2;
+
+							const minifig_position_x = snap_to_stud ( model_center.x );
 
 							const minifig_position_y = position_offset_y;
 
-							const minifig_position_z = ( model_depth - ( model_depth / 2 ) + minifig_depth );
+							const minimum_clear_position_z = model_box.max.z + half_minifig_depth;
+
+							const minifig_position_z = snap_forward_to_ldu ( minimum_clear_position_z );
+
+							if ( minifig_position_z + half_minifig_depth > baseplate_max_z ) {
+
+								console.warn ( 'minifig : closest front LDU position exceeds large baseplate boundary' );
+
+								return;
+
+							}
 
 							// set minifig position
 
-							minifig.position.set ( minifig_position_x, minifig_position_y, minifig_position_z );
+							minifig.position.set (
+
+								minifig_position_x,
+								minifig_position_y,
+								minifig_position_z + ( 0.0044 ) // compensate for minifig pose by 0.0044 world units / 0.55 studs / 11 ldu
+
+							);
 
 							// edges - minifig
 
@@ -2108,7 +2145,7 @@
 
 						function ( error ) {
 
-							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-white.dae', error );
+							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-black.dae', error );
 
 						}
 
