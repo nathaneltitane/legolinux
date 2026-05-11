@@ -1256,7 +1256,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 					}
 				}
 
-				// bounding box helper
+				// plane helper
 
 				this.boundingBox = null;
 
@@ -1491,9 +1491,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						cm: (axisSize * 100).toFixed ( 1 ),
 
-						// round up to nearest lego stud increment
-
-						ldu: Math.ceil ( ( ( axisSize * 1000 ) / 0.4 ) / 20 ) * 20
+						ldu: Math.round ( ( axisSize * 1000 ) / 0.4 )
 
 					} );
 
@@ -2182,7 +2180,6 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 					const self = this;
 
 					// guard: minifig depends on main model being present
-
 					if ( ! self.colladaImport ) {
 
 						console.warn ( 'minifig : main model not loaded yet (colladaImport is missing)' );
@@ -2228,73 +2225,37 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 							minifig.name = 'minifig';
 
-							// scale - minifig
-
-							minifig.scale.setScalar ( editor_scale );
-
-							minifig.updateMatrixWorld ( true );
-
 							// define all model bounding boxes
 
 							const model_box = new THREE.Box3 ( ).setFromObject ( self.colladaImport );
+
+							const minifig_box = new THREE.Box3 ( ).setFromObject ( minifig );
+
+							// scale - minifig
+
+							minifig.scale.setScalar ( editor_scale );
 
 							// compute minifig position
 
 							const minifig_positionBox = new THREE.Box3 ( ).setFromObject ( minifig );
 
-							const position_offset_y = model_box.min.y - minifig_positionBox.min.y + 0.0002;
+							const position_offset_y = model_box.min.y - minifig_positionBox.min.y;
 
-							const minifig_positionBox_size = minifig_positionBox.getSize ( new THREE.Vector3 ( ) );
+							const model_depth = model_box.max.z - model_box.min.z;
 
-							const half_minifig_depth = minifig_positionBox_size.z / 2;
+							const minifig_depth = minifig_box.max.z - minifig_box.min.z;
 
-							const model_center = model_box.getCenter ( new THREE.Vector3 ( ) );
+							const minifig_center = minifig_box.getCenter ( new THREE.Vector3 ( ) );
 
-							const ldu = 0.0004;
-
-							const stud = ldu * 20;
-
-							function snap_to_stud ( value ) {
-
-								return Math.round ( value / stud ) * stud;
-
-							}
-
-							function snap_forward_to_ldu ( value ) {
-
-								return Math.ceil ( value / ldu ) * ldu;
-
-							}
-
-							const baseplate_size_z = 0.768;
-
-							const baseplate_max_z = baseplate_size_z / 2;
-
-							const minifig_position_x = snap_to_stud ( model_center.x );
+							const minifig_position_x = minifig_center.x;
 
 							const minifig_position_y = position_offset_y;
 
-							const minimum_clear_position_z = model_box.max.z + half_minifig_depth;
-
-							const minifig_position_z = snap_forward_to_ldu ( minimum_clear_position_z );
-
-							if ( minifig_position_z + half_minifig_depth > baseplate_max_z ) {
-
-								console.warn ( 'minifig : closest front LDU position exceeds large baseplate boundary' );
-
-								return;
-
-							}
+							const minifig_position_z = ( model_depth - ( model_depth / 2 ) + minifig_depth );
 
 							// set minifig position
 
-							minifig.position.set (
-
-								minifig_position_x,
-								minifig_position_y,
-								minifig_position_z
-
-							);
+							minifig.position.set ( minifig_position_x, minifig_position_y, minifig_position_z );
 
 							// edges - minifig
 
@@ -3800,6 +3761,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 							break;
 					}
+
 				}
 
 				// loader
