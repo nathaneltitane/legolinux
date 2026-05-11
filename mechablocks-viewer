@@ -2365,6 +2365,15 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 						return;
 					}
 
+					// baseplate depends on rounded model grid box
+
+					if ( ! self.model_grid_box ) {
+
+						console.warn ( 'baseplate : rounded model grid box not available' );
+
+						return;
+					}
+
 					if ( this.baseplate_visible ) {
 
 						this.baseplate_visible = false;
@@ -2391,7 +2400,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 						return;
 					}
 
-					const model_box = new THREE.Box3 ( ).setFromObject ( self.colladaImport );
+					const model_box = self.model_grid_box;
 
 					const model_size = model_box.getSize ( new THREE.Vector3 ( ) );
 
@@ -2423,7 +2432,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						if ( index >= baseplates.length ) {
 
-							console.warn ( 'baseplate [ status ] : no baseplate large enough for model' );
+							console.warn ( 'baseplate [ status ] : no baseplate large enough for rounded model grid box' );
 
 							return;
 
@@ -2473,13 +2482,15 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 								const baseplate_position_box = new THREE.Box3 ( ).setFromObject ( baseplate ) ;
 
-								// vertical offset: sit directly under model
+								// vertical offset: sit directly under rounded model grid box
 
 								// 1 ldu  = 0.0004 m
 
 								// 4 ldu = stud height = 0.0016 m
 
-								const position_offset_y = model_box.min.y - baseplate_position_box.min.y - 0.0016 ;
+								const stud_height = 0.0016;
+
+								const position_offset_y = model_box.min.y - baseplate_position_box.min.y - stud_height ;
 
 								// lock baseplate to world origin
 
@@ -2496,6 +2507,8 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 									baseplate_position_z
 
 								) ;
+
+								baseplate.updateMatrixWorld ( true );
 
 								// shadows - baseplate
 
@@ -2524,6 +2537,14 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 								self.baseplateTransform = transform;
 
 								console.log ( 'baseplate [ status ] : load ok - ' + baseplate_candidate.name );
+
+								console.log ( 'baseplate [ footprint / x ] : ', baseplate_footprint_x );
+
+								console.log ( 'baseplate [ footprint / z ] : ', baseplate_footprint_z );
+
+								console.log ( 'model [ rounded footprint / x ] : ', model_footprint_x );
+
+								console.log ( 'model [ rounded footprint / z ] : ', model_footprint_z );
 
 								console.log ( 'scale [ baseplate ] : ', baseplate.scale );
 
