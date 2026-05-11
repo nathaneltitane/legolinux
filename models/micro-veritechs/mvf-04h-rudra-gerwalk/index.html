@@ -1041,7 +1041,7 @@
 					}
 				}
 
-				// plane helper
+				// bounding box helper
 
 				this.boundingBox = null;
 
@@ -1276,7 +1276,9 @@
 
 						cm: (axisSize * 100).toFixed ( 1 ),
 
-						ldu: Math.round ( ( axisSize * 1000 ) / 0.4 )
+						// round up to nearest lego stud increment
+
+						ldu: Math.ceil ( ( ( axisSize * 1000 ) / 0.4 ) / 20 ) * 20
 
 					} );
 
@@ -2003,7 +2005,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-white.dae',
+						'/minifigs/exports/minifig-yellow.dae',
 
 						function ( collada ) {
 
@@ -2075,7 +2077,7 @@
 
 								minifig_position_x,
 								minifig_position_y,
-								minifig_position_z + ( 0.0044 ) // compensate for minifig pose by 0.0044 world units / 0.55 studs / 11 ldu
+								minifig_position_z
 
 							);
 
@@ -2145,7 +2147,7 @@
 
 						function ( error ) {
 
-							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-white.dae', error );
+							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-yellow.dae', error );
 
 						}
 
@@ -3612,6 +3614,25 @@
 						function ( collada ) {
 
 						self.colladaImport = collada.scene;
+
+						// center loaded model according to its bounding box
+
+						self.colladaImport.updateMatrixWorld ( true );
+
+						const model_box_initial = new THREE.Box3 ( ).setFromObject ( self.colladaImport );
+
+						const model_center_initial = model_box_initial.getCenter ( new THREE.Vector3 ( ) );
+
+						self.colladaImport.position.sub ( model_center_initial );
+
+						self.colladaImport.updateMatrixWorld ( true );
+
+						self.boundingBox = null;
+						self.bounding_box_helper = null;
+						self.dimension_labels = null;
+						self.pieces_count_label = null;
+
+						console.log ( 'model [ bounding box center ] : aligned to world origin' );
 
 						// traverse and parse mesh items
 
