@@ -2017,24 +2017,26 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					if ( ! self.polar_grid_helper ) {
 
-					const ring_spacing = 0.008;
-					const rings = 96 / 2;
-					const radius = ring_spacing * rings;
+						const ring_spacing = 0.008;
+						const rings = 96 / 2;
+						const radius = ring_spacing * rings;
 
-					self.polar_grid_helper = new THREE.PolarGridHelper (
+						self.polar_grid_helper = new THREE.PolarGridHelper (
 
-						radius,
-						rings,
-						rings,
-						rings,
-						this.polar_grid_helper_color_min,
-						this.polar_grid_helper_color_max
+							radius,
+							rings,
+							rings,
+							rings,
+							this.polar_grid_helper_color_min,
+							this.polar_grid_helper_color_max
 
-					);
+						);
 
 						self.polar_grid_helper.position.x = 0;
 
-						self.polar_grid_helper.position.y = self.get_boundingBox ( ).min.y;
+						self.polar_grid_helper.position.y = self.model_grid_box.min.y;
+
+						self.polar_grid_helper.position.z = 0;
 
 						console.log ( "helper [ grid / polar ]" );
 
@@ -2095,7 +2097,9 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						self.orthogonal_grid_helper.position.x = 0;
 
-						self.orthogonal_grid_helper.position.y = self.get_boundingBox ( ).min.y;
+						self.orthogonal_grid_helper.position.y = self.model_grid_box.min.y;
+
+						self.orthogonal_grid_helper.position.z = 0;
 
 						console.log ( "helper [ grid / orthogonal ]" );
 					}
@@ -2127,6 +2131,16 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 				// grid toggle
 
 				this.grid_toggle_ = function ( ) {
+
+					// guard: grid depends on rounded model grid box
+
+					if ( ! self.model_grid_box ) {
+
+						console.warn ( 'grid : rounded model grid box not available' );
+
+						return;
+
+					}
 
 					// orthogonal on - switch to polar
 
