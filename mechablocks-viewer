@@ -2195,9 +2195,19 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 					const self = this;
 
 					// guard: minifig depends on main model being present
+
 					if ( ! self.colladaImport ) {
 
 						console.warn ( 'minifig : main model not loaded yet (colladaImport is missing)' );
+
+						return;
+					}
+
+					// guard: minifig depends on rounded model grid box
+
+					if ( ! self.model_grid_box ) {
+
+						console.warn ( 'minifig : rounded model grid box not available' );
 
 						return;
 					}
@@ -2240,37 +2250,118 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 							minifig.name = 'minifig';
 
-							// define all model bounding boxes
-
-							const model_box = new THREE.Box3 ( ).setFromObject ( self.colladaImport );
-
-							const minifig_box = new THREE.Box3 ( ).setFromObject ( minifig );
-
 							// scale - minifig
 
 							minifig.scale.setScalar ( editor_scale );
 
-							// compute minifig position
+							minifig.updateMatrixWorld ( true );
 
-							const minifig_positionBox = new THREE.Box3 ( ).setFromObject ( minifig );
+							// lego unit parameters
 
-							const position_offset_y = model_box.min.y - minifig_positionBox.min.y;
+							const ldu = 0.0004;
 
-							const model_depth = model_box.max.z - model_box.min.z;
+							const minimum_thickness = ldu * 2;
 
-							const minifig_depth = minifig_box.max.z - minifig_box.min.z;
+							const stud_height = ldu * 4;
+
+							const plate_height = ldu * 8;
+
+							const stud_width = ldu * 20;
+
+							const brick_height = ldu * 24;
+
+							const two_stud_width = ldu * 40;
+
+							// rounding helpers
+
+							function round_boundary_min_to_stud ( value ) {
+
+								return Math.floor ( value / stud_width ) * stud_width;
+
+							}
+
+							function round_boundary_max_to_stud ( value ) {
+
+								return Math.ceil ( value / stud_width ) * stud_width;
+
+							}
+
+							function round_up_to_plate ( value ) {
+
+								return Math.ceil ( value / plate_height ) * plate_height;
+
+							}
+
+							// define rounded model bounding box
+
+							const model_box = self.model_grid_box;
+
+							const model_center = model_box.getCenter ( new THREE.Vector3 ( ) );
+
+							// define raw model bounding box for true visual floor
+
+							const raw_model_box = new THREE.Box3 ( ).setFromObject ( self.colladaImport );
+
+							// define raw minifig bounding box
+
+							const raw_minifig_box = new THREE.Box3 ( ).setFromObject ( minifig );
+
+							const raw_minifig_height = raw_minifig_box.max.y - raw_minifig_box.min.y;
+
+							const rounded_minifig_height = round_up_to_plate ( raw_minifig_height );
+
+							const minifig_height_offset = ( rounded_minifig_height - raw_minifig_height ) / 2;
+
+							// define rounded minifig bounding box
+							// x / z round to stud width
+							// y rounds to plate height, centered around raw height
+
+							const minifig_box = new THREE.Box3 (
+
+								new THREE.Vector3 (
+
+									round_boundary_min_to_stud ( raw_minifig_box.min.x ),
+									raw_minifig_box.min.y - minifig_height_offset,
+									round_boundary_min_to_stud ( raw_minifig_box.min.z )
+
+								),
+
+								new THREE.Vector3 (
+
+									round_boundary_max_to_stud ( raw_minifig_box.max.x ),
+									raw_minifig_box.max.y + minifig_height_offset,
+									round_boundary_max_to_stud ( raw_minifig_box.max.z )
+
+								)
+
+							);
 
 							const minifig_center = minifig_box.getCenter ( new THREE.Vector3 ( ) );
 
-							const minifig_position_x = minifig_center.x;
+							// compute minifig position
+							// x: center on rounded model grid box
+							// y: place raw minifig feet on raw model floor, then add stud height so feet clear grid overlay
+							// z: place rounded back of minifig 20 ldu in front of rounded model front
 
-							const minifig_position_y = position_offset_y;
+							const forward_offset = stud_width;
 
-							const minifig_position_z = ( model_depth - ( model_depth / 2 ) + minifig_depth );
+							const floor_clearance = stud_height;
+
+							const minifig_position_x = model_center.x - minifig_center.x;
+
+							const minifig_position_y = raw_model_box.min.y - raw_minifig_box.min.y + floor_clearance;
+
+							const minifig_position_z = model_box.max.z + forward_offset - minifig_box.min.z;
 
 							// set minifig position
 
-							minifig.position.set ( minifig_position_x, minifig_position_y, minifig_position_z );
+							minifig.position.set (
+
+								minifig_position_x,
+								minifig_position_y,
+								minifig_position_z
+
+							);
 
 							// edges - minifig
 
@@ -2329,6 +2420,16 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 							self.minifigTransform = transform;
 
 							console.log ( 'minifig [ status ] : load ok' );
+
+							console.log ( 'minifig [ height / raw ] : ', raw_minifig_height );
+
+							console.log ( 'minifig [ height / rounded plate ] : ', rounded_minifig_height );
+
+							console.log ( 'minifig [ position / x ] : ', minifig_position_x );
+
+							console.log ( 'minifig [ position / y ] : ', minifig_position_y );
+
+							console.log ( 'minifig [ position / z ] : ', minifig_position_z );
 
 							console.log ( 'scale [ minifig ] : ', minifig.scale );
 
