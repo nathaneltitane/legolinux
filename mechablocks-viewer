@@ -2351,7 +2351,9 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 							const minifig_position_y = raw_model_box.min.y - raw_minifig_box.min.y + floor_clearance + plate_height - stud_height;
 
-							const minifig_position_z = model_box.max.z + forward_offset - minifig_box.min.z;
+							const minifig_back_edge_z = raw_minifig_box.min.z;
+
+							const minifig_position_z = model_box.max.z + forward_offset - minifig_back_edge_z;
 
 							// set minifig position
 
