@@ -1070,7 +1070,7 @@
 
 					if ( ! self.bounding_box_helper ) {
 
-						const box = self.get_boundingBox ( ) ;
+						const box = self.model_grid_box;
 
 						const geometry = new THREE.BufferGeometry ( ) ;
 						const positions = [];
@@ -1260,9 +1260,9 @@
 
 					if ( self.dimension_labels ) return self.dimension_labels;
 
-					// get bounding box
+					// get rounded grid bounding box
 
-					const box = self.get_boundingBox ( ) ;
+					const box = self.model_grid_box;
 
 					const center = box.getCenter (new THREE.Vector3 ( ) );
 
@@ -1364,7 +1364,7 @@
 					labels.push ( generate_label ( `Height [ y ] : ${y.in} in // ${y.cm} cm // ${y.ldu} ldu`, '#008000ff' ) );	// y - green
 					labels.push ( generate_label ( `Depth [ z ] : ${z.in} in // ${z.cm} cm // ${z.ldu} ldu`, '#0000ffff' ) );	// z - blue
 
-					// label positions relative to model bounding box
+					// label positions relative to rounded grid bounding box
 
 					const label_offset = ( 0.008 * 2 );
 
@@ -1419,9 +1419,9 @@
 
 					if ( self.pieces_count_label ) return self.pieces_count_label;
 
-					// get bounding box
+					// get rounded grid bounding box
 
-					const box = self.get_boundingBox ( ) ;
+					const box = self.model_grid_box;
 
 					const center = box.getCenter ( new THREE.Vector3 ( ) );
 
@@ -1507,7 +1507,7 @@
 
 					labels.push ( generate_label ( `Pieces [ u ]: ${pieces_count} pcs`, '#ff9900ff' ) );
 
-					// label position relative to model bounding box
+					// label position relative to rounded grid bounding box
 					// centered on the top surface
 
 					const label_offset = ( 0.008 * 2 );
@@ -1547,6 +1547,7 @@
 
 						console.log ( "helper [ pieces count ]" );
 					}
+
 				}
 
 				// hemisphere light helper
@@ -2002,7 +2003,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-blue.dae',
+						'/minifigs/exports/minifig-white.dae',
 
 						function ( collada ) {
 
@@ -2108,7 +2109,7 @@
 
 						function ( error ) {
 
-							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-blue.dae', error );
+							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-white.dae', error );
 
 						}
 
@@ -3546,6 +3547,7 @@
 
 							break;
 					}
+
 				}
 
 				// loader
@@ -3575,6 +3577,25 @@
 						function ( collada ) {
 
 						self.colladaImport = collada.scene;
+
+						// center loaded model according to its bounding box
+
+						self.colladaImport.updateMatrixWorld ( true );
+
+						const model_box_initial = new THREE.Box3 ( ).setFromObject ( self.colladaImport );
+
+						const model_center_initial = model_box_initial.getCenter ( new THREE.Vector3 ( ) );
+
+						self.colladaImport.position.sub ( model_center_initial );
+
+						self.colladaImport.updateMatrixWorld ( true );
+
+						self.boundingBox = null;
+						self.bounding_box_helper = null;
+						self.dimension_labels = null;
+						self.pieces_count_label = null;
+
+						console.log ( 'model [ bounding box center ] : aligned to world origin' );
 
 						// traverse and parse mesh items
 
@@ -3651,9 +3672,54 @@
 
 						self.scene.add ( self.colladaImport );
 
-						const model_box = new THREE.Box3 ( ).setFromObject ( self.colladaImport )
+						const raw_model_box = new THREE.Box3 ( ).setFromObject ( self.colladaImport );
+
+						// 1 ldu = 0.0004 world units
+						// 1 stud = 20 ldu
+
+						const ldu = 0.0004;
+
+						const stud = ldu * 20;
+
+						function round_boundary_min ( value ) {
+
+							return Math.floor ( value / stud ) * stud;
+
+						}
+
+						function round_boundary_max ( value ) {
+
+							return Math.ceil ( value / stud ) * stud;
+
+						}
+
+						const model_box = new THREE.Box3 (
+
+							new THREE.Vector3 (
+
+								round_boundary_min ( raw_model_box.min.x ),
+								round_boundary_min ( raw_model_box.min.y ),
+								round_boundary_min ( raw_model_box.min.z )
+
+							),
+
+							new THREE.Vector3 (
+
+								round_boundary_max ( raw_model_box.max.x ),
+								round_boundary_max ( raw_model_box.max.y ),
+								round_boundary_max ( raw_model_box.max.z )
+
+							)
+
+						);
 
 						const size = model_box.getSize ( new THREE.Vector3 ( ) );
+
+						const raw_size = raw_model_box.getSize ( new THREE.Vector3 ( ) );
+
+						// store grid-aligned bounding box for helpers
+
+						self.model_grid_box = model_box;
 
 						// unit conversions
 
@@ -3663,17 +3729,29 @@
 						const y_ldu = ( ( size.y * 1000 ) / 0.4 );
 						const z_ldu = ( ( size.z * 1000 ) / 0.4 );
 
+						const x_ldu_raw = ( ( raw_size.x * 1000 ) / 0.4 );
+						const y_ldu_raw = ( ( raw_size.y * 1000 ) / 0.4 );
+						const z_ldu_raw = ( ( raw_size.z * 1000 ) / 0.4 );
+
 						// 1 cm = 0.01 m
 
 						const x_cm = ( size.x * 100 );
 						const y_cm = ( size.y * 100 );
 						const z_cm = ( size.z * 100 );
 
+						const x_cm_raw = ( raw_size.x * 100 );
+						const y_cm_raw = ( raw_size.y * 100 );
+						const z_cm_raw = ( raw_size.z * 100 );
+
 						// 1 m = 39.3701 in
 
 						const x_in = ( size.x * 39.3701 );
 						const y_in = ( size.y * 39.3701 );
 						const z_in = ( size.z * 39.3701 );
+
+						const x_in_raw = ( raw_size.x * 39.3701 );
+						const y_in_raw = ( raw_size.y * 39.3701 );
+						const z_in_raw = ( raw_size.z * 39.3701 );
 
 						// leocad axis		three.js 	type
 
@@ -3685,15 +3763,25 @@
 
 						console.log ( 'scale [ model matrix ] : ', self.colladaImport.getWorldScale ( new THREE.Vector3 ( ) ) );
 
-						console.log ( 'bounding box [ model ] : ' +  'x = ', size.x.toFixed ( 4 ) + ' y = ', size.y.toFixed ( 4 ) + ' z = ', size.z.toFixed ( 4 ) );
+						console.log ( 'bounding box [ model / raw ] : ' +  'x = ', raw_size.x.toFixed ( 4 ) + ' y = ', raw_size.y.toFixed ( 4 ) + ' z = ', raw_size.z.toFixed ( 4 ) );
 
-						console.log ( "dimensions [ model  / cm ] : "  + 'x = ',  x_cm.toFixed ( 2 ) + ' y = ',  y_cm.toFixed ( 2 ) + ' z = ', z_cm.toFixed ( 2 ) );
+						console.log ( 'bounding box [ model / grid ] : ' +  'x = ', size.x.toFixed ( 4 ) + ' y = ', size.y.toFixed ( 4 ) + ' z = ', size.z.toFixed ( 4 ) );
 
-						console.log ( "dimensions [ model  / in ] : "  + 'x = ',  x_in.toFixed ( 2 ) + ' y = ',  y_in.toFixed ( 2 ) + ' z = ', z_in.toFixed ( 2 ) );
+						console.log ( "dimensions [ model / raw / cm ] : "  + 'x = ',  x_cm_raw.toFixed ( 2 ) + ' y = ',  y_cm_raw.toFixed ( 2 ) + ' z = ', z_cm_raw.toFixed ( 2 ) );
 
-						console.log ( 'dimensions [ model  / ldu / three.js ] : ' + 'x = ', x_ldu.toFixed ( 2 ) + ' y = ', y_ldu.toFixed ( 2 ) + ' z = ', z_ldu.toFixed ( 2 ) );
+						console.log ( "dimensions [ model / grid / cm ] : "  + 'x = ',  x_cm.toFixed ( 2 ) + ' y = ',  y_cm.toFixed ( 2 ) + ' z = ', z_cm.toFixed ( 2 ) );
 
-						console.log ( 'dimensions [ model / ldu / leocad ] : ' , 'x = ', z_ldu.toFixed ( 2 ) , ' y = ', y_ldu.toFixed ( 2 ) , ' z = ', x_ldu.toFixed ( 2 ) );
+						console.log ( "dimensions [ model / raw / in ] : "  + 'x = ',  x_in_raw.toFixed ( 2 ) + ' y = ',  y_in_raw.toFixed ( 2 ) + ' z = ', z_in_raw.toFixed ( 2 ) );
+
+						console.log ( "dimensions [ model / grid / in ] : "  + 'x = ',  x_in.toFixed ( 2 ) + ' y = ',  y_in.toFixed ( 2 ) + ' z = ', z_in.toFixed ( 2 ) );
+
+						console.log ( 'dimensions [ model / raw / ldu / three.js ] : ' + 'x = ', x_ldu_raw.toFixed ( 2 ) + ' y = ', y_ldu_raw.toFixed ( 2 ) + ' z = ', z_ldu_raw.toFixed ( 2 ) );
+
+						console.log ( 'dimensions [ model / grid / ldu / three.js ] : ' + 'x = ', x_ldu.toFixed ( 2 ) + ' y = ', y_ldu.toFixed ( 2 ) + ' z = ', z_ldu.toFixed ( 2 ) );
+
+						console.log ( 'dimensions [ model / raw / ldu / leocad ] : ' , 'x = ', z_ldu_raw.toFixed ( 2 ) , ' y = ', y_ldu_raw.toFixed ( 2 ) , ' z = ', x_ldu_raw.toFixed ( 2 ) );
+
+						console.log ( 'dimensions [ model / grid / ldu / leocad ] : ' , 'x = ', z_ldu.toFixed ( 2 ) , ' y = ', y_ldu.toFixed ( 2 ) , ' z = ', x_ldu.toFixed ( 2 ) );
 
 						// orbit controls
 
