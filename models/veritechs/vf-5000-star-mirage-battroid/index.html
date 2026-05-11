@@ -1901,6 +1901,8 @@
 
 						self.scene.remove ( self.get_orthogonal_grid_helper ( ) );
 
+						self.scene.remove ( self.get_height_grid_helper ( ) );
+
 					}
 
 					else {
@@ -1909,7 +1911,142 @@
 
 						self.scene.add ( self.get_orthogonal_grid_helper ( ) );
 
+						self.scene.add ( self.get_height_grid_helper ( ) );
+
 					}
+
+				}
+
+				// height grid helper
+
+				this.height_grid_helper = null;
+
+				this.get_height_grid_helper = function ( ) {
+
+					if ( ! self.height_grid_helper ) {
+
+						// lego unit parameters
+
+						const ldu = 0.0004;
+
+						const plate_height = ldu * 8;
+
+						const stud_width = ldu * 20;
+
+						const brick_height = ldu * 24;
+
+						// grid size matches base grid width
+
+						const grid_divisions = 96;
+
+						const grid_size = grid_divisions * stud_width;
+
+						const grid_half = grid_size / 2;
+
+						const grid_bottom = self.model_grid_box.min.y;
+
+						const grid_top = grid_bottom + grid_size;
+
+						const positions_minor = [];
+
+						const positions_major = [];
+
+						// vertical lines - 1 stud spacing
+
+						for ( let x = - grid_half; x <= grid_half + 0.000001; x += stud_width ) {
+
+							positions_minor.push (
+
+								x, grid_bottom, 0,
+								x, grid_top, 0
+
+							);
+
+						}
+
+						// horizontal minor lines - 1 plate spacing
+
+						for ( let y = grid_bottom; y <= grid_top + 0.000001; y += plate_height ) {
+
+							positions_minor.push (
+
+								- grid_half, y, 0,
+								grid_half, y, 0
+
+							);
+
+						}
+
+						// horizontal major lines - 1 brick spacing
+
+						for ( let y = grid_bottom; y <= grid_top + 0.000001; y += brick_height ) {
+
+							positions_major.push (
+
+								- grid_half, y, 0,
+								grid_half, y, 0
+
+							);
+
+						}
+
+						const minor_geometry = new THREE.BufferGeometry ( );
+
+						minor_geometry.setAttribute (
+
+							'position',
+
+							new THREE.Float32BufferAttribute ( positions_minor, 3 )
+
+						);
+
+						const major_geometry = new THREE.BufferGeometry ( );
+
+						major_geometry.setAttribute (
+
+							'position',
+
+							new THREE.Float32BufferAttribute ( positions_major, 3 )
+
+						);
+
+						const minor_material = new THREE.LineBasicMaterial ( {
+
+							color: charcoal
+
+						} );
+
+						const major_material = new THREE.LineBasicMaterial ( {
+
+							color: red
+
+						} );
+
+						const minor_lines = new THREE.LineSegments ( minor_geometry, minor_material );
+
+						const major_lines = new THREE.LineSegments ( major_geometry, major_material );
+
+						self.height_grid_helper = new THREE.Group ( );
+
+						self.height_grid_helper.name = 'height-grid-helper';
+
+						self.height_grid_helper.add ( minor_lines );
+
+						self.height_grid_helper.add ( major_lines );
+
+						// vertical grid crosses front and center
+
+						self.height_grid_helper.position.x = 0;
+
+						self.height_grid_helper.position.y = 0;
+
+						self.height_grid_helper.position.z = self.model_grid_box.max.z;
+
+						console.log ( "helper [ grid / height ]" );
+
+					}
+
+					return self.height_grid_helper;
 
 				}
 
@@ -1934,6 +2071,8 @@
 						self.orthogonal_grid_helper_visible = false ;
 
 						self.scene.remove ( self.get_orthogonal_grid_helper ( ) ) ;
+
+						self.scene.remove ( self.get_height_grid_helper ( ) ) ;
 
 						self.polar_grid_helper_visible = true ;
 
@@ -1965,7 +2104,9 @@
 
 					self.scene.add ( self.get_orthogonal_grid_helper ( ) ) ;
 
-					console.log ( "helper [ grid cycle ] : orthogonal" ) ;
+					self.scene.add ( self.get_height_grid_helper ( ) ) ;
+
+					console.log ( "helper [ grid cycle ] : orthogonal + height" ) ;
 
 				} ;
 
@@ -2027,7 +2168,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-black.dae',
+						'/minifigs/exports/minifig-white.dae',
 
 						function ( collada ) {
 
@@ -2226,7 +2367,7 @@
 
 						function ( error ) {
 
-							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-black.dae', error );
+							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-white.dae', error );
 
 						}
 
