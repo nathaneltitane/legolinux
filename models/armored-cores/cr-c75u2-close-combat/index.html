@@ -1868,8 +1868,14 @@
 						// 20 ldu = 0.008 m
 
 						const grid_spacing = 0.008;
-						const grid_divisions = 96;
-						const grid_size = grid_divisions * grid_spacing;
+
+						const box = self.model_grid_box;
+
+						const size = box.getSize ( new THREE.Vector3 ( ) );
+
+						const grid_size = Math.max ( size.x, size.z );
+
+						const grid_divisions = Math.round ( grid_size / grid_spacing );
 
 						self.orthogonal_grid_helper = new THREE.GridHelper (
 
@@ -2210,7 +2216,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-black.dae',
+						'/minifigs/exports/minifig-white.dae',
 
 						function ( collada ) {
 
@@ -2409,7 +2415,7 @@
 
 						function ( error ) {
 
-							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-black.dae', error );
+							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-white.dae', error );
 
 						}
 
