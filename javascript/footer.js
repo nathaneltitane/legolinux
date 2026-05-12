@@ -61,8 +61,8 @@ function footer_init ( ) {
 
 	// footer slot readiness check
 
-	var slot_identifiers_list = [ 'paypal', 'controls', 'plane', 'dimensions', 'minifig', 'wireframe', 'edges', 'camera', 'color', 'home', 'contact', 'shop', 'github', 'donations', 'browse' ] ;
-	var landing_slot_identifiers_list = [ 'home', 'contact', 'shop', 'github', 'donations', 'browse' ] ;
+	var slot_identifiers_list = [ 'paypal', 'controls', 'plane', 'dimensions', 'minifig', 'wireframe', 'edges', 'camera', 'color', 'home','browse', 'contact', 'shop', 'github', 'donations' ] ;
+	var landing_slot_identifiers_list = [ 'home', 'browse', 'contact', 'shop', 'github', 'donations' ] ;
 
 	function slots ( ) {
 
