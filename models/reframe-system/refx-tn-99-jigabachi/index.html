@@ -2392,7 +2392,7 @@ ZGEUG3DCATJD4' ) ;
 
 							const minifig_position_x = model_center.x - minifig_center.x;
 
-							const minifig_position_y = raw_model_box.min.y - raw_minifig_box.min.y - ( plate_height * 1 );
+							const minifig_position_y = raw_model_box.min.y - raw_minifig_box.min.y - plate_height - floor_clearance;
 
 							const minifig_back_edge_z = raw_minifig_box.min.z;
 
