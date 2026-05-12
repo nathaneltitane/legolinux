@@ -1939,17 +1939,16 @@
 
 						const brick_height = ldu * 24;
 
-						// grid size matches base grid width
+						const box = self.model_grid_box;
 
-						const grid_divisions = 96;
+						const grid_min_x = box.min.x;
+						const grid_max_x = box.max.x;
 
-						const grid_size = grid_divisions * stud_width;
+						const grid_min_y = box.min.y;
+						const grid_max_y = box.max.y;
 
-						const grid_half = grid_size / 2;
-
-						const grid_bottom = self.model_grid_box.min.y;
-
-						const grid_top = grid_bottom + grid_size;
+						const grid_min_z = box.min.z;
+						const grid_max_z = box.max.z;
 
 						function generate_height_grid ( axis ) {
 
@@ -1957,27 +1956,38 @@
 
 							const positions_major = [];
 
-							// vertical lines - 1 stud spacing
+							// back grid - x / y plane at model back
 
-							for ( let a = - grid_half; a <= grid_half + 0.000001; a += stud_width ) {
+							if ( axis === 'back' ) {
 
-								if ( axis === 'xy' ) {
+								for ( let x = grid_min_x; x <= grid_max_x + 0.000001; x += stud_width ) {
 
 									positions_minor.push (
 
-										a, grid_bottom, 0,
-										a, grid_top, 0
+										x, grid_min_y, grid_min_z,
+										x, grid_max_y, grid_min_z
 
 									);
 
 								}
 
-								if ( axis === 'zy' ) {
+								for ( let y = grid_min_y; y <= grid_max_y + 0.000001; y += plate_height ) {
 
 									positions_minor.push (
 
-										0, grid_bottom, a,
-										0, grid_top, a
+										grid_min_x, y, grid_min_z,
+										grid_max_x, y, grid_min_z
+
+									);
+
+								}
+
+								for ( let y = grid_min_y; y <= grid_max_y + 0.000001; y += brick_height ) {
+
+									positions_major.push (
+
+										grid_min_x, y, grid_min_z,
+										grid_max_x, y, grid_min_z
 
 									);
 
@@ -1985,55 +1995,38 @@
 
 							}
 
-							// horizontal minor lines - 1 plate spacing
+							// right grid - z / y plane at model right
 
-							for ( let y = grid_bottom; y <= grid_top + 0.000001; y += plate_height ) {
+							if ( axis === 'right' ) {
 
-								if ( axis === 'xy' ) {
-
-									positions_minor.push (
-
-										- grid_half, y, 0,
-										grid_half, y, 0
-
-									);
-
-								}
-
-								if ( axis === 'zy' ) {
+								for ( let z = grid_min_z; z <= grid_max_z + 0.000001; z += stud_width ) {
 
 									positions_minor.push (
 
-										0, y, - grid_half,
-										0, y, grid_half
+										grid_max_x, grid_min_y, z,
+										grid_max_x, grid_max_y, z
 
 									);
 
 								}
 
-							}
+								for ( let y = grid_min_y; y <= grid_max_y + 0.000001; y += plate_height ) {
 
-							// horizontal major lines - 1 brick spacing
+									positions_minor.push (
 
-							for ( let y = grid_bottom; y <= grid_top + 0.000001; y += brick_height ) {
-
-								if ( axis === 'xy' ) {
-
-									positions_major.push (
-
-										- grid_half, y, 0,
-										grid_half, y, 0
+										grid_max_x, y, grid_min_z,
+										grid_max_x, y, grid_max_z
 
 									);
 
 								}
 
-								if ( axis === 'zy' ) {
+								for ( let y = grid_min_y; y <= grid_max_y + 0.000001; y += brick_height ) {
 
 									positions_major.push (
 
-										0, y, - grid_half,
-										0, y, grid_half
+										grid_max_x, y, grid_min_z,
+										grid_max_x, y, grid_max_z
 
 									);
 
@@ -2087,19 +2080,11 @@
 
 						self.height_grid_helper.name = 'height-grid-helper';
 
-						// x / y height grid centered on z = 0
+						self.height_grid_helper.add ( generate_height_grid ( 'back' ) );
 
-						self.height_grid_helper.add ( generate_height_grid ( 'xy' ) );
+						self.height_grid_helper.add ( generate_height_grid ( 'right' ) );
 
-						// z / y height grid centered on x = 0
-
-						self.height_grid_helper.add ( generate_height_grid ( 'zy' ) );
-
-						// centered on world origin
-
-						self.height_grid_helper.position.set ( 0, 0, 0 );
-
-						console.log ( "helper [ grid / height / xy + zy ]" );
+						console.log ( "helper [ grid / height / back + right ]" );
 
 					}
 
@@ -2225,7 +2210,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-white.dae',
+						'/minifigs/exports/minifig-green.dae',
 
 						function ( collada ) {
 
@@ -2424,7 +2409,7 @@
 
 						function ( error ) {
 
-							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-white.dae', error );
+							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-green.dae', error );
 
 						}
 
