@@ -2283,7 +2283,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-grey.dae',
+						'/minifigs/exports/minifig-white.dae',
 
 						function ( collada ) {
 
@@ -2482,7 +2482,7 @@
 
 						function ( error ) {
 
-							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-grey.dae', error );
+							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-white.dae', error );
 
 						}
 
@@ -3980,7 +3980,14 @@
 
 						const model_center_initial = model_box_initial.getCenter ( new THREE.Vector3 ( ) );
 
-						self.colladaImport.position.sub ( model_center_initial );
+						// center x / z only
+						// place model floor on world y = 0
+
+						self.colladaImport.position.x -= model_center_initial.x;
+
+						self.colladaImport.position.z -= model_center_initial.z;
+
+						self.colladaImport.position.y -= model_box_initial.min.y;
 
 						self.colladaImport.updateMatrixWorld ( true );
 
