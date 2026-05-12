@@ -1803,8 +1803,14 @@
 					if ( ! self.polar_grid_helper ) {
 
 						const ring_spacing = 0.008;
-						const rings = 96 / 2;
-						const radius = ring_spacing * rings;
+
+						const box = self.model_grid_box;
+
+						const size = box.getSize ( new THREE.Vector3 ( ) );
+
+						const radius = Math.max ( size.x, size.z ) / 2;
+
+						const rings = Math.round ( radius / ring_spacing );
 
 						self.polar_grid_helper = new THREE.PolarGridHelper (
 
@@ -1853,9 +1859,9 @@
 
 				// orthogonal grid helper
 
-				this.orthogonal_grid_helper_color_min = red;
+				this.orthogonal_grid_helper_color_minor = charcoal;
 
-				this.orthogonal_grid_helper_color_max = charcoal;
+				this.orthogonal_grid_helper_color_major = red;
 
 				this.orthogonal_grid_helper = null;
 
@@ -1865,34 +1871,110 @@
 
 					if ( ! self.orthogonal_grid_helper ) {
 
-						// 20 ldu = 0.008 m
-
 						const grid_spacing = 0.008;
 
 						const box = self.model_grid_box;
 
-						const size = box.getSize ( new THREE.Vector3 ( ) );
+						const positions_minor = [];
 
-						const grid_size = Math.max ( size.x, size.z );
+						const positions_major = [];
 
-						const grid_divisions = Math.round ( grid_size / grid_spacing );
+						// vertical x lines
 
-						self.orthogonal_grid_helper = new THREE.GridHelper (
+						for ( let x = box.min.x; x <= box.max.x + 0.000001; x += grid_spacing ) {
 
-							grid_size,
-							grid_divisions,
-							this.orthogonal_grid_helper_color_min,
-							this.orthogonal_grid_helper_color_max
+							positions_minor.push (
+
+								x, box.min.y, box.min.z,
+								x, box.min.y, box.max.z
+
+							);
+
+						}
+
+						// horizontal z lines
+
+						for ( let z = box.min.z; z <= box.max.z + 0.000001; z += grid_spacing ) {
+
+							positions_minor.push (
+
+								box.min.x, box.min.y, z,
+								box.max.x, box.min.y, z
+
+							);
+
+						}
+
+						// main center axis
+
+						positions_major.push (
+
+							box.min.x, box.min.y, 0,
+							box.max.x, box.min.y, 0
 
 						);
 
-						self.orthogonal_grid_helper.position.x = 0;
+						positions_major.push (
 
-						self.orthogonal_grid_helper.position.y = self.model_grid_box.min.y;
+							0, box.min.y, box.min.z,
+							0, box.min.y, box.max.z
 
-						self.orthogonal_grid_helper.position.z = 0;
+						);
 
-						console.log ( "helper [ grid / orthogonal ]" );
+						const minor_geometry = new THREE.BufferGeometry ( );
+
+						minor_geometry.setAttribute (
+
+							'position',
+
+							new THREE.Float32BufferAttribute ( positions_minor, 3 )
+
+						);
+
+						const major_geometry = new THREE.BufferGeometry ( );
+
+						major_geometry.setAttribute (
+
+							'position',
+
+							new THREE.Float32BufferAttribute ( positions_major, 3 )
+
+						);
+
+						const minor_material = new THREE.LineBasicMaterial ( {
+
+							color: this.orthogonal_grid_helper_color_minor
+
+						} );
+
+						const major_material = new THREE.LineBasicMaterial ( {
+
+							color: this.orthogonal_grid_helper_color_major
+
+						} );
+
+						const minor_lines = new THREE.LineSegments (
+
+							minor_geometry,
+							minor_material
+
+						);
+
+						const major_lines = new THREE.LineSegments (
+
+							major_geometry,
+							major_material
+
+						);
+
+						self.orthogonal_grid_helper = new THREE.Group ( );
+
+						self.orthogonal_grid_helper.add ( minor_lines );
+
+						self.orthogonal_grid_helper.add ( major_lines );
+
+						console.log ( "helper [ grid / orthogonal / rectangular ]" );
+
 					}
 
 					return self.orthogonal_grid_helper;
@@ -1947,148 +2029,133 @@
 
 						const box = self.model_grid_box;
 
-						const grid_min_x = box.min.x;
-						const grid_max_x = box.max.x;
+						const positions_minor = [];
 
-						const grid_min_y = box.min.y;
-						const grid_max_y = box.max.y;
+						const positions_major = [];
 
-						const grid_min_z = box.min.z;
-						const grid_max_z = box.max.z;
+						// back grid ( x / y )
 
-						function generate_height_grid ( axis ) {
+						for ( let x = box.min.x; x <= box.max.x + 0.000001; x += stud_width ) {
 
-							const positions_minor = [];
+							positions_minor.push (
 
-							const positions_major = [];
-
-							// back grid - x / y plane at model back
-
-							if ( axis === 'back' ) {
-
-								for ( let x = grid_min_x; x <= grid_max_x + 0.000001; x += stud_width ) {
-
-									positions_minor.push (
-
-										x, grid_min_y, grid_min_z,
-										x, grid_max_y, grid_min_z
-
-									);
-
-								}
-
-								for ( let y = grid_min_y; y <= grid_max_y + 0.000001; y += plate_height ) {
-
-									positions_minor.push (
-
-										grid_min_x, y, grid_min_z,
-										grid_max_x, y, grid_min_z
-
-									);
-
-								}
-
-								for ( let y = grid_min_y; y <= grid_max_y + 0.000001; y += brick_height ) {
-
-									positions_major.push (
-
-										grid_min_x, y, grid_min_z,
-										grid_max_x, y, grid_min_z
-
-									);
-
-								}
-
-							}
-
-							// right grid - z / y plane at model right
-
-							if ( axis === 'right' ) {
-
-								for ( let z = grid_min_z; z <= grid_max_z + 0.000001; z += stud_width ) {
-
-									positions_minor.push (
-
-										grid_max_x, grid_min_y, z,
-										grid_max_x, grid_max_y, z
-
-									);
-
-								}
-
-								for ( let y = grid_min_y; y <= grid_max_y + 0.000001; y += plate_height ) {
-
-									positions_minor.push (
-
-										grid_max_x, y, grid_min_z,
-										grid_max_x, y, grid_max_z
-
-									);
-
-								}
-
-								for ( let y = grid_min_y; y <= grid_max_y + 0.000001; y += brick_height ) {
-
-									positions_major.push (
-
-										grid_max_x, y, grid_min_z,
-										grid_max_x, y, grid_max_z
-
-									);
-
-								}
-
-							}
-
-							const minor_geometry = new THREE.BufferGeometry ( );
-
-							minor_geometry.setAttribute (
-
-								'position',
-
-								new THREE.Float32BufferAttribute ( positions_minor, 3 )
+								x, box.min.y, box.min.z,
+								x, box.max.y, box.min.z
 
 							);
-
-							const major_geometry = new THREE.BufferGeometry ( );
-
-							major_geometry.setAttribute (
-
-								'position',
-
-								new THREE.Float32BufferAttribute ( positions_major, 3 )
-
-							);
-
-							const minor_material = new THREE.LineBasicMaterial ( {
-
-								color: self.height_grid_helper_color_minor
-
-							} );
-
-							const major_material = new THREE.LineBasicMaterial ( {
-
-								color: self.height_grid_helper_color_major
-
-							} );
-
-							const grid = new THREE.Group ( );
-
-							grid.add ( new THREE.LineSegments ( minor_geometry, minor_material ) );
-
-							grid.add ( new THREE.LineSegments ( major_geometry, major_material ) );
-
-							return grid;
 
 						}
+
+						for ( let y = box.min.y; y <= box.max.y + 0.000001; y += plate_height ) {
+
+							positions_minor.push (
+
+								box.min.x, y, box.min.z,
+								box.max.x, y, box.min.z
+
+							);
+
+						}
+
+						for ( let y = box.min.y; y <= box.max.y + 0.000001; y += brick_height ) {
+
+							positions_major.push (
+
+								box.min.x, y, box.min.z,
+								box.max.x, y, box.min.z
+
+							);
+
+						}
+
+						// right grid ( z / y )
+
+						for ( let z = box.min.z; z <= box.max.z + 0.000001; z += stud_width ) {
+
+							positions_minor.push (
+
+								box.max.x, box.min.y, z,
+								box.max.x, box.max.y, z
+
+							);
+
+						}
+
+						for ( let y = box.min.y; y <= box.max.y + 0.000001; y += plate_height ) {
+
+							positions_minor.push (
+
+								box.max.x, y, box.min.z,
+								box.max.x, y, box.max.z
+
+							);
+
+						}
+
+						for ( let y = box.min.y; y <= box.max.y + 0.000001; y += brick_height ) {
+
+							positions_major.push (
+
+								box.max.x, y, box.min.z,
+								box.max.x, y, box.max.z
+
+							);
+
+						}
+
+						const minor_geometry = new THREE.BufferGeometry ( );
+
+						minor_geometry.setAttribute (
+
+							'position',
+
+							new THREE.Float32BufferAttribute ( positions_minor, 3 )
+
+						);
+
+						const major_geometry = new THREE.BufferGeometry ( );
+
+						major_geometry.setAttribute (
+
+							'position',
+
+							new THREE.Float32BufferAttribute ( positions_major, 3 )
+
+						);
+
+						const minor_material = new THREE.LineBasicMaterial ( {
+
+							color: self.height_grid_helper_color_minor
+
+						} );
+
+						const major_material = new THREE.LineBasicMaterial ( {
+
+							color: self.height_grid_helper_color_major
+
+						} );
+
+						const minor_lines = new THREE.LineSegments (
+
+							minor_geometry,
+							minor_material
+
+						);
+
+						const major_lines = new THREE.LineSegments (
+
+							major_geometry,
+							major_material
+
+						);
 
 						self.height_grid_helper = new THREE.Group ( );
 
 						self.height_grid_helper.name = 'height-grid-helper';
 
-						self.height_grid_helper.add ( generate_height_grid ( 'back' ) );
+						self.height_grid_helper.add ( minor_lines );
 
-						self.height_grid_helper.add ( generate_height_grid ( 'right' ) );
+						self.height_grid_helper.add ( major_lines );
 
 						console.log ( "helper [ grid / height / back + right ]" );
 
@@ -2216,7 +2283,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-white.dae',
+						'/minifigs/exports/minifig-red.dae',
 
 						function ( collada ) {
 
@@ -2415,7 +2482,7 @@
 
 						function ( error ) {
 
-							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-white.dae', error );
+							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-red.dae', error );
 
 						}
 
