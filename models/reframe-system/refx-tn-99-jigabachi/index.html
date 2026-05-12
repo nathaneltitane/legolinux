@@ -3989,7 +3989,7 @@ ZGEUG3DCATJD4' ) ;
 
 						self.colladaImport.position.z -= model_center_initial.z;
 
-						self.colladaImport.position.y -= model_box_initial.min.y;
+						self.colladaImport.position.y -= model_box_initial.min.y + plate_height;
 
 						self.colladaImport.updateMatrixWorld ( true );
 
