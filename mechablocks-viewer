@@ -5126,6 +5126,12 @@ cat << 3D-MODEL-PAGE-HELPERS ->> "${model_directory}/index.html"
 
 					</div>
 
+					<!-- browse -->
+
+					<div id="browse">
+
+					</div>
+
 					<!-- contact -->
 
 					<div id="contact">
@@ -5147,12 +5153,6 @@ cat << 3D-MODEL-PAGE-HELPERS ->> "${model_directory}/index.html"
 					<!-- donations -->
 
 					<div id="donations">
-
-					</div>
-
-					<!-- browse -->
-
-					<div id="browse">
 
 					</div>
 
