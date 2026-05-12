@@ -1919,6 +1919,10 @@
 
 				// height grid helper
 
+				this.height_grid_helper_color_minor = charcoal;
+
+				this.height_grid_helper_color_major = red;
+
 				this.height_grid_helper = null;
 
 				this.get_height_grid_helper = function ( ) {
@@ -1947,102 +1951,155 @@
 
 						const grid_top = grid_bottom + grid_size;
 
-						const positions_minor = [];
+						function generate_height_grid ( axis ) {
 
-						const positions_major = [];
+							const positions_minor = [];
 
-						// vertical lines - 1 stud spacing
+							const positions_major = [];
 
-						for ( let x = - grid_half; x <= grid_half + 0.000001; x += stud_width ) {
+							// vertical lines - 1 stud spacing
 
-							positions_minor.push (
+							for ( let a = - grid_half; a <= grid_half + 0.000001; a += stud_width ) {
 
-								x, grid_bottom, 0,
-								x, grid_top, 0
+								if ( axis === 'xy' ) {
+
+									positions_minor.push (
+
+										a, grid_bottom, 0,
+										a, grid_top, 0
+
+									);
+
+								}
+
+								if ( axis === 'zy' ) {
+
+									positions_minor.push (
+
+										0, grid_bottom, a,
+										0, grid_top, a
+
+									);
+
+								}
+
+							}
+
+							// horizontal minor lines - 1 plate spacing
+
+							for ( let y = grid_bottom; y <= grid_top + 0.000001; y += plate_height ) {
+
+								if ( axis === 'xy' ) {
+
+									positions_minor.push (
+
+										- grid_half, y, 0,
+										grid_half, y, 0
+
+									);
+
+								}
+
+								if ( axis === 'zy' ) {
+
+									positions_minor.push (
+
+										0, y, - grid_half,
+										0, y, grid_half
+
+									);
+
+								}
+
+							}
+
+							// horizontal major lines - 1 brick spacing
+
+							for ( let y = grid_bottom; y <= grid_top + 0.000001; y += brick_height ) {
+
+								if ( axis === 'xy' ) {
+
+									positions_major.push (
+
+										- grid_half, y, 0,
+										grid_half, y, 0
+
+									);
+
+								}
+
+								if ( axis === 'zy' ) {
+
+									positions_major.push (
+
+										0, y, - grid_half,
+										0, y, grid_half
+
+									);
+
+								}
+
+							}
+
+							const minor_geometry = new THREE.BufferGeometry ( );
+
+							minor_geometry.setAttribute (
+
+								'position',
+
+								new THREE.Float32BufferAttribute ( positions_minor, 3 )
 
 							);
 
-						}
+							const major_geometry = new THREE.BufferGeometry ( );
 
-						// horizontal minor lines - 1 plate spacing
+							major_geometry.setAttribute (
 
-						for ( let y = grid_bottom; y <= grid_top + 0.000001; y += plate_height ) {
+								'position',
 
-							positions_minor.push (
-
-								- grid_half, y, 0,
-								grid_half, y, 0
+								new THREE.Float32BufferAttribute ( positions_major, 3 )
 
 							);
 
+							const minor_material = new THREE.LineBasicMaterial ( {
+
+								color: self.height_grid_helper_color_minor
+
+							} );
+
+							const major_material = new THREE.LineBasicMaterial ( {
+
+								color: self.height_grid_helper_color_major
+
+							} );
+
+							const grid = new THREE.Group ( );
+
+							grid.add ( new THREE.LineSegments ( minor_geometry, minor_material ) );
+
+							grid.add ( new THREE.LineSegments ( major_geometry, major_material ) );
+
+							return grid;
+
 						}
-
-						// horizontal major lines - 1 brick spacing
-
-						for ( let y = grid_bottom; y <= grid_top + 0.000001; y += brick_height ) {
-
-							positions_major.push (
-
-								- grid_half, y, 0,
-								grid_half, y, 0
-
-							);
-
-						}
-
-						const minor_geometry = new THREE.BufferGeometry ( );
-
-						minor_geometry.setAttribute (
-
-							'position',
-
-							new THREE.Float32BufferAttribute ( positions_minor, 3 )
-
-						);
-
-						const major_geometry = new THREE.BufferGeometry ( );
-
-						major_geometry.setAttribute (
-
-							'position',
-
-							new THREE.Float32BufferAttribute ( positions_major, 3 )
-
-						);
-
-						const minor_material = new THREE.LineBasicMaterial ( {
-
-							color: charcoal
-
-						} );
-
-						const major_material = new THREE.LineBasicMaterial ( {
-
-							color: red
-
-						} );
-
-						const minor_lines = new THREE.LineSegments ( minor_geometry, minor_material );
-
-						const major_lines = new THREE.LineSegments ( major_geometry, major_material );
 
 						self.height_grid_helper = new THREE.Group ( );
 
 						self.height_grid_helper.name = 'height-grid-helper';
 
-						self.height_grid_helper.add ( minor_lines );
+						// x / y height grid centered on z = 0
 
-						self.height_grid_helper.add ( major_lines );
+						self.height_grid_helper.add ( generate_height_grid ( 'xy' ) );
 
-						// vertical grid crosses front and center
+						// z / y height grid centered on x = 0
 
-						self.height_grid_helper.position.x = 0;
+						self.height_grid_helper.add ( generate_height_grid ( 'zy' ) );
 
-						self.height_grid_helper.position.y = 0;
+						// centered on world origin
 
-						self.height_grid_helper.position.z = self.model_grid_box.max.z;
+						self.height_grid_helper.position.set ( 0, 0, 0 );
 
-						console.log ( "helper [ grid / height ]" );
+						console.log ( "helper [ grid / height / xy + zy ]" );
 
 					}
 
@@ -2168,7 +2225,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-white.dae',
+						'/minifigs/exports/minifig-green.dae',
 
 						function ( collada ) {
 
@@ -2367,7 +2424,7 @@
 
 						function ( error ) {
 
-							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-white.dae', error );
+							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-green.dae', error );
 
 						}
 
