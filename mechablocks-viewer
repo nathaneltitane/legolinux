@@ -2913,6 +2913,8 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 						return;
 					}
 
+					// toggle off
+
 					if ( this.baseplate_visible ) {
 
 						this.baseplate_visible = false;
@@ -2921,29 +2923,66 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 							self.baseplate.visible = false;
 
-							if ( self.baseplateTransform ) self.baseplateTransform.visible = false;
+							if ( self.baseplateTransform ) {
+
+								self.baseplateTransform.visible = false;
+
+							}
 
 						}
+
+						// revert grid sizing back to model
+
+						self.baseplate_grid_box = null;
+
+						// rebuild visible grids
+
+						self.refresh_grid_helpers ( );
+
+						console.log ( 'baseplate [ status ] : hidden' );
 
 						return;
 					}
 
+					// toggle on
+
 					this.baseplate_visible = true;
+
+					// already loaded
 
 					if ( self.baseplate ) {
 
 						self.baseplate.visible = true;
 
-						if ( self.baseplateTransform ) self.baseplateTransform.visible = true;
+						if ( self.baseplateTransform ) {
+
+							self.baseplateTransform.visible = true;
+
+						}
+
+						// restore grid sizing to baseplate
+
+						self.baseplate.updateMatrixWorld ( true );
+
+						self.baseplate_grid_box = new THREE.Box3 ( ).setFromObject ( self.baseplate );
+
+						// rebuild visible grids
+
+						self.refresh_grid_helpers ( );
+
+						console.log ( 'baseplate [ status ] : visible' );
 
 						return;
 					}
+
+					// use rounded model footprint
 
 					const model_box = self.model_grid_box;
 
 					const model_size = model_box.getSize ( new THREE.Vector3 ( ) );
 
 					const model_footprint_x = model_size.x;
+
 					const model_footprint_z = model_size.z;
 
 					const baseplates = [
@@ -2971,7 +3010,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						if ( index >= baseplates.length ) {
 
-							console.warn ( 'baseplate [ status ] : no baseplate large enough for rounded model grid box' );
+							console.warn ( 'baseplate [ status ] : no baseplate large enough for rounded model footprint' );
 
 							return;
 
@@ -2995,18 +3034,23 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 								baseplate.updateMatrixWorld ( true );
 
-								// measure selected baseplate
+								// measure candidate baseplate
 
 								const baseplate_box = new THREE.Box3 ( ).setFromObject ( baseplate );
 
 								const baseplate_size = baseplate_box.getSize ( new THREE.Vector3 ( ) );
 
 								const baseplate_footprint_x = baseplate_size.x;
+
 								const baseplate_footprint_z = baseplate_size.z;
 
+								// footprint check
+
 								if (
+
 									model_footprint_x > baseplate_footprint_x ||
 									model_footprint_z > baseplate_footprint_z
+
 								) {
 
 									console.log ( 'baseplate [ skip ] : ' + baseplate_candidate.name );
@@ -3017,27 +3061,30 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 								}
 
-								// compute baseplate position
+								// vertical alignment
+								// place top of baseplate directly under model floor
 
 								const baseplate_position_box = new THREE.Box3 ( ).setFromObject ( baseplate ) ;
-
-								// vertical offset: sit directly under rounded model grid box
-
-								// 1 ldu  = 0.0004 m
 
 								// 4 ldu = stud height = 0.0016 m
 
 								const stud_height = 0.0016;
 
-								const position_offset_y = model_box.min.y - baseplate_position_box.min.y - stud_height ;
+								const position_offset_y =
 
-								// lock baseplate to world origin
+									model_box.min.y -
+									baseplate_position_box.min.y -
+									stud_height;
 
-								const baseplate_position_x = 0 ;
-								const baseplate_position_y = position_offset_y ;
-								const baseplate_position_z = 0 ;
+								// world aligned
 
-								// set baseplate position
+								const baseplate_position_x = 0;
+
+								const baseplate_position_y = position_offset_y;
+
+								const baseplate_position_z = 0;
+
+								// apply position
 
 								baseplate.position.set (
 
@@ -3045,13 +3092,11 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 									baseplate_position_y,
 									baseplate_position_z
 
-								) ;
+								);
 
 								baseplate.updateMatrixWorld ( true );
 
-								self.baseplate_grid_box = new THREE.Box3 ( ).setFromObject ( baseplate );
-
-								// shadows - baseplate
+								// shadows
 
 								baseplate.traverse ( function ( node ) {
 
@@ -3065,7 +3110,11 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 								} );
 
+								// add to scene
+
 								self.scene.add ( baseplate );
+
+								// transform controls
 
 								const transform = self.get_transform_controls ( ) ;
 
@@ -3073,9 +3122,19 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 								transform.attach ( baseplate );
 
+								// store refs
+
 								self.baseplate = baseplate;
 
 								self.baseplateTransform = transform;
+
+								// authoritative footprint source for grids
+
+								self.baseplate_grid_box = new THREE.Box3 ( ).setFromObject ( baseplate );
+
+								// rebuild visible grids
+
+								self.refresh_grid_helpers ( );
 
 								console.log ( 'baseplate [ status ] : load ok - ' + baseplate_candidate.name );
 
@@ -3095,7 +3154,14 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 							function ( error ) {
 
-								console.error ( 'baseplate [ status ] : load failed - ' + baseplate_candidate.path, error );
+								console.error (
+
+									'baseplate [ status ] : load failed - ' +
+									baseplate_candidate.path,
+
+									error
+
+								);
 
 								load_baseplate_candidate ( index + 1 );
 
