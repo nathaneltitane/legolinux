@@ -2114,13 +2114,7 @@
 
 				this.height_grid_helper_color_minor = charcoal;
 
-				this.height_grid_helper_color_major = purple;
-
-				this.height_grid_helper = null;
-
-				this.height_grid_helper_color_minor = charcoal;
-
-				this.height_grid_helper_color_major = purple;
+				this.height_grid_helper_color_major = orange;
 
 				this.height_grid_helper = null;
 
@@ -2139,7 +2133,6 @@
 						const brick_height = ldu * 24;
 
 						// footprint sizing
-						// use baseplate if present
 
 						const footprint_box =
 							self.baseplate_grid_box ?
@@ -2147,22 +2140,8 @@
 							self.model_grid_box;
 
 						// height sizing
-						// ALWAYS use model
 
 						const model_box = self.model_grid_box;
-
-						// round height to nearest upper full brick
-
-						const raw_model_height =
-							model_box.max.y - model_box.min.y;
-
-						const rounded_model_height =
-							Math.ceil (
-								raw_model_height / brick_height
-							) * brick_height;
-
-						const rounded_model_top =
-							model_box.min.y + rounded_model_height;
 
 						const positions_minor = [];
 
@@ -2185,7 +2164,7 @@
 								footprint_box.min.z,
 
 								x,
-								rounded_model_top,
+								model_box.max.y,
 								footprint_box.min.z
 
 							);
@@ -2195,12 +2174,34 @@
 						for (
 
 							let y = model_box.min.y;
-							y <= rounded_model_top + 0.000001;
+							y <= model_box.max.y + 0.000001;
 							y += plate_height
 
 						) {
 
 							positions_minor.push (
+
+								footprint_box.min.x,
+								y,
+								footprint_box.min.z,
+
+								footprint_box.max.x,
+								y,
+								footprint_box.min.z
+
+							);
+
+						}
+
+						for (
+
+							let y = model_box.min.y;
+							y <= model_box.max.y + 0.000001;
+							y += brick_height
+
+						) {
+
+							positions_major.push (
 
 								footprint_box.min.x,
 								y,
@@ -2231,7 +2232,7 @@
 								z,
 
 								footprint_box.max.x,
-								rounded_model_top,
+								model_box.max.y,
 								z
 
 							);
@@ -2241,7 +2242,7 @@
 						for (
 
 							let y = model_box.min.y;
-							y <= rounded_model_top + 0.000001;
+							y <= model_box.max.y + 0.000001;
 							y += plate_height
 
 						) {
@@ -2260,34 +2261,27 @@
 
 						}
 
-						// center height markers
-						// back grid
+						for (
 
-						positions_major.push (
+							let y = model_box.min.y;
+							y <= model_box.max.y + 0.000001;
+							y += brick_height
 
-							0,
-							model_box.min.y,
-							footprint_box.min.z,
+						) {
 
-							0,
-							rounded_model_top,
-							footprint_box.min.z
+							positions_major.push (
 
-						);
+								footprint_box.max.x,
+								y,
+								footprint_box.min.z,
 
-						// side grid
+								footprint_box.max.x,
+								y,
+								footprint_box.max.z
 
-						positions_major.push (
+							);
 
-							footprint_box.max.x,
-							model_box.min.y,
-							0,
-
-							footprint_box.max.x,
-							rounded_model_top,
-							0
-
-						);
+						}
 
 						const minor_geometry = new THREE.BufferGeometry ( );
 
@@ -2344,20 +2338,6 @@
 						self.height_grid_helper.add ( major_lines );
 
 						console.log ( "helper [ grid / height ]" );
-
-						console.log (
-
-							'height [ raw ] : ',
-							raw_model_height
-
-						);
-
-						console.log (
-
-							'height [ rounded brick ] : ',
-							rounded_model_height
-
-						);
 
 					}
 
