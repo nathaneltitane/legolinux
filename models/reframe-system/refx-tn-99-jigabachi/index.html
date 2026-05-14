@@ -1790,6 +1790,60 @@ ZGEUG3DCATJD4' ) ;
 
 				}
 
+				// refresh grid helpers
+
+				this.refresh_grid_helpers = function ( ) {
+
+					// remove orthogonal grid
+
+					if ( self.orthogonal_grid_helper ) {
+
+						self.scene.remove ( self.orthogonal_grid_helper );
+
+						self.orthogonal_grid_helper = null;
+
+					}
+
+					// remove height grid
+
+					if ( self.height_grid_helper ) {
+
+						self.scene.remove ( self.height_grid_helper );
+
+						self.height_grid_helper = null;
+
+					}
+
+					// remove polar grid
+
+					if ( self.polar_grid_helper ) {
+
+						self.scene.remove ( self.polar_grid_helper );
+
+						self.polar_grid_helper = null;
+
+					}
+
+					// rebuild visible helpers
+
+					if ( self.orthogonal_grid_helper_visible ) {
+
+						self.scene.add ( self.get_orthogonal_grid_helper ( ) );
+
+						self.scene.add ( self.get_height_grid_helper ( ) );
+
+					}
+
+					if ( self.polar_grid_helper_visible ) {
+
+						self.scene.add ( self.get_polar_grid_helper ( ) );
+
+					}
+
+					console.log ( 'helper [ grid ] : refreshed' );
+
+				}
+
 				// polar grid helper
 
 				this.polar_grid_helper_color_min = orange;
@@ -1886,7 +1940,6 @@ ZGEUG3DCATJD4' ) ;
 						const grid_spacing = 0.008;
 
 						// footprint sizing
-						// use baseplate if present
 
 						const footprint_box =
 							self.baseplate_grid_box ?
@@ -1894,7 +1947,6 @@ ZGEUG3DCATJD4' ) ;
 							self.model_grid_box;
 
 						// floor reference
-						// ALWAYS use model floor
 
 						const model_box = self.model_grid_box;
 
@@ -1950,7 +2002,7 @@ ZGEUG3DCATJD4' ) ;
 
 						}
 
-						// center axis markers
+						// center axis
 
 						positions_major.push (
 
@@ -2083,7 +2135,6 @@ ZGEUG3DCATJD4' ) ;
 						const brick_height = ldu * 24;
 
 						// footprint sizing
-						// use baseplate if present
 
 						const footprint_box =
 							self.baseplate_grid_box ?
@@ -2091,7 +2142,6 @@ ZGEUG3DCATJD4' ) ;
 							self.model_grid_box;
 
 						// height sizing
-						// ALWAYS use model
 
 						const model_box = self.model_grid_box;
 
