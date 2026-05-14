@@ -2537,7 +2537,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-orange.dae',
+						'/minifigs/exports/minifig-grey.dae',
 
 						function ( collada ) {
 
@@ -2646,8 +2646,7 @@
 
 const minifig_position_y =
 	self.model_grid_box.min.y -
-	raw_minifig_box.min.y +
-	floor_clearance;
+	raw_minifig_box.min.y;
 
 							const minifig_back_edge_z = raw_minifig_box.min.z;
 
@@ -2739,7 +2738,7 @@ const minifig_position_y =
 
 						function ( error ) {
 
-							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-orange.dae', error );
+							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-grey.dae', error );
 
 						}
 
