@@ -5368,6 +5368,17 @@ cat << 3D-MODEL-PAGE-FOOTER ->> "${model_directory}/index.html"
 if [ -f "${model_paypal}" ]
 then
 
+cat << 3D-MODEL-NAVIGATION ->> "${model_directory}/index.html"
+					<!-- navigation -->
+
+					<!-- browse -->
+
+					<div id="browse">
+
+					</div>
+
+3D-MODEL-NAVIGATION
+
 cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 					<!-- paypal -->
 
@@ -5378,15 +5389,7 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 3D-MODEL-PAYPAL
 
 cat << 3D-MODEL-PAGE-HELPERS ->> "${model_directory}/index.html"
-	<!-- viewer -->
-
-					<!-- navigation -->
-
-					<!-- browse -->
-
-					<div id="browse">
-
-					</div>
+					<!-- helpers -->
 
 					<!-- controls -->
 
