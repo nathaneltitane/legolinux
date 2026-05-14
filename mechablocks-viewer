@@ -2902,7 +2902,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 								baseplate.updateMatrixWorld ( true );
 
-								self.baseplate_grid_box = new THREE.Box3 ( ).setFromObject ( baseplate );
+								//self.baseplate_grid_box = new THREE.Box3 ( ).setFromObject ( baseplate );
 
 								// shadows - baseplate
 
