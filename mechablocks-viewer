@@ -2088,7 +2088,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						const grid_spacing = 0.008;
 
-						const box = self.model_grid_box;
+						const box = self.baseplate_grid_box ? self.baseplate_grid_box : self.model_grid_box;
 
 						const positions_minor = [];
 
@@ -2242,7 +2242,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						const brick_height = ldu * 24;
 
-						const box = self.model_grid_box;
+						const box = self.baseplate_grid_box ? self.baseplate_grid_box : self.model_grid_box;
 
 						const positions_minor = [];
 
@@ -2868,6 +2868,8 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 								) ;
 
 								baseplate.updateMatrixWorld ( true );
+
+								self.baseplate_grid_box = new THREE.Box3 ( ).setFromObject ( baseplate );
 
 								// shadows - baseplate
 

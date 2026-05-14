@@ -1873,7 +1873,7 @@
 
 						const grid_spacing = 0.008;
 
-						const box = self.model_grid_box;
+						const box = self.baseplate_grid_box ? self.baseplate_grid_box : self.model_grid_box;
 
 						const positions_minor = [];
 
@@ -2027,7 +2027,7 @@
 
 						const brick_height = ldu * 24;
 
-						const box = self.model_grid_box;
+						const box = self.baseplate_grid_box ? self.baseplate_grid_box : self.model_grid_box;
 
 						const positions_minor = [];
 
@@ -2283,7 +2283,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-white.dae',
+						'/minifigs/exports/minifig-blue.dae',
 
 						function ( collada ) {
 
@@ -2482,7 +2482,7 @@
 
 						function ( error ) {
 
-							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-white.dae', error );
+							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-blue.dae', error );
 
 						}
 
@@ -2653,6 +2653,8 @@
 								) ;
 
 								baseplate.updateMatrixWorld ( true );
+
+								self.baseplate_grid_box = new THREE.Box3 ( ).setFromObject ( baseplate );
 
 								// shadows - baseplate
 
