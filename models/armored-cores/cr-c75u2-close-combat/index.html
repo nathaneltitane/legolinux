@@ -2027,6 +2027,8 @@
 
 						const brick_height = ldu * 24;
 
+						const model_floor_y = self.model_grid_box.min.y;
+
 						// use baseplate for footprint
 
 						const footprint_box =
@@ -2052,7 +2054,7 @@
 
 							positions_minor.push (
 
-								x, height_box.min.y, footprint_box.min.z,
+								x, model_floor_y, footprint_box.min.z,
 								x, height_box.max.y, footprint_box.min.z
 
 							);
@@ -2060,7 +2062,7 @@
 						}
 
 						for (
-							let y = height_box.min.y;
+							let y = model_floor_y;
 							y <= height_box.max.y + 0.000001;
 							y += plate_height
 						) {
@@ -2075,7 +2077,7 @@
 						}
 
 						for (
-							let y = height_box.min.y;
+							let y = model_floor_y;
 							y <= height_box.max.y + 0.000001;
 							y += brick_height
 						) {
@@ -2099,7 +2101,7 @@
 
 							positions_minor.push (
 
-								footprint_box.max.x, height_box.min.y, z,
+								footprint_box.max.x, model_floor_y, z,
 								footprint_box.max.x, height_box.max.y, z
 
 							);
@@ -2107,7 +2109,7 @@
 						}
 
 						for (
-							let y = height_box.min.y;
+							let y = model_floor_y;
 							y <= height_box.max.y + 0.000001;
 							y += plate_height
 						) {
@@ -2122,7 +2124,7 @@
 						}
 
 						for (
-							let y = height_box.min.y;
+							let y = model_floor_y;
 							y <= height_box.max.y + 0.000001;
 							y += brick_height
 						) {
@@ -2316,7 +2318,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-red.dae',
+						'/minifigs/exports/minifig-orange.dae',
 
 						function ( collada ) {
 
@@ -2515,7 +2517,7 @@
 
 						function ( error ) {
 
-							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-red.dae', error );
+							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-orange.dae', error );
 
 						}
 

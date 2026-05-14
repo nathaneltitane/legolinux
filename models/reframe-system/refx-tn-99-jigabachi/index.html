@@ -2029,6 +2029,8 @@ ZGEUG3DCATJD4' ) ;
 
 						const brick_height = ldu * 24;
 
+						const model_floor_y = self.model_grid_box.min.y;
+
 						// use baseplate for footprint
 
 						const footprint_box =
@@ -2054,7 +2056,7 @@ ZGEUG3DCATJD4' ) ;
 
 							positions_minor.push (
 
-								x, height_box.min.y, footprint_box.min.z,
+								x, model_floor_y, footprint_box.min.z,
 								x, height_box.max.y, footprint_box.min.z
 
 							);
@@ -2062,7 +2064,7 @@ ZGEUG3DCATJD4' ) ;
 						}
 
 						for (
-							let y = height_box.min.y;
+							let y = model_floor_y;
 							y <= height_box.max.y + 0.000001;
 							y += plate_height
 						) {
@@ -2077,7 +2079,7 @@ ZGEUG3DCATJD4' ) ;
 						}
 
 						for (
-							let y = height_box.min.y;
+							let y = model_floor_y;
 							y <= height_box.max.y + 0.000001;
 							y += brick_height
 						) {
@@ -2101,7 +2103,7 @@ ZGEUG3DCATJD4' ) ;
 
 							positions_minor.push (
 
-								footprint_box.max.x, height_box.min.y, z,
+								footprint_box.max.x, model_floor_y, z,
 								footprint_box.max.x, height_box.max.y, z
 
 							);
@@ -2109,7 +2111,7 @@ ZGEUG3DCATJD4' ) ;
 						}
 
 						for (
-							let y = height_box.min.y;
+							let y = model_floor_y;
 							y <= height_box.max.y + 0.000001;
 							y += plate_height
 						) {
@@ -2124,7 +2126,7 @@ ZGEUG3DCATJD4' ) ;
 						}
 
 						for (
-							let y = height_box.min.y;
+							let y = model_floor_y;
 							y <= height_box.max.y + 0.000001;
 							y += brick_height
 						) {
