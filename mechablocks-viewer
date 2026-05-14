@@ -2242,8 +2242,6 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 						const brick_height = ldu * 24;
 
-						const model_floor_y = self.model_grid_box.min.y + plate_height;
-
 						// use baseplate for footprint
 
 						const footprint_box =
@@ -2269,7 +2267,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 							positions_minor.push (
 
-								x, model_floor_y, footprint_box.min.z,
+								x, height_box.min.y, footprint_box.min.z,
 								x, height_box.max.y, footprint_box.min.z
 
 							);
@@ -2277,7 +2275,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 						}
 
 						for (
-							let y = model_floor_y;
+							let y = height_box.min.y;
 							y <= height_box.max.y + 0.000001;
 							y += plate_height
 						) {
@@ -2292,7 +2290,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 						}
 
 						for (
-							let y = model_floor_y;
+							let y = height_box.min.y;
 							y <= height_box.max.y + 0.000001;
 							y += brick_height
 						) {
@@ -2316,7 +2314,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 							positions_minor.push (
 
-								footprint_box.max.x, model_floor_y, z,
+								footprint_box.max.x, height_box.min.y, z,
 								footprint_box.max.x, height_box.max.y, z
 
 							);
@@ -2324,7 +2322,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 						}
 
 						for (
-							let y = model_floor_y;
+							let y = height_box.min.y;
 							y <= height_box.max.y + 0.000001;
 							y += plate_height
 						) {
@@ -2339,7 +2337,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 						}
 
 						for (
-							let y = model_floor_y;
+							let y = height_box.min.y;
 							y <= height_box.max.y + 0.000001;
 							y += brick_height
 						) {
