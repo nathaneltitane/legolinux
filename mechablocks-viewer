@@ -5380,6 +5380,14 @@ cat << 3D-MODEL-PAYPAL ->> "${model_directory}/index.html"
 cat << 3D-MODEL-PAGE-HELPERS ->> "${model_directory}/index.html"
 	<!-- viewer -->
 
+					<!-- navigation -->
+
+					<!-- browse -->
+
+					<div id="browse">
+
+					</div>
+
 					<!-- controls -->
 
 					<div id="controls">
@@ -5440,17 +5448,11 @@ cat << 3D-MODEL-PAGE-HELPERS ->> "${model_directory}/index.html"
 
 					</div>
 
-	<!-- standard -->
+					<!-- standard -->
 
 					<!-- home -->
 
 					<div id="home">
-
-					</div>
-
-					<!-- browse -->
-
-					<div id="browse">
 
 					</div>
 
