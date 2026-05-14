@@ -1923,14 +1923,6 @@
 
 				// orthogonal grid helper
 
-				this.orthogonal_grid_helper_color_minor = charcoal;
-
-				this.orthogonal_grid_helper_color_major = red;
-
-				this.orthogonal_grid_helper = null;
-
-				this.orthogonal_grid_helper_visible = false;
-
 				this.get_orthogonal_grid_helper = function ( ) {
 
 					if ( ! self.orthogonal_grid_helper ) {
@@ -1950,7 +1942,9 @@
 
 						const positions_minor = [];
 
-						const positions_major = [];
+						const positions_x_axis = [];
+
+						const positions_z_axis = [];
 
 						// x lines
 
@@ -2000,9 +1994,9 @@
 
 						}
 
-						// center axis
+						// x axis marker ( red )
 
-						positions_major.push (
+						positions_x_axis.push (
 
 							footprint_box.min.x,
 							model_box.min.y,
@@ -2014,7 +2008,9 @@
 
 						);
 
-						positions_major.push (
+						// z axis marker ( blue )
+
+						positions_z_axis.push (
 
 							0,
 							model_box.min.y,
@@ -2036,13 +2032,23 @@
 
 						);
 
-						const major_geometry = new THREE.BufferGeometry ( );
+						const x_axis_geometry = new THREE.BufferGeometry ( );
 
-						major_geometry.setAttribute (
+						x_axis_geometry.setAttribute (
 
 							'position',
 
-							new THREE.Float32BufferAttribute ( positions_major, 3 )
+							new THREE.Float32BufferAttribute ( positions_x_axis, 3 )
+
+						);
+
+						const z_axis_geometry = new THREE.BufferGeometry ( );
+
+						z_axis_geometry.setAttribute (
+
+							'position',
+
+							new THREE.Float32BufferAttribute ( positions_z_axis, 3 )
 
 						);
 
@@ -2052,9 +2058,15 @@
 
 						} );
 
-						const major_material = new THREE.LineBasicMaterial ( {
+						const x_axis_material = new THREE.LineBasicMaterial ( {
 
-							color: this.orthogonal_grid_helper_color_major
+							color: red
+
+						} );
+
+						const z_axis_material = new THREE.LineBasicMaterial ( {
+
+							color: blue
 
 						} );
 
@@ -2065,10 +2077,17 @@
 
 						);
 
-						const major_lines = new THREE.LineSegments (
+						const x_axis_lines = new THREE.LineSegments (
 
-							major_geometry,
-							major_material
+							x_axis_geometry,
+							x_axis_material
+
+						);
+
+						const z_axis_lines = new THREE.LineSegments (
+
+							z_axis_geometry,
+							z_axis_material
 
 						);
 
@@ -2076,7 +2095,9 @@
 
 						self.orthogonal_grid_helper.add ( minor_lines );
 
-						self.orthogonal_grid_helper.add ( major_lines );
+						self.orthogonal_grid_helper.add ( x_axis_lines );
+
+						self.orthogonal_grid_helper.add ( z_axis_lines );
 
 						console.log ( "helper [ grid / orthogonal ]" );
 
