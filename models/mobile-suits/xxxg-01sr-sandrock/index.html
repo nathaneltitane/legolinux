@@ -1940,13 +1940,9 @@
 
 						const model_box = self.model_grid_box;
 
-						const positions_minor = [];
+						const positions_grid = [];
 
-						const positions_x_axis = [];
-
-						const positions_z_axis = [];
-
-						// x lines
+						// grid lines - x direction
 
 						for (
 
@@ -1956,7 +1952,15 @@
 
 						) {
 
-							positions_minor.push (
+							// skip center axis
+
+							if ( Math.abs ( x ) < 0.000001 ) {
+
+								continue;
+
+							}
+
+							positions_grid.push (
 
 								x,
 								model_box.min.y,
@@ -1970,7 +1974,7 @@
 
 						}
 
-						// z lines
+						// grid lines - z direction
 
 						for (
 
@@ -1980,7 +1984,15 @@
 
 						) {
 
-							positions_minor.push (
+							// skip center axis
+
+							if ( Math.abs ( z ) < 0.000001 ) {
+
+								continue;
+
+							}
+
+							positions_grid.push (
 
 								footprint_box.min.x,
 								model_box.min.y,
@@ -1994,9 +2006,9 @@
 
 						}
 
-						// x axis marker ( red )
+						// x axis geometry ( red )
 
-						positions_x_axis.push (
+						const positions_x_axis = [
 
 							footprint_box.min.x,
 							model_box.min.y,
@@ -2006,11 +2018,11 @@
 							model_box.min.y,
 							0
 
-						);
+						];
 
-						// z axis marker ( blue )
+						// z axis geometry ( blue )
 
-						positions_z_axis.push (
+						const positions_z_axis = [
 
 							0,
 							model_box.min.y,
@@ -2020,17 +2032,26 @@
 							model_box.min.y,
 							footprint_box.max.z
 
-						);
+						];
 
-						const minor_geometry = new THREE.BufferGeometry ( );
+						// grid geometry
 
-						minor_geometry.setAttribute (
+						const grid_geometry = new THREE.BufferGeometry ( );
+
+						grid_geometry.setAttribute (
 
 							'position',
 
-							new THREE.Float32BufferAttribute ( positions_minor, 3 )
+							new THREE.Float32BufferAttribute (
+
+								positions_grid,
+								3
+
+							)
 
 						);
+
+						// x axis geometry
 
 						const x_axis_geometry = new THREE.BufferGeometry ( );
 
@@ -2038,9 +2059,16 @@
 
 							'position',
 
-							new THREE.Float32BufferAttribute ( positions_x_axis, 3 )
+							new THREE.Float32BufferAttribute (
+
+								positions_x_axis,
+								3
+
+							)
 
 						);
+
+						// z axis geometry
 
 						const z_axis_geometry = new THREE.BufferGeometry ( );
 
@@ -2048,13 +2076,20 @@
 
 							'position',
 
-							new THREE.Float32BufferAttribute ( positions_z_axis, 3 )
+							new THREE.Float32BufferAttribute (
+
+								positions_z_axis,
+								3
+
+							)
 
 						);
 
-						const minor_material = new THREE.LineBasicMaterial ( {
+						// materials
 
-							color: this.orthogonal_grid_helper_color_minor
+						const grid_material = new THREE.LineBasicMaterial ( {
+
+							color: charcoal
 
 						} );
 
@@ -2070,10 +2105,12 @@
 
 						} );
 
-						const minor_lines = new THREE.LineSegments (
+						// line segments
 
-							minor_geometry,
-							minor_material
+						const grid_lines = new THREE.LineSegments (
+
+							grid_geometry,
+							grid_material
 
 						);
 
@@ -2091,9 +2128,11 @@
 
 						);
 
+						// helper group
+
 						self.orthogonal_grid_helper = new THREE.Group ( );
 
-						self.orthogonal_grid_helper.add ( minor_lines );
+						self.orthogonal_grid_helper.add ( grid_lines );
 
 						self.orthogonal_grid_helper.add ( x_axis_lines );
 
