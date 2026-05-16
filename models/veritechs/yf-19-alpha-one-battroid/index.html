@@ -2537,7 +2537,7 @@
 
 					loader.load (
 
-						'/minifigs/exports/minifig-grey.dae',
+						'/minifigs/exports/minifig-black.dae',
 
 						function ( collada ) {
 
@@ -2738,7 +2738,7 @@
 
 						function ( error ) {
 
-							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-grey.dae', error );
+							console.error ( 'minifig [ status ] : load failed - /minifigs/exports/minifig-black.dae', error );
 
 						}
 
@@ -3082,55 +3082,112 @@
 
 				window.baseplate_toggle_ = this.baseplate_toggle_.bind ( this );
 
-				// edges toggle - model
+				// edges toggle
 
 				this.edges_toggle_ = function ( ) {
 
-					if ( wireframe_visible ) {
+					// all edge collections
 
-						console.warn ( 'Edges cannot be enabled while wireframe mode is active.' );
+					const edge_groups = [
 
-						return;
+						model_edges,
+						minifig_edges,
+						baseplate_edges
+
+					];
+
+					// cycle state
+
+					edge_thickness_state++;
+
+					if ( edge_thickness_state > 2 ) {
+
+						edge_thickness_state = 0;
 
 					}
 
-					edge_thickness_state = ( edge_thickness_state + 1 ) % 3;
+					// state : off
 
 					if ( edge_thickness_state === 0 ) {
 
-						for ( var i = 0; i < model_edges.length; i++ ) {
+						model_edges_visible = false;
 
-							model_edges[i].scale.set ( 0, 0, 0 ); // none
+						edge_groups.forEach ( function ( group ) {
 
-							model_edges[i].visible = false;
+							group.forEach ( function ( edge ) {
 
-						}
+								edge.visible = false;
 
-					} else {
+							} );
 
-						for ( var i = 0; i < model_edges.length; i++ ) {
+						} );
 
-							model_edges[i].visible = true;
-
-							if ( edge_thickness_state === 1 ) {
-
-								model_edges[i].scale.set ( 1, 1, 1 ); // thin
-
-							} else if ( edge_thickness_state === 2 ) {
-
-								model_edges[i].scale.set ( 1.01, 1.01, 1.01 ); // thick
-
-							}
-
-						}
+						console.log ( 'edges [ thickness ] : off' );
 
 					}
 
-					// refresh console values
+					// state : thin
 
-					console_overlay_refresh ( ) ;
+					if ( edge_thickness_state === 1 ) {
+
+						model_edges_visible = true;
+
+						edge_groups.forEach ( function ( group ) {
+
+							group.forEach ( function ( edge ) {
+
+								edge.visible = true;
+
+								edge.material.linewidth = 1;
+
+								edge.material.needsUpdate = true;
+
+							} );
+
+						} );
+
+						console.log ( 'edges [ thickness ] : thin' );
+
+					}
+
+					// state : thick
+
+					if ( edge_thickness_state === 2 ) {
+
+						model_edges_visible = true;
+
+						edge_groups.forEach ( function ( group ) {
+
+							group.forEach ( function ( edge ) {
+
+								edge.visible = true;
+
+								edge.material.linewidth = 2;
+
+								edge.material.needsUpdate = true;
+
+							} );
+
+						} );
+
+						console.log ( 'edges [ thickness ] : thick' );
+
+					}
+
+					// force render refresh
+
+					self.renderer.render (
+
+						self.scene,
+						self.camera
+
+					);
 
 				};
+
+				// generate globally bound entry point so helper buttons can call it safely
+
+				window.edges_toggle_ = this.edges_toggle_.bind ( this );
 
 				// wireframe toggle
 
