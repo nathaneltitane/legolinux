@@ -2957,7 +2957,47 @@ ZGEUG3DCATJD4' ) ;
 
 								baseplate.updateMatrixWorld ( true );
 
-								// shadows
+								// edges - baseplate
+
+								baseplate.traverse ( function ( node ) {
+
+									if ( node.isMesh ) {
+
+										const edgesGeometry = new THREE.EdgesGeometry (
+
+											node.geometry,
+											45
+
+										) ;
+
+										const edgesMaterial = new THREE.LineBasicMaterial ( {
+
+											color: black,
+
+											linewidth: 1
+
+										} ) ;
+
+										const edges = new THREE.LineSegments (
+
+											edgesGeometry,
+											edgesMaterial
+
+										) ;
+
+										edges.position.copy ( node.position ) ;
+
+										edges.rotation.copy ( node.rotation ) ;
+
+										edges.scale.copy ( node.scale ) ;
+
+										baseplate.add ( edges ) ;
+
+									}
+
+								} ) ;
+
+								// shadows - baseplate
 
 								baseplate.traverse ( function ( node ) {
 
