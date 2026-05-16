@@ -2481,7 +2481,7 @@
 
 				// generate globally bound entry point so helper buttons can call it safely
 
-				window.grid_toggle_ = this.grid_toggle_.bind ( this ) ;
+				// window.grid_toggle_ = this.grid_toggle_.bind ( this ) ;
 
 				// minifig helper
 
@@ -2748,7 +2748,7 @@
 
 				// generate globally bound entry point so helper buttons can call it safely
 
-				window.minifig_toggle_ = this.minifig_toggle_.bind ( this );
+				// window.minifig_toggle_ = this.minifig_toggle_.bind ( this );
 
 				// baseplate helper
 
@@ -3080,7 +3080,7 @@
 
 				// generate globally bound entry point so helper buttons can call it safely
 
-				window.baseplate_toggle_ = this.baseplate_toggle_.bind ( this );
+				// window.baseplate_toggle_ = this.baseplate_toggle_.bind ( this );
 
 				// edges toggle
 
@@ -4627,6 +4627,257 @@
 
 						console_overlay_refresh ( ) ;
 
+						// viewer api /////////////////////////////////////////////////////////
+
+						window.viewer_api = {
+
+							// helper toggles
+
+							grid_toggle:
+								self.grid_toggle_.bind ( self ),
+
+							edges_toggle:
+								self.edges_toggle_.bind ( self ),
+
+							baseplate_toggle:
+								self.baseplate_toggle_.bind ( self ),
+
+							minifig_toggle:
+								self.minifig_toggle_.bind ( self ),
+
+							dimension_labels_toggle:
+								self.dimension_labels_.bind ( self ),
+
+							pieces_count_toggle:
+								self.pieces_count_label_.bind ( self ),
+
+							// viewer internals
+
+							scene: self.scene,
+
+							camera: self.camera,
+
+							renderer: self.renderer,
+
+							orbitControls: self.orbitControls,
+
+							transformControls:
+								self.get_transform_controls ( ),
+
+							// state accessors
+
+							get_model: function ( ) {
+
+								return self.colladaImport;
+
+							},
+
+							get_model_grid_box: function ( ) {
+
+								return self.model_grid_box;
+
+							},
+
+							get_baseplate_grid_box: function ( ) {
+
+								return self.baseplate_grid_box;
+
+							},
+
+							get_boundingBox: function ( ) {
+
+								return self.get_boundingBox ( );
+
+							},
+
+							// rendering
+
+							render: function ( ) {
+
+								self.renderer.render (
+
+									self.scene,
+									self.camera
+
+								);
+
+							}
+
+						};
+
+						console.log ( 'viewer [ api ] : initialized' );
+
+						// viewer modules /////////////////////////////////////////////////////
+
+						window.viewer_modules = { };
+
+						window.viewer_active_module = null;
+
+						// footer module loader ///////////////////////////////////////////////
+
+						window.load_footer_module = function (
+
+							module_name,
+							module_path
+
+						) {
+
+							// destroy current module
+
+							if (
+
+								window.viewer_active_module &&
+								viewer_modules[window.viewer_active_module] &&
+								viewer_modules[window.viewer_active_module].destroy
+
+							) {
+
+								console.log (
+
+									'footer [ module ] : destroy -> ' +
+									window.viewer_active_module
+
+								);
+
+								viewer_modules[
+									window.viewer_active_module
+								].destroy ( );
+
+							}
+
+							// clear footer
+
+							.empty ( );
+
+							// load module html
+
+							.load (
+
+								module_path,
+
+								function (
+
+									response,
+									status,
+									xhr
+
+								) {
+
+									if ( status !== 'success' ) {
+
+										console.error (
+
+											'footer [ module ] : load failed -> ' +
+											module_path
+
+										);
+
+										return;
+
+									}
+
+									console.log (
+
+										'footer [ module ] : loaded -> ' +
+										module_name
+
+									);
+
+									// activate module
+
+									window.viewer_active_module =
+										module_name;
+
+									// initialize module
+
+									if (
+
+										viewer_modules[module_name] &&
+										viewer_modules[module_name].init
+
+									) {
+
+										viewer_modules[
+											module_name
+										].init ( );
+
+										console.log (
+
+											'footer [ module ] : init -> ' +
+											module_name
+
+										);
+
+									}
+
+								}
+
+							);
+
+						};
+
+						// footer module registration /////////////////////////////////////////
+
+						window.register_footer_module = function (
+
+							module_name,
+							module_object
+
+						) {
+
+							viewer_modules[module_name] =
+								module_object;
+
+							console.log (
+
+								'footer [ module ] : registered -> ' +
+								module_name
+
+							);
+
+						};
+
+						// default footer module //////////////////////////////////////////////
+
+						register_footer_module (
+
+							'default',
+
+							{
+
+								init : function ( ) {
+
+									console.log (
+
+										'footer [ default ] : init'
+
+									);
+
+								},
+
+								destroy : function ( ) {
+
+									console.log (
+
+										'footer [ default ] : destroy'
+
+									);
+
+								}
+
+							}
+
+						);
+
+						// initial module load ////////////////////////////////////////////////
+
+						load_footer_module (
+
+							'default',
+							'/modules/footer/default.html'
+
+						);
+
 						// transform controls
 
 						self.scene.add ( self.get_transform_controls ( ) );
@@ -4724,258 +4975,7 @@
 
 			new initialize ( ) ;
 
-				// viewer api /////////////////////////////////////////////////////////
-
-				window.viewer_api = {
-
-					// helper toggles
-
-					grid_toggle:
-						self.grid_toggle_.bind ( self ),
-
-					edges_toggle:
-						self.edges_toggle_.bind ( self ),
-
-					baseplate_toggle:
-						self.baseplate_toggle_.bind ( self ),
-
-					minifig_toggle:
-						self.minifig_toggle_.bind ( self ),
-
-					dimension_labels_toggle:
-						self.dimension_labels_.bind ( self ),
-
-					pieces_count_toggle:
-						self.pieces_count_label_.bind ( self ),
-
-					// viewer internals
-
-					scene: self.scene,
-
-					camera: self.camera,
-
-					renderer: self.renderer,
-
-					orbitControls: self.orbitControls,
-
-					transformControls:
-						self.get_transform_controls ( ),
-
-					// state accessors
-
-					get_model: function ( ) {
-
-						return self.colladaImport;
-
-					},
-
-					get_model_grid_box: function ( ) {
-
-						return self.model_grid_box;
-
-					},
-
-					get_baseplate_grid_box: function ( ) {
-
-						return self.baseplate_grid_box;
-
-					},
-
-					get_boundingBox: function ( ) {
-
-						return self.get_boundingBox ( );
-
-					},
-
-					// rendering
-
-					render: function ( ) {
-
-						self.renderer.render (
-
-							self.scene,
-							self.camera
-
-						);
-
-					}
-
-				};
-
-				console.log ( 'viewer [ api ] : initialized' );
-
-				// viewer modules /////////////////////////////////////////////////////
-
-				window.viewer_modules = { };
-
-				window.viewer_active_module = null;
-
-				// footer module loader ///////////////////////////////////////////////
-
-				window.load_footer_module = function (
-
-					module_name,
-					module_path
-
-				) {
-
-					// destroy current module
-
-					if (
-
-						window.viewer_active_module &&
-						viewer_modules[window.viewer_active_module] &&
-						viewer_modules[window.viewer_active_module].destroy
-
-					) {
-
-						console.log (
-
-							'footer [ module ] : destroy -> ' +
-							window.viewer_active_module
-
-						);
-
-						viewer_modules[
-							window.viewer_active_module
-						].destroy ( );
-
-					}
-
-					// clear footer
-
-					.empty ( );
-
-					// load module html
-
-					.load (
-
-						module_path,
-
-						function (
-
-							response,
-							status,
-							xhr
-
-						) {
-
-							if ( status !== 'success' ) {
-
-								console.error (
-
-									'footer [ module ] : load failed -> ' +
-									module_path
-
-								);
-
-								return;
-
-							}
-
-							console.log (
-
-								'footer [ module ] : loaded -> ' +
-								module_name
-
-							);
-
-							// activate module
-
-							window.viewer_active_module =
-								module_name;
-
-							// initialize module
-
-							if (
-
-								viewer_modules[module_name] &&
-								viewer_modules[module_name].init
-
-							) {
-
-								viewer_modules[
-									module_name
-								].init ( );
-
-								console.log (
-
-									'footer [ module ] : init -> ' +
-									module_name
-
-								);
-
-							}
-
-						}
-
-					);
-
-				};
-
-				// footer module registration /////////////////////////////////////////
-
-				window.register_footer_module = function (
-
-					module_name,
-					module_object
-
-				) {
-
-					viewer_modules[module_name] =
-						module_object;
-
-					console.log (
-
-						'footer [ module ] : registered -> ' +
-						module_name
-
-					);
-
-				};
-
-				// default footer module //////////////////////////////////////////////
-
-				register_footer_module (
-
-					'default',
-
-					{
-
-						init : function ( ) {
-
-							console.log (
-
-								'footer [ default ] : init'
-
-							);
-
-						},
-
-						destroy : function ( ) {
-
-							console.log (
-
-								'footer [ default ] : destroy'
-
-							);
-
-						}
-
-					}
-
-				);
-
-				// initial module load ////////////////////////////////////////////////
-
-				load_footer_module (
-
-					'default',
-					'/modules/footer/default.html'
-
-				);
-
-				</script>
+		</script>
 
 		<!-- end webgl canvas -->
 
@@ -5369,57 +5369,7 @@ GERWALK
 
 		<div id="footer">
 
-			<div class="footer">
 
-				<!-- modal loaders -->
-
-				<div id="contact-modal">
-
-				</div>
-
-				<!-- footer -->
-
-				<div class="flex flex-row flex-middle flex-around">
-
-					<!-- start -->
-
-					<div id="footer-start">
-
-						<div class="footer-start">
-
-						</div>
-
-					</div>
-					<!-- navigation -->
-
-					<!-- browse -->
-
-					<div id="browse">
-
-					</div>
-
-					<!-- paypal -->
-
-					<div id="paypal">
-
-					</div>
-
-					<!-- helpers -->
-
-
-					<!-- end -->
-
-					<div id="footer-end">
-
-						<div class="footer-end">
-
-						</div>
-
-					</div>
-
-				</div>
-
-			</div>
 
 		</div>
 
