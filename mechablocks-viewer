@@ -2881,7 +2881,12 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 								if ( node.isMesh ) {
 
-									const edgesGeometry = new THREE.EdgesGeometry ( node.geometry, 45 ) ;
+									const edgesGeometry = new THREE.EdgesGeometry (
+
+										node.geometry,
+										89
+
+									) ;
 
 									const edgesMaterial = new THREE.LineBasicMaterial ( {
 
@@ -3181,7 +3186,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 										const edgesGeometry = new THREE.EdgesGeometry (
 
 											node.geometry,
-											45
+											89
 
 										) ;
 
@@ -4648,7 +4653,12 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 								// edges - model
 
-								var edgesGeometry = new THREE.EdgesGeometry ( node.geometry, 45 );
+								var edgesGeometry = new THREE.EdgesGeometry (
+
+									node.geometry,
+									89
+
+								);
 
 								var edgesMaterial = new THREE.LineBasicMaterial ( {
 
