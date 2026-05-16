@@ -2692,6 +2692,20 @@ ZGEUG3DCATJD4' ) ;
 
 							} ) ;
 
+							// shadows - minifig
+
+							minifig.traverse ( function ( node ) {
+
+								if ( node.isMesh ) {
+
+									node.castShadow = true;
+
+									node.receiveShadow = true;
+
+								}
+
+							} );
+
 							self.scene.add ( minifig );
 
 							const transform = self.get_transform_controls ( ) ;
