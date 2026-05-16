@@ -2481,7 +2481,7 @@
 
 				// generate globally bound entry point so helper buttons can call it safely
 
-				window.grid_toggle_ = this.grid_toggle_.bind ( this ) ;
+				// window.grid_toggle_ = this.grid_toggle_.bind ( this ) ;
 
 				// minifig helper
 
@@ -2748,7 +2748,7 @@
 
 				// generate globally bound entry point so helper buttons can call it safely
 
-				window.minifig_toggle_ = this.minifig_toggle_.bind ( this );
+				// window.minifig_toggle_ = this.minifig_toggle_.bind ( this );
 
 				// baseplate helper
 
@@ -3080,7 +3080,7 @@
 
 				// generate globally bound entry point so helper buttons can call it safely
 
-				window.baseplate_toggle_ = this.baseplate_toggle_.bind ( this );
+				// window.baseplate_toggle_ = this.baseplate_toggle_.bind ( this );
 
 				// edges toggle
 
@@ -4627,6 +4627,275 @@
 
 						console_overlay_refresh ( ) ;
 
+						// viewer api /////////////////////////////////////////////////////////
+
+						window.viewer_api = {
+
+							// helper toggles
+
+grid_toggle: function ( ) {
+
+	self.grid_toggle_ ( );
+
+},
+
+edges_toggle: function ( ) {
+
+	self.edges_toggle_ ( );
+
+},
+
+baseplate_toggle: function ( ) {
+
+	self.baseplate_toggle_ ( );
+
+},
+
+minifig_toggle: function ( ) {
+
+	self.minifig_toggle_ ( );
+
+},
+
+dimension_labels_toggle: function ( ) {
+
+	self.dimension_labels_ ( );
+
+},
+
+pieces_count_toggle: function ( ) {
+
+	self.pieces_count_label_ ( );
+
+},
+
+							// viewer internals
+
+							scene: self.scene,
+
+							camera: self.camera,
+
+							renderer: self.renderer,
+
+							orbitControls: self.orbitControls,
+
+							transformControls:
+								self.get_transform_controls ( ),
+
+							// state accessors
+
+							get_model: function ( ) {
+
+								return self.colladaImport;
+
+							},
+
+							get_model_grid_box: function ( ) {
+
+								return self.model_grid_box;
+
+							},
+
+							get_baseplate_grid_box: function ( ) {
+
+								return self.baseplate_grid_box;
+
+							},
+
+							get_boundingBox: function ( ) {
+
+								return self.get_boundingBox ( );
+
+							},
+
+							// rendering
+
+							render: function ( ) {
+
+								self.renderer.render (
+
+									self.scene,
+									self.camera
+
+								);
+
+							}
+
+						};
+
+						console.log ( 'viewer [ api ] : initialized' );
+
+						// viewer modules /////////////////////////////////////////////////////
+
+						window.viewer_modules = { };
+
+						window.viewer_active_module = null;
+
+						// footer module loader ///////////////////////////////////////////////
+
+						window.load_footer_module = function (
+
+							module_name,
+							module_path
+
+						) {
+
+							// destroy current module
+
+							if (
+
+								window.viewer_active_module &&
+								viewer_modules[window.viewer_active_module] &&
+								viewer_modules[window.viewer_active_module].destroy
+
+							) {
+
+								console.log (
+
+									'footer [ module ] : destroy -> ' +
+									window.viewer_active_module
+
+								);
+
+								viewer_modules[
+									window.viewer_active_module
+								].destroy ( );
+
+							}
+
+							// clear footer
+
+							$( '#footer' ).empty ( );
+
+							// load module html
+
+							$( '#footer' ).load (
+
+								module_path,
+
+								function (
+
+									response,
+									status,
+									xhr
+
+								) {
+
+									if ( status !== 'success' ) {
+
+										console.error (
+
+											'footer [ module ] : load failed -> ' +
+											module_path
+
+										);
+
+										return;
+
+									}
+
+									console.log (
+
+										'footer [ module ] : loaded -> ' +
+										module_name
+
+									);
+
+									// activate module
+
+									window.viewer_active_module =
+										module_name;
+
+									// initialize module
+
+									if (
+
+										viewer_modules[module_name] &&
+										viewer_modules[module_name].init
+
+									) {
+
+										viewer_modules[
+											module_name
+										].init ( );
+
+										console.log (
+
+											'footer [ module ] : init -> ' +
+											module_name
+
+										);
+
+									}
+
+								}
+
+							);
+
+						};
+
+						// footer module registration /////////////////////////////////////////
+
+						window.register_footer_module = function (
+
+							module_name,
+							module_object
+
+						) {
+
+							viewer_modules[module_name] =
+								module_object;
+
+							console.log (
+
+								'footer [ module ] : registered -> ' +
+								module_name
+
+							);
+
+						};
+
+						// default footer module //////////////////////////////////////////////
+
+						register_footer_module (
+
+							'default',
+
+							{
+
+								init : function ( ) {
+
+									console.log (
+
+										'footer [ default ] : init'
+
+									);
+
+								},
+
+								destroy : function ( ) {
+
+									console.log (
+
+										'footer [ default ] : destroy'
+
+									);
+
+								}
+
+							}
+
+						);
+
+						// initial module load ////////////////////////////////////////////////
+
+						load_footer_module (
+
+							'default',
+							'/modules/footer/default.html'
+
+						);
+
 						// transform controls
 
 						self.scene.add ( self.get_transform_controls ( ) );
@@ -5005,149 +5274,6 @@
 		</div>
 
 		<div id="footer">
-
-			<div class="footer">
-
-				<!-- modal loaders -->
-
-				<div id="contact-modal">
-
-				</div>
-
-				<!-- footer -->
-
-				<div class="flex flex-row flex-middle flex-around">
-
-					<!-- start -->
-
-					<div id="footer-start">
-
-						<div class="footer-start">
-
-						</div>
-
-					</div>
-					<!-- navigation -->
-
-					<!-- browse -->
-
-					<div id="browse">
-
-					</div>
-
-					<!-- paypal -->
-
-					<div id="paypal">
-
-					</div>
-
-					<!-- helpers -->
-
-					<!-- controls -->
-
-					<div id="controls">
-
-					</div>
-
-					<!-- baseplate -->
-
-					<div id="baseplate">
-
-					</div>
-
-					<!-- grid -->
-
-					<div id="grid">
-
-					</div>
-
-					<!-- dimensions -->
-
-					<div id="dimensions">
-
-					</div>
-
-					<!-- minifig -->
-
-					<div id="minifig">
-
-					</div>
-
-					<!-- wireframe -->
-
-					<div id="wireframe">
-
-					</div>
-
-					<!-- edges -->
-
-					<div id="edges">
-
-					</div>
-
-					<!-- camera -->
-
-					<div id="camera">
-
-					</div>
-
-					<!-- color -->
-
-					<div id="color">
-
-					</div>
-
-					<!-- console -->
-
-					<div id="console">
-
-					</div>
-
-					<!-- standard -->
-
-					<!-- home -->
-
-					<div id="home">
-
-					</div>
-
-					<!-- contact -->
-
-					<div id="contact">
-
-					</div>
-
-					<!-- shop -->
-
-					<div id="shop">
-
-					</div>
-
-					<!-- github -->
-
-					<div id="github">
-
-					</div>
-
-					<!-- donations -->
-
-					<div id="donations">
-
-					</div>
-
-					<!-- end -->
-
-					<div id="footer-end">
-
-						<div class="footer-end">
-
-						</div>
-
-					</div>
-
-				</div>
-
-			</div>
 
 		</div>
 
