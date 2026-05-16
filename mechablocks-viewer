@@ -4962,11 +4962,11 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 							// clear footer
 
-							$( '#footer' ).empty ( );
+							\$( '#footer' ).empty ( );
 
 							// load module html
 
-							$( '#footer' ).load (
+							\$( '#footer' ).load (
 
 								module_path,
 
