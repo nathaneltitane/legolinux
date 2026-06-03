@@ -98,6 +98,7 @@ do
 	directories_list=(
 		flat
 		overlay
+		social
 		thumbnail
 	)
 

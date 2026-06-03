@@ -85,6 +85,7 @@ else
 fi
 
 render_options=(
+	social
 	thumbnail
 	flat
 	overlay
