@@ -52,15 +52,20 @@ version="06-04-2026"
 frobulator.script "Setting up ${script#*-}"
 
 # variables ////////////////////////////////////////////////////////////////////
+
 site_url='https://mechablocks.com'
 
 output_file='sitemap.xml'
 
 site_url="${site_url%/}"
 
+# defaults /////////////////////////////////////////////////////////////////////
+
+page_count=0
+
 # functions ////////////////////////////////////////////////////////////////////
 
-sitemap_add_url () {
+url_parse () {
 
 	local url_path="${1}"
 	local file_path="${2}"
@@ -83,7 +88,7 @@ sitemap_add_url () {
 
 	modified_date="$(date -u -r "${file_path}" '+%Y-%m-%d')"
 
-	cat >> "${output_file}" << EOF
+	cat >> "${output_file}" << URL
 
 	<url>
 
@@ -96,32 +101,28 @@ sitemap_add_url () {
 		<priority>0.80</priority>
 
 	</url>
-EOF
+URL
 
 	(( page_count++ ))
 
 }
 
-# initialize
+# sitemap - header
 
-page_count=0
-
-# header
-
-cat >> "${output_file}" << EOF
+cat >> "${output_file}" << HEADER
 <?xml version="1.0" encoding="UTF-8"?>
 
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-EOF
+HEADER
 
-# homepage /////////////////////////////////////////////////////////////////////
+# write homepage
 
 if [ -f './index.html' ]
 then
-	sitemap_add_url './index.html' './index.html'
+	url_crawl './index.html' './index.html'
 fi
 
-# crawl index pages /////////////////////////////////////////////////////////////
+# crawl index pages
 
 while IFS= read -r file_path
 do
@@ -135,11 +136,13 @@ do
 		continue
 	fi
 
-	sitemap_add_url "${file_path}" "${file_path}"
+	# write index pages
+
+	url_crawl "${file_path}" "${file_path}"
 
 done < <( find . -type f -name 'index.html' | sort )
 
-# crawl model folders ///////////////////////////////////////////////////////////
+# crawl model folders
 
 if [ -d './models' ]
 then
@@ -156,20 +159,23 @@ then
 		   [ -f "${directory_path}/instructions.pdf" ] ||
 		   [ -d "${directory_path}/renders"          ]
 		then
-			sitemap_add_url "${directory_path}" "${directory_path}"
+
+			# write model directory urls
+
+			url_crawl "${directory_path}" "${directory_path}"
 		fi
 
 	done < <( find ./models -mindepth 2 -maxdepth 2 -type d | sort )
 fi
 
-# footer
+# write footer
 
-cat >> "${output_file}" << EOF
+cat >> "${output_file}" << FOOTER
 
 </urlset>
-EOF
+FOOTER
 
-# report ///////////////////////////////////////////////////////////////////////
+# report
 
 echo "sitemap written: ${output_file}"
 echo "urls written: ${page_count}"
