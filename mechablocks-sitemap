@@ -107,6 +107,16 @@ URL
 
 }
 
+# initialize ///////////////////////////////////////////////////////////////////
+
+if [ -f './sitemap.xml' ]
+then
+	rm				\
+		--recursive	\
+		--force		\
+					'./sitemap.xml'
+fi
+
 # sitemap - header
 
 cat >> "${output_file}" << HEADER
