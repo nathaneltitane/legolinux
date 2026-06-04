@@ -115,6 +115,8 @@ echo
 
 # sitemap - header
 
+# overwrite previous map file
+
 cat > "${sitemap_output}" << HEADER
 <?xml version="1.0" encoding="UTF-8"?>
 
