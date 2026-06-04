@@ -1,0 +1,110 @@
+#!/bin/bash
+
+# configuration ////////////////////////////////////////////////////////////////
+
+site_url='https://mechablocks.com'
+output_file='sitemap.xml'
+
+# initialize ///////////////////////////////////////////////////////////////////
+
+site_url="${site_url%/}"
+
+> "${output_file}"
+
+# header ///////////////////////////////////////////////////////////////////////
+
+cat >> "${output_file}" << EOF
+<?xml version="1.0" encoding="UTF-8"?>
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+EOF
+
+# url writer ///////////////////////////////////////////////////////////////////
+
+sitemap_add_url () {
+
+	local url_path="${1}"
+	local file_path="${2}"
+
+	local modified_date
+
+	url_path="${url_path#./}"
+	url_path="${url_path#index.html}"
+	url_path="${url_path%index.html}"
+
+	if [ "${url_path}" = "." ] ||
+	   [ "${url_path}" = "" ]
+	then
+		url_path="/"
+	else
+		url_path="/${url_path}"
+	fi
+
+	url_path="${url_path//\/\//\/}"
+
+	modified_date="$(date -u -r "${file_path}" '+%Y-%m-%d')"
+
+	cat >> "${output_file}" << EOF
+
+	<url>
+		<loc>${site_url}${url_path}</loc>
+		<lastmod>${modified_date}</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.80</priority>
+	</url>
+EOF
+
+}
+
+# crawl pages //////////////////////////////////////////////////////////////////
+
+while IFS= read -r file_path
+do
+	case "${file_path}" in
+		./modules/*|./logo/*|./assets/*|./images/*|./renders/*)
+			continue
+		;;
+	esac
+
+	sitemap_add_url "${file_path}" "${file_path}"
+
+done < <(
+	find . \
+		-type f \
+		-name 'index.html' \
+		| sort
+)
+
+# crawl model directories //////////////////////////////////////////////////////
+
+while IFS= read -r directory_path
+do
+	if [ -f "${directory_path}/index.html" ]
+	then
+		continue
+	fi
+
+	if [ -f "${directory_path}/model.dae" ] ||
+	   [ -f "${directory_path}/model.glb" ] ||
+	   [ -f "${directory_path}/model.gltf" ] ||
+	   [ -f "${directory_path}/instructions.pdf" ]
+	then
+		sitemap_add_url "${directory_path}/" "${directory_path}"
+	fi
+
+done < <(
+	find ./models \
+		-mindepth 2 \
+		-maxdepth 2 \
+		-type d \
+		| sort
+)
+
+# footer ///////////////////////////////////////////////////////////////////////
+
+cat >> "${output_file}" << EOF
+
+</urlset>
+EOF
+
+echo "sitemap written: ${output_file}"
