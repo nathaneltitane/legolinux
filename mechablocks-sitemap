@@ -58,8 +58,6 @@ EOF
 
 cd "${script_directory}" || exit 1
 
-> "${output_file}"
-
 page_count=0
 
 # header
