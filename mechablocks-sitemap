@@ -8,8 +8,6 @@ output_file='sitemap.xml'
 
 site_url="${site_url%/}"
 
-script_directory="$(cd "$(dirname "${0}")" && pwd)"
-
 # functions ////////////////////////////////////////////////////////////////////
 
 sitemap_add_url () {
@@ -56,8 +54,6 @@ EOF
 
 # initialize
 
-cd "${script_directory}" || exit 1
-
 page_count=0
 
 # header
@@ -67,8 +63,6 @@ cat >> "${output_file}" << EOF
 
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 EOF
-
-# url
 
 # homepage /////////////////////////////////////////////////////////////////////
 
@@ -83,9 +77,9 @@ while IFS= read -r file_path
 do
 	if [ "${file_path}" = './index.html' ] ||
 	   [[ "${file_path}" == ./modules/* ]] ||
-	   [[ "${file_path}" == ./logo/* ]] ||
-	   [[ "${file_path}" == ./assets/* ]] ||
-	   [[ "${file_path}" == ./images/* ]] ||
+	   [[ "${file_path}" == ./logo/*    ]] ||
+	   [[ "${file_path}" == ./assets/*  ]] ||
+	   [[ "${file_path}" == ./images/*  ]] ||
 	   [[ "${file_path}" == ./renders/* ]]
 	then
 		continue
