@@ -91,167 +91,61 @@
 
 		{
 			"@context": "https://schema.org",
-			"@type": "WebSite",
-			"name": "MechaBlocks",
-			"alternateName": "MECHA // BLOCKS",
-			"url": "https://mechablocks.com/",
-			"description": "Where LEGO® meets Open Source. Custom LEGO mecha MOCs with interactive 3D previews and building instructions.",
-			"author": {
-				"@type": "Person",
-				"name": "Nathanel Titane"
-			}
-		}
-		</script>
-
-		<script type="application/ld+json">
-
-			{
-				"@context": "https://schema.org",
-				"@type": "WebSite",
-				"name": "MechaBlocks",
-				"url": "https://mechablocks.com/",
-				"potentialAction": {
-					"@type": "SearchAction",
-					"target": "https://mechablocks.com/?q={search_term_string}",
-					"query-input": "required name=search_term_string"
-				}
-			}
-
-		</script>
-
-		<script type="application/ld+json">
-
-			{
-				"@context": "https://schema.org",
-				"@type": "Organization",
-				"name": "MechaBlocks",
-				"alternateName": [
-					"MECHA // BLOCKS",
-					"Mecha Blocks",
-					"Mecha LEGO MOCs",
-					"LEGO Mecha Blocks",
-					"LEGO Mecha Builds",
-					"LEGO Mecha MOC Builds"
-				],
-				"url": "https://mechablocks.com/",
-				"slogan": "Mecha // Blocks – Where LEGO® meets Open Source",
-				"logo": {
-					"@type": "ImageObject",
-					"url": "https://mechablocks.com/logo/logo-red.png"
-				}
-			}
-
-		</script>
-
-		<script type="application/ld+json">
-
-			{
-				"@context": "https://schema.org",
-				"@type": "BreadcrumbList",
-				"itemListElement": [{
-					"@type": "ListItem",
-					"position": 1,
-					"name": "Home",
-					"item": "https://mechablocks.com/"
-				}]
-			}
-
-		</script>
-
-		<script type="application/ld+json">
-
-			{
-				"@context": "https://schema.org",
-				"@type": "CollectionPage",
-				"name": "MechaBlocks - LEGO® Mecha MOCs",
-				"url": "https://mechablocks.com/",
-				"description": "Browse custom LEGO® mecha MOC builds with 3D previews and build instructions.",
-				"hasPart": {
-					"@type": "ItemList",
+			"@graph": [
+				{
+					"@type": "WebSite",
+					"@id": "https://mechablocks.com/#website",
+					"name": "MechaBlocks",
+					"alternateName": "MECHA // BLOCKS",
+					"url": "https://mechablocks.com/",
+					"description": "Where LEGO® meets Open Source. Custom LEGO mecha MOCs with interactive 3D previews and building instructions.",
+					"publisher": {
+						"@id": "https://mechablocks.com/#organization"
+					}
+				},
+				{
+					"@type": "Organization",
+					"@id": "https://mechablocks.com/#organization",
+					"name": "MechaBlocks",
+					"alternateName": [
+						"MECHA // BLOCKS",
+						"Mecha Blocks"
+					],
+					"url": "https://mechablocks.com/",
+					"slogan": "Where LEGO® meets Open Source",
+					"logo": {
+						"@type": "ImageObject",
+						"url": "https://mechablocks.com/logo/logo-red.png"
+					},
+					"founder": {
+						"@type": "Person",
+						"name": "Nathanel Titane"
+					}
+				},
+				{
+					"@type": "BreadcrumbList",
+					"@id": "https://mechablocks.com/#breadcrumbs",
 					"itemListElement": [
 						{
 							"@type": "ListItem",
 							"position": 1,
-							"item": {
-							"@type": "CreativeWork",
-							"name": "CR-C75U2 Close Combat",
-							"url": "https://mechablocks.com/models/armored-cores/cr-c75u2-close-combat",
-							"image": "https://mechablocks.com/models/armored-cores/cr-c75u2-close-combat/renders/social/social.png"
-							}
-						},
-						{
-							"@type": "ListItem",
-							"position": 2,
-							"item": {
-							"@type": "CreativeWork",
-							"name": "CR-C840-UL Lightweight",
-							"url": "https://mechablocks.com/models/armored-cores/cr-c840-ul-lightweight",
-							"image": "https://mechablocks.com//models/armored-cores/cr-c840-ul-lightweight/renders/social/social.png"
-							}
-						},
-						{
-							"@type": "ListItem",
-							"position": 3,
-							"item": {
-							"@type": "CreativeWork",
-							"name": "CR-C90U3 Cascade Range",
-							"url": "https://mechablocks.com/models/armored-cores/cr-c90u3-cascade-range",
-							"image": "https://mechablocks.com/models/armored-cores/cr-c90u3-cascade-range/renders/social/social.png"
-							}
-						},
-						{
-							"@type": "ListItem",
-							"position": 4,
-							"item": {
-							"@type": "CreativeWork",
-							"name": "CR-C98E2 Nineball",
-							"url": "https://mechablocks.com/models/armored-cores/cr-c98e2-nineball",
-							"image": "https://mechablocks.com/models/armored-cores/cr-c98e2-nineball/renders/social/social.png"
-							}
-						},
-						{
-							"@type": "ListItem",
-							"position": 5,
-							"item": {
-							"@type": "CreativeWork",
-							"name": "Tetsuhime",
-							"url": "https://mechablocks.com/models/armored-knights/tetsuhime",
-							"image": "https://mechablocks.com/models/armored-knights/tetsuhime/renders/social/social.png"
-							}
-						},
-						{
-							"@type": "ListItem",
-							"position": 6,
-							"item": {
-							"@type": "CreativeWork",
-							"name": "BP-02D Cicada",
-							"url": "https://mechablocks.com/models/battle-platforms/bp-02d-cicada",
-							"image": "https://mechablocks.com/models/battle-platforms/bp-02d-cicada/renders/social/social.png"
-							}
-						},
-						{
-							"@type": "ListItem",
-							"position": 7,
-							"item": {
-							"@type": "CreativeWork",
-							"name": "FH-00 Gungnir",
-							"url": "https://mechablocks.com/models/cataphracts/fh-00-gungnir",
-							"image": "https://mechablocks.com/models/cataphracts/fh-00-gungnir/renders/social/social.png"
-							}
-						},
-						{
-							"@type": "ListItem",
-							"position": 8,
-							"item": {
-							"@type": "CreativeWork",
-							"name": "EVA-00 Evangelion",
-							"url": "https://mechablocks.com/models/evangelions/eva-00-evangelion",
-							"image": "https://mechablocks.com/models/evangelions/eva-00-evangelion/renders/social/social.png"
-							}
+							"name": "Home",
+							"item": "https://mechablocks.com/"
 						}
 					]
+				},
+				{
+					"@type": "CollectionPage",
+					"@id": "https://mechablocks.com/#collection",
+					"name": "MechaBlocks - LEGO® Mecha MOCs",
+					"url": "https://mechablocks.com/",
+					"description": "Browse custom LEGO® mecha MOC builds with 3D previews and build instructions.",
+					"isPartOf": {
+						"@id": "https://mechablocks.com/#website"
+					}
 				}
-			}
+			]
+		}
 
 		</script>
 
