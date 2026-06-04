@@ -9,7 +9,12 @@ output_file='sitemap.xml'
 
 site_url="${site_url%/}"
 
+script_directory="$(cd "$(dirname "${0}")" && pwd)"
+cd "${script_directory}" || exit 1
+
 > "${output_file}"
+
+page_count=0
 
 # header ///////////////////////////////////////////////////////////////////////
 
@@ -25,19 +30,19 @@ sitemap_add_url () {
 
 	local url_path="${1}"
 	local file_path="${2}"
-
 	local modified_date
 
 	url_path="${url_path#./}"
 	url_path="${url_path#index.html}"
 	url_path="${url_path%index.html}"
+	url_path="${url_path%/}"
 
 	if [ "${url_path}" = "." ] ||
 	   [ "${url_path}" = "" ]
 	then
 		url_path="/"
 	else
-		url_path="/${url_path}"
+		url_path="/${url_path}/"
 	fi
 
 	url_path="${url_path//\/\//\/}"
@@ -54,14 +59,23 @@ sitemap_add_url () {
 	</url>
 EOF
 
+	((page_count++))
+
 }
 
-# crawl pages //////////////////////////////////////////////////////////////////
+# homepage /////////////////////////////////////////////////////////////////////
+
+if [ -f './index.html' ]
+then
+	sitemap_add_url './index.html' './index.html'
+fi
+
+# crawl index pages /////////////////////////////////////////////////////////////
 
 while IFS= read -r file_path
 do
 	case "${file_path}" in
-		./modules/*|./logo/*|./assets/*|./images/*|./renders/*)
+		./index.html|./modules/*|./logo/*|./assets/*|./images/*|./renders/*)
 			continue
 		;;
 	esac
@@ -75,30 +89,34 @@ done < <(
 		| sort
 )
 
-# crawl model directories //////////////////////////////////////////////////////
+# crawl model folders ///////////////////////////////////////////////////////////
 
-while IFS= read -r directory_path
-do
-	if [ -f "${directory_path}/index.html" ]
-	then
-		continue
-	fi
+if [ -d './models' ]
+then
+	while IFS= read -r directory_path
+	do
+		if [ -f "${directory_path}/index.html" ]
+		then
+			continue
+		fi
 
-	if [ -f "${directory_path}/model.dae" ] ||
-	   [ -f "${directory_path}/model.glb" ] ||
-	   [ -f "${directory_path}/model.gltf" ] ||
-	   [ -f "${directory_path}/instructions.pdf" ]
-	then
-		sitemap_add_url "${directory_path}/" "${directory_path}"
-	fi
+		if [ -f "${directory_path}/model.dae" ] ||
+		   [ -f "${directory_path}/model.glb" ] ||
+		   [ -f "${directory_path}/model.gltf" ] ||
+		   [ -f "${directory_path}/instructions.pdf" ] ||
+		   [ -d "${directory_path}/renders" ]
+		then
+			sitemap_add_url "${directory_path}" "${directory_path}"
+		fi
 
-done < <(
-	find ./models \
-		-mindepth 2 \
-		-maxdepth 2 \
-		-type d \
-		| sort
-)
+	done < <(
+		find ./models \
+			-mindepth 2 \
+			-maxdepth 2 \
+			-type d \
+			| sort
+	)
+fi
 
 # footer ///////////////////////////////////////////////////////////////////////
 
@@ -107,4 +125,14 @@ cat >> "${output_file}" << EOF
 </urlset>
 EOF
 
+# report ///////////////////////////////////////////////////////////////////////
+
 echo "sitemap written: ${output_file}"
+echo "urls written: ${page_count}"
+
+if [ "${page_count}" -eq 0 ]
+then
+	echo "warning: no urls found"
+	echo "make sure this script is running from the site root"
+	echo "expected: ./index.html and/or ./models/category/model-name"
+fi
