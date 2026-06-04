@@ -86,7 +86,9 @@ url_crawl () {
 
 	url_path="${url_path//\/\//\/}"
 
-	modified_date="$(date -u -r "${file_path}" '+%Y-%m-%d')"
+	date_modified="$(date -u -r "${file_path}" '+%Y-%m-%d')"
+
+	frequency_change="weekly"
 
 	cat >> "${output_file}" << URL
 
@@ -94,9 +96,9 @@ url_crawl () {
 
 		<loc>${site_url}${url_path}</loc>
 
-		<lastmod>${modified_date}</lastmod>
+		<lastmod>${date_modified}</lastmod>
 
-		<changefreq>weekly</changefreq>
+		<changefreq>${frequency_change}</changefreq>
 
 		<priority>0.80</priority>
 
