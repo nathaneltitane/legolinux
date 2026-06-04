@@ -126,7 +126,9 @@ echo "urls written: ${page_count}"
 
 if [ "${page_count}" -eq 0 ]
 then
-	echo "warning: no urls found"
-	echo "make sure this script is running from the site root"
-	echo "expected: ./index.html and/or ./models/category/model-name"
+	frobulator.err "No URLs found" "[ '${site_url}' ]"
+	echo
+
+	frobulator.wrn "Script must be run from site root directory."
+	echo
 fi
