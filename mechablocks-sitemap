@@ -10,6 +10,7 @@ output_file='sitemap.xml'
 site_url="${site_url%/}"
 
 script_directory="$(cd "$(dirname "${0}")" && pwd)"
+
 cd "${script_directory}" || exit 1
 
 > "${output_file}"
@@ -38,7 +39,7 @@ sitemap_add_url () {
 	url_path="${url_path%/}"
 
 	if [ "${url_path}" = "." ] ||
-	   [ "${url_path}" = "" ]
+	   [ "${url_path}" = ""  ]
 	then
 		url_path="/"
 	else
@@ -52,14 +53,19 @@ sitemap_add_url () {
 	cat >> "${output_file}" << EOF
 
 	<url>
+
 		<loc>${site_url}${url_path}</loc>
+
 		<lastmod>${modified_date}</lastmod>
+
 		<changefreq>weekly</changefreq>
+
 		<priority>0.80</priority>
+
 	</url>
 EOF
 
-	((page_count++))
+	(( page_count++ ))
 
 }
 
@@ -74,11 +80,15 @@ fi
 
 while IFS= read -r file_path
 do
-	case "${file_path}" in
-		./index.html|./modules/*|./logo/*|./assets/*|./images/*|./renders/*)
-			continue
-		;;
-	esac
+	if [ "${file_path}" = './index.html' ] ||
+	   [[ "${file_path}" == ./modules/* ]] ||
+	   [[ "${file_path}" == ./logo/* ]] ||
+	   [[ "${file_path}" == ./assets/* ]] ||
+	   [[ "${file_path}" == ./images/* ]] ||
+	   [[ "${file_path}" == ./renders/* ]]
+	then
+		continue
+	fi
 
 	sitemap_add_url "${file_path}" "${file_path}"
 
@@ -100,21 +110,22 @@ then
 			continue
 		fi
 
-		if [ -f "${directory_path}/model.dae" ] ||
-		   [ -f "${directory_path}/model.glb" ] ||
-		   [ -f "${directory_path}/model.gltf" ] ||
+		if [ -f "${directory_path}/model.dae"        ] ||
+		   [ -f "${directory_path}/model.glb"        ] ||
+		   [ -f "${directory_path}/model.gltf"       ] ||
 		   [ -f "${directory_path}/instructions.pdf" ] ||
-		   [ -d "${directory_path}/renders" ]
+		   [ -d "${directory_path}/renders"          ]
 		then
 			sitemap_add_url "${directory_path}" "${directory_path}"
 		fi
 
 	done < <(
-		find ./models \
-			-mindepth 2 \
-			-maxdepth 2 \
-			-type d \
-			| sort
+		find					\
+			./models			\
+				-mindepth 2		\
+				-maxdepth 2		\
+				-type d			\
+								| sort
 	)
 fi
 
