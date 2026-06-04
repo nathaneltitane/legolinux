@@ -1,31 +1,16 @@
 #!/bin/bash
 
-# configuration ////////////////////////////////////////////////////////////////
+# variables ////////////////////////////////////////////////////////////////////
 
 site_url='https://mechablocks.com'
-output_file='sitemap.xml'
 
-# initialize ///////////////////////////////////////////////////////////////////
+output_file='sitemap.xml'
 
 site_url="${site_url%/}"
 
 script_directory="$(cd "$(dirname "${0}")" && pwd)"
 
-cd "${script_directory}" || exit 1
-
-> "${output_file}"
-
-page_count=0
-
-# header ///////////////////////////////////////////////////////////////////////
-
-cat >> "${output_file}" << EOF
-<?xml version="1.0" encoding="UTF-8"?>
-
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-EOF
-
-# url writer ///////////////////////////////////////////////////////////////////
+# functions ////////////////////////////////////////////////////////////////////
 
 sitemap_add_url () {
 
@@ -69,6 +54,24 @@ EOF
 
 }
 
+# initialize
+
+cd "${script_directory}" || exit 1
+
+> "${output_file}"
+
+page_count=0
+
+# header
+
+cat >> "${output_file}" << EOF
+<?xml version="1.0" encoding="UTF-8"?>
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+EOF
+
+# url
+
 # homepage /////////////////////////////////////////////////////////////////////
 
 if [ -f './index.html' ]
@@ -92,12 +95,7 @@ do
 
 	sitemap_add_url "${file_path}" "${file_path}"
 
-done < <(
-	find . \
-		-type f \
-		-name 'index.html' \
-		| sort
-)
+done < <( find . -type f -name 'index.html' | sort )
 
 # crawl model folders ///////////////////////////////////////////////////////////
 
@@ -119,17 +117,10 @@ then
 			sitemap_add_url "${directory_path}" "${directory_path}"
 		fi
 
-	done < <(
-		find					\
-			./models			\
-				-mindepth 2		\
-				-maxdepth 2		\
-				-type d			\
-								| sort
-	)
+	done < <( find ./models -mindepth 2 -maxdepth 2 -type d | sort )
 fi
 
-# footer ///////////////////////////////////////////////////////////////////////
+# footer
 
 cat >> "${output_file}" << EOF
 
