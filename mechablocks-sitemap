@@ -53,11 +53,11 @@ frobulator.script "Setting up ${script#*-}"
 
 # variables ////////////////////////////////////////////////////////////////////
 
-site_url='https://mechablocks.com'
+address_site='https://mechablocks.com'
 
-output_file='sitemap.xml'
+url_site="${address_site%/}"
 
-site_url="${site_url%/}"
+sitemap_output='sitemap.xml'
 
 # defaults /////////////////////////////////////////////////////////////////////
 
@@ -67,9 +67,8 @@ page_count=0
 
 url_crawl () {
 
-	local url_path="${1}"
-	local file_path="${2}"
-	local modified_date
+	url_path="${1}"
+	file_path="${2}"
 
 	url_path="${url_path#./}"
 	url_path="${url_path#index.html}"
@@ -90,11 +89,11 @@ url_crawl () {
 
 	frequency_change="weekly"
 
-	cat >> "${output_file}" << URL
+	cat >> "${sitemap_output}" << URL
 
 	<url>
 
-		<loc>${site_url}${url_path}</loc>
+		<loc>${url_site}${url_path}</loc>
 
 		<lastmod>${date_modified}</lastmod>
 
@@ -111,20 +110,12 @@ URL
 
 # initialize ///////////////////////////////////////////////////////////////////
 
-if [ -f './sitemap.xml' ]
-then
-	rm				\
-		--recursive	\
-		--force		\
-					'./sitemap.xml'
-fi
-
 frobulator.fwd "Writing..."
 echo
 
 # sitemap - header
 
-cat >> "${output_file}" << HEADER
+cat > "${sitemap_output}" << HEADER
 <?xml version="1.0" encoding="UTF-8"?>
 
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -141,12 +132,12 @@ fi
 
 while IFS= read -r file_path
 do
-	if [ "${file_path}" = './index.html' ] ||
-	   [[ "${file_path}" == ./modules/* ]] ||
-	   [[ "${file_path}" == ./logo/*    ]] ||
-	   [[ "${file_path}" == ./assets/*  ]] ||
-	   [[ "${file_path}" == ./images/*  ]] ||
-	   [[ "${file_path}" == ./renders/* ]]
+	if [  "${file_path}" = './index.html' ] ||
+	   [[ "${file_path}" == ./modules/*  ]] ||
+	   [[ "${file_path}" == ./logo/*     ]] ||
+	   [[ "${file_path}" == ./assets/*   ]] ||
+	   [[ "${file_path}" == ./images/*   ]] ||
+	   [[ "${file_path}" == ./renders/*  ]]
 	then
 		continue
 	fi
@@ -168,11 +159,9 @@ then
 			continue
 		fi
 
-		if [ -f "${directory_path}/model.dae"        ] ||
-		   [ -f "${directory_path}/model.glb"        ] ||
-		   [ -f "${directory_path}/model.gltf"       ] ||
-		   [ -f "${directory_path}/instructions.pdf" ] ||
-		   [ -d "${directory_path}/renders"          ]
+		if [ -f "${directory_path}/model.dae" ] ||
+		   [ -d "${directory_path}/renders"   ] ||
+		   [ -d "${directory_path}/exports"   ]
 		then
 
 			# write model directory urls
@@ -185,7 +174,7 @@ fi
 
 # write footer
 
-cat >> "${output_file}" << FOOTER
+cat >> "${sitemap_output}" << FOOTER
 
 </urlset>
 FOOTER
@@ -199,8 +188,10 @@ then
 
 	frobulator.wrn "Script must be run from site root directory."
 	echo
+
+	exit 1
 else
-	frobulator.inf "Sitemap written" "[ ${output_file} ]"
+	frobulator.inf "Sitemap written" "[ ${sitemap_output} ]"
 	echo
 
 	frobulator.inf "URL count" "[ ${page_count} ]"
