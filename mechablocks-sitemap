@@ -119,6 +119,9 @@ then
 					'./sitemap.xml'
 fi
 
+frobulator.fwd "Writing..."
+echo
+
 # sitemap - header
 
 cat >> "${output_file}" << HEADER
