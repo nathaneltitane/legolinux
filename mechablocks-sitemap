@@ -65,7 +65,7 @@ page_count=0
 
 # functions ////////////////////////////////////////////////////////////////////
 
-url_parse () {
+url_crawl () {
 
 	local url_path="${1}"
 	local file_path="${2}"
@@ -177,9 +177,6 @@ FOOTER
 
 # report
 
-echo "sitemap written: ${output_file}"
-echo "urls written: ${page_count}"
-
 if [ "${page_count}" -eq 0 ]
 then
 	frobulator.err "No URLs found" "[ '${site_url}' ]"
@@ -187,4 +184,12 @@ then
 
 	frobulator.wrn "Script must be run from site root directory."
 	echo
+else
+	frobulator.inf "Sitemap written" "[ ${output_file} ]"
+	echo
+
+	frobulator.inf "URL count" "[ ${page_count} ]"
+	echo
+
+	frobulator.cpt "Complete" "[ Sitemap ]"
 fi
