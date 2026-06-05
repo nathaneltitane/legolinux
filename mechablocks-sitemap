@@ -35,8 +35,6 @@ fi
 
 . "${HOME}"/.local/bin/frobulator
 
-# superuser ////////////////////////////////////////////////////////////////////
-
 # script ///////////////////////////////////////////////////////////////////////
 
 script=$(basename -- "${BASH_SOURCE[0]}")
@@ -45,25 +43,50 @@ script=$(basename -- "${BASH_SOURCE[0]}")
 
 version="06-04-2026"
 
-# usage ////////////////////////////////////////////////////////////////////////
-
 # prompt ///////////////////////////////////////////////////////////////////////
 
 frobulator.script "Setting up ${script#*-}"
 
-# variables ////////////////////////////////////////////////////////////////////
+# configuration ////////////////////////////////////////////////////////////////
 
 address_site='https://mechablocks.com'
-
-url_site="${address_site%/}"
-
 sitemap_output='sitemap.xml'
 
+directory_excluded=(
+	'./.git/'
+	'./.github/'
+	'./node_modules/'
+	'./modules/'
+	'./logo/'
+	'./assets/'
+	'./images/'
+	'./renders/'
+	'./exports/'
+)
+
 # defaults /////////////////////////////////////////////////////////////////////
+
+url_site="${address_site%/}"
 
 page_count=0
 
 # functions ////////////////////////////////////////////////////////////////////
+
+directory_excluded_check () {
+
+	file_path="${1}"
+
+	for directory_path in "${directory_excluded[@]}"
+	do
+		if [[ "${file_path}" == "${directory_path}"* ]]
+		then
+			return 0
+		fi
+	done
+
+	return 1
+
+}
 
 url_crawl () {
 
@@ -113,79 +136,42 @@ URL
 frobulator.fwd "Writing..."
 echo
 
-# sitemap - header
-
-# overwrite previous map file
-
 cat > "${sitemap_output}" << HEADER
 <?xml version="1.0" encoding="UTF-8"?>
 
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 HEADER
 
-# write homepage
-
-if [ -f './index.html' ]
-then
-	url_crawl './index.html' './index.html'
-fi
-
-# crawl index pages
+# crawl index pages /////////////////////////////////////////////////////////////
 
 while IFS= read -r file_path
 do
-	if [  "${file_path}" = './index.html' ] ||
-	   [[ "${file_path}" == ./modules/*  ]] ||
-	   [[ "${file_path}" == ./logo/*     ]] ||
-	   [[ "${file_path}" == ./assets/*   ]] ||
-	   [[ "${file_path}" == ./images/*   ]] ||
-	   [[ "${file_path}" == ./renders/*  ]]
+	if directory_excluded_check "${file_path}"
 	then
 		continue
 	fi
 
-	# write index pages
-
 	url_crawl "${file_path}" "${file_path}"
 
-done < <( find . -type f -name 'index.html' | sort )
+done < <(
+	find . \
+		-type f \
+		-name 'index.html' \
+		| sort
+)
 
-# crawl model folders
-
-if [ -d './models' ]
-then
-	while IFS= read -r directory_path
-	do
-		if [ -f "${directory_path}/index.html" ]
-		then
-			continue
-		fi
-
-		if [ -f "${directory_path}/model.dae" ] ||
-		   [ -d "${directory_path}/renders"   ] ||
-		   [ -d "${directory_path}/exports"   ]
-		then
-
-			# write model directory urls
-
-			url_crawl "${directory_path}" "${directory_path}"
-		fi
-
-	done < <( find ./models -mindepth 2 -maxdepth 2 -type d | sort )
-fi
-
-# write footer
+# write footer /////////////////////////////////////////////////////////////////
 
 cat >> "${sitemap_output}" << FOOTER
 
 </urlset>
 FOOTER
 
-# report
+# report ///////////////////////////////////////////////////////////////////////
 
 if [ "${page_count}" -eq 0 ]
 then
-	frobulator.err "No URLs found" "[ '${site_url}' ]"
+	frobulator.err "No URLs found" "[ ${url_site} ]"
 	echo
 
 	frobulator.wrn "Script must be run from site root directory."
