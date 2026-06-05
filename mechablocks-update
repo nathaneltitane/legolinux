@@ -92,6 +92,10 @@ do
 			option="viewer"
 		;;
 
+		-x|--index)
+			option="index"
+		;;
+
 		-h|--help)
 			echo
 			echo -e "Usage: ./${script} [DIRECTORY] | [OPTION] [PARAMETER]"
@@ -109,6 +113,7 @@ do
 			echo -e "-r, --drawer        Drawer content update."
 			echo -e "-u, --menu          Models menu content update."
 			echo -e "-v, --viewer        Models viewer content update."
+			echo -e "-x, --index         Website indexing sitemap update."
 			echo
 			echo -e "'${script}'         [ Version ${version} ]"
 			echo
@@ -210,6 +215,7 @@ then
 		mechablocks-drawer
 #		mechablocks-menu
 		mechablocks-viewer
+		mechablocks-index
 	)
 fi
 
@@ -266,6 +272,13 @@ if [[ "${option}" = "viewer" ]]
 then
 	list+=(
 		mechablocks-viewer
+	)
+fi
+
+if [[ "${option}" = "index" ]]
+then
+	list+=(
+		mechablocks-index
 	)
 fi
 
