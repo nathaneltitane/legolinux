@@ -53,15 +53,13 @@ frobulator.script "Setting up ${script#*-}"
 
 # variables ////////////////////////////////////////////////////////////////
 
+server_directory="${PWD}"
+
 address_site='https://mechablocks.com'
 
 output_sitemap='sitemap.xml'
 
 # defaults /////////////////////////////////////////////////////////////////////
-
-url_site="${address_site%/}"
-
-page_count=0
 
 directories_exclude_list=(
 	'./.git/'
@@ -74,6 +72,10 @@ directories_exclude_list=(
 	'./renders/'
 	'./exports/'
 )
+
+url_site="${address_site%/}"
+
+page_count=0
 
 # functions ////////////////////////////////////////////////////////////////////
 
