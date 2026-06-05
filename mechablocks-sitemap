@@ -52,7 +52,7 @@ frobulator.script "Setting up ${script#*-}"
 address_site='https://mechablocks.com'
 output_sitemap='sitemap.xml'
 
-directory_excluded=(
+directories_exclude_list=(
 	'./.git/'
 	'./.github/'
 	'./node_modules/'
@@ -76,7 +76,7 @@ directory_excluded_check () {
 
 	file_path="${1}"
 
-	for directory_path in "${directory_excluded[@]}"
+	for directory_path in "${directories_exclude_list[@]}"
 	do
 		if [[ "${file_path}" == "${directory_path}"* ]]
 		then
