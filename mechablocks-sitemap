@@ -144,7 +144,11 @@ HEADER
 
 # crawl index pages /////////////////////////////////////////////////////////////
 
-while IFS= read -r file_path
+IFS=$'\n'
+
+index_files=$(find . -type f -name 'index.html' | sort)
+
+for file_path in ${index_files}
 do
 	if directory_excluded_check "${file_path}"
 	then
@@ -152,13 +156,9 @@ do
 	fi
 
 	url_crawl "${file_path}" "${file_path}"
+done
 
-done < <(
-	find . \
-		-type f \
-		-name 'index.html' \
-		| sort
-)
+unset IFS
 
 # write footer /////////////////////////////////////////////////////////////////
 
