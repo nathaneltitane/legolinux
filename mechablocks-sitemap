@@ -88,7 +88,7 @@ directory_excluded_check () {
 
 }
 
-url_crawl () {
+url_index () {
 
 	url_path="${1}"
 	file_path="${2}"
@@ -155,7 +155,7 @@ do
 		continue
 	fi
 
-	url_crawl "${file_path}" "${file_path}"
+	url_index "${file_path}" "${file_path}"
 done
 
 unset IFS
