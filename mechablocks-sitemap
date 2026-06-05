@@ -50,7 +50,7 @@ frobulator.script "Setting up ${script#*-}"
 # configuration ////////////////////////////////////////////////////////////////
 
 address_site='https://mechablocks.com'
-sitemap_output='sitemap.xml'
+output_sitemap='sitemap.xml'
 
 directory_excluded=(
 	'./.git/'
@@ -112,7 +112,7 @@ url_crawl () {
 
 	frequency_change="weekly"
 
-	cat >> "${sitemap_output}" << URL
+	cat >> "${output_sitemap}" << URL
 
 	<url>
 
@@ -136,7 +136,7 @@ URL
 frobulator.fwd "Writing..."
 echo
 
-cat > "${sitemap_output}" << HEADER
+cat > "${output_sitemap}" << HEADER
 <?xml version="1.0" encoding="UTF-8"?>
 
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -162,7 +162,7 @@ done < <(
 
 # write footer /////////////////////////////////////////////////////////////////
 
-cat >> "${sitemap_output}" << FOOTER
+cat >> "${output_sitemap}" << FOOTER
 
 </urlset>
 FOOTER
@@ -179,7 +179,7 @@ then
 
 	exit 1
 else
-	frobulator.inf "Sitemap written" "[ ${sitemap_output} ]"
+	frobulator.inf "Sitemap written" "[ ${output_sitemap} ]"
 	echo
 
 	frobulator.inf "URL count" "[ ${page_count} ]"
