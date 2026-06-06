@@ -41,17 +41,13 @@ script=$(basename -- "${BASH_SOURCE[0]}")
 
 # version //////////////////////////////////////////////////////////////////////
 
-version="06-04-2026"
-
-version="06-04-2026"
-
-# usage ////////////////////////////////////////////////////////////////////////
+version="06-06-2026"
 
 # prompt ///////////////////////////////////////////////////////////////////////
 
 frobulator.script "Setting up ${script#*-}"
 
-# variables ////////////////////////////////////////////////////////////////
+# variables ////////////////////////////////////////////////////////////////////
 
 server_directory="${PWD}"
 
@@ -59,7 +55,10 @@ address_site='https://mechablocks.com'
 
 output_sitemap='sitemap.xml'
 
-# defaults /////////////////////////////////////////////////////////////////////
+index_homepage='./index.html'
+
+marker_schema_begin='<!-- schema-itemlist-begin -->'
+marker_schema_end='<!-- schema-itemlist-end -->'
 
 directories_exclude_list=(
 	'./.git/'
@@ -73,9 +72,17 @@ directories_exclude_list=(
 	'./exports/'
 )
 
+directories_schema_list=(
+	'./models/'
+)
+
+# defaults /////////////////////////////////////////////////////////////////////
+
 url_site="${address_site%/}"
 
 page_count=0
+
+schema_urls=()
 
 # functions ////////////////////////////////////////////////////////////////////
 
@@ -95,10 +102,25 @@ directory_excluded_check () {
 
 }
 
-url_index () {
+schema_included_check () {
+
+	file_path="${1}"
+
+	for directory_path in "${directories_schema_list[@]}"
+	do
+		if [[ "${file_path}" == "${directory_path}"* ]]
+		then
+			return 0
+		fi
+	done
+
+	return 1
+
+}
+
+url_prepare () {
 
 	url_path="${1}"
-	file_path="${2}"
 
 	url_path="${url_path#./}"
 	url_path="${url_path#index.html}"
@@ -115,6 +137,16 @@ url_index () {
 
 	url_path="${url_path//\/\//\/}"
 
+	url_full="${url_site}${url_path}"
+
+}
+
+url_index () {
+
+	url_prepare "${1}"
+
+	file_path="${2}"
+
 	date_modified="$(date -u -r "${file_path}" '+%Y-%m-%d')"
 
 	frequency_change="weekly"
@@ -123,7 +155,7 @@ url_index () {
 
 	<url>
 
-		<loc>${url_site}${url_path}</loc>
+		<loc>${url_full}</loc>
 
 		<lastmod>${date_modified}</lastmod>
 
@@ -135,6 +167,113 @@ url_index () {
 URL
 
 	(( page_count++ ))
+
+}
+
+schema_itemlist_write () {
+
+	output_schema="${1}"
+
+	schema_count="${#schema_urls[@]}"
+
+	position=0
+
+	cat > "${output_schema}" << SCHEMA-BEGIN
+
+					"mainEntity": {
+						"@type": "ItemList",
+						"numberOfItems": ${schema_count},
+						"itemListElement": [
+SCHEMA-BEGIN
+
+	for schema_url in "${schema_urls[@]}"
+	do
+		(( position++ ))
+
+		if [ "${position}" -lt "${schema_count}" ]
+		then
+			separator=','
+		else
+			separator=''
+		fi
+
+		cat >> "${output_schema}" << SCHEMA-ITEM
+							{
+								"@type": "ListItem",
+								"position": ${position},
+								"url": "${schema_url}"
+							}${separator}
+SCHEMA-ITEM
+	done
+
+	cat >> "${output_schema}" << SCHEMA-END
+						]
+					}
+
+SCHEMA-END
+
+}
+
+schema_homepage_update () {
+
+	if [ ! -f "${index_homepage}" ]
+	then
+		frobulator.wrn "Homepage not found" "[ ${index_homepage} ]"
+		echo
+
+		return 1
+	fi
+
+	if ! grep -q "${marker_schema_begin}" "${index_homepage}" ||
+	   ! grep -q "${marker_schema_end}" "${index_homepage}"
+	then
+		frobulator.wrn "Schema markers not found" "[ ${index_homepage} ]"
+		echo
+
+		return 1
+	fi
+
+	output_schema="$(mktemp)"
+	output_homepage="$(mktemp)"
+
+	schema_itemlist_write "${output_schema}"
+
+	awk \
+		-v marker_begin="${marker_schema_begin}" \
+		-v marker_end="${marker_schema_end}" \
+		-v output_schema="${output_schema}" \
+		'
+			index($0, marker_begin) {
+				print
+
+				while ((getline line < output_schema) > 0) {
+					print line
+				}
+
+				skip = 1
+
+				next
+			}
+
+			index($0, marker_end) {
+				skip = 0
+
+				print
+
+				next
+			}
+
+			skip != 1 {
+				print
+			}
+		' "${index_homepage}" > "${output_homepage}"
+
+	mv "${output_homepage}" "${index_homepage}"
+
+	rm -f "${output_schema}"
+
+	frobulator.inf "Schema updated" "[ ${index_homepage} ]"
+	echo
 
 }
 
@@ -165,9 +304,20 @@ do
 	fi
 
 	url_index "${file_path}" "${file_path}"
+
+	if schema_included_check "${file_path}"
+	then
+		url_prepare "${file_path}"
+
+		schema_urls+=("${url_full}")
+	fi
 done
 
 unset IFS
+
+# write schema /////////////////////////////////////////////////////////////////
+
+schema_homepage_update
 
 # write footer /////////////////////////////////////////////////////////////////
 
@@ -192,6 +342,9 @@ else
 	echo
 
 	frobulator.inf "URL count" "[ ${page_count} ]"
+	echo
+
+	frobulator.inf "Schema URL count" "[ ${#schema_urls[@]} ]"
 	echo
 
 	frobulator.cpt "Complete" "[ Sitemap ]"

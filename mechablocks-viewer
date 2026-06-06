@@ -274,7 +274,7 @@ cat << 3D-MODEL-PAGE-HEADER -> "${model_directory}/index.html"
 		<!-- social media -->
 
 		<meta property="og:type"			content="website">
-		<meta property="og:site_name"		content="Mecha // Blocks">
+		<meta property="og:site_name"		content="MECHA // BLOCKS">
 		<meta property="og:url"				content="https://mechablocks.com/${model_directory}">
 		<meta property="og:title"			content="${model_title_string} - MECHA // BLOCKS [ MechaBlocks ]  - LEGO® Mecha MOC - 3D Preview & Instructions">
 		<meta property="og:description"		content="Build the ${model_title_string} from the ${model_category_title} collection: interactive 3D preview, dimensions, and LEGO® MOC building instructions.">
@@ -424,13 +424,19 @@ cat << 3D-MODEL-PAGE-HEADER -> "${model_directory}/index.html"
 				{
 					"@type": "ListItem",
 					"position": 2,
-					"name": "${model_category_title}",
-					"item": "https://mechablocks.com/${model_category_directory}"
+					"name": "Models",
+					"item": "https://mechablocks.com/models/"
 				},
 				{
 					"@type": "ListItem",
 					"position": 3,
-					"name": "${model_title}"
+					"name": "${model_category_title}",
+					"item": "https://mechablocks.com/${model_category_directory}/"
+				},
+				{
+					"@type": "ListItem",
+					"position": 4,
+					"name": "https://mechablocks.com/${model_category_directory}/${model_title}"
 				}
 			]
 		}
