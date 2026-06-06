@@ -217,6 +217,18 @@ schema_itemlist_write () {
 					}
 				},
 				{
+					"@type": "BreadcrumbList",
+					"@id": "https://mechablocks.com/#breadcrumbs",
+					"itemListElement": [
+						{
+							"@type": "ListItem",
+							"position": 1,
+							"name": "Home",
+							"item": "https://mechablocks.com/"
+						}
+					]
+				},
+				{
 					"@type": "CollectionPage",
 					"@id": "${address_site}/#collection",
 					"name": "MechaBlocks - LEGO® Mecha MOCs",
@@ -253,7 +265,7 @@ SCHEMA-ITEM
 
 	cat >> "${output_schema}" << SCHEMA-END
 						]
-					}
+					},
 					"breadcrumb": {
 						"@id": "${address_site}/#breadcrumbs"
 					}
