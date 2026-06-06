@@ -62,11 +62,13 @@ function footer_init ( ) {
 	// footer slot readiness check
 
 	var slot_identifiers_list = [ 'paypal', 'controls', 'plane', 'dimensions', 'minifig', 'wireframe', 'edges', 'camera', 'color', 'home','browse', 'contact', 'shop', 'github', 'donations' ] ;
+
 	var landing_slot_identifiers_list = [ 'home', 'browse', 'contact', 'shop', 'github', 'donations' ] ;
 
 	function slots ( ) {
 
 		var landing = !! document.getElementById ( 'landing' ) ;
+
 		var list = landing ? landing_slot_identifiers_list : slot_identifiers_list ;
 
 		console.log ( 'footer [ slot ] : check start', landing ? '- landing' : '- viewer' ) ;
@@ -115,6 +117,7 @@ function footer_init ( ) {
 				requestAnimationFrame ( function ( ) {
 
 					callback ( ) ;
+
 				} ) ;
 
 				return ;
@@ -370,7 +373,9 @@ function footer_init ( ) {
 		requestAnimationFrame ( function ( ) {
 
 			scroll ( footer_get ( ) ) ;
+
 		} ) ;
+
 	} ) ;
 
 	bootstrap_observer.observe ( footer_id, { childList: true, subtree: true } ) ;
@@ -381,7 +386,9 @@ function footer_init ( ) {
 if ( document.readyState === 'loading' ) {
 
 	document.addEventListener ( 'DOMContentLoaded', footer_init ) ;
+
 }
+
 else {
 
 	footer_init ( ) ;
