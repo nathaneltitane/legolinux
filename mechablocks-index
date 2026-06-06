@@ -83,6 +83,8 @@ url_site="${address_site%/}"
 
 page_count=0
 
+position=0
+
 url_schemas=()
 
 # functions ////////////////////////////////////////////////////////////////////
@@ -176,8 +178,6 @@ schema_itemlist_write () {
 	output_schema="${1}"
 
 	schema_count="${#url_schemas[@]}"
-
-	position=0
 
 	cat > "${output_schema}" << SCHEMA-BEGIN
 
