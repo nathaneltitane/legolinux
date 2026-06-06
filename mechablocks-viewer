@@ -5246,13 +5246,13 @@ cat << 3D-MODEL-PAGE-SAMPLES ->> "${model_directory}/index.html"
 
 										<dd>
 
-											A: Yes. Use the 3D preview tool icons to toggle edges and dimensions and inspect width, height, and depth.
+											A: Yes. Use the 3D preview tool icons to play with the scene, toggle edges, show dimensions and inspect other details.
 
 											</br>
 
 											</br>
 
-											TIP: TOGGLE THE MINIFIG TOOL ICON TO GET AN IDEA OF THE SCALE!
+											TIP: Nothing beats the minifig scale: Toggle the minifig to get an idea of how big the model is!
 
 										</dd>
 
@@ -5555,9 +5555,9 @@ cat << 3D-MODEL-PAGE-HELPERS ->> "${model_directory}/index.html"
 
 					</div>
 
-					<!-- dimensions -->
+					<!-- details -->
 
-					<div id="dimensions">
+					<div id="details">
 
 					</div>
 

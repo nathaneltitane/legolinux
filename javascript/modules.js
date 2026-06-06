@@ -80,9 +80,9 @@ $( function ( ) {
 
 		} ) ;
 
-		$.get ( '/modules/dimensions.html', function ( data ) {
+		$.get ( '/modules/details.html', function ( data ) {
 
-			$( '#dimensions' ).append ( data ) ;
+			$( '#details' ).append ( data ) ;
 
 		} ) ;
 
