@@ -132,6 +132,7 @@ function footer_init ( ) {
 	function scroll ( footer ) {
 
 		var arrow_left = document.querySelector ( '#footer-start .footer-start' ) ;
+
 		var arrow_right = document.querySelector ( '#footer-end .footer-end' ) ;
 
 		// do not show arrows if not laid out and loaded
@@ -139,6 +140,7 @@ function footer_init ( ) {
 		if ( ! footer || footer.clientWidth <= 0 ) {
 
 			if ( arrow_left ) arrow_left.classList.remove ( 'footer-right' ) ;
+
 			if ( arrow_right ) arrow_right.classList.remove ( 'footer-left' ) ;
 
 			return ;
