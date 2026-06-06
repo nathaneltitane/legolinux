@@ -489,11 +489,11 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					<br/>
 
-					or play with the scene, and purchase step-by-step
+					or play with the scene, and purchase
 
 					<br/>
 
-					building instructions!
+					step-by-step building instructions!
 			</p>
 
 		</header>
