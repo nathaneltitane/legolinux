@@ -51,7 +51,7 @@ frobulator.script "Setting up ${script#*-}"
 
 server_directory="${PWD}"
 
-address_site='https://mechablocks.com'
+site_address='https://mechablocks.com'
 
 site_name='MechaBlocks'
 
@@ -60,6 +60,8 @@ site_name_stylized='MECHA // BLOCKS'
 site_description='Custom LEGO® Mecha MOCs, 3D Viewer & Building Instructions'
 
 site_slogan='Where LEGO® meets Open Source'
+
+site_logo='logo/logo-red.png'
 
 output_sitemap='sitemap.xml'
 
@@ -87,7 +89,7 @@ directories_schema_list=(
 
 # defaults /////////////////////////////////////////////////////////////////////
 
-url_site="${address_site%/}"
+url_site="${site_address%/}"
 
 page_count=0
 
@@ -198,28 +200,28 @@ schema_itemlist_write () {
 			"@graph": [
 				{
 					"@type": "WebSite",
-					"@id": "${address_site}/#website",
+					"@id": "${site_address}/#website",
 					"name": "${site_name}",
 					"alternateName": "${site_name_stylized}",
-					"url": "${address_site}/",
+					"url": "${site_address}/",
 					"description": "${site_description}",
 					"publisher": {
-						"@id": "${address_site}/#organization"
+						"@id": "${site_address}/#organization"
 					}
 				},
 				{
 					"@type": "Organization",
-					"@id": "${address_site}/#organization",
+					"@id": "${site_address}/#organization",
 					"name": "${site_name}",
 					"alternateName": [
 						"${site_name_stylized}",
 						"${site_name}"
 					],
-					"url": "${address_site}/",
+					"url": "${site_address}/",
 					"slogan": "${site_slogan}",
 					"logo": {
 						"@type": "ImageObject",
-						"url": "${address_site}/logo/logo-red.png"
+						"url": "${site_address}/${site_logo}"
 					},
 					"founder": {
 						"@type": "Person",
@@ -228,24 +230,24 @@ schema_itemlist_write () {
 				},
 				{
 					"@type": "BreadcrumbList",
-					"@id": "${address_site}/#breadcrumbs",
+					"@id": "${site_address}/#breadcrumbs",
 					"itemListElement": [
 						{
 							"@type": "ListItem",
 							"position": 1,
 							"name": "Home",
-							"item": "${address_site}/"
+							"item": "${site_address}/"
 						}
 					]
 				},
 				{
 					"@type": "CollectionPage",
-					"@id": "${address_site}/#collection",
+					"@id": "${site_address}/#collection",
 					"name": "${site_name} - LEGO® Mecha MOCs",
-					"url": "${address_site}/",
+					"url": "${site_address}/",
 					"description": "${site_description}",
 					"isPartOf": {
-						"@id": "${address_site}/#website"
+						"@id": "${site_address}/#website"
 					},
 					"mainEntity": {
 						"@type": "ItemList",
@@ -277,7 +279,7 @@ SCHEMA-ITEM
 						]
 					},
 					"breadcrumb": {
-						"@id": "${address_site}/#breadcrumbs"
+						"@id": "${site_address}/#breadcrumbs"
 					}
 				}
 			]
