@@ -27,6 +27,8 @@ function footer_init ( ) {
 
 		console.log ( 'footer [ state ] : hide' ) ;
 
+		$('.footing').removeClass('footing-open');
+
 		footer_id.classList.remove ( 'footer-show' ) ;
 		footer_id.classList.add ( 'footer-hide' ) ;
 	}
@@ -34,6 +36,8 @@ function footer_init ( ) {
 	function show ( footer ) {
 
 		console.log ( 'footer [ state ] : show' ) ;
+
+		$('.footing').addClass('footing-open');
 
 		footer_id.classList.remove ( 'footer-hide' ) ;
 		footer_id.classList.add ( 'footer-show' ) ;
@@ -140,7 +144,6 @@ function footer_init ( ) {
 		if ( ! footer || footer.clientWidth <= 0 ) {
 
 			if ( arrow_left ) arrow_left.classList.remove ( 'footer-right' ) ;
-
 			if ( arrow_right ) arrow_right.classList.remove ( 'footer-left' ) ;
 
 			return ;

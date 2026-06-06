@@ -9,3 +9,8 @@
 	/* text-shadow: -1px -1px 0 #ffffffff, 1px -1px 0 #ffffffff, -1px 1px 0 #ffffffff, 1px 1px 0 #ffffffff; */
 }
 
+.footing-open {
+
+	bottom: 80px;
+}
+
