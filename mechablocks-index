@@ -158,6 +158,8 @@ url_index () {
 
 	frequency_change="weekly"
 
+	priority="0.80"
+
 	cat >> "${output_sitemap}" << URL
 
 	<url>
@@ -168,7 +170,7 @@ url_index () {
 
 		<changefreq>${frequency_change}</changefreq>
 
-		<priority>0.80</priority>
+		<priority>${priority}</priority>
 
 	</url>
 URL
