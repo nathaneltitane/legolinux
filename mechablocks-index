@@ -82,7 +82,7 @@ url_site="${address_site%/}"
 
 page_count=0
 
-schema_urls=()
+url_schemas=()
 
 # functions ////////////////////////////////////////////////////////////////////
 
@@ -174,7 +174,7 @@ schema_itemlist_write () {
 
 	output_schema="${1}"
 
-	schema_count="${#schema_urls[@]}"
+	schema_count="${#url_schemas[@]}"
 
 	position=0
 
@@ -186,7 +186,7 @@ schema_itemlist_write () {
 						"itemListElement": [
 SCHEMA-BEGIN
 
-	for schema_url in "${schema_urls[@]}"
+	for url_schema in "${url_schemas[@]}"
 	do
 		(( position++ ))
 
@@ -201,7 +201,7 @@ SCHEMA-BEGIN
 							{
 								"@type": "ListItem",
 								"position": ${position},
-								"url": "${schema_url}"
+								"url": "${url_schema}"
 							}${separator}
 SCHEMA-ITEM
 	done
@@ -234,14 +234,15 @@ schema_homepage_update () {
 	fi
 
 	output_schema="$(mktemp)"
+
 	output_homepage="$(mktemp)"
 
 	schema_itemlist_write "${output_schema}"
 
-	awk \
-		-v marker_begin="${marker_schema_begin}" \
-		-v marker_end="${marker_schema_end}" \
-		-v output_schema="${output_schema}" \
+	awk												\
+		-v marker_begin="${marker_schema_begin}"	\
+		-v marker_end="${marker_schema_end}"		\
+		-v output_schema="${output_schema}"			\
 		'
 			index($0, marker_begin) {
 				print
@@ -309,7 +310,7 @@ do
 	then
 		url_prepare "${file_path}"
 
-		schema_urls+=("${url_full}")
+		url_schemas+=("${url_full}")
 	fi
 done
 
@@ -344,7 +345,7 @@ else
 	frobulator.inf "URL count" "[ ${page_count} ]"
 	echo
 
-	frobulator.inf "Schema URL count" "[ ${#schema_urls[@]} ]"
+	frobulator.inf "Schema URL count" "[ ${#url_schemas[@]} ]"
 	echo
 
 	frobulator.cpt "Complete" "[ Sitemap ]"
