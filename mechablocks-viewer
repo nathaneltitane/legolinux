@@ -4953,9 +4953,9 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 				} );
 
-				// dimensions toggle
+				// details toggle
 
-				document.getElementById ( 'dimensions' ).addEventListener ( 'click', function ( ) {
+				document.getElementById ( 'details' ).addEventListener ( 'click', function ( ) {
 
 					self.dimensions_toggle_ ( ) ;
 					self.pieces_count_toggle_ ( ) ;
