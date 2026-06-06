@@ -1,14 +1,12 @@
 #console-overlay {
 	position: fixed;
 
-	top: 170px;
+	bottom: calc( 80px + 10px );
 	right: 10px;
 	left: 10px;
 
 	/* limit height: viewport minus top offset minus bottom clearance */
 	max-height: calc(100vh - 170px - 90px);
-
-	z-index: 9998;
 
 	/* required for scrolling */
 	overflow-y: auto;
