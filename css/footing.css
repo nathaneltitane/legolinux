@@ -10,7 +10,9 @@
 }
 
 .footing-open {
-
 	bottom: 80px;
 }
 
+.footing-close {
+	bottom: 0px;
+}
