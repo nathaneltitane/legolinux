@@ -140,6 +140,14 @@ $( function ( ) {
 
 		} ) ;
 
+		// home //
+
+		$.get ( '/modules/home.html', function ( data ) {
+
+			$( '#home' ).append ( data ) ;
+
+		} ) ;
+
 	}
 
 } ) ;

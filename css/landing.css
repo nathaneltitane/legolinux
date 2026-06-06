@@ -6,6 +6,19 @@
 	position: absolute;
 	top: 0px;
 
-	/* text-shadow: -1px -1px 0 #ffffffff, 1px -1px 0 #ffffffff, -1px 1px 0 #ffffffff, 1px 1px 0 #ffffffff; */
+	opacity: 0;
+
+	animation: landing-reveal 0.75s ease forwards;
 }
 
+@keyframes landing-reveal {
+
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+
+}
