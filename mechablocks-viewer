@@ -238,7 +238,7 @@ cat << 3D-MODEL-PAGE-HEADER -> "${model_directory}/index.html"
 
 		<!-- page -->
 
-		<meta name="title"					content="MECHA // BLOCKS [ MechaBlocks  - ${model_title_string} - LEGO® Mecha MOC - 3D Preview & Instructions">
+		<meta name="title"					content="MECHA // BLOCKS [ MechaBlocks ]  - ${model_title_string} - LEGO® Mecha MOC - 3D Preview & Instructions">
 		<meta name="description"			content="Build the ${model_title_string} from the ${model_category_title} collection: interactive 3D preview, dimensions, and LEGO® MOC building instructions.">
 
 		<!-- domain -->
@@ -485,7 +485,7 @@ cat << 3D-MODEL-PAGE-VIEWER ->> "${model_directory}/index.html"
 
 					<br/>
 
-					Preview the model in 3D, explore details play with the scene,
+					Preview the model in 3D, explore details or play with the scene,
 
 					<br/>
 
