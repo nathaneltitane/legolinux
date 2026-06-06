@@ -53,6 +53,10 @@ server_directory="${PWD}"
 
 address_site='https://mechablocks.com'
 
+site_name='MechaBlocks'
+
+site_name_stylized='MECHA // BLOCKS'
+
 output_sitemap='sitemap.xml'
 
 index_homepage='./index.html'
@@ -189,8 +193,8 @@ schema_itemlist_write () {
 				{
 					"@type": "WebSite",
 					"@id": "${address_site}/#website",
-					"name": "MechaBlocks",
-					"alternateName": "MECHA // BLOCKS",
+					"name": "${site_name}",
+					"alternateName": "${site_name_stylized}",
 					"url": "${address_site}/",
 					"description": "Where LEGO® meets Open Source. Custom LEGO® mecha MOCs with interactive 3D viewer and building instructions.",
 					"publisher": {
@@ -202,8 +206,8 @@ schema_itemlist_write () {
 					"@id": "${address_site}/#organization",
 					"name": "MechaBlocks",
 					"alternateName": [
-						"MECHA // BLOCKS",
-						"Mecha Blocks"
+						"${site_name_stylized}",
+						"${site_name}"
 					],
 					"url": "${address_site}/",
 					"slogan": "Where LEGO® meets Open Source",
@@ -218,20 +222,20 @@ schema_itemlist_write () {
 				},
 				{
 					"@type": "BreadcrumbList",
-					"@id": "https://mechablocks.com/#breadcrumbs",
+					"@id": "${address_site}/#breadcrumbs",
 					"itemListElement": [
 						{
 							"@type": "ListItem",
 							"position": 1,
 							"name": "Home",
-							"item": "https://mechablocks.com/"
+							"item": "${address_site}/"
 						}
 					]
 				},
 				{
 					"@type": "CollectionPage",
 					"@id": "${address_site}/#collection",
-					"name": "MechaBlocks - LEGO® Mecha MOCs",
+					"name": "${site_name} - LEGO® Mecha MOCs",
 					"url": "${address_site}/",
 					"description": "Custom LEGO® mecha MOCs with interactive 3D previews and building instructions.",
 					"isPartOf": {
