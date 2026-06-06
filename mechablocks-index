@@ -57,6 +57,10 @@ site_name='MechaBlocks'
 
 site_name_stylized='MECHA // BLOCKS'
 
+site_description='Custom LEGO® Mecha MOCs, 3D Viewer & Building Instructions'
+
+site_slogan='Where LEGO® meets Open Source'
+
 output_sitemap='sitemap.xml'
 
 index_homepage='./index.html'
@@ -198,7 +202,7 @@ schema_itemlist_write () {
 					"name": "${site_name}",
 					"alternateName": "${site_name_stylized}",
 					"url": "${address_site}/",
-					"description": "Where LEGO® meets Open Source. Custom LEGO® mecha MOCs with interactive 3D viewer and building instructions.",
+					"description": "${site_description}",
 					"publisher": {
 						"@id": "${address_site}/#organization"
 					}
@@ -206,13 +210,13 @@ schema_itemlist_write () {
 				{
 					"@type": "Organization",
 					"@id": "${address_site}/#organization",
-					"name": "MechaBlocks",
+					"name": "${site_name}",
 					"alternateName": [
 						"${site_name_stylized}",
 						"${site_name}"
 					],
 					"url": "${address_site}/",
-					"slogan": "Where LEGO® meets Open Source",
+					"slogan": "${site_slogan}",
 					"logo": {
 						"@type": "ImageObject",
 						"url": "${address_site}/logo/logo-red.png"
@@ -239,7 +243,7 @@ schema_itemlist_write () {
 					"@id": "${address_site}/#collection",
 					"name": "${site_name} - LEGO® Mecha MOCs",
 					"url": "${address_site}/",
-					"description": "Custom LEGO® mecha MOCs with interactive 3D previews and building instructions.",
+					"description": "${site_description}",
 					"isPartOf": {
 						"@id": "${address_site}/#website"
 					},
