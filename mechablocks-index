@@ -58,6 +58,7 @@ output_sitemap='sitemap.xml'
 index_homepage='./index.html'
 
 marker_schema_begin='<!-- schema-itemlist-begin -->'
+
 marker_schema_end='<!-- schema-itemlist-end -->'
 
 directories_exclude_list=(
@@ -180,6 +181,50 @@ schema_itemlist_write () {
 
 	cat > "${output_schema}" << SCHEMA-BEGIN
 
+		<script type="application/ld+json">
+
+		{
+			"@context": "https://schema.org",
+			"@graph": [
+				{
+					"@type": "WebSite",
+					"@id": "${address_site}/#website",
+					"name": "MechaBlocks",
+					"alternateName": "MECHA // BLOCKS",
+					"url": "${address_site}/",
+					"description": "Where LEGO® meets Open Source. Custom LEGO® mecha MOCs with interactive 3D viewer and building instructions.",
+					"publisher": {
+						"@id": "${address_site}/#organization"
+					}
+				},
+				{
+					"@type": "Organization",
+					"@id": "${address_site}/#organization",
+					"name": "MechaBlocks",
+					"alternateName": [
+						"MECHA // BLOCKS",
+						"Mecha Blocks"
+					],
+					"url": "${address_site}/",
+					"slogan": "Where LEGO® meets Open Source",
+					"logo": {
+						"@type": "ImageObject",
+						"url": "${address_site}/logo/logo-red.png"
+					},
+					"founder": {
+						"@type": "Person",
+						"name": "Nathanel Titane"
+					}
+				},
+				{
+					"@type": "CollectionPage",
+					"@id": "${address_site}/#collection",
+					"name": "MechaBlocks - LEGO® Mecha MOCs",
+					"url": "${address_site}/",
+					"description": "Custom LEGO® mecha MOCs with interactive 3D previews and building instructions.",
+					"isPartOf": {
+						"@id": "${address_site}/#website"
+					},
 					"mainEntity": {
 						"@type": "ItemList",
 						"numberOfItems": ${schema_count},
@@ -209,7 +254,12 @@ SCHEMA-ITEM
 	cat >> "${output_schema}" << SCHEMA-END
 						]
 					}
-
+					"breadcrumb": {
+						"@id": "${address_site}/#breadcrumbs"
+					}
+				}
+			]
+		}
 SCHEMA-END
 
 }
