@@ -1,6 +1,12 @@
 User-agent: *
-Disallow: /logo
-Disallow: /modules
+
+Disallow: /javascript/
+Disallow: /modules/
+Disallow: /logo/
+Disallow: /assets/
+Disallow: /images/
+Disallow: /renders/
+
 Allow: /
 
 Sitemap: https://mechablocks.com/sitemap.xml
