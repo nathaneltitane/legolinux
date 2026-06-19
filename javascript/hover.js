@@ -1,23 +1,23 @@
 // hover
 
-// provide touch screen browser hover emulation
+// provide mouse and touch browser hover emulation
 
 $( document ).ready ( function ( ) {
 
-    $( '#background' ).bind ( 'touchstart', function ( event ) {
+	$( '#background' ).on ( 'mouseenter touchstart', function ( event ) {
 
-        event.preventDefault ( );
+		event.preventDefault ( );
 
-        $( '#background-overlay' ).addClass ( 'hover-background-overlay' );
+		$( '#background-overlay' ).addClass ( 'hover-background-overlay' );
 
-    });
+	});
 
-        $( '#background' ).bind ( 'touchend', function ( event ) {
+	$( '#background' ).on ( 'mouseleave touchend touchcancel', function ( event ) {
 
-        event.preventDefault ( );
+		event.preventDefault ( );
 
-        $( '#background-overlay' ).removeClass ( 'hover-background-overlay' );
+		$( '#background-overlay' ).removeClass ( 'hover-background-overlay' );
 
-    });
+	});
 
 });
