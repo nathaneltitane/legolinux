@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
 <asset>
-	<created>2026-07-28T21:05:07</created>
-	<modified>2026-07-28T21:05:07</modified>
+	<created>2026-07-28T21:09:35</created>
+	<modified>2026-07-28T21:09:35</modified>
 <unit name="LeoCAD" meter="0.0004" />
 	<up_axis>Z_UP</up_axis>
 </asset>
@@ -220438,519 +220438,6 @@
 			</triangles>
 		</mesh>
 	</geometry>
-	<geometry id="92946_dat">
-		<mesh>
-			<source id="92946_dat-pos">
-				<float_array id="92946_dat-pos-array" count="170">
-					0 16 0
-					-2.2962 15.5434 0
-					-4.2426 14.2426 0
-					-5.5434 12.2962 0
-					-6 10 0
-					-5.5434 7.7038 0
-					-4.2426 5.7574 0
-					-2.2962 4.4566 0
-					0 4 0
-					2.2962 4.4566 0
-					4.2426 5.7574 0
-					5.5434 7.7038 0
-					6 10 0
-					5.5434 12.2962 0
-					4.2426 14.2426 0
-					2.2962 15.5434 0
-					0 16 4
-					-2.2962 15.5434 4
-					-4.2426 14.2426 4
-					-5.5434 12.2962 4
-					-6 10 4
-					-5.5434 7.7038 4
-					-4.2426 5.7574 4
-					-2.2962 4.4566 4
-					0 4 4
-					2.2962 4.4566 4
-					4.2426 5.7574 4
-					5.5434 7.7038 4
-					6 10 4
-					5.5434 12.2962 4
-					4.2426 14.2426 4
-					2.2962 15.5434 4
-					0 10 4
-					0 16 4
-					-2.2962 15.5434 4
-					-4.2426 14.2426 4
-					-5.5434 12.2962 4
-					-6 10 4
-					-5.5434 7.7038 4
-					-4.2426 5.7574 4
-					-2.2962 4.4566 4
-					0 4 4
-					2.2962 4.4566 4
-					4.2426 5.7574 4
-					5.5434 7.7038 4
-					6 10 4
-					5.5434 12.2962 4
-					4.2426 14.2426 4
-					2.2962 15.5434 4
-					10 20 0
-					-10 20 0
-					10 0 0
-					-10 0 0
-					10 20 -8
-					-10 20 -8
-					10 20 0
-					-10 20 0
-					10 0 16
-					-10 0 16
-					10 0 0
-					-10 0 0
-					10 0 0
-					10 -20 -8
-					10 20 -8
-					10 20 0
-					10 0 16
-					10 -20 -4
-					-10 20 0
-					-10 20 -8
-					-10 -20 -8
-					-10 0 0
-					-10 -20 -4
-					-10 0 16
-					4 0 -8
-					3.6956 1.5308 -8
-					2.8284 2.8284 -8
-					1.5308 3.6956 -8
-					0 4 -8
-					-1.5308 3.6956 -8
-					-2.8284 2.8284 -8
-					-3.6956 1.5308 -8
-					-4 0 -8
-					-3.6956 -1.5308 -8
-					-2.8284 -2.8284 -8
-					-1.5308 -3.6956 -8
-					0 -4 -8
-					1.5308 -3.6956 -8
-					2.8284 -2.8284 -8
-					3.6956 -1.5308 -8
-					4 0 -4
-					3.6956 1.5308 -4
-					2.8284 2.8284 -4
-					1.5308 3.6956 -4
-					0 4 -4
-					-1.5308 3.6956 -4
-					-2.8284 2.8284 -4
-					-3.6956 1.5308 -4
-					-4 0 -4
-					-3.6956 -1.5308 -4
-					-2.8284 -2.8284 -4
-					-1.5308 -3.6956 -4
-					0 -4 -4
-					1.5308 -3.6956 -4
-					2.8284 -2.8284 -4
-					3.6956 -1.5308 -4
-					0 0 -8
-					3.6956 1.5308 -8
-					4 0 -8
-					2.8284 2.8284 -8
-					1.5308 3.6956 -8
-					0 4 -8
-					-1.5308 3.6956 -8
-					-2.8284 2.8284 -8
-					-3.6956 1.5308 -8
-					-4 0 -8
-					-3.6956 -1.5308 -8
-					-2.8284 -2.8284 -8
-					-1.5308 -3.6956 -8
-					0 -4 -8
-					1.5308 -3.6956 -8
-					2.8284 -2.8284 -8
-					3.6956 -1.5308 -8
-					6 -4 -4
-					-6 -4 -4
-					6 16 -4
-					-6 16 -4
-					6 -4 8
-					-6 -4 8
-					6 -4 -4
-					-6 -4 -4
-					6 -16 -8
-					6 16 -8
-					-6 16 -8
-					-6 -16 -8
-					6 -16 -4
-					6 16 -4
-					-6 -16 -4
-					-6 16 -4
-					6 16 -8
-					6 16 -4
-					-6 16 -8
-					-6 16 -4
-					6 -16 -4
-					6 -16 -8
-					-6 -16 -8
-					-6 -16 -4
-					6 -16 -4
-					-6 -16 -4
-					6 -4 8
-					-6 -4 8
-					6 -4 -4
-					6 -4 8
-					-6 -4 8
-					-6 -4 -4
-					10 -20 -8
-					10 -20 -4
-					-10 -20 -4
-					-10 -20 -8
-					-6 16 -8
-					-10 20 -8
-					10 20 -8
-					6 16 -8
-					10 -20 -8
-					6 -16 -8
-					-10 -20 -8
-					-6 -16 -8
-					-10 -20 -4
-					10 -20 -4
-					10 0 16
-					-10 0 16
-				</float_array>
-				<technique_common>
-					<accessor source="#92946_dat-pos-array" count="170" stride="3">
-						<param name="X" type="float" />
-						<param name="Y" type="float" />
-						<param name="Z" type="float" />
-					</accessor>
-				</technique_common>
-			</source>
-			<source id="92946_dat-normal">
-				<float_array id="92946_dat-normal-array" count="170">
-					0.0393701 0.992126 0
-					-0.346457 0.929134 0
-					-0.677165 0.724409 0
-					-0.905512 0.409449 0
-					-0.992126 0.0314961 0
-					-0.929134 -0.346457 0
-					-0.724409 -0.677165 0
-					-0.409449 -0.905512 0
-					-0.0314961 -0.992126 0
-					0.346457 -0.929134 0
-					0.677165 -0.724409 0
-					0.905512 -0.409449 0
-					0.992126 -0.0314961 0
-					0.929134 0.346457 0
-					0.724409 0.677165 0
-					0.409449 0.905512 0
-					0.00787402 0.992126 0
-					-0.417323 0.905512 0
-					-0.732283 0.669291 0
-					-0.937008 0.338583 0
-					-0.992126 -0.0393701 0
-					-0.905512 -0.417323 0
-					-0.669291 -0.732283 0
-					-0.338583 -0.937008 0
-					0.0393701 -0.992126 0
-					0.417323 -0.905512 0
-					0.732283 -0.669291 0
-					0.937008 -0.338583 0
-					0.992126 0.0393701 0
-					0.905512 0.417323 0
-					0.669291 0.732283 0
-					0.338583 0.937008 0
-					0 0 1
-					0 0 1
-					0 0 1
-					0 0 1
-					0 0 1
-					0 0 1
-					0 0 1
-					0 0 1
-					0 0 1
-					0 0 1
-					0 0 1
-					0 0 1
-					0 0 1
-					0 0 1
-					0 0 1
-					0 0 1
-					0 0 1
-					0 0 1
-					0 0 1
-					0 0 1
-					0 0 1
-					0 1 0
-					0 1 0
-					0 1 0
-					0 1 0
-					0 1 0
-					0 1 0
-					0 1 0
-					0 1 0
-					1 0 0
-					1 0 0
-					1 0 0
-					1 0 0
-					1 0 0
-					1 0 0
-					-1 0 0
-					-1 0 0
-					-1 0 0
-					-1 0 0
-					-1 0 0
-					-0.992126 0 0
-					0 0 -1
-					0 0 -1
-					0 0 -1
-					0 0 -1
-					0 0 -1
-					0 0 -1
-					0 0 -1
-					0 0 -1
-					0 0 -1
-					0 0 -1
-					0 0 -1
-					0 0 -1
-					0 0 -1
-					0 0 -1
-					0 0 -1
-					0 0 -1
-					0.992126 -0.00787402 0
-					0.905512 0.417323 0
-					0.669291 0.732283 0
-					0.338583 0.937008 0
-					-0.0393701 0.992126 0
-					-0.417323 0.905512 0
-					-0.732283 0.669291 0
-					-0.937008 0.338583 0
-					-0.992126 -0.0393701 0
-					-0.905512 -0.417323 0
-					-0.669291 -0.732283 0
-					-0.338583 -0.937008 0
-					0.0393701 -0.992126 0
-					0.417323 -0.905512 0
-					0.732283 -0.669291 0
-					0.937008 -0.338583 0
-					0 0 -1
-					0.929134 0.346457 0
-					0.992126 -0.0393701 0
-					0.724409 0.677165 0
-					0.409449 0.905512 0
-					0.0314961 0.992126 0
-					-0.346457 0.929134 0
-					-0.677165 0.724409 0
-					-0.905512 0.409449 0
-					-0.992126 0.0314961 0
-					-0.929134 -0.346457 0
-					-0.724409 -0.677165 0
-					-0.409449 -0.905512 0
-					-0.0314961 -0.992126 0
-					0.346457 -0.929134 0
-					0.677165 -0.724409 0
-					0.905512 -0.409449 0
-					0 0 -1
-					0 0 -1
-					0 0 -1
-					0 0 -1
-					0 -1 0
-					0 -1 0
-					0 -1 0
-					0 -1 0
-					-1 0 0
-					-1 0 0
-					0 -1 0
-					1 0 0
-					-1 0 0
-					-1 0 0
-					1 0 0
-					0 -1 0
-					0 -1 0
-					0 -1 0
-					1 0 0
-					1 0 0
-					0 1 0
-					0 1 0
-					0 1 0
-					0 1 0
-					0 0.700787 -0.700787
-					0 0.700787 -0.700787
-					0 0.700787 -0.700787
-					0 0.700787 -0.700787
-					-1 0 0
-					-1 0 0
-					1 0 0
-					1 0 0
-					0 -1 0
-					0 -1 0
-					0 -1 0
-					0 -1 0
-					0 0 -1
-					0 0 -1
-					0 0 -1
-					0 0 -0.992126
-					0 0 -1
-					0 0 -1
-					0 0 -1
-					0 0 -0.992126
-					0 -0.700787 0.700787
-					0 -0.700787 0.700787
-					0 -0.700787 0.700787
-					0 -0.700787 0.700787
-				</float_array>
-				<technique_common>
-					<accessor source="#92946_dat-normal-array" count="170" stride="3">
-						<param name="X" type="float" />
-						<param name="Y" type="float" />
-						<param name="Z" type="float" />
-					</accessor>
-				</technique_common>
-			</source>
-			<vertices id="92946_dat-vertices">
-				<input semantic="POSITION" source="#92946_dat-pos"/>
-			</vertices>
-			<triangles count="138" material="Main_Colour">
-			<input semantic="VERTEX" source="#92946_dat-vertices" offset="0" />
-			<input semantic="NORMAL" source="#92946_dat-normal" offset="0" />
-			<p>
-				 1 17 16
-				 16 0 1
-				 2 18 17
-				 17 1 2
-				 3 19 18
-				 18 2 3
-				 4 20 19
-				 19 3 4
-				 5 21 20
-				 20 4 5
-				 6 22 21
-				 21 5 6
-				 7 23 22
-				 22 6 7
-				 8 24 23
-				 23 7 8
-				 9 25 24
-				 24 8 9
-				 10 26 25
-				 25 9 10
-				 11 27 26
-				 26 10 11
-				 12 28 27
-				 27 11 12
-				 13 29 28
-				 28 12 13
-				 14 30 29
-				 29 13 14
-				 15 31 30
-				 30 14 15
-				 0 16 31
-				 31 15 0
-				 32 33 34
-				 32 34 35
-				 32 35 36
-				 32 36 37
-				 32 37 38
-				 32 38 39
-				 32 39 40
-				 32 40 41
-				 32 41 42
-				 32 42 43
-				 32 43 44
-				 32 44 45
-				 32 45 46
-				 32 46 47
-				 32 47 48
-				 32 48 33
-				 52 51 49
-				 49 50 52
-				 54 56 55
-				 55 53 54
-				 59 60 58
-				 58 57 59
-				 61 62 63
-				 63 64 61
-				 61 65 66
-				 66 62 61
-				 67 68 69
-				 69 70 67
-				 69 71 72
-				 72 70 69
-				 74 73 105
-				 75 74 105
-				 76 75 105
-				 77 76 105
-				 78 77 105
-				 79 78 105
-				 80 79 105
-				 81 80 105
-				 82 81 105
-				 83 82 105
-				 84 83 105
-				 85 84 105
-				 86 85 105
-				 87 86 105
-				 88 87 105
-				 73 88 105
-				 106 90 89
-				 89 107 106
-				 108 91 90
-				 90 106 108
-				 109 92 91
-				 91 108 109
-				 110 93 92
-				 92 109 110
-				 111 94 93
-				 93 110 111
-				 112 95 94
-				 94 111 112
-				 113 96 95
-				 95 112 113
-				 114 97 96
-				 96 113 114
-				 115 98 97
-				 97 114 115
-				 116 99 98
-				 98 115 116
-				 117 100 99
-				 99 116 117
-				 118 101 100
-				 100 117 118
-				 119 102 101
-				 101 118 119
-				 120 103 102
-				 102 119 120
-				 121 104 103
-				 103 120 121
-				 107 89 104
-				 104 121 107
-				 125 124 122
-				 122 123 125
-				 127 129 128
-				 128 126 127
-				 135 131 130
-				 130 134 135
-				 137 132 138
-				 138 139 137
-				 136 133 140
-				 140 141 136
-				 142 143 144
-				 144 145 142
-				 147 149 148
-				 148 146 147
-				 150 134 151
-				 152 136 153
-				 155 156 157
-				 157 154 155
-				 158 159 160
-				 160 161 158
-				 161 160 162
-				 162 163 161
-				 163 162 164
-				 164 165 163
-				 165 164 159
-				 159 158 165
-				 166 167 168
-				 168 169 166
-				</p>
-			</triangles>
-		</mesh>
-	</geometry>
 	<geometry id="18677_dat">
 		<mesh>
 			<source id="18677_dat-pos">
@@ -327447,21 +326934,6 @@
 		</node>
 		<node>
 			<matrix>
-				0 -1 0 0
-				0 0 -1 -10.811
-				1 0 0 39.94
-				0 0 0 1
-			</matrix>
-			<instance_geometry url="#3021_dat">
-				<bind_material>
-					<technique_common>
-						<instance_material symbol="Main_Colour" target="#Light_Bluish_Grey-material"/>
-					</technique_common>
-				</bind_material>
-			</instance_geometry>
-		</node>
-		<node>
-			<matrix>
 				1 0 0 0
 				0 0 1 85.189
 				0 -1 0 -60.06
@@ -327477,102 +326949,12 @@
 		</node>
 		<node>
 			<matrix>
-				1 0 0 0
-				0 0 1 85.189
-				0 -1 0 39.94
-				0 0 0 1
-			</matrix>
-			<instance_geometry url="#3660_dat">
-				<bind_material>
-					<technique_common>
-						<instance_material symbol="Main_Colour" target="#Light_Bluish_Grey-material"/>
-					</technique_common>
-				</bind_material>
-			</instance_geometry>
-		</node>
-		<node>
-			<matrix>
 				-1 0 0 0
 				0 0 -1 -2.811
 				0 -1 0 -60.06
 				0 0 0 1
 			</matrix>
 			<instance_geometry url="#3747b_dat">
-				<bind_material>
-					<technique_common>
-						<instance_material symbol="Main_Colour" target="#Light_Bluish_Grey-material"/>
-					</technique_common>
-				</bind_material>
-			</instance_geometry>
-		</node>
-		<node>
-			<matrix>
-				-1 0 0 0
-				0 0 -1 -2.811
-				0 -1 0 39.94
-				0 0 0 1
-			</matrix>
-			<instance_geometry url="#3660_dat">
-				<bind_material>
-					<technique_common>
-						<instance_material symbol="Main_Colour" target="#Light_Bluish_Grey-material"/>
-					</technique_common>
-				</bind_material>
-			</instance_geometry>
-		</node>
-		<node>
-			<matrix>
-				-1 0 0 -10
-				0 0 -1 -18.811
-				0 -1 0 49.94
-				0 0 0 1
-			</matrix>
-			<instance_geometry url="#92946_dat">
-				<bind_material>
-					<technique_common>
-						<instance_material symbol="Main_Colour" target="#Light_Bluish_Grey-material"/>
-					</technique_common>
-				</bind_material>
-			</instance_geometry>
-		</node>
-		<node>
-			<matrix>
-				-1 0 0 10
-				0 0 -1 -18.811
-				0 -1 0 49.94
-				0 0 0 1
-			</matrix>
-			<instance_geometry url="#92946_dat">
-				<bind_material>
-					<technique_common>
-						<instance_material symbol="Main_Colour" target="#Light_Bluish_Grey-material"/>
-					</technique_common>
-				</bind_material>
-			</instance_geometry>
-		</node>
-		<node>
-			<matrix>
-				-1 0 0 0
-				0 0 -1 -42.811
-				0 -1 0 39.94
-				0 0 0 1
-			</matrix>
-			<instance_geometry url="#3937_dat">
-				<bind_material>
-					<technique_common>
-						<instance_material symbol="Main_Colour" target="#Light_Bluish_Grey-material"/>
-					</technique_common>
-				</bind_material>
-			</instance_geometry>
-		</node>
-		<node>
-			<matrix>
-				-1 0 0 0
-				0 0 -1 -42.811
-				0 -1 0 39.94
-				0 0 0 1
-			</matrix>
-			<instance_geometry url="#3938_dat">
 				<bind_material>
 					<technique_common>
 						<instance_material symbol="Main_Colour" target="#Light_Bluish_Grey-material"/>
@@ -327587,7 +326969,142 @@
 				0 -1 0 39.94
 				0 0 0 1
 			</matrix>
-			<instance_geometry url="#3023_dat">
+			<instance_geometry url="#3937_dat">
+				<bind_material>
+					<technique_common>
+						<instance_material symbol="Main_Colour" target="#Light_Bluish_Grey-material"/>
+					</technique_common>
+				</bind_material>
+			</instance_geometry>
+		</node>
+		<node>
+			<matrix>
+				-1 0 0 0
+				0 0 -1 -26.811
+				0 -1 0 39.94
+				0 0 0 1
+			</matrix>
+			<instance_geometry url="#3937_dat">
+				<bind_material>
+					<technique_common>
+						<instance_material symbol="Main_Colour" target="#Light_Bluish_Grey-material"/>
+					</technique_common>
+				</bind_material>
+			</instance_geometry>
+		</node>
+		<node>
+			<matrix>
+				-1 0 0 0
+				0 0 -1 -2.811
+				0 -1 0 39.94
+				0 0 0 1
+			</matrix>
+			<instance_geometry url="#3937_dat">
+				<bind_material>
+					<technique_common>
+						<instance_material symbol="Main_Colour" target="#Light_Bluish_Grey-material"/>
+					</technique_common>
+				</bind_material>
+			</instance_geometry>
+		</node>
+		<node>
+			<matrix>
+				1 0 0 0
+				0 0 1 85.189
+				0 -1 0 39.94
+				0 0 0 1
+			</matrix>
+			<instance_geometry url="#3937_dat">
+				<bind_material>
+					<technique_common>
+						<instance_material symbol="Main_Colour" target="#Light_Bluish_Grey-material"/>
+					</technique_common>
+				</bind_material>
+			</instance_geometry>
+		</node>
+		<node>
+			<matrix>
+				1 0 0 0
+				0 0 1 109.189
+				0 -1 0 39.94
+				0 0 0 1
+			</matrix>
+			<instance_geometry url="#3937_dat">
+				<bind_material>
+					<technique_common>
+						<instance_material symbol="Main_Colour" target="#Light_Bluish_Grey-material"/>
+					</technique_common>
+				</bind_material>
+			</instance_geometry>
+		</node>
+		<node>
+			<matrix>
+				-1 0 0 0
+				0 0 -1 -50.811
+				0 -1 0 39.94
+				0 0 0 1
+			</matrix>
+			<instance_geometry url="#3938_dat">
+				<bind_material>
+					<technique_common>
+						<instance_material symbol="Main_Colour" target="#Light_Bluish_Grey-material"/>
+					</technique_common>
+				</bind_material>
+			</instance_geometry>
+		</node>
+		<node>
+			<matrix>
+				-1 0 0 0
+				0 0 -1 -26.811
+				0 -1 0 39.94
+				0 0 0 1
+			</matrix>
+			<instance_geometry url="#3938_dat">
+				<bind_material>
+					<technique_common>
+						<instance_material symbol="Main_Colour" target="#Light_Bluish_Grey-material"/>
+					</technique_common>
+				</bind_material>
+			</instance_geometry>
+		</node>
+		<node>
+			<matrix>
+				-1 0 0 0
+				0 0 -1 -2.811
+				0 -1 0 39.94
+				0 0 0 1
+			</matrix>
+			<instance_geometry url="#3938_dat">
+				<bind_material>
+					<technique_common>
+						<instance_material symbol="Main_Colour" target="#Light_Bluish_Grey-material"/>
+					</technique_common>
+				</bind_material>
+			</instance_geometry>
+		</node>
+		<node>
+			<matrix>
+				1 0 0 0
+				0 0 1 85.189
+				0 -1 0 39.94
+				0 0 0 1
+			</matrix>
+			<instance_geometry url="#3938_dat">
+				<bind_material>
+					<technique_common>
+						<instance_material symbol="Main_Colour" target="#Light_Bluish_Grey-material"/>
+					</technique_common>
+				</bind_material>
+			</instance_geometry>
+		</node>
+		<node>
+			<matrix>
+				1 0 0 0
+				0 0 1 109.189
+				0 -1 0 39.94
+				0 0 0 1
+			</matrix>
+			<instance_geometry url="#3938_dat">
 				<bind_material>
 					<technique_common>
 						<instance_material symbol="Main_Colour" target="#Light_Bluish_Grey-material"/>
@@ -327747,21 +327264,6 @@
 		</node>
 		<node>
 			<matrix>
-				0 1 0 0
-				0 0 1 93.189
-				1 0 0 39.94
-				0 0 0 1
-			</matrix>
-			<instance_geometry url="#3021_dat">
-				<bind_material>
-					<technique_common>
-						<instance_material symbol="Main_Colour" target="#Light_Bluish_Grey-material"/>
-					</technique_common>
-				</bind_material>
-			</instance_geometry>
-		</node>
-		<node>
-			<matrix>
 				-1 0 0 0
 				0 0 1 85.189
 				0 1 0 9.94
@@ -327770,7 +327272,7 @@
 			<instance_geometry url="#15068_dat">
 				<bind_material>
 					<technique_common>
-						<instance_material symbol="Main_Colour" target="#Light_Bluish_Grey-material"/>
+						<instance_material symbol="Main_Colour" target="#Dark_Bluish_Grey-material"/>
 					</technique_common>
 				</bind_material>
 			</instance_geometry>
@@ -328700,7 +328202,7 @@
 			<instance_geometry url="#66956_dat">
 				<bind_material>
 					<technique_common>
-						<instance_material symbol="Main_Colour" target="#Light_Bluish_Grey-material"/>
+						<instance_material symbol="Main_Colour" target="#Dark_Bluish_Grey-material"/>
 					</technique_common>
 				</bind_material>
 			</instance_geometry>
